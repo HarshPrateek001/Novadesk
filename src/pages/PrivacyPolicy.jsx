@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import SEO from '../components/SEO';
 
 export default function PrivacyPolicy() {
   useEffect(() => {
@@ -7,6 +8,11 @@ export default function PrivacyPolicy() {
 
   return (
     <>
+      <SEO 
+        title="Privacy Policy"
+        description="NovaDesk Privacy Policy - Learn how we collect, use, and protect your data."
+        url="/privacy-policy"
+      />
       <style>{`
         .privacy-page {
           padding: 120px 20px 80px;

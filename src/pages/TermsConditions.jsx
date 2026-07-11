@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import SEO from '../components/SEO';
 
 export default function TermsConditions() {
   useEffect(() => {
@@ -7,6 +8,11 @@ export default function TermsConditions() {
 
   return (
     <>
+      <SEO 
+        title="Terms & Conditions"
+        description="NovaDesk Terms & Conditions - Rules and regulations for using our services."
+        url="/terms"
+      />
       <style>{`
         .terms-page {
           padding: 120px 20px 80px;

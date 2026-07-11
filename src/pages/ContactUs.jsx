@@ -1,5 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 // Popper Success Icon SVG
 const IconPopper = () => (
@@ -111,27 +112,11 @@ export default function ContactUs() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // ── CONFIGURATION FOR NOTIFICATIONS (FREE & REAL-TIME) ──
-    
-    // OPTION 1: Web3Forms (Sends form data straight to your Email)
-    // 1. Go to https://web3forms.com (No registration required, 100% free up to 250 emails/mo)
-    // 2. Put your email and get an Access Key
-    // 3. Paste the Access Key below:
     const web3formsAccessKey = "84eae225-ad99-45fc-8d8f-8f7f2e6514da"; 
-
-    // OPTION 2: Discord Webhook (Sends real-time mobile push notifications to your Discord Server)
-    // 1. Create a private Discord server, go to Channel Settings -> Integrations -> Webhooks
-    // 2. Copy the webhook URL and paste it below:
     const discordWebhookUrl = ""; 
-
-    // OPTION 3: Telegram Bot Webhook (Sends real-time message alerts directly to your Telegram App)
-    // 1. Message @BotFather on Telegram, type /newbot to get a Bot token
-    // 2. Message @userinfobot to get your personal Chat ID
-    // 3. Paste them below:
     const telegramBotToken = "";
     const telegramChatId = "";
 
-    // Fallback / Demo mode for testing
     if (web3formsAccessKey === "84eae225-ad99-45fc-8d8f-8f7f2e6514da" && !discordWebhookUrl && !telegramBotToken) {
       console.log("Demo Mode Submission Details:", {
         name: formData.name,
@@ -149,11 +134,9 @@ export default function ContactUs() {
     }
 
     try {
-      // Sanitize key (extracts standard 36-char UUID format, ignoring typos like leading letters or spaces)
       const uuidMatch = web3formsAccessKey.match(/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/);
       const cleanKey = uuidMatch ? uuidMatch[0] : web3formsAccessKey.trim();
 
-      // 1. Submit via Web3Forms (Email)
       if (cleanKey && cleanKey !== "YOUR_WEB3FORMS_ACCESS_KEY") {
         const response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
@@ -180,7 +163,6 @@ export default function ContactUs() {
         }
       }
 
-      // 2. Submit via Discord Webhook
       if (discordWebhookUrl) {
         await fetch(discordWebhookUrl, {
           method: "POST",
@@ -191,9 +173,8 @@ export default function ContactUs() {
         });
       }
 
-      // 3. Submit via Telegram
       if (telegramBotToken && telegramChatId) {
-        const text = `📅 *New Calendly Meeting Booked!*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* +91 ${formData.phone}\n*Time:* July ${confirmedSlot?.date}, 2026 at ${confirmedSlot?.time}\n*Project:* ${formData.projectDetails}`;
+        const text = `📅 *New Calendly Meeting Booked!*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Time:* July ${confirmedSlot?.date}, 2026 at ${confirmedSlot?.time}\n*Project:* ${formData.projectDetails}`;
         await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -216,11 +197,26 @@ export default function ContactUs() {
 
   const getFormattedDateString = (day) => {
     if (!day) return '';
-    return `Wednesday, July ${day}, 2026`; // Keep July 2026 matching screenshots
+    return `Wednesday, July ${day}, 2026`;
+  };
+
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact NovaDesk",
+    "description": "Get in touch with NovaDesk to discuss your tech requirements.",
+    "url": "https://www.novadesk.site/contact-us"
   };
 
   return (
-    <div className="nd-contact-page">
+    <>
+      <SEO 
+        title="Contact Us"
+        description="Schedule a free consultation or get in touch with our team to start building your next big idea."
+        url="/contact-us"
+        schema={contactSchema}
+      />
+      <div className="nd-contact-page">
       <style>{`
         .nd-contact-page {
           padding-top: 130px;
@@ -1044,5 +1040,7 @@ export default function ContactUs() {
         </div>
       </div>
     </div>
+      </div>
+    </>
   );
 }

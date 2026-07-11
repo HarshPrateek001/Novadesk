@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 // ─── ICONS ─────────────────────────────────────────────────────────────────
 const IconAI = () => (
@@ -290,8 +291,27 @@ export default function Home() {
     { q: 'What happens after launch?', a: 'Every project includes a defined support window post-launch for bug fixes and questions. Ongoing work beyond that is available separately if needed.' },
   ];
 
+  const jsonLdSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NovaDesk",
+    "url": "https://www.novadesk.site",
+    "logo": "https://www.novadesk.site/favicon.svg",
+    "description": "NovaDesk is a premier software engineering agency providing highly optimized offshore teams for custom Web apps, mobile systems, and AI deployments.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "availableLanguage": ["English", "Hindi"]
+    }
+  };
+
   return (
     <>
+      <SEO 
+        title="Full-Stack & AI Development Studio"
+        url="/"
+        schema={jsonLdSchema}
+      />
       <style>{`
         /* ── BASE ── */
         .nd { font-family: 'Space Grotesk', sans-serif; }
@@ -526,7 +546,6 @@ export default function Home() {
           100% { transform: translateX(-50%); }
         }
 
-        /* ── WHY DIFFERENT ── */
         /* ── WHY DIFFERENT ── */
         .nd-achievements { 
           background-color: #ffffff;

@@ -1,10 +1,17 @@
 import React from 'react';
 import { ShieldAlert, Award, Globe, Users } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function AboutUs() {
   return (
-    <div style={{ paddingTop: '80px' }}>
-      {/* Intro section */}
+    <>
+      <SEO 
+        title="About Us" 
+        description="Learn about NovaDesk's story and our core engineering values. We provide premium tech pods for global enterprises."
+        url="/about-us"
+      />
+      <div style={{ paddingTop: '80px' }}>
+        {/* Intro section */}
       <section style={{ padding: '100px 0 80px 0', background: 'var(--color-cream)' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
           <span style={{ color: 'var(--color-secondary)', fontWeight: 'bold', fontSize: '14px', textTransform: 'uppercase' }}>OUR STORY</span>
@@ -51,6 +58,6 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }
