@@ -3,12 +3,21 @@ import { ShieldAlert, Award, Globe, Users } from 'lucide-react';
 import SEO from '../components/SEO';
 
 export default function AboutUs() {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About NovaDesk",
+    "description": "Learn about NovaDesk's story and our core engineering values. We provide premium tech pods for global enterprises.",
+    "url": "https://www.novadesk.site/about-us"
+  };
+
   return (
     <>
       <SEO 
         title="About Us" 
         description="Learn about NovaDesk's story and our core engineering values. We provide premium tech pods for global enterprises."
         url="/about-us"
+        schema={aboutSchema}
       />
       <div style={{ paddingTop: '80px' }}>
         {/* Intro section */}
