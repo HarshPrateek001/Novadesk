@@ -58,6 +58,7 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }

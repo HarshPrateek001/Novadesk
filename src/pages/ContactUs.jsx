@@ -1037,10 +1037,9 @@ export default function ContactUs() {
               </Link>
             </div>
           )}
-        </div>
       </div>
     </div>
-      </div>
-    </>
+  </div>
+  </>
   );
 }
