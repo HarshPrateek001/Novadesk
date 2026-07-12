@@ -31,18 +31,6 @@ export default function FullStackDevelopment() {
     window.scrollTo(0, 0);
   }, []);
 
-  const schemaJson = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Full-Stack Web Development",
-    "provider": {
-      "@type": "ProfessionalService",
-      "name": "NovaDesk"
-    },
-    "areaServed": "Worldwide",
-    "description": "Custom full-stack web application development using Next.js, FastAPI, and Supabase."
-  };
-
   const faqs = [
     {
       q: "What's the difference between full-stack development and just building a website?",
@@ -70,11 +58,42 @@ export default function FullStackDevelopment() {
     }
   ];
 
+  const schemaJson = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Full-Stack Web Development",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "NovaDesk"
+      },
+      "areaServed": "Worldwide",
+      "description": "Custom full-stack web application development using Next.js, FastAPI, and Supabase."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ];
+
   return (
     <>
       <Helmet>
         <title>Full-Stack Web Development Services | NovaDesk</title>
         <meta name="description" content="Custom full-stack web application development using Next.js, FastAPI & Supabase. From MVP to production — built and shipped by one developer. Get a free quote." />
+        <meta name="keywords" content="full-stack web development, Next.js developer, FastAPI development, Supabase, web app MVP, custom software development" />
+        <meta property="og:title" content="Full-Stack Web Development Services | NovaDesk" />
+        <meta property="og:description" content="Custom full-stack web application development using Next.js, FastAPI & Supabase. From MVP to production — built and shipped by one developer. Get a free quote." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.novadesk.site" />
         <script type="application/ld+json">
           {JSON.stringify(schemaJson)}
         </script>

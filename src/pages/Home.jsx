@@ -291,19 +291,33 @@ export default function Home() {
     { q: 'What happens after launch?', a: 'Every project includes a defined support window post-launch for bug fixes and questions. Ongoing work beyond that is available separately if needed.' },
   ];
 
-  const jsonLdSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "NovaDesk",
-    "url": "https://www.novadesk.site",
-    "logo": "https://www.novadesk.site/favicon.svg",
-    "description": "NovaDesk is a premier software engineering agency providing highly optimized offshore teams for custom Web apps, mobile systems, and AI deployments.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "availableLanguage": ["English", "Hindi"]
+  const jsonLdSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "NovaDesk",
+      "url": "https://www.novadesk.site",
+      "logo": "https://www.novadesk.site/favicon.svg",
+      "description": "NovaDesk is a premier software engineering agency providing highly optimized offshore teams for custom Web apps, mobile systems, and AI deployments.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "availableLanguage": ["English", "Hindi"]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
     }
-  };
+  ];
 
   return (
     <>

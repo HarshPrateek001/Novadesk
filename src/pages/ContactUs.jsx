@@ -196,7 +196,17 @@ export default function ContactUs() {
 
   return (
     <>
-      <SEO 
+      
+      <Helmet>
+        <title>Contact NovaDesk | Let's Build Your Product</title>
+        <meta name="description" content="Get in touch with NovaDesk to discuss your next big software, mobile app, or AI project. We provide a free discovery call and transparent pricing." />
+        <meta name="keywords" content="Contact NovaDesk, software agency contact, hire developers, free software consultation" />
+        <meta property="og:title" content="Contact NovaDesk | Let's Build Your Product" />
+        <meta property="og:description" content="Get in touch with NovaDesk to discuss your next big software, mobile app, or AI project. We provide a free discovery call and transparent pricing." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.novadesk.site" />
+      </Helmet>
+<SEO 
         title="Contact Us"
         description="Schedule a free consultation or get in touch with our team to start building your next big idea."
         url="/contact-us"

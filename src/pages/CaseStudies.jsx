@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { ArrowUpRight } from 'lucide-react';
 
 export default function CaseStudies() {
@@ -29,7 +30,17 @@ export default function CaseStudies() {
 
   return (
     <div style={{ paddingTop: '80px', background: 'var(--color-cream)', minHeight: '100vh', paddingBottom: '100px' }}>
-      <section style={{ padding: '80px 0 40px 0' }}>
+      
+      <Helmet>
+        <title>Case Studies | NovaDesk Work Portfolio</title>
+        <meta name="description" content="Explore our portfolio of successful software projects. See how NovaDesk has built scalable solutions for startups, real estate, logistics, and more." />
+        <meta name="keywords" content="NovaDesk case studies, software development portfolio, successful tech projects, AI case studies" />
+        <meta property="og:title" content="Case Studies | NovaDesk Work Portfolio" />
+        <meta property="og:description" content="Explore our portfolio of successful software projects. See how NovaDesk has built scalable solutions for startups, real estate, logistics, and more." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.novadesk.site" />
+      </Helmet>
+<section style={{ padding: '80px 0 40px 0' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
           <span style={{ color: 'var(--color-secondary)', fontWeight: 'bold', fontSize: '14px', textTransform: 'uppercase' }}>CASE STUDIES</span>
           <h1 style={{ fontSize: '48px', margin: '12px 0 24px 0', lineHeight: '1.2' }}>

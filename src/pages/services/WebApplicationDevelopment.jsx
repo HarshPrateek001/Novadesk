@@ -31,18 +31,6 @@ export default function WebApplicationDevelopment() {
     window.scrollTo(0, 0);
   }, []);
 
-  const schemaJson = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Full-Stack Web Development",
-    "provider": {
-      "@type": "ProfessionalService",
-      "name": "NovaDesk"
-    },
-    "areaServed": "Worldwide",
-    "description": "Custom full-stack web application development using Next.js, FastAPI, and Supabase."
-  };
-
   const faqs = [
     {
       q: "What's the difference between full-stack development and just building a website?",
@@ -70,11 +58,42 @@ export default function WebApplicationDevelopment() {
     }
   ];
 
+  const schemaJson = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Web Application Development",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "NovaDesk"
+      },
+      "areaServed": "Worldwide",
+      "description": "Custom web application development for startups and businesses. Dashboards, portals, internal tools."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ];
+
   return (
     <>
       <Helmet>
         <title>Custom Web Application Development Services | NovaDesk</title>
         <meta name="description" content="Custom web application development for startups & businesses — dashboards, portals, booking systems, internal tools. Built to scale. Get a free quote." />
+        <meta name="keywords" content="web application development, custom web app, React development, business dashboard, internal tools" />
+        <meta property="og:title" content="Custom Web Application Development Services | NovaDesk" />
+        <meta property="og:description" content="Custom web application development for startups & businesses — dashboards, portals, booking systems, internal tools. Built to scale. Get a free quote." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.novadesk.site" />
         <script type="application/ld+json">
           {JSON.stringify(schemaJson)}
         </script>
