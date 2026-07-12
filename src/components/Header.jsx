@@ -107,6 +107,11 @@ function IndustriesMenu() {
 }
 
 // ── Services Menu
+const getServiceUrl = (label) => {
+  if (label === 'Fullstack Development') return '/services/full-stack-development';
+  return '/services';
+};
+
 const servicesNav = [
   {
     id: 'ai', label: 'AI & ML Development',
@@ -118,7 +123,7 @@ const servicesNav = [
     id: 'web', label: 'Web & CMS Dev',
     title: 'Your Website, Your Way, Easy to Manage',
     desc: 'Build robust and scalable websites and CMS platforms that help you manage content effortlessly. Our development ensures a seamless digital presence.',
-    links: ['React JS Dev', 'Web Dev', 'PHP', 'Python', 'Fullstack', 'CMS', 'Node JS', 'WordPress'],
+    links: ['React JS Dev', 'Web Application Development', 'PHP', 'Python', 'Fullstack Development', 'CMS', 'Node JS', 'WordPress'],
   },
   {
     id: 'ecommerce', label: 'Ecommerce Dev',
@@ -170,7 +175,7 @@ function ServicesMenu() {
         <div className="hdr-svc-links">
           <div className="hdr-svc-col">
             {left.map(l => (
-              <Link key={l} to="/services" className="hdr-svc-link">
+              <Link key={l} to={getServiceUrl(l)} className="hdr-svc-link">
                 <span className="hdr-svc-dot" />
                 {l}
               </Link>
@@ -178,7 +183,7 @@ function ServicesMenu() {
           </div>
           <div className="hdr-svc-col">
             {right.map(l => (
-              <Link key={l} to="/services" className="hdr-svc-link">
+              <Link key={l} to={getServiceUrl(l)} className="hdr-svc-link">
                 <span className="hdr-svc-dot" />
                 {l}
               </Link>
@@ -541,7 +546,7 @@ export default function Header() {
                           {s.links.map(l => (
                             <Link 
                               key={l} 
-                              to="/services" 
+                              to={getServiceUrl(l)} 
                               className="hdr-mobile-sub-link sub-sub" 
                               onClick={() => { setMobileOpen(false); setMobileServicesOpen(false); }}
                             >

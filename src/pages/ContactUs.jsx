@@ -117,21 +117,7 @@ export default function ContactUs() {
     const telegramBotToken = "";
     const telegramChatId = "";
 
-    if (web3formsAccessKey === "84eae225-ad99-45fc-8d8f-8f7f2e6514da" && !discordWebhookUrl && !telegramBotToken) {
-      console.log("Demo Mode Submission Details:", {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        guestEmail: formData.guestEmail,
-        projectDetails: formData.projectDetails,
-        appointment: `July ${confirmedSlot?.date}, 2026 at ${confirmedSlot?.time}`
-      });
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setStep('success');
-      }, 1000);
-      return;
-    }
+
 
     try {
       const uuidMatch = web3formsAccessKey.match(/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/);

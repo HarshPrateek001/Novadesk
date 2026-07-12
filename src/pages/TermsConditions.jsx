@@ -78,7 +78,7 @@ export default function TermsConditions() {
         <h1>Terms & Conditions — NovaDesk</h1>
         <div className="last-updated">Last Updated: July 2026</div>
 
-        <p>These Terms & Conditions ("Terms") govern your use of novadesk.dev (the "Site") and any services provided by NovaDesk ("we," "us," "our," "NovaDesk") to you ("Client," "you"). By using the Site, submitting an inquiry, or engaging our Services, you agree to be bound by these Terms.</p>
+        <p>These Terms & Conditions ("Terms") govern your use of novadesk.site (the "Site") and any services provided by NovaDesk ("we," "us," "our," "NovaDesk") to you ("Client," "you"). By using the Site, submitting an inquiry, or engaging our Services, you agree to be bound by these Terms.</p>
 
         <p>If you do not agree to these Terms, please do not use the Site or engage our Services.</p>
 
@@ -244,7 +244,7 @@ export default function TermsConditions() {
         <h2>16. Contact Us</h2>
         <p>For questions about these Terms, contact:</p>
         <p>
-          <strong>Email:</strong> hello@novadesk.dev<br />
+          <strong>Email:</strong> itsharshprateek@gmail.com<br />
           <strong>Business:</strong> NovaDesk — Full-Stack + AI Development Studio<br />
           <strong>Location:</strong> New Delhi, India
         </p>
