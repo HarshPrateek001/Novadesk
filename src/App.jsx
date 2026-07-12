@@ -12,6 +12,7 @@ import TermsConditions from './pages/TermsConditions';
 import ChatWidget from './components/ChatWidget';
 import WhatsAppButton from './components/WhatsAppButton';
 import FullStackDevelopment from './pages/services/FullStackDevelopment';
+import WebApplicationDevelopment from './pages/services/WebApplicationDevelopment';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsConditions />} />
               <Route path="/services/full-stack-development" element={<FullStackDevelopment />} />
+              <Route path="/services/web-application-development" element={<WebApplicationDevelopment />} />
               
               {/* Catch-all redirects to Home */}
               <Route path="*" element={<Navigate to="/" replace />} />

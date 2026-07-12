@@ -109,6 +109,7 @@ function IndustriesMenu() {
 // ── Services Menu
 const getServiceUrl = (label) => {
   if (label === 'Fullstack Development') return '/services/full-stack-development';
+  if (label === 'Web Application Development') return '/services/web-application-development';
   return '/services';
 };
 
