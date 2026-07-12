@@ -13,17 +13,8 @@ export default function AboutUs() {
 
   return (
     <>
-      
-      <Helmet>
-        <title>About NovaDesk | Premier Software Engineering Agency</title>
-        <meta name="description" content="Learn about NovaDesk, a top-tier software engineering agency. We build custom web applications, mobile apps, and AI solutions for startups and enterprises." />
-        <meta name="keywords" content="About NovaDesk, software engineering agency, custom web development, AI solutions, mobile app development" />
-        <meta property="og:title" content="About NovaDesk | Premier Software Engineering Agency" />
-        <meta property="og:description" content="Learn about NovaDesk, a top-tier software engineering agency. We build custom web applications, mobile apps, and AI solutions for startups and enterprises." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.novadesk.site" />
-      </Helmet>
 <SEO 
+        keywords="About NovaDesk, software engineering agency, custom web development, AI solutions, mobile app development" 
         title="About Us" 
         description="Learn about NovaDesk's story and our core engineering values. We provide premium tech pods for global enterprises."
         url="/about-us"

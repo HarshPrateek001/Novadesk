@@ -324,6 +324,7 @@ export default function Home() {
       <SEO 
         title="Full-Stack & AI Development Studio"
         description="NovaDesk is a premier software engineering agency providing highly optimized offshore teams for custom Web apps, mobile systems, and AI deployments."
+        keywords="NovaDesk, software agency, AI development, Full Stack Development, offshore engineering"
         url="/"
         schema={jsonLdSchema}
       />

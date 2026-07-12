@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import SEO from '../../components/SEO';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 
 // SVG Icons
 const ArrowRight = () => (
@@ -86,18 +86,13 @@ export default function WebApplicationDevelopment() {
 
   return (
     <>
-      <Helmet>
-        <title>Custom Web Application Development Services | NovaDesk</title>
-        <meta name="description" content="Custom web application development for startups & businesses — dashboards, portals, booking systems, internal tools. Built to scale. Get a free quote." />
-        <meta name="keywords" content="web application development, custom web app, React development, business dashboard, internal tools" />
-        <meta property="og:title" content="Custom Web Application Development Services | NovaDesk" />
-        <meta property="og:description" content="Custom web application development for startups & businesses — dashboards, portals, booking systems, internal tools. Built to scale. Get a free quote." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.novadesk.site" />
-        <script type="application/ld+json">
-          {JSON.stringify(schemaJson)}
-        </script>
-      </Helmet>
+      <SEO 
+        title="Custom Web Application Development Services"
+        description="Custom web application development for startups & businesses — dashboards, portals, booking systems, internal tools. Built to scale. Get a free quote."
+        url="/services/web-application-development"
+        keywords="web application development, custom web app, React development, business dashboard, internal tools"
+        schema={schemaJson}
+      />
 
       <style>{`
         .fs-page {

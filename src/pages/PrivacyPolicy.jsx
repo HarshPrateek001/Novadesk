@@ -8,17 +8,8 @@ export default function PrivacyPolicy() {
 
   return (
     <>
-      
-      <Helmet>
-        <title>Privacy Policy | NovaDesk</title>
-        <meta name="description" content="Read the NovaDesk Privacy Policy. Learn how we collect, use, and protect your data when you use our software development and consulting services." />
-        <meta name="keywords" content="Privacy policy, data protection, NovaDesk privacy" />
-        <meta property="og:title" content="Privacy Policy | NovaDesk" />
-        <meta property="og:description" content="Read the NovaDesk Privacy Policy. Learn how we collect, use, and protect your data when you use our software development and consulting services." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.novadesk.site" />
-      </Helmet>
 <SEO 
+        keywords="Privacy policy, data protection, NovaDesk privacy" 
         title="Privacy Policy"
         description="NovaDesk Privacy Policy - Learn how we collect, use, and protect your data."
         url="/privacy-policy"

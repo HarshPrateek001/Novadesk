@@ -8,17 +8,8 @@ export default function TermsConditions() {
 
   return (
     <>
-      
-      <Helmet>
-        <title>Terms and Conditions | NovaDesk</title>
-        <meta name="description" content="Review the Terms and Conditions for working with NovaDesk. Guidelines, agreements, and policies for our software engineering services." />
-        <meta name="keywords" content="Terms and conditions, NovaDesk terms, service agreement" />
-        <meta property="og:title" content="Terms and Conditions | NovaDesk" />
-        <meta property="og:description" content="Review the Terms and Conditions for working with NovaDesk. Guidelines, agreements, and policies for our software engineering services." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.novadesk.site" />
-      </Helmet>
 <SEO 
+        keywords="Terms and conditions, NovaDesk terms, service agreement" 
         title="Terms & Conditions"
         description="NovaDesk Terms & Conditions - Rules and regulations for using our services."
         url="/terms"

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import SEO from '../../components/SEO';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 
 // SVG Icons
 const ArrowRight = () => (
@@ -86,18 +86,13 @@ export default function FullStackDevelopment() {
 
   return (
     <>
-      <Helmet>
-        <title>Full-Stack Web Development Services | NovaDesk</title>
-        <meta name="description" content="Custom full-stack web application development using Next.js, FastAPI & Supabase. From MVP to production — built and shipped by one developer. Get a free quote." />
-        <meta name="keywords" content="full-stack web development, Next.js developer, FastAPI development, Supabase, web app MVP, custom software development" />
-        <meta property="og:title" content="Full-Stack Web Development Services | NovaDesk" />
-        <meta property="og:description" content="Custom full-stack web application development using Next.js, FastAPI & Supabase. From MVP to production — built and shipped by one developer. Get a free quote." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.novadesk.site" />
-        <script type="application/ld+json">
-          {JSON.stringify(schemaJson)}
-        </script>
-      </Helmet>
+      <SEO 
+        title="Full-Stack Web Development Services"
+        description="Custom full-stack web application development using Next.js, FastAPI & Supabase. From MVP to production — built and shipped by one developer. Get a free quote."
+        url="/services/full-stack-development"
+        keywords="full-stack web development, Next.js developer, FastAPI development, Supabase, web app MVP, custom software development"
+        schema={schemaJson}
+      />
 
       <style>{`
         .fs-page {
