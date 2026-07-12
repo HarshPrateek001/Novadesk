@@ -1,0 +1,178 @@
+# About Us — Page Content (NovaDesk)
+
+---
+
+## SEO Meta Tags
+
+**Page Title (55-60 chars):**
+`About NovaDesk | Full-Stack & AI Development Studio`
+
+**Meta Description (150-160 chars):**
+`NovaDesk is a full-stack and AI development studio built around direct access, honest scoping, and modern engineering. Learn how we work.`
+
+**URL slug:** `/about`
+
+**H1:** About NovaDesk
+
+---
+
+## Hero Section
+
+**Eyebrow:** ABOUT
+
+**H1:** One Builder. No Middlemen. No Compromises on Quality.
+
+**Subheadline:**
+NovaDesk exists for a simple reason — good software shouldn't require navigating layers of account managers, sales calls, and junior developers before it reaches someone who can actually build it.
+
+---
+
+## The Story (founder narrative — adjust specifics as needed)
+
+NovaDesk started with a straightforward frustration: watching good ideas get slowed down by process, not talent.
+
+Most software studios and agencies add layers between the client and the person actually writing the code — account managers, project coordinators, rotating junior developers learning on the job. Every layer adds delay, dilutes context, and adds cost that doesn't go toward the actual product.
+
+NovaDesk is built differently, deliberately. It's a full-stack and AI development studio run by a single developer with a background spanning computer applications and business management — which means every project gets both the technical execution and the product thinking to make it actually useful, not just functional.
+
+The focus stays narrow on purpose: full-stack web development, AI integration, and MVP development — three things done well, rather than a long service menu done adequately. Every project is built on a modern, proven stack (Next.js, FastAPI, Supabase) chosen for speed and long-term maintainability, not whatever's trendy that quarter.
+
+*(Note: personalize this further with specific details — your BCA/MCA background, any specific moment that led to starting NovaDesk, or a specific frustration with agency-model freelancing that you've personally experienced. Specific, real details make this section far more credible than generic founder-story language.)*
+
+---
+
+## What We Believe (values section)
+
+**Direct communication beats layered process**
+Every question deserves a same-day answer from the person who actually knows the codebase — not a relay through someone reading from a ticket.
+
+**Honest scoping beats optimistic promises**
+A realistic timeline and an honest "this will take longer than you'd like" is worth more than a fast yes that turns into six months of delays.
+
+**Weekly progress beats big reveals**
+You should see real, working software every week — not a status update promising progress happening somewhere behind the scenes.
+
+**Modern, maintainable code beats quick hacks**
+Code that works today but needs a full rewrite in a year isn't actually fast — it's slow with extra steps. Every build is done with long-term maintainability in mind.
+
+**Depth beats a long service list**
+Being genuinely excellent at full-stack development and AI integration matters more than claiming expertise in twelve different things.
+
+---
+
+## How We Work
+
+### You talk directly to the developer
+No account manager translating your requirements. No sales layer between the conversation and the code. From the first call to final handover, you're talking to the person building your product.
+
+### Every project starts with honest scoping
+A free discovery call comes first — understanding what you actually need, not what's easiest to sell. You get a clear, realistic proposal before any commitment, not a vague estimate that grows later.
+
+### Weekly, visible progress
+Development happens in shippable weekly milestones. You see working software regularly, with room to give feedback as the project evolves — not just a single big reveal at the end.
+
+### Built on a modern, deliberate stack
+Next.js, FastAPI, Supabase, and TypeScript — chosen because they balance development speed with long-term maintainability, not because they're trendy.
+
+---
+
+## What We Do
+
+NovaDesk focuses on three core areas:
+
+**Full-Stack Web Development**
+End-to-end web applications — from database architecture to the interface users interact with — built on a modern, production-grade stack.
+
+**AI Integration**
+LLM-powered features, chatbots, and automation that solve real workflow problems, not AI-for-the-sake-of-AI.
+
+**MVP & Product Development**
+Taking an idea from concept to a working, launchable product — with a product-thinking lens on what to build first and what to cut.
+
+*(Link each of these to their respective service pages once live.)*
+
+---
+
+## Why "NovaDesk"
+
+*(Optional section — nice for personality/branding, especially if asked in interviews or by curious clients)*
+
+"Nova" — a burst of new energy, the kind that comes with building something from scratch. "Desk" — the actual workspace where that energy turns into shipped, working software. Together: a studio built around doing focused, high-quality work, not scaling into exactly the kind of layered, impersonal agency it was built to be an alternative to.
+
+---
+
+## Background & Approach
+
+*(Personalize with real details — this builds far more trust than a vague "passionate about technology" line)*
+
+NovaDesk is run with a background spanning computer applications and business/management education — a combination that shapes how projects get approached: not just "can this be built," but "should it be built this way, and does it actually solve the user's problem."
+
+This product-thinking lens comes from hands-on experience building complete products independently — from database design and backend logic to frontend interfaces and deployment — including self-initiated projects exploring AI-powered platforms and product concepts from the ground up.
+
+*(If you want to name specific projects like Authentiq or MindSetu here, frame them carefully — e.g., "including self-initiated ventures in AI-powered content platforms and wellness-tech" — without overclaiming completed/launched status if they're still in development. Accuracy here matters more than impressiveness; a client who later asks for details deserves an honest answer.)*
+
+---
+
+## Who NovaDesk Works Best With
+
+- **Startup founders** who need an MVP built without hiring a full internal team first
+- **Small businesses** ready to move past outdated systems or no-code tools that have hit their limits
+- **Agencies** needing a reliable technical partner for client web app or AI projects
+- **Teams** who value direct communication and weekly progress over a big-name logo on a proposal
+
+---
+
+## Frequently Asked Questions
+
+**Is NovaDesk an agency or a solo developer?**
+NovaDesk is a solo-run studio — one developer handling the full technical execution of every project, from architecture to deployment. This is a deliberate choice, not a limitation: it means direct communication and full ownership over every decision, without the coordination overhead of a larger team.
+
+**Why work with a solo studio instead of a larger agency?**
+The tradeoffs are genuine on both sides. A larger agency offers more simultaneous capacity and a broader bench of specialists. A solo studio offers direct access to the person building your product, faster decision-making without internal handoffs, and typically lower overhead cost passed on to you. NovaDesk is the right fit for teams who value speed and direct communication over scale.
+
+**What if I need ongoing work after my project launches?**
+Every project includes a defined post-launch support window. Ongoing work — new features, maintenance, or scaling support — is available separately, scoped based on what you need going forward.
+
+**Do you take on projects outside full-stack development, AI integration, and MVP development?**
+The focus stays intentionally narrow on these three areas, since depth in a focused set of skills produces better results than spreading thin across everything. If a project falls outside this scope, an honest "this isn't the right fit" is offered rather than taking it on anyway.
+
+---
+
+## Final CTA Section
+
+**Headline:** Want to talk through your project?
+
+**Body:** Book a free discovery call — no pressure, no sales script, just a real conversation about what you're trying to build.
+
+**CTA button:** Book a Free Call →
+**Secondary:** or email hello@novadesk.dev
+
+---
+
+## SEO Implementation Notes (for you — remove before publishing)
+
+1. **About pages rank differently than service pages** — they target brand-name searches ("NovaDesk reviews," "who is behind NovaDesk") and trust-building searches ("is [company] legitimate") rather than competitive service keywords. Keep this page honest and specific rather than keyword-stuffed; its job is conversion and trust, not primary traffic capture.
+
+2. **Personalize every bracketed/italicized note** — generic founder-story language is one of the biggest trust-killers on About pages. Specific details (why you started, a real moment of frustration with the agency model, your actual educational background) make this page far more credible and memorable.
+
+3. **Schema markup** — use `AboutPage` combined with a `Person` or `Organization` schema:
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "NovaDesk",
+    "description": "A full-stack and AI development studio focused on full-stack web development, AI integration, and MVP development.",
+    "url": "https://www.novadesk.site"
+  }
+}
+</script>
+```
+
+4. **Internal linking**: Link to all service pages from the "What We Do" section, and link back to this About page from your homepage and footer — About pages often get linked from footers site-wide, which helps it accumulate authority.
+
+5. **Accuracy over impressiveness**: The "Background & Approach" section is intentionally written to be adaptable — fill in real details, but don't overstate project status (e.g., don't call something "launched" if it's still in development). A client who asks a follow-up question and gets a mismatched answer damages trust far more than a modest, accurate claim would have in the first place.
+
+6. **Word count**: ~1,150 words — appropriate depth for an About page without turning it into a full resume.

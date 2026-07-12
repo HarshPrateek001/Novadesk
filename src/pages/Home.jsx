@@ -918,20 +918,7 @@ export default function Home() {
         .nd-compare-table tbody td:last-child { font-weight: 700; color: #2E29FF; }
         .nd-compare-note { font-size: 13.5px; color: #6B7280; margin-top: 28px; font-style: italic; font-weight: 400; text-align: center; }
 
-        /* ── FAQ ── */
-        .nd-faq { background:#fff; padding:100px 0; }
-        .nd-faq-inner { max-width:960px; margin:0 auto; padding:0 24px; }
-        .nd-faq-tag { text-align:center; font-size:13px; font-weight:700; color:#2E29FF; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px; display:flex; align-items:center; justify-content:center; gap:8px; }
-        .nd-faq-title { font-size:32px; font-weight:800; color:#0A0A2E; text-align:center; margin-bottom:40px; line-height:1.25; }
-        .nd-faq-list { margin-top:20px; display:flex; flex-direction:column; }
-        .nd-faq-item { border:none; border-bottom:1px solid #E5E7EB; border-radius:0; overflow:hidden; transition:border-color .2s; }
-        .nd-faq-q { width:100%; padding:24px 0; background:transparent; border:none; font-family:inherit; font-size:15.5px; font-weight:700; color:#0A0A2E; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; text-align:left; transition:color 0.2s; }
-        .nd-faq-q:hover { color:#2E29FF; }
-        .nd-faq-icon { display:inline-flex; align-items:center; justify-content:center; font-size:16px; color:#6B7280; flex-shrink:0; transition:transform 0.3s cubic-bezier(0.16,1,0.3,1); }
-        .nd-faq-item.nd-faq-open .nd-faq-icon { transform:rotate(180deg); color:#2E29FF; }
-        .nd-faq-a { padding:0 0 24px 0; font-size:14.5px; color:#4B5563; line-height:1.65; font-weight:400; text-align:left; }
-        .nd-faq-cta-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 32px; background:#2E29FF; color:#ffffff; border-radius:100px; font-weight:700; font-size:14px; text-decoration:none; transition:all 0.25s; box-shadow:0 8px 24px rgba(46,41,255,0.15); }
-        .nd-faq-cta-btn:hover { background:#1a16dd; transform:translateY(-2px); box-shadow:0 12px 28px rgba(46,41,255,0.25); }
+        /* ── FAQ ── (Moved to index.css) */
 
         /* ── RECOGNIZED & FEATURED ── */
         .nd-recognized { background:#fff; padding:100px 0; border-top:1px solid rgba(46,41,255,0.06); }
@@ -1090,8 +1077,8 @@ export default function Home() {
             <div className="nd-hero-right">
               <img src="/hero-my-image.png" alt="NOVADESK software development studio" className="nd-hero-direct-img" />
               <div className="nd-hero-img-caption">
-                <h3>FOUNDER OF NOVADESK</h3>
-                <h4>HARSH PRATEEK</h4>
+                <h3>HARSH PRATEEK</h3>
+                <h2>Founder, NOVADESK</h2>
               </div>
             </div>
 
@@ -1509,11 +1496,11 @@ export default function Home() {
                 <FaqItem key={i} q={f.q} a={f.a} open={activeFaq === i} onToggle={() => setActiveFaq(activeFaq === i ? null : i)} />
               ))}
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
-              <Link to="/contact-us" className="nd-faq-cta-btn">
-                Still have questions? Talk to Us ↗
-              </Link>
-            </div>
+             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+                          <Link to="/contact-us" className="nd-faq-cta-btn">
+                            Still have questions? Talk to Us ↗
+                          </Link>
+                        </div>
           </div>
         </section>
 
