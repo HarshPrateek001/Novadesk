@@ -1185,6 +1185,10 @@ export default function FullStackDevelopment() {
           .fs-audience-grid { grid-template-columns: repeat(2, 1fr); }
           .fs-process-grid { grid-template-columns: repeat(2, 1fr); }
           .fs-why-images { height: 400px; margin-bottom: 40px; }
+          .fs-why-img-1 { height: 320px; width: 90%; top: 40px; }
+          .fs-why-img-2 { height: 180px; width: 50%; bottom: 0; right: 0; }
+          .fs-why-badge { width: 100px; height: 100px; top: 0; right: 0; }
+          .fs-why-badge text:not([href]) { font-size: 32px; }
           .fs-faq-images { display: none; }
           .fs-tech-cards { flex-direction: column; }
           .fs-api-cta-right { align-items: flex-start; text-align: left; }
