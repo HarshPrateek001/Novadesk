@@ -196,28 +196,28 @@ export default function Footer() {
 
         /* ── GIANT WATERMARK ── */
         .nd-footer-watermark {
-          font-size: clamp(60px, 12.5vw, 160px);
+          font-size: clamp(117px, 17.5vw, 251px);
           font-weight: 900;
           text-align: center;
-          color: rgba(255, 255, 255, 0.08);
-          text-transform: uppercase;
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
           letter-spacing: 0px;
           line-height: 0.85;
           user-select: none;
-          margin: 45px 0 25px 0;
           font-family: inherit;
           cursor: pointer;
-          transition: 
-            color 1.2s cubic-bezier(0.25, 0.8, 0.25, 1),
-            text-shadow 1.2s cubic-bezier(0.25, 0.8, 0.25, 1),
-            transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+          transition: transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
           transform: translateY(0);
         }
         .nd-footer-watermark:hover {
-          color: rgba(255, 255, 255, 0.85);
-          text-shadow: 
-            0 0 35px rgba(255, 255, 255, 0.4),
-            0 0 70px rgba(255, 255, 255, 0.2);
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
           transform: translateY(-5px);
         }
 
@@ -352,7 +352,7 @@ export default function Footer() {
 
         {/* Large Watermark Text */}
         <div className="nd-footer-watermark">
-          NOVADESK
+          NovaDesk
         </div>
       </div>
 
