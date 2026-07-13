@@ -106,11 +106,38 @@ function IndustriesMenu() {
   );
 }
 
-// ── Services Menu
+const serviceUrlMap = {
+  'Chatbot Development': '/services/chatbot-development',
+  'Gen AI Development': '/services/gen-ai-development',
+  'AI Integrated Software': '/services/ai-integrated-software',
+  'Conversational AI': '/services/conversational-ai',
+  'React JS Dev': '/services/react-js-development',
+  'Web Application Development': '/services/web-application-development',
+  'Fullstack Development': '/services/full-stack-development',
+  'PHP': '/services/php-development',
+  'Python': '/services/python-development',
+  'Node JS': '/services/node-js-development',
+  'CMS': '/services/cms-development',
+  'WordPress': '/services/wordpress-development',
+  'eCommerce Dev': '/services/ecommerce-development',
+  'eCommerce Design': '/services/ecommerce-design',
+  'eCommerce Implementation': '/services/ecommerce-implementation',
+  'WooCommerce': '/services/woocommerce-development',
+  'Shopify Dev': '/services/shopify-development',
+  'Android': '/services/android-development',
+  'iOS': '/services/ios-development',
+  'Mobile App Devs': '/services/mobile-app-development',
+  'React Native': '/services/react-native-development',
+  'SaaS Dev': '/services/saas-development',
+  'ERP Software': '/services/erp-software-development',
+  'CRMS System': '/services/crm-systems-development',
+  'Enterprises Software': '/services/enterprise-software-development',
+  'Custom Software': '/services/custom-software-development',
+  'MVP Dev': '/services/mvp-development'
+};
+
 const getServiceUrl = (label) => {
-  if (label === 'Fullstack Development') return '/services/full-stack-development';
-  if (label === 'Web Application Development') return '/services/web-application-development';
-  return '/services';
+  return serviceUrlMap[label] || '/services';
 };
 
 const servicesNav = [
@@ -118,40 +145,69 @@ const servicesNav = [
     id: 'ai', label: 'AI & ML Development',
     title: 'Smart Tech That Gets the Job Done',
     desc: 'Harness artificial intelligence and machine learning to automate workflows and gain actionable insights. Our AI transforms data into smart decisions.',
-    links: ['Chatbot Development', 'Gen AI Development', 'AI Integrated Software', 'Conversational AI'],
+    links: [
+      { label: 'Chatbot Development', desc: 'Intelligent bots to automate customer support.' },
+      { label: 'Gen AI Development', desc: 'Custom generative AI solutions for your workflow.' },
+      { label: 'AI Integrated Software', desc: 'Embed smart features into your existing apps.' },
+      { label: 'Conversational AI', desc: 'Advanced voice and text conversational models.' }
+    ],
   },
   {
-    id: 'web', label: 'Web & CMS Dev',
+    id: 'web', label: 'Web & CMS Devlopment',
     title: 'Your Website, Your Way, Easy to Manage',
     desc: 'Build robust and scalable websites and CMS platforms that help you manage content effortlessly. Our development ensures a seamless digital presence.',
-    links: ['React JS Dev', 'Web Application Development', 'PHP', 'Python', 'Fullstack Development', 'CMS', 'Node JS', 'WordPress'],
+    links: [
+      { label: 'React JS Dev', desc: 'Fast, interactive frontends using React.' },
+      { label: 'Web Application Development', desc: 'Robust custom web apps tailored to you.' },
+      { label: 'Fullstack Development', desc: 'End-to-end development from UI to database.' },
+      { label: 'PHP', desc: 'Reliable and scalable backend architectures.' },
+      { label: 'Python', desc: 'Data-driven and high-performance backends.' },
+      { label: 'Node JS', desc: 'High-speed, scalable network applications.' },
+      { label: 'CMS', desc: 'Easy-to-use content management systems.' },
+      { label: 'WordPress', desc: 'Custom themes and plugins for WordPress.' }
+    ],
   },
   {
-    id: 'ecommerce', label: 'Ecommerce Dev',
+    id: 'ecommerce', label: 'Ecommerce Devlopment',
     title: 'Turn Visitors into Loyal Customers',
     desc: 'We build custom eCommerce websites that combine intuitive user experiences, secure checkout, and scalable architecture.',
-    links: ['eCommerce Dev', 'eCommerce Design', 'eCommerce Implementation', 'WooCommerce', 'Shopify Dev'],
+    links: [
+      { label: 'eCommerce Dev', desc: 'Full-scale online stores built for growth.' },
+      { label: 'eCommerce Design', desc: 'Conversion-optimized storefront designs.' },
+      { label: 'eCommerce Implementation', desc: 'Seamless integrations for retail ops.' },
+      { label: 'WooCommerce', desc: 'Flexible eCommerce powered by WordPress.' },
+      { label: 'Shopify Dev', desc: 'Custom Shopify themes and apps.' }
+    ],
   },
   {
-    id: 'mobile', label: 'Mobile APP',
+    id: 'mobile', label: 'Mobile App Development',
     title: 'Apps That Your Users Will Definitely Tap',
     desc: 'From concept to launch, we craft mobile apps that deliver seamless user experiences on both iOS and Android. Our apps engage, retain, and convert.',
-    links: ['Android', 'iOS', 'Mobile App Devs', 'React Native'],
+    links: [
+      { label: 'Android', desc: 'Native Android apps for the Google Play Store.' },
+      { label: 'iOS', desc: 'Premium iOS apps for iPhone and iPad.' },
+      { label: 'Mobile App Devs', desc: 'Cross-platform mobile solutions.' },
+      { label: 'React Native', desc: 'One codebase for both iOS and Android.' }
+    ],
   },
   {
     id: 'software', label: 'Software Development',
     title: 'Custom Software, Built for Your Business',
     desc: 'We build custom software — SaaS platforms, enterprise tools, MVPs, and ERP systems — engineered precisely to fit your business workflows.',
-    links: ['SaaS Dev', 'ERP Software', 'CRMS System', 'Enterprises Software', 'Custom Software', 'MVP Dev'],
+    links: [
+      { label: 'SaaS Dev', desc: 'Cloud-based software as a service products.' },
+      { label: 'ERP Software', desc: 'Enterprise resource planning for operations.' },
+      { label: 'CRMS System', desc: 'Customer relationship management tools.' },
+      { label: 'Enterprises Software', desc: 'Large-scale corporate software solutions.' },
+      { label: 'Custom Software', desc: 'Bespoke software tailored to your specific needs.' },
+      { label: 'MVP Dev', desc: 'Rapid prototyping for startup founders.' }
+    ],
   },
 ];
 
 function ServicesMenu() {
   const [activeService, setActiveService] = useState('ai');
   const current = servicesNav.find(s => s.id === activeService) || servicesNav[0];
-  const half = Math.ceil(current.links.length / 2);
-  const left = current.links.slice(0, half);
-  const right = current.links.slice(half);
 
   return (
     <div className="hdr-mega hdr-mega-services">
@@ -174,22 +230,12 @@ function ServicesMenu() {
         <h3 className="hdr-svc-title">{current.title}</h3>
         <p className="hdr-svc-desc">{current.desc}</p>
         <div className="hdr-svc-links">
-          <div className="hdr-svc-col">
-            {left.map(l => (
-              <Link key={l} to={getServiceUrl(l)} className="hdr-svc-link">
-                <span className="hdr-svc-dot" />
-                {l}
-              </Link>
-            ))}
-          </div>
-          <div className="hdr-svc-col">
-            {right.map(l => (
-              <Link key={l} to={getServiceUrl(l)} className="hdr-svc-link">
-                <span className="hdr-svc-dot" />
-                {l}
-              </Link>
-            ))}
-          </div>
+          {current.links.map(l => (
+            <Link key={l.label} to={getServiceUrl(l.label)} className="hdr-svc-link-card">
+              <span className="hdr-svc-link-title">{l.label}</span>
+              <span className="hdr-svc-link-desc">{l.desc}</span>
+            </Link>
+          ))}
         </div>
       </div>
       <AchievementsSidebar />
@@ -386,11 +432,13 @@ export default function Header() {
         .hdr-svc-content { flex: 1; padding: 28px 32px; }
         .hdr-svc-title { font-size: 20px; font-weight: 800; color: #0A0A2E; margin-bottom: 10px; }
         .hdr-svc-desc { font-size: 13.5px; color: #6B7280; line-height: 1.6; margin-bottom: 20px; max-width: 420px; font-weight: 400; }
-        .hdr-svc-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
-        .hdr-svc-col { display: flex; flex-direction: column; gap: 10px; }
-        .hdr-svc-link { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: #374151; font-weight: 500; text-decoration: none; transition: color .15s; }
-        .hdr-svc-link:hover { color: #2E29FF; }
-        .hdr-svc-dot { width: 6px; height: 6px; border-radius: 50%; background: #2E29FF; flex-shrink: 0; }
+        .hdr-svc-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(46, 41, 255, 0.08); border: 1px solid rgba(46, 41, 255, 0.08); border-radius: 12px; overflow: hidden; margin-top: 24px; }
+        .hdr-svc-link-card { padding: 16px; background: #fff; text-decoration: none; display: flex; flex-direction: column; transition: background 0.15s; }
+        .hdr-svc-link-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+        .hdr-svc-link-card:hover { background: #F8F9FF; }
+        .hdr-svc-link-title { font-size: 14px; font-weight: 700; color: #0A0A2E; margin-bottom: 4px; transition: color 0.15s; }
+        .hdr-svc-link-card:hover .hdr-svc-link-title { color: #2E29FF; }
+        .hdr-svc-link-desc { font-size: 12px; color: #6B7280; line-height: 1.4; font-weight: 400; }
 
         /* ── ACHIEVEMENTS SIDEBAR ── */
         .hdr-achievement-panel { width: 240px; background: #F8F9FF; border-left: 1px solid rgba(46, 41, 255, 0.08); padding: 24px 20px; display: flex; flex-direction: column; gap: 16px; flex-shrink: 0; }

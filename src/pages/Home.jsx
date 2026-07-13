@@ -249,35 +249,67 @@ export default function Home() {
       label: 'AI & ML Development',
       title: 'AI & ML Development',
       desc: 'We build custom machine learning models, natural language processing pipelines, chatbot agents, and conversational AI solutions engineered to automate and optimize your business.',
-      links: ['Chatbot Development', 'Gen AI Development', 'AI Integrated Software', 'Conversational AI']
+      links: [
+        { label: 'Chatbot Development', desc: 'Intelligent bots to automate customer support.' },
+        { label: 'Gen AI Development', desc: 'Custom generative AI solutions for your workflow.' },
+        { label: 'AI Integrated Software', desc: 'Embed smart features into your existing apps.' },
+        { label: 'Conversational AI', desc: 'Advanced voice and text conversational models.' }
+      ]
     },
     web: {
       icon: <IconWeb />,
       label: 'Web & CMS Dev',
       title: 'Web & CMS Dev',
       desc: 'Clean architecture, fast load times, and custom content management solutions. We build highly responsive and reliable websites suited for content and logic-heavy applications.',
-      links: ['React JS Dev', 'Web Dev', 'PHP', 'Python', 'Fullstack', 'CMS', 'Node JS', 'WordPress']
+      links: [
+        { label: 'React JS Dev', desc: 'Fast, interactive frontends using React.' },
+        { label: 'Web Dev', desc: 'Robust custom web apps tailored to you.' },
+        { label: 'Fullstack', desc: 'End-to-end development from UI to database.' },
+        { label: 'PHP', desc: 'Reliable and scalable backend architectures.' },
+        { label: 'Python', desc: 'Data-driven and high-performance backends.' },
+        { label: 'Node JS', desc: 'High-speed, scalable network applications.' },
+        { label: 'CMS', desc: 'Easy-to-use content management systems.' },
+        { label: 'WordPress', desc: 'Custom themes and plugins for WordPress.' }
+      ]
     },
     ecommerce: {
       icon: <IconCart />,
       label: 'Ecommerce Dev',
       title: 'Ecommerce Dev',
       desc: 'Scalable multi-vendor stores and direct-to-consumer storefronts featuring frictionless checkouts, inventory trackers, and seamless payment gateways.',
-      links: ['eCommerce Dev', 'eCommerce Design', 'eCommerce Implementation', 'WooCommerce', 'Shopify Dev']
+      links: [
+        { label: 'eCommerce Dev', desc: 'Full-scale online stores built for growth.' },
+        { label: 'eCommerce Design', desc: 'Conversion-optimized storefront designs.' },
+        { label: 'eCommerce Implementation', desc: 'Seamless integrations for retail ops.' },
+        { label: 'WooCommerce', desc: 'Flexible eCommerce powered by WordPress.' },
+        { label: 'Shopify Dev', desc: 'Custom Shopify themes and apps.' }
+      ]
     },
     mobile: {
       icon: <IconMobile />,
       label: 'Mobile APP',
       title: 'Mobile APP',
       desc: 'Engaging, fast, and feature-rich mobile app development targeting native iOS and Android systems using Kotlin, Swift, Flutter, and React Native.',
-      links: ['Android', 'iOS', 'Mobile App Devs', 'React Native']
+      links: [
+        { label: 'Android', desc: 'Native Android apps for the Google Play Store.' },
+        { label: 'iOS', desc: 'Premium iOS apps for iPhone and iPad.' },
+        { label: 'Mobile App Devs', desc: 'Cross-platform mobile solutions.' },
+        { label: 'React Native', desc: 'One codebase for both iOS and Android.' }
+      ]
     },
     software: {
       icon: <IconCode />,
       label: 'Software Development',
       title: 'Software Development',
       desc: 'We build custom software — SaaS platforms, ERP systems, internal CRM databases, enterprise integrations, and high-fidelity MVPs mapped to your exact workflows.',
-      links: ['SaaS Dev', 'ERP Software', 'CRMS System', 'Enterprises Software', 'Custom Software', 'MVP Dev']
+      links: [
+        { label: 'SaaS Dev', desc: 'Cloud-based software as a service products.' },
+        { label: 'ERP Software', desc: 'Enterprise resource planning for operations.' },
+        { label: 'CRMS System', desc: 'Customer relationship management tools.' },
+        { label: 'Enterprises Software', desc: 'Large-scale corporate software solutions.' },
+        { label: 'Custom Software', desc: 'Bespoke software tailored to your specific needs.' },
+        { label: 'MVP Dev', desc: 'Rapid prototyping for startup founders.' }
+      ]
     }
   };
 
@@ -654,9 +686,13 @@ export default function Home() {
         .nd-service-article.active { display:block; }
         .nd-service-title { font-size:30px; font-weight:800; color:#2E29FF; margin-bottom:16px; }
         .nd-service-desc-detail { font-size:16px; color:#4B5563; line-height:1.65; margin-bottom:32px; font-weight:400; }
-        .nd-service-links { display:grid; grid-template-columns:repeat(2, 1fr); gap:16px 40px; }
-        .nd-service-bullet-item { display:flex; align-items:center; gap:10px; font-size:15px; font-weight:600; color:#4B5563; }
-        .nd-bullet-dot { width:6px; height:6px; border-radius:50%; background:#2E29FF; flex-shrink:0; opacity:0.6; }
+        .nd-service-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(46, 41, 255, 0.08); border: 1px solid rgba(46, 41, 255, 0.08); border-radius: 12px; overflow: hidden; margin-top: 24px; }
+        .nd-service-link-card { padding: 16px; background: #fff; text-decoration: none; display: flex; flex-direction: column; transition: background 0.15s; }
+        .nd-service-link-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+        .nd-service-link-card:hover { background: #F8F9FF; }
+        .nd-service-link-title { font-size: 15px; font-weight: 700; color: #0A0A2E; margin-bottom: 4px; transition: color 0.15s; }
+        .nd-service-link-card:hover .nd-service-link-title { color: #2E29FF; }
+        .nd-service-link-desc { font-size: 13px; color: #6B7280; line-height: 1.4; font-weight: 400; }
         
         .nd-expertise-cta { background:linear-gradient(95deg, #2E29FF 0%, #7B78FF 100%); border-radius:24px; padding:32px 48px; display:flex; align-items:center; justify-content:space-between; gap:24px; margin-top:40px; box-shadow:0 16px 40px rgba(46,41,255,0.12); }
         .nd-expertise-cta h3 { font-size:22px; font-weight:800; color:#ffffff; margin:0; }
@@ -1077,8 +1113,8 @@ export default function Home() {
             <div className="nd-hero-right">
               <img src="/hero-my-image.png" alt="NOVADESK software development studio" className="nd-hero-direct-img" />
               <div className="nd-hero-img-caption">
-                <h3>HARSH PRATEEK</h3>
-                <h2>Founder, NOVADESK</h2>
+                <h3>Founder & Lead Engenieer, NOVADESK</h3>
+                <h2>HARSH PRATEEK</h2>
               </div>
             </div>
 
@@ -1238,9 +1274,9 @@ export default function Home() {
                     <p className="nd-service-desc-detail">{t.desc}</p>
                     <div className="nd-service-links">
                       {t.links.map((l, i) => (
-                        <div key={i} className="nd-service-bullet-item">
-                          <span className="nd-bullet-dot" />
-                          <span>{l}</span>
+                        <div key={i} className="nd-service-link-card">
+                          <span className="nd-service-link-title">{l.label}</span>
+                          <span className="nd-service-link-desc">{l.desc}</span>
                         </div>
                       ))}
                     </div>

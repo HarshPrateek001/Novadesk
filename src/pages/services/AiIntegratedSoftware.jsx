@@ -24,7 +24,7 @@ const ChevronDown = ({ isOpen }) => (
   </svg>
 );
 
-export default function WebApplicationDevelopment() {
+export default function AiIntegratedSoftware() {
   const [openFaq, setOpenFaq] = useState(0);
 
   useEffect(() => {
@@ -33,42 +33,34 @@ export default function WebApplicationDevelopment() {
 
   const faqs = [
     {
-      q: "What's the difference between full-stack development and just building a website?",
-      a: "A website is often just a frontend — static pages with little to no backend logic. Full-stack development means building an application with real functionality: user accounts, databases, business logic, and dynamic features that respond to user actions — think a SaaS product, marketplace, or dashboard, not just an informational page."
+        "q": "Why should we choose NOVADESK for AI Integrated Software?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of AI Integrated Software."
     },
     {
-      q: "How long does a full-stack web app take to build?",
-      a: "A focused MVP typically takes 2-4 weeks. More complex applications with multiple user roles, integrations, or advanced features can take 6-10+ weeks. Exact timelines depend on scope, defined clearly after the discovery call."
+        "q": "How can AI integration improve my business workflows?",
+        "a": "AI can automate repetitive tasks, provide 24/7 intelligent customer support, and extract insights from large datasets, significantly reducing operational costs."
     },
     {
-      q: "Why Next.js and FastAPI specifically?",
-      a: "Next.js is one of the most performant, SEO-friendly frontend frameworks available today, with excellent developer tooling. FastAPI is known for being fast, clean to work with, and well-suited for APIs that need to scale. Together with Supabase (PostgreSQL), this stack balances development speed with long-term maintainability — avoiding both 'too slow to build' and 'will need a rewrite in a year' problems."
+        "q": "Do you build custom models or use existing APIs?",
+        "a": "We do both. For rapid deployment, we integrate powerful APIs like OpenAI or Anthropic. For highly specialized tasks, we can fine-tune open-source models like LLaMA."
     },
     {
-      q: "Do you build the frontend and backend, or just one?",
-      a: "Both. That's the core of full-stack development — one person, or in this case one point of contact, handles the entire application so nothing gets lost between teams."
-    },
-    {
-      q: "Can you take over an existing project instead of building from scratch?",
-      a: "Yes. If you have an existing codebase that needs new features, fixes, or a rebuild, that can be scoped separately — reach out with details of your current stack."
-    },
-    {
-      q: "What happens after the website/app is launched?",
-      a: "Every project includes a defined post-launch support window for bug fixes. Ongoing feature development or maintenance beyond that is available as a separate, flexible arrangement."
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
     }
-  ];
+];
 
   const schemaJson = [
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "Web Application Development",
+      "serviceType": "Full-Stack Web Development",
       "provider": {
         "@type": "ProfessionalService",
         "name": "NovaDesk"
       },
       "areaServed": "Worldwide",
-      "description": "Custom web application development for startups and businesses. Dashboards, portals, internal tools."
+      "description": "Custom full-stack web application development using Next.js, FastAPI, and Supabase."
     },
     {
       "@context": "https://schema.org",
@@ -87,10 +79,10 @@ export default function WebApplicationDevelopment() {
   return (
     <>
       <SEO 
-        title="Custom Web Application Development Services"
-        description="Custom web application development for startups & businesses — dashboards, portals, booking systems, internal tools. Built to scale. Get a free quote."
-        url="/services/web-application-development"
-        keywords="web application development, custom web app, React development, business dashboard, internal tools"
+        title="AI Integrated Software Services | NOVADESK"
+        description="Expert AI Integrated Software tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today."
+        url="/services/ai-integrated-software"
+        keywords="ai integrated software, custom ai integrated software, ai & ml development company, hire developers"
         schema={schemaJson}
       />
 
@@ -230,23 +222,14 @@ export default function WebApplicationDevelopment() {
           font-weight: 800;
           margin-bottom: 8px;
         }
-        .fs-hero-title-blue { display: none; }
-        .fs-hero-title-gradient {
-          font-size: 58px;
+        .fs-hero-title-blue {
+          font-size: 54px;
           line-height: 1.1;
           letter-spacing: -1.5px;
-          font-weight: 900;
+          color: #2E29FF;
+          font-weight: 800;
           margin-bottom: 24px;
           display: block;
-          background: linear-gradient(90deg, #2E29FF, #00D8FF, #2E29FF);
-          background-size: 200% auto;
-          color: transparent;
-          -webkit-background-clip: text;
-          background-clip: text;
-          animation: shine 4s linear infinite;
-        }
-        @keyframes shine {
-          to { background-position: 200% center; }
         }
         .fs-hero-desc {
           font-size: 15.5px;
@@ -260,160 +243,10 @@ export default function WebApplicationDevelopment() {
           position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:5;
         }
         .fs-hero-image {
-          width:100%; max-width:480px; display:block; border-radius:24px; margin-top:-40px; transition:transform 0.4s cubic-bezier(0.16,1,0.3,1); cursor:pointer;
-          box-shadow: 0 30px 60px rgba(46, 41, 255, 0.15);
-          border: 1px solid rgba(255,255,255,0.8);
-          z-index: 5;
-          position: relative;
-        }
-        .fs-blob {
-          position: absolute;
-          width: 350px;
-          height: 350px;
-          background: linear-gradient(45deg, #2E29FF, #00D8FF);
-          border-radius: 50%;
-          filter: blur(80px);
-          opacity: 0.3;
-          z-index: 1;
-          animation: pulseBlob 8s ease-in-out infinite alternate;
-        }
-        @keyframes pulseBlob {
-          0% { transform: scale(1) translate(0, 0); }
-          100% { transform: scale(1.2) translate(-20px, 20px); }
+          width:100%; max-width:450px; display:block; border-radius:24px; margin-top:-40px; transition:transform 0.4s cubic-bezier(0.16,1,0.3,1); cursor:pointer;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
         .fs-hero-image:hover { transform:translateY(-8px) scale(1.03); }
-
-        @keyframes fsFloat1 {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(2deg); }
-        }
-        @keyframes fsFloat2 {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(12px) rotate(-2deg); }
-        }
-        @keyframes fsFloat3 {
-          0%, 100% { transform: translateX(0) scale(1); }
-          50% { transform: translateX(-10px) scale(1.05); }
-        }
-        
-        .fs-premium-badge {
-          position: absolute;
-          background: rgba(255, 255, 255, 0.7);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          padding: 14px 24px;
-          border-radius: 20px;
-          display: flex;
-          align-items: center;
-          gap: 14px;
-          font-size: 15px;
-          font-weight: 800;
-          box-shadow: 
-            0 20px 40px rgba(0,0,0,0.1),
-            inset 0 0 0 1px rgba(255,255,255,0.8),
-            inset 0 0 20px rgba(255,255,255,0.5);
-          color: #0A0A2E;
-          z-index: 10;
-          pointer-events: none;
-        }
-        .fs-premium-badge::before {
-           content: '';
-           position: absolute;
-           top: -2px; left: -2px; right: -2px; bottom: -2px;
-           background: linear-gradient(45deg, rgba(46,41,255,0.4), rgba(0,216,255,0.4));
-           border-radius: 22px;
-           z-index: -1;
-           opacity: 0.5;
-        }
-        .fs-premium-badge svg {
-          filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-        }
-        .fs-badge-react {
-          top: 0px;
-          right: -30px;
-          animation: fsFloat1 6s ease-in-out infinite;
-        }
-        .fs-badge-node {
-          bottom: 30px;
-          left: -50px;
-          animation: fsFloat2 5s ease-in-out infinite 1s;
-        }
-        .fs-badge-mongo {
-          top: 55%;
-          right: -70px;
-          animation: fsFloat3 7s ease-in-out infinite 0.5s;
-        }
-
-        /* AGENCY ALTERNATIVE SECTION */
-        .fs-agency-alt {
-          background-color: #2E29FF;
-          border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        .nd-ticker-wrap { background:transparent; padding:18px 0; overflow:hidden; border-bottom:1px solid rgba(255,255,255,0.1); position: relative; z-index: 10; }
-        .nd-ticker { display:flex; width:100%; }
-        .nd-ticker-track { display:flex; width:max-content; animation:ticker-slide 32s linear infinite; }
-        .nd-ticker-group { display:flex; align-items:center; gap:50px; padding-right:50px; white-space:nowrap; }
-        .nd-ticker-group span { font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:800; color:#fff; letter-spacing:1.5px; text-transform:uppercase; display:flex; align-items:center; gap:8px; }
-        @keyframes ticker-slide {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(calc(-50% - 25px)); }
-        }
-        
-        .fs-agency-alt-bg {
-          background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
-          background-size: 24px 24px;
-          padding-bottom: 60px;
-        }
-
-        .nd-intro { padding:72px 0 40px; background:transparent; }
-        .nd-intro-inner { max-width:1330px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:40px; }
-        .nd-intro-text h2 { color:#fff; font-size:36px; max-width:600px; line-height:1.2; margin-bottom:12px; }
-        .nd-intro-text h2 em { color:#FFB6DB; font-style:normal; }
-        .nd-intro-text p { color:rgba(255,255,255,0.75); font-size:15px; max-width:560px; font-weight:400; }
-        .nd-intro-stats { display:flex; gap:32px; flex-wrap:wrap; }
-        .nd-intro-stat { text-align:center; }
-        .nd-intro-stat-num { font-size:48px; font-weight:700; color:#fff; line-height:1; }
-        .nd-intro-stat-num sub { font-size:20px; color:#FFB6DB; }
-        .nd-intro-stat-label { font-size:12px; color:#FFB6DB; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-top:4px; }
-        .nd-intro-divider { width:1px; height:60px; background:rgba(255,255,255,0.2); align-self:center; }
-
-        .fs-usp-bar-transparent {
-          background: transparent;
-        }
-        .fs-usp-grid {
-          display: flex;
-          justify-content: space-between;
-          flex-wrap: wrap;
-          gap: 16px;
-          position: relative;
-          z-index: 2;
-        }
-        .fs-usp-box {
-          background: rgba(255,255,255,0.1);
-          border: 1px solid rgba(255,255,255,0.2);
-          backdrop-filter: blur(10px);
-          padding: 24px;
-          border-radius: 16px;
-          flex: 1;
-          min-width: 180px;
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          transition: all 0.3s ease;
-          color: white;
-          font-weight: 700;
-          font-size: 15px;
-          line-height: 1.4;
-        }
-        .fs-usp-box:hover {
-          background: rgba(255,255,255,0.15);
-          transform: translateY(-5px);
-          border-color: rgba(255,255,255,0.4);
-        }
-        .fs-usp-box svg {
-          color: #FFB6DB;
-          flex-shrink: 0;
-        }
 
         /* TRUST BAR */
         .fs-trust {
@@ -463,16 +296,6 @@ export default function WebApplicationDevelopment() {
           0% { transform: translateX(calc(-50% - 30px)); }
           100% { transform: translateX(0); }
         }
-        .fs-marquee-logo {
-          font-weight: 900;
-          font-size: 28px;
-          color: #cbd5e1; /* Muted by default */
-          transition: all 0.3s ease;
-          cursor: pointer;
-          font-family: 'Inter', system-ui, sans-serif;
-          letter-spacing: -0.5px;
-          white-space: nowrap;
-        }
         .fs-marquee-icon-wrap {
           display: inline-flex;
           align-items: center;
@@ -496,32 +319,41 @@ export default function WebApplicationDevelopment() {
           transform: scale(1.15);
         }
 
-        /* USP BAR (Blue with boxes) */
-        .fs-usp-bar {
+        /* AGENCY ALTERNATIVE SECTION */
+        .fs-agency-alt {
           background-color: #2E29FF;
-          padding: 60px 0;
-          position: relative;
-          overflow: hidden;
+          border-top: 1px solid rgba(255,255,255,0.1);
         }
-        .fs-usp-bar::before, .fs-usp-bar::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          width: 250px;
-          pointer-events: none;
-          background-image: radial-gradient(circle, rgba(255,255,255,0.15) 2px, transparent 2px);
-          background-size: 16px 16px;
+        .nd-ticker-wrap { background:transparent; padding:18px 0; overflow:hidden; border-bottom:1px solid rgba(255,255,255,0.1); position: relative; z-index: 10; }
+        .nd-ticker { display:flex; width:100%; }
+        .nd-ticker-track { display:flex; width:max-content; animation:ticker-slide 32s linear infinite; }
+        .nd-ticker-group { display:flex; align-items:center; gap:50px; padding-right:50px; white-space:nowrap; }
+        .nd-ticker-group span { font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:800; color:#fff; letter-spacing:1.5px; text-transform:uppercase; display:flex; align-items:center; gap:8px; }
+        @keyframes ticker-slide {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-50% - 25px)); }
         }
-        .fs-usp-bar::before {
-          left: -50px;
-          mask-image: radial-gradient(circle at left, black, transparent 80%);
-          -webkit-mask-image: radial-gradient(circle at left, black, transparent 80%);
+        
+        .fs-agency-alt-bg {
+          background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+          background-size: 24px 24px;
+          padding-bottom: 60px;
         }
-        .fs-usp-bar::after {
-          right: -50px;
-          mask-image: radial-gradient(circle at right, black, transparent 80%);
-          -webkit-mask-image: radial-gradient(circle at right, black, transparent 80%);
+
+        .nd-intro { padding:72px 0 40px; background:transparent; }
+        .nd-intro-inner { max-width:1330px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:40px; }
+        .nd-intro-text h2 { color:#fff; font-size:36px; max-width:600px; line-height:1.2; margin-bottom:12px; }
+        .nd-intro-text h2 em { color:#FFB6DB; font-style:normal; }
+        .nd-intro-text p { color:rgba(255,255,255,0.75); font-size:15px; max-width:560px; font-weight:400; }
+        .nd-intro-stats { display:flex; gap:32px; flex-wrap:wrap; }
+        .nd-intro-stat { text-align:center; }
+        .nd-intro-stat-num { font-size:48px; font-weight:700; color:#fff; line-height:1; }
+        .nd-intro-stat-num sub { font-size:20px; color:#FFB6DB; }
+        .nd-intro-stat-label { font-size:12px; color:#FFB6DB; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-top:4px; }
+        .nd-intro-divider { width:1px; height:60px; background:rgba(255,255,255,0.2); align-self:center; }
+
+        .fs-usp-bar-transparent {
+          background: transparent;
         }
         .fs-usp-grid {
           display: flex;
@@ -556,6 +388,11 @@ export default function WebApplicationDevelopment() {
         .fs-usp-box:hover {
           background: rgba(255,255,255,0.1);
           transform: translateY(-2px);
+        }
+        
+        @media (max-width: 900px) {
+          .nd-intro-inner { justify-content:center; text-align:center; }
+          .nd-intro-stats { justify-content:center; }
         }
 
         /* SPLIT HEADER */
@@ -892,179 +729,7 @@ export default function WebApplicationDevelopment() {
           opacity: 0.9;
         }
 
-        /* WHY US */
-        .fs-why {
-          background-color: #2E29FF;
-          color: white;
-          padding: 40px 0 100px;
-          position: relative;
-          overflow: hidden;
-        }
-        .fs-why-bg-circles {
-          position: absolute;
-          top: -100px;
-          right: -100px;
-          opacity: 0.05;
-          pointer-events: none;
-        }
-        .fs-why-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 60px;
-          align-items: center;
-          position: relative;
-          z-index: 2;
-        }
-        .fs-why-images {
-          position: relative;
-          height: 600px;
-        }
-        .fs-why-img-1 {
-          width: 85%;
-          height: 480px;
-          background: #1a16d9 url('/WHY1.jpg') center/cover no-repeat;
-          border-radius: 32px;
-          position: absolute;
-          top: 50px; left: 0;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-          animation: floatUp 6s ease-in-out infinite;
-        }
-        .fs-why-img-2 {
-          width: 50%;
-          height: 250px;
-          background: #ffffff url('/WHY2.jpg') center/cover no-repeat;
-          border-radius: 20px;
-          position: absolute;
-          bottom: 0; right: 0;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-          animation: floatDown 7s ease-in-out infinite;
-        }
-        .fs-why-badge {
-          position: absolute;
-          top: -20px;
-          right: 5%;
-          width: 140px;
-          height: 140px;
-          background-color: #2E29FF;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-          border: 2px solid rgba(255,255,255,0.2);
-          z-index: 3;
-        }
-        .fs-why-badge svg {
-          width: 100%;
-          height: 100%;
-        }
-        .fs-why-badge-text-group {
-          animation: spin 15s linear infinite;
-          transform-origin: 100px 100px;
-        }
-        @keyframes floatUp {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-15px); }
-        }
-        @keyframes floatDown {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(15px); }
-        }
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .fs-why-title {
-          font-size: 48px;
-          font-weight: 800;
-          margin-bottom: 24px;
-          line-height: 1.1;
-        }
-        .fs-why-desc {
-          font-size: 16px;
-          line-height: 1.6;
-          margin-bottom: 40px;
-          opacity: 0.9;
-        }
-        .fs-why-stats {
-          display: flex;
-          gap: 50px;
-          margin-bottom: 30px;
-        }
-        .fs-why-stat h4 {
-          font-size: 32px;
-          font-weight: 900;
-          margin-bottom: 4px;
-          color: white;
-        }
-        .fs-why-stat p {
-          font-size: 11px;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          opacity: 0.8;
-          font-weight: 700;
-        }
-        .fs-why-features {
-          display: flex;
-          gap: 16px;
-          flex-wrap: wrap;
-          margin-bottom: 30px;
-        }
-        .fs-why-feature {
-          border: 1px solid rgba(255,255,255,0.3);
-          border-radius: 12px;
-          padding: 12px 18px;
-          font-size: 14px;
-          font-weight: 700;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          background: rgba(255,255,255,0.05);
-          transition: all 0.3s;
-        }
-        .fs-why-feature:hover {
-          background: rgba(255,255,255,0.15);
-          transform: translateY(-2px);
-        }
-        .fs-why-feature-icon {
-          width: 32px;
-          height: 32px;
-          background: white;
-          color: #2E29FF;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .fs-why-feature-icon svg {
-          width: 20px;
-          height: 20px;
-        }
-        .fs-btn-solid-white {
-          background-color: white;
-          color: #2E29FF;
-          padding: 14px 28px;
-          border-radius: 50px;
-          font-weight: 700;
-          font-size: 15px;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          transition: all 0.3s;
-          text-decoration: none;
-        }
-        .fs-btn-solid-white:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .fs-btn-solid-white svg {
-          width: 18px;
-          height: 18px;
-          transition: transform 0.3s;
-        }
-        .fs-btn-solid-white:hover svg {
-          transform: translateX(4px) translateY(-4px);
-        }
+
 
         /* AUDIENCE */
         .fs-audience {
@@ -1401,15 +1066,14 @@ export default function WebApplicationDevelopment() {
 
       <div className="fs-page">
         
-        {/* HERO SECTION */}
         <section className="fs-hero">
-          <div className="fs-hero-grid">
+          <div className="fs-container fs-hero-grid">
             <div className="fs-hero-text">
-              <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(46,41,255,0.08)', border:'1px solid rgba(46,41,255,0.2)', padding:'6px 16px', borderRadius:'40px', fontSize:'11px', fontWeight:'700', color:'#2E29FF', letterSpacing:'0.8px', textTransform:'uppercase', marginBottom:'20px'}}>CUSTOM WEB DEVELOPMENT</div>
-              <h1 className="fs-hero-title">Custom Web Applications</h1>
-              <span className="fs-hero-title-gradient">Built Around Your Workflow</span>
+              <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(46,41,255,0.08)', border:'1px solid rgba(46,41,255,0.2)', padding:'6px 16px', borderRadius:'40px', fontSize:'11px', fontWeight:'700', color:'#2E29FF', letterSpacing:'0.8px', textTransform:'uppercase', marginBottom:'20px'}}>ENTERPRISE DEVELOPMENT</div>
+              <h1 className="fs-hero-title">AI Integrated</h1>
+              <span className="fs-hero-title-blue">Software</span>
               <p className="fs-hero-desc">
-                Not a template. Not a page-builder. A web application designed around how your business actually works — dashboards, portals, booking systems, and internal tools built to handle real logic, real users, and real growth.
+                NOVADESK delivers professional AI Integrated Software solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.
               </p>
               <Link to="/contact-us" className="fs-btn fs-btn-primary" style={{ marginBottom: '40px', display: 'inline-flex' }}>
                 Get a Free Consultation <ArrowRight />
@@ -1436,28 +1100,7 @@ export default function WebApplicationDevelopment() {
               </div>
             </div>
             <div className="fs-hero-image-wrapper">
-              <div className="fs-blob"></div>
-              <img src="/webapp_hero_illustration.png" alt="Custom Web Application Development" className="fs-hero-image" />
-              
-              {/* Premium Floating Tech Badges */}
-              <div className="fs-premium-badge fs-badge-react">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="#00D8FF">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                </svg>
-                React.js
-              </div>
-              <div className="fs-premium-badge fs-badge-node">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="#68A063">
-                  <path d="M12 2L2 22h20L12 2zm0 4.1L18.4 19H5.6L12 6.1z"/>
-                </svg>
-                Node.js
-              </div>
-              <div className="fs-premium-badge fs-badge-mongo">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="#47A248">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                </svg>
-                MongoDB
-              </div>
+              <img src="/hero-visual.png" alt="AiIntegratedSoftware Team" className="fs-hero-image" />
             </div>
           </div>
         </section>
@@ -1470,12 +1113,7 @@ export default function WebApplicationDevelopment() {
               <div className="nd-ticker-track">
                 {[...Array(2)].map((_, idx) => (
                   <div key={idx} className="nd-ticker-group">
-                    <span>✦ NEXT.JS DEVELOPMENT</span>
-                    <span>✦ FASTAPI + PYTHON</span>
-                    <span>✦ SUPABASE + POSTGRESQL</span>
-                    <span>✦ GENERATIVE AI & LLMS</span>
-                    <span>✦ CHATBOTS & AGENTS</span>
-                    <span>✦ MOBILE FLUTTER APPS</span>
+                    <span>✦ ✦ OPENAI API</span>\n                    <span>✦ ✦ LLAMA 3</span>\n                    <span>✦ ✦ LANGCHAIN</span>\n                    <span>✦ ✦ VECTOR DATABASES</span>\n                    <span>✦ ✦ HUGGINGFACE</span>\n                    <span>✦ ✦ CUSTOM ML MODELS</span>
                     <span>✦ 100% IP OWNERSHIP</span>
                     <span>✦ DIRECT DEVELOPER ACCESS</span>
                     <span>✦ WEEKLY WORKABLE MILESTONES</span>
@@ -1553,7 +1191,7 @@ export default function WebApplicationDevelopment() {
         {/* TRUST BAR */}
         <section className="fs-trust">
           <div className="fs-container">
-            <p>Web Application Development, Powered by <span className="fs-text-blue">Modern Technologies</span></p>
+            <p>Full Stack Development, Powered by <span className="fs-text-blue">Modern Technologies</span></p>
           </div>
           <div className="fs-marquee-container">
             <div className="fs-marquee-track">
@@ -1588,57 +1226,57 @@ export default function WebApplicationDevelopment() {
         </section>
 
 
+
         {/* SERVICES EXPERTISE */}
         <section className="fs-services">
           <div className="fs-container">
             <div className="fs-split-header">
               <div>
-                <div className="fs-tag-arrows">WHAT IS IT?</div>
-                <h2>What Is Web Application Development?</h2>
+                <div className="fs-tag-arrows">OUR EXPERTISE</div>
+                <h2>What's Included in Our AI Integrated Software Services</h2>
               </div>
               <p>
-                A website shows information. A <strong>web application</strong> does something — it lets users log in, interact with data, complete tasks, and get results back in real time.<br/><br/>
-                Think of the difference between a restaurant's homepage (a website — informational) and an online table-booking system with live availability (a web application).
+                We cover the entire lifecycle of AI Integrated Software. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.
               </p>
             </div>
 
-            <div className="fs-tag-arrows" style={{marginTop: '60px', marginBottom: '20px'}}>OUR EXPERTISE</div>
-            <h2 style={{marginBottom: '40px'}}>What's Included in This Service</h2>
-
             <div className="fs-services-grid">
               <div className="fs-service-card">
-                <h3>Requirement Analysis & System Design</h3>
-                <p>Understanding your workflow, users, and what the application needs to do. Defining the data model and architecture before coding.</p>
+                <h3>Full Stack eCommerce Development</h3>
+                <p>Launch high-performing eCommerce platforms with custom storefronts, secure checkout, inventory systems, and real-time order tracking.</p>
                 <div className="fs-service-arrow"><ArrowRight /></div>
               </div>
               <div className="fs-service-card">
-                <h3>Frontend Development</h3>
-                <p>Built with React and Next.js for fast, responsive, interactive interfaces. Dashboards, forms, tables, and workflows designed around real usage.</p>
+                <h3>Front End Development</h3>
+                <p>We craft pixel-perfect, responsive UIs using React, Angular, and Vue, built for speed, accessibility, and user retention.</p>
                 <div className="fs-service-arrow"><ArrowRight /></div>
               </div>
               <div className="fs-service-card">
-                <h3>Backend & Business Logic</h3>
-                <p>Built with FastAPI or Node.js. Custom business logic, approval workflows, calculations, and secure API architecture.</p>
+                <h3>Back End Development</h3>
+                <p>Our backends are built for scale with Node.js, Python, and PHP. Secure, API-ready, and architecture-compliant by default.</p>
                 <div className="fs-service-arrow"><ArrowRight /></div>
               </div>
               <div className="fs-service-card">
-                <h3>User Authentication & Access Control</h3>
-                <p>Secure login and role-based access control — admins, managers, and regular users each see only what they should.</p>
+                <h3>Full Stack with AI Integration</h3>
+                <p>From recommendation engines to automation bots, we integrate AI capabilities that elevate your app's intelligence and user experience.</p>
                 <div className="fs-service-arrow"><ArrowRight /></div>
               </div>
               <div className="fs-service-card">
-                <h3>Database Architecture</h3>
-                <p>PostgreSQL (via Supabase) — reliable, scalable, with real-time capabilities. Designed to handle your actual data relationships.</p>
+                <h3>MERN Stack Development</h3>
+                <p>Choose the stack that fits your architecture. We support full-cycle builds across JavaScript and PHP ecosystems with clean handoffs.</p>
                 <div className="fs-service-arrow"><ArrowRight /></div>
               </div>
               <div className="fs-service-card">
-                <h3>Deployment & Ongoing Reliability</h3>
-                <p>Production deployment, performance monitoring, and a defined post-launch support window to catch issues early.</p>
+                <h3>Complete Web App Development</h3>
+                <p>We handle everything from database modeling to cloud deployment, ensuring your app is fast, reliable, and built to evolve.</p>
                 <div className="fs-service-arrow"><ArrowRight /></div>
               </div>
             </div>
           </div>
         </section>
+
+
+
         {/* TECH EXPERTISE (NEW SECTION) */}
         <section className="fs-tech">
           <div className="fs-container fs-tech-grid">
@@ -1707,10 +1345,10 @@ export default function WebApplicationDevelopment() {
           <div className="fs-container">
             <div className="fs-api-cta-top">
               <div className="fs-api-cta-left">
-                <h2>Build Smarter With Our API<br/>Development Services</h2>
+                <h2>Scale Faster With Our<br/>AI Integrated Software Expertise</h2>
               </div>
               <div className="fs-api-cta-right">
-                <p>Let's create APIs that simplify scale. Partner with a trusted API Development Company that understands speed, security, and clean documentation.</p>
+                <p>Partner with a team that understands the nuances of AI Integrated Software. We build architectures that support millions of users without breaking a sweat.</p>
                 <div className="fs-api-cta-btn-wrap">
                   <Link to="/contact-us" className="fs-btn-outline-white">Get a free consultation ↗</Link>
                 </div>
@@ -1792,7 +1430,7 @@ export default function WebApplicationDevelopment() {
             <div className="fs-process-header-wrap">
               <div className="fs-process-header-left">
                 <div className="fs-process-tag-lines">← OUR DEVELOPMENT PROCESS →</div>
-                <h2>Inside Our Full Stack<br/>Development Process</h2>
+                <h2>Inside Our AI Integrated Software<br/>Process</h2>
               </div>
               <div className="fs-process-header-right">
                 <p>
@@ -1866,20 +1504,20 @@ export default function WebApplicationDevelopment() {
           </div>
         </section>
 
-        
         {/* BOTTOM CTA */}
-        {/* <section className="fs-cta-bottom" style={{ background: '#0b0f19', color: 'white', padding: '100px 0', textAlign: 'center' }}>
-          <div className="fs-container">
-            <h2 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px' }}>Have a workflow that needs real software, not a spreadsheet?</h2>
-            <p style={{ fontSize: '18px', color: '#94a3b8', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
-              Tell me what you're trying to build or replace. You'll get an honest scope, timeline, and quote — usually within a day.
-            </p>
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
-              <Link to="/contact-us" className="fs-btn fs-btn-primary">Get a Free Quote <ArrowRight /></Link>
-              <a href="mailto:hello@novadesk.dev" className="fs-btn fs-btn-outline" style={{ border: '1px solid white', color: 'white' }}>or email hello@novadesk.dev</a>
+        {/* <div className="fs-container">
+          <section className="fs-cta-bottom">
+            <h2>Have a full-stack project in mind?</h2>
+            <p>Tell me what you're building. You'll get a clear scope, timeline, and quote — usually within a day.</p>
+            <Link to="/contact-us" className="fs-btn fs-btn-primary" style={{ marginBottom: '16px' }}>
+              Get a Free Quote <ArrowRight />
+            </Link>
+            <div style={{ fontSize: '15px', color: '#64748b' }}>
+              or email hello@novadesk.dev
             </div>
-          </div>
-        </section> */}
+          </section>
+        </div> */}
+
       </div>
     </>
   );

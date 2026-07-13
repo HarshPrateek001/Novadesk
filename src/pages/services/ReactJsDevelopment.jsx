@@ -24,7 +24,7 @@ const ChevronDown = ({ isOpen }) => (
   </svg>
 );
 
-export default function FullStackDevelopment() {
+export default function ReactJsDevelopment() {
   const [openFaq, setOpenFaq] = useState(0);
 
   useEffect(() => {
@@ -33,28 +33,20 @@ export default function FullStackDevelopment() {
 
   const faqs = [
     {
-      q: "What's the difference between full-stack development and just building a website?",
-      a: "A website is often just a frontend — static pages with little to no backend logic. Full-stack development means building an application with real functionality: user accounts, databases, business logic, and dynamic features that respond to user actions — think a SaaS product, marketplace, or dashboard, not just an informational page."
+      q: "How long does it take to build a React application?",
+      a: "A basic MVP can take 4–8 weeks, while complex enterprise platforms may take 4–6 months. We provide a detailed timeline after our initial consultation."
     },
     {
-      q: "How long does a full-stack web app take to build?",
-      a: "A focused MVP typically takes 2-4 weeks. More complex applications with multiple user roles, integrations, or advanced features can take 6-10+ weeks. Exact timelines depend on scope, defined clearly after the discovery call."
+      q: "Is React JS good for SEO?",
+      a: "Yes! By using frameworks like Next.js for Server-Side Rendering (SSR), we ensure that search engines can easily crawl and rank your React website."
     },
     {
-      q: "Why Next.js and FastAPI specifically?",
-      a: "Next.js is one of the most performant, SEO-friendly frontend frameworks available today, with excellent developer tooling. FastAPI is known for being fast, clean to work with, and well-suited for APIs that need to scale. Together with Supabase (PostgreSQL), this stack balances development speed with long-term maintainability — avoiding both 'too slow to build' and 'will need a rewrite in a year' problems."
+      q: "Can you work with my existing in-house team?",
+      a: "Absolutely. We can act as an extension of your team or handle the project independently."
     },
     {
-      q: "Do you build the frontend and backend, or just one?",
-      a: "Both. That's the core of full-stack development — one person, or in this case one point of contact, handles the entire application so nothing gets lost between teams."
-    },
-    {
-      q: "Can you take over an existing project instead of building from scratch?",
-      a: "Yes. If you have an existing codebase that needs new features, fixes, or a rebuild, that can be scoped separately — reach out with details of your current stack."
-    },
-    {
-      q: "What happens after the website/app is launched?",
-      a: "Every project includes a defined post-launch support window for bug fixes. Ongoing feature development or maintenance beyond that is available as a separate, flexible arrangement."
+      q: "Do you offer fixed-price or hourly billing?",
+      a: "We offer both. We can provide a fixed-price quote for well-defined projects or an hourly model for ongoing development."
     }
   ];
 
@@ -62,13 +54,13 @@ export default function FullStackDevelopment() {
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "Full-Stack Web Development",
+      "serviceType": "React JS Development",
       "provider": {
         "@type": "ProfessionalService",
         "name": "NovaDesk"
       },
       "areaServed": "Worldwide",
-      "description": "Custom full-stack web application development using Next.js, FastAPI, and Supabase."
+      "description": "Custom React JS development services. Build high-performance, scalable, and SEO-friendly web applications."
     },
     {
       "@context": "https://schema.org",
@@ -87,10 +79,10 @@ export default function FullStackDevelopment() {
   return (
     <>
       <SEO 
-        title="Full-Stack Web Development Services"
-        description="Custom full-stack web application development using Next.js, FastAPI & Supabase. From MVP to production — built and shipped by one developer. Get a free quote."
-        url="/services/full-stack-development"
-        keywords="full-stack web development, Next.js developer, FastAPI development, Supabase, web app MVP, custom software development"
+        title="Expert React JS Development Company | Custom Web Apps"
+        description="Looking for top-tier React JS development services? Novadesk builds high-performance, scalable, and SEO-friendly web applications. Hire expert React developers today for your next project."
+        url="/services/react-js-development"
+        keywords="React JS development services, Hire ReactJS developers, React web application development, React UI/UX design, React JS development company, custom frontend development"
         schema={schemaJson}
       />
 
@@ -108,7 +100,8 @@ export default function FullStackDevelopment() {
           padding: 0 24px;
         }
 
-        .fs-text-blue { color: #2E29FF; }
+        .fs-text-blue { color: #00D8FF; } /* React blue */
+        .fs-text-accent { color: #2E29FF; }
         .fs-bg-blue { background-color: #2E29FF; color: white; }
 
         /* BUTTONS */
@@ -170,8 +163,6 @@ export default function FullStackDevelopment() {
           height: 1px;
           background-color: #2E29FF;
         }
-        .fs-tag-white { color: #ffffff; }
-        .fs-tag-white::before, .fs-tag-white::after { background-color: rgba(255,255,255,0.5); }
 
         /* HERO SECTION */
         .fs-hero { 
@@ -303,6 +294,16 @@ export default function FullStackDevelopment() {
         @keyframes scrollMarquee {
           0% { transform: translateX(calc(-50% - 30px)); }
           100% { transform: translateX(0); }
+        }
+        .fs-marquee-logo {
+          font-weight: 900;
+          font-size: 28px;
+          color: #cbd5e1; /* Muted by default */
+          transition: all 0.3s ease;
+          cursor: pointer;
+          font-family: 'Inter', system-ui, sans-serif;
+          letter-spacing: -0.5px;
+          white-space: nowrap;
         }
         .fs-marquee-icon-wrap {
           display: inline-flex;
@@ -437,6 +438,15 @@ export default function FullStackDevelopment() {
         }
         .fs-tag-arrows::before { content: "←"; font-size: 18px; font-weight: normal; }
         .fs-tag-arrows::after { content: "→"; font-size: 18px; font-weight: normal; }
+        
+        .fs-tag-arrows-blue {
+           color: #2E29FF;
+           font-weight: 800;
+           font-size: 14px;
+           letter-spacing: 1px;
+           margin-bottom: 16px;
+           display: inline-block;
+        }
 
         /* SERVICES GRID */
         .fs-services {
@@ -575,14 +585,6 @@ export default function FullStackDevelopment() {
           background: #2E29FF;
           color: white;
         }
-        .fs-btn-outline-blue svg {
-          width: 18px;
-          height: 18px;
-          transition: transform 0.3s;
-        }
-        .fs-btn-outline-blue:hover svg {
-          transform: translateX(4px) translateY(-4px);
-        }
         .fs-tech-cards {
           display: flex;
           flex-direction: column;
@@ -620,18 +622,10 @@ export default function FullStackDevelopment() {
           flex-direction: column;
           justify-content: center;
         }
-        .fs-tech-card-front {
-          background-color: #FFF0E6;
-        }
-        .fs-tech-card-back {
-          background-color: #F0F4FF;
-        }
-        .fs-tech-card-db {
-          background-color: #EAE5FF;
-        }
-        .fs-tech-card-api {
-          background-color: #E2FDF5;
-        }
+        .fs-tech-card-front { background-color: #E2F3FC; }
+        .fs-tech-card-back { background-color: #F0E6FA; }
+        .fs-tech-card-db { background-color: #FFF0E6; }
+        .fs-tech-card-api { background-color: #E6F8F0; }
         .fs-tech-card-inner h3 {
           font-size: 22px;
           font-weight: 800;
@@ -651,193 +645,12 @@ export default function FullStackDevelopment() {
           font-weight: 700;
           color: #0b0f19;
         }
-        .fs-tech-card-front .fs-tech-pill { background-color: #FFDECC; }
-        .fs-tech-card-back .fs-tech-pill { background-color: #D6E4FF; }
-        .fs-tech-card-db .fs-tech-pill { background-color: #DCD3FF; }
-        .fs-tech-card-api .fs-tech-pill { background-color: #CFF3E9; }
-
-        /* API CTA */
-        .fs-api-cta {
-          background-color: #2E29FF;
-          color: white;
-          padding: 80px 0 40px;
-        }
-        .fs-api-cta-top {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 40px;
-          margin-bottom: 60px;
-          align-items: flex-start;
-        }
-        .fs-api-cta-left h2 {
-          font-size: 40px;
-          font-weight: 800;
-          line-height: 1.2;
-          color: white;
-        }
-        .fs-api-cta-right {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          text-align: right;
-        }
-        .fs-api-cta-right p {
-          font-size: 16px;
-          line-height: 1.6;
-          opacity: 0.9;
-          max-width: 450px;
-          margin-bottom: 24px;
-        }
-        .fs-btn-outline-white {
-          border: 1px solid white;
-          color: white;
-          background: transparent;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          padding: 12px 24px;
-          border-radius: 50px;
-          font-weight: 700;
-          font-size: 14px;
-          text-decoration: none;
-          transition: all 0.3s;
-        }
-        .fs-btn-outline-white:hover {
-          background: white;
-          color: #2E29FF;
-        }
-        .fs-api-cta-stats {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-        }
-        .fs-api-stat-card {
-          border: 1px solid rgba(255,255,255,0.4);
-          border-radius: 12px;
-          padding: 40px 24px;
-          text-align: center;
-          background: rgba(255,255,255,0.03);
-          transition: transform 0.3s, background 0.3s, border-color 0.3s;
-        }
-        .fs-api-stat-card:hover {
-          background: rgba(255,255,255,0.1);
-          border-color: rgba(255,255,255,0.8);
-          transform: translateY(-4px);
-        }
-        .fs-api-stat-card h3 {
-          font-size: 56px;
-          font-weight: 900;
-          color: white;
-          margin-bottom: 8px;
-          letter-spacing: -2px;
-        }
-        .fs-api-stat-card p {
-          font-size: 18px;
-          font-weight: 700;
-          opacity: 0.9;
-        }
+        .fs-tech-card-front .fs-tech-pill { background-color: #BDE4F8; }
+        .fs-tech-card-back .fs-tech-pill { background-color: #E1CFF3; }
+        .fs-tech-card-db .fs-tech-pill { background-color: #FFDECC; }
+        .fs-tech-card-api .fs-tech-pill { background-color: #BDECD8; }
 
 
-
-        /* AUDIENCE */
-        .fs-audience {
-          background-color: #f8fafc;
-          padding: 80px 0;
-          text-align: center;
-        }
-        .fs-audience-title {
-          font-size: 36px;
-          font-weight: 800;
-          margin-bottom: 16px;
-          line-height: 1.2;
-        }
-        .fs-audience-desc {
-          font-size: 16px;
-          color: #475569;
-          margin-bottom: 50px;
-          max-width: 600px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-        .fs-audience-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 24px;
-          text-align: left;
-        }
-        .fs-audience-card {
-          background: #ffffff;
-          border-radius: 16px;
-          padding: 24px;
-          border: 1px solid #c2c9ff;
-          display: flex;
-          flex-direction: column;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-          transition: all 0.3s ease;
-        }
-        .fs-audience-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 15px 30px rgba(46,41,255,0.1);
-          border-color: #2E29FF;
-        }
-        .fs-audience-card-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          margin-bottom: 20px;
-        }
-        .fs-audience-card h3 {
-          font-size: 18px;
-          font-weight: 800;
-          color: #0b0f19;
-          line-height: 1.3;
-          max-width: 65%;
-        }
-        .fs-audience-icon {
-          width: 44px;
-          height: 44px;
-          background-color: #2E29FF;
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          flex-shrink: 0;
-        }
-        .fs-audience-icon svg {
-          width: 24px;
-          height: 24px;
-        }
-        .fs-audience-card p {
-          font-size: 14px;
-          color: #475569;
-          line-height: 1.6;
-          flex: 1;
-          margin-bottom: 24px;
-        }
-        .fs-audience-link {
-          color: #2E29FF;
-          font-weight: 700;
-          font-size: 14px;
-          text-decoration: none;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-        .fs-audience-link svg {
-          transition: transform 0.3s;
-        }
-        .fs-audience-link:hover svg {
-          transform: translateX(3px) translateY(-3px);
-        }
-        .fs-tag-arrows-blue {
-           color: #2E29FF;
-           font-weight: 800;
-           font-size: 14px;
-           letter-spacing: 1px;
-           margin-bottom: 16px;
-           display: inline-block;
-        }
 
         /* PROCESS */
         .fs-process {
@@ -963,18 +776,9 @@ export default function FullStackDevelopment() {
           position: absolute;
           top: 0; left: 0;
           width: 100%; height: 500px;
-          background: #EEF0FF url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+          background: #EEF0FF url('https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
           border-radius: 0 100px 100px 24px;
           box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-        .fs-faq-img-overlap {
-          position: absolute;
-          bottom: 0; right: 0;
-          width: 60%; height: 250px;
-          background: #D0D5FF url('/faq_small.png') center/cover no-repeat;
-          border-radius: 24px;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-          border: 4px solid white;
         }
         
         .fs-faq-content h2 {
@@ -1036,36 +840,26 @@ export default function FullStackDevelopment() {
         }
 
         @media (max-width: 1024px) {
-          .fs-hero-grid, .fs-split-header, .fs-why-grid, .fs-tech-grid, .fs-faq-grid, .fs-api-cta-top { grid-template-columns: 1fr; }
+          .fs-hero-grid, .fs-split-header, .fs-why-grid, .fs-tech-grid, .fs-faq-grid { grid-template-columns: 1fr; }
           .fs-hero-text { order: 2; }
           .fs-hero-image-wrapper { order: 1; margin-bottom: 40px; }
-          .fs-split-header { gap: 20px; }
           .fs-services-grid { grid-template-columns: 1fr; }
-          .fs-audience-grid { grid-template-columns: repeat(2, 1fr); }
           .fs-process-grid { grid-template-columns: repeat(2, 1fr); }
           .fs-why-images { height: 400px; margin-bottom: 40px; }
           .fs-why-img-1 { height: 320px; width: 90%; top: 40px; }
           .fs-why-img-2 { height: 180px; width: 50%; bottom: 0; right: 0; }
-          .fs-why-badge { width: 100px; height: 100px; top: 0; right: 0; }
-          .fs-why-badge text:not([href]) { font-size: 32px; }
           .fs-faq-images { display: none; }
           .fs-tech-cards { flex-direction: column; }
-          .fs-api-cta-right { align-items: flex-start; text-align: left; }
           .fs-usp-grid { justify-content: center; flex-direction: column; }
-          .fs-marquee-container::before, .fs-marquee-container::after { width: 50px; }
         }
         @media (max-width: 768px) {
           .fs-hero { padding: 40px 0 20px; }
-          .fs-trust, .fs-usp-bar, .fs-services, .fs-tech, .fs-api-cta, .fs-audience, .fs-process, .fs-faq-section { padding: 40px 0; }
+          .fs-trust, .fs-usp-bar, .fs-services, .fs-tech, .fs-process, .fs-faq-section { padding: 40px 0; }
           .fs-hero-title { font-size: 36px; }
           .fs-hero-title-blue { font-size: 36px; }
-          .fs-audience-grid, .fs-process-grid { grid-template-columns: 1fr; }
+          .fs-process-grid { grid-template-columns: 1fr; }
           h2 { font-size: 32px !important; }
-          .fs-api-cta-stats { grid-template-columns: 1fr; gap: 20px; }
           .fs-hero-image-wrapper { margin-top: 0; margin-bottom: 40px; max-width: 100%; margin-left: 0; }
-          .fs-floating-badge { padding: 6px 12px; font-size: 11px; }
-          .fs-badge-1 { bottom: 60px; right: 0px; }
-          .fs-badge-2 { bottom: 20px; right: 20px; }
           .fs-usp-box { min-width: 100%; }
           .fs-tech-card-inner { padding: 30px 20px; min-height: auto; }
           .fs-cta-bottom { padding: 50px 20px; }
@@ -1074,41 +868,60 @@ export default function FullStackDevelopment() {
 
       <div className="fs-page">
         
+        {/* HERO SECTION */}
         <section className="fs-hero">
-          <div className="fs-container fs-hero-grid">
+          <div className="fs-hero-grid">
             <div className="fs-hero-text">
-              <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(46,41,255,0.08)', border:'1px solid rgba(46,41,255,0.2)', padding:'6px 16px', borderRadius:'40px', fontSize:'11px', fontWeight:'700', color:'#2E29FF', letterSpacing:'0.8px', textTransform:'uppercase', marginBottom:'20px'}}>ENTERPRISE DEVELOPMENT</div>
-              <h1 className="fs-hero-title">Full Stack</h1>
-              <span className="fs-hero-title-blue">Development Services</span>
+              <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(46,41,255,0.08)', border:'1px solid rgba(46,41,255,0.2)', padding:'6px 16px', borderRadius:'40px', fontSize:'11px', fontWeight:'700', color:'#2E29FF', letterSpacing:'0.8px', textTransform:'uppercase', marginBottom:'20px'}}>REACT + NEXT.JS EXPERTS</div>
+              <h1 className="fs-hero-title">Scalable, High-Performance</h1>
+              <span className="fs-hero-title-blue">React JS Development Services</span>
               <p className="fs-hero-desc">
-                EngineerBabu delivers scalable full stack development services backed by strict NDA protocols, ISO-compliant delivery, and enterprise-grade infrastructure. From UI to DevOps, every project is secured, owned, and sprint-driven.
+                Build dynamic, interactive, and lightning-fast web applications with the world's most popular JavaScript library. At Novadesk, we combine technical excellence with business logic to deliver React solutions that drive growth.
               </p>
               <Link to="/contact-us" className="fs-btn fs-btn-primary" style={{ marginBottom: '40px', display: 'inline-flex' }}>
-                Get a Free Consultation <ArrowRight />
+                Book a Free 30-Min Call ↗
               </Link>
               
-              <div className="fs-hero-badges" style={{ display: 'flex', gap: '30px', alignItems: 'flex-start' }}>
-                <div className="fs-hero-badge">
-                  <div style={{ color: '#4285F4', fontWeight: 'bold', fontSize: '18px', marginBottom: '4px' }}>
-                    <span style={{color: '#4285F4'}}>G</span><span style={{color: '#EA4335'}}>o</span><span style={{color: '#FBBC05'}}>o</span><span style={{color: '#4285F4'}}>g</span><span style={{color: '#34A853'}}>l</span><span style={{color: '#EA4335'}}>e</span>
+              <div className="fs-hero-badges" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '12px', marginTop: '20px' }}>
+                <div style={{ background: '#fff', border: '1px solid rgba(46,41,255,0.1)', borderRadius: '12px', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '10px', boxShadow: '0 2px 12px rgba(46,41,255,0.06)' }}>
+                  <div style={{ color: '#00D8FF', display: 'flex', alignItems: 'center' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C17.52 2 22 6.48 22 12s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z" opacity="0.2"/>
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
                   </div>
-                  <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#64748b', fontWeight: '700' }}>AI ACCELERATOR TOP 20<br />STARTUPS</div>
-                </div>
-                <div className="fs-hero-badge" style={{ borderLeft: '1px solid #E2E8F0', paddingLeft: '30px' }}>
-                  <div style={{ color: '#0077B5', fontWeight: 'bold', fontSize: '18px', marginBottom: '4px' }}>Linked<span style={{background: '#0077B5', color: 'white', padding: '0 4px', borderRadius: '4px', marginLeft: '2px'}}>in</span></div>
-                  <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#64748b', fontWeight: '700' }}>TOP 20 INDIAN STARTUPS</div>
-                </div>
-                <div className="fs-hero-badge" style={{ borderLeft: '1px solid #E2E8F0', paddingLeft: '30px' }}>
-                  <div style={{ color: '#A41034', fontWeight: 'bold', fontSize: '14px', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <div style={{ width: '16px', height: '16px', background: '#A41034' }}></div>
-                    <div>Harvard<br />Business<br />School</div>
+                  <div>
+                    <div style={{ fontSize: '13px', fontWeight: '700', color: '#0A0A2E', lineHeight: '1.2' }}>React JS</div>
+                    <div style={{ fontSize: '9px', color: '#6B7280', fontWeight: '700', textTransform: 'uppercase', marginTop: '2px' }}>CORE ARCHITECTURE</div>
                   </div>
-                  <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#64748b', fontWeight: '700' }}>BUSINESS INCUBATOR<br />PORTFOLIO</div>
+                </div>
+                <div style={{ background: '#fff', border: '1px solid rgba(46,41,255,0.1)', borderRadius: '12px', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '10px', boxShadow: '0 2px 12px rgba(46,41,255,0.06)' }}>
+                  <div style={{ color: '#F7DF1E', display: 'flex', alignItems: 'center' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                       <path d="M0 0h24v24H0z" fill="none"/>
+                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V9h2v7zm4 0h-2v-2h2v2zm0-4h-2V9h2v3z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '13px', fontWeight: '700', color: '#0A0A2E', lineHeight: '1.2' }}>JavaScript</div>
+                    <div style={{ fontSize: '9px', color: '#6B7280', fontWeight: '700', textTransform: 'uppercase', marginTop: '2px' }}>ES6+ STANDARDS</div>
+                  </div>
+                </div>
+                <div style={{ background: '#fff', border: '1px solid rgba(46,41,255,0.1)', borderRadius: '12px', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '10px', boxShadow: '0 2px 12px rgba(46,41,255,0.06)' }}>
+                  <div style={{ color: '#264DE4', display: 'flex', alignItems: 'center' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2L2 22h20L12 2zm0 4.1L18.4 19H5.6L12 6.1z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '13px', fontWeight: '700', color: '#0A0A2E', lineHeight: '1.2' }}>Tailwind</div>
+                    <div style={{ fontSize: '9px', color: '#6B7280', fontWeight: '700', textTransform: 'uppercase', marginTop: '2px' }}>CUSTOM STYLING</div>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="fs-hero-image-wrapper">
-              <img src="/fullstack_hero_illustration.png" alt="Full Stack Development Team" className="fs-hero-image" />
+              <img src="/react_hero_illustration.png" alt="React JS Development" className="fs-hero-image" />
             </div>
           </div>
         </section>
@@ -1204,7 +1017,7 @@ export default function FullStackDevelopment() {
         {/* TRUST BAR */}
         <section className="fs-trust">
           <div className="fs-container">
-            <p>Full Stack Development, Powered by <span className="fs-text-blue">Modern Technologies</span></p>
+            <p>React.js Development, Powered by <span className="fs-text-blue">Modern Technologies</span></p>
           </div>
           <div className="fs-marquee-container">
             <div className="fs-marquee-track">
@@ -1246,106 +1059,102 @@ export default function FullStackDevelopment() {
             <div className="fs-split-header">
               <div>
                 <div className="fs-tag-arrows">OUR EXPERTISE</div>
-                <h2>What's Included in Our Full Stack Services</h2>
+                <h2>Comprehensive React Development Solutions</h2>
               </div>
               <p>
-                From core UI/UX to robust backend systems and modern AI integrations, EngineerBabu's full stack development services cover every layer of your product with modular engineering.
+                At Novadesk, we offer a full spectrum of React services tailored to your unique business goals. Build exactly what you need with precision.
               </p>
             </div>
 
             <div className="fs-services-grid">
               <div className="fs-service-card">
-                <h3>Full Stack eCommerce Development</h3>
-                <p>Launch high-performing eCommerce platforms with custom storefronts, secure checkout, inventory systems, and real-time order tracking.</p>
+                <h3>Custom React Web App Development</h3>
+                <p>From conceptualization to deployment, we build bespoke web applications that are robust, secure, and tailored to your industry.</p>
                 <div className="fs-service-arrow"><ArrowRight /></div>
               </div>
               <div className="fs-service-card">
-                <h3>Front End Development</h3>
-                <p>We craft pixel-perfect, responsive UIs using React, Angular, and Vue, built for speed, accessibility, and user retention.</p>
+                <h3>Single Page Application (SPA)</h3>
+                <p>Provide your users with a seamless, "app-like" experience. We build SPAs that transition smoothly without refreshing the page, increasing user retention.</p>
                 <div className="fs-service-arrow"><ArrowRight /></div>
               </div>
               <div className="fs-service-card">
-                <h3>Back End Development</h3>
-                <p>Our backends are built for scale with Node.js, Python, and PHP. Secure, API-ready, and architecture-compliant by default.</p>
+                <h3>React UI/UX Design & Prototyping</h3>
+                <p>User experience is at our core. We design intuitive, beautiful interfaces that are optimized for conversions and accessibility.</p>
                 <div className="fs-service-arrow"><ArrowRight /></div>
               </div>
               <div className="fs-service-card">
-                <h3>Full Stack with AI Integration</h3>
-                <p>From recommendation engines to automation bots, we integrate AI capabilities that elevate your app's intelligence and user experience.</p>
+                <h3>Migration to React</h3>
+                <p>Have an old site running on jQuery, Angular, or Vue? We can seamlessly migrate your legacy codebase to React with zero data loss and improved performance.</p>
                 <div className="fs-service-arrow"><ArrowRight /></div>
               </div>
               <div className="fs-service-card">
-                <h3>MERN Stack Development</h3>
-                <p>Choose the stack that fits your architecture. We support full-cycle builds across JavaScript and PHP ecosystems with clean handoffs.</p>
+                <h3>React Native Mobile Apps</h3>
+                <p>One codebase, two platforms. We leverage React Native to build high-quality mobile applications for both iOS and Android.</p>
                 <div className="fs-service-arrow"><ArrowRight /></div>
               </div>
               <div className="fs-service-card">
-                <h3>Complete Web App Development</h3>
-                <p>We handle everything from database modeling to cloud deployment, ensuring your app is fast, reliable, and built to evolve.</p>
+                <h3>API Integration & Backend Support</h3>
+                <p>We connect your React frontend with complex APIs (REST/GraphQL) and robust backends like Node.js, Python, or Firebase.</p>
                 <div className="fs-service-arrow"><ArrowRight /></div>
               </div>
             </div>
           </div>
         </section>
 
-
-
-        {/* TECH EXPERTISE (NEW SECTION) */}
+        {/* TECH EXPERTISE */}
         <section className="fs-tech">
           <div className="fs-container fs-tech-grid">
             <div className="fs-tech-text">
-              <div className="fs-tag-arrows">TECH EXPERTISE</div>
-              <h2>Modern Tools Behind Full Stack Engineering</h2>
+              <div className="fs-tag-arrows">TECH STACK</div>
+              <h2>Tools We Use to Build Excellence</h2>
               <p>
-                Every product deserves the right foundation. We combine stable, well-supported frameworks like Next.js and FastAPI with agile tooling to deliver full stack development services that evolve without friction.
+                A great React application is built on more than just React. We use an ecosystem of modern, proven libraries and frameworks to ensure state management, styling, and testing are done right.
               </p>
               <Link to="/contact-us" className="fs-btn-outline-blue">
-                Get a free Consultation <ArrowRight style={{ transform: 'rotate(-45deg)' }} />
+                Discuss Your Stack <ArrowRight style={{ transform: 'rotate(-45deg)' }} />
               </Link>
             </div>
             <div className="fs-tech-cards">
               <div className="fs-tech-card-outer">
                 <div className="fs-tech-card-inner fs-tech-card-front">
-                  <h3>Frontend Technologies</h3>
+                  <h3>State Management</h3>
                   <div className="fs-tech-pills">
-                    <div className="fs-tech-pill">Next.js</div>
-                    <div className="fs-tech-pill">React JS</div>
-                    <div className="fs-tech-pill">TypeScript</div>
-                    <div className="fs-tech-pill">HTML5 / CSS3</div>
-                    <div className="fs-tech-pill">Tailwind CSS</div>
+                    <div className="fs-tech-pill">Redux Toolkit</div>
+                    <div className="fs-tech-pill">Context API</div>
+                    <div className="fs-tech-pill">Recoil</div>
+                    <div className="fs-tech-pill">Zustand</div>
                   </div>
                 </div>
               </div>
               <div className="fs-tech-card-outer">
                 <div className="fs-tech-card-inner fs-tech-card-back">
-                  <h3>Backend Technologies</h3>
+                  <h3>Styling & Design</h3>
                   <div className="fs-tech-pills">
-                    <div className="fs-tech-pill">FastAPI</div>
-                    <div className="fs-tech-pill">Python</div>
-                    <div className="fs-tech-pill">Node.js</div>
+                    <div className="fs-tech-pill">Tailwind CSS</div>
+                    <div className="fs-tech-pill">Material UI (MUI)</div>
+                    <div className="fs-tech-pill">Styled Components</div>
+                    <div className="fs-tech-pill">Sass</div>
                   </div>
                 </div>
               </div>
               <div className="fs-tech-card-outer">
                 <div className="fs-tech-card-inner fs-tech-card-db">
-                  <h3>Databases</h3>
+                  <h3>Frameworks</h3>
                   <div className="fs-tech-pills">
-                    <div className="fs-tech-pill">PostgreSQL</div>
-                    <div className="fs-tech-pill">Supabase</div>
-                    <div className="fs-tech-pill">Redis</div>
-                    <div className="fs-tech-pill">MongoDB</div>
+                    <div className="fs-tech-pill">Next.js (SSR/SSG)</div>
+                    <div className="fs-tech-pill">Gatsby (Static Sites)</div>
+                    <div className="fs-tech-pill">Vite</div>
                   </div>
                 </div>
               </div>
               <div className="fs-tech-card-outer">
                 <div className="fs-tech-card-inner fs-tech-card-api">
-                  <h3>API Protocols & Tools</h3>
+                  <h3>Backend & Testing</h3>
                   <div className="fs-tech-pills">
-                    <div className="fs-tech-pill">REST</div>
+                    <div className="fs-tech-pill">Node.js</div>
                     <div className="fs-tech-pill">GraphQL</div>
-                    <div className="fs-tech-pill">gRPC</div>
-                    <div className="fs-tech-pill">Swagger</div>
-                    <div className="fs-tech-pill">Postman</div>
+                    <div className="fs-tech-pill">Jest</div>
+                    <div className="fs-tech-pill">Cypress</div>
                   </div>
                 </div>
               </div>
@@ -1353,153 +1162,66 @@ export default function FullStackDevelopment() {
           </div>
         </section>
 
-        {/* API CTA SECTION */}
-        <section className="fs-api-cta">
-          <div className="fs-container">
-            <div className="fs-api-cta-top">
-              <div className="fs-api-cta-left">
-                <h2>Build Smarter With Our API<br/>Development Services</h2>
-              </div>
-              <div className="fs-api-cta-right">
-                <p>Let's create APIs that simplify scale. Partner with a trusted API Development Company that understands speed, security, and clean documentation.</p>
-                <div className="fs-api-cta-btn-wrap">
-                  <Link to="/contact-us" className="fs-btn-outline-white">Get a free consultation ↗</Link>
-                </div>
-              </div>
-            </div>
-            
-            <div className="fs-api-cta-stats">
-              <div className="fs-api-stat-card">
-                <h3>1000+</h3>
-                <p>Happy Clients</p>
-              </div>
-              <div className="fs-api-stat-card">
-                <h3>11+</h3>
-                <p>Years of Experience</p>
-              </div>
-              <div className="fs-api-stat-card">
-                <h3>170+</h3>
-                <p>Expert Level Talents</p>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* AUDIENCE */}
-        <section className="fs-audience">
-          <div className="fs-container">
-            <div className="fs-tag-arrows-blue">← WHO IS IT FOR →</div>
-            <h2 className="fs-audience-title">Who This Service<br/><span className="fs-text-blue">Is Built For</span></h2>
-            <p className="fs-audience-desc">Choose what works best. Our services are built to follow your momentum, not slow you down.</p>
-            
-            <div className="fs-audience-grid">
-              <div className="fs-audience-card">
-                <div className="fs-audience-card-header">
-                  <h3>Startup Founders</h3>
-                  <div className="fs-audience-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                  </div>
-                </div>
-                <p>Who need an MVP built and launched without hiring a full internal team. Quick iteration and launch.</p>
-                <Link to="/contact-us" className="fs-audience-link">Get a free consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></Link>
-              </div>
-              <div className="fs-audience-card">
-                <div className="fs-audience-card-header">
-                  <h3>Small Businesses</h3>
-                  <div className="fs-audience-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                  </div>
-                </div>
-                <p>Replacing outdated systems or no-code tools that have hit their limits. Secure and robust solutions.</p>
-                <Link to="/contact-us" className="fs-audience-link">Get a free consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></Link>
-              </div>
-              <div className="fs-audience-card">
-                <div className="fs-audience-card-header">
-                  <h3>Agencies</h3>
-                  <div className="fs-audience-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                  </div>
-                </div>
-                <p>That need a reliable technical partner for client web app projects, ensuring high-quality delivery.</p>
-                <Link to="/contact-us" className="fs-audience-link">Get a free consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></Link>
-              </div>
-              <div className="fs-audience-card">
-                <div className="fs-audience-card-header">
-                  <h3>Product Teams</h3>
-                  <div className="fs-audience-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                  </div>
-                </div>
-                <p>Who need extra full-stack capacity for a defined project or sprint to hit critical deadlines.</p>
-                <Link to="/contact-us" className="fs-audience-link">Get a free consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></Link>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* PROCESS */}
         <section className="fs-process">
           <div className="fs-container">
             <div className="fs-process-header-wrap">
               <div className="fs-process-header-left">
-                <div className="fs-process-tag-lines">← OUR DEVELOPMENT PROCESS →</div>
-                <h2>Inside Our Full Stack<br/>Development Process</h2>
+                <div className="fs-process-tag-lines">DEVELOPMENT LIFECYCLE</div>
+                <h2>How We Build Your Success</h2>
               </div>
               <div className="fs-process-header-right">
-                <p>
-                  We simplify complexity by breaking full stack development services into clear steps. This helps in seamless integration between frontend, backend, and deployment.
-                </p>
+                <p>We follow an agile development methodology to ensure transparency and quality at every step, providing you with regular demos so you can see your project coming to life.</p>
               </div>
             </div>
-            
+
             <div className="fs-process-grid">
               <div className="fs-process-card">
                 <div className="fs-process-num">01</div>
-                <h3>Discovery<br/>& Strategy</h3>
-                <p>We understand your business, audience, and goals to define a clear roadmap and select the right tech stack for your application.</p>
+                <h3>Discovery & Strategy</h3>
+                <p>We dive deep into your business requirements and user personas to create a technical roadmap.</p>
               </div>
               <div className="fs-process-card">
                 <div className="fs-process-num">02</div>
-                <h3>UI/UX Design<br/>& Prototyping</h3>
-                <p>Crafting user-friendly, visually appealing UI/UX designs that reflect your brand while optimizing the user journey for maximum engagement.</p>
+                <h3>Architecture & UI/UX</h3>
+                <p>Our architects design a scalable structure while our designers craft a pixel-perfect interface.</p>
               </div>
               <div className="fs-process-card">
                 <div className="fs-process-num">03</div>
-                <h3>Development<br/>& Integration</h3>
-                <p>Our full stack development services ensure your app is fast, secure, and seamlessly integrated with necessary APIs and databases.</p>
+                <h3>Sprint-Based Dev</h3>
+                <p>We build in two-week cycles, providing you with regular demos so you can see your project coming to life.</p>
               </div>
               <div className="fs-process-card">
                 <div className="fs-process-num">04</div>
-                <h3>Testing<br/>& Launch</h3>
-                <p>Rigorous QA ensures your app is bug-free, responsive, and optimized for performance before going live and entering post-launch support.</p>
+                <h3>QA & Deployment</h3>
+                <p>From Jest to Cypress, we ensure your app is bug-free before launching it on high-performance servers.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* FAQ SECTION (NEW ACCORDION LAYOUT) */}
+        {/* FAQS */}
         <section className="fs-faq-section">
           <div className="fs-container fs-faq-grid">
             <div className="fs-faq-images">
               <div className="fs-faq-img-main"></div>
-              <div className="fs-faq-img-overlap"></div>
             </div>
             <div className="fs-faq-content">
-              <div className="fs-tag">FAQs</div>
-              <h2>Questions You Might Ask Before Starting</h2>
-              
-              <div className="fs-faq-accordion">
-                {faqs.map((faq, idx) => (
+              <h2>Everything You Need to Know</h2>
+              <div>
+                {faqs.map((faq, index) => (
                   <div 
-                    key={idx} 
-                    className={`fs-faq-item ${openFaq === idx ? 'active' : ''}`}
-                    onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
+                    key={index} 
+                    className={`fs-faq-item ${openFaq === index ? 'active' : ''}`}
+                    onClick={() => setOpenFaq(openFaq === index ? -1 : index)}
                   >
                     <div className="fs-faq-question">
                       {faq.q}
-                      <ChevronDown isOpen={openFaq === idx} />
+                      <ChevronDown isOpen={openFaq === index} />
                     </div>
-                    {openFaq === idx && (
+                    {openFaq === index && (
                       <div className="fs-faq-answer">
                         {faq.a}
                       </div>
@@ -1507,29 +1229,25 @@ export default function FullStackDevelopment() {
                   </div>
                 ))}
               </div>
-
-              <div style={{ marginTop: '40px', textAlign: 'center' }}>
-                <Link to="/contact-us" className="fs-btn fs-btn-primary">
-                  More Questions? Contact Us <ArrowRight />
-                </Link>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* BOTTOM CTA */}
-        {/* <div className="fs-container">
-          <section className="fs-cta-bottom">
-            <h2>Have a full-stack project in mind?</h2>
-            <p>Tell me what you're building. You'll get a clear scope, timeline, and quote — usually within a day.</p>
-            <Link to="/contact-us" className="fs-btn fs-btn-primary" style={{ marginBottom: '16px' }}>
-              Get a Free Quote <ArrowRight />
-            </Link>
-            <div style={{ fontSize: '15px', color: '#64748b' }}>
-              or email hello@novadesk.dev
+        {/* CTA BOTTOM */}
+        <section className="fs-container" style={{ paddingBottom: '100px' }}>
+          <div className="fs-cta-bottom">
+            <h2>Ready to Start Your React Project?</h2>
+            <p>Don't settle for a slow, outdated website. Partner with Novadesk and build a high-speed React application that puts you ahead of the competition.</p>
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
+                <Link to="/contact-us" className="fs-btn fs-btn-primary">
+                  Schedule a Free Consultation
+                </Link>
+                <Link to="/contact-us" className="fs-btn fs-btn-white">
+                  Chat With an Expert
+                </Link>
             </div>
-          </section>
-        </div> */}
+          </div>
+        </section>
 
       </div>
     </>

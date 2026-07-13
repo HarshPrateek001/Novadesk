@@ -1,0 +1,986 @@
+[
+  {
+    "componentName": "ChatbotDevelopment",
+    "slug": "chatbot-development",
+    "seoTitle": "Chatbot Development Services | NOVADESK",
+    "seoDesc": "Expert Chatbot Development tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "chatbot development, custom chatbot development, ai & ml development company, hire developers",
+    "heroH1": "Chatbot",
+    "heroBlue": "Development",
+    "heroDesc": "NOVADESK delivers professional Chatbot Development solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ OPENAI API",
+      "✦ LLAMA 3",
+      "✦ LANGCHAIN",
+      "✦ VECTOR DATABASES",
+      "✦ HUGGINGFACE",
+      "✦ CUSTOM ML MODELS"
+    ],
+    "expertiseH2": "What's Included in Our Chatbot Development Services",
+    "expertiseDesc": "We cover the entire lifecycle of Chatbot Development. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>Chatbot Development Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of Chatbot Development. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our Chatbot Development<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for Chatbot Development?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of Chatbot Development."
+      },
+      {
+        "q": "How can AI integration improve my business workflows?",
+        "a": "AI can automate repetitive tasks, provide 24/7 intelligent customer support, and extract insights from large datasets, significantly reducing operational costs."
+      },
+      {
+        "q": "Do you build custom models or use existing APIs?",
+        "a": "We do both. For rapid deployment, we integrate powerful APIs like OpenAI or Anthropic. For highly specialized tasks, we can fine-tune open-source models like LLaMA."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "GenAiDevelopment",
+    "slug": "gen-ai-development",
+    "seoTitle": "Gen AI Development Services | NOVADESK",
+    "seoDesc": "Expert Gen AI Development tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "gen ai development, custom gen ai development, ai & ml development company, hire developers",
+    "heroH1": "Gen AI",
+    "heroBlue": "Development",
+    "heroDesc": "NOVADESK delivers professional Gen AI Development solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ OPENAI API",
+      "✦ LLAMA 3",
+      "✦ LANGCHAIN",
+      "✦ VECTOR DATABASES",
+      "✦ HUGGINGFACE",
+      "✦ CUSTOM ML MODELS"
+    ],
+    "expertiseH2": "What's Included in Our Gen AI Development Services",
+    "expertiseDesc": "We cover the entire lifecycle of Gen AI Development. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>Gen AI Development Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of Gen AI Development. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our Gen AI Development<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for Gen AI Development?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of Gen AI Development."
+      },
+      {
+        "q": "How can AI integration improve my business workflows?",
+        "a": "AI can automate repetitive tasks, provide 24/7 intelligent customer support, and extract insights from large datasets, significantly reducing operational costs."
+      },
+      {
+        "q": "Do you build custom models or use existing APIs?",
+        "a": "We do both. For rapid deployment, we integrate powerful APIs like OpenAI or Anthropic. For highly specialized tasks, we can fine-tune open-source models like LLaMA."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "AiIntegratedSoftware",
+    "slug": "ai-integrated-software",
+    "seoTitle": "AI Integrated Software Services | NOVADESK",
+    "seoDesc": "Expert AI Integrated Software tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "ai integrated software, custom ai integrated software, ai & ml development company, hire developers",
+    "heroH1": "AI Integrated",
+    "heroBlue": "Software",
+    "heroDesc": "NOVADESK delivers professional AI Integrated Software solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ OPENAI API",
+      "✦ LLAMA 3",
+      "✦ LANGCHAIN",
+      "✦ VECTOR DATABASES",
+      "✦ HUGGINGFACE",
+      "✦ CUSTOM ML MODELS"
+    ],
+    "expertiseH2": "What's Included in Our AI Integrated Software Services",
+    "expertiseDesc": "We cover the entire lifecycle of AI Integrated Software. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>AI Integrated Software Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of AI Integrated Software. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our AI Integrated Software<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for AI Integrated Software?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of AI Integrated Software."
+      },
+      {
+        "q": "How can AI integration improve my business workflows?",
+        "a": "AI can automate repetitive tasks, provide 24/7 intelligent customer support, and extract insights from large datasets, significantly reducing operational costs."
+      },
+      {
+        "q": "Do you build custom models or use existing APIs?",
+        "a": "We do both. For rapid deployment, we integrate powerful APIs like OpenAI or Anthropic. For highly specialized tasks, we can fine-tune open-source models like LLaMA."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "ConversationalAi",
+    "slug": "conversational-ai",
+    "seoTitle": "Conversational AI Services | NOVADESK",
+    "seoDesc": "Expert Conversational AI tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "conversational ai, custom conversational ai, ai & ml development company, hire developers",
+    "heroH1": "Conversational",
+    "heroBlue": "AI",
+    "heroDesc": "NOVADESK delivers professional Conversational AI solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ OPENAI API",
+      "✦ LLAMA 3",
+      "✦ LANGCHAIN",
+      "✦ VECTOR DATABASES",
+      "✦ HUGGINGFACE",
+      "✦ CUSTOM ML MODELS"
+    ],
+    "expertiseH2": "What's Included in Our Conversational AI Services",
+    "expertiseDesc": "We cover the entire lifecycle of Conversational AI. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>Conversational AI Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of Conversational AI. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our Conversational AI<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for Conversational AI?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of Conversational AI."
+      },
+      {
+        "q": "How can AI integration improve my business workflows?",
+        "a": "AI can automate repetitive tasks, provide 24/7 intelligent customer support, and extract insights from large datasets, significantly reducing operational costs."
+      },
+      {
+        "q": "Do you build custom models or use existing APIs?",
+        "a": "We do both. For rapid deployment, we integrate powerful APIs like OpenAI or Anthropic. For highly specialized tasks, we can fine-tune open-source models like LLaMA."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "PhpDevelopment",
+    "slug": "php-development",
+    "seoTitle": "PHP Development Services | NOVADESK",
+    "seoDesc": "Expert PHP Development tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "php development, custom php development, web development company, hire developers",
+    "heroH1": "PHP",
+    "heroBlue": "Development",
+    "heroDesc": "NOVADESK delivers professional PHP Development solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ NEXT.JS",
+      "✦ REACT",
+      "✦ NODE.JS",
+      "✦ PYTHON / DJANGO",
+      "✦ PHP / LARAVEL",
+      "✦ POSTGRESQL"
+    ],
+    "expertiseH2": "What's Included in Our PHP Development Services",
+    "expertiseDesc": "We cover the entire lifecycle of PHP Development. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>PHP Development Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of PHP Development. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our PHP Development<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for PHP Development?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of PHP Development."
+      },
+      {
+        "q": "Will the web application be mobile-friendly and responsive?",
+        "a": "Absolutely. Every web application we build is designed with a mobile-first approach, ensuring it looks and works perfectly across all devices and screen sizes."
+      },
+      {
+        "q": "How long does it take to develop a custom web platform?",
+        "a": "A standard MVP takes 4-6 weeks. Complex enterprise platforms with multiple integrations and roles can take 2-4 months depending on the defined scope."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "PythonDevelopment",
+    "slug": "python-development",
+    "seoTitle": "Python Development Services | NOVADESK",
+    "seoDesc": "Expert Python Development tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "python development, custom python development, web development company, hire developers",
+    "heroH1": "Python",
+    "heroBlue": "Development",
+    "heroDesc": "NOVADESK delivers professional Python Development solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ NEXT.JS",
+      "✦ REACT",
+      "✦ NODE.JS",
+      "✦ PYTHON / DJANGO",
+      "✦ PHP / LARAVEL",
+      "✦ POSTGRESQL"
+    ],
+    "expertiseH2": "What's Included in Our Python Development Services",
+    "expertiseDesc": "We cover the entire lifecycle of Python Development. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>Python Development Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of Python Development. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our Python Development<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for Python Development?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of Python Development."
+      },
+      {
+        "q": "Will the web application be mobile-friendly and responsive?",
+        "a": "Absolutely. Every web application we build is designed with a mobile-first approach, ensuring it looks and works perfectly across all devices and screen sizes."
+      },
+      {
+        "q": "How long does it take to develop a custom web platform?",
+        "a": "A standard MVP takes 4-6 weeks. Complex enterprise platforms with multiple integrations and roles can take 2-4 months depending on the defined scope."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "NodeJsDevelopment",
+    "slug": "node-js-development",
+    "seoTitle": "Node JS Development Services | NOVADESK",
+    "seoDesc": "Expert Node JS Development tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "node js development, custom node js development, web development company, hire developers",
+    "heroH1": "Node JS",
+    "heroBlue": "Development",
+    "heroDesc": "NOVADESK delivers professional Node JS Development solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ NEXT.JS",
+      "✦ REACT",
+      "✦ NODE.JS",
+      "✦ PYTHON / DJANGO",
+      "✦ PHP / LARAVEL",
+      "✦ POSTGRESQL"
+    ],
+    "expertiseH2": "What's Included in Our Node JS Development Services",
+    "expertiseDesc": "We cover the entire lifecycle of Node JS Development. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>Node JS Development Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of Node JS Development. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our Node JS Development<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for Node JS Development?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of Node JS Development."
+      },
+      {
+        "q": "Will the web application be mobile-friendly and responsive?",
+        "a": "Absolutely. Every web application we build is designed with a mobile-first approach, ensuring it looks and works perfectly across all devices and screen sizes."
+      },
+      {
+        "q": "How long does it take to develop a custom web platform?",
+        "a": "A standard MVP takes 4-6 weeks. Complex enterprise platforms with multiple integrations and roles can take 2-4 months depending on the defined scope."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "CmsDevelopment",
+    "slug": "cms-development",
+    "seoTitle": "CMS Development Services | NOVADESK",
+    "seoDesc": "Expert CMS Development tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "cms development, custom cms development, web development company, hire developers",
+    "heroH1": "CMS",
+    "heroBlue": "Development",
+    "heroDesc": "NOVADESK delivers professional CMS Development solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ NEXT.JS",
+      "✦ REACT",
+      "✦ NODE.JS",
+      "✦ PYTHON / DJANGO",
+      "✦ PHP / LARAVEL",
+      "✦ POSTGRESQL"
+    ],
+    "expertiseH2": "What's Included in Our CMS Development Services",
+    "expertiseDesc": "We cover the entire lifecycle of CMS Development. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>CMS Development Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of CMS Development. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our CMS Development<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for CMS Development?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of CMS Development."
+      },
+      {
+        "q": "Will the web application be mobile-friendly and responsive?",
+        "a": "Absolutely. Every web application we build is designed with a mobile-first approach, ensuring it looks and works perfectly across all devices and screen sizes."
+      },
+      {
+        "q": "How long does it take to develop a custom web platform?",
+        "a": "A standard MVP takes 4-6 weeks. Complex enterprise platforms with multiple integrations and roles can take 2-4 months depending on the defined scope."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "WordPressDevelopment",
+    "slug": "wordpress-development",
+    "seoTitle": "WordPress Development Services | NOVADESK",
+    "seoDesc": "Expert WordPress Development tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "wordpress development, custom wordpress development, web development company, hire developers",
+    "heroH1": "WordPress",
+    "heroBlue": "Development",
+    "heroDesc": "NOVADESK delivers professional WordPress Development solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ NEXT.JS",
+      "✦ REACT",
+      "✦ NODE.JS",
+      "✦ PYTHON / DJANGO",
+      "✦ PHP / LARAVEL",
+      "✦ POSTGRESQL"
+    ],
+    "expertiseH2": "What's Included in Our WordPress Development Services",
+    "expertiseDesc": "We cover the entire lifecycle of WordPress Development. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>WordPress Development Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of WordPress Development. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our WordPress Development<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for WordPress Development?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of WordPress Development."
+      },
+      {
+        "q": "Will the web application be mobile-friendly and responsive?",
+        "a": "Absolutely. Every web application we build is designed with a mobile-first approach, ensuring it looks and works perfectly across all devices and screen sizes."
+      },
+      {
+        "q": "How long does it take to develop a custom web platform?",
+        "a": "A standard MVP takes 4-6 weeks. Complex enterprise platforms with multiple integrations and roles can take 2-4 months depending on the defined scope."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "EcommerceDevelopment",
+    "slug": "ecommerce-development",
+    "seoTitle": "eCommerce Dev Services | NOVADESK",
+    "seoDesc": "Expert eCommerce Dev tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "ecommerce dev, custom ecommerce dev, ecommerce development company, hire developers",
+    "heroH1": "eCommerce",
+    "heroBlue": "Dev",
+    "heroDesc": "NOVADESK delivers professional eCommerce Dev solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ SHOPIFY PLUS",
+      "✦ WOOCOMMERCE",
+      "✦ STRIPE INTEGRATION",
+      "✦ CUSTOM CHECKOUTS",
+      "✦ INVENTORY SYNC",
+      "✦ HEADLESS COMMERCE"
+    ],
+    "expertiseH2": "What's Included in Our eCommerce Dev Services",
+    "expertiseDesc": "We cover the entire lifecycle of eCommerce Dev. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>eCommerce Dev Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of eCommerce Dev. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our eCommerce Dev<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for eCommerce Dev?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of eCommerce Dev."
+      },
+      {
+        "q": "Can you integrate our existing inventory management system?",
+        "a": "Yes, we build robust API integrations to connect your new eCommerce storefront with your existing ERP, CRM, or inventory management systems."
+      },
+      {
+        "q": "Do you optimize eCommerce sites for conversions and speed?",
+        "a": "Speed and UX are our top priorities for eCommerce. We ensure fast load times, frictionless checkouts, and optimized product pages to maximize your conversion rate."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "EcommerceDesign",
+    "slug": "ecommerce-design",
+    "seoTitle": "eCommerce Design Services | NOVADESK",
+    "seoDesc": "Expert eCommerce Design tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "ecommerce design, custom ecommerce design, ecommerce development company, hire developers",
+    "heroH1": "eCommerce",
+    "heroBlue": "Design",
+    "heroDesc": "NOVADESK delivers professional eCommerce Design solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ SHOPIFY PLUS",
+      "✦ WOOCOMMERCE",
+      "✦ STRIPE INTEGRATION",
+      "✦ CUSTOM CHECKOUTS",
+      "✦ INVENTORY SYNC",
+      "✦ HEADLESS COMMERCE"
+    ],
+    "expertiseH2": "What's Included in Our eCommerce Design Services",
+    "expertiseDesc": "We cover the entire lifecycle of eCommerce Design. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>eCommerce Design Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of eCommerce Design. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our eCommerce Design<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for eCommerce Design?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of eCommerce Design."
+      },
+      {
+        "q": "Can you integrate our existing inventory management system?",
+        "a": "Yes, we build robust API integrations to connect your new eCommerce storefront with your existing ERP, CRM, or inventory management systems."
+      },
+      {
+        "q": "Do you optimize eCommerce sites for conversions and speed?",
+        "a": "Speed and UX are our top priorities for eCommerce. We ensure fast load times, frictionless checkouts, and optimized product pages to maximize your conversion rate."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "EcommerceImplementation",
+    "slug": "ecommerce-implementation",
+    "seoTitle": "eCommerce Implementation Services | NOVADESK",
+    "seoDesc": "Expert eCommerce Implementation tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "ecommerce implementation, custom ecommerce implementation, ecommerce development company, hire developers",
+    "heroH1": "eCommerce",
+    "heroBlue": "Implementation",
+    "heroDesc": "NOVADESK delivers professional eCommerce Implementation solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ SHOPIFY PLUS",
+      "✦ WOOCOMMERCE",
+      "✦ STRIPE INTEGRATION",
+      "✦ CUSTOM CHECKOUTS",
+      "✦ INVENTORY SYNC",
+      "✦ HEADLESS COMMERCE"
+    ],
+    "expertiseH2": "What's Included in Our eCommerce Implementation Services",
+    "expertiseDesc": "We cover the entire lifecycle of eCommerce Implementation. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>eCommerce Implementation Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of eCommerce Implementation. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our eCommerce Implementation<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for eCommerce Implementation?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of eCommerce Implementation."
+      },
+      {
+        "q": "Can you integrate our existing inventory management system?",
+        "a": "Yes, we build robust API integrations to connect your new eCommerce storefront with your existing ERP, CRM, or inventory management systems."
+      },
+      {
+        "q": "Do you optimize eCommerce sites for conversions and speed?",
+        "a": "Speed and UX are our top priorities for eCommerce. We ensure fast load times, frictionless checkouts, and optimized product pages to maximize your conversion rate."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "WoocommerceDevelopment",
+    "slug": "woocommerce-development",
+    "seoTitle": "WooCommerce Services | NOVADESK",
+    "seoDesc": "Expert WooCommerce tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "woocommerce, custom woocommerce, ecommerce development company, hire developers",
+    "heroH1": "WooCommerce",
+    "heroBlue": "WooCommerce",
+    "heroDesc": "NOVADESK delivers professional WooCommerce solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ SHOPIFY PLUS",
+      "✦ WOOCOMMERCE",
+      "✦ STRIPE INTEGRATION",
+      "✦ CUSTOM CHECKOUTS",
+      "✦ INVENTORY SYNC",
+      "✦ HEADLESS COMMERCE"
+    ],
+    "expertiseH2": "What's Included in Our WooCommerce Services",
+    "expertiseDesc": "We cover the entire lifecycle of WooCommerce. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>WooCommerce Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of WooCommerce. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our WooCommerce<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for WooCommerce?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of WooCommerce."
+      },
+      {
+        "q": "Can you integrate our existing inventory management system?",
+        "a": "Yes, we build robust API integrations to connect your new eCommerce storefront with your existing ERP, CRM, or inventory management systems."
+      },
+      {
+        "q": "Do you optimize eCommerce sites for conversions and speed?",
+        "a": "Speed and UX are our top priorities for eCommerce. We ensure fast load times, frictionless checkouts, and optimized product pages to maximize your conversion rate."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "ShopifyDevelopment",
+    "slug": "shopify-development",
+    "seoTitle": "Shopify Dev Services | NOVADESK",
+    "seoDesc": "Expert Shopify Dev tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "shopify dev, custom shopify dev, ecommerce development company, hire developers",
+    "heroH1": "Shopify",
+    "heroBlue": "Dev",
+    "heroDesc": "NOVADESK delivers professional Shopify Dev solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ SHOPIFY PLUS",
+      "✦ WOOCOMMERCE",
+      "✦ STRIPE INTEGRATION",
+      "✦ CUSTOM CHECKOUTS",
+      "✦ INVENTORY SYNC",
+      "✦ HEADLESS COMMERCE"
+    ],
+    "expertiseH2": "What's Included in Our Shopify Dev Services",
+    "expertiseDesc": "We cover the entire lifecycle of Shopify Dev. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>Shopify Dev Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of Shopify Dev. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our Shopify Dev<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for Shopify Dev?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of Shopify Dev."
+      },
+      {
+        "q": "Can you integrate our existing inventory management system?",
+        "a": "Yes, we build robust API integrations to connect your new eCommerce storefront with your existing ERP, CRM, or inventory management systems."
+      },
+      {
+        "q": "Do you optimize eCommerce sites for conversions and speed?",
+        "a": "Speed and UX are our top priorities for eCommerce. We ensure fast load times, frictionless checkouts, and optimized product pages to maximize your conversion rate."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "AndroidDevelopment",
+    "slug": "android-development",
+    "seoTitle": "Android Development Services | NOVADESK",
+    "seoDesc": "Expert Android Development tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "android development, custom android development, mobile development company, hire developers",
+    "heroH1": "Android",
+    "heroBlue": "Development",
+    "heroDesc": "NOVADESK delivers professional Android Development solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ REACT NATIVE",
+      "✦ FLUTTER",
+      "✦ SWIFT (IOS)",
+      "✦ KOTLIN (ANDROID)",
+      "✦ FIREBASE",
+      "✦ APP STORE DEPLOYMENT"
+    ],
+    "expertiseH2": "What's Included in Our Android Development Services",
+    "expertiseDesc": "We cover the entire lifecycle of Android Development. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>Android Development Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of Android Development. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our Android Development<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for Android Development?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of Android Development."
+      },
+      {
+        "q": "Do you build native or cross-platform applications?",
+        "a": "We specialize in both. We recommend cross-platform frameworks like React Native for faster time-to-market across iOS and Android, but we also build native apps for specialized performance needs."
+      },
+      {
+        "q": "Will you help us launch the app on the App Store and Google Play?",
+        "a": "Yes, our service includes end-to-end deployment. We handle the submission process, asset guidelines, and approval processes for both Apple and Google stores."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "IosDevelopment",
+    "slug": "ios-development",
+    "seoTitle": "iOS Development Services | NOVADESK",
+    "seoDesc": "Expert iOS Development tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "ios development, custom ios development, mobile development company, hire developers",
+    "heroH1": "iOS",
+    "heroBlue": "Development",
+    "heroDesc": "NOVADESK delivers professional iOS Development solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ REACT NATIVE",
+      "✦ FLUTTER",
+      "✦ SWIFT (IOS)",
+      "✦ KOTLIN (ANDROID)",
+      "✦ FIREBASE",
+      "✦ APP STORE DEPLOYMENT"
+    ],
+    "expertiseH2": "What's Included in Our iOS Development Services",
+    "expertiseDesc": "We cover the entire lifecycle of iOS Development. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>iOS Development Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of iOS Development. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our iOS Development<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for iOS Development?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of iOS Development."
+      },
+      {
+        "q": "Do you build native or cross-platform applications?",
+        "a": "We specialize in both. We recommend cross-platform frameworks like React Native for faster time-to-market across iOS and Android, but we also build native apps for specialized performance needs."
+      },
+      {
+        "q": "Will you help us launch the app on the App Store and Google Play?",
+        "a": "Yes, our service includes end-to-end deployment. We handle the submission process, asset guidelines, and approval processes for both Apple and Google stores."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "MobileAppDevelopment",
+    "slug": "mobile-app-development",
+    "seoTitle": "Mobile App Devs Services | NOVADESK",
+    "seoDesc": "Expert Mobile App Devs tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "mobile app devs, custom mobile app devs, mobile development company, hire developers",
+    "heroH1": "Mobile App",
+    "heroBlue": "Devs",
+    "heroDesc": "NOVADESK delivers professional Mobile App Devs solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ REACT NATIVE",
+      "✦ FLUTTER",
+      "✦ SWIFT (IOS)",
+      "✦ KOTLIN (ANDROID)",
+      "✦ FIREBASE",
+      "✦ APP STORE DEPLOYMENT"
+    ],
+    "expertiseH2": "What's Included in Our Mobile App Devs Services",
+    "expertiseDesc": "We cover the entire lifecycle of Mobile App Devs. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>Mobile App Devs Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of Mobile App Devs. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our Mobile App Devs<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for Mobile App Devs?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of Mobile App Devs."
+      },
+      {
+        "q": "Do you build native or cross-platform applications?",
+        "a": "We specialize in both. We recommend cross-platform frameworks like React Native for faster time-to-market across iOS and Android, but we also build native apps for specialized performance needs."
+      },
+      {
+        "q": "Will you help us launch the app on the App Store and Google Play?",
+        "a": "Yes, our service includes end-to-end deployment. We handle the submission process, asset guidelines, and approval processes for both Apple and Google stores."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "ReactNativeDevelopment",
+    "slug": "react-native-development",
+    "seoTitle": "React Native Development Services | NOVADESK",
+    "seoDesc": "Expert React Native Development tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "react native development, custom react native development, mobile development company, hire developers",
+    "heroH1": "React Native",
+    "heroBlue": "Development",
+    "heroDesc": "NOVADESK delivers professional React Native Development solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ REACT NATIVE",
+      "✦ FLUTTER",
+      "✦ SWIFT (IOS)",
+      "✦ KOTLIN (ANDROID)",
+      "✦ FIREBASE",
+      "✦ APP STORE DEPLOYMENT"
+    ],
+    "expertiseH2": "What's Included in Our React Native Development Services",
+    "expertiseDesc": "We cover the entire lifecycle of React Native Development. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>React Native Development Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of React Native Development. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our React Native Development<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for React Native Development?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of React Native Development."
+      },
+      {
+        "q": "Do you build native or cross-platform applications?",
+        "a": "We specialize in both. We recommend cross-platform frameworks like React Native for faster time-to-market across iOS and Android, but we also build native apps for specialized performance needs."
+      },
+      {
+        "q": "Will you help us launch the app on the App Store and Google Play?",
+        "a": "Yes, our service includes end-to-end deployment. We handle the submission process, asset guidelines, and approval processes for both Apple and Google stores."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "SaasDevelopment",
+    "slug": "saas-development",
+    "seoTitle": "SaaS Development Services | NOVADESK",
+    "seoDesc": "Expert SaaS Development tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "saas development, custom saas development, software development company, hire developers",
+    "heroH1": "SaaS",
+    "heroBlue": "Development",
+    "heroDesc": "NOVADESK delivers professional SaaS Development solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ SAAS ARCHITECTURE",
+      "✦ MULTI-TENANT SYSTEMS",
+      "✦ CLOUD DEPLOYMENT",
+      "✦ AWS / GCP",
+      "✦ MICROSERVICES",
+      "✦ SECURE APIS"
+    ],
+    "expertiseH2": "What's Included in Our SaaS Development Services",
+    "expertiseDesc": "We cover the entire lifecycle of SaaS Development. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>SaaS Development Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of SaaS Development. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our SaaS Development<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for SaaS Development?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of SaaS Development."
+      },
+      {
+        "q": "Who owns the source code once the software is finished?",
+        "a": "You do. Upon final payment, 100% of the Intellectual Property (IP) and source code ownership is transferred to you."
+      },
+      {
+        "q": "How do you ensure the software is secure and scalable?",
+        "a": "We follow industry-standard security practices (OWASP), implement robust authentication, and design cloud-native architectures that scale automatically as your user base grows."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "ErpSoftwareDevelopment",
+    "slug": "erp-software-development",
+    "seoTitle": "ERP Software Services | NOVADESK",
+    "seoDesc": "Expert ERP Software tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "erp software, custom erp software, software development company, hire developers",
+    "heroH1": "ERP",
+    "heroBlue": "Software",
+    "heroDesc": "NOVADESK delivers professional ERP Software solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ SAAS ARCHITECTURE",
+      "✦ MULTI-TENANT SYSTEMS",
+      "✦ CLOUD DEPLOYMENT",
+      "✦ AWS / GCP",
+      "✦ MICROSERVICES",
+      "✦ SECURE APIS"
+    ],
+    "expertiseH2": "What's Included in Our ERP Software Services",
+    "expertiseDesc": "We cover the entire lifecycle of ERP Software. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>ERP Software Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of ERP Software. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our ERP Software<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for ERP Software?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of ERP Software."
+      },
+      {
+        "q": "Who owns the source code once the software is finished?",
+        "a": "You do. Upon final payment, 100% of the Intellectual Property (IP) and source code ownership is transferred to you."
+      },
+      {
+        "q": "How do you ensure the software is secure and scalable?",
+        "a": "We follow industry-standard security practices (OWASP), implement robust authentication, and design cloud-native architectures that scale automatically as your user base grows."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "CrmSystemsDevelopment",
+    "slug": "crm-systems-development",
+    "seoTitle": "CRM Systems Services | NOVADESK",
+    "seoDesc": "Expert CRM Systems tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "crm systems, custom crm systems, software development company, hire developers",
+    "heroH1": "CRM",
+    "heroBlue": "Systems",
+    "heroDesc": "NOVADESK delivers professional CRM Systems solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ SAAS ARCHITECTURE",
+      "✦ MULTI-TENANT SYSTEMS",
+      "✦ CLOUD DEPLOYMENT",
+      "✦ AWS / GCP",
+      "✦ MICROSERVICES",
+      "✦ SECURE APIS"
+    ],
+    "expertiseH2": "What's Included in Our CRM Systems Services",
+    "expertiseDesc": "We cover the entire lifecycle of CRM Systems. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>CRM Systems Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of CRM Systems. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our CRM Systems<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for CRM Systems?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of CRM Systems."
+      },
+      {
+        "q": "Who owns the source code once the software is finished?",
+        "a": "You do. Upon final payment, 100% of the Intellectual Property (IP) and source code ownership is transferred to you."
+      },
+      {
+        "q": "How do you ensure the software is secure and scalable?",
+        "a": "We follow industry-standard security practices (OWASP), implement robust authentication, and design cloud-native architectures that scale automatically as your user base grows."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "EnterpriseSoftwareDevelopment",
+    "slug": "enterprise-software-development",
+    "seoTitle": "Enterprise Software Services | NOVADESK",
+    "seoDesc": "Expert Enterprise Software tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "enterprise software, custom enterprise software, software development company, hire developers",
+    "heroH1": "Enterprise",
+    "heroBlue": "Software",
+    "heroDesc": "NOVADESK delivers professional Enterprise Software solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ SAAS ARCHITECTURE",
+      "✦ MULTI-TENANT SYSTEMS",
+      "✦ CLOUD DEPLOYMENT",
+      "✦ AWS / GCP",
+      "✦ MICROSERVICES",
+      "✦ SECURE APIS"
+    ],
+    "expertiseH2": "What's Included in Our Enterprise Software Services",
+    "expertiseDesc": "We cover the entire lifecycle of Enterprise Software. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>Enterprise Software Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of Enterprise Software. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our Enterprise Software<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for Enterprise Software?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of Enterprise Software."
+      },
+      {
+        "q": "Who owns the source code once the software is finished?",
+        "a": "You do. Upon final payment, 100% of the Intellectual Property (IP) and source code ownership is transferred to you."
+      },
+      {
+        "q": "How do you ensure the software is secure and scalable?",
+        "a": "We follow industry-standard security practices (OWASP), implement robust authentication, and design cloud-native architectures that scale automatically as your user base grows."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "CustomSoftwareDevelopment",
+    "slug": "custom-software-development",
+    "seoTitle": "Custom Software Services | NOVADESK",
+    "seoDesc": "Expert Custom Software tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "custom software, custom custom software, software development company, hire developers",
+    "heroH1": "Custom",
+    "heroBlue": "Software",
+    "heroDesc": "NOVADESK delivers professional Custom Software solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ SAAS ARCHITECTURE",
+      "✦ MULTI-TENANT SYSTEMS",
+      "✦ CLOUD DEPLOYMENT",
+      "✦ AWS / GCP",
+      "✦ MICROSERVICES",
+      "✦ SECURE APIS"
+    ],
+    "expertiseH2": "What's Included in Our Custom Software Services",
+    "expertiseDesc": "We cover the entire lifecycle of Custom Software. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>Custom Software Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of Custom Software. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our Custom Software<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for Custom Software?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of Custom Software."
+      },
+      {
+        "q": "Who owns the source code once the software is finished?",
+        "a": "You do. Upon final payment, 100% of the Intellectual Property (IP) and source code ownership is transferred to you."
+      },
+      {
+        "q": "How do you ensure the software is secure and scalable?",
+        "a": "We follow industry-standard security practices (OWASP), implement robust authentication, and design cloud-native architectures that scale automatically as your user base grows."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  },
+  {
+    "componentName": "MvpDevelopment",
+    "slug": "mvp-development",
+    "seoTitle": "MVP Development Services | NOVADESK",
+    "seoDesc": "Expert MVP Development tailored for startups and enterprises. We build secure, scalable, and high-performance solutions. Get a free consultation today.",
+    "seoKeywords": "mvp development, custom mvp development, software development company, hire developers",
+    "heroH1": "MVP",
+    "heroBlue": "Development",
+    "heroDesc": "NOVADESK delivers professional MVP Development solutions designed to scale. From architecture to deployment, we build high-performance systems for modern businesses.",
+    "tickerItems": [
+      "✦ SAAS ARCHITECTURE",
+      "✦ MULTI-TENANT SYSTEMS",
+      "✦ CLOUD DEPLOYMENT",
+      "✦ AWS / GCP",
+      "✦ MICROSERVICES",
+      "✦ SECURE APIS"
+    ],
+    "expertiseH2": "What's Included in Our MVP Development Services",
+    "expertiseDesc": "We cover the entire lifecycle of MVP Development. Our modular approach ensures that your product is secure, fast, and easy to maintain as your business grows.",
+    "apiCtaH2": "Scale Faster With Our<br/>MVP Development Expertise",
+    "apiCtaDesc": "Partner with a team that understands the nuances of MVP Development. We build architectures that support millions of users without breaking a sweat.",
+    "processH2": "Inside Our MVP Development<br/>Process",
+    "faqs": [
+      {
+        "q": "Why should we choose NOVADESK for MVP Development?",
+        "a": "We bring deep engineering expertise without the agency bloat. You get direct access to senior developers who understand both the technical and business sides of MVP Development."
+      },
+      {
+        "q": "Who owns the source code once the software is finished?",
+        "a": "You do. Upon final payment, 100% of the Intellectual Property (IP) and source code ownership is transferred to you."
+      },
+      {
+        "q": "How do you ensure the software is secure and scalable?",
+        "a": "We follow industry-standard security practices (OWASP), implement robust authentication, and design cloud-native architectures that scale automatically as your user base grows."
+      },
+      {
+        "q": "What happens after the project is deployed?",
+        "a": "We offer dedicated post-launch support and maintenance packages. We ensure your system stays updated, secure, and running smoothly."
+      }
+    ]
+  }
+]
