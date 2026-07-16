@@ -1194,14 +1194,14 @@ export default function Home() {
 
             {/* LEFT */}
             <div className="nd-hero-left">
-              <div className="nd-eyebrow">FULL-STACK + AI STUDIO — BUILT & SHIPPED BY ONE DEVELOPER</div>
-              <h1 className="nd-h1">Build your Startup</h1>
-              <span className="nd-h1-blue">with NOVADESK</span>
+              <div className="nd-eyebrow">TOP-RATED CUSTOM SOFTWARE & OFFSHORE DEVELOPMENT AGENCY IN INDIA</div>
+              <h1 className="nd-h1">Top Custom Software &</h1>
+              <span className="nd-h1-blue">AI Development Company</span>
               <p className="nd-subtext">
-                We build custom web apps, mobile products, and AI-powered features for startups and growing businesses across India, UAE, and beyond.
+                We build scalable custom software, SaaS platforms, enterprise web apps, and AI-powered solutions. Hire expert offshore developers from India for high-quality, cost-effective engineering.
               </p>
               <p className="nd-subtext-sm">
-                Trusted by early-stage founders and venture-backed teams. Backed by direct developer access — no middlemen, no account managers.
+                Trusted by early-stage founders and venture-backed teams. Partner with a premier Web and Mobile App Development Agency to scale your business.
               </p>
               <p className="nd-industries">
                 <strong>Fintech, Healthcare, EdTech, Logistics, SaaS, E-commerce.</strong> We bring engineering depth, product thinking, and the execution speed your business actually needs.
