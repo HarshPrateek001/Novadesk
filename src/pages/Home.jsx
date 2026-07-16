@@ -667,6 +667,117 @@ export default function Home() {
         .nd-stat-label { font-size:17px; font-weight:800; color:#0A0A2E; margin-bottom:6px; }
         .nd-stat-desc { font-size:14px; color:#6B7280; font-weight:400; line-height:1.6; }
 
+        /* ── PORTFOLIO / PRODUCT CATALOG ── */
+        .nd-portfolio {
+          background-color: #2E29FF;
+          background-image: linear-gradient(135deg, #2E29FF 0%, #150E63 100%);
+          padding: 100px 0;
+          color: white;
+          position: relative;
+          overflow: hidden;
+        }
+        .nd-portfolio::before {
+          content: '';
+          position: absolute;
+          top: -150px; right: -150px;
+          width: 500px; height: 500px;
+          background: radial-gradient(circle, rgba(255,182,219,0.2) 0%, transparent 70%);
+          border-radius: 50%;
+          filter: blur(60px);
+          pointer-events: none;
+        }
+        .nd-portfolio-inner {
+          max-width: 1330px;
+          margin: 0 auto;
+          padding: 0 40px;
+          position: relative;
+          z-index: 2;
+        }
+        .nd-portfolio-header {
+          text-align: center;
+          margin-bottom: 60px;
+        }
+        .nd-portfolio-tag {
+          display: inline-flex; align-items: center; gap: 10px;
+          font-size: 14px; font-weight: 700; color: #FFB6DB;
+          text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+        }
+        .nd-portfolio-h2 {
+          font-size: 40px; font-weight: 800; color: white; margin-bottom: 16px;
+        }
+        .nd-portfolio-sub {
+          font-size: 16px; color: rgba(255,255,255,0.8); max-width: 680px; margin: 0 auto; line-height: 1.6;
+        }
+        .nd-portfolio-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 32px;
+        }
+        .nd-portfolio-card {
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 24px;
+          overflow: hidden;
+          transition: all 0.35s ease;
+          backdrop-filter: blur(10px);
+        }
+        .nd-portfolio-card:hover {
+          transform: translateY(-10px);
+          border-color: rgba(255, 255, 255, 0.3);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+          background: rgba(255, 255, 255, 0.08);
+        }
+        .nd-portfolio-img-wrap {
+          width: 100%;
+          height: 220px;
+          overflow: hidden;
+          background: rgba(0,0,0,0.2);
+        }
+        .nd-portfolio-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+        .nd-portfolio-card:hover .nd-portfolio-img {
+          transform: scale(1.05);
+        }
+        .nd-portfolio-info {
+          padding: 24px;
+        }
+        .nd-portfolio-title {
+          font-size: 20px;
+          font-weight: 800;
+          color: white;
+          margin-bottom: 8px;
+        }
+        .nd-portfolio-desc {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.7);
+          line-height: 1.6;
+          margin-bottom: 16px;
+        }
+        .nd-portfolio-tech {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .nd-portfolio-tech span {
+          font-size: 11px;
+          font-weight: 700;
+          color: #FFB6DB;
+          background: rgba(255, 182, 219, 0.1);
+          padding: 4px 10px;
+          border-radius: 20px;
+          text-transform: uppercase;
+        }
+        @media (max-width: 1024px) {
+          .nd-portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+          .nd-portfolio-grid { grid-template-columns: 1fr; }
+        }
+
         /* ── EXPERTISE / SERVICES ── */
         .nd-expertise { background:#fff; padding:100px 0; position:relative; }
         .nd-expertise-inner { max-width:1330px; margin:0 auto; padding:0 40px; }
@@ -1235,6 +1346,67 @@ export default function Home() {
                 <div>
                   <div className="nd-stat-label">Modern Stack, Built for Speed</div>
                   <p className="nd-stat-desc">Next.js, FastAPI, Supabase — chosen for fast iteration, not legacy overhead. What takes agencies weeks often ships here in days.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── NEW: PORTFOLIO / PROJECT CATALOG ── */}
+        <section className="nd-portfolio">
+          <div className="nd-portfolio-inner">
+            <div className="nd-portfolio-header">
+              <div className="nd-portfolio-tag">✦ Product Catalog ✦</div>
+              <h2 className="nd-portfolio-h2">Recent Projects & Platforms</h2>
+              <p className="nd-portfolio-sub">Explore some of the high-performance applications, enterprise systems, and custom software solutions we've built for our partners.</p>
+            </div>
+            
+            <div className="nd-portfolio-grid">
+              {/* Project 1 */}
+              <div className="nd-portfolio-card">
+                <div className="nd-portfolio-img-wrap">
+                  <img src="/webapp_hero_illustration.png" alt="Fintech Dashboard" className="nd-portfolio-img" />
+                </div>
+                <div className="nd-portfolio-info">
+                  <h3 className="nd-portfolio-title">Fintech Dashboard</h3>
+                  <p className="nd-portfolio-desc">A real-time analytics and trading dashboard built for a rapidly growing fintech startup to manage digital assets.</p>
+                  <div className="nd-portfolio-tech">
+                    <span>Next.js</span>
+                    <span>FastAPI</span>
+                    <span>PostgreSQL</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project 2 */}
+              <div className="nd-portfolio-card">
+                <div className="nd-portfolio-img-wrap">
+                  <img src="/hero_illustration.png" alt="Ecommerce Platform" className="nd-portfolio-img" />
+                </div>
+                <div className="nd-portfolio-info">
+                  <h3 className="nd-portfolio-title">Global eCommerce Platform</h3>
+                  <p className="nd-portfolio-desc">A high-conversion headless eCommerce storefront scaling seamlessly to handle $2M+ in monthly transactions.</p>
+                  <div className="nd-portfolio-tech">
+                    <span>Shopify Plus</span>
+                    <span>React</span>
+                    <span>Node.js</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project 3 */}
+              <div className="nd-portfolio-card">
+                <div className="nd-portfolio-img-wrap">
+                  <img src="/fullstack_hero_illustration.png" alt="AI SaaS" className="nd-portfolio-img" />
+                </div>
+                <div className="nd-portfolio-info">
+                  <h3 className="nd-portfolio-title">Generative AI SaaS</h3>
+                  <p className="nd-portfolio-desc">An AI-powered content generation suite seamlessly integrated with major LLM APIs for automated marketing.</p>
+                  <div className="nd-portfolio-tech">
+                    <span>OpenAI</span>
+                    <span>Supabase</span>
+                    <span>Next.js</span>
+                  </div>
                 </div>
               </div>
             </div>
