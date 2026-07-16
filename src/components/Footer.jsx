@@ -364,8 +364,8 @@ export default function Footer() {
               <div className="nd-footer-separator" />
               
               <div className="nd-footer-contact-label">Email:</div>
-              <a href="mailto:itsharsprateek@gmail.com" className="nd-footer-contact-value" style={{ display: 'block', fontSize: '15px' }}>itsharsprateek@gmail.com</a>
-              <a href="mailto:contact@novadesk.com" className="nd-footer-contact-value" style={{ display: 'block', fontSize: '15px', marginTop: '4px' }}>contact@novadesk.com</a>
+              <a href="mailto:novadesk.site@gmail.com" className="nd-footer-contact-value" style={{ display: 'block', fontSize: '15px' }}>novadesk.site@gmail.com</a>
+              <a href="mailto:novadesk.site@gmail.com" className="nd-footer-contact-value" style={{ display: 'block', fontSize: '15px', marginTop: '4px' }}>novadesk.site@gmail.com</a>
             </div>
           </div>
         </div>

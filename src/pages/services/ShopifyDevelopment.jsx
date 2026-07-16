@@ -1513,7 +1513,7 @@ export default function ShopifyDevelopment() {
               Get a Free Quote <ArrowRight />
             </Link>
             <div style={{ fontSize: '15px', color: '#64748b' }}>
-              or email hello@novadesk.dev
+              or email novadesk.site@gmail.com
             </div>
           </section>
         </div> */}

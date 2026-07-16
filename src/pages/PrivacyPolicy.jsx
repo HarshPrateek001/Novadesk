@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
         <p>When you interact with our Site or engage our Services, we may collect:</p>
         <ul>
           <li><strong>Contact form submissions</strong>: Name, email address, project type, and project details you enter.</li>
-          <li><strong>Email correspondence</strong>: Any information you share when emailing us directly (e.g., hello@novadesk.dev).</li>
+          <li><strong>Email correspondence</strong>: Any information you share when emailing us directly (e.g., novadesk.site@gmail.com).</li>
           <li><strong>Project-related information</strong>: If you become a client, we may collect additional details necessary to deliver the Services — such as business information, technical requirements, login credentials for third-party tools (handled securely and only as needed), and project documentation you share with us.</li>
           <li><strong>Payment information</strong>: If applicable, billing details processed through third-party payment processors (we do not directly store full card numbers).</li>
         </ul>
@@ -195,7 +195,7 @@ export default function PrivacyPolicy() {
           <li><strong>Data portability</strong> — receive your data in a portable format</li>
           <li><strong>Withdraw consent</strong> at any time, where processing is based on consent</li>
         </ul>
-        <p>To exercise any of these rights, contact us at <strong>hello@novadesk.dev</strong>. We will respond within a reasonable timeframe, generally within 30 days.</p>
+        <p>To exercise any of these rights, contact us at <strong>novadesk.site@gmail.com</strong>. We will respond within a reasonable timeframe, generally within 30 days.</p>
 
         <hr />
 
@@ -222,7 +222,7 @@ export default function PrivacyPolicy() {
         <h2>13. Contact Us</h2>
         <p>If you have questions, concerns, or requests regarding this Privacy Policy or how your information is handled, contact us at:</p>
         <p>
-          <strong>Email:</strong> hello@novadesk.dev<br />
+          <strong>Email:</strong> novadesk.site@gmail.com<br />
           <strong>Business:</strong> NovaDesk — Full-Stack + AI Development Studio<br />
           <strong>Location:</strong> New Delhi, India
         </p>

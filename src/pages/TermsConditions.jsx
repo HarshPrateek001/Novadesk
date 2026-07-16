@@ -245,7 +245,7 @@ export default function TermsConditions() {
         <h2>16. Contact Us</h2>
         <p>For questions about these Terms, contact:</p>
         <p>
-          <strong>Email:</strong> itsharshprateek@gmail.com<br />
+          <strong>Email:</strong> novadesk.site@gmail.com<br />
           <strong>Business:</strong> NovaDesk — Full-Stack + AI Development Studio<br />
           <strong>Location:</strong> New Delhi, India
         </p>

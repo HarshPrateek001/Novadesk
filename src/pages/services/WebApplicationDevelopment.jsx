@@ -1876,7 +1876,7 @@ export default function WebApplicationDevelopment() {
             </p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
               <Link to="/contact-us" className="fs-btn fs-btn-primary">Get a Free Quote <ArrowRight /></Link>
-              <a href="mailto:hello@novadesk.dev" className="fs-btn fs-btn-outline" style={{ border: '1px solid white', color: 'white' }}>or email hello@novadesk.dev</a>
+              <a href="mailto:novadesk.site@gmail.com" className="fs-btn fs-btn-outline" style={{ border: '1px solid white', color: 'white' }}>or email novadesk.site@gmail.com</a>
             </div>
           </div>
         </section> */}
