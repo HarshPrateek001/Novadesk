@@ -1224,7 +1224,7 @@ export default function Home() {
             <div className="nd-hero-right">
               <img src="/hero-my-image.png" alt="NOVADESK software development studio" className="nd-hero-direct-img" />
               <div className="nd-hero-img-caption">
-                <h3>Founder & Lead Engenieer, NOVADESK</h3>
+                <h3>Founder & Lead Engineer, NOVADESK</h3>
                 <h2>HARSH PRATEEK</h2>
               </div>
             </div>
