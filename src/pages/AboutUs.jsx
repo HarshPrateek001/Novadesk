@@ -76,7 +76,7 @@ export default function AboutUs() {
               
               <div className="founder-badge" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div className="founder-avatar">
-                  <img src="/hero-my-image.png" alt="Harsh Prateek" style={{ borderRadius: '50%', width: '72px', height: '52px', objectFit: 'cover', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
+                  <img src="/hero-my-image.webp" alt="Harsh Prateek" style={{ borderRadius: '50%', width: '72px', height: '52px', objectFit: 'cover', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
                 </div>
                 <div className="founder-info" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
                   <strong style={{ fontSize: '24px', color: '#111827', letterSpacing: '-0.5px', fontWeight: '600', lineHeight: '1.2' }}>Harsh Prateek</strong>

@@ -963,7 +963,7 @@ export default function CmsDevelopment() {
           position: absolute;
           bottom: 0; right: 0;
           width: 60%; height: 250px;
-          background: #D0D5FF url('/faq_small.png') center/cover no-repeat;
+          background: #D0D5FF url('/faq_small.webp') center/cover no-repeat;
           border-radius: 24px;
           box-shadow: 0 20px 40px rgba(0,0,0,0.2);
           border: 4px solid white;
@@ -1100,7 +1100,7 @@ export default function CmsDevelopment() {
               </div>
             </div>
             <div className="fs-hero-image-wrapper">
-              <img src="/webapp_hero_illustration.png" alt="CmsDevelopment Team" className="fs-hero-image" />
+              <img src="/webapp_hero_illustration.webp" alt="CmsDevelopment Team" className="fs-hero-image" />
             </div>
           </div>
         </section>

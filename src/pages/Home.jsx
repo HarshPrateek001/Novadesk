@@ -1222,7 +1222,7 @@ export default function Home() {
 
             {/* RIGHT — DIRECT IMAGE WITHOUT FRAMES OR BADGES */}
             <div className="nd-hero-right">
-              <img src="/hero-my-image.png" alt="NOVADESK software development studio" className="nd-hero-direct-img" />
+              <img src="/hero-my-image.webp" alt="NOVADESK software development studio" className="nd-hero-direct-img" />
               <div className="nd-hero-img-caption">
                 <h3>Founder & Lead Engineer, NOVADESK</h3>
                 <h2>HARSH PRATEEK</h2>
@@ -1365,7 +1365,7 @@ export default function Home() {
               {/* Project 1 */}
               <div className="nd-portfolio-card">
                 <div className="nd-portfolio-img-wrap">
-                  <img src="/webapp_hero_illustration.png" alt="Fintech Dashboard" className="nd-portfolio-img" />
+                  <img src="/webapp_hero_illustration.webp" alt="Fintech Dashboard" className="nd-portfolio-img" />
                 </div>
                 <div className="nd-portfolio-info">
                   <h3 className="nd-portfolio-title">Fintech Dashboard</h3>
@@ -1381,7 +1381,7 @@ export default function Home() {
               {/* Project 2 */}
               <div className="nd-portfolio-card">
                 <div className="nd-portfolio-img-wrap">
-                  <img src="/hero_illustration.png" alt="Ecommerce Platform" className="nd-portfolio-img" />
+                  <img src="/hero_illustration.webp" alt="Ecommerce Platform" className="nd-portfolio-img" />
                 </div>
                 <div className="nd-portfolio-info">
                   <h3 className="nd-portfolio-title">Global eCommerce Platform</h3>
@@ -1397,7 +1397,7 @@ export default function Home() {
               {/* Project 3 */}
               <div className="nd-portfolio-card">
                 <div className="nd-portfolio-img-wrap">
-                  <img src="/fullstack_hero_illustration.png" alt="AI SaaS" className="nd-portfolio-img" />
+                  <img src="/fullstack_hero_illustration.webp" alt="AI SaaS" className="nd-portfolio-img" />
                 </div>
                 <div className="nd-portfolio-info">
                   <h3 className="nd-portfolio-title">Generative AI SaaS</h3>
@@ -1560,7 +1560,7 @@ export default function Home() {
             {/* Section footer profile & CTA */}
             <div className="nd-process-footer">
               <div className="nd-process-profile">
-                <img src="/hero-my-image.png" alt="Harsh Prateek" className="nd-process-avatar" />
+                <img src="/hero-my-image.webp" alt="Harsh Prateek" className="nd-process-avatar" />
                 <div className="nd-process-profile-info">
                   <h4>Harsh Prateek</h4>
                   <p>Founder, NOVADESK</p>

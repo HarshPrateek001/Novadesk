@@ -922,7 +922,7 @@ export default function WebApplicationDevelopment() {
         .fs-why-img-1 {
           width: 85%;
           height: 480px;
-          background: #1a16d9 url('/WHY1.jpg') center/cover no-repeat;
+          background: #1a16d9 url('/WHY1.webp') center/cover no-repeat;
           border-radius: 32px;
           position: absolute;
           top: 50px; left: 0;
@@ -932,7 +932,7 @@ export default function WebApplicationDevelopment() {
         .fs-why-img-2 {
           width: 50%;
           height: 250px;
-          background: #ffffff url('/WHY2.jpg') center/cover no-repeat;
+          background: #ffffff url('/WHY2.webp') center/cover no-repeat;
           border-radius: 20px;
           position: absolute;
           bottom: 0; right: 0;
@@ -1298,7 +1298,7 @@ export default function WebApplicationDevelopment() {
           position: absolute;
           bottom: 0; right: 0;
           width: 60%; height: 250px;
-          background: #D0D5FF url('/faq_small.png') center/cover no-repeat;
+          background: #D0D5FF url('/faq_small.webp') center/cover no-repeat;
           border-radius: 24px;
           box-shadow: 0 20px 40px rgba(0,0,0,0.2);
           border: 4px solid white;
@@ -1437,7 +1437,7 @@ export default function WebApplicationDevelopment() {
             </div>
             <div className="fs-hero-image-wrapper">
               <div className="fs-blob"></div>
-              <img src="/webapp_hero_illustration.png" alt="Custom Web Application Development" className="fs-hero-image" />
+              <img src="/webapp_hero_illustration.webp" alt="Custom Web Application Development" className="fs-hero-image" />
               
               {/* Premium Floating Tech Badges */}
               <div className="fs-premium-badge fs-badge-react">

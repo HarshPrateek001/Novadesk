@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 export default function SEO({ title, description, keywords, image, url, schema }) {
   const siteTitle = "NovaDesk — Premium Tech Pods & Software Agency";
   const defaultDescription = "NovaDesk is a premier software engineering agency. We configure highly optimized offshore teams for businesses requiring custom Web apps, mobile systems, and AI deployments.";
-  const defaultImage = "https://www.novadesk.site/hero-my-image.png"; // Fallback image
+  const defaultImage = "https://www.novadesk.site/hero-my-image.webp"; // Fallback image
   
   const pageTitle = title ? `${title} | NovaDesk` : siteTitle;
   const pageDescription = description || defaultDescription;

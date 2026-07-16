@@ -567,7 +567,7 @@ export default function ChatWidget() {
               </button>
               <div className="nd-chat-avatar-wrapper">
                 <div className="nd-chat-avatar-inner">
-                  <img src="/hero-my-image.png" alt="Founder" className="nd-chat-avatar" />
+                  <img src="/hero-my-image.webp" alt="Founder" className="nd-chat-avatar" />
                 </div>
                 <span className="nd-chat-status-dot" />
               </div>

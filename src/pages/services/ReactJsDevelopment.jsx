@@ -921,7 +921,7 @@ export default function ReactJsDevelopment() {
               </div>
             </div>
             <div className="fs-hero-image-wrapper">
-              <img src="/react_hero_illustration.png" alt="React JS Development" className="fs-hero-image" />
+              <img src="/react_hero_illustration.webp" alt="React JS Development" className="fs-hero-image" />
             </div>
           </div>
         </section>
