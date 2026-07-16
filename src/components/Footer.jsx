@@ -325,10 +325,10 @@ export default function Footer() {
           <div className="nd-footer-col">
             <h4>Solutions</h4>
             <ul className="nd-footer-links">
-              <li><Link to="/">SaaS Development Services</Link></li>
-              <li><Link to="/">DevOps Services</Link></li>
-              <li><Link to="/">AI Development Services</Link></li>
-              <li><Link to="/">Software Development</Link></li>
+              <li><Link to="/services/saas-development">SaaS Development</Link></li>
+              <li><Link to="/services/web-application-development">Web Application Development</Link></li>
+              <li><Link to="/services/gen-ai-development">AI Development</Link></li>
+              <li><Link to="/services/custom-software-development">Custom Software</Link></li>
             </ul>
           </div>
 

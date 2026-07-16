@@ -538,119 +538,117 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Mega Menus Dropdown */}
-          {openMenu && (
-            <>
-              <div className="hdr-mega-backdrop" onClick={close} />
-              <div className="hdr-mega-wrap">
-                {openMenu === 'industries' && <IndustriesMenu />}
-                {openMenu === 'services' && <ServicesMenu />}
+          {/* Mega Menus Dropdown - Rendered for SEO */}
+          <div style={{
+            position: 'absolute', top: '78px', left: 0, right: 0,
+            opacity: openMenu ? 1 : 0,
+            visibility: openMenu ? 'visible' : 'hidden',
+            pointerEvents: openMenu ? 'auto' : 'none',
+            zIndex: 999
+          }}>
+            <div className="hdr-mega-backdrop" onClick={close} style={{ display: openMenu ? 'block' : 'none' }} />
+            <div className="hdr-mega-wrap" style={{ position: 'relative', top: 0, opacity: 1, visibility: 'visible', padding: '16px 20px 0' }}>
+              <div style={{ display: openMenu === 'industries' || !openMenu ? 'block' : 'none' }}>
+                <IndustriesMenu />
               </div>
-            </>
-          )}
-
-          {/* Mobile Navigation Dropdown */}
-          {mobileOpen && (
-            <div className="hdr-mobile-nav">
-              {/* Industries Dropdown */}
-              <div className="hdr-mobile-group">
-                <button 
-                  className={`hdr-mobile-trigger ${mobileIndustriesOpen ? 'open' : ''}`}
-                  onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
-                >
-                  <span>Industries</span>
-                  <ChevronDown />
-                </button>
-                {mobileIndustriesOpen && (
-                  <div className="hdr-mobile-sub">
-                    {industries.map(i => (
-                      <Link 
-                        key={i.name} 
-                        to={`/industries/${i.name.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`} 
-                        className="hdr-mobile-sub-link" 
-                        onClick={() => { setMobileOpen(false); setMobileIndustriesOpen(false); }}
-                      >
-                        {i.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Services Dropdown */}
-              <div className="hdr-mobile-group">
-                <button 
-                  className={`hdr-mobile-trigger ${mobileServicesOpen ? 'open' : ''}`}
-                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                >
-                  <span>Services</span>
-                  <ChevronDown />
-                </button>
-                {mobileServicesOpen && (
-                  <div className="hdr-mobile-sub">
-                    {servicesNav.map(s => (
-                      <div key={s.id} className="hdr-mobile-service-cat">
-                        <span className="hdr-mobile-service-cat-title">{s.label}</span>
-                        <div className="hdr-mobile-service-links">
-                          {s.links.map(l => (
-                            <Link 
-                              key={l} 
-                              to={getServiceUrl(l)} 
-                              className="hdr-mobile-sub-link sub-sub" 
-                              onClick={() => { setMobileOpen(false); setMobileServicesOpen(false); }}
-                            >
-                              {l}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Hire Developers Dropdown */}
-              <div className="hdr-mobile-group">
-                <button 
-                  className={`hdr-mobile-trigger ${mobileHireOpen ? 'open' : ''}`}
-                  onClick={() => setMobileHireOpen(!mobileHireOpen)}
-                >
-                  <span>Hire Developers</span>
-                  <ChevronDown />
-                </button>
-                {mobileHireOpen && (
-                  <div className="hdr-mobile-sub">
-                    <Link to="/contact-us" className="hdr-mobile-sub-link" onClick={() => { setMobileOpen(false); setMobileHireOpen(false); }}>Hire Dedicated Devs</Link>
-                  </div>
-                )}
-              </div>
-
-              {/* Company Dropdown */}
-              <div className="hdr-mobile-group">
-                <button 
-                  className={`hdr-mobile-trigger ${mobileCompanyOpen ? 'open' : ''}`}
-                  onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)}
-                >
-                  <span>Company</span>
-                  <ChevronDown />
-                </button>
-                {mobileCompanyOpen && (
-                  <div className="hdr-mobile-sub">
-                    <Link to="/about-us" className="hdr-mobile-sub-link" onClick={() => { setMobileOpen(false); setMobileCompanyOpen(false); }}>About Us</Link>
-                    <Link to="/contact-us" className="hdr-mobile-sub-link" onClick={() => { setMobileOpen(false); setMobileCompanyOpen(false); }}>Contact Us</Link>
-                  </div>
-                )}
-              </div>
-
-              {/* Bottom Button */}
-              <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column' }}>
-                <Link to="/contact-us" className="hdr-mobile-cta" onClick={() => setMobileOpen(false)}>
-                  Schedule a Free Consultation
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 19L19 5M19 5v10M19 5H9"/></svg>
-                </Link>
+              <div style={{ display: openMenu === 'services' || !openMenu ? 'block' : 'none' }}>
+                <ServicesMenu />
               </div>
             </div>
-          )}
+          </div>
+
+          {/* Mobile Navigation Dropdown - Always in DOM for SEO */}
+          <div className="hdr-mobile-nav" style={{ display: mobileOpen ? 'flex' : 'none' }}>
+            {/* Industries Dropdown */}
+            <div className="hdr-mobile-group">
+              <button 
+                className={`hdr-mobile-trigger ${mobileIndustriesOpen ? 'open' : ''}`}
+                onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+              >
+                <span>Industries</span>
+                <ChevronDown />
+              </button>
+              <div className="hdr-mobile-sub" style={{ display: mobileIndustriesOpen ? 'flex' : 'none' }}>
+                {industries.map(i => (
+                  <Link 
+                    key={i.name} 
+                    to={`/industries/${i.name.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`} 
+                    className="hdr-mobile-sub-link" 
+                    onClick={() => { setMobileOpen(false); setMobileIndustriesOpen(false); }}
+                  >
+                    {i.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Services Dropdown */}
+            <div className="hdr-mobile-group">
+              <button 
+                className={`hdr-mobile-trigger ${mobileServicesOpen ? 'open' : ''}`}
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              >
+                <span>Services</span>
+                <ChevronDown />
+              </button>
+              <div className="hdr-mobile-sub" style={{ display: mobileServicesOpen ? 'flex' : 'none' }}>
+                {servicesNav.map(s => (
+                  <div key={s.id} className="hdr-mobile-service-cat">
+                    <span className="hdr-mobile-service-cat-title">{s.label}</span>
+                    <div className="hdr-mobile-service-links">
+                      {s.links.map(l => (
+                        <Link 
+                          key={l} 
+                          to={getServiceUrl(l)} 
+                          className="hdr-mobile-sub-link sub-sub" 
+                          onClick={() => { setMobileOpen(false); setMobileServicesOpen(false); }}
+                        >
+                          {l}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Hire Developers Dropdown */}
+            <div className="hdr-mobile-group">
+              <button 
+                className={`hdr-mobile-trigger ${mobileHireOpen ? 'open' : ''}`}
+                onClick={() => setMobileHireOpen(!mobileHireOpen)}
+              >
+                <span>Hire Developers</span>
+                <ChevronDown />
+              </button>
+              <div className="hdr-mobile-sub" style={{ display: mobileHireOpen ? 'flex' : 'none' }}>
+                <Link to="/contact-us" className="hdr-mobile-sub-link" onClick={() => { setMobileOpen(false); setMobileHireOpen(false); }}>Hire Dedicated Devs</Link>
+              </div>
+            </div>
+
+            {/* Company Dropdown */}
+            <div className="hdr-mobile-group">
+              <button 
+                className={`hdr-mobile-trigger ${mobileCompanyOpen ? 'open' : ''}`}
+                onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)}
+              >
+                <span>Company</span>
+                <ChevronDown />
+              </button>
+              <div className="hdr-mobile-sub" style={{ display: mobileCompanyOpen ? 'flex' : 'none' }}>
+                <Link to="/about-us" className="hdr-mobile-sub-link" onClick={() => { setMobileOpen(false); setMobileCompanyOpen(false); }}>About Us</Link>
+                <Link to="/contact-us" className="hdr-mobile-sub-link" onClick={() => { setMobileOpen(false); setMobileCompanyOpen(false); }}>Contact Us</Link>
+              </div>
+            </div>
+
+            {/* Bottom Button */}
+            <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column' }}>
+              <Link to="/contact-us" className="hdr-mobile-cta" onClick={() => setMobileOpen(false)}>
+                Schedule a Free Consultation
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 19L19 5M19 5v10M19 5H9"/></svg>
+              </Link>
+            </div>
+          </div>
         </div>
       </header>
     </>
