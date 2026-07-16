@@ -194,6 +194,28 @@ export default function Footer() {
           align-items: center;
         }
 
+        /* ── LOCAL SEO ── */
+        .nd-local-seo {
+          border-top: 1px solid rgba(255, 255, 255, 0.15);
+          padding: 40px 0;
+          text-align: center;
+        }
+        .nd-local-seo h4 {
+          font-size: 13px;
+          font-weight: 700;
+          color: #00FFB2;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          margin-bottom: 16px;
+        }
+        .nd-local-seo p {
+          font-size: 13px;
+          color: rgba(255, 255, 255, 0.65);
+          line-height: 1.8;
+          max-width: 1000px;
+          margin: 0 auto;
+        }
+
         /* ── GIANT WATERMARK ── */
         .nd-footer-watermark {
           font-size: clamp(117px, 17.5vw, 251px);
@@ -348,7 +370,15 @@ export default function Footer() {
           </div>
         </div>
 
-        
+        {/* Local SEO Cities List */}
+        <div className="nd-local-seo">
+          <h4>Proudly Serving Clients Across India</h4>
+          <p>
+            Mumbai • Bengaluru • New Delhi • Hyderabad • Pune • Chennai • Ahmedabad • Kolkata • Jaipur • Surat • 
+            Gurugram • Noida • Chandigarh • Kochi • Indore • Lucknow • Bhopal • Coimbatore • Patna • Nagpur • 
+            Vadodara • Ludhiana • Agra • Nashik • Kanpur • Thane • Visakhapatnam • Rajkot
+          </p>
+        </div>
 
         {/* Large Watermark Text */}
         <div className="nd-footer-watermark">
