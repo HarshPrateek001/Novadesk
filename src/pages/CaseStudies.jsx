@@ -28,8 +28,8 @@ export default function CaseStudies() {
   const filteredCases = filter === 'all' ? cases : cases.filter(item => item.category === filter);
 
   return (
-    <div style={{ paddingTop: '80px', background: 'var(--color-cream)', minHeight: '100vh', paddingBottom: '100px' }}>
-<section style={{ padding: '80px 0 40px 0' }}>
+    <div className="nd-case-studies-page" style={{ paddingTop: '80px', background: 'var(--color-cream)', minHeight: '100vh', paddingBottom: '100px' }}>
+      <section className="nd-case-studies-hero" style={{ padding: '80px 0 40px 0' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
           <span style={{ color: 'var(--color-secondary)', fontWeight: 'bold', fontSize: '14px', textTransform: 'uppercase' }}>CASE STUDIES</span>
           <h1 style={{ fontSize: '48px', margin: '12px 0 24px 0', lineHeight: '1.2' }}>

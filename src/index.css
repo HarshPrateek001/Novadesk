@@ -613,3 +613,95 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* ── GLOBAL MOBILE OVERRIDES FOR INNER PAGES ── */
+@media (max-width: 1024px) {
+  /* Service Pages Defaults */
+  .fs-hero-grid, .fs-services-grid, .fs-audience-grid, .fs-process-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .fs-hero-image-wrapper {
+    margin-top: 40px !important;
+    margin-left: 0 !important;
+  }
+  .fs-hero-title {
+    font-size: 42px !important;
+  }
+  
+  /* About Us */
+  .about-story, .about-how, .about-who, .about-background, .about-hero {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Contact Us */
+  .nd-contact-page {
+    padding-top: 100px !important;
+    padding-bottom: 60px !important;
+  }
+  
+  /* Privacy & Terms */
+  .privacy-page, .terms-page {
+    padding-top: 100px !important;
+    padding-bottom: 40px !important;
+  }
+
+  /* Case Studies */
+  .nd-case-studies-page {
+    padding-top: 80px !important;
+    padding-bottom: 60px !important;
+  }
+  .nd-case-studies-hero {
+    padding-top: 40px !important;
+    padding-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Heavy-handed padding overrides for inline styles on mobile */
+  .about-how > div > div {
+    flex-direction: column !important;
+    padding: 30px !important;
+  }
+  .about-how img, .about-hero-content img {
+    position: static !important;
+    width: 100% !important;
+    max-width: 300px !important;
+    height: auto !important;
+    margin-top: 20px !important;
+  }
+
+  .nd-faq-title {
+    font-size: 26px !important;
+  }
+  
+  .who-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Service Page Overrides */
+  .fs-hero-title {
+    font-size: 36px !important;
+  }
+  .fs-api-cta-stats {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .fs-floating-badge {
+    position: static !important;
+    display: inline-flex !important;
+    margin-bottom: 10px !important;
+    transform: none !important;
+  }
+  .fs-badge-1, .fs-badge-2 {
+    bottom: auto !important;
+    right: auto !important;
+  }
+  
+  .nd-case-studies-hero h1 {
+    font-size: 36px !important;
+  }
+}
+
