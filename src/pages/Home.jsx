@@ -331,6 +331,15 @@ export default function Home() {
       "url": "https://www.novadesk.site",
       "logo": "https://www.novadesk.site/favicon.svg",
       "description": "NovaDesk is a premier software engineering agency providing highly optimized offshore teams for custom Web apps, mobile systems, and AI deployments.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "India"
+      },
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.linkedin.com/company/novadesk",
+        "https://www.instagram.com/novadesk"
+      ],
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer support",
@@ -354,9 +363,9 @@ export default function Home() {
   return (
     <>
       <SEO 
-        title="Full-Stack & AI Development Studio"
-        description="NovaDesk is a premier software engineering agency providing highly optimized offshore teams for custom Web apps, mobile systems, and AI deployments."
-        keywords="NovaDesk, software agency, AI development, Full Stack Development, offshore engineering"
+        title="India's Premier Custom Software & AI Development Studio"
+        description="Partner with Novadesk, India's leading software development agency. We build scalable custom web apps, SaaS platforms, mobile solutions, and enterprise AI software."
+        keywords="Top software development agency in India, AI app developers, custom SaaS development, Web app development company, hire offshore developers, Novadesk"
         url="/"
         schema={jsonLdSchema}
       />
@@ -1194,14 +1203,17 @@ export default function Home() {
 
             {/* LEFT */}
             <div className="nd-hero-left">
-              <div className="nd-eyebrow">TOP-RATED CUSTOM SOFTWARE & OFFSHORE DEVELOPMENT AGENCY IN INDIA</div>
-              <h1 className="nd-h1">Top Custom Software &</h1>
-              <span className="nd-h1-blue">AI Development Company</span>
+              <div className="nd-eyebrow">
+                <span className="nd-sparkle">✦</span>
+                TOP SOFTWARE DEVELOPMENT AGENCY IN INDIA
+              </div>
+              <h1 className="nd-h1">India's Premier</h1>
+              <h2 className="nd-h1-blue">Full-Stack &amp; AI Studio</h2>
               <p className="nd-subtext">
-                We build scalable custom software, SaaS platforms, enterprise web apps, and AI-powered solutions. Hire expert offshore developers from India for high-quality, cost-effective engineering.
+                Partner with top-tier developers to build scalable custom web apps, mobile solutions, SaaS platforms, and enterprise AI software. We turn your vision into high-performance digital products.
               </p>
               <p className="nd-subtext-sm">
-                Trusted by early-stage founders and venture-backed teams. Partner with a premier Web and Mobile App Development Agency to scale your business.
+                Trusted by early-stage founders and venture-backed teams. Hire expert offshore developers from India for high-quality engineering.
               </p>
               <p className="nd-industries">
                 <strong>Fintech, Healthcare, EdTech, Logistics, SaaS, E-commerce.</strong> We bring engineering depth, product thinking, and the execution speed your business actually needs.
@@ -1423,7 +1435,7 @@ export default function Home() {
               </div>
               <div>
                 <p className="nd-expertise-desc">
-                  NOVADESK is a full-service software and AI development studio trusted by startups, scale-ups, and enterprises across India, the USA, UK, UAE, and Australia.
+                  NOVADESK is a dedicated software and AI development studio helping startups and growing businesses turn ideas into scalable digital products.
                 </p>
                 <p className="nd-expertise-desc">
                   From custom software development and mobile apps to generative AI solutions and enterprise platforms, we cover every layer of the product design, development, QA, and deployment so you get one reliable partner from idea to launch.
