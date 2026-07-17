@@ -36,10 +36,7 @@ function AchievementsSidebar() {
           <span className="hdr-logo-linkedin">Linked<span>in</span></span>
           <span className="hdr-ach-label">Top 20 Indian Startup</span>
         </div>
-        <div className="hdr-ach-logo-item">
-          <span className="hdr-logo-cmmi">CMMI</span>
-          <span className="hdr-ach-label">Maturity Level 5</span>
-        </div>
+
         <div className="hdr-ach-logo-item">
           <span className="hdr-logo-years">14<sup>+</sup></span>
           <span className="hdr-ach-label">Years of Tech Experience</span>

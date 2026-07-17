@@ -1117,7 +1117,6 @@ export default function ErpSoftwareDevelopment() {
                     <span>✦ 100% IP OWNERSHIP</span>
                     <span>✦ DIRECT DEVELOPER ACCESS</span>
                     <span>✦ WEEKLY WORKABLE MILESTONES</span>
-                    <span>✦ CMMI LEVEL 5 STANDARDS</span>
                   </div>
                 ))}
               </div>

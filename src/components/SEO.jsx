@@ -2,13 +2,13 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 export default function SEO({ title, description, keywords, image, url, schema }) {
-  const siteTitle = "NovaDesk — Premium Tech Pods & Software Agency";
+  const siteTitle = "NovaDesk | Custom Software & AI Development Agency in India";
   const defaultDescription = "NovaDesk is a premier software engineering agency. We configure highly optimized offshore teams for businesses requiring custom Web apps, mobile systems, and AI deployments.";
   const defaultImage = "https://www.novadesk.site/hero-my-image.webp"; // Fallback image
   
   const pageTitle = title ? `${title} | NovaDesk` : siteTitle;
   const pageDescription = description || defaultDescription;
-  const pageKeywords = keywords || "NovaDesk, software agency, custom web development, mobile app development, AI solutions";
+  const pageKeywords = keywords || "NovaDesk, software development agency in India, AI app developers, custom SaaS development, Web app development company, hire offshore developers, AI solutions";
   const pageUrl = url ? `https://www.novadesk.site${url}` : "https://www.novadesk.site";
   const pageImage = image || defaultImage;
 
