@@ -375,7 +375,7 @@ export default function Footer() {
 
         {/* Local SEO Cities List */}
         <div className="nd-local-seo">
-          <h4>Proudly Serving Clients Across India</h4>
+          <h4>Serving clients across India, US, UK, UAE</h4>
           <p>
             Mumbai • Bengaluru • New Delhi • Hyderabad • Pune • Chennai • Ahmedabad • Kolkata • Jaipur • Surat • 
             Gurugram • Noida • Chandigarh • Kochi • Indore • Lucknow • Bhopal • Coimbatore • Patna • Nagpur • 

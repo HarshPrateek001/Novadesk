@@ -157,7 +157,7 @@ const techRow2 = [
 
 // ─── MAIN HOME ────────────────────────────────────────────────────────────
 export default function Home() {
-  const [activeTab, setActiveTab] = useState('software');
+  const [activeTab, setActiveTab] = useState('ai');
   const [activeFaq, setActiveFaq] = useState(null);
   const [statsVisible, setStatsVisible] = useState(false);
   const statsRef = useRef(null);
