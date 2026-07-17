@@ -62,5 +62,47 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Security: Block Right-Click and DevTools Shortcuts -->
+    <script>
+      // Disable Right Click
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+
+      // Disable specific keyboard shortcuts (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U)
+      document.addEventListener('keydown', function(e) {
+        // F12
+        if (e.key === 'F12') {
+          e.preventDefault();
+        }
+        // Ctrl+Shift+I / Cmd+Option+I
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'I') {
+          e.preventDefault();
+        }
+        // Ctrl+Shift+J / Cmd+Option+J
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'J') {
+          e.preventDefault();
+        }
+        // Ctrl+Shift+C / Cmd+Option+C
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
+          e.preventDefault();
+        }
+        // Ctrl+U / Cmd+U (View Source)
+        if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
+          e.preventDefault();
+        }
+      });
+      
+      // Optional: Add a debugger trap to slow down inspection
+      setInterval(function() {
+        var devtools = function() {};
+        devtools.toString = function() {
+          return 'devtools';
+        }
+        // If console is open, this might pause execution (deterrent)
+        // debugger; 
+      }, 1000);
+    </script>
   </body>
 </html>
