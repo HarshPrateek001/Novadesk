@@ -218,8 +218,11 @@ export default function Footer() {
 
         /* ── GIANT WATERMARK ── */
         .nd-footer-watermark {
-          font-size: clamp(117px, 17.5vw, 251px);
+          font-size: clamp(30px, 12.5vw, 251px);
           font-weight: 900;
+          white-space: nowrap;
+          overflow: hidden;
+          width: 100%;
           text-align: center;
           background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
           -webkit-background-clip: text;
