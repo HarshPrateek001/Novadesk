@@ -36,13 +36,13 @@ export default function Fintech() {
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "Fintech Software Development",
+      "serviceType": "Fintech Software Solutions",
       "provider": {
         "@type": "ProfessionalService",
         "name": "NovaDesk"
       },
       "areaServed": "Worldwide",
-      "description": "Enterprise Fintech Software Solutions including Core Banking, AI Lending, and Payment Gateways."
+      "description": "Novadesk offers enterprise-grade fintech software for banking, lending, and payments."
     }
   ];
 
@@ -50,9 +50,9 @@ export default function Fintech() {
     <>
       <SEO 
         title="Enterprise Fintech Software Solutions | Novadesk"
-        description="Powering the Next Generation of Finance. Custom fintech software, core banking, AI lending, and secure payment orchestration by Novadesk."
+        description="Novadesk offers enterprise-grade fintech software for banking, lending, and payments. Our API-first, secure, and scalable solutions empower financial institutions."
         url="/industries/fintech"
-        keywords="Fintech Software Development Company, Banking-as-a-Service Platform, Secure Payment Gateway Software, AI Lending Solutions, API-First Fintech Architecture"
+        keywords="Fintech Software Solutions, Digital Banking Platform, Lending Software, Payment Orchestration, API-First Finance, PCI-DSS Compliant Software"
         schema={schemaJson}
       />
 
@@ -169,17 +169,17 @@ export default function Fintech() {
               <h1 className="fs-hero-title">Enterprise <span className="fs-text-blue">Fintech Software Solutions</span></h1>
               <h2 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>Powering the Next Generation of Finance</h2>
               <p className="fs-hero-desc">
-                Fintech industry ab sirf mobile apps tak mehdood nahi rahi; ye ek poora ecosystem ban chuki hai. Novadesk mein hum samajhte hain ke financial institutions ko aise software ki zaroorat jo na sirf aaj ki zaroorat ko poora kare balki kal ke challenges ke liye bhi tayyar ho. Hamara software suite modularity, security, aur scalability ke usoolon par banaya gaya hai.
+                In an era where financial services are defined by speed, accessibility, and absolute security, legacy systems often act as a bottleneck to growth. At Novadesk, we provide the technological foundation that allows financial institutions, neobanks, and startups to outpace the market.
               </p>
               <p className="fs-hero-desc" style={{marginTop: '-20px'}}>
-                Hum sirf code nahi likhte; hum financial workflows ko automate karte hain taaki aapka business 24/7 bina kisi rukawat ke chalta rahe. Hamari technology legacy systems aur modern cloud-native architecture ke darmiyan ek bridge ka kaam karti hai.
+                Our software suite is not just a tool—it is a comprehensive financial engine built on modularity and cloud-native architecture. We empower businesses to automate complex workflows, minimize transaction failures, and deliver a "user-first" experience that builds long-term loyalty.
               </p>
               <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <Link to="/contact-us" className="fs-btn fs-btn-primary">
-                  Contact Our Fintech Experts <ArrowRight />
+                  Schedule a Technical Demo <ArrowRight />
                 </Link>
                 <Link to="/contact-us" className="fs-btn fs-btn-white">
-                  Request a Technical Architecture Review
+                  Consult with an Architect
                 </Link>
               </div>
             </div>
@@ -189,36 +189,37 @@ export default function Fintech() {
         {/* DEEP DIVE MODULES */}
         <section className="fs-section">
           <div className="fs-container">
-            <h2 className="fs-title" style={{textAlign: 'center', marginBottom: '60px'}}>Vertical-Specific Software Modules</h2>
+            <h2 className="fs-title" style={{textAlign: 'center', marginBottom: '16px'}}>Our Fintech Product Suite</h2>
+            <p style={{textAlign: 'center', color: '#475569', fontSize: '18px', marginBottom: '60px', maxWidth: '800px', margin: '0 auto 60px'}}>Specialized Solutions for Every Vertical. Deploy independently or as a unified ecosystem.</p>
+            
             <div className="fs-grid">
-              
               <div className="fs-card">
-                <h3 style={{fontSize: '24px', fontWeight: 800, marginBottom: '16px'}}>A. Digital Core Banking (Neobanking)</h3>
-                <p style={{color: '#475569', marginBottom: '24px'}}>Hamara Core Banking Software (CBS) neobanks aur digital-only banks ke liye backbone ka kaam karta hai.</p>
+                <h3 style={{fontSize: '24px', fontWeight: 800, marginBottom: '16px'}}>A. Core Digital Banking (Neobanking)</h3>
+                <p style={{color: '#475569', marginBottom: '24px'}}>Our Core Banking Software (CBS) is the backbone for modern digital-only banks. It manages the entire lifecycle of a customer’s financial journey with precision.</p>
                 <ul className="fs-list">
-                  <li><CheckCircle /> <div><strong>Real-time Ledger Management:</strong> Har transaction ko microsecond precision ke sath record karein. Double-entry bookkeeping.</div></li>
-                  <li><CheckCircle /> <div><strong>Multi-Currency Wallets:</strong> Multiple currencies (USD, EUR, GBP, etc.) hold karein aur real-time exchange rates par convert karein.</div></li>
-                  <li><CheckCircle /> <div><strong>Virtual & Physical Cards:</strong> Visa/Mastercard integration ke sath instant virtual card issuance.</div></li>
+                  <li><CheckCircle /> <div><strong>Real-time Ledger Infrastructure:</strong> An immutable, double-entry bookkeeping system that ensures 100% accuracy in transaction recording.</div></li>
+                  <li><CheckCircle /> <div><strong>Multi-Currency Global Wallets:</strong> Allow users to hold, transfer, and exchange multiple currencies with real-time FX rate integration.</div></li>
+                  <li><CheckCircle /> <div><strong>Virtual & Physical Card Issuance:</strong> Seamlessly integrate with Visa, Mastercard, or local card networks.</div></li>
                 </ul>
               </div>
 
               <div className="fs-card">
-                <h3 style={{fontSize: '24px', fontWeight: 800, marginBottom: '16px'}}>B. AI-Powered Lending & Mortgage</h3>
-                <p style={{color: '#475569', marginBottom: '24px'}}>Udhaar dene ka purana tareeqa khatam ho chuka hai. Novadesk ka lending software data-driven decisions leta hai.</p>
+                <h3 style={{fontSize: '24px', fontWeight: 800, marginBottom: '16px'}}>B. Intelligent AI-Lending & Mortgage</h3>
+                <p style={{color: '#475569', marginBottom: '24px'}}>Manual credit assessment is slow and prone to error. Our automated lending software utilizes alternative data and AI to transform the credit cycle.</p>
                 <ul className="fs-list">
-                  <li><CheckCircle /> <div><strong>Automated Underwriting:</strong> Transaction history, social signals, aur credit bureau data analyze karke instant approval.</div></li>
-                  <li><CheckCircle /> <div><strong>Repayment Automation:</strong> Standing instructions aur NACH/ECS integration ke zariye monthly installments (EMIs) auto-deduct karein.</div></li>
-                  <li><CheckCircle /> <div><strong>Collections Dashboard:</strong> AI-based categorization jo batati hai ke kaunse borrowers se pehle rabta karna hai.</div></li>
+                  <li><CheckCircle /> <div><strong>Automated Underwriting:</strong> Analyze thousands of data points to approve or decline loans in milliseconds.</div></li>
+                  <li><CheckCircle /> <div><strong>Dynamic Risk Scoring:</strong> Real-time credit monitoring that adjusts limits based on user behavior.</div></li>
+                  <li><CheckCircle /> <div><strong>Automated Disbursement & Collection:</strong> Integrated repayment gateways with smart collection reminders to reduce NPL.</div></li>
                 </ul>
               </div>
 
               <div className="fs-card">
-                <h3 style={{fontSize: '24px', fontWeight: 800, marginBottom: '16px'}}>C. Payment Orchestration & Gateways</h3>
-                <p style={{color: '#475569', marginBottom: '24px'}}>Payments ko handle karna complex hota hai, lekin Novadesk ise simple banata hai.</p>
+                <h3 style={{fontSize: '24px', fontWeight: 800, marginBottom: '16px'}}>C. Advanced Payment Orchestration</h3>
+                <p style={{color: '#475569', marginBottom: '24px'}}>Managing global payments is complex. Our orchestration layer simplifies the process by connecting you to the entire financial world through a single interface.</p>
                 <ul className="fs-list">
-                  <li><CheckCircle /> <div><strong>Dynamic Transaction Routing:</strong> Agar ek payment gateway down hai, toh automatically doosre gateway par switch.</div></li>
-                  <li><CheckCircle /> <div><strong>QR & Contactless Payments:</strong> Merchants ke liye static aur dynamic QR codes ka support.</div></li>
-                  <li><CheckCircle /> <div><strong>Settlement Engine:</strong> Merchants ko unka paisa T+0 ya T+1 basis par automatically transfer karne ka system.</div></li>
+                  <li><CheckCircle /> <div><strong>Dynamic Transaction Routing:</strong> Our AI routes transactions through the highest-performing gateway to ensure a 99.9% success rate.</div></li>
+                  <li><CheckCircle /> <div><strong>Cross-Border Remittance Engine:</strong> Built-in support for SWIFT, SEPA, and local real-time payment rails.</div></li>
+                  <li><CheckCircle /> <div><strong>Settlement & Reconciliation Suite:</strong> Automated tools that match thousands of transactions per second.</div></li>
                 </ul>
               </div>
 
@@ -229,28 +230,28 @@ export default function Fintech() {
         {/* TECH ARCHITECTURE */}
         <section className="fs-section-dark">
           <div className="fs-container">
-            <h2 className="fs-title" style={{textAlign: 'center', marginBottom: '16px'}}>Technical Architecture: Under the Hood</h2>
-            <p style={{textAlign: 'center', color: '#94a3b8', fontSize: '18px', marginBottom: '60px', maxWidth: '800px', margin: '0 auto 60px'}}>CTOs aur Technical Managers ke liye detailed specs</p>
+            <h2 className="fs-title" style={{textAlign: 'center', marginBottom: '16px'}}>Engineering Excellence: The Technology Stack</h2>
+            <p style={{textAlign: 'center', color: '#94a3b8', fontSize: '18px', marginBottom: '60px', maxWidth: '800px', margin: '0 auto 60px'}}>Built for developers, architected for scale. Novadesk is designed to handle high-concurrency environments without compromise.</p>
             
             <div className="fs-grid">
               <div className="fs-card-dark">
                 <div style={{color: '#60a5fa', marginBottom: '16px'}}><ApiIcon /></div>
                 <h3 style={{fontSize: '24px', fontWeight: 800, marginBottom: '16px'}}>I. Microservices & High Availability</h3>
-                <p style={{color: '#cbd5e1', marginBottom: '24px'}}>Hum monolithic architecture ke sakht khilaf hain. Novadesk ka software microservices par mabni hai. Agar "KYC Module" mein update hai, toh "Payment Module" mutasir nahi hota.</p>
+                <p style={{color: '#cbd5e1', marginBottom: '24px'}}>We have moved away from monolithic structures. Our software is built using a Microservices Architecture, ensuring that each component operates independently.</p>
                 <ul className="fs-list fs-list-dark">
-                  <li><CheckCircle /> <div><strong>Containerization:</strong> Docker aur Kubernetes ke zariye hum 99.99% uptime ensure karte hain.</div></li>
-                  <li><CheckCircle /> <div><strong>Auto-Scaling:</strong> Jab heavy traffic aata hai, toh servers khud-b-khud scale ho jate hain.</div></li>
+                  <li><CheckCircle /> <div><strong>Containerized Deployment:</strong> Utilizing Docker and Kubernetes for seamless scaling and 99.99% uptime.</div></li>
+                  <li><CheckCircle /> <div><strong>Zero-Downtime Updates:</strong> Deploy new features or patches without ever taking your system offline.</div></li>
                 </ul>
               </div>
 
               <div className="fs-card-dark">
                 <div style={{color: '#60a5fa', marginBottom: '16px'}}><ApiIcon /></div>
-                <h3 style={{fontSize: '24px', fontWeight: 800, marginBottom: '16px'}}>II. API-First Philosophy</h3>
-                <p style={{color: '#cbd5e1', marginBottom: '24px'}}>Hamara pura system APIs ke gird bana hai.</p>
+                <h3 style={{fontSize: '24px', fontWeight: 800, marginBottom: '16px'}}>II. API-First Design Philosophy</h3>
+                <p style={{color: '#cbd5e1', marginBottom: '24px'}}>Our platform is a developer’s playground. Everything we build is accessible via robust, well-documented APIs.</p>
                 <ul className="fs-list fs-list-dark">
-                  <li><CheckCircle /> <div><strong>RESTful & GraphQL APIs:</strong> Flexibility to pull exact data needed.</div></li>
-                  <li><CheckCircle /> <div><strong>Webhooks:</strong> Har event (e.g., Payment success, KYC reject) par instant notifications.</div></li>
-                  <li><CheckCircle /> <div><strong>Documentation:</strong> Swagger/Postman docs jo integration time ko 70% kam kar deti hai.</div></li>
+                  <li><CheckCircle /> <div><strong>RESTful & GraphQL Support:</strong> Flexible data fetching for web and mobile frontends.</div></li>
+                  <li><CheckCircle /> <div><strong>Sandbox Environment:</strong> A dedicated testing ground for developers to build and test integrations before going live.</div></li>
+                  <li><CheckCircle /> <div><strong>Webhooks & Real-time Events:</strong> Instant push notifications for every system event.</div></li>
                 </ul>
               </div>
             </div>
@@ -266,84 +267,104 @@ export default function Fintech() {
                   <ShieldIcon style={{color: '#2E29FF'}}/>
                   <h2 className="fs-title" style={{margin: 0}}>Security Infrastructure</h2>
                 </div>
-                <p style={{color: '#475569', fontSize: '18px', marginBottom: '32px'}}>Finance mein trust hi sab kuch hai: The Fortress.</p>
+                <p style={{color: '#475569', fontSize: '18px', marginBottom: '32px'}}>Security is not a feature at Novadesk; it is the foundation of our code. "Bank-Grade" is Our Standard.</p>
                 <ul className="fs-list">
-                  <li><CheckCircle /> <div><strong>HSM Integration:</strong> Sensitive keys ko hardware level par secure karna.</div></li>
-                  <li><CheckCircle /> <div><strong>OAuth 2.0 & OpenID Connect:</strong> Industry-standard authentication protocols.</div></li>
-                  <li><CheckCircle /> <div><strong>Zero Trust Architecture:</strong> Network ke andar bhi har request ko verify kiya jana.</div></li>
-                  <li><CheckCircle /> <div><strong>Threat Intelligence:</strong> AI musalsal network traffic scan karta hai taaki DDoS/SQL injections rokein.</div></li>
-                  <li><CheckCircle /> <div><strong>Data Masking & Tokenization:</strong> Card details tokens mein convert hoti hain.</div></li>
+                  <li><CheckCircle /> <div><strong>End-to-End Encryption:</strong> Data is encrypted both at rest (AES-256) and in transit (TLS 1.3).</div></li>
+                  <li><CheckCircle /> <div><strong>Biometric & MFA:</strong> Native support for FaceID, TouchID, and TOTP.</div></li>
+                  <li><CheckCircle /> <div><strong>AI-Driven Fraud Detection:</strong> Machine-learning models scan millions of transactions for anomalous patterns.</div></li>
+                  <li><CheckCircle /> <div><strong>HSM Integration:</strong> Hardware Security Modules ensure that cryptographic keys are never exposed.</div></li>
                 </ul>
               </div>
               
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
                   <ShieldIcon style={{color: '#2E29FF'}}/>
-                  <h2 className="fs-title" style={{margin: 0}}>Compliance & Standards</h2>
+                  <h2 className="fs-title" style={{margin: 0}}>Global Compliance</h2>
                 </div>
-                <p style={{color: '#475569', fontSize: '18px', marginBottom: '32px'}}>Novadesk ka software aapko audit-ready rakhta hai.</p>
+                <p style={{color: '#475569', fontSize: '18px', marginBottom: '32px'}}>We simplify the burden of regulation, allowing you to focus on your customers while we handle the "Red Tape."</p>
                 <ul className="fs-list">
-                  <li><CheckCircle /> <div><strong>PCI-DSS Level 1 Ready:</strong> Card data handling ke liye highest security standard.</div></li>
-                  <li><CheckCircle /> <div><strong>KYC Automation:</strong> OCR tech se data extraction aur liveness detection.</div></li>
-                  <li><CheckCircle /> <div><strong>AML (Anti-Money Laundering):</strong> Suspicious patterns flag karne ke algorithms.</div></li>
-                  <li><CheckCircle /> <div><strong>Audit Trails:</strong> Har action ka immutable log jo regulators ke liye zaroori hai.</div></li>
+                  <li><CheckCircle /> <div><strong>PCI-DSS Level 1 Compliance:</strong> The highest standard for credit card data security.</div></li>
+                  <li><CheckCircle /> <div><strong>Automated KYC/AML:</strong> Integrated OCR and Liveness Detection to verify identities instantly and screen sanctions lists.</div></li>
+                  <li><CheckCircle /> <div><strong>GDPR & Data Residency:</strong> Localized data hosting options to comply with regional data sovereignty laws.</div></li>
+                  <li><CheckCircle /> <div><strong>Immutable Audit Logs:</strong> Every system action is logged in an unalterable format.</div></li>
                 </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* JOURNEY & ROI */}
+        {/* BUSINESS INTELLIGENCE */}
         <section className="fs-section">
+          <div className="fs-container">
+            <h2 className="fs-title" style={{textAlign: 'center', marginBottom: '16px'}}>Business Intelligence: Data-Driven Insights</h2>
+            <p style={{textAlign: 'center', color: '#475569', fontSize: '18px', marginBottom: '60px', maxWidth: '800px', margin: '0 auto 60px'}}>Turn your raw transaction data into a strategic asset with our built-in analytics dashboard.</p>
+            
+            <div className="fs-grid">
+              <div className="fs-card">
+                <h3 style={{fontSize: '20px', fontWeight: 700, marginBottom: '8px'}}>Real-time Liquidity Monitoring</h3>
+                <p style={{color: '#475569', margin: 0}}>View your institutional cash flow and reserve ratios in real-time.</p>
+              </div>
+              <div className="fs-card">
+                <h3 style={{fontSize: '20px', fontWeight: 700, marginBottom: '8px'}}>User Behavior Analytics</h3>
+                <p style={{color: '#475569', margin: 0}}>Understand how your customers spend, save, and borrow to create hyper-personalized products.</p>
+              </div>
+              <div className="fs-card">
+                <h3 style={{fontSize: '20px', fontWeight: 700, marginBottom: '8px'}}>Predictive Revenue Modeling</h3>
+                <p style={{color: '#475569', margin: 0}}>Use historical data to forecast future growth and identify potential churn risks before they happen.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* JOURNEY & ROI */}
+        <section className="fs-section-alt">
           <div className="fs-container">
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '80px' }}>
               <div>
-                <h2 className="fs-title">Implementation Journey</h2>
+                <h2 className="fs-title">The Implementation Journey</h2>
+                <p style={{color: '#475569', fontSize: '18px', marginBottom: '40px'}}>We don't just hand over the keys; we partner with you at every stage of the deployment.</p>
                 <div className="fs-timeline">
                   <div className="fs-timeline-item">
-                    <h4 style={{fontSize: '20px', fontWeight: 700}}>Phase 1: Requirement Discovery</h4>
-                    <p style={{color: '#475569'}}>Aapke business goals aur regulatory environment ka tajziya.</p>
+                    <h4 style={{fontSize: '20px', fontWeight: 700}}>1. Solution Discovery</h4>
+                    <p style={{color: '#475569'}}>We analyze your business model and technical requirements to suggest the best modular configuration.</p>
                   </div>
                   <div className="fs-timeline-item">
-                    <h4 style={{fontSize: '20px', fontWeight: 700}}>Phase 2: Architecture Design</h4>
-                    <p style={{color: '#475569'}}>Ek customized roadmap aur tech-stack ki selection.</p>
+                    <h4 style={{fontSize: '20px', fontWeight: 700}}>2. Architecture Mapping</h4>
+                    <p style={{color: '#475569'}}>Our engineers design the integration flow between Novadesk and your existing systems.</p>
                   </div>
                   <div className="fs-timeline-item">
-                    <h4 style={{fontSize: '20px', fontWeight: 700}}>Phase 3: Sandbox Development</h4>
-                    <p style={{color: '#475569'}}>Testing environment mein software ka setup.</p>
+                    <h4 style={{fontSize: '20px', fontWeight: 700}}>3. Sandbox Integration</h4>
+                    <p style={{color: '#475569'}}>Your developers build on our APIs in a risk-free environment with 24/7 technical support.</p>
                   </div>
                   <div className="fs-timeline-item">
-                    <h4 style={{fontSize: '20px', fontWeight: 700}}>Phase 4: UAT (User Acceptance)</h4>
-                    <p style={{color: '#475569'}}>Aapki team software ko real-world scenarios mein test karti hai.</p>
+                    <h4 style={{fontSize: '20px', fontWeight: 700}}>4. User Acceptance Testing (UAT)</h4>
+                    <p style={{color: '#475569'}}>Rigorous stress testing to ensure the system handles peak loads and edge-case scenarios.</p>
                   </div>
                   <div className="fs-timeline-item">
-                    <h4 style={{fontSize: '20px', fontWeight: 700}}>Phase 5: Go-Live & Hyper-care</h4>
-                    <p style={{color: '#475569'}}>Deployment ke baad pehle 30 din hum extra monitoring provide karte hain.</p>
+                    <h4 style={{fontSize: '20px', fontWeight: 700}}>5. Go-Live & Hypercare</h4>
+                    <p style={{color: '#475569'}}>We provide dedicated on-site or remote support during the launch phase to ensure a smooth transition.</p>
                   </div>
                 </div>
               </div>
               
               <div>
-                <h2 className="fs-title">Business ROI</h2>
+                <h2 className="fs-title">Why Novadesk? The Competitive Advantage</h2>
                 <div className="fs-card" style={{marginBottom: '32px'}}>
-                  <h3 style={{fontSize: '20px', fontWeight: 700, marginBottom: '8px'}}>Operational Savings</h3>
-                  <p style={{color: '#475569', margin: 0}}>40% tak manual work mein kami.</p>
+                  <h3 style={{fontSize: '20px', fontWeight: 700, marginBottom: '8px'}}>Unrivaled Scalability</h3>
+                  <p style={{color: '#475569', margin: 0}}>Whether you have 10,000 or 100 million users, our infrastructure scales with you.</p>
                 </div>
                 <div className="fs-card" style={{marginBottom: '32px'}}>
-                  <h3 style={{fontSize: '20px', fontWeight: 700, marginBottom: '8px'}}>Faster Time-to-Market</h3>
-                  <p style={{color: '#475569', margin: 0}}>Jo software banne mein 2 saal lagte, Novadesk use 4 mahino mein mumkin banata hai.</p>
+                  <h3 style={{fontSize: '20px', fontWeight: 700, marginBottom: '8px'}}>Accelerated Time-to-Market</h3>
+                  <p style={{color: '#475569', margin: 0}}>Reduce your development cycle from years to months using our pre-built, battle-tested modules.</p>
+                </div>
+                <div className="fs-card" style={{marginBottom: '32px'}}>
+                  <h3 style={{fontSize: '20px', fontWeight: 700, marginBottom: '8px'}}>Cost Efficiency</h3>
+                  <p style={{color: '#475569', margin: 0}}>Eliminate the massive overhead of building a core financial stack from scratch.</p>
                 </div>
                 <div className="fs-card">
-                  <h3 style={{fontSize: '20px', fontWeight: 700, marginBottom: '8px'}}>Customer Retention</h3>
-                  <p style={{color: '#475569', margin: 0}}>Seamless experience ki wajah se user churn rate 25% tak gir jata hai.</p>
+                  <h3 style={{fontSize: '20px', fontWeight: 700, marginBottom: '8px'}}>Future-Ready</h3>
+                  <p style={{color: '#475569', margin: 0}}>Built-in support for Blockchain ledgers, Central Bank Digital Currencies (CBDCs), and Generative AI.</p>
                 </div>
-                
-                <h2 className="fs-title" style={{marginTop: '48px', fontSize: '28px'}}>The Future: AI & Blockchain</h2>
-                <ul className="fs-list">
-                  <li><CheckCircle /> <div><strong>Gen AI for Finance:</strong> Financial reports/summaries auto-generation.</div></li>
-                  <li><CheckCircle /> <div><strong>Blockchain Ledgers:</strong> Private blockchain for transparency.</div></li>
-                  <li><CheckCircle /> <div><strong>Predictive Analytics:</strong> Cash-flow aur liquidity ka pehle se andaza.</div></li>
-                </ul>
               </div>
             </div>
           </div>
@@ -352,16 +373,16 @@ export default function Fintech() {
         {/* CTA */}
         <section className="fs-section-dark" style={{textAlign: 'center', padding: '120px 0'}}>
           <div className="fs-container">
-            <h2 className="fs-title" style={{fontSize: '48px', marginBottom: '24px'}}>Finance ko Digital Banana Mushkil Nahi Hai</h2>
+            <h2 className="fs-title" style={{fontSize: '48px', marginBottom: '24px'}}>The Future of Finance is Software-Defined. Build it with Novadesk.</h2>
             <p style={{fontSize: '20px', color: '#cbd5e1', maxWidth: '800px', margin: '0 auto 48px'}}>
-              Kya aap purane systems se thak chuke hain? Kya aapka software aapki growth ko rok raha hai? Novadesk ke sath mil kar ek aisi financial technology banayein jo duniya badal de.
+              Stop letting outdated technology limit your vision. Partner with Novadesk to build a secure, scalable, and sophisticated financial platform.
             </p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/contact-us" className="fs-btn fs-btn-primary">
-                Contact Our Fintech Experts <ArrowRight />
+                Schedule a Technical Demo <ArrowRight />
               </Link>
               <a href="#" className="fs-btn fs-btn-white" style={{color: '#0b0f19'}}>
-                Download Product Roadmap PDF
+                View API Documentation
               </a>
             </div>
           </div>
