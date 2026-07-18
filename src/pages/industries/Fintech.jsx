@@ -17,11 +17,387 @@ export default function Fintech() {
       />
 
       <style>{`
-        /* Template overrides to make the new HTML look decent without external CSS */
-        .page-wraper { width: 100%; overflow: hidden; }
-        .hero-banner { padding: 80px 0; }
-        .compliance-section { background: #f8fafc; padding: 40px 0; }
-        .bg-card { background: white; border-radius: 20px; padding: 30px; }
+        /* -------------------------------------
+           PREMIUM FINTECH PAGE CSS 
+           ------------------------------------- */
+
+        /* Variables & General */
+        :root {
+          --text-blue: #2E29FF;
+          --bg-gray: #F7F9FC;
+          --text-dark: #0F172A;
+          --text-light: #64748B;
+          --border-color: #E2E8F0;
+        }
+
+        .page-wraper {
+          font-family: 'Space Grotesk', system-ui, sans-serif;
+          color: var(--text-dark);
+          overflow-x: hidden;
+          background-color: #ffffff;
+        }
+
+        .container {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 24px;
+        }
+
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -12px;
+        }
+
+        .col {
+          flex: 1;
+          padding: 0 12px;
+          min-width: 300px;
+        }
+
+        .text-blue { color: var(--text-blue); }
+        .text-white { color: #ffffff; }
+
+        /* Buttons */
+        .btn-blue {
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          background: var(--text-blue);
+          color: white !important;
+          padding: 16px 32px;
+          border-radius: 50px;
+          font-weight: 600;
+          font-size: 16px;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        .btn-blue:hover {
+          background: #1a16d9;
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(46,41,255,0.2);
+        }
+
+        .btn-black {
+          background: #000;
+          color: #fff !important;
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          padding: 16px 32px;
+          border-radius: 50px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: 0.3s;
+        }
+        .btn-black:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+          border: 1px solid var(--border-color);
+          background: white;
+          color: var(--text-dark);
+          padding: 12px 24px;
+          border-radius: 50px;
+          font-weight: 600;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .btn-secondary:hover {
+          border-color: var(--text-blue);
+          color: var(--text-blue);
+        }
+
+        /* Hero Banner */
+        .hero-banner.fintech {
+          padding: 100px 0;
+          position: relative;
+        }
+        .hero-banner .title {
+          font-size: clamp(40px, 4vw, 60px);
+          font-weight: 800;
+          line-height: 1.1;
+          margin-bottom: 24px;
+          letter-spacing: -0.02em;
+        }
+        .hero-banner .text {
+          font-size: 18px;
+          color: var(--text-light);
+          margin-bottom: 40px;
+          line-height: 1.6;
+        }
+        
+        .top-20-award {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          margin-top: 40px;
+        }
+        .top-20-award a, .top-20-award p {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          text-decoration: none;
+          color: var(--text-dark);
+          font-weight: 600;
+          font-size: 14px;
+        }
+
+        .hire_developers_card {
+          position: relative;
+          width: 100%;
+          max-width: 500px;
+          margin: 0 auto;
+        }
+        .hire_developers_card > img {
+          width: 100%;
+          border-radius: 24px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Floating Cards */
+        .card_one, .card_two, .card_three {
+          position: absolute;
+          background: white;
+          padding: 16px 24px;
+          border-radius: 12px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          animation: float 6s ease-in-out infinite;
+          z-index: 2;
+        }
+        .card_one { bottom: 20px; left: -40px; animation-delay: 0s; }
+        .card_two { top: 40px; right: -40px; animation-delay: 2s; }
+        .card_three { top: 50%; right: -50px; animation-delay: 1s; }
+        
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-15px); }
+          100% { transform: translateY(0px); }
+        }
+
+        .mingcute {
+          background: var(--bg-gray);
+          padding: 8px;
+          border-radius: 50%;
+          display: flex;
+          color: var(--text-blue);
+        }
+
+        /* Compliance Section */
+        .compliance-section {
+          background: var(--bg-gray);
+          padding: 80px 0;
+        }
+        .compliance-section h2 {
+          font-size: 32px;
+          font-weight: 700;
+          margin-bottom: 20px;
+        }
+        .bg-card {
+          background: white;
+          border-radius: 24px;
+          padding: 40px;
+          height: 100%;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .compliance_logo {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 30px;
+          margin-top: 40px;
+          align-items: center;
+        }
+        .compliance_logo img {
+          height: 40px;
+          opacity: 0.6;
+          transition: 0.3s;
+        }
+        .compliance_logo img:hover { opacity: 1; }
+
+        .stats-number h3 {
+          font-size: 48px;
+          font-weight: 800;
+          color: var(--text-blue);
+          margin: 0 0 8px 0;
+        }
+        .stats-number span {
+          font-size: 16px;
+          color: var(--text-light);
+          font-weight: 600;
+        }
+        .mt-4 { margin-top: 24px; }
+
+        /* Common Headings */
+        .head { margin-bottom: 40px; }
+        .head h2 { font-size: 40px; font-weight: 800; line-height: 1.2; }
+        .head p { font-size: 18px; color: var(--text-light); margin-top: 16px; }
+        .top-tag, .top-tag-blue {
+          display: inline-block;
+          padding: 6px 16px;
+          border-radius: 50px;
+          font-weight: 700;
+          font-size: 14px;
+          margin-bottom: 16px;
+        }
+        .top-tag { background: #E2E8F0; color: var(--text-dark); }
+        .top-tag-blue { background: #EEEDFF; color: var(--text-blue); }
+
+        /* Our Growth / Case Studies */
+        .our_growth {
+          padding: 100px 0;
+          background: #fff;
+        }
+        .case-studies-slider, .fintech-slider, .slick-track, .slick-list {
+          display: flex;
+          gap: 24px;
+          overflow-x: auto;
+          padding-bottom: 20px;
+          scroll-snap-type: x mandatory;
+        }
+        .case-studies-slider::-webkit-scrollbar, .fintech-slider::-webkit-scrollbar {
+          height: 8px;
+        }
+        .case-studies-slider::-webkit-scrollbar-thumb, .fintech-slider::-webkit-scrollbar-thumb {
+          background: #ccc;
+          border-radius: 4px;
+        }
+        
+        .growth_card {
+          flex: 0 0 350px;
+          scroll-snap-align: start;
+          border: 1px solid var(--border-color);
+          border-radius: 24px;
+          overflow: hidden;
+          transition: 0.3s;
+        }
+        .growth_card:hover {
+          box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+          transform: translateY(-5px);
+        }
+        .g-img img { width: 100%; height: 220px; object-fit: cover; }
+        .g-text { padding: 24px; }
+        .g-text h3 { font-size: 20px; font-weight: 700; margin: 12px 0; }
+        .tag_btn {
+          display: inline-block;
+          background: var(--bg-gray);
+          padding: 4px 12px;
+          border-radius: 4px;
+          font-size: 12px;
+          font-weight: 600;
+        }
+
+        /* Services Grid */
+        .fintech_service_grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 24px;
+          margin-top: 40px;
+        }
+        .service_card {
+          border: 1px solid var(--border-color);
+          border-radius: 24px;
+          padding: 32px;
+          transition: 0.3s;
+        }
+        .service_card:hover {
+          border-color: transparent;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .service_card h3 { font-size: 24px; font-weight: 700; margin: 16px 0; }
+        .service_card p { color: var(--text-light); line-height: 1.6; }
+        .service_card a.btn-secondary { margin-top: 24px; }
+
+        /* Fintech Grid (Process) */
+        .fintech_grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 24px;
+          margin-top: 40px;
+        }
+        .fintech_card {
+          background: var(--bg-gray);
+          border-radius: 24px;
+          padding: 32px;
+        }
+        .num-circle {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 48px;
+          height: 48px;
+          background: #fff;
+          color: var(--text-blue);
+          font-weight: 800;
+          border-radius: 50%;
+          margin-bottom: 20px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Testimonial Section */
+        .testimonial-section { background: var(--bg-gray); padding: 80px 0; }
+        .t-card {
+          background: #fff;
+          border-radius: 24px;
+          padding: 32px;
+          flex: 0 0 400px;
+          scroll-snap-align: start;
+        }
+        .client-info { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+        .client-info img { width: 50px; height: 50px; border-radius: 50%; }
+
+        /* Middle CTA */
+        .fintech-middle {
+          background: #0F172A;
+          color: white;
+          padding: 80px 0;
+          text-align: center;
+        }
+        .fintech-middle h2 { font-size: 40px; font-weight: 800; margin-bottom: 32px; }
+
+        /* FAQ */
+        .fintech-faq { padding: 80px 0; }
+        .accordion-item {
+          border: 1px solid var(--border-color);
+          border-radius: 12px;
+          margin-bottom: 16px;
+          overflow: hidden;
+        }
+        .accordion-header {
+          padding: 20px 24px;
+          background: #fff;
+          border: none;
+          width: 100%;
+          text-align: left;
+          font-weight: 700;
+          font-size: 18px;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        /* Make accordion functional without JS just by showing it for now, 
+           or user can add JS later. We'll show all bodies statically for simplicity, 
+           or style them well. */
+        .accordion-collapse {
+          padding: 0 24px 20px;
+          color: var(--text-light);
+          background: #fff;
+        }
+
+        @media (max-width: 991px) {
+          .hero-banner .title { font-size: 40px; }
+          .growth_card { flex: 0 0 280px; }
+          .t-card { flex: 0 0 300px; }
+        }
       `}</style>
 
       <main>
