@@ -313,6 +313,9 @@ export default function Footer() {
             flex-direction: column;
             text-align: center;
           }
+          .nd-footer-watermark {
+            font-size: 23vw;
+          }
         }
       `}</style>
 
