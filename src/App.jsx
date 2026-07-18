@@ -43,6 +43,8 @@ const EnterpriseSoftwareDevelopment = React.lazy(() => import('./pages/services/
 const CustomSoftwareDevelopment = React.lazy(() => import('./pages/services/CustomSoftwareDevelopment'));
 const MvpDevelopment = React.lazy(() => import('./pages/services/MvpDevelopment'));
 
+const Fintech = React.lazy(() => import('./pages/industries/Fintech'));
+
 export default function App() {
   return (
     <HelmetProvider>
@@ -86,6 +88,8 @@ export default function App() {
                 <Route path="/services/enterprise-software-development" element={<EnterpriseSoftwareDevelopment />} />
                 <Route path="/services/custom-software-development" element={<CustomSoftwareDevelopment />} />
                 <Route path="/services/mvp-development" element={<MvpDevelopment />} />
+                
+                <Route path="/industries/fintech" element={<Fintech />} />
                 
                 {/* Catch-all redirects to Home */}
                 <Route path="*" element={<Navigate to="/" replace />} />
