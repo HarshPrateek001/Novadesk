@@ -337,7 +337,7 @@ export default function Home() {
       },
       "priceRange": "$$",
       "sameAs": [
-        "https://www.linkedin.com/company/nexvant-solutions/",
+        "https://www.linkedin.com/company/novadesk-solutions/",
         "https://www.instagram.com/novadesk_officials_?igsh=MW5yZGtrbzg5aXNscg==",
         "https://www.facebook.com/share/1BfvnjhFV9/",
         "https://github.com/novadesksite-001"

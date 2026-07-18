@@ -329,7 +329,7 @@ export default function Footer() {
               NOVADESK is a premium software studio delivering web, mobile, UI/UX, and product engineering solutions. Recognized by Google Accelerator and LinkedIn, we've shipped 500+ projects across 50+ countries — turning ideas into products that attract funding, users, and real-world impact.
             </p>
             <div className="nd-footer-socials">
-              <a href="https://www.linkedin.com/company/nexvant-solutions/" target="_blank" rel="noreferrer" className="nd-footer-social-btn"><LinkedInIcon /></a>
+              <a href="https://www.linkedin.com/company/novadesk-solutions/" target="_blank" rel="noreferrer" className="nd-footer-social-btn"><LinkedInIcon /></a>
               <a href="https://www.instagram.com/novadesk_officials_?igsh=MW5yZGtrbzg5aXNscg==" target="_blank" rel="noreferrer" className="nd-footer-social-btn"><InstagramIcon /></a>
               <a href="https://www.facebook.com/share/1BfvnjhFV9/" target="_blank" rel="noreferrer" className="nd-footer-social-btn"><FacebookIcon /></a>
               <a href="https://github.com/novadesksite-001" target="_blank" rel="noreferrer" className="nd-footer-social-btn"><GithubIcon /></a>
