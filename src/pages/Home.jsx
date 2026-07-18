@@ -342,6 +342,11 @@ export default function Home() {
         "https://www.facebook.com/share/1BfvnjhFV9/",
         "https://github.com/novadesksite-001"
       ],
+      "founder": {
+        "@type": "Person",
+        "name": "Harsh Prateek",
+        "jobTitle": "Founder & Lead Engineer"
+      },
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer support",
