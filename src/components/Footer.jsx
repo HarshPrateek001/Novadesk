@@ -314,7 +314,7 @@ export default function Footer() {
             text-align: center;
           }
           .nd-footer-watermark {
-            font-size: 23vw;
+            font-size: 16.5vw;
           }
         }
       `}</style>
