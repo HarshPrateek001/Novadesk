@@ -5,12 +5,23 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
+// ─── Blog System: Provider Pattern
+// Import the context provider — wraps all blog routes.
+// UI components never import the data layer directly.
+import { BlogProvider } from './context/BlogContext.jsx';
+
 const Home = React.lazy(() => import('./pages/Home'));
 const AboutUs = React.lazy(() => import('./pages/AboutUs'));
 const CaseStudies = React.lazy(() => import('./pages/CaseStudies'));
 const ContactUs = React.lazy(() => import('./pages/ContactUs'));
 const PrivacyPolicy = React.lazy(() => import('./pages/PrivacyPolicy'));
 const TermsConditions = React.lazy(() => import('./pages/TermsConditions'));
+
+// ─── Blog Pages (lazy-loaded for code splitting)
+// These TWO routes handle ALL blog posts — forever.
+// New blog = new JSON file in src/blogs/ — no React changes ever.
+const BlogListPage = React.lazy(() => import('./pages/blog/BlogListPage'));
+const BlogPostPage = React.lazy(() => import('./pages/blog/BlogPostPage'));
 
 import ChatWidget from './components/ChatWidget';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -90,7 +101,34 @@ export default function App() {
                 <Route path="/services/mvp-development" element={<MvpDevelopment />} />
                 
                 <Route path="/industries/fintech" element={<Fintech />} />
-                
+
+                {/* ─── Blog Routes ───────────────────────────────────────────
+                    Two permanent routes handle ALL blog content — forever.
+                    
+                    /blog        → BlogListPage (auto-loads all published JSON)
+                    /blog/:slug  → BlogPostPage (dynamically renders any post)
+                    
+                    BlogProvider wraps both routes, giving them access to the
+                    blog service. To swap data sources in the future, only
+                    BlogProvider needs updating — zero UI changes.
+                ──────────────────────────────────────────────────────────── */}
+                <Route
+                  path="/blog"
+                  element={
+                    <BlogProvider>
+                      <BlogListPage />
+                    </BlogProvider>
+                  }
+                />
+                <Route
+                  path="/blog/:slug"
+                  element={
+                    <BlogProvider>
+                      <BlogPostPage />
+                    </BlogProvider>
+                  }
+                />
+
                 {/* Catch-all redirects to Home */}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>

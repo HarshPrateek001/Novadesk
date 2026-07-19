@@ -10,6 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
+    "cheerio": "^1.2.0",
+    "html-to-jsx": "^0.0.4",
+    "jsdom": "^29.1.1",
     "lucide-react": "^1.24.0",
     "pdfkit": "^0.19.1",
     "react": "^19.2.7",

@@ -345,6 +345,7 @@ export default function Footer() {
             <ul className="nd-footer-links">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about-us">Our Story</Link></li>
+              <li><Link to="/blog">Blog</Link></li>
               <li><Link to="/contact-us">Contact Us</Link></li>
             </ul>
           </div>

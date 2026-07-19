@@ -1,0 +1,184 @@
+{
+  "id": "blog-002",
+  "slug": "seo-guide-2026",
+  "title": "The Complete SEO Guide for Tech Startups in 2026",
+  "excerpt": "Organic search is still the highest-ROI marketing channel for B2B tech companies. This comprehensive guide covers everything from technical SEO to content strategy and AI-assisted optimization.",
+  "description": "A complete, actionable SEO guide for tech startups in 2026 — covering Core Web Vitals, AI-generated content policies, E-E-A-T signals, structured data, and link-building strategies that actually work.",
+  "author": {
+    "name": "Harsh Prateek",
+    "role": "Founder & CEO, NovaDesk",
+    "bio": "Harsh is a Full-Stack Engineer and AI architect with 14+ years of experience building digital products for startups and Fortune 500 companies.",
+    "avatar": "/hero-my-image.webp",
+    "linkedin": "https://linkedin.com/in/harshprateek"
+  },
+  "publishDate": "2026-07-15",
+  "updatedDate": "2026-07-18",
+  "category": "Digital Marketing",
+  "tags": ["SEO", "content marketing", "technical SEO", "startups", "Google", "2026"],
+  "coverImage": "https://picsum.photos/seed/seo2026/1600/900",
+  "thumbnail": "https://picsum.photos/seed/seo2026/600/340",
+  "readTime": 12,
+  "featured": true,
+  "seoTitle": "Complete SEO Guide for Tech Startups in 2026 | NovaDesk Blog",
+  "seoDescription": "Master SEO in 2026 with this comprehensive guide for tech startups. Covers Core Web Vitals, E-E-A-T, AI content policies, structured data, and proven link-building tactics.",
+  "status": "published",
+  "content": [
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "What You'll Learn",
+      "text": "Core Web Vitals optimization, E-E-A-T principles, AI content policies, technical SEO checklist, content strategy, and link-building tactics that work in 2026."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "SEO in 2026: What's Changed",
+      "id": "seo-2026-changes"
+    },
+    {
+      "type": "paragraph",
+      "text": "Google's Helpful Content System, AI Overviews, and the proliferation of AI-generated content have fundamentally changed what it takes to rank. The good news: the basics haven't changed. The businesses that win in 2026 are those that create genuinely useful, well-structured, authoritative content backed by solid technical foundations."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "1. Technical SEO: The Non-Negotiable Foundation",
+      "id": "technical-seo"
+    },
+    {
+      "type": "paragraph",
+      "text": "Before any content strategy, your technical foundation must be solid. Google cannot rank pages it cannot crawl, index, or understand."
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "Core Web Vitals: LCP < 2.5s, INP < 200ms, CLS < 0.1",
+        "HTTPS everywhere — no exceptions",
+        "XML sitemap submitted to Google Search Console",
+        "Robots.txt configured correctly",
+        "Canonical URLs set on every page",
+        "Structured data (JSON-LD) for all key page types",
+        "Mobile-first indexing optimization",
+        "Hreflang tags for multi-language sites"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Core Web Vitals Cheat Sheet",
+      "id": "core-web-vitals"
+    },
+    {
+      "type": "table",
+      "caption": "Google Core Web Vitals — 2026 Thresholds",
+      "headers": ["Metric", "Good", "Needs Improvement", "Poor", "What It Measures"],
+      "rows": [
+        ["LCP", "< 2.5s", "2.5–4s", "> 4s", "Largest content paint time"],
+        ["INP", "< 200ms", "200–500ms", "> 500ms", "Interaction responsiveness"],
+        ["CLS", "< 0.1", "0.1–0.25", "> 0.25", "Visual layout stability"]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2. E-E-A-T: Experience, Expertise, Authoritativeness, Trust",
+      "id": "eeat"
+    },
+    {
+      "type": "paragraph",
+      "text": "Google's Quality Raters evaluate content through the E-E-A-T lens. For tech startups, this means demonstrating real-world experience, establishing authors as genuine experts, building authority through external links and citations, and building trust through transparency."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critical for AI-Generated Content",
+      "text": "Google's Helpful Content System actively penalizes 'information gain score' low content — i.e., content that doesn't add anything new beyond what already exists. If you're using AI to generate content, always add original insights, data, or perspectives."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3. Keyword Research Strategy",
+      "id": "keyword-research"
+    },
+    {
+      "type": "paragraph",
+      "text": "In 2026, the most effective keyword strategy for B2B tech startups focuses on search intent and topic clusters, not individual keywords."
+    },
+    {
+      "type": "code",
+      "language": "plaintext",
+      "filename": "Topic Cluster Example: Web Development Agency",
+      "code": "Pillar Page: /services/web-development\n  └── Cluster: /blog/react-vs-nextjs-2026\n  └── Cluster: /blog/how-much-does-a-website-cost\n  └── Cluster: /blog/website-redesign-checklist\n  └── Cluster: /blog/web-development-timeline\n  └── Cluster: /blog/seo-for-web-apps\n\nPillar Page: /services/ai-development\n  └── Cluster: /blog/ai-chatbot-for-business\n  └── Cluster: /blog/machine-learning-startup-guide"
+    },
+    {
+      "type": "quote",
+      "text": "Stop chasing keywords. Start owning topics. The brands that dominate search in 2026 are those that become the definitive resource on a subject — not those who stuff the most keywords into a page.",
+      "author": "Harsh Prateek",
+      "role": "Founder, NovaDesk"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4. Content Strategy for Tech Startups",
+      "id": "content-strategy"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Publish 2–4 long-form (1500+ word) articles per month",
+        "Focus on high-intent commercial keywords: 'best X for Y', 'X vs Y', 'how to X'",
+        "Create original research, surveys, and case studies",
+        "Repurpose blog content into LinkedIn posts, short videos, and email newsletters",
+        "Build internal links between related posts (topic clustering)",
+        "Update old posts quarterly to maintain freshness signals",
+        "Include original screenshots, diagrams, and data visualizations"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Frequently Asked Questions",
+      "id": "faq"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "question": "How long does SEO take to show results?",
+          "answer": "For new websites, expect 4–6 months before meaningful organic traffic. Established domains with existing authority can see results in 6–12 weeks. Consistency is key — SEO is a long-term investment, not a quick fix."
+        },
+        {
+          "question": "Is AI content against Google's guidelines in 2026?",
+          "answer": "No — Google's stance is that AI-generated content is acceptable if it is helpful, accurate, and demonstrates real expertise. The penalty is for low-quality, mass-produced content that adds no value. AI-assisted content reviewed and enhanced by humans performs well."
+        },
+        {
+          "question": "How many backlinks do I need to rank?",
+          "answer": "Backlink quantity matters less than quality. One link from a domain with DR 70+ is worth more than 100 links from low-quality sites. Focus on earning links from industry publications, partner sites, and through original research."
+        },
+        {
+          "question": "Should I focus on local SEO or national SEO?",
+          "answer": "For service businesses with a local presence, start with local SEO (Google Business Profile, local citations, location pages). National SEO requires more authority and content volume. Most B2B tech companies benefit from national/international SEO."
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Need Help with Your SEO Strategy?",
+      "id": "get-help"
+    },
+    {
+      "type": "paragraph",
+      "text": "NovaDesk builds websites and applications with SEO baked in from day one — not bolted on as an afterthought. From technical audits to content strategy, our team has helped 50+ tech startups grow their organic traffic by 200–500%."
+    },
+    {
+      "type": "button",
+      "label": "Get a Free SEO Audit",
+      "href": "/contact-us",
+      "variant": "primary"
+    }
+  ]
+}
