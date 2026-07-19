@@ -23,7 +23,7 @@ const LogoIcon = () => (
 );
 
 // ── Achievements Sidebar
-function AchievementsSidebar() {
+function AchievementsSidebar({ onClose }) {
   return (
     <div className="hdr-achievement-panel">
       <h4 className="hdr-ach-title">Our Achievements</h4>
@@ -45,7 +45,7 @@ function AchievementsSidebar() {
       <div className="hdr-ach-cta-box">
         <h4 className="hdr-ach-cta-title">Build and Scale with Experts</h4>
         <p className="hdr-ach-cta-desc">Development, AI, cloud, and product engineering to power your next big idea.</p>
-        <Link to="/contact-us" className="hdr-ach-btn">Schedule a Free Consultation ↗</Link>
+        <Link to="/contact-us" className="hdr-ach-btn" onClick={onClose}>Schedule a Free Consultation ↗</Link>
       </div>
       <div className="hdr-ach-stats">
         <div className="hdr-ach-stat">
@@ -81,7 +81,7 @@ const industries = [
   { name: 'Travel & Hospitality', desc: 'Booking systems and software for travel businesses.' },
 ];
 
-function IndustriesMenu() {
+function IndustriesMenu({ onClose }) {
   return (
     <div className="hdr-mega hdr-mega-industries">
       <div className="hdr-mega-left">
@@ -91,14 +91,14 @@ function IndustriesMenu() {
         </div>
         <div className="hdr-ind-grid">
           {industries.map((ind) => (
-            <Link key={ind.name} to={`/industries/${ind.name.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`} className="hdr-ind-card">
+            <Link key={ind.name} to={`/industries/${ind.name.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`} className="hdr-ind-card" onClick={onClose}>
               <span className="hdr-ind-name">{ind.name}</span>
               <span className="hdr-ind-desc">{ind.desc}</span>
             </Link>
           ))}
         </div>
       </div>
-      <AchievementsSidebar />
+      <AchievementsSidebar onClose={onClose} />
     </div>
   );
 }
@@ -202,7 +202,7 @@ const servicesNav = [
   },
 ];
 
-function ServicesMenu() {
+function ServicesMenu({ onClose }) {
   const [activeService, setActiveService] = useState('ai');
   const current = servicesNav.find(s => s.id === activeService) || servicesNav[0];
 
@@ -228,14 +228,14 @@ function ServicesMenu() {
         <p className="hdr-svc-desc">{current.desc}</p>
         <div className="hdr-svc-links">
           {current.links.map(l => (
-            <Link key={l.label} to={getServiceUrl(l.label)} className="hdr-svc-link-card">
+            <Link key={l.label} to={getServiceUrl(l.label)} className="hdr-svc-link-card" onClick={onClose}>
               <span className="hdr-svc-link-title">{l.label}</span>
               <span className="hdr-svc-link-desc">{l.desc}</span>
             </Link>
           ))}
         </div>
       </div>
-      <AchievementsSidebar />
+      <AchievementsSidebar onClose={onClose} />
     </div>
   );
 }
@@ -540,8 +540,8 @@ export default function Header() {
             <>
               <div className="hdr-mega-backdrop" onClick={close} />
               <div className="hdr-mega-wrap">
-                {openMenu === 'industries' && <IndustriesMenu />}
-                {openMenu === 'services' && <ServicesMenu />}
+                {openMenu === 'industries' && <IndustriesMenu onClose={close} />}
+                {openMenu === 'services' && <ServicesMenu onClose={close} />}
               </div>
             </>
           )}
