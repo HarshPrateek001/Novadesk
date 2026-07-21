@@ -287,14 +287,14 @@ export default function Header() {
           border: 1px solid rgba(46, 41, 255, 0.15); 
           box-shadow: 0 16px 40px rgba(46, 41, 255, 0.08); 
           border-radius: 100px; 
-          padding: 12px 32px; 
+          padding: 12px 28px; 
           display: flex; 
           align-items: center; 
           justify-content: space-between;
-          gap: 24px; 
+          gap: 16px; 
           transition: all 0.3s ease; 
           width: 100%;
-          max-width: 900px;
+          max-width: 1180px;
           height: 78px;
         }
         .hdr-tube:hover { 
@@ -325,17 +325,18 @@ export default function Header() {
           display: flex; 
           align-items: center; 
           gap: 4px; 
-          padding: 10px 20px; 
+          padding: 8px 14px; 
           border: none; 
           background: transparent; 
           font-family: inherit; 
-          font-size: 15.5px; 
+          font-size: 14.5px; 
           font-weight: 800; 
           color: #0A0A2E; 
           cursor: pointer; 
           border-radius: 24px; 
           transition: all 0.2s; 
           white-space: nowrap; 
+          text-decoration: none;
         }
         .hdr-nav-btn:hover, .hdr-nav-btn.open { 
           background: rgba(46, 41, 255, 0.08); 
@@ -387,10 +388,10 @@ export default function Header() {
         .hdr-mega-backdrop { 
           position: fixed; 
           inset: 0; 
-          background: rgba(10, 10, 46, 0.08); 
-          backdrop-filter: blur(1px); 
+          background: transparent; 
           z-index: 998; 
-          pointer-events: none; 
+          pointer-events: auto; 
+          cursor: default;
         }
 
         /* MEGA PANEL */
@@ -468,30 +469,153 @@ export default function Header() {
           .hdr-tube { height: 56px; padding: 8px 16px; }
           .hdr-left-group, .hdr-right-group { display: none; }
           .hdr-hamburger { display: flex; }
-          .hdr-mobile-nav { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; width: 100%; height: calc(100vh - 72px); background: #fff; padding: 0 24px 24px 24px; pointer-events: auto; overflow-y: auto; border-top: 1px solid #EAECF0; z-index: 999; }
-          .hdr-mobile-link { display: block; padding: 16px 0; font-size: 15px; font-weight: 600; color: #101828; text-decoration: none; border-bottom: 1px solid #EAECF0; }
-          .hdr-mobile-link:hover { color: #2E29FF; }
-          .hdr-mobile-group { border-bottom: 1px solid #EAECF0; }
-          .hdr-mobile-trigger { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 0; background: none; border: none; font-size: 15px; font-weight: 700; color: #101828; cursor: pointer; }
+          .hdr-mobile-nav {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #fff;
+            padding: 0;
+            pointer-events: auto;
+            overflow-y: auto;
+            z-index: 9999;
+          }
+          .hdr-mob-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 24px;
+            border-bottom: 1px solid #EAECF0;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 1;
+          }
+          .hdr-mob-brand {
+            font-size: 22px;
+            font-weight: 900;
+            color: #0A0A2E;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+          }
+          .hdr-mob-brand span { color: #2E29FF; }
+          .hdr-mob-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #F3F4F6;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #374151;
+          }
+          .hdr-mob-body {
+            flex: 1;
+            padding: 8px 0 120px;
+          }
+          .hdr-mobile-group { border-bottom: 1px solid #F3F4F6; }
+          .hdr-mobile-trigger {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 24px;
+            background: none;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: #111827;
+            cursor: pointer;
+            text-decoration: none;
+          }
+          .hdr-mobile-trigger:hover { color: #2E29FF; background: #F9FAFB; }
           .hdr-mobile-trigger.open { color: #2E29FF; }
-          .hdr-mobile-trigger svg { transition: transform 0.3s; width: 14px; height: 14px; color: #667085; }
+          .hdr-mobile-trigger svg { transition: transform 0.25s; width: 16px; height: 16px; color: #9CA3AF; flex-shrink: 0; }
           .hdr-mobile-trigger.open svg { transform: rotate(180deg); color: #2E29FF; }
-          .hdr-mobile-sub { padding: 0 0 16px 16px; display: flex; flex-direction: column; gap: 12px; }
-          .hdr-mobile-sub-link { display: block; font-size: 14px; font-weight: 500; color: #475467; text-decoration: none; }
-          .hdr-mobile-sub-link:hover { color: #2E29FF; }
-          .hdr-mobile-service-cat { margin-bottom: 12px; }
-          .hdr-mobile-service-cat-title { display: block; font-size: 13px; font-weight: 700; color: #0A0A2E; margin-bottom: 6px; }
-          .hdr-mobile-service-links { display: flex; flex-direction: column; gap: 8px; padding-left: 12px; border-left: 2px solid rgba(46, 41, 255, 0.1); }
-          .hdr-mobile-sub-link.sub-sub { font-size: 13px; color: #6B7280; }
-          .hdr-mobile-cta { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: #342CF6; color: #fff; padding: 14px 24px; border-radius: 100px; font-size: 15px; font-weight: 600; text-decoration: none; margin-top: auto; margin-bottom: 40px; transition: background 0.2s; }
+          .hdr-mobile-sub {
+            background: #F9FAFB;
+            padding: 8px 0;
+            border-top: 1px solid #F3F4F6;
+          }
+          .hdr-mobile-sub-link {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #4B5563;
+            text-decoration: none;
+            padding: 10px 24px 10px 36px;
+          }
+          .hdr-mobile-sub-link:hover { color: #2E29FF; background: #EEF0FF; }
+          .hdr-mobile-service-cat { padding: 12px 24px 4px 36px; }
+          .hdr-mobile-service-cat-title {
+            display: block;
+            font-size: 11px;
+            font-weight: 800;
+            color: #9CA3AF;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+          }
+          .hdr-mobile-service-links { display: flex; flex-direction: column; }
+          .hdr-mobile-sub-link.sub-sub {
+            font-size: 14px;
+            color: #4B5563;
+            padding: 8px 0;
+            border-bottom: none;
+          }
+          .hdr-mob-direct {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #111827;
+            text-decoration: none;
+            border-bottom: 1px solid #F3F4F6;
+          }
+          .hdr-mob-direct:hover { color: #2E29FF; background: #F9FAFB; }
+          .hdr-mob-direct svg { width: 14px; height: 14px; color: #9CA3AF; }
+          .hdr-mobile-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 16px 24px;
+            background: #fff;
+            border-top: 1px solid #EAECF0;
+            z-index: 2;
+          }
+          .hdr-mobile-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: #2E29FF;
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s;
+          }
           .hdr-mobile-cta:hover { background: #1a16d9; }
-          .hdr-mobile-cta svg { width: 16px; height: 16px; }
         }
       `}</style>
 
-      <header className="hdr" onMouseLeave={close}>
-        {/* Floating Capsule Tube Bar */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+      <header className="hdr">
+        {/* Floating Capsule Tube Bar — hover zone includes tube + mega panel */}
+        <div
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', pointerEvents: 'auto' }}
+          onMouseLeave={close}
+        >
           <div className="hdr-tube">
             {/* Left Menus */}
             <div className="hdr-left-group">
@@ -509,9 +633,12 @@ export default function Header() {
               >
                 Services <ChevronDown />
               </button>
+              <Link to="/case-studies" className="hdr-nav-btn" onClick={close}>
+                Case Studies
+              </Link>
             </div>
 
-            {/* Center Logo with Custom Graphic Icon and Bold Block Text */}
+            {/* Center Logo */}
             <Link to="/" className="hdr-brand-center" onClick={close}>
               <LogoIcon />
               <div className="hdr-logo-text">
@@ -521,6 +648,9 @@ export default function Header() {
 
             {/* Right Menus */}
             <div className="hdr-right-group">
+              <Link to="/blog" className="hdr-nav-btn" onClick={close}>
+                Blogs
+              </Link>
               <Link to="/about-us" className="hdr-nav-btn" onClick={close}>
                 About Us
               </Link>
@@ -539,19 +669,33 @@ export default function Header() {
           {openMenu && (
             <>
               <div className="hdr-mega-backdrop" onClick={close} />
-              <div className="hdr-mega-wrap">
+              <div className="hdr-mega-wrap" onMouseLeave={close}>
                 {openMenu === 'industries' && <IndustriesMenu onClose={close} />}
                 {openMenu === 'services' && <ServicesMenu onClose={close} />}
               </div>
             </>
           )}
+        </div>
 
-          {/* Mobile Navigation Dropdown */}
-          {mobileOpen && (
-            <div className="hdr-mobile-nav">
-              {/* Industries Dropdown */}
+        {/* Mobile Navigation — Full screen overlay */}
+        {mobileOpen && (
+          <div className="hdr-mobile-nav">
+            {/* Sticky Top Bar */}
+            <div className="hdr-mob-header">
+              <Link to="/" className="hdr-mob-brand" onClick={() => setMobileOpen(false)}>
+                NOVA<span>DESK</span>
+              </Link>
+              <button className="hdr-mob-close" onClick={() => setMobileOpen(false)}>
+                <CloseIcon />
+              </button>
+            </div>
+
+            {/* Nav Items */}
+            <div className="hdr-mob-body">
+
+              {/* Industries */}
               <div className="hdr-mobile-group">
-                <button 
+                <button
                   className={`hdr-mobile-trigger ${mobileIndustriesOpen ? 'open' : ''}`}
                   onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
                 >
@@ -561,10 +705,10 @@ export default function Header() {
                 {mobileIndustriesOpen && (
                   <div className="hdr-mobile-sub">
                     {industries.map(i => (
-                      <Link 
-                        key={i.name} 
-                        to={`/industries/${i.name.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`} 
-                        className="hdr-mobile-sub-link" 
+                      <Link
+                        key={i.name}
+                        to={`/industries/${i.name.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`}
+                        className="hdr-mobile-sub-link"
                         onClick={() => { setMobileOpen(false); setMobileIndustriesOpen(false); }}
                       >
                         {i.name}
@@ -574,9 +718,9 @@ export default function Header() {
                 )}
               </div>
 
-              {/* Services Dropdown */}
+              {/* Services */}
               <div className="hdr-mobile-group">
-                <button 
+                <button
                   className={`hdr-mobile-trigger ${mobileServicesOpen ? 'open' : ''}`}
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                 >
@@ -590,13 +734,13 @@ export default function Header() {
                         <span className="hdr-mobile-service-cat-title">{s.label}</span>
                         <div className="hdr-mobile-service-links">
                           {s.links.map(l => (
-                            <Link 
-                              key={l} 
-                              to={getServiceUrl(l)} 
-                              className="hdr-mobile-sub-link sub-sub" 
+                            <Link
+                              key={l.label}
+                              to={getServiceUrl(l.label)}
+                              className="hdr-mobile-sub-link sub-sub"
                               onClick={() => { setMobileOpen(false); setMobileServicesOpen(false); }}
                             >
-                              {l}
+                              {l.label}
                             </Link>
                           ))}
                         </div>
@@ -606,49 +750,51 @@ export default function Header() {
                 )}
               </div>
 
-              {/* Hire Developers Dropdown */}
-              <div className="hdr-mobile-group">
-                <button 
-                  className={`hdr-mobile-trigger ${mobileHireOpen ? 'open' : ''}`}
-                  onClick={() => setMobileHireOpen(!mobileHireOpen)}
-                >
-                  <span>Hire Developers</span>
-                  <ChevronDown />
-                </button>
-                {mobileHireOpen && (
-                  <div className="hdr-mobile-sub">
-                    <Link to="/contact-us" className="hdr-mobile-sub-link" onClick={() => { setMobileOpen(false); setMobileHireOpen(false); }}>Hire Dedicated Devs</Link>
-                  </div>
-                )}
-              </div>
+              {/* Case Studies — Direct Link */}
+              <Link
+                to="/case-studies"
+                className="hdr-mob-direct"
+                onClick={() => setMobileOpen(false)}
+              >
+                <span>Case Studies</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </Link>
 
-              {/* Company Dropdown */}
-              <div className="hdr-mobile-group">
-                <button 
-                  className={`hdr-mobile-trigger ${mobileCompanyOpen ? 'open' : ''}`}
-                  onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)}
-                >
-                  <span>Company</span>
-                  <ChevronDown />
-                </button>
-                {mobileCompanyOpen && (
-                  <div className="hdr-mobile-sub">
-                    <Link to="/about-us" className="hdr-mobile-sub-link" onClick={() => { setMobileOpen(false); setMobileCompanyOpen(false); }}>About Us</Link>
-                    <Link to="/contact-us" className="hdr-mobile-sub-link" onClick={() => { setMobileOpen(false); setMobileCompanyOpen(false); }}>Contact Us</Link>
-                  </div>
-                )}
-              </div>
+              {/* Blogs — Direct Link */}
+              <Link
+                to="/blog"
+                className="hdr-mob-direct"
+                onClick={() => setMobileOpen(false)}
+              >
+                <span>Blogs</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </Link>
 
-              {/* Bottom Button */}
-              <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column' }}>
-                <Link to="/contact-us" className="hdr-mobile-cta" onClick={() => setMobileOpen(false)}>
-                  Schedule a Free Consultation
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 19L19 5M19 5v10M19 5H9"/></svg>
-                </Link>
-              </div>
+              {/* About Us — Direct Link */}
+              <Link
+                to="/about-us"
+                className="hdr-mob-direct"
+                onClick={() => setMobileOpen(false)}
+              >
+                <span>About Us</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </Link>
+
             </div>
-          )}
-        </div>
+
+            {/* Fixed Bottom CTA */}
+            <div className="hdr-mobile-footer">
+              <Link
+                to="/contact-us"
+                className="hdr-mobile-cta"
+                onClick={() => setMobileOpen(false)}
+              >
+                Schedule a Free Consultation
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 19L19 5M19 5v10M19 5H9"/></svg>
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
     </>
   );
