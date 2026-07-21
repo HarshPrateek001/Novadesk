@@ -1,0 +1,177 @@
+# Terms & Conditions — NovaDesk
+
+**Last Updated: [Insert Date]**
+
+These Terms & Conditions ("Terms") govern your use of novadesk.dev (the "Site") and any services provided by NovaDesk ("we," "us," "our," "NovaDesk") to you ("Client," "you"). By using the Site, submitting an inquiry, or engaging our Services, you agree to be bound by these Terms.
+
+If you do not agree to these Terms, please do not use the Site or engage our Services.
+
+---
+
+## 1. Overview of Services
+
+NovaDesk provides freelance software development services, including but not limited to:
+
+- Full-stack web application development
+- AI integration and automation development
+- MVP and product development
+- API and backend systems development
+
+The specific scope, deliverables, timeline, and cost for any project will be defined in a separate **Project Proposal / Statement of Work (SOW)** or written agreement (including email confirmation) between NovaDesk and the Client before work begins. These Terms apply in addition to, and alongside, any such project-specific agreement. In case of conflict, the specific written agreement takes precedence over these general Terms.
+
+---
+
+## 2. Project Engagement Process
+
+1. **Discovery & Scoping**: An initial discussion (call/email) to understand requirements. This is free and non-binding.
+2. **Proposal & Quote**: A written proposal outlining scope, deliverables, timeline, and cost will be shared before any commitment is made.
+3. **Agreement & Deposit**: Work begins only after the Client approves the proposal and pays the agreed deposit (see Section 4).
+4. **Development & Delivery**: Work proceeds per the agreed timeline, with regular progress updates as outlined in the proposal.
+
+---
+
+## 3. Client Responsibilities
+
+To ensure timely delivery, the Client agrees to:
+
+- Provide necessary information, content, access credentials, and feedback in a timely manner
+- Designate a single point of contact for project communication and approvals
+- Review and respond to deliverables, drafts, or milestone check-ins within a reasonable time (delays on the Client's part may extend the project timeline accordingly)
+- Ensure they have the legal right to any content, branding, or third-party materials provided to NovaDesk for use in the project
+
+Delays caused by the Client (late feedback, missing content, unavailability) may result in adjusted timelines and are not the responsibility of NovaDesk.
+
+---
+
+## 4. Payment Terms
+
+- **Deposit**: A non-refundable deposit (typically 30-50% of total project cost) is required before work begins, unless otherwise agreed in writing.
+- **Milestone/Final Payments**: Remaining payment is due per the schedule outlined in the project proposal — typically at defined milestones or upon project completion, before final handover of source code/deployment credentials.
+- **Payment Methods**: [Specify — e.g., bank transfer, UPI, PayPal, Razorpay, etc.]
+- **Late Payments**: Payments overdue by more than 7 days may result in a pause of work until payment is received. Repeated late payments may result in project suspension or termination.
+- **Currency**: All quotes are in [INR / USD — specify], unless otherwise stated. International clients are responsible for any currency conversion fees or transfer charges.
+- **Taxes**: Prices quoted do not include applicable taxes (e.g., GST) unless explicitly stated. Taxes will be added as required by law.
+
+---
+
+## 5. Revisions & Change Requests
+
+- Each project proposal specifies a defined number of revision rounds included in the price.
+- Revisions requested **within the original agreed scope** are included as specified.
+- Requests that expand the original scope (new features, design changes beyond what was agreed, additional pages/functionality) will be treated as a **change request**, quoted separately, and may affect the timeline.
+- Excessive revision requests beyond the agreed rounds will be billed at an hourly or per-request rate, communicated before additional work begins.
+
+---
+
+## 6. Timeline & Delays
+
+- Project timelines are estimates based on the agreed scope and assume timely Client cooperation (feedback, content, approvals).
+- NovaDesk will communicate proactively if a delay is anticipated, along with the reason and a revised estimate.
+- NovaDesk is not liable for delays caused by:
+  - Client-side delays in providing feedback, content, or access
+  - Third-party service outages (hosting providers, APIs, payment gateways, etc.)
+  - Force majeure events (natural disasters, internet/infrastructure outages, etc.)
+
+---
+
+## 7. Intellectual Property & Ownership
+
+- Upon **full and final payment**, ownership of the custom code, designs, and deliverables created specifically for the Client's project transfers to the Client.
+- Until final payment is received, all work remains the intellectual property of NovaDesk.
+- NovaDesk retains the right to use general knowledge, techniques, and non-proprietary code snippets/components developed during the project in future work for other clients.
+- NovaDesk retains the right to showcase completed projects (screenshots, descriptions, links) in its portfolio, case studies, and marketing materials, **unless the Client explicitly requests confidentiality in writing** (see Section 8).
+- Any third-party tools, libraries, frameworks, or paid services (e.g., Supabase, Vercel, third-party APIs) used in the project remain subject to their own respective licenses and terms. NovaDesk does not claim ownership over third-party software.
+
+---
+
+## 8. Confidentiality
+
+- NovaDesk agrees to keep confidential any proprietary business information, credentials, or sensitive data shared by the Client during the course of the project.
+- If the Client requires a formal Non-Disclosure Agreement (NDA), one can be signed before detailed project discussions begin — contact us to arrange this.
+- The Client agrees not to share NovaDesk's proprietary processes, pricing, or internal documentation without written consent.
+
+---
+
+## 9. Warranties & Limitations
+
+- NovaDesk will perform Services with reasonable skill, care, and in accordance with generally accepted industry standards.
+- NovaDesk provides a **bug-fix support window** (as specified in the project proposal, typically 15-30 days post-launch) to address defects in the delivered work that are not the result of Client-side changes, third-party updates, or misuse.
+- Beyond the defined support window, ongoing maintenance, updates, or bug fixes are available under a separate agreement or hourly rate.
+- NovaDesk does **not warrant** that the software will be error-free, uninterrupted, or fully compatible with all future third-party updates, browser versions, or platform changes beyond our control.
+- NovaDesk is not responsible for issues arising from Client-side modifications made after handover, or from third-party service changes (e.g., API deprecations, hosting provider changes).
+
+---
+
+## 10. Limitation of Liability
+
+- To the maximum extent permitted by law, NovaDesk's total liability for any claim arising from the Services shall not exceed the total amount paid by the Client for the specific project in question.
+- NovaDesk is not liable for indirect, incidental, consequential, or special damages, including loss of profits, data, or business opportunities, arising from the use of the delivered software.
+- The Client is responsible for maintaining their own backups of data, content, and business-critical information once the project is handed over.
+
+---
+
+## 11. Termination
+
+- Either party may terminate the engagement with written notice if the other party materially breaches these Terms and fails to remedy the breach within 7 days of notice.
+- If the Client terminates a project midway without cause, payment is due for all work completed up to that point, and the deposit is non-refundable.
+- If NovaDesk terminates a project due to Client breach (e.g., non-payment, abusive conduct, illegal use requests), the Client remains liable for payment of work completed to date.
+- Upon termination, NovaDesk will deliver all work completed and paid for, in its current state.
+
+---
+
+## 12. Acceptable Use
+
+The Client agrees not to request or use NovaDesk's Services for:
+
+- Building software intended for illegal activities, fraud, or deceptive practices
+- Content that infringes third-party intellectual property rights
+- Applications designed to harm, exploit, or deceive end users
+- Any use that violates applicable laws or regulations
+
+NovaDesk reserves the right to decline or terminate any project that violates this policy, without refund of the deposit.
+
+---
+
+## 13. Third-Party Services & Costs
+
+Projects may rely on third-party services (hosting, databases, APIs, domain registration, etc.). Unless explicitly included in the project quote:
+
+- Costs for third-party services (e.g., Vercel hosting, Supabase, API usage fees, domain registration) are the Client's responsibility.
+- NovaDesk will recommend appropriate services but is not liable for pricing changes, downtime, or policy changes made by third-party providers.
+
+---
+
+## 14. Governing Law & Dispute Resolution
+
+- These Terms are governed by the laws of India.
+- Any disputes arising from these Terms or the Services shall first be attempted to be resolved through good-faith negotiation between the parties.
+- If unresolved, disputes shall be subject to the exclusive jurisdiction of the courts of [Your City], India.
+- For international clients, both parties agree to attempt resolution via negotiation before pursuing formal legal action, given the practical challenges of cross-border litigation.
+
+---
+
+## 15. Changes to These Terms
+
+NovaDesk may update these Terms from time to time to reflect changes in business practices or legal requirements. The "Last Updated" date will reflect the most recent revision. Continued use of the Site or engagement of Services after changes are posted constitutes acceptance of the updated Terms.
+
+---
+
+## 16. Contact Us
+
+For questions about these Terms, contact:
+
+**Email:** hello@novadesk.dev
+**Business:** NovaDesk — Full-Stack + AI Development Studio
+**Location:** [Your City], India
+
+---
+
+### Notes for you before publishing (delete this section from the live page):
+
+1. Fill in all placeholders: `[Insert Date]`, `[Your City]`, `[INR / USD]`, payment methods.
+2. **Deposit percentage (Section 4)** — 30-50% is standard for freelance dev work; adjust based on your comfort level and project size. For small projects, consider 50%+ upfront to protect against non-payment.
+3. **Revision rounds (Section 5)** — decide a real number (e.g., "2 rounds of revisions included") and reflect it consistently in every project proposal, not just here.
+4. **Support window (Section 9)** — 15-30 days is standard; pick a number you can realistically commit to.
+5. This is a **general template**, not legal advice from a lawyer. It covers the standard clauses freelance dev agencies use, but if you start taking larger contracts (₹1L+ projects) or international clients, a one-time paid legal review (₹3,000-8,000 range in India) is worth it to close any gaps specific to your situation.
+6. Pair this with your **Privacy Policy** (already created) — link both in your website footer. Most serious clients will check both before signing anything.
+7. Consider having Clients **digitally acknowledge** these Terms (e.g., a checkbox on your contact/proposal form: "I agree to the Terms & Conditions") to strengthen enforceability.

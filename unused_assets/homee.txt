@@ -1,0 +1,352 @@
+# NovaDesk — Complete Homepage Content & SEO Package
+
+**Positioning used throughout:** Founder-led, boutique full-stack & AI development studio. Honest, specific claims only — no unverifiable numbers, no fake "featured in" logos. This is the single biggest fix from the current site: one consistent identity from meta tags to footer.
+
+**Primary target keywords:** custom software development agency India, AI development studio, MVP development company India, full-stack development agency, SaaS development company India, hire software development agency (not "hire developers" — that keyword pulls staff-aug buyers, wrong intent for you).
+
+---
+
+## 1. SEO META TAGS
+
+```html
+<title>NovaDesk — Custom Software, Web App & AI Development Studio | India</title>
+
+<meta name="description" content="NovaDesk builds custom web apps, mobile apps, SaaS platforms and AI features for founders and growing businesses. Direct access to the person building your product — weekly working demos, fixed scope, no account-manager layers." />
+
+<meta name="keywords" content="custom software development agency India, AI development studio, MVP development company, SaaS development agency India, full-stack development studio" />
+
+<link rel="canonical" href="https://www.novadesk.site/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="NovaDesk — Custom Software, Web App & AI Development Studio" />
+<meta property="og:description" content="Direct access to a full-stack + AI builder. Weekly working software, fixed scope, no agency overhead. Trusted by founders across Fintech, Healthcare, EdTech and E-commerce." />
+<meta property="og:image" content="https://www.novadesk.site/og-image.png" />
+<meta property="og:url" content="https://www.novadesk.site/" />
+<meta property="og:site_name" content="NovaDesk" />
+<meta property="og:locale" content="en_IN" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="NovaDesk — Custom Software, Web App & AI Development Studio" />
+<meta name="twitter:description" content="Direct access to a full-stack + AI builder. Weekly working software, fixed scope, no agency overhead." />
+<meta name="twitter:image" content="https://www.novadesk.site/og-image.png" />
+
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content="Harsh Prateek, NovaDesk" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+**Why the title/description changed:** old description said "Hire expert offshore developers today" — that phrase targets staff-augmentation search intent (companies looking to rent developer hours), which is a different buyer than someone wanting a finished product built. New copy targets "custom software development agency" and "MVP development company" intent, which matches what you actually sell and matches the rest of the page.
+
+---
+
+## 2. JSON-LD SCHEMA MARKUP
+
+Place this in the `<head>` (or inject via `next/script` if using Next.js App Router).
+
+```json
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.novadesk.site/#organization",
+      "name": "NovaDesk",
+      "url": "https://www.novadesk.site/",
+      "logo": "https://www.novadesk.site/logo.png",
+      "image": "https://www.novadesk.site/og-image.png",
+      "description": "NovaDesk is a founder-led software development studio building custom web apps, mobile apps, SaaS platforms and AI-integrated products for startups and growing businesses.",
+      "founder": {
+        "@type": "Person",
+        "name": "Harsh Prateek",
+        "jobTitle": "Founder & Lead Engineer"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Muzaffarpur",
+        "addressRegion": "Bihar",
+        "addressCountry": "IN"
+      },
+      "areaServed": ["IN", "US", "GB", "AE"],
+      "priceRange": "$$",
+      "telephone": "+91-XXX-XXX-XXXX",
+      "email": "novadesk.site@gmail.com",
+      "sameAs": [
+        "https://www.linkedin.com/company/novadesk",
+        "https://twitter.com/novadesk",
+        "https://github.com/novadesk"
+      ],
+      "knowsAbout": ["Web Development", "Mobile App Development", "AI Integration", "SaaS Development", "Next.js", "FastAPI", "Supabase"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.novadesk.site/#website",
+      "url": "https://www.novadesk.site/",
+      "name": "NovaDesk",
+      "publisher": { "@id": "https://www.novadesk.site/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does NovaDesk offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NovaDesk builds custom websites, web applications, mobile apps, SaaS platforms, and AI-integrated features using Next.js, FastAPI, Supabase and modern LLM APIs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a typical project cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Project cost depends on scope. Most MVPs range from [X] to [Y]. You get a fixed-scope quotation after a free discovery call, so there are no surprise charges."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a typical project take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most MVPs ship in 4-8 weeks depending on scope. You see a working milestone within the first week, then weekly demos until launch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I get to see progress during the build?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You get a working demo every week, not a status update — real, runnable software you can click through."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will you personally build my project?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Harsh, the founder, is directly involved in the architecture and development of every project NovaDesk takes on — no handoff to a junior team you've never spoken to."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you sign NDAs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, NovaDesk signs an NDA before any detailed discussion of your product or business, at no extra cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every project includes a post-launch support window. After that, you can choose a maintenance retainer or handle it in-house with full source code and documentation handed over."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.novadesk.site/" }
+      ]
+    }
+  ]
+}
+```
+
+**Also add per service page** (e.g. `/services/web-development`): a `Service` schema nested under the same `@graph`, with `serviceType`, `provider` referencing `#organization`, and `areaServed`. Keep FAQ schema only on pages where that exact FAQ text is visibly rendered — Google penalizes FAQ schema that doesn't match on-page content.
+
+---
+
+## 3. FULL PAGE COPY (section-by-section, ready to paste)
+
+### Top announcement bar
+```
+🚀 Founder-led software studio — direct access to the person writing your code
+```
+
+### Hero Section
+**Eyebrow:** `FULL-STACK + AI DEVELOPMENT STUDIO`
+
+**H1:**
+```
+Custom Software & AI Products, Built by the Person Who Actually Codes It
+```
+*(H1 must contain your primary keyword cluster — "custom software" + "AI" — and stay unique on the page; nothing else should be an H1.)*
+
+**Subheading:**
+```
+NovaDesk designs and builds web apps, mobile apps, SaaS platforms and AI-integrated
+products for founders and growing businesses. No account managers, no handoffs —
+you work directly with the engineer building your product, and see a working
+demo every week.
+```
+
+**Industry line (keep — good for SEO long-tail):**
+```
+Fintech · Healthcare · EdTech · Logistics · SaaS · E-commerce
+```
+
+**Primary CTA button:** `Book a Free 30-Min Discovery Call →`
+**Secondary CTA (add this — missing currently):** `See Recent Work ↓` (anchor-scrolls to portfolio)
+
+**Trust line (replace "1,250+ Businesses Globally" with something true and specific):**
+```
+⭐⭐⭐⭐⭐  Founder-reviewed on [Clutch/Google/LinkedIn] · [X] projects shipped since 2025
+```
+*(Fill with your real, current number. A specific small number reads as more credible than a large unverifiable one — "12 projects shipped, 100% on-time delivery" beats "1,250+ businesses" every time.)*
+
+---
+
+### Trust Marquee (scrolling bar)
+Keep this — it's good, tactical, believable:
+```
+Weekly Workable Milestones  •  Fixed-Scope Contracts  •  Next.js Development  •  FastAPI + Python  •  Supabase + PostgreSQL  •  Post-Launch Support Included
+```
+*(Removed "CMMI Level 5 Standards" — replace with real, verifiable claims only.)*
+
+---
+
+### "Built for founders who are tired of agency theater"
+Keep this section — it's your strongest, most differentiated copy. Just make sure the stats match reality:
+
+```
+H2: Built for Founders Who Are Tired of Agency Theater
+
+Direct access to a full-stack + AI builder. Weekly workable milestones,
+no account-manager layer, no junior handoffs — the same person who
+scopes your project writes the code and ships it.
+
+[Stat 1]  Projects Shipped        →  use real current number
+[Stat 2]  Days to First Milestone →  7
+[Stat 3]  Developer Ownership     →  1 (Full Ownership)
+```
+
+---
+
+### Tech Stack Strip
+Keep as-is — logos are real tools, this is good social proof of technical seriousness. No change needed.
+
+---
+
+### "Why founders work directly with a builder, not an agency"
+Keep the three cards (Direct Communication / Full Ownership, One Person / Modern Stack, Built for Speed) — this is honest, well-differentiated, and consistent with the hero once the hero is fixed. No contradiction anymore once "1,250+ businesses" and "CMMI" claims are gone.
+
+---
+
+### Recent Projects & Platforms (rewrite with real outcomes)
+Replace generic cards with case-study-style cards. Template per project:
+
+```
+[Project Name] — [One-line category, e.g. "Fintech Analytics Dashboard"]
+
+Problem: [What the client's business problem was, 1 sentence]
+Built: [Tech stack + core feature, 1 sentence]
+Result: [A real number if you have one — e.g. "cut manual reporting
+time from 3 hours to 5 minutes" — if no hard metric yet, use a
+qualitative outcome: "launched in 5 weeks, now used daily by the
+client's ops team"]
+
+Tags: [Next.js] [FastAPI] [PostgreSQL]
+[View Case Study →]  (link to a dedicated page if you have one; if not, remove the link rather than dead-end it)
+```
+*(If you don't have permission to name a client, use "Fintech startup (Seed stage)" style anonymized descriptors — still far more credible than an unlabeled stock-photo card.)*
+
+---
+
+### Services Section — "Find the Right Solution for You"
+Keep the interactive sidebar/panel layout (it's a good UX pattern). SEO fix: make sure each service name links to its own service page (`/services/ai-ml-development`, `/services/web-cms-development`, etc.) — internal links here pass SEO weight to your service pages, which is exactly what you want since you're building those out.
+
+Add one line under each panel heading for on-page keyword coverage, e.g.:
+```
+Software Development
+We build custom software — SaaS platforms, ERP systems, internal CRM
+databases, and enterprise integrations — mapped to your exact
+product requirements. Serving startups and enterprises across India,
+the US and the UK.
+```
+
+---
+
+### CTA Banner
+```
+Ready to see working software in your first week? →  Book a Free Consultation
+```
+
+---
+
+### Process Section — "You See Working Software Every Week"
+Keep as-is, it's strong. Consider adding a 5th column: **"Support & Handover"** — since Source Code Handover and post-launch support are a differentiator you should surface here, not bury only in contracts.
+
+```
+Discovery & Planning → Design & Prototyping → Development & QA → Launch & Scale → Support & Handover
+```
+
+---
+
+### Comparison Table — "Solo Builder vs. Traditional Agency"
+Keep the concept, keep it honest and specific (this table is currently one of your best assets). Just double-check every claim in the "NOVADESK" column is something you can defend if a client pushes back on it in a call.
+
+---
+
+### Recognized & Featured section
+**Remove entirely, or replace.** Options:
+1. If you have zero genuine editorial coverage yet, delete this section — an empty trust signal is worse than no section.
+2. Replace with a **"Tools & Platforms We Work With"** row (Vercel, Supabase, Anthropic/Claude, OpenAI, Stripe) — this is honest and still signals technical credibility.
+3. Once you get a real client testimonial, LinkedIn recommendation, or genuine press mention, add a **"What Clients Say"** section instead (see below) — this converts far better than logo soup anyway.
+
+---
+
+### NEW SECTION — Testimonials (add this, currently missing)
+```
+H2: What Founders Say
+
+[Even 1-2 real quotes outperform 6 fake press logos]
+
+"[Quote about speed/communication/outcome]"
+— [Name], [Title], [Company]  [Photo or LinkedIn-style avatar]
+```
+If you truly have zero testimonials yet, use a **"Recently completed"** live-build log instead (screenshot of a Slack/WhatsApp thank-you message, blurred if needed) — more honest than skipping straight to fake trust.
+
+---
+
+### FAQ Section
+Keep all current questions — they're well-chosen (cost, timeline, personal involvement, NDA, post-launch). Add two more that map to real objections:
+```
+- "Can you work with my existing developer/team?"
+- "What if I need changes after the scope is agreed?"
+```
+(Answer #2 by referencing your Change Request process — ties back to your internal SOPs and shows you have a real process, not ad-hoc scope changes.)
+
+---
+
+### Footer
+Keep structure, add missing SEO/trust items:
+- LinkedIn company page link (you're running LinkedIn-first outreach — this should not be missing)
+- GitHub (if you show public work)
+- A line of schema-relevant NAP (Name, Address, Phone) consistency — must exactly match what you use on Google Business Profile / LinkedIn, this matters for local SEO trust signals
+- "Serving clients across India, US, UK, UAE" (or wherever accurate) instead of vague "Proudly Serving Clients Across India"
+
+---
+
+## 4. HEADING STRUCTURE FOR SEO (H1 → H2 → H3)
+
+Only **one H1** on the page (the hero headline). Everything else should be H2, with H3 for sub-cards. Current likely issue: verify "Built for founders...", "Why founders work directly...", "Find The Right Solutions For You", "You See Working Software Every Week", "Solo builder vs. a traditional agency", "Recognized For Building...", "Your Software Development Questions, Answered" are all H2 — not H1 or plain styled divs. Search engines weight H1/H2 significantly; a page with 7 H1s dilutes topical signal.
+
+## 5. IMAGE ALT TEXT (fill in for every image)
+```
+Hero photo: "Harsh Prateek, Founder and Lead Engineer at NovaDesk"
+Project card 1: "Fintech analytics dashboard built by NovaDesk using Next.js and FastAPI"
+Project card 2: "E-commerce platform interface built by NovaDesk"
+Tech logos: "Next.js logo" / "FastAPI logo" / "Supabase logo" (not "icon" or blank)
+```
+
+## 6. NEXT STEPS I'd recommend after this
+1. Implement meta tags + schema first (highest ROI, zero design risk)
+2. Fix hero + remove CMMI/1,250+ claims (biggest trust risk)
+3. Rewrite portfolio cards with real outcomes
+4. Add testimonials section (even 1 real quote)
+5. Then move to service-page-level SEO content (you mentioned already building these — happy to help structure those with the same meta/schema pattern once ready)
