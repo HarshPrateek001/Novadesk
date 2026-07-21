@@ -63,6 +63,24 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 24px;
 }
 
+/* Global Subheading & Section Tag Centering Utilities */
+.nd-section-sub,
+.nd-portfolio-sub,
+.nd-tech-showcase-sub {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+}
+
+.nd-section-tag,
+.top-tag-blue {
+  text-align: center !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 /* Custom Buttons */
 .btn-primary {
   display: inline-flex;

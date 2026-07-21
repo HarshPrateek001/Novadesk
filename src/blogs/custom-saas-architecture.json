@@ -1,0 +1,31 @@
+{
+  "id": "blog-003",
+  "slug": "custom-saas-architecture",
+  "title": "Building a Multi-Tenant SaaS Platform for Scale in 2026",
+  "excerpt": "Architecting a modern SaaS requires careful planning of database isolation, authentication, subscription billing, and API performance. Here is our blueprint for scale.",
+  "description": "A comprehensive guide to building a scalable multi-tenant SaaS platform in 2026, focusing on database architectures, user authentication, and billing integrations.",
+  "author": {
+    "name": "Harsh Prateek",
+    "role": "Founder & CEO, NovaDesk",
+    "bio": "Harsh is a Full-Stack Engineer and AI architect with 14+ years of experience building digital products for startups.",
+    "avatar": "/hero-my-image.webp",
+    "linkedin": "https://linkedin.com/in/harshprateek"
+  },
+  "publishDate": "2026-07-20",
+  "updatedDate": "2026-07-20",
+  "category": "SaaS Engineering",
+  "tags": ["SaaS", "architecture", "database", "Supabase", "billing"],
+  "coverImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&auto=format&fit=crop&q=80",
+  "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80",
+  "readTime": 10,
+  "featured": true,
+  "seoTitle": "SaaS Platform Scaling Blueprint | NovaDesk Blog",
+  "seoDescription": "Learn how to architect a modern multi-tenant SaaS platform for scale in 2026 using Next.js, Supabase, and Stripe.",
+  "status": "published",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Building SaaS is more than just coding features. It is about tenant isolation and scaling database queries."
+    }
+  ]
+}

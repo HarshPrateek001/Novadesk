@@ -1,0 +1,31 @@
+{
+  "id": "blog-004",
+  "slug": "accelerating-dev-with-generative-ai",
+  "title": "Accelerating Custom Software Development with Generative AI",
+  "excerpt": "How we leverage advanced AI codegen and agentic workflows to build high-performance web applications 4x faster without compromising code quality.",
+  "description": "An in-depth look at how NovaDesk integrates Generative AI into our software development lifecycle, speeding up MVP builds and feature delivery.",
+  "author": {
+    "name": "Harsh Prateek",
+    "role": "Founder & CEO, NovaDesk",
+    "bio": "Harsh is a Full-Stack Engineer and AI architect with 14+ years of experience building digital products for startups.",
+    "avatar": "/hero-my-image.webp",
+    "linkedin": "https://linkedin.com/in/harshprateek"
+  },
+  "publishDate": "2026-07-21",
+  "updatedDate": "2026-07-21",
+  "category": "Artificial Intelligence",
+  "tags": ["Generative AI", "AI engineering", "agentic workflows", "software development"],
+  "coverImage": "https://images.unsplash.com/photo-1677442136019-21780efad99a?w=1600&auto=format&fit=crop&q=80",
+  "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780efad99a?w=600&auto=format&fit=crop&q=80",
+  "readTime": 7,
+  "featured": true,
+  "seoTitle": "Accelerating Software Development with AI | NovaDesk Blog",
+  "seoDescription": "Discover how NovaDesk uses Generative AI and agentic workflows to deliver custom web apps and SaaS 4x faster.",
+  "status": "published",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Generative AI is transforming software engineering. We use custom agents to write boilerplate, run tests, and optimize queries."
+    }
+  ]
+}
