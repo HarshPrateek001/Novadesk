@@ -4,13 +4,16 @@ import { Helmet } from 'react-helmet-async';
 export default function SEO({ title, description, keywords, image, url, schema }) {
   const siteTitle = "NovaDesk | Custom Software & AI Development Agency in India";
   const defaultDescription = "NovaDesk is a premier software engineering agency. We configure highly optimized offshore teams for businesses requiring custom Web apps, mobile systems, and AI deployments.";
-  const defaultImage = "https://www.novadesk.site/hero-my-image.webp"; // Fallback image
+  const defaultImage = "https://www.novadesk.site/hero-my-image.webp";
   
   const pageTitle = title ? `${title} | NovaDesk` : siteTitle;
   const pageDescription = description || defaultDescription;
   const pageKeywords = keywords || "NovaDesk, software development agency in India, AI app developers, custom SaaS development, Web app development company, hire offshore developers, AI solutions";
   const pageUrl = url ? `https://www.novadesk.site${url}` : "https://www.novadesk.site";
   const pageImage = image || defaultImage;
+
+  // Support both single schema object and array of schemas
+  const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
   return (
     <Helmet>
@@ -26,6 +29,7 @@ export default function SEO({ title, description, keywords, image, url, schema }
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:image" content={pageImage} />
+      <meta property="og:site_name" content="NovaDesk" />
       
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
@@ -36,12 +40,12 @@ export default function SEO({ title, description, keywords, image, url, schema }
 
       <link rel="canonical" href={pageUrl} />
 
-      {/* JSON-LD Schema */}
-      {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
+      {/* JSON-LD Schemas — one <script> per schema for Google compliance */}
+      {schemas.map((s, i) => (
+        <script key={i} type="application/ld+json">
+          {JSON.stringify(s)}
         </script>
-      )}
+      ))}
     </Helmet>
   );
 }
