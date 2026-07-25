@@ -264,10 +264,17 @@ export default function Header() {
           background-size: 26px 26px;
         }
 
+        /* ── GLOBAL MAIN PADDING TO OFFSET FIXED HEADER ON ALL PAGES ── */
+        main {
+          padding-top: 96px;
+        }
+
         /* ── FLOATING HEADER CONTAINER ── */
         .hdr { 
-          position: sticky; 
-          top: 24px; 
+          position: fixed; 
+          top: 20px; 
+          left: 0;
+          right: 0;
           z-index: 1000; 
           background: transparent; 
           font-family: 'Space Grotesk', sans-serif; 
@@ -654,8 +661,11 @@ export default function Header() {
               <Link to="/about-us" className="hdr-nav-btn" onClick={close}>
                 About Us
               </Link>
-              <Link to="/contact-us" className="hdr-nav-btn" style={{ color: '#2E29FF' }} onClick={close}>
+              <Link to="/contact-us" className="hdr-nav-btn" onClick={close}>
                 Contact Us
+              </Link>
+              <Link to="/get-a-free-quote" className="btn-primary" onClick={close} style={{ padding: '8px 18px', fontSize: '13.5px', borderRadius: '24px' }}>
+                Get a Free Quote
               </Link>
             </div>
 

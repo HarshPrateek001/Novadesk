@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 
 export default function CaseStudies() {
@@ -81,6 +82,32 @@ export default function CaseStudies() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Bottom CTA Section */}
+        <div style={{
+          marginTop: '80px',
+          textAlign: 'center',
+          background: '#ffffff',
+          borderRadius: '24px',
+          padding: '56px 32px',
+          border: '1px solid rgba(46, 41, 255, 0.1)',
+          boxShadow: '0 10px 40px rgba(46, 41, 255, 0.05)'
+        }}>
+          <h2 style={{ fontSize: '32px', fontWeight: '800', color: '#0A0A2E', marginBottom: '12px' }}>
+            Ready to Build Your Next Big Idea?
+          </h2>
+          <p style={{ fontSize: '16px', color: '#64748B', maxWidth: '540px', margin: '0 auto 32px', lineHeight: '1.6' }}>
+            Partner with NovaDesk for custom web applications, SaaS platforms, and enterprise AI solutions built to scale.
+          </p>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link to="/contact-us" className="btn-primary">
+              Book a Free Consultation ↗
+            </Link>
+            <Link to="/get-a-free-quote" className="btn-secondary">
+              Get a Free Quote ↗
+            </Link>
+          </div>
         </div>
       </section>
     </div>

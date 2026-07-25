@@ -74,7 +74,7 @@ export default function AboutUs() {
                 Trusted Partner for Startups &amp; <br />Global Enterprises
               </h1>
               
-              <div className="founder-badge" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <div className="founder-badge" style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
                 <div className="founder-avatar">
                   <img src="/hero-my-image.webp" alt="Harsh Prateek" style={{ borderRadius: '50%', width: '72px', height: '52px', objectFit: 'cover', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
                 </div>
@@ -82,6 +82,11 @@ export default function AboutUs() {
                   <strong style={{ fontSize: '24px', color: '#111827', letterSpacing: '-0.5px', fontWeight: '600', lineHeight: '1.2' }}>Harsh Prateek</strong>
                   <span style={{ fontSize: '14px', color: 'var(--color-primary)', marginTop: '4px', fontWeight: '500' }}>Founder &amp; Lead Developer</span>
                 </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
+                <Link to="/contact-us" className="btn-primary">Book a Free Consultation ↗</Link>
+                <Link to="/get-a-free-quote" className="btn-secondary">Get a Free Quote ↗</Link>
               </div>
             </div>
           </div>
@@ -326,9 +331,12 @@ export default function AboutUs() {
                 <FaqItem key={i} q={f.q} a={f.a} open={activeFaq === i} onToggle={() => setActiveFaq(activeFaq === i ? null : i)} />
               ))}
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
-              <Link to="/contact-us" className="nd-faq-cta-btn">
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginTop: '40px', flexWrap: 'wrap' }}>
+              <Link to="/contact-us" className="btn-primary">
                 Still have questions? Talk to Us ↗
+              </Link>
+              <Link to="/get-a-free-quote" className="btn-secondary">
+                Get a Free Quote ↗
               </Link>
             </div>
           </div>

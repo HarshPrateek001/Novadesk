@@ -81,47 +81,54 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: auto !important;
 }
 
-/* Custom Buttons */
-.btn-primary {
+/* Custom Buttons System (Uniform design across all pages) */
+.btn-primary, .nd-btn-primary, .fs-btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 28px;
-  background: var(--color-primary);
-  color: #fff;
-  border-radius: 68px;
-  font-weight: 600;
-  border: 1px solid var(--color-primary);
-  cursor: pointer;
   gap: 8px;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  padding: 14px 28px;
+  background: #2E29FF;
+  color: #ffffff !important;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  box-shadow: 0 8px 24px rgba(46, 41, 255, 0.22);
 }
 
-.btn-primary:hover {
-  background: var(--color-secondary);
-  border-color: var(--color-secondary);
+.btn-primary:hover, .nd-btn-primary:hover, .fs-btn-primary:hover {
+  background: #1a16dd;
+  color: #ffffff !important;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 12px 30px rgba(46, 41, 255, 0.32);
 }
 
-.btn-secondary {
+.btn-secondary, .nd-btn-outline, .fs-btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 28px;
-  background: #fff;
-  color: var(--color-primary);
-  border-radius: 68px;
-  font-weight: 600;
-  border: 1px solid var(--color-primary);
-  cursor: pointer;
   gap: 8px;
-  transition: var(--transition);
+  padding: 14px 28px;
+  background: transparent;
+  color: #2E29FF !important;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  border: 2px solid rgba(46, 41, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
 }
 
-.btn-secondary:hover {
-  background: var(--color-light-bg);
+.btn-secondary:hover, .nd-btn-outline:hover, .fs-btn-secondary:hover {
+  border-color: #2E29FF;
+  background: #EEF0FF;
+  color: #2E29FF !important;
   transform: translateY(-2px);
 }
 

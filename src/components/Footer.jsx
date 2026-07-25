@@ -198,7 +198,11 @@ export default function Footer() {
         .nd-local-seo {
           border-top: 1px solid rgba(255, 255, 255, 0.15);
           padding: 40px 0;
-          text-align: center;
+          text-align: center !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
         }
         .nd-local-seo h4 {
           font-size: 13px;
@@ -207,6 +211,7 @@ export default function Footer() {
           text-transform: uppercase;
           letter-spacing: 1.5px;
           margin-bottom: 16px;
+          text-align: center !important;
         }
         .nd-local-seo p {
           font-size: 13px;
@@ -214,7 +219,9 @@ export default function Footer() {
           line-height: 1.8;
           max-width: 1000px;
           margin: 0 auto;
+          text-align: center !important;
         }
+
 
         /* ── GIANT WATERMARK ── */
         .nd-footer-watermark {
@@ -378,9 +385,9 @@ export default function Footer() {
         </div>
 
         {/* Local SEO Cities List */}
-        <div className="nd-local-seo">
-          <h4>Serving clients across India, US, UK, UAE</h4>
-          <p>
+        <div className="nd-local-seo" style={{ textAlign: 'center', width: '100%' }}>
+          <h4 style={{ textAlign: 'center', width: '100%' }}>Serving clients all over India</h4>
+          <p style={{ textAlign: 'center', margin: '0 auto', width: '100%' }}>
             Mumbai • Bengaluru • New Delhi • Hyderabad • Pune • Chennai • Ahmedabad • Kolkata • Jaipur • Surat • 
             Gurugram • Noida • Chandigarh • Kochi • Indore • Lucknow • Bhopal • Coimbatore • Patna • Nagpur • 
             Vadodara • Ludhiana • Agra • Nashik • Kanpur • Thane • Visakhapatnam • Rajkot

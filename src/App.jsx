@@ -56,6 +56,8 @@ const MvpDevelopment = React.lazy(() => import('./pages/services/MvpDevelopment'
 
 const Fintech = React.lazy(() => import('./pages/industries/Fintech'));
 
+const GetAFreeQuote = React.lazy(() => import('./pages/GetAFreeQuote'));
+
 export default function App() {
   return (
     <HelmetProvider>
@@ -101,6 +103,7 @@ export default function App() {
                 <Route path="/services/mvp-development" element={<MvpDevelopment />} />
                 
                 <Route path="/industries/fintech" element={<Fintech />} />
+                <Route path="/get-a-free-quote" element={<GetAFreeQuote />} />
 
                 {/* ─── Blog Routes ───────────────────────────────────────────
                     Two permanent routes handle ALL blog content — forever.

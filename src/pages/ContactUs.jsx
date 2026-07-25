@@ -80,6 +80,34 @@ export default function ContactUs() {
           }}>
             <CalendlyWidget />
           </div>
+
+          {/* Secondary Quote Banner */}
+          <div style={{
+            marginTop: '36px',
+            textAlign: 'center',
+            background: '#ffffff',
+            borderRadius: '16px',
+            padding: '28px 32px',
+            border: '1px solid rgba(46, 41, 255, 0.1)',
+            boxShadow: '0 4px 16px rgba(0,0,0,0.03)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '20px'
+          }}>
+            <div style={{ textAlign: 'left' }}>
+              <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#0b0f19', marginBottom: '4px' }}>
+                Prefer an itemized project estimate?
+              </h3>
+              <p style={{ fontSize: '14px', color: '#64748b', margin: 0 }}>
+                Fill out our quick 4-step quote request and get a detailed breakdown in 48h.
+              </p>
+            </div>
+            <Link to="/get-a-free-quote" className="btn-primary">
+              Get a Free Quote ↗
+            </Link>
+          </div>
         </div>
         
       </div>

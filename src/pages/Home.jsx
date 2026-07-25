@@ -2151,7 +2151,8 @@ export default function Home() {
                 <strong>Fintech, Healthcare, EdTech, Logistics, SaaS, E-commerce.</strong> We bring engineering depth, product thinking, and the execution speed your business actually needs.
               </p>
               <div className="nd-cta-row">
-                <Link to="/contact-us" className="nd-btn-primary">Book a Free 30-Min Call ↗</Link>
+                <Link to="/contact-us" className="nd-btn-primary">Book a Free Consultation ↗</Link>
+                <Link to="/get-a-free-quote" className="nd-btn-outline">Get a Free Quote ↗</Link>
               </div>
               <div className="nd-rating-row">
                 <div className="nd-avatars">

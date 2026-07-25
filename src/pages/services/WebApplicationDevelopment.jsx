@@ -1411,9 +1411,14 @@ export default function WebApplicationDevelopment() {
               <p className="fs-hero-desc">
                 Not a template. Not a page-builder. A web application designed around how your business actually works — dashboards, portals, booking systems, and internal tools built to handle real logic, real users, and real growth.
               </p>
-              <Link to="/contact-us" className="fs-btn fs-btn-primary" style={{ marginBottom: '40px', display: 'inline-flex' }}>
-                Get a Free Consultation <ArrowRight />
-              </Link>
+              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}>
+                <Link to="/contact-us" className="btn-primary">
+                  Book a Free Consultation <ArrowRight />
+                </Link>
+                <Link to="/get-a-free-quote" className="btn-secondary">
+                  Get a Free Quote <ArrowRight />
+                </Link>
+              </div>
               
               <div className="fs-hero-badges" style={{ display: 'flex', gap: '30px', alignItems: 'flex-start' }}>
                 <div className="fs-hero-badge">
