@@ -22,38 +22,45 @@ const LogoIcon = () => (
   </svg>
 );
 
-// ── Genuine High-Converting Mega Menu Sidebar
-function NavSidebarPanel({ onClose }) {
+// ── Achievements Sidebar
+function AchievementsSidebar({ onClose }) {
   return (
-    <div className="hdr-sidebar-panel">
-      <span className="hdr-sb-title">⚡ How We Work</span>
-      
-      <div className="hdr-sb-features">
-        <div className="hdr-sb-feat-item">
-          <span className="hdr-sb-feat-icon">✓</span>
-          <span>1-on-1 Senior Engineer Access</span>
+    <div className="hdr-achievement-panel">
+      <h4 className="hdr-ach-title">Our Achievements</h4>
+      <div className="hdr-ach-logos">
+        <div className="hdr-ach-logo-item">
+          <span className="hdr-logo-google">Google</span>
+          <span className="hdr-ach-label">Top 20 Indian Startup</span>
         </div>
-        <div className="hdr-sb-feat-item">
-          <span className="hdr-sb-feat-icon">✓</span>
-          <span>Weekly Live Working Demos</span>
+        <div className="hdr-ach-logo-item">
+          <span className="hdr-logo-linkedin">Linked<span>in</span></span>
+          <span className="hdr-ach-label">Top 20 Indian Startup</span>
         </div>
-        <div className="hdr-sb-feat-item">
-          <span className="hdr-sb-feat-icon">✓</span>
-          <span>100% IP &amp; Source Code Ownership</span>
+
+        <div className="hdr-ach-logo-item">
+          <span className="hdr-logo-years">14<sup>+</sup></span>
+          <span className="hdr-ach-label">Years of Tech Experience</span>
         </div>
       </div>
-
-      <div className="hdr-sb-card">
-        <h4 className="hdr-sb-card-title">Need an Itemized Estimate?</h4>
-        <p className="hdr-sb-card-desc">Get a detailed breakdown of scope, tech stack, and fixed pricing in 48 hours.</p>
-        <Link to="/get-a-free-quote" className="hdr-sb-btn-primary" onClick={onClose}>
-          Get a Free Quote ↗
-        </Link>
+      <div className="hdr-ach-cta-box">
+        <h4 className="hdr-ach-cta-title">Build and Scale with Experts</h4>
+        <p className="hdr-ach-cta-desc">Development, AI, cloud, and product engineering to power your next big idea.</p>
+        <Link to="/contact-us" className="hdr-ach-btn" onClick={onClose}>Schedule a Free Consultation ↗</Link>
       </div>
-
-      <Link to="/contact-us" className="hdr-sb-btn-outline" onClick={onClose}>
-        Schedule a Call ↗
-      </Link>
+      <div className="hdr-ach-stats">
+        <div className="hdr-ach-stat">
+          <span className="hdr-ach-stat-num">500</span>
+          <span className="hdr-ach-stat-label">FORTUNE</span>
+        </div>
+        <div className="hdr-ach-stat">
+          <span className="hdr-ach-stat-num">132</span>
+          <span className="hdr-ach-stat-label">STARTUPS</span>
+        </div>
+        <div className="hdr-ach-stat">
+          <span className="hdr-ach-stat-num">04</span>
+          <span className="hdr-ach-stat-label">UNICORNS</span>
+        </div>
+      </div>
     </div>
   );
 }
@@ -91,7 +98,7 @@ function IndustriesMenu({ onClose }) {
           ))}
         </div>
       </div>
-      <NavSidebarPanel onClose={onClose} />
+      <AchievementsSidebar onClose={onClose} />
     </div>
   );
 }
@@ -228,7 +235,7 @@ function ServicesMenu({ onClose }) {
           ))}
         </div>
       </div>
-      <NavSidebarPanel onClose={onClose} />
+      <AchievementsSidebar onClose={onClose} />
     </div>
   );
 }
@@ -388,38 +395,25 @@ export default function Header() {
         .hdr-mega-backdrop { 
           position: fixed; 
           inset: 0; 
-          background: rgba(10, 10, 46, 0.45); 
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
+          background: transparent; 
           z-index: 998; 
           pointer-events: auto; 
           cursor: default;
-          animation: hdrFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        @keyframes hdrFadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
         }
 
         /* MEGA PANEL */
         .hdr-mega { 
           position: relative; 
           z-index: 999; 
-          background: #ffffff; 
-          border: 1px solid rgba(46, 41, 255, 0.15);
+          background: #fff; 
           border-top: 3px solid #2E29FF; 
-          box-shadow: 0 30px 90px rgba(10, 10, 46, 0.35); 
+          box-shadow: 0 20px 60px rgba(46, 41, 255, 0.12); 
           display: flex; 
           gap: 0; 
           max-width: 1200px; 
           margin: 0 auto; 
           border-radius: 16px; 
           overflow: hidden; 
-          animation: hdrSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        @keyframes hdrSlideDown {
-          from { opacity: 0; transform: translateY(-8px); }
-          to { opacity: 1; transform: translateY(0); }
         }
 
         /* ── INDUSTRIES MENU ── */
@@ -451,101 +445,27 @@ export default function Header() {
         .hdr-svc-link-card:hover .hdr-svc-link-title { color: #2E29FF; }
         .hdr-svc-link-desc { font-size: 12px; color: #6B7280; line-height: 1.4; font-weight: 400; }
 
-        /* ── MEGA MENU SIDEBAR PANEL ── */
-        .hdr-sidebar-panel {
-          width: 250px;
-          background: #F8F9FF;
-          border-left: 1px solid rgba(46, 41, 255, 0.08);
-          padding: 22px 18px;
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          flex-shrink: 0;
-        }
-        .hdr-sb-title {
-          font-size: 11px;
-          font-weight: 800;
-          color: #2E29FF;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-        }
-        .hdr-sb-features {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          background: #ffffff;
-          border: 1px solid rgba(46, 41, 255, 0.1);
-          border-radius: 12px;
-          padding: 14px 12px;
-        }
-        .hdr-sb-feat-item {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 12px;
-          font-weight: 600;
-          color: #1E293B;
-          line-height: 1.3;
-        }
-        .hdr-sb-feat-icon {
-          color: #10B981;
-          font-weight: 900;
-          font-size: 13px;
-        }
-        .hdr-sb-card {
-          background: #2E29FF;
-          border-radius: 12px;
-          padding: 16px;
-          color: #ffffff;
-          box-shadow: 0 8px 20px rgba(46, 41, 255, 0.2);
-        }
-        .hdr-sb-card-title {
-          font-size: 13.5px;
-          font-weight: 800;
-          margin-bottom: 6px;
-          color: #ffffff;
-        }
-        .hdr-sb-card-desc {
-          font-size: 11.5px;
-          color: rgba(255, 255, 255, 0.85);
-          line-height: 1.45;
-          margin-bottom: 14px;
-          font-weight: 400;
-        }
-        .hdr-sb-btn-primary {
-          display: block;
-          background: #ffffff;
-          color: #2E29FF;
-          padding: 9px 14px;
-          border-radius: 20px;
-          font-size: 12px;
-          font-weight: 700;
-          text-decoration: none;
-          text-align: center;
-          transition: all .2s;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-        .hdr-sb-btn-primary:hover {
-          background: #EEF0FF;
-          transform: translateY(-1px);
-        }
-        .hdr-sb-btn-outline {
-          display: block;
-          background: transparent;
-          color: #2E29FF;
-          border: 1.5px solid #2E29FF;
-          padding: 8px 12px;
-          border-radius: 20px;
-          font-size: 11.5px;
-          font-weight: 700;
-          text-decoration: none;
-          text-align: center;
-          transition: all .2s;
-        }
-        .hdr-sb-btn-outline:hover {
-          background: #2E29FF;
-          color: #ffffff;
-        }
+        /* ── ACHIEVEMENTS SIDEBAR ── */
+        .hdr-achievement-panel { width: 240px; background: #F8F9FF; border-left: 1px solid rgba(46, 41, 255, 0.08); padding: 24px 20px; display: flex; flex-direction: column; gap: 16px; flex-shrink: 0; }
+        .hdr-ach-title { font-size: 14px; font-weight: 800; color: #0A0A2E; text-align: center; }
+        .hdr-ach-logos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .hdr-ach-logo-item { display: flex; flex-direction: column; align-items: center; gap: 4px; background: #fff; border: 1px solid rgba(46, 41, 255, 0.1); border-radius: 10px; padding: 10px 8px; }
+        .hdr-logo-google { font-size: 16px; font-weight: 800; background: linear-gradient(90deg,#4285F4,#EA4335,#FBBC05,#34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hdr-logo-linkedin { font-size: 14px; font-weight: 800; color: #0A66C2; }
+        .hdr-logo-linkedin span { color: #fff; background: #0A66C2; padding: 0 2px; border-radius: 2px; }
+        .hdr-logo-cmmi { font-size: 16px; font-weight: 900; color: #0A0A2E; letter-spacing: 1px; }
+        .hdr-logo-years { font-size: 24px; font-weight: 900; color: #2E29FF; }
+        .hdr-logo-years sup { font-size: 14px; }
+        .hdr-ach-label { font-size: 9px; color: #6B7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; text-align: center; }
+        .hdr-ach-cta-box { background: #2E29FF; border-radius: 12px; padding: 16px; }
+        .hdr-ach-cta-title { font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+        .hdr-ach-cta-desc { font-size: 11px; color: rgba(255,255,255,0.75); line-height: 1.5; margin-bottom: 12px; font-weight: 400; }
+        .hdr-ach-btn { display: block; background: #fff; color: #2E29FF; padding: 9px 14px; border-radius: 50px; font-size: 11.5px; font-weight: 700; text-decoration: none; text-align: center; transition: all .2s; }
+        .hdr-ach-btn:hover { background: #EEF0FF; }
+        .hdr-ach-stats { display: flex; justify-content: space-between; }
+        .hdr-ach-stat { text-align: center; }
+        .hdr-ach-stat-num { display: block; font-size: 18px; font-weight: 800; color: #2E29FF; }
+        .hdr-ach-stat-label { display: block; font-size: 9px; color: #6B7280; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
 
         /* ── MOBILE HAMBURGER ── */
         .hdr-hamburger { display: none; background: none; border: none; cursor: pointer; color: #0A0A2E; padding: 4px; pointer-events: auto; }
@@ -741,9 +661,10 @@ export default function Header() {
               <Link to="/about-us" className="hdr-nav-btn" onClick={close}>
                 About Us
               </Link>
-              <Link to="/contact-us" className="hdr-nav-btn" style={{ color: '#2E29FF' }} onClick={close}>
+              <Link to="/contact-us" className="hdr-nav-btn" onClick={close}>
                 Contact Us
               </Link>
+              
             </div>
 
             {/* Hamburger on Mobile */}
