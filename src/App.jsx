@@ -28,17 +28,13 @@ import WhatsAppButton from './components/WhatsAppButton';
 
 const FullStackDevelopment = React.lazy(() => import('./pages/services/FullStackDevelopment'));
 const WebApplicationDevelopment = React.lazy(() => import('./pages/services/WebApplicationDevelopment'));
-const ReactJsDevelopment = React.lazy(() => import('./pages/services/ReactJsDevelopment'));
 const ChatbotDevelopment = React.lazy(() => import('./pages/services/ChatbotDevelopment'));
 const GenAiDevelopment = React.lazy(() => import('./pages/services/GenAiDevelopment'));
 const AiIntegratedSoftware = React.lazy(() => import('./pages/services/AiIntegratedSoftware'));
 const ConversationalAi = React.lazy(() => import('./pages/services/ConversationalAi'));
 const PhpDevelopment = React.lazy(() => import('./pages/services/PhpDevelopment'));
-const PythonDevelopment = React.lazy(() => import('./pages/services/PythonDevelopment'));
-const NodeJsDevelopment = React.lazy(() => import('./pages/services/NodeJsDevelopment'));
 const CmsDevelopment = React.lazy(() => import('./pages/services/CmsDevelopment'));
 const WordPressDevelopment = React.lazy(() => import('./pages/services/WordPressDevelopment'));
-const EcommerceDevelopment = React.lazy(() => import('./pages/services/EcommerceDevelopment'));
 const EcommerceDesign = React.lazy(() => import('./pages/services/EcommerceDesign'));
 const EcommerceImplementation = React.lazy(() => import('./pages/services/EcommerceImplementation'));
 const WoocommerceDevelopment = React.lazy(() => import('./pages/services/WoocommerceDevelopment'));
@@ -76,17 +72,13 @@ export default function App() {
                 <Route path="/terms" element={<TermsConditions />} />
                 <Route path="/services/full-stack-development" element={<FullStackDevelopment />} />
                 <Route path="/services/web-application-development" element={<WebApplicationDevelopment />} />
-                <Route path="/services/react-js-development" element={<ReactJsDevelopment />} />
                 <Route path="/services/chatbot-development" element={<ChatbotDevelopment />} />
                 <Route path="/services/gen-ai-development" element={<GenAiDevelopment />} />
                 <Route path="/services/ai-integrated-software" element={<AiIntegratedSoftware />} />
                 <Route path="/services/conversational-ai" element={<ConversationalAi />} />
                 <Route path="/services/php-development" element={<PhpDevelopment />} />
-                <Route path="/services/python-development" element={<PythonDevelopment />} />
-                <Route path="/services/node-js-development" element={<NodeJsDevelopment />} />
                 <Route path="/services/cms-development" element={<CmsDevelopment />} />
                 <Route path="/services/wordpress-development" element={<WordPressDevelopment />} />
-                <Route path="/services/ecommerce-development" element={<EcommerceDevelopment />} />
                 <Route path="/services/ecommerce-design" element={<EcommerceDesign />} />
                 <Route path="/services/ecommerce-implementation" element={<EcommerceImplementation />} />
                 <Route path="/services/woocommerce-development" element={<WoocommerceDevelopment />} />
