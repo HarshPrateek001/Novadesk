@@ -177,36 +177,68 @@
     <loc>https://www.novadesk.site/industries/fintech</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.novadesk.site/about-us</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.novadesk.site/case-studies</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.novadesk.site/contact-us</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
   </url>
   <url>
     <loc>https://www.novadesk.site/blog/how-much-does-custom-software-development-cost</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.novadesk.site/blog/saas-vs-custom-software-which-is-right-for-your-business</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.novadesk.site/blog/hiring-react-js-development-company</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.novadesk.site/blog/why-startups-choose-nodejs-for-backend</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.novadesk.site/blog/ai-integration-in-healthcare-software</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.novadesk.site/privacy-policy</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
+  </url>
+  <url>
+    <loc>https://www.novadesk.site/terms</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
   </url>
 </urlset>

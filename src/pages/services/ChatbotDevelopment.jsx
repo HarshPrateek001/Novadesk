@@ -28,6 +28,24 @@ const IconChevronDown = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
 );
 
+const HeroCheckBadge = () => (
+  <span style={{
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    borderRadius: '50%',
+    background: 'rgba(46, 41, 255, 0.1)',
+    color: '#2E29FF',
+    flexShrink: 0
+  }}>
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+  </span>
+);
+
 function FaqItem({ q, a, open, onToggle }) {
   return (
     <div className={`nd-faq-item ${open ? 'nd-faq-open' : ''}`}>
@@ -38,6 +56,381 @@ function FaqItem({ q, a, open, onToggle }) {
         </span>
       </button>
       {open && <div className="nd-faq-a">{a}</div>}
+    </div>
+  );
+}
+
+function HeroChatAnimation() {
+  const [messages, setMessages] = useState([
+    { id: 1, type: 'user', text: "Hi! What's your most popular AI service?" }
+  ]);
+  const [isTyping, setIsTyping] = useState(false);
+  const [step, setStep] = useState(0);
+  const chatRef = useRef(null);
+
+  const conversationSteps = [
+    {
+      type: 'ai',
+      text: "Our top solution is the 24/7 Conversational AI Assistant 🤖 — simple, intelligent, and trained directly on your business knowledge.",
+      note: "NovaDesk AI Answered ✨"
+    },
+    {
+      type: 'user',
+      text: "Can it integrate with Shopify and WhatsApp?"
+    },
+    {
+      type: 'ai',
+      text: "Absolutely! 🚀 We seamlessly connect chatbots with Shopify, WhatsApp, Salesforce, Zendesk, and custom APIs.",
+      note: "NovaDesk AI Answered ✨"
+    },
+    {
+      type: 'user',
+      text: "Awesome! How fast can we launch?"
+    },
+    {
+      type: 'ai',
+      text: "We can deploy your custom AI chatbot in as fast as 2 to 4 weeks! ⚡",
+      note: "NovaDesk AI Answered ✨"
+    }
+  ];
+
+  useEffect(() => {
+    let timer;
+    if (step < conversationSteps.length) {
+      const nextItem = conversationSteps[step];
+      if (nextItem.type === 'ai') {
+        setIsTyping(true);
+        timer = setTimeout(() => {
+          setIsTyping(false);
+          setMessages((prev) => [...prev, { ...nextItem, id: Date.now() }]);
+          setStep((s) => s + 1);
+        }, 1800);
+      } else {
+        timer = setTimeout(() => {
+          setMessages((prev) => [...prev, { ...nextItem, id: Date.now() }]);
+          setStep((s) => s + 1);
+        }, 1400);
+      }
+    } else {
+      timer = setTimeout(() => {
+        setMessages([{ id: 1, type: 'user', text: "Hi! What's your most popular AI service?" }]);
+        setStep(0);
+      }, 5000);
+    }
+    return () => clearTimeout(timer);
+  }, [step]);
+
+  useEffect(() => {
+    if (chatRef.current) {
+      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    }
+  }, [messages, isTyping]);
+
+  return (
+    <div className="nd-hero-browser-wrapper">
+      <div className="nd-browser-card">
+        <div className="nd-browser-topbar">
+          <div className="nd-browser-dots">
+            <span className="nd-dot red"></span>
+            <span className="nd-dot yellow"></span>
+            <span className="nd-dot green"></span>
+          </div>
+          <div className="nd-browser-url">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: '6px', color: '#10B981'}}>
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            yourwebsite.com
+          </div>
+        </div>
+
+        <div className="nd-browser-content">
+          <div className="nd-wireframe-left">
+            <div className="nd-wf-bar header-bar"></div>
+            <div className="nd-wf-bar sub-bar"></div>
+            <div className="nd-wf-line line-1"></div>
+            <div className="nd-wf-line line-2"></div>
+            <div className="nd-wf-buttons">
+              <div className="nd-wf-btn primary"></div>
+              <div className="nd-wf-btn secondary"></div>
+            </div>
+            <div className="nd-wf-footer-box"></div>
+          </div>
+
+          <div className="nd-chat-phone">
+            <div className="nd-phone-header">
+              <div className="nd-phone-user">
+                <div className="nd-avatar-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" 
+                    alt="AI Assistant" 
+                    className="nd-avatar-img"
+                  />
+                  <span className="nd-online-dot"></span>
+                </div>
+                <div className="nd-user-info">
+                  <span className="nd-user-name">AI Assistant</span>
+                  <span className="nd-user-status">Online 24/7</span>
+                </div>
+              </div>
+              <button className="nd-close-btn" aria-label="Close">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+
+            <div className="nd-phone-body" ref={chatRef}>
+              <div className="nd-messages-list">
+                {messages.map((msg) => (
+                  <div key={msg.id} className={`nd-chat-bubble-wrap ${msg.type}`}>
+                    {msg.type === 'user' ? (
+                      <div className="nd-bubble user-bubble">
+                        {msg.text}
+                      </div>
+                    ) : (
+                      <div className="nd-bubble ai-bubble">
+                        <p className="nd-ai-text">{msg.text}</p>
+                        {msg.note && <span className="nd-ai-badge">{msg.note}</span>}
+                      </div>
+                    )}
+                  </div>
+                ))}
+
+                {isTyping && (
+                  <div className="nd-chat-bubble-wrap ai">
+                    <div className="nd-bubble ai-bubble typing-bubble">
+                      <span className="typing-dot"></span>
+                      <span className="typing-dot"></span>
+                      <span className="typing-dot"></span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="nd-phone-footer">
+              <input 
+                type="text" 
+                placeholder="Ask AI anything..." 
+                className="nd-phone-input" 
+                readOnly 
+              />
+              <button className="nd-phone-send" aria-label="Send">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ArchViz({ activeArch }) {
+  return (
+    <div className="av-wrapper">
+
+      {/* ── 1. Rule-Based: Flowchart Decision Tree ── */}
+      {activeArch === 0 && (
+        <div className="av-scene av-rule">
+          <div className="av-chrome-bar">
+            <span className="av-dot red"/><span className="av-dot yellow"/><span className="av-dot green"/>
+            <span className="av-chrome-title">Customer Service Bot — Decision Flow</span>
+          </div>
+          <div className="av-rule-body">
+            <div className="av-flow-chain">
+              <div className="av-flow-node trigger">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                User Message
+              </div>
+              <div className="av-flow-arrow av-arrow-anim-1">→</div>
+              <div className="av-flow-node intent">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Match Intent
+              </div>
+              <div className="av-flow-arrow av-arrow-anim-2">→</div>
+              <div className="av-flow-node fetch">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+                Fetch from DB
+              </div>
+              <div className="av-flow-arrow av-arrow-anim-3">→</div>
+              <div className="av-flow-node respond">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Return Answer
+              </div>
+            </div>
+            <div className="av-rule-chat">
+              <div className="av-msg user-msg av-slide-in" style={{ animationDelay: '0.2s' }}>Track my order #8492 📦</div>
+              <div className="av-msg bot-msg av-slide-in" style={{ animationDelay: '0.7s' }}>
+                <span className="av-bot-label">Bot</span>
+                Order #8492 — Out for delivery. ETA: 4:30 PM today ✓
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── 2. NLP Chatbot: Intent + Entity highlighting ── */}
+      {activeArch === 1 && (
+        <div className="av-scene av-nlp">
+          <div className="av-chrome-bar">
+            <span className="av-dot red"/><span className="av-dot yellow"/><span className="av-dot green"/>
+            <span className="av-chrome-title">NLP Engine — Intent Parser</span>
+          </div>
+          <div className="av-nlp-body">
+            <div className="av-nlp-input-area">
+              <span className="av-nlp-user-lbl">User</span>
+              <p className="av-nlp-raw">Can I&nbsp;
+                <span className="av-highlight intent-hl">reschedule</span>
+                &nbsp;my appointment to&nbsp;
+                <span className="av-highlight entity-loc">Delhi</span>
+                &nbsp;<span className="av-highlight entity-time">tomorrow morning</span>?
+              </p>
+            </div>
+            <div className="av-nlp-tags-row">
+              <div className="av-tag-card av-pop" style={{ animationDelay: '0.3s' }}>
+                <span className="av-tag-lbl">INTENT</span>
+                <span className="av-tag-val intent-col">Reschedule_Appointment</span>
+                <span className="av-tag-conf">98.4%</span>
+              </div>
+              <div className="av-tag-card av-pop" style={{ animationDelay: '0.65s' }}>
+                <span className="av-tag-lbl">ENTITY · LOCATION</span>
+                <span className="av-tag-val entity-col">Delhi</span>
+              </div>
+              <div className="av-tag-card av-pop" style={{ animationDelay: '0.95s' }}>
+                <span className="av-tag-lbl">ENTITY · TIME</span>
+                <span className="av-tag-val entity-col">Tomorrow Morning</span>
+              </div>
+            </div>
+            <div className="av-msg bot-msg av-slide-in" style={{ animationDelay: '1.4s', marginTop: '10px' }}>
+              <span className="av-bot-label">NLP Bot</span>
+              Got it! Rescheduling your Delhi appointment to tomorrow at 9 AM ✓
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── 3. GenAI / RAG: Document scan + response ── */}
+      {activeArch === 2 && (
+        <div className="av-scene av-rag">
+          <div className="av-chrome-bar">
+            <span className="av-dot red"/><span className="av-dot yellow"/><span className="av-dot green"/>
+            <span className="av-chrome-title">RAG Pipeline — Knowledge Retrieval</span>
+          </div>
+          <div className="av-rag-body">
+            <div className="av-rag-left">
+              <div className="av-rag-lbl">Knowledge Base</div>
+              <div className="av-doc av-doc-scan">
+                <div className="av-scan-beam"/>
+                <div className="av-doc-icon">📄</div>
+                <span>API_Docs_v2.pdf</span>
+              </div>
+              <div className="av-doc" style={{ animationDelay: '0.3s' }}>
+                <div className="av-doc-icon">📄</div>
+                <span>Onboarding_Guide.md</span>
+              </div>
+              <div className="av-doc" style={{ animationDelay: '0.5s' }}>
+                <div className="av-doc-icon">📄</div>
+                <span>FAQ_2024.pdf</span>
+              </div>
+              <div className="av-rag-match av-pop" style={{ animationDelay: '1s' }}>
+                ✦ Matched Chunk #42
+              </div>
+            </div>
+            <div className="av-rag-right">
+              <div className="av-msg user-msg av-slide-in" style={{ animationDelay: '0.1s' }}>How do I configure OAuth2 refresh tokens?</div>
+              <div className="av-rag-processing av-pop" style={{ animationDelay: '0.8s' }}>
+                <span className="av-spin">⟳</span> GPT-4 Synthesizing...
+              </div>
+              <div className="av-msg bot-msg av-slide-in" style={{ animationDelay: '1.5s' }}>
+                <span className="av-bot-label">AI</span>
+                Set <code>grant_type=refresh_token</code> in your POST body. Tokens expire in 3600s.
+                <span className="av-cite">📄 API_Docs_v2.pdf</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── 4. Voice Assistant: Waveform + STT + TTS ── */}
+      {activeArch === 3 && (
+        <div className="av-scene av-voice">
+          <div className="av-voice-dark">
+            <div className="av-voice-rings">
+              <div className="av-ring r1"/>
+              <div className="av-ring r2"/>
+              <div className="av-ring r3"/>
+              <div className="av-mic-icon">
+                <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+              </div>
+            </div>
+            <div className="av-wave-bars">
+              {[0.4,0.9,0.6,1,0.7,0.5,0.85,0.65,0.95,0.5,0.75,0.4].map((h,i) => (
+                <div key={i} className="av-wbar" style={{ animationDelay: `${i*0.08}s`, '--wh': h }}/>
+              ))}
+            </div>
+            <div className="av-voice-label">Listening...</div>
+          </div>
+          <div className="av-voice-light">
+            <div className="av-transcript av-slide-in" style={{ animationDelay: '0.3s' }}>
+              <span className="av-tr-lbl">🎙 Heard</span>
+              <p>"Transfer $50 to Alex for yesterday's dinner."</p>
+            </div>
+            <div className="av-tts-reply av-slide-in" style={{ animationDelay: '1.1s' }}>
+              <span className="av-tr-lbl tts-col">🔊 Response</span>
+              <p>"Transfer of $50 to Alex — confirmed successfully."</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── 5. Hybrid: Bot column → pulse → Human agent column ── */}
+      {activeArch === 4 && (
+        <div className="av-scene av-hybrid">
+          <div className="av-hybrid-col bot-col">
+            <div className="av-col-header bot-hdr">
+              <span className="av-col-dot"/>
+              AI Bot
+            </div>
+            <div className="av-msg user-msg av-slide-in" style={{ animationDelay: '0.1s' }}>We need pricing for 500 enterprise seats</div>
+            <div className="av-msg bot-msg av-slide-in" style={{ animationDelay: '0.7s' }}>
+              <span className="av-bot-label">Bot</span>
+              Enterprise inquiry detected! Let me connect you to a Solutions Engineer.
+            </div>
+            <div className="av-escalate-badge av-pop" style={{ animationDelay: '1.3s' }}>
+              ⚡ Escalating...
+            </div>
+          </div>
+
+          <div className="av-transfer-lane">
+            <div className="av-transfer-pulse"/>
+            <svg className="av-transfer-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E29FF" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+
+          <div className="av-hybrid-col agent-col">
+            <div className="av-col-header agent-hdr">
+              <span className="av-col-dot green-dot"/>
+              Agent Sarah
+            </div>
+            <div className="av-agent-card av-pop" style={{ animationDelay: '1.6s' }}>
+              <div className="av-agent-avatar">S</div>
+              <div>
+                <div className="av-agent-name">Sarah M. · Solutions</div>
+                <div className="av-agent-status">● Online Now</div>
+              </div>
+            </div>
+            <div className="av-msg agent-msg av-slide-in" style={{ animationDelay: '2s' }}>
+              Hi! I have your full chat history ready. Let's build your 500-seat plan.
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
@@ -96,60 +489,70 @@ export default function ChatbotDevelopment() {
   const schemaJson = [
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Custom Chatbot Development Services | Conversational AI Solutions",
-      "url": "https://www.novadesk.site/services/chatbot-development",
-      "description": "Build custom AI chatbots and conversational assistants to automate support, qualify leads, and scale customer engagement. Full-cycle Dialogflow, GPT-4, and LLM chatbot development.",
-      "inLanguage": "en-US",
-      "dateModified": "2026-07-25",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "NovaDesk",
-        "url": "https://www.novadesk.site"
-      },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.novadesk.site/" },
-          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.novadesk.site/services" },
-          { "@type": "ListItem", "position": 3, "name": "Chatbot Development", "item": "https://www.novadesk.site/services/chatbot-development" }
-        ]
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "NovaDesk — Chatbot Development Services",
-      "url": "https://www.novadesk.site/services/chatbot-development",
-      "logo": "https://www.novadesk.site/favicon.svg",
-      "image": "https://www.novadesk.site/hero-my-image.webp",
-      "description": "Custom AI chatbot and conversational AI platform development. We build rule-based bots, NLP-powered chatbots, LLM/RAG assistants, and voice-enabled agents — fully integrated with your CRM and helpdesk.",
+      "@type": "Service",
       "serviceType": "Chatbot Development",
+      "name": "Custom Chatbot Development Services",
+      "alternateName": ["AI Chatbot Development", "Conversational AI Development", "NLP Chatbot Development", "LLM Bot Development"],
+      "description": "End-to-end custom chatbot development — rule-based bots, NLP chatbots, GenAI/RAG assistants, voice-enabled agents, and hybrid systems. Integrated with CRM, helpdesk, and omnichannel platforms.",
+      "url": "https://www.novadesk.site/services/chatbot-development",
+      "provider": {
+        "@type": "Organization",
+        "name": "NovaDesk",
+        "url": "https://www.novadesk.site",
+        "logo": "https://www.novadesk.site/favicon.svg",
+        "email": "novadesk.site@gmail.com",
+        "description": "NovaDesk is a full-stack AI and software development agency specializing in chatbots, GenAI, web apps, and enterprise systems.",
+        "areaServed": "Worldwide",
+        "sameAs": ["https://www.novadesk.site"]
+      },
       "areaServed": {
         "@type": "Place",
         "name": "Worldwide"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Chatbot Development Services",
+        "name": "Chatbot Development Services Catalog",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rule-Based Chatbot Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI-Powered NLP Chatbot Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Generative AI (LLM/RAG) Chatbot Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Voice-Enabled Assistant Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CRM & Helpdesk Chatbot Integrations" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WhatsApp & Omnichannel Chatbot Deployment" } }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rule-Based Chatbot Development", "description": "Deterministic decision-tree chatbots for FAQs, lead capture, and order tracking" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI-Powered NLP Chatbot Development", "description": "Intent recognition and entity extraction chatbots using Dialogflow and Rasa" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Generative AI (LLM/RAG) Chatbot Development", "description": "GPT-4 and LLM chatbots with RAG pipelines for knowledge-base Q&A" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Voice-Enabled Chatbot Development", "description": "Speech-to-text and text-to-speech voice assistant integrations" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hybrid AI + Human Handoff Chatbots", "description": "Seamless AI-to-live-agent escalation with full context transfer" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WhatsApp & Omnichannel Chatbot Deployment", "description": "Chatbot deployment on WhatsApp, Messenger, Telegram, Slack, and website" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CRM & Helpdesk Chatbot Integration", "description": "Chatbot integrations with Salesforce, HubSpot, Zendesk, and Freshdesk" } }
         ]
       },
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "novadesk.site@gmail.com",
-        "contactType": "Sales & Consulting",
+        "contactType": "Sales",
         "availableLanguage": ["English"]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Custom Chatbot Development Services | AI Chatbot Solutions — NovaDesk",
+      "url": "https://www.novadesk.site/services/chatbot-development",
+      "description": "NovaDesk builds custom AI chatbots — rule-based bots, NLP chatbots, LLM/RAG assistants, and voice agents. Full-cycle chatbot development with CRM integration and omnichannel deployment.",
+      "inLanguage": "en-US",
+      "datePublished": "2026-07-01",
+      "dateModified": "2026-08-01",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://www.novadesk.site/og-image.png",
+        "width": 1200,
+        "height": 630
       },
-      "sameAs": [
-        "https://www.novadesk.site"
-      ]
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "NovaDesk",
+        "url": "https://www.novadesk.site"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", "h2", ".fs-hero-desc"]
+      }
     },
     {
       "@context": "https://schema.org",
@@ -264,10 +667,11 @@ export default function ChatbotDevelopment() {
   return (
     <>
       <SEO 
-        title="Custom Chatbot Development Services | Conversational AI Solutions | NOVADESK"
-        description="Build custom AI chatbots and conversational assistants to automate support, qualify leads, and scale engagement. Discover full-cycle Dialogflow, OpenAI GPT, and LLM chatbot solutions."
+        title="Custom Chatbot Development Services | AI Chatbot Solutions"
+        description="Build custom AI chatbots that automate customer support, qualify leads 24/7, and integrate with your CRM. We develop rule-based bots, NLP chatbots, GPT-4/LLM RAG assistants, voice agents & hybrid systems. Free consultation."
         url="/services/chatbot-development"
-        keywords="chatbot development services, conversational ai platform, custom chatbot developers, support bot integrations, lead generation chatbot, natural language processing"
+        image="https://www.novadesk.site/og-image.png"
+        keywords="chatbot development services, custom AI chatbot, conversational AI development, NLP chatbot developers, GPT-4 chatbot, LLM chatbot development, RAG chatbot, WhatsApp chatbot development, chatbot integration CRM, Dialogflow development, chatbot for customer support, lead generation chatbot, AI chatbot company India, voice bot development, omnichannel chatbot deployment"
         schema={schemaJson}
       />
 
@@ -390,31 +794,42 @@ export default function ChatbotDevelopment() {
           z-index: 0;
         }
         .fs-hero-grid {
-          max-width: 1330px; 
+          max-width: 1500px; 
           margin: 0 auto; 
           padding: 0 40px; 
           display: grid; 
-          grid-template-columns: 1.2fr 0.8fr; 
-          gap: 40px; 
+          grid-template-columns: 0.9fr 1.1fr; 
+          gap: 60px; 
           align-items: center; 
           position: relative;
           z-index: 2;
         }
+        @media (max-width: 991px) {
+          .fs-hero-grid {
+            grid-template-columns: 1fr;
+            gap: 48px;
+            padding: 0 20px;
+          }
+          .fs-hero-title {
+            font-size: 36px !important;
+          }
+        }
         .fs-hero-text { padding-bottom: 20px; }
         .fs-hero-title {
-          font-size: 46px;
+          font-size: 48px;
           line-height: 1.15;
           letter-spacing: -1.5px;
           color: #0A0A2E;
           font-weight: 800;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
         }
         .fs-hero-desc {
-          font-size: 16px;
-          line-height: 1.7;
+          font-size: 16.5px;
+          line-height: 1.65;
           color: #4B5563;
           margin-bottom: 32px;
           font-weight: 400;
+          max-width: 540px;
         }
         .fs-hero-image-wrapper {
           position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:5;
@@ -424,6 +839,450 @@ export default function ChatbotDevelopment() {
           box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
         .fs-hero-image:hover { transform:translateY(-8px) scale(1.03); }
+
+        /* DYNAMIC HERO CHAT ANIMATION MOCKUP */
+        .nd-hero-browser-wrapper {
+          width: 100%;
+          max-width: 660px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 5;
+        }
+        .nd-browser-card {
+          background: #FFFFFF;
+          border-radius: 24px;
+          border: 1px solid rgba(46, 41, 255, 0.15);
+          box-shadow: 0 25px 60px -15px rgba(46, 41, 255, 0.12), 0 10px 30px rgba(0, 0, 0, 0.04);
+          overflow: hidden;
+          padding-bottom: 20px;
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nd-browser-card:hover {
+          transform: translateY(-4px);
+        }
+        .nd-browser-topbar {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          height: 44px;
+          background: #F8FAFC;
+          border-bottom: 1px solid #E2E8F0;
+          padding: 0 16px;
+        }
+        .nd-browser-dots {
+          position: absolute;
+          left: 16px;
+          display: flex;
+          gap: 6px;
+        }
+        .nd-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+        }
+        .nd-dot.red { background: #FF5F56; }
+        .nd-dot.yellow { background: #FFBD2E; }
+        .nd-dot.green { background: #27C93F; }
+        .nd-browser-url {
+          background: #FFFFFF;
+          border: 1px solid #CBD5E1;
+          border-radius: 20px;
+          padding: 4px 18px;
+          font-size: 12px;
+          font-weight: 600;
+          color: #475569;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+        .nd-browser-content {
+          display: grid;
+          grid-template-columns: 1fr 1.15fr;
+          gap: 16px;
+          padding: 24px 20px 10px 20px;
+          position: relative;
+          min-height: 380px;
+          align-items: flex-start;
+        }
+        .nd-wireframe-left {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+          padding-top: 10px;
+        }
+        .nd-wf-bar {
+          background: #EEF2FF;
+          border-radius: 20px;
+        }
+        .nd-wf-bar.header-bar { height: 22px; width: 90%; }
+        .nd-wf-bar.sub-bar { height: 16px; width: 70%; }
+        .nd-wf-line {
+          background: #F1F5F9;
+          border-radius: 10px;
+        }
+        .nd-wf-line.line-1 { height: 8px; width: 100%; }
+        .nd-wf-line.line-2 { height: 8px; width: 80%; }
+        .nd-wf-buttons {
+          display: flex;
+          gap: 10px;
+          margin-top: 10px;
+        }
+        .nd-wf-btn {
+          height: 34px;
+          width: 75px;
+          background: #E0E7FF;
+          border-radius: 10px;
+        }
+        .nd-wf-footer-box {
+          height: 100px;
+          width: 100%;
+          background: #F1F5F9;
+          border-radius: 14px;
+          margin-top: 14px;
+        }
+        .nd-chat-phone {
+          position: relative;
+          z-index: 5;
+          background: #FFFFFF;
+          border-radius: 18px;
+          box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16), 0 4px 14px rgba(46, 41, 255, 0.08);
+          overflow: hidden;
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          display: flex;
+          flex-direction: column;
+          height: 355px;
+          margin-top: -6px;
+        }
+        .nd-phone-header {
+          background: #0B0F19;
+          color: #FFFFFF;
+          padding: 10px 14px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .nd-phone-user {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .nd-avatar-wrapper {
+          position: relative;
+          width: 32px;
+          height: 32px;
+        }
+        .nd-avatar-img {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 1.5px solid #2E29FF;
+        }
+        .nd-online-dot {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 8px;
+          height: 8px;
+          background: #10B981;
+          border: 2px solid #0B0F19;
+          border-radius: 50%;
+        }
+        .nd-user-info {
+          display: flex;
+          flex-direction: column;
+        }
+        .nd-user-name {
+          font-size: 13px;
+          font-weight: 700;
+          color: #FFFFFF;
+          line-height: 1.2;
+        }
+        .nd-user-status {
+          font-size: 10px;
+          color: #94A3B8;
+        }
+        .nd-close-btn {
+          background: transparent;
+          border: none;
+          color: #94A3B8;
+          cursor: pointer;
+          padding: 4px;
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: color 0.2s;
+        }
+        .nd-close-btn:hover { color: #FFFFFF; }
+        .nd-phone-body {
+          flex: 1;
+          padding: 12px;
+          overflow-y: auto;
+          background: #F8FAFC;
+          scroll-behavior: smooth;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .nd-phone-body::-webkit-scrollbar {
+          display: none;
+          width: 0;
+          height: 0;
+        }
+        .nd-messages-list {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .nd-chat-bubble-wrap {
+          display: flex;
+          width: 100%;
+        }
+        .nd-chat-bubble-wrap.user {
+          justify-content: flex-end;
+        }
+        .nd-chat-bubble-wrap.ai {
+          justify-content: flex-start;
+        }
+        .nd-bubble {
+          max-width: 88%;
+          font-size: 12px;
+          line-height: 1.45;
+          border-radius: 14px;
+          padding: 9px 12px;
+          position: relative;
+          animation: popInMsg 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .user-bubble {
+          background: #2E29FF;
+          color: #FFFFFF;
+          border-bottom-right-radius: 3px;
+          font-weight: 500;
+          box-shadow: 0 4px 12px rgba(46, 41, 255, 0.2);
+        }
+        .ai-bubble {
+          background: #FFFFFF;
+          color: #0F172A;
+          border-bottom-left-radius: 3px;
+          border: 1px solid #E2E8F0;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+        .nd-ai-text {
+          margin: 0;
+        }
+        .nd-ai-badge {
+          display: inline-block;
+          margin-top: 6px;
+          font-size: 10px;
+          font-weight: 700;
+          color: #2E29FF;
+        }
+        .typing-bubble {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          padding: 10px 14px;
+          background: #FFFFFF;
+          border: 1px solid #E2E8F0;
+        }
+        .typing-dot {
+          width: 6px;
+          height: 6px;
+          background: #2E29FF;
+          border-radius: 50%;
+          animation: bounceTyping 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        .nd-phone-footer {
+          padding: 8px 10px;
+          background: #FFFFFF;
+          border-top: 1px solid #F1F5F9;
+          display: flex;
+          gap: 6px;
+          align-items: center;
+        }
+        .nd-phone-input {
+          flex: 1;
+          border: 1px solid #E2E8F0;
+          border-radius: 20px;
+          padding: 7px 12px;
+          font-size: 11px;
+          background: #F8FAFC;
+          color: #64748B;
+          outline: none;
+        }
+        .nd-phone-send {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          background: #2E29FF;
+          border: none;
+          color: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          cursor: pointer;
+          transition: transform 0.2s;
+        }
+        .nd-phone-send:hover { transform: scale(1.08); }
+
+        @keyframes popInMsg {
+          0% { opacity: 0; transform: translateY(8px) scale(0.95); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes bounceTyping {
+          0%, 80%, 100% { transform: scale(0.3); opacity: 0.4; }
+          40% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 640px) {
+          .nd-browser-content {
+            grid-template-columns: 1fr;
+            padding: 16px 12px;
+          }
+          .nd-wireframe-left {
+            display: none;
+          }
+          .nd-chat-phone {
+            margin-top: 0;
+            height: 330px;
+          }
+        }
+
+        /* ══ ARCHVIZ — Animated Mockup Scenes ══ */
+        .av-wrapper {
+          background: #F1F5F9;
+          border: 1px solid rgba(46, 41, 255, 0.12);
+          border-radius: 16px;
+          overflow: hidden;
+          margin: 20px 0;
+        }
+        .av-scene {
+          display: flex;
+          flex-direction: column;
+          min-height: 240px;
+        }
+        /* Chrome titlebar */
+        .av-chrome-bar {
+          background: #1E293B;
+          padding: 8px 14px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .av-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .av-dot.red { background: #FF5F57; }
+        .av-dot.yellow { background: #FEBC2E; }
+        .av-dot.green { background: #28C840; }
+        .av-chrome-title { margin-left: 10px; font-size: 11px; font-weight: 600; color: #94A3B8; font-family: monospace; }
+
+        /* Shared chat bubble styles */
+        .av-msg { font-size: 12px; font-weight: 500; padding: 8px 12px; border-radius: 12px; max-width: 88%; line-height: 1.5; }
+        .av-msg.user-msg { background: #2E29FF; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+        .av-msg.bot-msg { background: white; color: #0F172A; border: 1px solid #E2E8F0; align-self: flex-start; border-bottom-left-radius: 4px; }
+        .av-msg.agent-msg { background: #F0FDF4; color: #0F172A; border: 1px solid #BBF7D0; align-self: flex-start; border-bottom-left-radius: 4px; font-size: 11.5px; }
+        .av-bot-label { display: block; font-size: 9px; font-weight: 800; color: #2E29FF; margin-bottom: 2px; }
+
+        /* ── Shared keyframes ── */
+        @keyframes av-slidein { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes av-popin { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: scale(1); } }
+        @keyframes av-pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.2); opacity: 0; } }
+        @keyframes av-wbar-anim { 0%,100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
+        @keyframes av-flow-glow { 0%,100% { box-shadow: 0 0 0 0 rgba(46,41,255,0); } 50% { box-shadow: 0 0 0 4px rgba(46,41,255,0.18); } }
+        @keyframes av-scan { 0% { top: 0; opacity: 1; } 100% { top: 100%; opacity: 0; } }
+        @keyframes av-transfer-pulse { 0%,100% { transform: scaleX(0); opacity: 0; } 50% { transform: scaleX(1); opacity: 1; } }
+        @keyframes av-spin { from { display: inline-block; transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .av-slide-in { animation: av-slidein 0.5s ease both; }
+        .av-pop { animation: av-popin 0.4s ease both; }
+
+        /* ── 1. Rule-Based scene ── */
+        .av-rule-body { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+        .av-flow-chain { display: flex; align-items: center; gap: 4px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+        .av-flow-node { display: flex; align-items: center; gap: 5px; font-size: 10.5px; font-weight: 700; padding: 6px 10px; border-radius: 8px; white-space: nowrap; animation: av-flow-glow 2.5s ease-in-out infinite; }
+        .av-flow-node.trigger { background: #EEF2FF; color: #2E29FF; animation-delay: 0s; }
+        .av-flow-node.intent { background: #FFF7ED; color: #EA580C; animation-delay: 0.6s; }
+        .av-flow-node.fetch { background: #F0FDF4; color: #16A34A; animation-delay: 1.2s; }
+        .av-flow-node.respond { background: #EEF2FF; color: #2E29FF; animation-delay: 1.8s; }
+        .av-flow-arrow { font-size: 14px; color: #94A3B8; font-weight: 700; opacity: 0; animation: av-slidein 0.3s ease both; }
+        .av-arrow-anim-1 { animation-delay: 0.4s; }
+        .av-arrow-anim-2 { animation-delay: 1s; }
+        .av-arrow-anim-3 { animation-delay: 1.6s; }
+        .av-rule-chat { display: flex; flex-direction: column; gap: 7px; }
+
+        /* ── 2. NLP scene ── */
+        .av-nlp-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+        .av-nlp-input-area { background: white; border: 1px solid #E2E8F0; border-radius: 10px; padding: 10px 14px; }
+        .av-nlp-user-lbl { font-size: 9px; font-weight: 800; color: #2E29FF; display: block; margin-bottom: 4px; }
+        .av-nlp-raw { font-size: 13px; font-weight: 500; color: #1E293B; margin: 0; line-height: 1.7; }
+        .av-highlight { border-radius: 4px; padding: 1px 4px; font-weight: 700; }
+        .av-highlight.intent-hl { background: #EDE9FE; color: #7C3AED; }
+        .av-highlight.entity-loc { background: #DBEAFE; color: #1D4ED8; }
+        .av-highlight.entity-time { background: #DCFCE7; color: #16A34A; }
+        .av-nlp-tags-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .av-tag-card { background: white; border: 1px solid #E2E8F0; border-radius: 10px; padding: 8px 12px; min-width: 110px; }
+        .av-tag-lbl { font-size: 8.5px; font-weight: 800; color: #94A3B8; display: block; margin-bottom: 3px; }
+        .av-tag-val { font-size: 12px; font-weight: 700; display: block; }
+        .av-tag-val.intent-col { color: #7C3AED; }
+        .av-tag-val.entity-col { color: #1D4ED8; }
+        .av-tag-conf { font-size: 9px; font-weight: 700; color: #10B981; margin-top: 2px; display: block; }
+
+        /* ── 3. RAG scene ── */
+        .av-rag-body { display: flex; gap: 0; flex: 1; min-height: 200px; }
+        .av-rag-left { background: #1E293B; padding: 14px; display: flex; flex-direction: column; gap: 8px; min-width: 155px; }
+        .av-rag-lbl { font-size: 9px; font-weight: 800; color: #64748B; text-transform: uppercase; }
+        .av-doc { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); border-radius: 6px; padding: 5px 8px; color: #94A3B8; font-size: 10.5px; font-weight: 600; position: relative; overflow: hidden; animation: av-popin 0.4s ease both; }
+        .av-doc-scan { border: 1px solid rgba(46,41,255,0.4); }
+        .av-scan-beam { position: absolute; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #2E29FF, transparent); animation: av-scan 2s ease-in-out infinite; }
+        .av-doc-icon { font-size: 13px; }
+        .av-rag-match { background: rgba(46,41,255,0.2); color: #818CF8; font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 6px; }
+        .av-rag-right { flex: 1; padding: 14px; display: flex; flex-direction: column; gap: 8px; background: #F8FAFC; }
+        .av-rag-processing { font-size: 11px; font-weight: 700; color: #7C3AED; display: flex; align-items: center; gap: 6px; }
+        .av-spin { display: inline-block; animation: av-spin 1s linear infinite; }
+        .av-cite { display: inline-block; margin-left: 6px; font-size: 9px; color: #64748B; font-style: normal; }
+        .av-msg.bot-msg code { background: #EEF2FF; color: #2E29FF; font-size: 10px; padding: 1px 4px; border-radius: 3px; }
+
+        /* ── 4. Voice scene ── */
+        .av-voice { flex-direction: row; min-height: 220px; }
+        .av-voice-dark { background: #0B0F19; width: 180px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 20px 14px; }
+        .av-voice-rings { position: relative; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
+        .av-ring { position: absolute; border-radius: 50%; border: 2px solid rgba(46,41,255,0.5); animation: av-pulse-ring 2s ease-out infinite; }
+        .av-ring.r1 { width: 60px; height: 60px; animation-delay: 0s; }
+        .av-ring.r2 { width: 60px; height: 60px; animation-delay: 0.6s; }
+        .av-ring.r3 { width: 60px; height: 60px; animation-delay: 1.2s; }
+        .av-mic-icon { position: relative; z-index: 2; width: 40px; height: 40px; background: #2E29FF; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .av-wave-bars { display: flex; align-items: center; gap: 3px; height: 32px; }
+        .av-wbar { width: 3px; background: #10B981; border-radius: 2px; height: calc(var(--wh) * 32px); transform-origin: center; animation: av-wbar-anim 0.8s ease-in-out infinite alternate; }
+        .av-voice-label { font-size: 10px; font-weight: 700; color: #10B981; }
+        .av-voice-light { flex: 1; padding: 14px; display: flex; flex-direction: column; gap: 10px; background: white; }
+        .av-transcript, .av-tts-reply { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 8px 12px; }
+        .av-tr-lbl { font-size: 9px; font-weight: 800; color: #64748B; display: block; margin-bottom: 3px; }
+        .av-tr-lbl.tts-col { color: #2E29FF; }
+        .av-transcript p, .av-tts-reply p { margin: 0; font-size: 12px; color: #1E293B; font-weight: 500; }
+
+        /* ── 5. Hybrid scene ── */
+        .av-hybrid { flex-direction: row; align-items: stretch; min-height: 240px; }
+        .av-hybrid-col { flex: 1; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+        .av-hybrid-col.bot-col { background: #F8FAFC; border-right: 1px solid #E2E8F0; }
+        .av-hybrid-col.agent-col { background: #F0FDF4; }
+        .av-col-header { font-size: 11px; font-weight: 800; color: #334155; display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+        .av-col-dot { width: 8px; height: 8px; border-radius: 50%; background: #2E29FF; }
+        .av-col-dot.green-dot { background: #10B981; }
+        .av-col-header.bot-hdr { color: #2E29FF; }
+        .av-col-header.agent-hdr { color: #16A34A; }
+        .av-escalate-badge { background: rgba(46,41,255,0.1); color: #2E29FF; font-size: 10px; font-weight: 800; padding: 5px 10px; border-radius: 20px; text-align: center; }
+        .av-transfer-lane { width: 36px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: white; padding: 0 4px; }
+        .av-transfer-pulse { width: 2px; height: 50px; background: linear-gradient(180deg, #2E29FF, transparent); animation: av-slidein 0.5s ease 1.4s both; }
+        .av-transfer-arrow { animation: av-popin 0.4s ease 1.5s both; opacity: 0; }
+        .av-agent-card { background: white; border: 1px solid #BBF7D0; border-radius: 10px; padding: 8px 10px; display: flex; align-items: center; gap: 8px; }
+        .av-agent-avatar { width: 30px; height: 30px; border-radius: 50%; background: #10B981; color: white; font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+        .av-agent-name { font-size: 11px; font-weight: 700; color: #0F172A; }
+        .av-agent-status { font-size: 10px; color: #10B981; font-weight: 600; }
 
         /* TRUST BAR */
         .fs-trust {
@@ -2229,48 +3088,38 @@ export default function ChatbotDevelopment() {
           <div className="fs-container fs-hero-grid">
             <div className="fs-hero-text">
               <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(46,41,255,0.08)', border:'1px solid rgba(46,41,255,0.2)', padding:'6px 16px', borderRadius:'40px', fontSize:'11px', fontWeight:'700', color:'#2E29FF', letterSpacing:'0.8px', textTransform:'uppercase', marginBottom:'20px'}}>
-                Chatbot Services
+                Custom AI Solutions
               </div>
               <h1 className="fs-hero-title">
-                Custom Chatbot Development Services to Automate Conversations, Boost Engagement, and Scale Your Business 24/7
+                AI Chatbot Development for <span className="fs-text-blue">Your Site & Business</span>
               </h1>
-              <p className="fs-hero-desc">
-                From AI-powered virtual assistants to rule-based support bots, our chatbot development company builds intelligent, scalable, and secure chatbots tailored to your business goals. Whether you need a customer support chatbot, a lead-generation assistant, or a full-scale conversational AI platform, our chatbot development services help you connect with customers instantly, reduce operational costs, and grow revenue — around the clock, across every channel.
+              <p className="fs-hero-desc" style={{ marginBottom: '38px' }}>
+                Build intelligent, 24/7 conversational AI assistants that learn directly from your website and business data to answer visitor questions automatically.
               </p>
               
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '40px' }}>
-                <Link to="/contact-us" className="fs-btn fs-btn-primary">
-                  Get a Free Chatbot Consultation <ArrowRight />
-                </Link>
-                <button onClick={() => scrollToSection('pricing')} className="fs-btn fs-btn-white">
-                  Request a Custom Quote
-                </button>
-              </div>
-              
-              {/* Trust Badges */}
-              <div className="fs-hero-badges" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', alignItems: 'flex-start' }}>
-                <div className="fs-hero-badge">
-                  <div style={{ color: '#4285F4', fontWeight: 'bold', fontSize: '18px', marginBottom: '4px' }}>
-                    <span style={{color: '#4285F4'}}>G</span><span style={{color: '#EA4335'}}>o</span><span style={{color: '#FBBC05'}}>o</span><span style={{color: '#4285F4'}}>g</span><span style={{color: '#34A853'}}>l</span><span style={{color: '#EA4335'}}>e</span>
-                  </div>
-                  <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#64748b', fontWeight: '700' }}>AI ACCELERATOR TOP 20<br />STARTUPS</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '36px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
+                  <Link to="/contact-us" className="fs-btn fs-btn-primary" style={{ height: '52px', padding: '0 28px', borderRadius: '12px', fontSize: '15px', fontWeight: '700', boxShadow: '0 8px 20px rgba(46, 41, 255, 0.25)' }}>
+                    Get Started Free <ArrowRight />
+                  </Link>
+                  <button onClick={() => scrollToSection('pricing')} className="fs-btn" style={{ height: '52px', padding: '0 26px', borderRadius: '12px', fontSize: '15px', fontWeight: '700', backgroundColor: '#0B0F19', color: '#ffffff', border: 'none' }}>
+                    Request a Custom Quote →
+                  </button>
                 </div>
-                <div className="fs-hero-badge" style={{ borderLeft: '1px solid #E2E8F0', paddingLeft: '30px' }}>
-                  <div style={{ color: '#0077B5', fontWeight: 'bold', fontSize: '18px', marginBottom: '4px' }}>Linked<span style={{background: '#0077B5', color: 'white', padding: '0 4px', borderRadius: '4px', marginLeft: '2px'}}>in</span></div>
-                  <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#64748b', fontWeight: '700' }}>TOP 20 INDIAN STARTUPS</div>
-                </div>
-                <div className="fs-hero-badge" style={{ borderLeft: '1px solid #E2E8F0', paddingLeft: '30px' }}>
-                  <div style={{ color: '#A41034', fontWeight: 'bold', fontSize: '14px', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <div style={{ width: '16px', height: '16px', background: '#A41034' }}></div>
-                    <div>Harvard<br />Business<br />School</div>
-                  </div>
-                  <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#64748b', fontWeight: '700' }}>BUSINESS INCUBATOR<br />PORTFOLIO</div>
+                <div style={{ fontSize: '13.5px', color: '#475569', display: 'flex', flexWrap: 'wrap', gap: '22px', fontWeight: '600', marginTop: '6px', alignItems: 'center' }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                    <HeroCheckBadge /> 24/7 Live AI Support
+                  </span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                    <HeroCheckBadge /> Zero Credit Card Required
+                  </span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                    <HeroCheckBadge /> 100% IP Ownership
+                  </span>
                 </div>
               </div>
             </div>
-            <div className="fs-hero-image-wrapper">
-              <img src="/hero-visual.webp" alt="Custom Chatbot Development Services" className="fs-hero-image" />
-            </div>
+            <HeroChatAnimation />
           </div>
         </section>
 
@@ -2304,18 +3153,18 @@ export default function ChatbotDevelopment() {
                 </div>
                 <div className="nd-intro-stats">
                   <div className="nd-intro-stat">
-                    <div className="nd-intro-stat-num">50<sub>+</sub></div>
-                    <div className="nd-intro-stat-label">Bots Deployed</div>
+                    <div className="nd-intro-stat-num">&lt;2<sub>s</sub></div>
+                    <div className="nd-intro-stat-label">AI Response Time</div>
                   </div>
                   <div className="nd-intro-divider" />
                   <div className="nd-intro-stat">
-                    <div className="nd-intro-stat-num">70<sub>%</sub></div>
-                    <div className="nd-intro-stat-label">First-Contact Resolution</div>
+                    <div className="nd-intro-stat-num">7<sub>day</sub></div>
+                    <div className="nd-intro-stat-label">To First Prototype</div>
                   </div>
                   <div className="nd-intro-divider" />
                   <div className="nd-intro-stat">
-                    <div className="nd-intro-stat-num">24<sub>/7</sub></div>
-                    <div className="nd-intro-stat-label">Automated Operations</div>
+                    <div className="nd-intro-stat-num">100<sub>%</sub></div>
+                    <div className="nd-intro-stat-label">Code & IP Ownership</div>
                   </div>
                 </div>
               </div>
@@ -2412,20 +3261,17 @@ export default function ChatbotDevelopment() {
                         </div>
                       </div>
                       <h3>{architectures[activeArch].title}</h3>
-                      <div className="fs-overview-preview-tagline">{architectures[activeArch].tagline}</div>
-                      <p className="fs-overview-preview-desc">{architectures[activeArch].description}</p>
+                      <div className="fs-overview-preview-tagline" style={{ marginBottom: '16px' }}>{architectures[activeArch].tagline}</div>
                     </div>
 
-                    <div className="fs-overview-preview-usecases">
-                      <h4>Typical Industry Applications:</h4>
-                      <div className="fs-overview-usecases-grid">
-                        {architectures[activeArch].useCases.map((useCase, idx) => (
-                          <div key={idx} className="fs-overview-usecase-item">
-                            <CheckCircle />
-                            <span>{useCase}</span>
-                          </div>
-                        ))}
-                      </div>
+                    <ArchViz activeArch={activeArch} />
+
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '16px' }}>
+                      {architectures[activeArch].useCases.map((useCase, idx) => (
+                        <div key={idx} style={{ background: 'rgba(46, 41, 255, 0.05)', border: '1px solid rgba(46, 41, 255, 0.15)', borderRadius: '20px', padding: '6px 14px', fontSize: '12px', fontWeight: '600', color: '#2E29FF', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                          <span>✦ {useCase}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
