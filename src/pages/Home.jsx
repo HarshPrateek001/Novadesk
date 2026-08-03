@@ -2127,6 +2127,47 @@ export default function Home() {
         }
       `}</style>
 
+      <SEO 
+        title="NovaDesk | Custom Software & AI Development Agency"
+        description="Founded by Harsh Prateek, NovaDesk is a top-tier custom software development studio, scalable web applications, mobile platforms, and enterprise AI agency."
+        keywords="Harsh Prateek, Harsh Prateek NovaDesk, Harsh Prateek Founder, Harsh Prateek Developer, NovaDesk, full stack developer India, AI agency India, custom software development"
+        image="https://www.novadesk.site/hero-my-image.webp"
+        url="/"
+        author="Harsh Prateek"
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://www.novadesk.site/#harsh-prateek",
+            "name": "Harsh Prateek",
+            "givenName": "Harsh",
+            "familyName": "Prateek",
+            "jobTitle": "Founder & Lead Full-Stack & AI Software Engineer",
+            "worksFor": {
+              "@type": "Organization",
+              "@id": "https://www.novadesk.site/#organization",
+              "name": "NovaDesk",
+              "url": "https://www.novadesk.site"
+            },
+            "url": "https://www.novadesk.site/about-us",
+            "image": "https://www.novadesk.site/hero-my-image.webp"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://www.novadesk.site/#organization",
+            "name": "NovaDesk",
+            "url": "https://www.novadesk.site",
+            "logo": "https://www.novadesk.site/favicon-192.png",
+            "founder": {
+              "@type": "Person",
+              "@id": "https://www.novadesk.site/#harsh-prateek",
+              "name": "Harsh Prateek"
+            }
+          }
+        ]}
+      />
+
       <div className="nd">
 
         {/* ── 1. HERO ── */}
@@ -2141,9 +2182,6 @@ export default function Home() {
               </div>
               <h1 className="nd-h1">India's Premier</h1>
               <TypingHeading />
-              <p className="nd-subtext">
-                Partner with top-tier developers to build scalable custom web apps, mobile solutions, SaaS platforms, and enterprise AI software. We turn your vision into high-performance digital products.
-              </p>
               <p className="nd-subtext-sm">
                 Trusted by early-stage founders and venture-backed teams. Hire expert offshore developers from India for high-quality engineering.
               </p>

@@ -42,25 +42,86 @@ function FaqItem({ q, a, open, onToggle }) {
 
 export default function AboutUs() {
   const [activeFaq, setActiveFaq] = useState(null);
-  const aboutSchema = {
+
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.novadesk.site/#harsh-prateek",
+    "name": "Harsh Prateek",
+    "givenName": "Harsh",
+    "familyName": "Prateek",
+    "alternateName": [
+      "Harsh Prateek",
+      "Harsh Prateek NovaDesk",
+      "Harsh Prateek Founder",
+      "Harsh Prateek Developer",
+      "Harsh Prateek Engineer",
+      "Harsh Prateek AI Developer"
+    ],
+    "jobTitle": "Founder & Lead Full-Stack & AI Software Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "@id": "https://www.novadesk.site/#organization",
+      "name": "NovaDesk",
+      "url": "https://www.novadesk.site",
+      "logo": "https://www.novadesk.site/favicon-192.png"
+    },
+    "url": "https://www.novadesk.site/about-us",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.novadesk.site/hero-my-image.webp",
+      "caption": "Harsh Prateek - Founder & Lead Developer at NovaDesk"
+    },
+    "description": "Harsh Prateek is the founder, lead full-stack developer, and AI engineer at NovaDesk. Specializing in custom web applications, scalable software systems, and enterprise AI integrations.",
+    "knowsAbout": [
+      "Full-Stack Web Development",
+      "Artificial Intelligence & GenAI",
+      "Custom Software Development",
+      "SaaS Architecture",
+      "React.js",
+      "Node.js",
+      "Python",
+      "FastAPI"
+    ]
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.novadesk.site/#organization",
+    "name": "NovaDesk",
+    "url": "https://www.novadesk.site",
+    "logo": "https://www.novadesk.site/favicon-192.png",
+    "founder": {
+      "@type": "Person",
+      "@id": "https://www.novadesk.site/#harsh-prateek",
+      "name": "Harsh Prateek",
+      "jobTitle": "Founder & Lead Developer",
+      "image": "https://www.novadesk.site/hero-my-image.webp"
+    }
+  };
+
+  const aboutPageSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
+    "name": "About Harsh Prateek & NovaDesk",
+    "url": "https://www.novadesk.site/about-us",
     "mainEntity": {
-      "@type": "Organization",
-      "name": "NovaDesk",
-      "description": "A full-stack and AI development studio focused on full-stack web development, AI integration, and MVP development.",
-      "url": "https://www.novadesk.site"
+      "@type": "Person",
+      "@id": "https://www.novadesk.site/#harsh-prateek"
     }
   };
 
   return (
     <>
       <SEO 
-        keywords="About NovaDesk, full-stack development studio, AI integration, custom web development, MVP development" 
+        keywords="About NovaDesk, Harsh Prateek, full-stack development studio, AI integration, custom web development, MVP development" 
         title="About NovaDesk | Full-Stack & AI Development Studio" 
-        description="NovaDesk is a full-stack and AI development studio built around direct access, honest scoping, and modern engineering. Learn how we work."
+        description="NovaDesk is a full-stack and AI development studio founded by Harsh Prateek. Built around direct access, honest scoping, and modern engineering. Learn how we work."
         url="/about-us"
-        schema={aboutSchema}
+        image="https://www.novadesk.site/hero-my-image.webp"
+        author="Harsh Prateek"
+        schema={[personSchema, organizationSchema, aboutPageSchema]}
       />
       
       <div className="about-page" style={{ paddingTop: '30px' }}>
@@ -76,7 +137,7 @@ export default function AboutUs() {
               
               <div className="founder-badge" style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
                 <div className="founder-avatar">
-                  <img src="/hero-my-image.webp" alt="Harsh Prateek" style={{ borderRadius: '50%', width: '72px', height: '52px', objectFit: 'cover', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
+                  <img src="/hero-my-image.webp" alt="Harsh Prateek - Founder & Lead Developer at NovaDesk" style={{ borderRadius: '50%', width: '72px', height: '52px', objectFit: 'cover', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
                 </div>
                 <div className="founder-info" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
                   <strong style={{ fontSize: '24px', color: '#111827', letterSpacing: '-0.5px', fontWeight: '600', lineHeight: '1.2' }}>Harsh Prateek</strong>
@@ -104,10 +165,10 @@ export default function AboutUs() {
             </p>
             <p style={{ fontSize: '16px', lineHeight: '1.8', color: '#4B5563', marginBottom: '24px' }}>
               <strong style={{ color: '#111827', display: 'block', marginBottom: '8px' }}>NovaDesk is built differently, deliberately.</strong> 
-              It's a full-stack and AI development studio run by a single developer with a background spanning computer applications and business management — which means every project gets both the technical execution and the product thinking to make it actually useful, not just functional.
+              Founded by Harsh Prateek, NovaDesk operates as a full-stack and AI development studio run by a senior software engineer with a background spanning computer applications and business management — which means every project gets both technical execution and product thinking.
             </p>
             <p style={{ fontSize: '16px', lineHeight: '1.8', color: '#4B5563', marginBottom: '24px' }}>
-              The focus stays narrow on purpose: full-stack web development, AI integration, and MVP development — three things done well, rather than a long service menu done adequately. Every project is built on a modern, proven stack (Next.js, FastAPI, Supabase) chosen for speed and long-term maintainability, not whatever's trendy that quarter.
+              The focus stays narrow on purpose: full-stack web development, AI integration, and MVP development — three core things done exceptionally well. Every project is built on a modern, proven stack (Next.js, FastAPI, Supabase, React, Node.js) chosen for speed, security, and long-term maintainability.
             </p>
             
             <div className="founder-signature" style={{ fontFamily: '"Brush Script MT", cursive', fontSize: '36px', color: '#111827', marginTop: '48px' }}>
