@@ -2288,29 +2288,26 @@ export default function Home() {
                   zIndex: 1
                 }} />
 
-                {/* Floating Widget 1 (Top Left) */}
+                {/* Floating Widget 1 (Top Left - Pill Chat Bubble) */}
                 <div className="nd-float-card nd-float-card-1" style={{
                   position: 'absolute',
                   background: '#FFFFFF',
-                  borderRadius: '18px',
-                  padding: '12px 18px',
-                  boxShadow: '0 20px 40px rgba(46, 41, 255, 0.08)',
+                  borderRadius: '100px',
+                  padding: '8px 22px 8px 10px',
+                  boxShadow: '0 20px 40px rgba(46, 41, 255, 0.12)',
                   border: '1px solid rgba(46, 41, 255, 0.08)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
                   zIndex: 3,
-                  top: '60px',
-                  left: '-30px',
+                  top: '45px',
+                  left: '-25px',
                   animation: 'floatSlow 6s ease-in-out infinite'
                 }}>
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" style={{ width: '36px', height: '36px', borderRadius: '50%', objectFit: 'cover' }} />
-                  <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                    <span style={{ fontSize: '13px', fontWeight: '800', color: '#0F172A' }}>⚡ E-commerce Build</span>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '4px', width: '90px' }}>
-                      <div style={{ height: '5px', borderRadius: '10px', background: '#2E29FF', width: '100%' }} />
-                      <div style={{ height: '5px', borderRadius: '10px', background: '#E2E8F0', width: '20%' }} />
-                    </div>
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" style={{ width: '38px', height: '38px', borderRadius: '50%', objectFit: 'cover' }} />
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', textAlign: 'left', width: '100px' }}>
+                    <div style={{ height: '7px', borderRadius: '10px', background: '#2E29FF', width: '100%' }} />
+                    <div style={{ height: '7px', borderRadius: '10px', background: '#818CF8', width: '60%' }} />
                   </div>
                 </div>
 
@@ -2321,33 +2318,30 @@ export default function Home() {
                   height: '100%',
                   objectFit: 'contain',
                   zIndex: 2,
-                  filter: 'drop-shadow(0 20px 40px rgba(46, 41, 255, 0.18))'
+                  filter: 'drop-shadow(0 25px 50px rgba(46, 41, 255, 0.18))'
                 }} />
 
-                {/* Floating Widget 2 (Bottom Right) */}
+                {/* Floating Widget 2 (Bottom Right - Pill Chat Bubble) */}
                 <div className="nd-float-card nd-float-card-2" style={{
                   position: 'absolute',
                   background: '#FFFFFF',
-                  borderRadius: '18px',
-                  padding: '12px 18px',
-                  boxShadow: '0 20px 40px rgba(46, 41, 255, 0.08)',
+                  borderRadius: '100px',
+                  padding: '8px 22px 8px 10px',
+                  boxShadow: '0 20px 40px rgba(46, 41, 255, 0.12)',
                   border: '1px solid rgba(46, 41, 255, 0.08)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
                   zIndex: 3,
-                  bottom: '80px',
-                  right: '-30px',
+                  bottom: '70px',
+                  right: '-25px',
                   animation: 'floatSlow 6s ease-in-out infinite',
                   animationDelay: '3s'
                 }}>
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Avatar" style={{ width: '36px', height: '36px', borderRadius: '50%', objectFit: 'cover' }} />
-                  <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                    <span style={{ fontSize: '13px', fontWeight: '800', color: '#0F172A' }}>🤖 AI Agent Online</span>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '4px', width: '90px' }}>
-                      <div style={{ height: '5px', borderRadius: '10px', background: '#0D9488', width: '100%' }} />
-                      <div style={{ height: '5px', borderRadius: '10px', background: '#E2E8F0', width: '10%' }} />
-                    </div>
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Avatar" style={{ width: '38px', height: '38px', borderRadius: '50%', objectFit: 'cover' }} />
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', textAlign: 'left', width: '100px' }}>
+                    <div style={{ height: '7px', borderRadius: '10px', background: '#00B882', width: '100%' }} />
+                    <div style={{ height: '7px', borderRadius: '10px', background: '#34D399', width: '65%' }} />
                   </div>
                 </div>
               </div>
