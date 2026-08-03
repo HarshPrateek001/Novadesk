@@ -194,8 +194,8 @@ export default function AboutUs() {
     "name": "Harsh Prateek",
     "givenName": "Harsh",
     "familyName": "Prateek",
-    "alternateName": ["Harsh Prateek NovaDesk", "Harsh Prateek Founder", "Harsh Prateek Developer", "Harsh Prateek Engineer"],
-    "jobTitle": "Founder & CEO, Lead Full-Stack & AI Software Engineer",
+    "alternateName": ["Harsh Prateek NovaDesk", "Harsh Prateek Founder", "Harsh Prateek Director"],
+    "jobTitle": "Director & Founder",
     "worksFor": { "@type": "Organization", "@id": "https://www.novadesk.site/#organization", "name": "NovaDesk", "url": "https://www.novadesk.site" },
     "url": "https://www.novadesk.site/about-us",
     "image": "https://www.novadesk.site/hero-my-image.webp"
@@ -223,7 +223,7 @@ export default function AboutUs() {
     "url": "https://www.novadesk.site",
     "logo": "https://www.novadesk.site/favicon-192.png",
     "founders": [
-      { "@type": "Person", "@id": "https://www.novadesk.site/#harsh-prateek", "name": "Harsh Prateek", "jobTitle": "Founder & CEO" },
+      { "@type": "Person", "@id": "https://www.novadesk.site/#harsh-prateek", "name": "Harsh Prateek", "jobTitle": "Director & Founder" },
       { "@type": "Person", "@id": "https://www.novadesk.site/#piusha-patra", "name": "Piusha Patra", "jobTitle": "Co-Founder & Director" }
     ]
   };
@@ -655,7 +655,7 @@ export default function AboutUs() {
                 <div className="nd-exec-content">
                   <div className="nd-exec-role-pill" style={{ background: 'rgba(46,41,255,0.08)', color: '#2E29FF' }}>
                     <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#2E29FF', display: 'inline-block' }} />
-                    Founder &amp; CEO
+                    Director &amp; Founder
                   </div>
                   <h3 className="nd-exec-name">Harsh Prateek</h3>
                   <p className="nd-exec-text">
@@ -684,7 +684,7 @@ export default function AboutUs() {
                   <div className="nd-exec-img-overlay" />
                   <div className="nd-exec-img-badge">
                     <div className="nd-exec-img-name">Harsh Prateek</div>
-                    <div className="nd-exec-img-title">Founder &amp; CEO · Lead Architect</div>
+                    <div className="nd-exec-img-title">Director &amp; Founder</div>
                   </div>
                 </div>
               </Reveal>

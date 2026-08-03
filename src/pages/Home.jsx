@@ -2142,7 +2142,7 @@ export default function Home() {
             "name": "Harsh Prateek",
             "givenName": "Harsh",
             "familyName": "Prateek",
-            "jobTitle": "Founder & Lead Full-Stack & AI Software Engineer",
+            "jobTitle": "Director & Founder",
             "worksFor": {
               "@type": "Organization",
               "@id": "https://www.novadesk.site/#organization",
