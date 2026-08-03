@@ -2199,40 +2199,41 @@ export default function Home() {
 
         {/* ── 1. HERO ── */}
         <section className="nd-hero">
-          {/* Floating Background Circles/Spheres */}
+          {/* Floating background dots */}
           <div className="nd-float-dot nd-float-dot-1" style={{ position: 'absolute', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(46, 41, 255, 0.04)', top: '10%', left: '5%', zIndex: 0 }} />
           <div className="nd-float-dot nd-float-dot-2" style={{ position: 'absolute', width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(46, 41, 255, 0.03)', bottom: '15%', left: '35%', zIndex: 0 }} />
           <div className="nd-float-dot nd-float-dot-3" style={{ position: 'absolute', width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(46, 41, 255, 0.04)', top: '20%', right: '40%', zIndex: 0 }} />
           <div className="nd-float-dot nd-float-dot-4" style={{ position: 'absolute', width: '35px', height: '35px', borderRadius: '50%', background: 'rgba(46, 41, 255, 0.03)', bottom: '10%', right: '10%', zIndex: 0 }} />
 
           <div className="nd-hero-inner">
-
             {/* LEFT */}
             <div className="nd-hero-left">
-              <div className="nd-eyebrow" style={{ background: '#FFFFFF', border: '1px solid rgba(46, 41, 255, 0.12)', color: '#0A0A2E', borderRadius: '100px', fontSize: '13px', fontWeight: '700', padding: '8px 18px', display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '24px', boxShadow: '0 2px 8px rgba(46,41,255,0.04)' }}>
-                <span style={{ color: '#2E29FF', fontWeight: '800' }}>✦</span>
-                NOVADESK.STUDIO
+              <div className="nd-eyebrow">
+                <span className="nd-sparkle">✦</span>
+                TOP SOFTWARE DEVELOPMENT AGENCY IN INDIA
               </div>
-              <h1 className="nd-h1" style={{ fontSize: '58px', fontWeight: '900', color: '#0F172A', lineHeight: '1.12', letterSpacing: '-2px', marginBottom: '20px', textAlign: 'left' }}>
-                The Best Custom Software,<br />
-                <span style={{
-                  display: 'inline-block',
-                  border: '2px dashed #FFA81A',
-                  background: 'rgba(255, 168, 26, 0.06)',
-                  padding: '4px 18px',
-                  borderRadius: '12px',
-                  color: '#FFA81A',
-                  marginTop: '8px'
-                }}>Made Simple</span>
-              </h1>
-              <p className="nd-subtext-sm" style={{ fontSize: '16.5px', lineHeight: '1.75', color: '#475569', maxWidth: '520px', marginBottom: '28px', textAlign: 'left' }}>
-                From premium web applications to custom enterprise AI agents, build high-performance digital products directly with elite developers.
+              <h1 className="nd-h1" style={{ marginBottom: '12px', textAlign: 'left' }}>India's Premier</h1>
+              <div style={{
+                display: 'inline-block',
+                border: '2px dashed #2E29FF',
+                background: 'rgba(46, 41, 255, 0.04)',
+                padding: '6px 22px',
+                borderRadius: '12px',
+                marginBottom: '28px',
+                textAlign: 'left'
+              }}>
+                <TypingHeading />
+              </div>
+              <p className="nd-subtext-sm" style={{ textAlign: 'left' }}>
+                Trusted by early-stage founders and venture-backed teams. Hire expert offshore developers from India for high-quality engineering.
               </p>
-              
-              <div className="nd-cta-row" style={{ marginTop: '0', marginBottom: '32px' }}>
-                <Link to="/contact-us" className="nd-btn-teal">Book a Free Consultation ↗</Link>
+              <p className="nd-industries" style={{ textAlign: 'left', marginBottom: '32px' }}>
+                <strong>Fintech, Healthcare, EdTech, Logistics, SaaS, E-commerce.</strong> We bring engineering depth, product thinking, and the execution speed your business actually needs.
+              </p>
+              <div className="nd-cta-row" style={{ marginTop: '0', marginBottom: '36px' }}>
+                <Link to="/contact-us" className="nd-btn-primary">Book a Free Consultation ↗</Link>
+                <Link to="/get-a-free-quote" className="nd-btn-outline">Get a Free Quote ↗</Link>
               </div>
-
               <div className="nd-rating-row" style={{ marginTop: '0' }}>
                 <div className="nd-avatars">
                   <div className="nd-avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Client Avatar 1" className="nd-avatar-img" /></div>
@@ -2241,46 +2242,46 @@ export default function Home() {
                 </div>
                 <div style={{ textAlign: 'left' }}>
                   <div className="nd-stars">{[...Array(5)].map((_,i) => <IconStar key={i} />)}</div>
-                  <div className="nd-rating-text" style={{ fontSize: '13.5px', fontWeight: '700', color: '#0F172A' }}>3+ High-Impact Projects Delivered</div>
+                  <div className="nd-rating-text" style={{ fontSize: '13.5px', fontWeight: '700', color: '#0A0A2E' }}>3+ High-Impact Projects Delivered</div>
                 </div>
               </div>
             </div>
 
-            {/* RIGHT — DIRECT IMAGE WITH CUSTOM BACKDROP & FLOATING WIDGETS */}
+            {/* RIGHT — FOUNDER PORTRAIT WITH BACKDROP & WIDGETS */}
             <div className="nd-hero-right" style={{ width: '100%' }}>
               <div style={{ position: 'relative', width: '100%', height: '520px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                {/* Angled background card */}
+                {/* Angled background card (Blue gradient) */}
                 <div style={{
                   position: 'absolute',
                   width: '90%',
                   height: '85%',
-                  background: 'linear-gradient(135deg, #FFB636 0%, #FFA81A 100%)',
+                  background: 'linear-gradient(135deg, #2E29FF 0%, #6366F1 100%)',
                   borderRadius: '40px 100px 40px 100px',
                   transform: 'rotate(-3deg)',
                   zIndex: 1,
-                  boxShadow: '0 30px 60px rgba(255, 168, 26, 0.2)'
+                  boxShadow: '0 30px 60px rgba(46, 41, 255, 0.15)'
                 }} />
                 
-                {/* Floating pill accent (Orange) */}
+                {/* Floating pill accent (Blue) */}
                 <div style={{
                   position: 'absolute',
                   width: '48px',
                   height: '18px',
                   borderRadius: '20px',
-                  background: '#FFA81A',
+                  background: '#2E29FF',
                   top: '35%',
                   left: '10px',
                   transform: 'rotate(-15deg)',
                   zIndex: 1
                 }} />
                 
-                {/* Floating pill accent (Teal) */}
+                {/* Floating pill accent (Light Blue) */}
                 <div style={{
                   position: 'absolute',
                   width: '48px',
                   height: '18px',
                   borderRadius: '20px',
-                  background: '#0D9488',
+                  background: '#6366F1',
                   bottom: '25%',
                   right: '20px',
                   transform: 'rotate(15deg)',
@@ -2293,8 +2294,8 @@ export default function Home() {
                   background: '#FFFFFF',
                   borderRadius: '18px',
                   padding: '12px 18px',
-                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
-                  border: '1px solid rgba(0, 0, 0, 0.05)',
+                  boxShadow: '0 20px 40px rgba(46, 41, 255, 0.08)',
+                  border: '1px solid rgba(46, 41, 255, 0.08)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
@@ -2307,7 +2308,7 @@ export default function Home() {
                   <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
                     <span style={{ fontSize: '13px', fontWeight: '800', color: '#0F172A' }}>⚡ E-commerce Build</span>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '4px', width: '90px' }}>
-                      <div style={{ height: '5px', borderRadius: '10px', background: '#FFA81A', width: '100%' }} />
+                      <div style={{ height: '5px', borderRadius: '10px', background: '#2E29FF', width: '100%' }} />
                       <div style={{ height: '5px', borderRadius: '10px', background: '#E2E8F0', width: '20%' }} />
                     </div>
                   </div>
@@ -2320,7 +2321,7 @@ export default function Home() {
                   height: '100%',
                   objectFit: 'contain',
                   zIndex: 2,
-                  filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.22))'
+                  filter: 'drop-shadow(0 20px 40px rgba(46, 41, 255, 0.18))'
                 }} />
 
                 {/* Floating Widget 2 (Bottom Right) */}
@@ -2329,8 +2330,8 @@ export default function Home() {
                   background: '#FFFFFF',
                   borderRadius: '18px',
                   padding: '12px 18px',
-                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
-                  border: '1px solid rgba(0, 0, 0, 0.05)',
+                  boxShadow: '0 20px 40px rgba(46, 41, 255, 0.08)',
+                  border: '1px solid rgba(46, 41, 255, 0.08)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
