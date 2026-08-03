@@ -43,7 +43,7 @@ function FaqItem({ q, a, open, onToggle }) {
 export default function AboutUs() {
   const [activeFaq, setActiveFaq] = useState(null);
 
-  const personSchema = {
+  const personSchemaHarsh = {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": "https://www.novadesk.site/#harsh-prateek",
@@ -55,8 +55,7 @@ export default function AboutUs() {
       "Harsh Prateek NovaDesk",
       "Harsh Prateek Founder",
       "Harsh Prateek Developer",
-      "Harsh Prateek Engineer",
-      "Harsh Prateek AI Developer"
+      "Harsh Prateek Engineer"
     ],
     "jobTitle": "Founder & Lead Full-Stack & AI Software Engineer",
     "worksFor": {
@@ -72,17 +71,37 @@ export default function AboutUs() {
       "url": "https://www.novadesk.site/hero-my-image.webp",
       "caption": "Harsh Prateek - Founder & Lead Developer at NovaDesk"
     },
-    "description": "Harsh Prateek is the founder, lead full-stack developer, and AI engineer at NovaDesk. Specializing in custom web applications, scalable software systems, and enterprise AI integrations.",
-    "knowsAbout": [
-      "Full-Stack Web Development",
-      "Artificial Intelligence & GenAI",
-      "Custom Software Development",
-      "SaaS Architecture",
-      "React.js",
-      "Node.js",
-      "Python",
-      "FastAPI"
-    ]
+    "description": "Harsh Prateek is the founder, lead full-stack developer, and AI engineer at NovaDesk, specializing in high-performance web applications, MVP engineering, and AI."
+  };
+
+  const personSchemaPiusha = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.novadesk.site/#piusha-patra",
+    "name": "Piusha Patra",
+    "givenName": "Piusha",
+    "familyName": "Patra",
+    "alternateName": [
+      "Piusha Patra",
+      "Piusha Patra NovaDesk",
+      "Piusha Patra Co-Founder",
+      "Piusha Patra Director"
+    ],
+    "jobTitle": "Co-Founder & Director of Operations",
+    "worksFor": {
+      "@type": "Organization",
+      "@id": "https://www.novadesk.site/#organization",
+      "name": "NovaDesk",
+      "url": "https://www.novadesk.site",
+      "logo": "https://www.novadesk.site/favicon-192.png"
+    },
+    "url": "https://www.novadesk.site/about-us",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.novadesk.site/Co-Founder.jpeg",
+      "caption": "Piusha Patra - Co-Founder & Director at NovaDesk"
+    },
+    "description": "Piusha Patra is the Co-Founder at NovaDesk, shaping the company direction, client relationships, team operations, and long-term strategic partnerships."
   };
 
   const organizationSchema = {
@@ -92,38 +111,58 @@ export default function AboutUs() {
     "name": "NovaDesk",
     "url": "https://www.novadesk.site",
     "logo": "https://www.novadesk.site/favicon-192.png",
-    "founder": {
-      "@type": "Person",
-      "@id": "https://www.novadesk.site/#harsh-prateek",
-      "name": "Harsh Prateek",
-      "jobTitle": "Founder & Lead Developer",
-      "image": "https://www.novadesk.site/hero-my-image.webp"
-    }
+    "founders": [
+      {
+        "@type": "Person",
+        "@id": "https://www.novadesk.site/#harsh-prateek",
+        "name": "Harsh Prateek",
+        "jobTitle": "Founder & Lead Developer"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.novadesk.site/#piusha-patra",
+        "name": "Piusha Patra",
+        "jobTitle": "Co-Founder & Director"
+      }
+    ]
   };
 
   const aboutPageSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "name": "About Harsh Prateek & NovaDesk",
-    "url": "https://www.novadesk.site/about-us",
-    "mainEntity": {
-      "@type": "Person",
-      "@id": "https://www.novadesk.site/#harsh-prateek"
-    }
+    "name": "About NovaDesk | Harsh Prateek & Piusha Patra",
+    "url": "https://www.novadesk.site/about-us"
   };
 
   return (
     <>
       <SEO 
-        keywords="About NovaDesk, Harsh Prateek, full-stack development studio, AI integration, custom web development, MVP development" 
+        keywords="About NovaDesk, Harsh Prateek, Piusha Patra, Piusha Patra NovaDesk, Piusha Patra Co-Founder, Harsh Prateek Founder, full-stack development studio, AI integration, custom web development, MVP development" 
         title="About NovaDesk | Full-Stack & AI Development Studio" 
-        description="NovaDesk is a full-stack and AI development studio founded by Harsh Prateek. Built around direct access, honest scoping, and modern engineering. Learn how we work."
+        description="NovaDesk is a full-stack and AI development studio founded by Harsh Prateek and Co-Founded by Piusha Patra. Built around direct access, client trust, and modern engineering."
         url="/about-us"
         image="https://www.novadesk.site/hero-my-image.webp"
-        author="Harsh Prateek"
-        schema={[personSchema, organizationSchema, aboutPageSchema]}
+        author="Harsh Prateek & Piusha Patra"
+        schema={[personSchemaHarsh, personSchemaPiusha, organizationSchema, aboutPageSchema]}
       />
       
+      <style>{`
+        @media (max-width: 900px) {
+          .leader-card-row {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+            padding: 24px !important;
+          }
+          .leader-card-row.reverse-row {
+            display: flex !important;
+            flex-direction: column-reverse !important;
+          }
+          .leader-image-box img {
+            height: 340px !important;
+          }
+        }
+      `}</style>
+
       <div className="about-page" style={{ paddingTop: '30px' }}>
         {/* HERO SECTION */}
         <section className="about-hero">
@@ -135,13 +174,26 @@ export default function AboutUs() {
                 Trusted Partner for Startups &amp; <br />Global Enterprises
               </h1>
               
-              <div className="founder-badge" style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-                <div className="founder-avatar">
-                  <img src="/hero-my-image.webp" alt="Harsh Prateek - Founder & Lead Developer at NovaDesk" style={{ borderRadius: '50%', width: '72px', height: '52px', objectFit: 'cover', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
+              {/* DUAL FOUNDERS BADGES */}
+              <div className="founder-badges-row" style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '28px' }}>
+                <div className="founder-badge" style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#FFFFFF', padding: '10px 18px', borderRadius: '40px', boxShadow: '0 4px 16px rgba(0,0,0,0.06)', border: '1px solid rgba(46,41,255,0.08)' }}>
+                  <div className="founder-avatar">
+                    <img src="/hero-my-image.webp" alt="Harsh Prateek - Founder & Lead Developer at NovaDesk" style={{ borderRadius: '50%', width: '48px', height: '48px', objectFit: 'cover' }} />
+                  </div>
+                  <div className="founder-info" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                    <strong style={{ fontSize: '16px', color: '#111827', fontWeight: '700', lineHeight: '1.2' }}>Harsh Prateek</strong>
+                    <span style={{ fontSize: '12px', color: 'var(--color-primary)', marginTop: '2px', fontWeight: '600' }}>Founder &amp; Lead Developer</span>
+                  </div>
                 </div>
-                <div className="founder-info" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                  <strong style={{ fontSize: '24px', color: '#111827', letterSpacing: '-0.5px', fontWeight: '600', lineHeight: '1.2' }}>Harsh Prateek</strong>
-                  <span style={{ fontSize: '14px', color: 'var(--color-primary)', marginTop: '4px', fontWeight: '500' }}>Founder &amp; Lead Developer</span>
+
+                <div className="founder-badge" style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#FFFFFF', padding: '10px 18px', borderRadius: '40px', boxShadow: '0 4px 16px rgba(0,0,0,0.06)', border: '1px solid rgba(0,184,130,0.15)' }}>
+                  <div className="founder-avatar">
+                    <img src="/Co-Founder.jpeg" alt="Piusha Patra - Co-Founder & Director at NovaDesk" style={{ borderRadius: '50%', width: '48px', height: '48px', objectFit: 'cover' }} />
+                  </div>
+                  <div className="founder-info" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                    <strong style={{ fontSize: '16px', color: '#111827', fontWeight: '700', lineHeight: '1.2' }}>Piusha Patra</strong>
+                    <span style={{ fontSize: '12px', color: '#00B882', marginTop: '2px', fontWeight: '600' }}>Co-Founder &amp; Director</span>
+                  </div>
                 </div>
               </div>
 
@@ -153,26 +205,74 @@ export default function AboutUs() {
           </div>
         </section>
 
-        {/* THE STORY */}
-        <section className="about-story" style={{ padding: '40px 0 80px 0' }}>
-          <div className="container story-container" style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'left' }}>
-            <p style={{ fontSize: '16px', lineHeight: '1.8', color: '#4B5563', marginBottom: '24px' }}>
-              <strong style={{ color: '#111827', display: 'block', marginBottom: '8px' }}>NovaDesk started with a straightforward frustration:</strong> 
-              Watching good ideas get slowed down by process, not talent.
-            </p>
-            <p style={{ fontSize: '16px', lineHeight: '1.8', color: '#4B5563', marginBottom: '24px' }}>
-              Most software studios and agencies add layers between the client and the person actually writing the code — account managers, project coordinators, rotating junior developers learning on the job. Every layer adds delay, dilutes context, and adds cost that doesn't go toward the actual product.
-            </p>
-            <p style={{ fontSize: '16px', lineHeight: '1.8', color: '#4B5563', marginBottom: '24px' }}>
-              <strong style={{ color: '#111827', display: 'block', marginBottom: '8px' }}>NovaDesk is built differently, deliberately.</strong> 
-              Founded by Harsh Prateek, NovaDesk operates as a full-stack and AI development studio run by a senior software engineer with a background spanning computer applications and business management — which means every project gets both technical execution and product thinking.
-            </p>
-            <p style={{ fontSize: '16px', lineHeight: '1.8', color: '#4B5563', marginBottom: '24px' }}>
-              The focus stays narrow on purpose: full-stack web development, AI integration, and MVP development — three core things done exceptionally well. Every project is built on a modern, proven stack (Next.js, FastAPI, Supabase, React, Node.js) chosen for speed, security, and long-term maintainability.
-            </p>
-            
-            <div className="founder-signature" style={{ fontFamily: '"Brush Script MT", cursive', fontSize: '36px', color: '#111827', marginTop: '48px' }}>
-              Harsh Prateek
+        {/* LEADERSHIP & FOUNDERS SECTION */}
+        <section className="about-leadership" style={{ padding: '60px 0 90px 0' }}>
+          <div className="container" style={{ maxWidth: '1180px', margin: '0 auto' }}>
+            <div className="section-header text-center" style={{ marginBottom: '56px' }}>
+              <span style={{ fontSize: '12px', fontWeight: '700', color: 'var(--color-primary)', textTransform: 'uppercase', letterSpacing: '1.5px', marginBottom: '8px', display: 'block' }}>OUR LEADERSHIP</span>
+              <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#111827', letterSpacing: '-0.5px' }}>Meet the Minds Driving NovaDesk</h2>
+            </div>
+
+            {/* FOUNDER 1: HARSH PRATEEK (Content Left, Image Right) */}
+            <div className="leader-card-row" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '48px', alignItems: 'center', marginBottom: '80px', background: '#FFFFFF', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,0,0,0.04)', border: '1px solid rgba(46,41,255,0.08)' }}>
+              <div className="leader-content" style={{ textAlign: 'left' }}>
+                <span style={{ display: 'inline-block', padding: '6px 14px', background: 'rgba(46, 41, 255, 0.08)', color: 'var(--color-primary)', borderRadius: '20px', fontSize: '12px', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
+                  FOUNDER &amp; LEAD DEVELOPER
+                </span>
+                <h3 style={{ fontSize: '32px', fontWeight: '800', color: '#111827', marginBottom: '20px', letterSpacing: '-0.5px' }}>
+                  Harsh Prateek
+                </h3>
+                <p style={{ fontSize: '16px', lineHeight: '1.8', color: '#4B5563', marginBottom: '18px' }}>
+                  <strong style={{ color: '#111827', display: 'block', marginBottom: '6px' }}>NovaDesk started with a straightforward frustration:</strong> 
+                  Watching good ideas get slowed down by process, not talent.
+                </p>
+                <p style={{ fontSize: '16px', lineHeight: '1.8', color: '#4B5563', marginBottom: '18px' }}>
+                  Most software studios and agencies add layers between the client and the person actually writing the code — account managers, project coordinators, rotating junior developers. Every layer adds delay, dilutes context, and adds cost that doesn't go toward the actual product.
+                </p>
+                <p style={{ fontSize: '16px', lineHeight: '1.8', color: '#4B5563', marginBottom: '24px' }}>
+                  NovaDesk is built differently, deliberately. Operating as a full-stack and AI development studio run by senior engineering leadership with a background spanning computer applications and business management — every project gets both technical execution and deep product thinking.
+                </p>
+                <div className="founder-signature" style={{ fontFamily: '"Brush Script MT", cursive', fontSize: '34px', color: '#111827' }}>
+                  Harsh Prateek
+                </div>
+              </div>
+
+              <div className="leader-image-box" style={{ position: 'relative', width: '100%', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.12)', border: '1px solid rgba(0,0,0,0.06)' }}>
+                <img src="/hero-my-image.webp" alt="Harsh Prateek - Founder & Lead Developer at NovaDesk" style={{ width: '100%', height: '440px', objectFit: 'cover', display: 'block' }} />
+                <div style={{ position: 'absolute', bottom: '0', left: '0', right: '0', background: 'linear-gradient(to top, rgba(17,24,39,0.85), transparent)', padding: '24px 20px 16px 20px', color: '#FFFFFF', textAlign: 'left' }}>
+                  <h4 style={{ fontSize: '20px', fontWeight: '700', margin: '0 0 2px 0', color: '#FFFFFF' }}>Harsh Prateek</h4>
+                  <p style={{ fontSize: '13px', margin: 0, color: 'rgba(255,255,255,0.85)', fontWeight: '500' }}>Founder &amp; Lead Engineer</p>
+                </div>
+              </div>
+            </div>
+
+            {/* FOUNDER 2: PIUSHA PATRA (Image Left, Content Right) */}
+            <div className="leader-card-row reverse-row" style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: '48px', alignItems: 'center', background: '#FFFFFF', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,0,0,0.04)', border: '1px solid rgba(0,184,130,0.12)' }}>
+              <div className="leader-image-box" style={{ position: 'relative', width: '100%', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.12)', border: '1px solid rgba(0,0,0,0.06)' }}>
+                <img src="/Co-Founder.jpeg" alt="Piusha Patra - Co-Founder & Director at NovaDesk" style={{ width: '100%', height: '440px', objectFit: 'cover', display: 'block' }} />
+                <div style={{ position: 'absolute', bottom: '0', left: '0', right: '0', background: 'linear-gradient(to top, rgba(17,24,39,0.85), transparent)', padding: '24px 20px 16px 20px', color: '#FFFFFF', textAlign: 'left' }}>
+                  <h4 style={{ fontSize: '20px', fontWeight: '700', margin: '0 0 2px 0', color: '#FFFFFF' }}>Piusha Patra</h4>
+                  <p style={{ fontSize: '13px', margin: 0, color: '#00FFB2', fontWeight: '600' }}>Co-Founder &amp; Director</p>
+                </div>
+              </div>
+
+              <div className="leader-content" style={{ textAlign: 'left' }}>
+                <span style={{ display: 'inline-block', padding: '6px 14px', background: 'rgba(0, 184, 130, 0.1)', color: '#00B882', borderRadius: '20px', fontSize: '12px', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
+                  CO-FOUNDER &amp; DIRECTOR
+                </span>
+                <h3 style={{ fontSize: '32px', fontWeight: '800', color: '#111827', marginBottom: '20px', letterSpacing: '-0.5px' }}>
+                  Piusha Patra
+                </h3>
+                <p style={{ fontSize: '16px', lineHeight: '1.8', color: '#4B5563', marginBottom: '18px' }}>
+                  "I believe that every successful business is built on strong relationships, clear communication, and a shared vision. As the Co-Founder of NovaDesk, my focus is on shaping the company's direction beyond technology—building meaningful client relationships, streamlining operations, supporting our team, and ensuring that every project reflects our commitment to quality and trust."
+                </p>
+                <p style={{ fontSize: '16px', lineHeight: '1.8', color: '#4B5563', marginBottom: '24px' }}>
+                  "I am passionate about creating an environment where innovation meets collaboration. My goal is to help businesses grow by delivering not just digital solutions, but experiences that create lasting value. Every decision I make is guided by our vision of building a company that people can rely on, where creativity, integrity, and long-term partnerships always come first."
+                </p>
+                <div className="founder-signature" style={{ fontFamily: '"Brush Script MT", cursive', fontSize: '34px', color: '#111827' }}>
+                  Piusha Patra
+                </div>
+              </div>
             </div>
           </div>
         </section>

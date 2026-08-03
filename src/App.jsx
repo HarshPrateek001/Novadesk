@@ -69,6 +69,9 @@ export default function App() {
                 <Route path="/harsh-prateek" element={<AboutUs />} />
                 <Route path="/harsh-prateek-novadesk" element={<AboutUs />} />
                 <Route path="/founder" element={<AboutUs />} />
+                <Route path="/piusha-patra" element={<AboutUs />} />
+                <Route path="/piusha-patra-novadesk" element={<AboutUs />} />
+                <Route path="/co-founder" element={<AboutUs />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/contact-us" element={<ContactUs />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
