@@ -603,6 +603,133 @@ export default function Home() {
         /* ── BASE ── */
         .nd { font-family: 'Space Grotesk', sans-serif; }
 
+        @keyframes floatSlow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+
+        .nd-btn-teal {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 16px 36px;
+          background: #0D9488;
+          color: #fff;
+          border-radius: 50px;
+          font-weight: 700;
+          font-size: 15.5px;
+          border: none;
+          cursor: pointer;
+          transition: all .25s;
+          text-decoration: none;
+          box-shadow: 0 8px 24px rgba(13, 148, 136, 0.22);
+        }
+        .nd-btn-teal:hover {
+          background: #0f766e;
+          transform: translateY(-2px);
+          box-shadow: 0 12px 30px rgba(13, 148, 136, 0.32);
+        }
+
+        /* ── HERO ── */
+        .nd-hero { 
+          position: relative; 
+          overflow: hidden; 
+          padding: 80px 0 80px 0; 
+          background-color: #ffffff;
+          background-image: 
+            linear-gradient(rgba(46, 41, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(46, 41, 255, 0.05) 1px, transparent 1px);
+          background-size: 26px 26px;
+        }
+        .nd-hero::before { 
+          content: ''; 
+          position: absolute; 
+          top: -100px; 
+          left: 15%; 
+          width: 600px; 
+          height: 600px; 
+          border-radius: 50%; 
+          background: radial-gradient(circle, rgba(255, 182, 219, 0.45) 0%, transparent 75%); 
+          filter: blur(50px);
+          pointer-events: none; 
+          z-index: 0;
+        }
+        .nd-hero::after { 
+          content: ''; 
+          position: absolute; 
+          bottom: -50px; 
+          right: 10%; 
+          width: 500px; 
+          height: 500px; 
+          border-radius: 50%; 
+          background: radial-gradient(circle, rgba(255, 105, 180, 0.25) 0%, transparent 75%); 
+          filter: blur(60px);
+          pointer-events: none; 
+          z-index: 0;
+        }
+        .nd-hero-inner { 
+          max-width: 1330px; 
+          margin: 0 auto; 
+          padding: 0 40px; 
+          display: grid; 
+          grid-template-columns: 1.15fr 0.85fr; 
+          gap: 40px; 
+          align-items: center; 
+          position: relative;
+          z-index: 2;
+        }
+
+        /* LEFT SIDE */
+        .nd-hero-left { padding-bottom: 60px; }
+        .nd-eyebrow { display:inline-flex; align-items:center; gap:8px; background:rgba(46,41,255,0.08); border:1px solid rgba(46,41,255,0.2); padding:8px 18px; border-radius:40px; font-size:11.5px; font-weight:700; color:#2E29FF; letter-spacing:0.8px; text-transform:uppercase; margin-bottom:28px; }
+        .nd-h1 { font-size:56px; line-height:1.15; letter-spacing:-1.5px; color:#0A0A2E; font-weight:800; margin-bottom:10px; }
+        .nd-h1-blue { font-size:46px; line-height:1.2; letter-spacing:-1.2px; color:#2E29FF; font-weight:800; margin-bottom:36px; display:block; white-space:nowrap; }
+        .nd-typing-cursor { display: inline-block; margin-left: 4px; color: #2E29FF; font-weight: 300; }
+        .nd-typing-cursor.blink { opacity: 0; }
+        .nd-subtext { font-size:16.5px; line-height:1.75; color:#4B5563; max-width:530px; margin-bottom:24px; font-weight:400; }
+        .nd-subtext-sm { font-size:14.5px; line-height:1.7; color:#6B7280; max-width:510px; margin-bottom:24px; font-weight:400; }
+        .nd-industries { font-size:14px; color:#6B7280; margin-bottom:0px; font-weight:400; line-height:1.7; max-width:530px; }
+        .nd-industries strong { color:#0A0A2E; font-weight:600; }
+        .nd-cta-row { display:flex; gap:16px; flex-wrap:wrap; margin-top:40px; margin-bottom:48px; align-items:center; }
+        .nd-btn-primary { display:inline-flex; align-items:center; gap:8px; padding:16px 34px; background:#2E29FF; color:#fff; border-radius:8px; font-weight:700; font-size:15.5px; border:none; cursor:pointer; transition:all .25s; text-decoration:none; letter-spacing:0.2px; box-shadow:0 8px 24px rgba(46,41,255,0.22); }
+        .nd-btn-primary:hover { background:#1a16dd; transform:translateY(-2px); box-shadow:0 12px 30px rgba(46,41,255,0.32); }
+        .nd-btn-outline { display:inline-flex; align-items:center; gap:8px; padding:16px 30px; background:transparent; color:#2E29FF; border-radius:8px; font-weight:700; font-size:15.5px; border:2px solid rgba(46,41,255,0.3); cursor:pointer; transition:all .25s; text-decoration:none; }
+        .nd-btn-outline:hover { border-color:#2E29FF; background:#EEF0FF; }
+        .nd-rating-row { display:flex; align-items:center; gap:16px; margin-top:10px; }
+        .nd-avatars { display:flex; align-items:center; }
+        .nd-avatar { width:38px; height:38px; border-radius:50%; border:2px solid #fff; background:#E5E7EB; margin-left:-10px; display:flex; align-items:center; justify-content:center; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+        .nd-avatars .nd-avatar:first-child { margin-left:0; }
+        .nd-avatar-img { width:100%; height:100%; object-fit:cover; display:block; }
+        .nd-stars { display:flex; gap:3px; color:#F59E0B; margin-bottom:3px; }
+        .nd-rating-text { font-size:14px; font-weight:700; color:#0A0A2E; line-height:1.2; }
+        .nd-rating-sub { font-size:12px; color:#6B7280; font-weight:400; }
+
+        /* RIGHT SIDE — DIRECT IMAGE */
+        .nd-hero-right { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:5; }
+        .nd-hero-direct-img { width:100%; max-width:500px; display:block; border-radius:24px; margin-top:-85px; transition:transform 0.4s cubic-bezier(0.16,1,0.3,1); cursor:pointer; }
+        .nd-hero-direct-img:hover { transform:translateY(-8px) scale(1.03); }
+        .nd-hero-img-caption { 
+          text-align: center; 
+          margin-top: -50px; 
+          position: relative; 
+          z-index: 10; 
+          background: rgba(255, 255, 255, 0.72); 
+          backdrop-filter: blur(14px); 
+          -webkit-backdrop-filter: blur(14px); 
+          border: 1px solid rgba(46, 41, 255, 0.12); 
+          border-radius: 20px; 
+          padding: 16px 28px; 
+          box-shadow: 0 15px 35px rgba(46, 41, 255, 0.06); 
+          animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+          animation-delay: 0.3s;
+        }
+        .nd-hero-img-caption h3 { font-size: 21px; font-weight: 800; color: #0A0A2E; margin-bottom: 4px; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nd-hero-img-caption h4 { font-size: 21px; font-weight: 800; color: #2E29FF; line-height: 1.2; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(24px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
 
         /* TRUST BADGES BELOW IMAGE */
         .nd-trust-badges { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:40px; }
@@ -2072,65 +2199,159 @@ export default function Home() {
 
         {/* ── 1. HERO ── */}
         <section className="nd-hero">
-          {/* Floating background dots */}
-          <div className="nd-float-dot nd-float-dot-1" />
-          <div className="nd-float-dot nd-float-dot-2" />
-          <div className="nd-float-dot nd-float-dot-3" />
-          <div className="nd-float-dot nd-float-dot-4" />
+          {/* Floating Background Circles/Spheres */}
+          <div className="nd-float-dot nd-float-dot-1" style={{ position: 'absolute', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(46, 41, 255, 0.04)', top: '10%', left: '5%', zIndex: 0 }} />
+          <div className="nd-float-dot nd-float-dot-2" style={{ position: 'absolute', width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(46, 41, 255, 0.03)', bottom: '15%', left: '35%', zIndex: 0 }} />
+          <div className="nd-float-dot nd-float-dot-3" style={{ position: 'absolute', width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(46, 41, 255, 0.04)', top: '20%', right: '40%', zIndex: 0 }} />
+          <div className="nd-float-dot nd-float-dot-4" style={{ position: 'absolute', width: '35px', height: '35px', borderRadius: '50%', background: 'rgba(46, 41, 255, 0.03)', bottom: '10%', right: '10%', zIndex: 0 }} />
 
           <div className="nd-hero-inner">
+
             {/* LEFT */}
             <div className="nd-hero-left">
-              <div className="nd-hero-tag">
-                <span>✦</span> NOVADESK.STUDIO
+              <div className="nd-eyebrow" style={{ background: '#FFFFFF', border: '1px solid rgba(46, 41, 255, 0.12)', color: '#0A0A2E', borderRadius: '100px', fontSize: '13px', fontWeight: '700', padding: '8px 18px', display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '24px', boxShadow: '0 2px 8px rgba(46,41,255,0.04)' }}>
+                <span style={{ color: '#2E29FF', fontWeight: '800' }}>✦</span>
+                NOVADESK.STUDIO
               </div>
-              <h1 className="nd-hero-h1">
+              <h1 className="nd-h1" style={{ fontSize: '58px', fontWeight: '900', color: '#0F172A', lineHeight: '1.12', letterSpacing: '-2px', marginBottom: '20px', textAlign: 'left' }}>
                 The Best Custom Software,<br />
-                <span className="nd-h1-dashed-box">Made Simple</span>
+                <span style={{
+                  display: 'inline-block',
+                  border: '2px dashed #FFA81A',
+                  background: 'rgba(255, 168, 26, 0.06)',
+                  padding: '4px 18px',
+                  borderRadius: '12px',
+                  color: '#FFA81A',
+                  marginTop: '8px'
+                }}>Made Simple</span>
               </h1>
-              <p className="nd-hero-desc">
+              <p className="nd-subtext-sm" style={{ fontSize: '16.5px', lineHeight: '1.75', color: '#475569', maxWidth: '520px', marginBottom: '28px', textAlign: 'left' }}>
                 From premium web applications to custom enterprise AI agents, build high-performance digital products directly with elite developers.
               </p>
-              <Link to="/contact-us" className="nd-hero-pill-btn">Book a Free Consultation ↗</Link>
+              
+              <div className="nd-cta-row" style={{ marginTop: '0', marginBottom: '32px' }}>
+                <Link to="/contact-us" className="nd-btn-teal">Book a Free Consultation ↗</Link>
+              </div>
+
+              <div className="nd-rating-row" style={{ marginTop: '0' }}>
+                <div className="nd-avatars">
+                  <div className="nd-avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Client Avatar 1" className="nd-avatar-img" /></div>
+                  <div className="nd-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Client Avatar 2" className="nd-avatar-img" /></div>
+                  <div className="nd-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Client Avatar 3" className="nd-avatar-img" /></div>
+                </div>
+                <div style={{ textAlign: 'left' }}>
+                  <div className="nd-stars">{[...Array(5)].map((_,i) => <IconStar key={i} />)}</div>
+                  <div className="nd-rating-text" style={{ fontSize: '13.5px', fontWeight: '700', color: '#0F172A' }}>3+ High-Impact Projects Delivered</div>
+                </div>
+              </div>
             </div>
 
-            {/* RIGHT — FOUNDER PORTRAIT WITH BACKDROP & WIDGETS */}
-            <div className="nd-hero-right">
-              <div className="nd-hero-right-wrap">
-                <div className="nd-hero-poly-bg" />
+            {/* RIGHT — DIRECT IMAGE WITH CUSTOM BACKDROP & FLOATING WIDGETS */}
+            <div className="nd-hero-right" style={{ width: '100%' }}>
+              <div style={{ position: 'relative', width: '100%', height: '520px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {/* Angled background card */}
+                <div style={{
+                  position: 'absolute',
+                  width: '90%',
+                  height: '85%',
+                  background: 'linear-gradient(135deg, #FFB636 0%, #FFA81A 100%)',
+                  borderRadius: '40px 100px 40px 100px',
+                  transform: 'rotate(-3deg)',
+                  zIndex: 1,
+                  boxShadow: '0 30px 60px rgba(255, 168, 26, 0.2)'
+                }} />
                 
-                {/* Floating Pill Accents */}
-                <div className="nd-float-pill nd-float-pill-orange" />
-                <div className="nd-float-pill nd-float-pill-teal" />
+                {/* Floating pill accent (Orange) */}
+                <div style={{
+                  position: 'absolute',
+                  width: '48px',
+                  height: '18px',
+                  borderRadius: '20px',
+                  background: '#FFA81A',
+                  top: '35%',
+                  left: '10px',
+                  transform: 'rotate(-15deg)',
+                  zIndex: 1
+                }} />
+                
+                {/* Floating pill accent (Teal) */}
+                <div style={{
+                  position: 'absolute',
+                  width: '48px',
+                  height: '18px',
+                  borderRadius: '20px',
+                  background: '#0D9488',
+                  bottom: '25%',
+                  right: '20px',
+                  transform: 'rotate(15deg)',
+                  zIndex: 1
+                }} />
 
-                {/* Floating Widget 1 */}
-                <div className="nd-float-card nd-float-card-1">
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" className="nd-float-card-avatar" />
-                  <div className="nd-float-card-content">
-                    <span className="nd-float-card-title">⚡ E-commerce Portal</span>
-                    <div className="nd-float-card-bar-wrap">
-                      <div className="nd-float-card-bar" style={{ background: '#FFA81A', width: '100%' }} />
-                      <div className="nd-float-card-bar" style={{ background: '#E2E8F0', width: '20%' }} />
+                {/* Floating Widget 1 (Top Left) */}
+                <div className="nd-float-card nd-float-card-1" style={{
+                  position: 'absolute',
+                  background: '#FFFFFF',
+                  borderRadius: '18px',
+                  padding: '12px 18px',
+                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
+                  border: '1px solid rgba(0, 0, 0, 0.05)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  zIndex: 3,
+                  top: '60px',
+                  left: '-30px',
+                  animation: 'floatSlow 6s ease-in-out infinite'
+                }}>
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" style={{ width: '36px', height: '36px', borderRadius: '50%', objectFit: 'cover' }} />
+                  <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                    <span style={{ fontSize: '13px', fontWeight: '800', color: '#0F172A' }}>⚡ E-commerce Build</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '4px', width: '90px' }}>
+                      <div style={{ height: '5px', borderRadius: '10px', background: '#FFA81A', width: '100%' }} />
+                      <div style={{ height: '5px', borderRadius: '10px', background: '#E2E8F0', width: '20%' }} />
                     </div>
                   </div>
                 </div>
 
                 {/* Founder Cutout Photo */}
-                <img src="/hero-my-image.webp" alt="Harsh Prateek - Director & Founder" className="nd-hero-founder-img" />
+                <img src="/hero-my-image.webp" alt="Harsh Prateek - Director & Founder" style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  height: '100%',
+                  objectFit: 'contain',
+                  zIndex: 2,
+                  filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.22))'
+                }} />
 
-                {/* Floating Widget 2 */}
-                <div className="nd-float-card nd-float-card-2">
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Avatar" className="nd-float-card-avatar" />
-                  <div className="nd-float-card-content">
-                    <span className="nd-float-card-title">🤖 AI Agent Support</span>
-                    <div className="nd-float-card-bar-wrap">
-                      <div className="nd-float-card-bar" style={{ background: '#0D9488', width: '100%' }} />
-                      <div className="nd-float-card-bar" style={{ background: '#E2E8F0', width: '10%' }} />
+                {/* Floating Widget 2 (Bottom Right) */}
+                <div className="nd-float-card nd-float-card-2" style={{
+                  position: 'absolute',
+                  background: '#FFFFFF',
+                  borderRadius: '18px',
+                  padding: '12px 18px',
+                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
+                  border: '1px solid rgba(0, 0, 0, 0.05)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  zIndex: 3,
+                  bottom: '80px',
+                  right: '-30px',
+                  animation: 'floatSlow 6s ease-in-out infinite',
+                  animationDelay: '3s'
+                }}>
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Avatar" style={{ width: '36px', height: '36px', borderRadius: '50%', objectFit: 'cover' }} />
+                  <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                    <span style={{ fontSize: '13px', fontWeight: '800', color: '#0F172A' }}>🤖 AI Agent Online</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '4px', width: '90px' }}>
+                      <div style={{ height: '5px', borderRadius: '10px', background: '#0D9488', width: '100%' }} />
+                      <div style={{ height: '5px', borderRadius: '10px', background: '#E2E8F0', width: '10%' }} />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </section>
 
