@@ -691,9 +691,9 @@ export default function Home() {
         .nd-industries { font-size:14px; color:#6B7280; margin-bottom:0px; font-weight:400; line-height:1.7; max-width:530px; }
         .nd-industries strong { color:#0A0A2E; font-weight:600; }
         .nd-cta-row { display:flex; gap:16px; flex-wrap:wrap; margin-top:40px; margin-bottom:48px; align-items:center; }
-        .nd-btn-primary { display:inline-flex; align-items:center; gap:8px; padding:16px 34px; background:#2E29FF; color:#fff; border-radius:8px; font-weight:700; font-size:15.5px; border:none; cursor:pointer; transition:all .25s; text-decoration:none; letter-spacing:0.2px; box-shadow:0 8px 24px rgba(46,41,255,0.22); }
+        .nd-btn-primary { display:inline-flex; align-items:center; gap:8px; padding:16px 34px; background:#2E29FF; color:#fff; border-radius:50px; font-weight:700; font-size:15.5px; border:none; cursor:pointer; transition:all .25s; text-decoration:none; letter-spacing:0.2px; box-shadow:0 8px 24px rgba(46,41,255,0.22); }
         .nd-btn-primary:hover { background:#1a16dd; transform:translateY(-2px); box-shadow:0 12px 30px rgba(46,41,255,0.32); }
-        .nd-btn-outline { display:inline-flex; align-items:center; gap:8px; padding:16px 30px; background:transparent; color:#2E29FF; border-radius:8px; font-weight:700; font-size:15.5px; border:2px solid rgba(46,41,255,0.3); cursor:pointer; transition:all .25s; text-decoration:none; }
+        .nd-btn-outline { display:inline-flex; align-items:center; gap:8px; padding:16px 30px; background:transparent; color:#2E29FF; border-radius:50px; font-weight:700; font-size:15.5px; border:2px solid rgba(46,41,255,0.3); cursor:pointer; transition:all .25s; text-decoration:none; }
         .nd-btn-outline:hover { border-color:#2E29FF; background:#EEF0FF; }
         .nd-rating-row { display:flex; align-items:center; gap:16px; margin-top:10px; }
         .nd-avatars { display:flex; align-items:center; }
