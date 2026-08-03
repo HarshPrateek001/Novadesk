@@ -237,7 +237,9 @@ export default function ChatWidget() {
           bottom: 80px;
           right: 0;
           width: 370px;
+          max-width: calc(100vw - 32px);
           height: 560px;
+          max-height: calc(100vh - 120px);
           background-color: #0f172a;
           border-radius: 24px;
           box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
@@ -250,7 +252,40 @@ export default function ChatWidget() {
         }
         .nd-chat-window.expanded {
           width: 480px;
+          max-width: calc(100vw - 32px);
           height: 720px;
+          max-height: calc(100vh - 120px);
+        }
+        @media (max-width: 768px) {
+          .nd-chat-widget {
+            bottom: 16px;
+            right: 16px;
+          }
+          .nd-chat-fab {
+            width: 48px;
+            height: 48px;
+          }
+          .nd-chat-fab svg {
+            width: 20px;
+            height: 20px;
+          }
+          .nd-chat-window {
+            bottom: 64px;
+            right: 0;
+            width: calc(100vw - 32px);
+            max-width: calc(100vw - 32px);
+            height: 450px;
+            max-height: 62vh;
+            border-radius: 20px;
+          }
+          .nd-chat-window.expanded {
+            bottom: 12px;
+            right: 0;
+            width: calc(100vw - 32px);
+            max-width: calc(100vw - 32px);
+            height: calc(100vh - 90px);
+            max-height: calc(100vh - 90px);
+          }
         }
         @keyframes slideUpChat {
           from { opacity: 0; transform: translateY(24px) scale(0.95); }
@@ -581,10 +616,18 @@ export default function ChatWidget() {
             </div>
             
             <div className="nd-chat-header-right">
-              <button className="nd-chat-header-btn" onClick={() => setShowMenu(!showMenu)}>
+              <button 
+                type="button"
+                className="nd-chat-header-btn" 
+                title={isExpanded ? "Collapse View" : "Expand View"}
+                onClick={() => setIsExpanded(!isExpanded)}
+              >
+                {isExpanded ? <IconCollapse /> : <IconExpand />}
+              </button>
+              <button type="button" className="nd-chat-header-btn" onClick={() => setShowMenu(!showMenu)}>
                 <IconMore />
               </button>
-              <button className="nd-chat-header-btn" onClick={() => setIsOpen(false)}>
+              <button type="button" className="nd-chat-header-btn" onClick={() => setIsOpen(false)}>
                 <IconClose />
               </button>
             </div>

@@ -634,74 +634,164 @@ export default function Home() {
         .nd-hero { 
           position: relative; 
           overflow: hidden; 
-          padding: 80px 0 80px 0; 
+          padding: 80px 0 60px 0; 
           background-color: #ffffff;
-          background-image: 
-            linear-gradient(rgba(46, 41, 255, 0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(46, 41, 255, 0.05) 1px, transparent 1px);
-          background-size: 26px 26px;
+          min-height: 560px;
         }
-        .nd-hero::before { 
-          content: ''; 
-          position: absolute; 
-          top: -100px; 
-          left: 15%; 
-          width: 600px; 
-          height: 600px; 
-          border-radius: 50%; 
-          background: radial-gradient(circle, rgba(255, 182, 219, 0.45) 0%, transparent 75%); 
-          filter: blur(50px);
-          pointer-events: none; 
-          z-index: 0;
+        .nd-hero-bg-team {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 50%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+          z-index: 1;
+          filter: contrast(1.05) brightness(0.98);
+          opacity: 0.98;
         }
-        .nd-hero::after { 
-          content: ''; 
-          position: absolute; 
-          bottom: -50px; 
-          right: 10%; 
-          width: 500px; 
-          height: 500px; 
-          border-radius: 50%; 
-          background: radial-gradient(circle, rgba(255, 105, 180, 0.25) 0%, transparent 75%); 
-          filter: blur(60px);
-          pointer-events: none; 
-          z-index: 0;
+        .nd-hero-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(90deg, #ffffff 0%, #ffffff 45%, rgba(255, 255, 255, 0.75) 60%, rgba(255, 255, 255, 0) 100%);
+          z-index: 2;
+          pointer-events: none;
         }
         .nd-hero-inner { 
-          max-width: 1330px; 
+          max-width: 1400px; 
           margin: 0 auto; 
           padding: 0 40px; 
-          display: grid; 
-          grid-template-columns: 1.15fr 0.85fr; 
-          gap: 40px; 
-          align-items: center; 
           position: relative;
-          z-index: 2;
+          z-index: 3;
+          display: flex;
+          justify-content: flex-start;
         }
 
-        /* LEFT SIDE */
-        .nd-hero-left { padding-bottom: 60px; }
-        .nd-eyebrow { display:inline-flex; align-items:center; gap:8px; background:rgba(46,41,255,0.08); border:1px solid rgba(46,41,255,0.2); padding:8px 18px; border-radius:40px; font-size:11.5px; font-weight:700; color:#2E29FF; letter-spacing:0.8px; text-transform:uppercase; margin-bottom:28px; }
-        .nd-h1 { font-size:56px; line-height:1.15; letter-spacing:-1.5px; color:#0A0A2E; font-weight:800; margin-bottom:10px; }
-        .nd-h1-blue { font-size:46px; line-height:1.2; letter-spacing:-1.2px; color:#2E29FF; font-weight:800; margin-bottom:36px; display:block; white-space:nowrap; }
+        /* LEFT SIDE — ENTERPRISE HERO STYLING */
+        .nd-hero-left { 
+          max-width: 580px; 
+          width: 100%;
+          padding-bottom: 40px; 
+        }
+        .nd-eyebrow { 
+          display: inline-flex; 
+          align-items: center; 
+          gap: 8px; 
+          background: rgba(46, 41, 255, 0.05); 
+          border: 1px solid rgba(46, 41, 255, 0.16); 
+          padding: 8px 18px; 
+          border-radius: 40px; 
+          font-size: 11.5px; 
+          font-weight: 700; 
+          color: #2E29FF; 
+          letter-spacing: 0.8px; 
+          text-transform: uppercase; 
+          margin-bottom: 24px; 
+          backdrop-filter: blur(8px);
+          box-shadow: 0 2px 10px rgba(46, 41, 255, 0.04);
+        }
+        .nd-eyebrow-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #2E29FF;
+          box-shadow: 0 0 8px #2E29FF;
+        }
+        .nd-h1 { 
+          font-size: 52px; 
+          line-height: 1.15; 
+          letter-spacing: -1.8px; 
+          color: #0F172A; 
+          font-weight: 800; 
+          margin-bottom: 20px; 
+        }
+        .nd-h1-blue { 
+          color: #2E29FF; 
+          background: linear-gradient(135deg, #2E29FF 0%, #4F46E5 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .nd-typing-box {
+          display: inline-block;
+          background: linear-gradient(135deg, rgba(46, 41, 255, 0.06) 0%, rgba(46, 41, 255, 0.02) 100%);
+          border: 1.5px solid rgba(46, 41, 255, 0.28);
+          box-shadow: 0 4px 20px rgba(46, 41, 255, 0.06);
+          padding: 8px 24px;
+          border-radius: 14px;
+          margin-bottom: 28px;
+          text-align: left;
+        }
         .nd-typing-cursor { display: inline-block; margin-left: 4px; color: #2E29FF; font-weight: 300; }
         .nd-typing-cursor.blink { opacity: 0; }
-        .nd-subtext { font-size:16.5px; line-height:1.75; color:#4B5563; max-width:530px; margin-bottom:24px; font-weight:400; }
-        .nd-subtext-sm { font-size:14.5px; line-height:1.7; color:#6B7280; max-width:510px; margin-bottom:24px; font-weight:400; }
-        .nd-industries { font-size:14px; color:#6B7280; margin-bottom:0px; font-weight:400; line-height:1.7; max-width:530px; }
-        .nd-industries strong { color:#0A0A2E; font-weight:600; }
-        .nd-cta-row { display:flex; gap:16px; flex-wrap:wrap; margin-top:40px; margin-bottom:48px; align-items:center; }
-        .nd-btn-primary { display:inline-flex; align-items:center; gap:8px; padding:16px 34px; background:#2E29FF; color:#fff; border-radius:50px; font-weight:700; font-size:15.5px; border:none; cursor:pointer; transition:all .25s; text-decoration:none; letter-spacing:0.2px; box-shadow:0 8px 24px rgba(46,41,255,0.22); }
-        .nd-btn-primary:hover { background:#1a16dd; transform:translateY(-2px); box-shadow:0 12px 30px rgba(46,41,255,0.32); }
-        .nd-btn-outline { display:inline-flex; align-items:center; gap:8px; padding:16px 30px; background:transparent; color:#2E29FF; border-radius:50px; font-weight:700; font-size:15.5px; border:2px solid rgba(46,41,255,0.3); cursor:pointer; transition:all .25s; text-decoration:none; }
-        .nd-btn-outline:hover { border-color:#2E29FF; background:#EEF0FF; }
-        .nd-rating-row { display:flex; align-items:center; gap:16px; margin-top:10px; }
-        .nd-avatars { display:flex; align-items:center; }
-        .nd-avatar { width:38px; height:38px; border-radius:50%; border:2px solid #fff; background:#E5E7EB; margin-left:-10px; display:flex; align-items:center; justify-content:center; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-        .nd-avatars .nd-avatar:first-child { margin-left:0; }
-        .nd-avatar-img { width:100%; height:100%; object-fit:cover; display:block; }
-        .nd-stars { display:flex; gap:3px; color:#F59E0B; margin-bottom:3px; }
-        .nd-rating-text { font-size:14px; font-weight:700; color:#0A0A2E; line-height:1.2; }
+        .nd-subtext-sm { font-size: 15.5px; line-height: 1.7; color: #475569; max-width: 530px; margin-bottom: 20px; font-weight: 450; }
+        .nd-industry-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          align-items: center;
+          margin-bottom: 34px;
+        }
+        .nd-ind-tag {
+          font-size: 12.5px;
+          font-weight: 600;
+          color: #334155;
+          background: #F1F5F9;
+          border: 1px solid #E2E8F0;
+          padding: 4px 12px;
+          border-radius: 20px;
+          letter-spacing: 0.2px;
+        }
+        .nd-cta-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 0; margin-bottom: 40px; align-items: center; }
+        .nd-btn-primary { 
+          display: inline-flex; 
+          align-items: center; 
+          gap: 8px; 
+          padding: 16px 36px; 
+          background: linear-gradient(135deg, #2E29FF 0%, #1D18E0 100%); 
+          color: #fff; 
+          border-radius: 50px; 
+          font-weight: 700; 
+          font-size: 15.5px; 
+          border: none; 
+          cursor: pointer; 
+          transition: all .25s; 
+          text-decoration: none; 
+          letter-spacing: -0.2px; 
+          box-shadow: 0 10px 28px rgba(46, 41, 255, 0.25); 
+        }
+        .nd-btn-primary:hover { 
+          background: linear-gradient(135deg, #1A16DD 0%, #120FB8 100%); 
+          transform: translateY(-2px); 
+          box-shadow: 0 14px 34px rgba(46, 41, 255, 0.35); 
+        }
+        .nd-btn-outline { 
+          display: inline-flex; 
+          align-items: center; 
+          gap: 8px; 
+          padding: 16px 32px; 
+          background: #FFFFFF; 
+          color: #2E29FF; 
+          border-radius: 50px; 
+          font-weight: 700; 
+          font-size: 15.5px; 
+          border: 1.5px solid rgba(46, 41, 255, 0.28); 
+          cursor: pointer; 
+          transition: all .25s; 
+          text-decoration: none; 
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); 
+        }
+        .nd-btn-outline:hover { 
+          border-color: #2E29FF; 
+          background: #F4F5FF; 
+          transform: translateY(-2px);
+        }
+        .nd-rating-row { display: flex; align-items: center; gap: 16px; margin-top: 0; }
+        .nd-avatars { display: flex; align-items: center; }
+        .nd-avatar { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #fff; background: #E5E7EB; margin-left: -10px; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); }
+        .nd-avatars .nd-avatar:first-child { margin-left: 0; }
+        .nd-avatar-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .nd-stars { display: flex; gap: 3px; color: #F59E0B; margin-bottom: 2px; }
+        .nd-rating-text { font-size: 14px; font-weight: 700; color: #0F172A; line-height: 1.2; }
         .nd-rating-sub { font-size:12px; color:#6B7280; font-weight:400; }
 
         /* RIGHT SIDE — DIRECT IMAGE */
@@ -755,10 +845,6 @@ export default function Home() {
         /* ── DUAL ROW AUTO-SCROLLING TICKER ── */
         .nd-logos { 
           background-color: #ffffff;
-          background-image: 
-            linear-gradient(rgba(46, 41, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(46, 41, 255, 0.03) 1px, transparent 1px);
-          background-size: 26px 26px;
           padding: 80px 0; 
           border-bottom: 1px solid rgba(46,41,255,0.06); 
           position: relative;
@@ -2011,16 +2097,19 @@ export default function Home() {
 
         /* ── RESPONSIVE ── */
         @media (max-width:1024px) {
-          .nd-hero { padding-top: 40px !important; }
-          .nd-hero-inner { display: flex; flex-direction: column-reverse; gap: 40px; padding: 0 20px !important; }
-          .nd-hero-direct-img { margin-top: 0 !important; max-width: 420px !important; margin: 0 auto; }
-          .nd-h1, .nd-h1-blue { font-size: 38px !important; line-height: 1.2 !important; text-align: center; }
-          .nd-h1-blue { white-space: normal !important; min-height: auto !important; margin-bottom: 24px !important; }
-          .nd-eyebrow { margin-left: auto; margin-right: auto; }
-          .nd-subtext, .nd-subtext-sm, .nd-industries { text-align: center; margin-left: auto; margin-right: auto; }
-          .nd-cta-row { justify-content: center; margin-top: 24px; margin-bottom: 32px; }
-          .nd-rating-row { justify-content: center; }
-          
+          .nd-hero { padding: 0 0 30px 0 !important; min-height: auto !important; }
+          .nd-hero-inner { max-width: 100% !important; padding: 0 24px !important; justify-content: center !important; }
+          .nd-hero-left { max-width: 100% !important; text-align: center !important; margin: 0 auto !important; padding-bottom: 0 !important; }
+          .nd-eyebrow { margin: 0 auto 20px auto !important; }
+          .nd-h1 { font-size: 42px !important; letter-spacing: -1.2px !important; text-align: center !important; margin-bottom: 16px !important; }
+          .nd-typing-box { margin: 0 auto 24px auto !important; text-align: center !important; width: fit-content !important; max-width: 100% !important; }
+          .nd-subtext-sm { text-align: center !important; margin: 0 auto 20px auto !important; }
+          .nd-industry-tags { justify-content: center !important; margin: 0 auto 28px auto !important; }
+          .nd-cta-row { justify-content: center !important; margin: 0 auto 28px auto !important; }
+          .nd-rating-row { justify-content: center !important; margin: 0 auto !important; }
+          .nd-hero-bg-team { position: relative !important; width: 100% !important; max-width: 540px !important; height: auto !important; margin: 24px auto 0 auto !important; display: block !important; right: auto !important; top: auto !important; object-fit: contain !important; }
+          .nd-hero-overlay { display: none !important; }
+
           .nd-stats-grid { grid-template-columns:repeat(2,1fr); }
           .nd-services-wrapper { grid-template-columns:1fr; }
           .nd-service-nav { flex-direction:row; flex-wrap:wrap; border-right:none; border-bottom:1px solid rgba(46,41,255,0.08); }
@@ -2035,7 +2124,7 @@ export default function Home() {
           .nd-trust-badges { grid-template-columns:repeat(3,1fr); }
           
           /* Grids */
-           .nd-why-exist-grid { grid-template-columns: repeat(2, 1fr); }
+          .nd-why-exist-grid { grid-template-columns: repeat(2, 1fr); }
           .nd-why-exist-header { grid-template-columns: 1fr; gap: 20px; }
           .nd-core-glance-grid { grid-template-columns: repeat(2, 1fr); }
           .nd-tech-showcase-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2044,6 +2133,44 @@ export default function Home() {
           .fintech_grid.grid-4 { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width:768px) {
+          .nd-hero { padding: 8px 0 20px 0 !important; }
+          .nd-hero-inner { padding: 0 16px !important; }
+          .nd-hero-bg-team { max-width: 100% !important; height: auto !important; margin: 16px auto 0 auto !important; object-fit: contain !important; }
+          .nd-eyebrow { font-size: 11px !important; padding: 4px 12px !important; margin: 0 auto 12px auto !important; }
+          .nd-h1 { font-size: 32px !important; letter-spacing: -1px !important; line-height: 1.16 !important; margin-bottom: 12px !important; }
+          .nd-typing-box { padding: 6px 16px !important; border-radius: 12px !important; margin: 0 auto 16px auto !important; }
+          .nd-subtext-sm { font-size: 14px !important; line-height: 1.6 !important; margin: 0 auto 16px auto !important; }
+          .nd-industry-tags { margin: 0 auto 20px auto !important; gap: 6px !important; }
+          .nd-ind-tag { font-size: 11.5px !important; padding: 4px 10px !important; }
+          .nd-cta-row { flex-direction: column !important; width: 100% !important; gap: 12px !important; margin: 0 auto 24px auto !important; }
+          .nd-btn-primary, .nd-btn-outline { width: 100% !important; justify-content: center !important; padding: 14px 20px !important; font-size: 14.5px !important; }
+          .nd-rating-row { flex-direction: column !important; text-align: center !important; gap: 10px !important; }
+
+          /* Mobile Grid Collapse (1-column layout) */
+          .nd-why-exist-grid,
+          .nd-core-glance-grid,
+          .nd-tech-showcase-grid,
+          .fintech_grid.grid-4,
+          .nd-process-steps,
+          .nd-logo-grid,
+          .nd-projects-track,
+          .nd-stats-grid,
+          .nd-service-links,
+          .nd-trust-badges {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+          }
+
+          /* Services & Tab Buttons Mobile Optimization */
+          .nd-expertise-inner { padding: 0 16px !important; }
+          .nd-services-wrapper { padding: 16px !important; border-radius: 20px !important; gap: 20px !important; }
+          .nd-service-nav { padding: 10px !important; border-radius: 16px !important; width: 100% !important; box-sizing: border-box !important; }
+          .nd-tab-btn { width: 100% !important; justify-content: flex-start !important; padding: 12px 14px !important; box-sizing: border-box !important; }
+          .nd-service-content { padding: 8px 0 !important; }
+          .nd-service-links { gap: 12px !important; background: transparent !important; border: none !important; }
+          .nd-service-link-card { border-radius: 14px !important; border: 1px solid rgba(46, 41, 255, 0.1) !important; padding: 16px !important; width: 100% !important; box-sizing: border-box !important; }
+          .nd-service-link-card:last-child:nth-child(odd) { grid-column: auto !important; }
+
           /* General Padding Reductions */
           .nd-why-exist, .nd-core-glance, .nd-portfolio, .nd-achievements, 
           .nd-expertise, .nd-process, .nd-compare, .nd-tech-showcase, 
@@ -2052,7 +2179,7 @@ export default function Home() {
             padding: 60px 0 !important;
           }
           /* Headings */
-          .nd-section-h2, .nd-process-h2, .nd-why-exist-h2, .nd-portfolio-h2, .nd-h1, .nd-h1-blue { font-size: 32px !important; }
+          .nd-section-h2, .nd-process-h2, .nd-why-exist-h2, .nd-portfolio-h2 { font-size: 32px !important; }
           .nd-h1-blue { min-height: auto !important; white-space: normal !important; }
           
           .nd-portfolio-grid { grid-template-columns: 1fr; }
@@ -2137,104 +2264,57 @@ export default function Home() {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
           }
-          @keyframes nd-ticker-reverse {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-          }
-          .nd-why-choose-card-container > div, .nd-industry-card-container > div { min-height: unset !important; height: 100% !important; }
-          .nd-why-choose-card-container > div > div:first-child, .nd-industry-card-container > div > div:first-child { height: 120px !important; }
-          .nd-why-choose-card-container p, .nd-industry-card-container p { font-size: 14px !important; margin-bottom: 4px !important; }
-          .nd-why-choose-card-container span, .nd-industry-card-container span { font-size: 11px !important; line-height: 1.3 !important; }
-          .nd-why-choose-card-container > div > div:nth-child(2), .nd-industry-card-container > div > div:nth-child(2) { padding: 12px !important; }
-          .nd-why-choose-card-container svg, .nd-industry-card-container svg { width: 8px; height: 11px; }
-          
-          /* 1-column overrides */
-          .nd-why-exist-grid, .nd-core-glance-grid, .nd-tech-showcase-grid, .fintech_grid.grid-4 { grid-template-columns: 1fr; }
-          .nd-service-links { grid-template-columns: 1fr; }
         }
       `}</style>
-
       <SEO 
         title="NovaDesk | Custom Software & AI Development Agency"
         description="Founded by Harsh Prateek, NovaDesk is a top-tier custom software development studio, scalable web applications, mobile platforms, and enterprise AI agency."
         keywords="Harsh Prateek, Harsh Prateek NovaDesk, Harsh Prateek Founder, Harsh Prateek Developer, NovaDesk, full stack developer India, AI agency India, custom software development"
-        image="https://www.novadesk.site/hero-my-image.webp"
+        image="https://www.novadesk.site/novadesk_team_5_members_hero.png"
         url="/"
         author="Harsh Prateek"
-        schema={[
-          {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "@id": "https://www.novadesk.site/#harsh-prateek",
-            "name": "Harsh Prateek",
-            "givenName": "Harsh",
-            "familyName": "Prateek",
-            "jobTitle": "Director & Founder",
-            "worksFor": {
-              "@type": "Organization",
-              "@id": "https://www.novadesk.site/#organization",
-              "name": "NovaDesk",
-              "url": "https://www.novadesk.site"
-            },
-            "url": "https://www.novadesk.site/about-us",
-            "image": "https://www.novadesk.site/hero-my-image.webp"
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "@id": "https://www.novadesk.site/#organization",
-            "name": "NovaDesk",
-            "url": "https://www.novadesk.site",
-            "logo": "https://www.novadesk.site/favicon-192.png",
-            "founder": {
-              "@type": "Person",
-              "@id": "https://www.novadesk.site/#harsh-prateek",
-              "name": "Harsh Prateek"
-            }
-          }
-        ]}
       />
 
       <div className="nd">
 
-        {/* ── 1. HERO ── */}
+        {/* ── 1. HERO (BACKGROUND IMAGE + SEAMLESS OVERLAY BASED ON PAGE.CSS RP-HERO) ── */}
         <section className="nd-hero">
-          {/* Floating background dots */}
-          <div className="nd-float-dot nd-float-dot-1" style={{ position: 'absolute', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(46, 41, 255, 0.04)', top: '10%', left: '5%', zIndex: 0 }} />
-          <div className="nd-float-dot nd-float-dot-2" style={{ position: 'absolute', width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(46, 41, 255, 0.03)', bottom: '15%', left: '35%', zIndex: 0 }} />
-          <div className="nd-float-dot nd-float-dot-3" style={{ position: 'absolute', width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(46, 41, 255, 0.04)', top: '20%', right: '40%', zIndex: 0 }} />
-          <div className="nd-float-dot nd-float-dot-4" style={{ position: 'absolute', width: '35px', height: '35px', borderRadius: '50%', background: 'rgba(46, 41, 255, 0.03)', bottom: '10%', right: '10%', zIndex: 0 }} />
+          {/* Background image stretched across right side — matching page.css rp-hero-bg-team */}
+          <img 
+            src="/novadesk_team_5_members_hero.png" 
+            alt="NOVADESK Engineering & Product Team" 
+            className="nd-hero-bg-team"
+          />
 
+          {/* White Gradient Overlay for seamless left-to-right blend — matching page.css rp-hero-overlay */}
+          <div className="nd-hero-overlay" />
+
+          {/* Content layer */}
           <div className="nd-hero-inner">
-            {/* LEFT */}
             <div className="nd-hero-left">
               <div className="nd-eyebrow">
-                <span className="nd-sparkle">✦</span>
+                <span className="nd-eyebrow-dot" />
                 TOP SOFTWARE DEVELOPMENT AGENCY IN INDIA
               </div>
-              <h1 className="nd-h1" style={{ marginBottom: '12px', textAlign: 'left' }}>India's Premier</h1>
-              <div style={{
-                display: 'inline-block',
-                border: '2px dashed #2E29FF',
-                background: 'rgba(46, 41, 255, 0.04)',
-                padding: '6px 22px',
-                borderRadius: '12px',
-                marginBottom: '28px',
-                textAlign: 'left'
-              }}>
-                <TypingHeading />
-              </div>
+              <h1 className="nd-h1" style={{ textAlign: 'left' }}>
+                India's Premier <span className="nd-h1-blue">Custom Software &amp; AI</span> Studio
+              </h1>
               <p className="nd-subtext-sm" style={{ textAlign: 'left' }}>
                 Trusted by early-stage founders and venture-backed teams. Hire expert offshore developers from India for high-quality engineering.
               </p>
-              <p className="nd-industries" style={{ textAlign: 'left', marginBottom: '32px' }}>
-                <strong>Fintech, Healthcare, EdTech, Logistics, SaaS, E-commerce.</strong> We bring engineering depth, product thinking, and the execution speed your business actually needs.
-              </p>
-              <div className="nd-cta-row" style={{ marginTop: '0', marginBottom: '36px' }}>
+              <div className="nd-industry-tags">
+                <span className="nd-ind-tag">Fintech</span>
+                <span className="nd-ind-tag">Healthcare</span>
+                <span className="nd-ind-tag">EdTech</span>
+                <span className="nd-ind-tag">Logistics</span>
+                <span className="nd-ind-tag">SaaS</span>
+                <span className="nd-ind-tag">E-Commerce</span>
+              </div>
+              <div className="nd-cta-row">
                 <Link to="/contact-us" className="nd-btn-primary">Book a Free Consultation ↗</Link>
                 <Link to="/get-a-free-quote" className="nd-btn-outline">Get a Free Quote ↗</Link>
               </div>
-              <div className="nd-rating-row" style={{ marginTop: '0' }}>
+              <div className="nd-rating-row">
                 <div className="nd-avatars">
                   <div className="nd-avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Client Avatar 1" className="nd-avatar-img" /></div>
                   <div className="nd-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Client Avatar 2" className="nd-avatar-img" /></div>
@@ -2242,111 +2322,10 @@ export default function Home() {
                 </div>
                 <div style={{ textAlign: 'left' }}>
                   <div className="nd-stars">{[...Array(5)].map((_,i) => <IconStar key={i} />)}</div>
-                  <div className="nd-rating-text" style={{ fontSize: '13.5px', fontWeight: '700', color: '#0A0A2E' }}>3+ High-Impact Projects Delivered</div>
+                  <div className="nd-rating-text">3+ High-Impact Projects Delivered</div>
                 </div>
               </div>
             </div>
-
-            {/* RIGHT — FOUNDER PORTRAIT WITH BACKDROP & WIDGETS */}
-            <div className="nd-hero-right" style={{ width: '100%' }}>
-              <div style={{ position: 'relative', width: '100%', height: '520px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                {/* Angled background card (Blue gradient) */}
-                <div style={{
-                  position: 'absolute',
-                  width: '90%',
-                  height: '85%',
-                  background: 'linear-gradient(135deg, #2E29FF 0%, #6366F1 100%)',
-                  borderRadius: '40px 100px 40px 100px',
-                  transform: 'rotate(-3deg)',
-                  zIndex: 1,
-                  boxShadow: '0 30px 60px rgba(46, 41, 255, 0.15)'
-                }} />
-                
-                {/* Floating pill accent (Blue) */}
-                <div style={{
-                  position: 'absolute',
-                  width: '48px',
-                  height: '18px',
-                  borderRadius: '20px',
-                  background: '#2E29FF',
-                  top: '35%',
-                  left: '10px',
-                  transform: 'rotate(-15deg)',
-                  zIndex: 1
-                }} />
-                
-                {/* Floating pill accent (Light Blue) */}
-                <div style={{
-                  position: 'absolute',
-                  width: '48px',
-                  height: '18px',
-                  borderRadius: '20px',
-                  background: '#6366F1',
-                  bottom: '25%',
-                  right: '20px',
-                  transform: 'rotate(15deg)',
-                  zIndex: 1
-                }} />
-
-                {/* Floating Widget 1 (Top Left - Pill Chat Bubble) */}
-                <div className="nd-float-card nd-float-card-1" style={{
-                  position: 'absolute',
-                  background: '#FFFFFF',
-                  borderRadius: '100px',
-                  padding: '8px 22px 8px 10px',
-                  boxShadow: '0 20px 40px rgba(46, 41, 255, 0.12)',
-                  border: '1px solid rgba(46, 41, 255, 0.08)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  zIndex: 3,
-                  top: '45px',
-                  left: '-25px',
-                  animation: 'floatSlow 6s ease-in-out infinite'
-                }}>
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" style={{ width: '38px', height: '38px', borderRadius: '50%', objectFit: 'cover' }} />
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', textAlign: 'left', width: '100px' }}>
-                    <div style={{ height: '7px', borderRadius: '10px', background: '#2E29FF', width: '100%' }} />
-                    <div style={{ height: '7px', borderRadius: '10px', background: '#818CF8', width: '60%' }} />
-                  </div>
-                </div>
-
-                {/* Founder Cutout Photo */}
-                <img src="/hero-my-image.webp" alt="Harsh Prateek - Director & Founder" style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  height: '100%',
-                  objectFit: 'contain',
-                  zIndex: 2,
-                  filter: 'drop-shadow(0 25px 50px rgba(46, 41, 255, 0.18))'
-                }} />
-
-                {/* Floating Widget 2 (Bottom Right - Pill Chat Bubble) */}
-                <div className="nd-float-card nd-float-card-2" style={{
-                  position: 'absolute',
-                  background: '#FFFFFF',
-                  borderRadius: '100px',
-                  padding: '8px 22px 8px 10px',
-                  boxShadow: '0 20px 40px rgba(46, 41, 255, 0.12)',
-                  border: '1px solid rgba(46, 41, 255, 0.08)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  zIndex: 3,
-                  bottom: '70px',
-                  right: '-25px',
-                  animation: 'floatSlow 6s ease-in-out infinite',
-                  animationDelay: '3s'
-                }}>
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Avatar" style={{ width: '38px', height: '38px', borderRadius: '50%', objectFit: 'cover' }} />
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', textAlign: 'left', width: '100px' }}>
-                    <div style={{ height: '7px', borderRadius: '10px', background: '#00B882', width: '100%' }} />
-                    <div style={{ height: '7px', borderRadius: '10px', background: '#34D399', width: '65%' }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
         </section>
 

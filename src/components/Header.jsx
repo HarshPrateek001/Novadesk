@@ -470,8 +470,12 @@ export default function Header() {
         .hdr-mobile-nav { display: none; }
 
         @media (max-width: 1024px) {
-          .hdr { top: 12px; }
-          .hdr-tube { height: 56px; padding: 8px 16px; }
+          main { padding-top: 64px !important; }
+          .hdr { top: 10px !important; padding: 0 12px; box-sizing: border-box; }
+          .hdr-tube { height: 54px !important; padding: 6px 14px !important; border-radius: 50px; justify-content: space-between; max-width: 100%; box-sizing: border-box; }
+          .hdr-brand-center { padding: 0; gap: 6px; }
+          .hdr-logo-text .bottom { font-size: 20px !important; }
+          .hdr-logo-text .top { font-size: 8.5px !important; }
           .hdr-left-group, .hdr-right-group { display: none; }
           .hdr-hamburger { display: flex; }
           .hdr-mobile-nav {

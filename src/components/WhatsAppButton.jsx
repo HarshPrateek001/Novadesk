@@ -42,6 +42,19 @@ export default function WhatsAppButton() {
           background-color: #20BA5A;
           color: #ffffff;
         }
+        @media (max-width: 768px) {
+          .nd-whatsapp-btn {
+            bottom: 16px;
+            left: 16px;
+            width: 48px;
+            height: 48px;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+          }
+          .nd-whatsapp-btn svg {
+            width: 22px;
+            height: 22px;
+          }
+        }
       `}</style>
       <IconWhatsApp />
     </a>

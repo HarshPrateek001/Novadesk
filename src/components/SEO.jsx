@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 export default function SEO({ title, description, keywords, image, url, schema, author }) {
   const siteTitle = "NovaDesk | Custom Software & AI Development Agency by Harsh Prateek";
   const defaultDescription = "Founded by Harsh Prateek, NovaDesk is a premier software engineering studio specializing in custom full-stack web applications, mobile platforms, and enterprise AI integrations.";
-  const defaultImage = "https://www.novadesk.site/hero-my-image.webp";
+  const defaultImage = "https://www.novadesk.site/novadesk_team_5_members_hero.png";
   
   const pageTitle = title 
     ? (title.includes('NovaDesk') ? title : `${title} | NovaDesk`) 
