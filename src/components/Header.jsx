@@ -26,22 +26,17 @@ const LogoIcon = () => (
 function AchievementsSidebar({ onClose }) {
   return (
     <div className="hdr-achievement-panel">
-      <h4 className="hdr-ach-title">Our Achievements</h4>
-      <div className="hdr-ach-logos">
-        <div className="hdr-ach-logo-item">
-          <span className="hdr-logo-google">Google</span>
-          <span className="hdr-ach-label">Top 20 Indian Startup</span>
+      <h4 className="hdr-ach-title">Featured Case Study</h4>
+      <Link to="/case-studies" className="hdr-ach-featured-card" onClick={onClose}>
+        <span className="hdr-ach-card-tag">AI &amp; Automation</span>
+        <div className="hdr-ach-card-title">AI Customer Support Desk</div>
+        <div className="hdr-ach-card-metric">
+          78%
+          <span>L1 Ticket Auto-Resolution</span>
         </div>
-        <div className="hdr-ach-logo-item">
-          <span className="hdr-logo-linkedin">Linked<span>in</span></span>
-          <span className="hdr-ach-label">Top 20 Indian Startup</span>
-        </div>
-
-        <div className="hdr-ach-logo-item">
-          <span className="hdr-logo-years">14<sup>+</sup></span>
-          <span className="hdr-ach-label">Years of Tech Experience</span>
-        </div>
-      </div>
+        <p className="hdr-ach-card-desc">Designed for telecom enterprise scale. Automates incoming L1 support workflows cleanly.</p>
+        <span className="hdr-ach-card-link">Read Case Study →</span>
+      </Link>
       <div className="hdr-ach-cta-box">
         <h4 className="hdr-ach-cta-title">Build and Scale with Experts</h4>
         <p className="hdr-ach-cta-desc">Development, AI, cloud, and product engineering to power your next big idea.</p>
@@ -450,17 +445,16 @@ export default function Header() {
         .hdr-svc-link-desc { font-size: 12px; color: #6B7280; line-height: 1.4; font-weight: 400; }
 
         /* ── ACHIEVEMENTS SIDEBAR ── */
-        .hdr-achievement-panel { width: 240px; background: #F8F9FF; border-left: 1px solid rgba(46, 41, 255, 0.08); padding: 24px 20px; display: flex; flex-direction: column; gap: 16px; flex-shrink: 0; }
-        .hdr-ach-title { font-size: 14px; font-weight: 800; color: #0A0A2E; text-align: center; }
-        .hdr-ach-logos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .hdr-ach-logo-item { display: flex; flex-direction: column; align-items: center; gap: 4px; background: #fff; border: 1px solid rgba(46, 41, 255, 0.1); border-radius: 10px; padding: 10px 8px; }
-        .hdr-logo-google { font-size: 16px; font-weight: 800; background: linear-gradient(90deg,#4285F4,#EA4335,#FBBC05,#34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hdr-logo-linkedin { font-size: 14px; font-weight: 800; color: #0A66C2; }
-        .hdr-logo-linkedin span { color: #fff; background: #0A66C2; padding: 0 2px; border-radius: 2px; }
-        .hdr-logo-cmmi { font-size: 16px; font-weight: 900; color: #0A0A2E; letter-spacing: 1px; }
-        .hdr-logo-years { font-size: 24px; font-weight: 900; color: #2E29FF; }
-        .hdr-logo-years sup { font-size: 14px; }
-        .hdr-ach-label { font-size: 9px; color: #6B7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; text-align: center; }
+        .hdr-achievement-panel { width: 250px; background: #F8F9FF; border-left: 1px solid rgba(46, 41, 255, 0.08); padding: 24px 20px; display: flex; flex-direction: column; gap: 16px; flex-shrink: 0; }
+        .hdr-ach-title { font-size: 11px; font-weight: 800; color: #2E29FF; text-transform: uppercase; letter-spacing: 1.5px; text-align: left; margin-bottom: 4px; }
+        .hdr-ach-featured-card { background: #FFFFFF; border: 1px solid rgba(46, 41, 255, 0.12); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; text-decoration: none; box-shadow: 0 4px 12px rgba(46, 41, 255, 0.02); }
+        .hdr-ach-featured-card:hover { transform: translateY(-3px); border-color: rgba(46, 41, 255, 0.3); box-shadow: 0 12px 24px rgba(46, 41, 255, 0.06); }
+        .hdr-ach-card-tag { font-size: 9px; font-weight: 800; color: #2E29FF; background: rgba(46, 41, 255, 0.08); padding: 4px 8px; border-radius: 20px; align-self: flex-start; text-transform: uppercase; letter-spacing: 0.5px; }
+        .hdr-ach-card-title { font-size: 13.5px; font-weight: 800; color: #0A0A2E; line-height: 1.35; }
+        .hdr-ach-card-metric { font-size: 20px; font-weight: 900; color: #00B882; margin: 4px 0 0 0; }
+        .hdr-ach-card-metric span { font-size: 10px; font-weight: 700; color: #6B7280; text-transform: uppercase; display: block; margin-top: 2px; }
+        .hdr-ach-card-desc { font-size: 11px; color: #6B7280; line-height: 1.5; font-weight: 400; }
+        .hdr-ach-card-link { font-size: 11px; font-weight: 700; color: #2E29FF; display: flex; align-items: center; gap: 4px; margin-top: 2px; }
         .hdr-ach-cta-box { background: #2E29FF; border-radius: 12px; padding: 16px; }
         .hdr-ach-cta-title { font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 6px; }
         .hdr-ach-cta-desc { font-size: 11px; color: rgba(255,255,255,0.75); line-height: 1.5; margin-bottom: 12px; font-weight: 400; }

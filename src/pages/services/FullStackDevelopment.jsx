@@ -1108,7 +1108,7 @@ export default function FullStackDevelopment() {
               </div>
             </div>
             <div className="fs-hero-image-wrapper">
-              <img src="/fullstack_hero_illustration.webp" alt="Full Stack Development Team" className="fs-hero-image" />
+              <img src="/fullstack_hero_illustration.png" alt="Full Stack Development Team" className="fs-hero-image" />
             </div>
           </div>
         </section>

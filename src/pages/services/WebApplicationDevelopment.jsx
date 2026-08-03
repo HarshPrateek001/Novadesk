@@ -1442,7 +1442,7 @@ export default function WebApplicationDevelopment() {
             </div>
             <div className="fs-hero-image-wrapper">
               <div className="fs-blob"></div>
-              <img src="/webapp_hero_illustration.webp" alt="Custom Web Application Development" className="fs-hero-image" />
+              <img src="/webapp_hero_illustration.png" alt="Custom Web Application Development" className="fs-hero-image" />
               
               {/* Premium Floating Tech Badges */}
               <div className="fs-premium-badge fs-badge-react">
