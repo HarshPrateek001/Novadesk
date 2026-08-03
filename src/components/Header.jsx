@@ -374,6 +374,16 @@ export default function Header() {
           text-transform: uppercase;
         }
 
+        @keyframes megaDropdownSlide {
+          from {
+            opacity: 0;
+            transform: translateY(-12px) scale(0.99);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
         /* MEGA WRAPPER */
         .hdr-mega-wrap { 
           position: absolute; 
@@ -383,6 +393,8 @@ export default function Header() {
           z-index: 999; 
           pointer-events: auto; 
           padding: 16px 20px 0 20px;
+          animation: megaDropdownSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          transform-origin: top center;
         }
         .hdr-mega-backdrop { 
           position: fixed; 

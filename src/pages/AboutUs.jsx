@@ -113,11 +113,11 @@ function Reveal({ children, delay = 0, direction = 'up', className = '' }) {
   const [ref, visible] = useScrollReveal();
 
   const translateMap = {
-    up: 'translateY(48px)',
-    down: 'translateY(-48px)',
-    left: 'translateX(-60px)',
-    right: 'translateX(60px)',
-    fade: 'scale(0.96)'
+    up: 'translateY(32px)',
+    down: 'translateY(-32px)',
+    left: 'translateX(-40px)',
+    right: 'translateX(40px)',
+    fade: 'scale(0.97)'
   };
 
   return (
@@ -126,8 +126,8 @@ function Reveal({ children, delay = 0, direction = 'up', className = '' }) {
       className={className}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? 'none' : translateMap[direction] || 'translateY(48px)',
-        transition: `opacity 0.75s cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform 0.75s cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
+        transform: visible ? 'none' : translateMap[direction] || 'translateY(32px)',
+        transition: `opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.95s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
         willChange: 'opacity, transform'
       }}
     >
@@ -332,6 +332,11 @@ export default function AboutUs() {
         }
         .nd-section-inner {
           max-width: 1180px;
+          margin: 0 auto;
+          padding: 0 24px;
+        }
+        .nd-section-inner-wide {
+          max-width: 1360px;
           margin: 0 auto;
           padding: 0 24px;
         }
@@ -638,7 +643,7 @@ export default function AboutUs() {
 
         {/* ─── EXECUTIVE LEADERSHIP ────────────────────────────────────────── */}
         <section className={`nd-section nd-leadership-section`}>
-          <div className="nd-section-inner">
+          <div className="nd-section-inner-wide">
             <Reveal direction="up">
               <div style={{ marginBottom: '72px' }}>
                 <span className="nd-section-eyebrow" style={{ color: '#2E29FF' }}>Executive Leadership</span>
@@ -681,11 +686,6 @@ export default function AboutUs() {
               <Reveal direction="right" delay={100}>
                 <div className="nd-exec-img-wrap">
                   <img src="/hero-my-image.webp" alt="Harsh Prateek - Founder & CEO at NovaDesk" className="nd-exec-img" />
-                  <div className="nd-exec-img-overlay" />
-                  <div className="nd-exec-img-badge">
-                    <div className="nd-exec-img-name">Harsh Prateek</div>
-                    <div className="nd-exec-img-title">Director &amp; Founder</div>
-                  </div>
                 </div>
               </Reveal>
             </div>
@@ -698,11 +698,6 @@ export default function AboutUs() {
               <Reveal direction="left" delay={0}>
                 <div className="nd-exec-img-wrap">
                   <img src="/Co-Founder.png" alt="Piusha Patra - Co-Founder & Director at NovaDesk" className="nd-exec-img" />
-                  <div className="nd-exec-img-overlay" />
-                  <div className="nd-exec-img-badge">
-                    <div className="nd-exec-img-name">Piusha Patra</div>
-                    <div className="nd-exec-img-title" style={{ color: '#00FFB2' }}>Co-Founder &amp; Director of Operations</div>
-                  </div>
                 </div>
               </Reveal>
 
