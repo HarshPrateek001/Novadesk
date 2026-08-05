@@ -1,58 +1,240 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageSquare, Clock, Code, Cpu, Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { 
+  MessageSquare, Clock, Code, Cpu, Sparkles, ArrowRight, CheckCircle2, 
+  ShieldCheck, Zap, Users, Award, TrendingUp, ChevronDown, Search, 
+  XCircle, AlertCircle, Terminal, Layers, Star, ExternalLink, Activity,
+  Server, Database, Lock, Globe, GitBranch, Shield, Command
+} from 'lucide-react';
 import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 
+// ─── DYNAMIC SVG ICON COMPONENT ──────────────────────────────────────────────
+// Dynamically renders black SVG icons from /icons/lineal or /icons/solid
+// and recolors them using CSS masks according to theme color specs.
+
+function Icon({ name, type = 'lineal', color = 'currentColor', size = 24, className = '', style = {} }) {
+  const iconPath = `/icons/${type}/${name}.svg`;
+  return (
+    <span
+      className={`nd-icon ${className}`}
+      style={{
+        display: 'inline-block',
+        width: typeof size === 'number' ? `${size}px` : size,
+        height: typeof size === 'number' ? `${size}px` : size,
+        backgroundColor: color,
+        WebkitMaskImage: `url("${iconPath}")`,
+        WebkitMaskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center',
+        WebkitMaskSize: 'contain',
+        maskImage: `url("${iconPath}")`,
+        maskRepeat: 'no-repeat',
+        maskPosition: 'center',
+        maskSize: 'contain',
+        flexShrink: 0,
+        transition: 'background-color 0.3s ease, transform 0.3s ease',
+        ...style
+      }}
+    />
+  );
+}
+
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
-const teamMembers = [
+const heroStats = [
+  { value: "99.4%", label: "On-Time Delivery", sub: "50+ Shipped Sprints", icon: "speedometer", color: "#2E29FF" },
+  { value: "50+", label: "Shipped Platforms", sub: "Web, Mobile & AI Apps", icon: "rocket", color: "#00B882" },
+  { value: "100%", label: "Direct Senior Access", sub: "Zero Account Managers", icon: "group", color: "#F59E0B" },
+  { value: "4.9★", label: "Client Rating", sub: "Global Founders", icon: "award-2", color: "#EC4899" }
+];
+
+const paradigmComparison = [
   {
-    name: "Rohan Verma",
-    role: "Lead Full-Stack Engineer",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
-    tags: ["React", "Node.js", "PostgreSQL", "System Architecture"],
-    bio: "Specializing in high-throughput distributed systems and enterprise React web platforms.",
+    title: "Project Communication",
+    traditional: "Account managers, indirect feedback loops, lost details.",
+    novadesk: "Direct Slack/Teams channel with lead engineers writing your code.",
+    icon: "chat-2",
     color: "#2E29FF"
   },
   {
-    name: "Ananya Sharma",
-    role: "AI & ML Systems Architect",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
-    tags: ["Python", "GenAI", "LangChain", "FastAPI"],
-    bio: "Architecting LLM integrations, RAG pipelines, and intelligent automation models.",
-    color: "#7C3AED"
-  },
-  {
-    name: "Vikramaditya Singh",
-    role: "Lead UI/UX & Product Designer",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
-    tags: ["Design Systems", "Figma", "Micro-Interactions", "UX"],
-    bio: "Crafting sleek, high-converting product interfaces that delight users at first touch.",
-    color: "#0EA5E9"
-  },
-  {
-    name: "Kavya Nair",
-    role: "Cloud & DevOps Infrastructure Lead",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80",
-    tags: ["AWS", "Docker", "Kubernetes", "CI/CD"],
-    bio: "Ensuring 99.99% uptime, automated zero-downtime deployments, and cloud security.",
+    title: "Development Speed",
+    traditional: "Monthly milestone dumps with high uncertainty.",
+    novadesk: "Weekly live shippable builds with full transparency.",
+    icon: "rocket",
     color: "#00B882"
   },
   {
-    name: "Amitabh Roy",
-    role: "Mobile App Engineer",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80",
-    tags: ["React Native", "iOS", "Android", "Flutter"],
-    bio: "Building butter-smooth cross-platform mobile apps for fast-growing startup launches.",
-    color: "#F59E0B"
+    title: "Code Architecture",
+    traditional: "Outsourced junior developers learning on your budget.",
+    novadesk: "Handcrafted by senior architects using modern Next.js & FastAPI.",
+    icon: "browser",
+    color: "#7C3AED"
   },
   {
-    name: "Pooja Gupta",
-    role: "QA & Quality Engineering Lead",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&auto=format&fit=crop&q=80",
-    tags: ["Automation", "Cypress", "Jest", "Security Audit"],
-    bio: "Driving automated testing suites to guarantee robust, bug-free production releases.",
-    color: "#EC4899"
+    title: "Pricing & Billing",
+    traditional: "Hidden surprise fees and inflated change request hours.",
+    novadesk: "Transparent sprint scoping with predictable flat rates.",
+    icon: "balance",
+    color: "#F59E0B"
+  }
+];
+
+const coreValues = [
+  {
+    iconName: "group",
+    type: "lineal",
+    title: "Direct Engineering Access",
+    desc: "Speak directly with the architects and engineers building your system. No telephone games, no middle layers.",
+    color: "#2E29FF",
+    bg: "rgba(46, 41, 255, 0.08)",
+    badge: "No Middlemen"
+  },
+  {
+    iconName: "speedometer",
+    type: "lineal",
+    title: "Rapid Shippable Velocity",
+    desc: "Continuous integration & weekly demo releases so you see real working software from day one.",
+    color: "#00B882",
+    bg: "rgba(0, 184, 130, 0.08)",
+    badge: "Fast Iteration"
+  },
+  {
+    iconName: "sitemap",
+    type: "lineal",
+    title: "Production-Grade Scalability",
+    desc: "Modern Next.js, Node.js, FastAPI, and Supabase stack designed for high availability and linear scaling.",
+    color: "#F59E0B",
+    bg: "rgba(245, 158, 11, 0.08)",
+    badge: "99.99% Uptime"
+  },
+  {
+    iconName: "light-bulb",
+    type: "lineal",
+    title: "AI-First Native Architecture",
+    desc: "Seamlessly embedding LLMs, custom RAG pipelines, and intelligent automation into business workflows.",
+    color: "#9333EA",
+    bg: "rgba(147, 51, 234, 0.08)",
+    badge: "GenAI Powered"
+  },
+  {
+    iconName: "shield-2",
+    type: "lineal",
+    title: "Zero-Trust Security & QA",
+    desc: "Automated end-to-end testing, security audits, and strict data encryption built into every deployment.",
+    color: "#EC4899",
+    bg: "rgba(236, 72, 153, 0.08)",
+    badge: "Bank-Grade QA"
+  },
+  {
+    iconName: "compass",
+    type: "lineal",
+    title: "Transparent Scoping & Counsel",
+    desc: "Clear timelines, realistic roadmaps, and truthful technical counsel over inflated sales promises.",
+    color: "#0EA5E9",
+    bg: "rgba(14, 165, 233, 0.08)",
+    badge: "100% Transparent"
+  }
+];
+
+const techStack = [
+  { name: "React / Next.js", icon: "/icons/nextjs.svg", desc: "Full-Stack Web Framework", category: "Frontend" },
+  { name: "Python / FastAPI", icon: "/icons/fastapi.svg", desc: "High-Performance Backend APIs", category: "Backend" },
+  { name: "Node.js", icon: "/icons/nodejs.svg", desc: "Scalable Microservices", category: "Backend" },
+  { name: "Supabase & Postgres", icon: "/icons/supabase.svg", desc: "Realtime Database & Auth", category: "Database" },
+  { name: "OpenAI & Gemini", icon: "/icons/openai.svg", desc: "GenAI Models & LLM Agents", category: "AI & ML" },
+  { name: "AWS & Docker", icon: "/icons/aws.svg", desc: "Cloud Container Orchestration", category: "DevOps" },
+  { name: "React Native", icon: "/icons/react.svg", desc: "Cross-Platform Mobile Apps", category: "Mobile" },
+  { name: "Figma", icon: "/icons/figma.svg", desc: "Design Systems & Wireframes", category: "Design" }
+];
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Architecture & Discovery",
+    desc: "We analyze your technical goals, map domain data flows, and build a precise blueprint for rapid execution.",
+    icon: "compass",
+    color: "#2E29FF",
+    details: ["System Topology", "Database Schema Design", "Tech Stack Selection"]
+  },
+  {
+    step: "02",
+    title: "UX & Technical Design System",
+    desc: "Designing responsive, high-converting interfaces with micro-interactions and pixel-perfect Figma design systems.",
+    icon: "design",
+    color: "#7C3AED",
+    details: ["Interactive Wireframes", "Design System Tokens", "User Testing"]
+  },
+  {
+    step: "03",
+    title: "Agile Engineering Sprints",
+    desc: "Senior engineers write clean, maintainable code in 1-week sprints with automated test coverage.",
+    icon: "settings-2",
+    color: "#00B882",
+    details: ["Frontend & Backend Sprints", "Automated QA Suites", "Weekly Live Demos"]
+  },
+  {
+    step: "04",
+    title: "Production Launch & Scale",
+    desc: "Zero-downtime deployment, continuous cloud monitoring, and ongoing feature enhancement.",
+    icon: "rocket",
+    color: "#F59E0B",
+    details: ["CI/CD Pipeline", "Cloud Auto-scaling", "Post-Launch SLA"]
+  }
+];
+
+const capabilities = [
+  {
+    title: "Full-Stack Web Systems",
+    category: "Full-Stack",
+    desc: "Architecting high-throughput React & Next.js platforms with serverless backends and optimized render performance.",
+    icon: <Globe size={26} />,
+    color: "#2E29FF",
+    bg: "rgba(46, 41, 255, 0.08)",
+    techs: ["React", "Next.js", "Node.js", "PostgreSQL", "TypeScript"]
+  },
+  {
+    title: "AI & GenAI Integration",
+    category: "AI & Data",
+    desc: "Building custom LLM agents, RAG document pipelines, conversational bots, and intelligent business workflows.",
+    icon: <Cpu size={26} />,
+    color: "#9333EA",
+    bg: "rgba(147, 51, 234, 0.08)",
+    techs: ["Python", "FastAPI", "LangChain", "OpenAI", "Gemini"]
+  },
+  {
+    title: "Mobile App Development",
+    category: "Full-Stack",
+    desc: "Developing butter-smooth cross-platform iOS & Android mobile applications with offline-first state sync.",
+    icon: <Zap size={26} />,
+    color: "#F59E0B",
+    bg: "rgba(245, 158, 11, 0.08)",
+    techs: ["React Native", "iOS", "Android", "Supabase", "GraphQL"]
+  },
+  {
+    title: "Cloud & DevOps Infrastructure",
+    category: "DevOps",
+    desc: "Zero-downtime CI/CD deployment automation, Docker containerization, Kubernetes scaling, and AWS infrastructure.",
+    icon: <Server size={26} />,
+    color: "#00B882",
+    bg: "rgba(0, 184, 130, 0.08)",
+    techs: ["AWS", "Docker", "Kubernetes", "GitHub Actions", "Vercel"]
+  },
+  {
+    title: "UI/UX & Design Systems",
+    category: "Design",
+    desc: "Crafting scalable Figma design systems, micro-interactions, responsive layouts, and user conversion flows.",
+    icon: <Layers size={26} />,
+    color: "#0EA5E9",
+    bg: "rgba(14, 165, 233, 0.08)",
+    techs: ["Figma", "Design Tokens", "Micro-Interactions", "Wireframing"]
+  },
+  {
+    title: "QA Automation & Security",
+    category: "DevOps",
+    desc: "Comprehensive automated unit testing, Cypress E2E test suites, performance optimization, and security audits.",
+    icon: <ShieldCheck size={26} />,
+    color: "#EC4899",
+    bg: "rgba(236, 72, 153, 0.08)",
+    techs: ["Cypress", "Jest", "Security Scans", "Lighthouse 100"]
   }
 ];
 
@@ -70,19 +252,16 @@ const faqs = [
     a: "We specialize in modern, high-performance tech stacks including React, Next.js, TypeScript, Node.js, Python (FastAPI), Supabase, PostgreSQL, React Native, and enterprise AI APIs (OpenAI, Gemini, Custom RAG)."
   },
   {
+    q: "How do weekly shippable builds work?",
+    a: "Every week, our team pushes production-ready code to your staging environment. You participate in a weekly async or live demo to review actual features, test functionality, and approve next sprint priorities."
+  },
+  {
     q: "What post-launch support and ongoing maintenance do you offer?",
     a: "Every project includes a dedicated post-launch support window. We also offer continuous maintenance, cloud infrastructure scaling, and retainer models for continuous feature development."
   }
 ];
 
-const coreValues = [
-  { icon: <MessageSquare size={22} />, title: "Direct Access", desc: "Speak directly with the engineers building your product. No middleman, no miscommunication.", color: "#2E29FF", bg: "rgba(46,41,255,0.08)" },
-  { icon: <Clock size={22} />, title: "Honest Scoping", desc: "Realistic timelines and clear deliverables. We value honest transparency over inflated promises.", color: "#00B882", bg: "rgba(0,184,130,0.08)" },
-  { icon: <Code size={22} />, title: "Clean Production Code", desc: "Modern Next.js, FastAPI, and Supabase architecture built for long-term scalability and security.", color: "#CA8A04", bg: "rgba(234,179,8,0.08)" },
-  { icon: <Cpu size={22} />, title: "AI-First Innovation", desc: "Integrating state-of-the-art GenAI models, LLM agents, and automated workflows into software.", color: "#9333EA", bg: "rgba(168,85,247,0.08)" }
-];
-
-// ─── SCROLL ANIMATION HOOK ────────────────────────────────────────────────────
+// ─── SCROLL REVEAL HOOK ──────────────────────────────────────────────────────
 
 function useScrollReveal(options = {}) {
   const ref = useRef(null);
@@ -98,7 +277,7 @@ function useScrollReveal(options = {}) {
           observer.unobserve(el);
         }
       },
-      { threshold: options.threshold || 0.12, rootMargin: options.rootMargin || '0px' }
+      { threshold: options.threshold || 0.1, rootMargin: options.rootMargin || '0px' }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -107,17 +286,15 @@ function useScrollReveal(options = {}) {
   return [ref, visible];
 }
 
-// ─── REVEAL WRAPPER ───────────────────────────────────────────────────────────
-
 function Reveal({ children, delay = 0, direction = 'up', className = '' }) {
   const [ref, visible] = useScrollReveal();
 
   const translateMap = {
-    up: 'translateY(32px)',
-    down: 'translateY(-32px)',
-    left: 'translateX(-40px)',
-    right: 'translateX(40px)',
-    fade: 'scale(0.97)'
+    up: 'translateY(36px)',
+    down: 'translateY(-36px)',
+    left: 'translateX(-44px)',
+    right: 'translateX(44px)',
+    fade: 'scale(0.96)'
   };
 
   return (
@@ -126,8 +303,8 @@ function Reveal({ children, delay = 0, direction = 'up', className = '' }) {
       className={className}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? 'none' : translateMap[direction] || 'translateY(32px)',
-        transition: `opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.95s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+        transform: visible ? 'none' : translateMap[direction] || 'translateY(36px)',
+        transition: `opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
         willChange: 'opacity, transform'
       }}
     >
@@ -136,57 +313,23 @@ function Reveal({ children, delay = 0, direction = 'up', className = '' }) {
   );
 }
 
-// ─── FAQ ITEM ─────────────────────────────────────────────────────────────────
-
-function FaqItem({ q, a, open, onToggle }) {
-  return (
-    <div style={{
-      borderRadius: '16px',
-      border: open ? '1.5px solid rgba(46,41,255,0.3)' : '1.5px solid #E2E8F0',
-      background: open ? 'rgba(46,41,255,0.02)' : '#FFFFFF',
-      marginBottom: '12px',
-      overflow: 'hidden',
-      transition: 'border-color 0.3s, background 0.3s',
-      boxShadow: open ? '0 8px 24px rgba(46,41,255,0.08)' : '0 2px 8px rgba(0,0,0,0.03)'
-    }}>
-      <button
-        onClick={onToggle}
-        style={{
-          width: '100%', padding: '22px 28px', background: 'transparent',
-          border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center',
-          justifyContent: 'space-between', gap: '16px', textAlign: 'left'
-        }}
-      >
-        <span style={{ fontSize: '16px', fontWeight: '700', color: '#0F172A', lineHeight: '1.4' }}>{q}</span>
-        <span style={{
-          width: '32px', height: '32px', borderRadius: '50%', flexShrink: 0,
-          background: open ? '#2E29FF' : '#F1F5F9',
-          color: open ? '#FFFFFF' : '#64748B',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          transition: 'all 0.3s', fontSize: '18px', fontWeight: '700'
-        }}>
-          {open ? '−' : '+'}
-        </span>
-      </button>
-      <div style={{
-        maxHeight: open ? '300px' : '0',
-        overflow: 'hidden',
-        transition: 'max-height 0.4s cubic-bezier(0.16,1,0.3,1)'
-      }}>
-        <p style={{ padding: '0 28px 22px 28px', fontSize: '15px', color: '#475569', lineHeight: '1.75', margin: 0 }}>
-          {a}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-// ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
+// ─── MAIN ABOUT US COMPONENT (LIGHT LAYOUT THEME) ───────────────────────────
 
 export default function AboutUs() {
   const [activeFaq, setActiveFaq] = useState(null);
+  const [capabilityTab, setCapabilityTab] = useState('All');
+  const [faqSearch, setFaqSearch] = useState('');
 
-  // JSON-LD Schemas
+  const filteredCapabilities = capabilityTab === 'All'
+    ? capabilities
+    : capabilities.filter(c => c.category === capabilityTab);
+
+  const filteredFaqs = faqs.filter(f => 
+    f.q.toLowerCase().includes(faqSearch.toLowerCase()) || 
+    f.a.toLowerCase().includes(faqSearch.toLowerCase())
+  );
+
+  // JSON-LD Schemas (Preserved for SEO)
   const personSchemaHarsh = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -197,8 +340,7 @@ export default function AboutUs() {
     "alternateName": ["Harsh Prateek NovaDesk", "Harsh Prateek Founder", "Harsh Prateek Director"],
     "jobTitle": "Director & Founder",
     "worksFor": { "@type": "Organization", "@id": "https://www.novadesk.site/#organization", "name": "NovaDesk", "url": "https://www.novadesk.site" },
-    "url": "https://www.novadesk.site/about-us",
-    "image": "https://www.novadesk.site/hero-my-image.webp"
+    "url": "https://www.novadesk.site/about-us"
   };
 
   const personSchemaPiusha = {
@@ -211,8 +353,7 @@ export default function AboutUs() {
     "alternateName": ["Piusha Patra NovaDesk", "Piusha Patra Co-Founder", "Piusha Patra Director"],
     "jobTitle": "Co-Founder & Director of Operations",
     "worksFor": { "@type": "Organization", "@id": "https://www.novadesk.site/#organization", "name": "NovaDesk", "url": "https://www.novadesk.site" },
-    "url": "https://www.novadesk.site/about-us",
-    "image": "https://www.novadesk.site/Co-Founder.png"
+    "url": "https://www.novadesk.site/about-us"
   };
 
   const organizationSchema = {
@@ -242,484 +383,1112 @@ export default function AboutUs() {
         title="About NovaDesk | Full-Stack & AI Development Studio"
         description="NovaDesk is a premier software engineering studio led by Founder & CEO Harsh Prateek and Co-Founder Piusha Patra. Built around direct access, senior engineers, and AI innovation."
         url="/about-us"
-        image="https://www.novadesk.site/hero-my-image.webp"
         author="Harsh Prateek & Piusha Patra"
         schema={[personSchemaHarsh, personSchemaPiusha, organizationSchema, aboutPageSchema]}
       />
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-        /* ── GLOBAL ── */
-        .nd-about-page { font-family: 'Inter', sans-serif; overflow-x: hidden; }
-
-        /* ── HERO ── */
-        .nd-hero {
-          background: #0A0A2E;
-          padding: 72px 24px 64px 24px;
-          text-align: center;
+        /* ── LIGHT THEME ROOT ── */
+        .nd-about-root {
+          font-family: 'Plus Jakarta Sans', var(--font-sans), sans-serif;
+          color: #0F172A;
+          background: #FFFFFF;
+          overflow-x: hidden;
         }
-        .nd-hero-inner {
+
+        .nd-container {
+          max-width: 1240px;
+          margin: 0 auto;
           position: relative;
           z-index: 2;
-          text-align: center;
-          max-width: 900px;
-          padding: 0 24px;
-          margin: 0 auto;
-        }
-        .nd-hero-eyebrow { display: none; }
-        .nd-hero-title {
-          font-size: clamp(44px, 6vw, 78px);
-          font-weight: 900;
-          line-height: 1.05;
-          letter-spacing: -2px;
-          color: #FFFFFF;
-          margin-bottom: 24px;
-        }
-        .nd-hero-title-grad {
-          background: linear-gradient(135deg, #818CF8 0%, #A78BFA 40%, #67E8F9 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-        .nd-hero-sub {
-          font-size: 18px;
-          line-height: 1.8;
-          color: rgba(255,255,255,0.6);
-          max-width: 680px;
-          margin: 0 auto 52px auto;
-        }
-        .nd-hero-stats {
-          display: flex;
-          gap: 0;
-          justify-content: center;
-          border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 20px;
-          overflow: hidden;
-          backdrop-filter: blur(16px);
-          background: rgba(255,255,255,0.03);
-          max-width: 700px;
-          margin: 0 auto;
-        }
-        .nd-hero-stat {
-          flex: 1;
-          padding: 28px 20px;
-          border-right: 1px solid rgba(255,255,255,0.08);
-          text-align: center;
-        }
-        .nd-hero-stat:last-child { border-right: none; }
-        .nd-hero-stat-num {
-          font-size: 34px;
-          font-weight: 900;
-          background: linear-gradient(135deg, #818CF8, #A78BFA);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          line-height: 1;
-          margin-bottom: 6px;
-        }
-        .nd-hero-stat-lbl {
-          font-size: 12px;
-          font-weight: 600;
-          color: rgba(255,255,255,0.45);
-          letter-spacing: 0.5px;
-          text-transform: uppercase;
         }
 
-        /* ── SECTION SHELL ── */
-        .nd-section {
-          padding: 100px 0;
-        }
-        .nd-section-inner {
-          max-width: 1180px;
-          margin: 0 auto;
-          padding: 0 24px;
-        }
-        .nd-section-inner-wide {
-          max-width: 1360px;
-          margin: 0 auto;
-          padding: 0 24px;
-        }
-        .nd-section-eyebrow {
-          font-size: 11px;
-          font-weight: 800;
-          letter-spacing: 2.5px;
-          text-transform: uppercase;
-          margin-bottom: 12px;
-          display: block;
-        }
-        .nd-section-h2 {
-          font-size: clamp(30px, 4vw, 48px);
-          font-weight: 900;
-          color: #0F172A;
-          letter-spacing: -1.2px;
-          line-height: 1.15;
-          margin-bottom: 16px;
-        }
-        .nd-section-sub {
-          font-size: 17px;
-          color: #64748B;
-          line-height: 1.7;
-          max-width: 580px;
-        }
-
-        /* ── LEADERSHIP SECTION ── */
-        .nd-leadership-section {
-          background: #F8FAFC;
-        }
-
-        /* ── EXEC CARD ── */
-        .nd-exec-wrap {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 60px;
-          align-items: center;
-          margin-bottom: 80px;
-        }
-        .nd-exec-wrap:last-child { margin-bottom: 0; }
-        .nd-exec-wrap.reverse { direction: rtl; }
-        .nd-exec-wrap.reverse > * { direction: ltr; }
-
-        .nd-exec-img-wrap {
+        /* ── HERO SECTION (LIGHT) ── */
+        .nd-hero-pro {
           position: relative;
-          border-radius: 28px;
+          padding: 110px 24px 80px 24px;
+          background: linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 60%, #FFFFFF 100%);
           overflow: hidden;
-          box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+          color: #0F172A;
         }
-        .nd-exec-img {
-          width: 100%;
-          height: 520px;
-          object-fit: cover;
-          object-position: center top;
-          display: block;
-          transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
-        }
-        .nd-exec-img-wrap:hover .nd-exec-img {
-          transform: scale(1.03);
-        }
-        .nd-exec-img-overlay {
+
+        .nd-hero-bg-grid {
           position: absolute;
           inset: 0;
-          background: linear-gradient(to top, rgba(8,8,20,0.75) 0%, rgba(8,8,20,0.1) 50%, transparent 100%);
-        }
-        .nd-exec-img-badge {
-          position: absolute;
-          bottom: 24px;
-          left: 24px;
-          right: 24px;
-          padding: 18px 22px;
-          background: rgba(255,255,255,0.08);
-          backdrop-filter: blur(16px);
-          border: 1px solid rgba(255,255,255,0.15);
-          border-radius: 16px;
-        }
-        .nd-exec-img-name {
-          font-size: 20px;
-          font-weight: 800;
-          color: #FFFFFF;
-          margin-bottom: 4px;
-        }
-        .nd-exec-img-title {
-          font-size: 13px;
-          font-weight: 600;
-          color: rgba(255,255,255,0.75);
+          background-image: 
+            linear-gradient(to right, rgba(46, 41, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(46, 41, 255, 0.03) 1px, transparent 1px);
+          background-size: 60px 60px;
+          mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 100%);
+          pointer-events: none;
         }
 
-        .nd-exec-content { padding: 10px 0; }
-        .nd-exec-role-pill {
+        .nd-hero-glow-1 {
+          position: absolute;
+          top: -150px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 800px;
+          height: 500px;
+          background: radial-gradient(circle, rgba(46,41,255,0.08) 0%, rgba(124,58,237,0.05) 40%, transparent 70%);
+          filter: blur(80px);
+          pointer-events: none;
+        }
+
+        .nd-hero-pill {
           display: inline-flex;
           align-items: center;
-          gap: 6px;
-          padding: 7px 16px;
+          gap: 10px;
+          padding: 8px 18px;
+          border-radius: 100px;
+          background: #FFFFFF;
+          border: 1px solid rgba(46, 41, 255, 0.2);
+          font-size: 13px;
+          font-weight: 700;
+          color: #2E29FF;
+          letter-spacing: 0.5px;
+          margin-bottom: 28px;
+          box-shadow: 0 4px 16px rgba(46,41,255,0.08);
+        }
+
+        .nd-hero-headline {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: clamp(42px, 5.8vw, 72px);
+          font-weight: 800;
+          line-height: 1.08;
+          letter-spacing: -2px;
+          margin-bottom: 24px;
+          color: #0F172A;
+        }
+
+        .nd-gradient-text {
+          background: linear-gradient(135deg, #2E29FF 0%, #7C3AED 50%, #00B882 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .nd-hero-desc {
+          font-size: clamp(17px, 2.2vw, 19.5px);
+          line-height: 1.75;
+          color: #475569;
+          max-width: 780px;
+          margin: 0 auto 52px auto;
+          font-weight: 400;
+        }
+
+        /* ── HERO STATS GRID (LIGHT) ── */
+        .nd-hero-stats-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 18px;
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+
+        .nd-stat-glass-card {
+          padding: 28px 22px;
+          border-radius: 20px;
+          background: #FFFFFF;
+          border: 1.5px solid #E2E8F0;
+          box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .nd-stat-glass-card:hover {
+          transform: translateY(-6px);
+          border-color: rgba(46, 41, 255, 0.3);
+          box-shadow: 0 20px 40px rgba(46, 41, 255, 0.08);
+        }
+
+        .nd-stat-val {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: 40px;
+          font-weight: 800;
+          line-height: 1;
+          margin-bottom: 10px;
+        }
+
+        .nd-stat-lbl {
+          font-size: 14px;
+          font-weight: 700;
+          color: #0F172A;
+          margin-bottom: 4px;
+        }
+
+        .nd-stat-sub {
+          font-size: 12px;
+          color: #64748B;
+        }
+
+        /* ── PARADIGM COMPARISON SECTION (LIGHT) ── */
+        .nd-paradigm-section {
+          padding: 110px 24px;
+          background: #F8FAFC;
+          position: relative;
+          color: #0F172A;
+        }
+
+        .nd-section-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 6px 14px;
           border-radius: 100px;
           font-size: 11px;
           font-weight: 800;
-          letter-spacing: 1px;
+          letter-spacing: 2px;
           text-transform: uppercase;
-          margin-bottom: 22px;
-        }
-        .nd-exec-name {
-          font-size: clamp(32px, 4vw, 48px);
-          font-weight: 900;
-          color: #0F172A;
-          letter-spacing: -1.5px;
-          line-height: 1.1;
-          margin-bottom: 24px;
-        }
-        .nd-exec-text {
-          font-size: 16px;
-          line-height: 1.85;
-          color: #475569;
-          margin-bottom: 16px;
-        }
-        .nd-exec-text:last-of-type { margin-bottom: 28px; }
-        .nd-exec-sig {
-          font-family: 'Georgia', 'Times New Roman', serif;
-          font-size: 32px;
-          font-style: italic;
-          color: #0F172A;
-          opacity: 0.85;
-          letter-spacing: -0.5px;
-          margin-bottom: 28px;
-        }
-        .nd-exec-highlights {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-        }
-        .nd-exec-highlight-tag {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          padding: 8px 14px;
-          background: #F1F5F9;
-          border: 1px solid #E2E8F0;
-          border-radius: 10px;
-          font-size: 13px;
-          font-weight: 600;
-          color: #334155;
+          margin-bottom: 14px;
         }
 
-        /* ── TEAM SECTION ── */
-        .nd-team-section { background: #FFFFFF; }
-        .nd-team-grid {
+        .nd-section-h2 {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: clamp(32px, 4vw, 50px);
+          font-weight: 800;
+          letter-spacing: -1.2px;
+          line-height: 1.12;
+          margin-bottom: 18px;
+          color: #0F172A;
+        }
+
+        .nd-section-lead {
+          font-size: 17.5px;
+          color: #64748B;
+          max-width: 640px;
+          line-height: 1.7;
+        }
+
+        .nd-comparison-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 24px;
           margin-top: 60px;
         }
-        .nd-team-card {
+
+        .nd-comp-card {
+          padding: 34px 30px;
+          border-radius: 24px;
           background: #FFFFFF;
           border: 1.5px solid #E2E8F0;
-          border-radius: 24px;
-          overflow: hidden;
-          transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s, border-color 0.35s;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+          transition: all 0.35s ease;
+        }
+
+        .nd-comp-card:hover {
+          border-color: rgba(46, 41, 255, 0.3);
+          transform: translateY(-4px);
+          box-shadow: 0 20px 40px rgba(46, 41, 255, 0.06);
+        }
+
+        .nd-comp-header {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          margin-bottom: 24px;
+          padding-bottom: 18px;
+          border-bottom: 1px solid #F1F5F9;
+        }
+
+        .nd-comp-title {
+          font-size: 20px;
+          font-weight: 700;
+          color: #0F172A;
+        }
+
+        .nd-comp-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+
+        .nd-comp-box {
+          padding: 16px;
+          border-radius: 14px;
+          font-size: 13.5px;
+          line-height: 1.6;
+        }
+
+        .nd-comp-box.trad {
+          background: #FEF2F2;
+          border: 1px solid rgba(239, 68, 68, 0.2);
+          color: #991B1B;
+        }
+
+        .nd-comp-box.nova {
+          background: #ECFDF5;
+          border: 1px solid rgba(16, 185, 129, 0.25);
+          color: #065F46;
+        }
+
+        .nd-comp-box-title {
+          font-size: 11px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 6px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        /* ── TECHNICAL LEADERSHIP SECTION (LIGHT MODE - NO PORTRAIT IMAGES) ── */
+        .nd-exec-section {
+          padding: 120px 24px;
+          background: #FFFFFF;
+          color: #0F172A;
           position: relative;
         }
-        .nd-team-card::before {
+
+        .nd-leadership-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 32px;
+          margin-top: 60px;
+        }
+
+        .nd-leader-tech-card {
+          padding: 44px 38px;
+          border-radius: 32px;
+          background: #FFFFFF;
+          border: 1.5px solid #E2E8F0;
+          box-shadow: 0 16px 40px rgba(15, 23, 42, 0.04);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .nd-leader-tech-card::before {
           content: '';
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 3px;
-          background: var(--card-accent);
-          opacity: 0;
-          transition: opacity 0.3s;
+          background: var(--leader-accent, #2E29FF);
         }
-        .nd-team-card:hover { transform: translateY(-8px); box-shadow: 0 28px 60px rgba(0,0,0,0.1); border-color: transparent; }
-        .nd-team-card:hover::before { opacity: 1; }
-        .nd-team-card-img-wrap {
-          width: 100%;
-          height: 200px;
-          overflow: hidden;
+
+        .nd-leader-tech-card:hover {
+          transform: translateY(-8px);
+          border-color: var(--leader-accent, #2E29FF);
+          box-shadow: 0 28px 60px rgba(15, 23, 42, 0.08);
+        }
+
+        .nd-terminal-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 12px 18px;
+          border-radius: 14px;
+          background: #F1F5F9;
+          border: 1px solid #E2E8F0;
+          font-family: 'Space Grotesk', monospace;
+          font-size: 12px;
+          color: #334155;
+          margin-bottom: 28px;
+        }
+
+        .nd-terminal-dots {
+          display: flex;
+          gap: 6px;
+        }
+
+        .nd-terminal-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+        }
+
+        .nd-leader-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 6px 14px;
+          border-radius: 100px;
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+        }
+
+        .nd-leader-name {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: clamp(30px, 3.5vw, 42px);
+          font-weight: 800;
+          color: #0F172A;
+          letter-spacing: -1.2px;
+          line-height: 1.1;
+          margin-bottom: 18px;
+        }
+
+        .nd-leader-bio {
+          font-size: 16px;
+          line-height: 1.75;
+          color: #475569;
+          margin-bottom: 24px;
+        }
+
+        .nd-leader-quote {
+          padding: 20px 24px;
+          border-left: 3.5px solid var(--leader-accent, #2E29FF);
+          background: #F8FAFC;
+          border-radius: 0 16px 16px 0;
+          font-size: 14.5px;
+          font-style: italic;
+          color: #1E293B;
+          margin-bottom: 28px;
+          line-height: 1.65;
+        }
+
+        .nd-leader-signature {
+          font-family: 'Georgia', serif;
+          font-size: 28px;
+          font-style: italic;
+          color: #0F172A;
+          margin-bottom: 28px;
+          opacity: 0.9;
+        }
+
+        .nd-leader-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+
+        .nd-leader-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 8px 14px;
+          border-radius: 10px;
+          background: #F1F5F9;
+          border: 1px solid #E2E8F0;
+          font-size: 12.5px;
+          font-weight: 600;
+          color: #334155;
+        }
+
+        /* ── TECH ECOSYSTEM MATRIX (LIGHT) ── */
+        .nd-tech-section {
+          padding: 110px 24px;
+          background: #F8FAFC;
+          color: #0F172A;
           position: relative;
         }
-        .nd-team-card-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
-        }
-        .nd-team-card:hover .nd-team-card-img { transform: scale(1.06); }
-        .nd-team-card-body { padding: 24px; }
-        .nd-team-name { font-size: 18px; font-weight: 800; color: #0F172A; margin-bottom: 4px; }
-        .nd-team-role { font-size: 13px; font-weight: 700; margin-bottom: 12px; }
-        .nd-team-bio { font-size: 13.5px; color: #64748B; line-height: 1.65; margin-bottom: 18px; }
-        .nd-team-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-        .nd-team-tag { font-size: 11px; font-weight: 700; background: #F8FAFC; border: 1px solid #E2E8F0; color: #475569; padding: 4px 10px; border-radius: 8px; }
 
-        /* ── VALUES SECTION ── */
-        .nd-values-section { background: #05050A; }
-        .nd-values-grid {
+        .nd-tech-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 20px;
           margin-top: 60px;
         }
+
+        .nd-tech-card {
+          padding: 28px 22px;
+          border-radius: 20px;
+          background: #FFFFFF;
+          border: 1.5px solid #E2E8F0;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+          transition: all 0.35s ease;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+
+        .nd-tech-card:hover {
+          transform: translateY(-5px);
+          border-color: rgba(46, 41, 255, 0.3);
+          box-shadow: 0 16px 36px rgba(46, 41, 255, 0.08);
+        }
+
+        .nd-tech-icon-wrap {
+          width: 48px;
+          height: 48px;
+          border-radius: 14px;
+          background: #F1F5F9;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .nd-tech-icon-wrap img {
+          width: 26px;
+          height: 26px;
+          object-fit: contain;
+        }
+
+        .nd-tech-name {
+          font-size: 16px;
+          font-weight: 700;
+          color: #0F172A;
+          margin-bottom: 2px;
+        }
+
+        .nd-tech-desc {
+          font-size: 12.5px;
+          color: #64748B;
+        }
+
+        /* ── CORE VALUES SECTION (LIGHT) ── */
+        .nd-values-section {
+          padding: 120px 24px;
+          background: #FFFFFF;
+          color: #0F172A;
+          position: relative;
+        }
+
+        .nd-values-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+          margin-top: 60px;
+        }
+
         .nd-value-card {
-          padding: 32px 26px;
-          border-radius: 22px;
-          border: 1px solid rgba(255,255,255,0.07);
-          background: rgba(255,255,255,0.03);
-          backdrop-filter: blur(10px);
-          transition: transform 0.35s, border-color 0.35s, background 0.35s;
-        }
-        .nd-value-card:hover {
-          transform: translateY(-6px);
-          border-color: rgba(255,255,255,0.14);
-          background: rgba(255,255,255,0.06);
-        }
-        .nd-value-icon {
-          width: 52px; height: 52px; border-radius: 14px;
-          display: flex; align-items: center; justify-content: center;
-          margin-bottom: 22px;
-        }
-        .nd-value-title { font-size: 17px; font-weight: 800; color: #F8FAFC; margin-bottom: 10px; }
-        .nd-value-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.65; }
-
-        /* ── FAQ ── */
-        .nd-faq-section { background: #F8FAFC; }
-
-        /* ── CTA ── */
-        .nd-cta-section {
-          background: linear-gradient(135deg, #0D0B2E 0%, #1a1060 50%, #0D0B2E 100%);
+          padding: 36px 30px;
+          border-radius: 28px;
+          background: #FFFFFF;
+          border: 1.5px solid #E2E8F0;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
           position: relative;
           overflow: hidden;
-          padding: 100px 24px;
-          text-align: center;
         }
-        .nd-cta-section::before {
+
+        .nd-value-card::after {
           content: '';
           position: absolute;
-          width: 600px; height: 600px;
+          top: 0; left: 0; right: 0;
+          height: 3px;
+          background: var(--card-accent, #2E29FF);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .nd-value-card:hover {
+          transform: translateY(-8px);
+          border-color: var(--card-accent, #2E29FF);
+          box-shadow: 0 28px 60px rgba(0, 0, 0, 0.06);
+        }
+
+        .nd-value-card:hover::after {
+          opacity: 1;
+        }
+
+        .nd-value-icon-box {
+          width: 58px;
+          height: 58px;
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 24px;
+        }
+
+        .nd-value-badge {
+          display: inline-block;
+          padding: 4px 10px;
+          border-radius: 6px;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          margin-bottom: 14px;
+        }
+
+        .nd-value-title {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: 22px;
+          font-weight: 700;
+          color: #0F172A;
+          margin-bottom: 12px;
+        }
+
+        .nd-value-desc {
+          font-size: 14.5px;
+          color: #64748B;
+          line-height: 1.7;
+        }
+
+        /* ── PROCESS TIMELINE SECTION (LIGHT) ── */
+        .nd-process-section {
+          padding: 120px 24px;
+          background: #F8FAFC;
+          color: #0F172A;
+        }
+
+        .nd-process-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+          margin-top: 60px;
+          position: relative;
+        }
+
+        .nd-process-card {
+          padding: 32px 24px;
+          border-radius: 24px;
+          background: #FFFFFF;
+          border: 1.5px solid #E2E8F0;
+          box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+          transition: all 0.35s ease;
+          position: relative;
+        }
+
+        .nd-process-card:hover {
+          transform: translateY(-6px);
+          border-color: var(--step-accent, #2E29FF);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .nd-process-step-num {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: 44px;
+          font-weight: 800;
+          line-height: 1;
+          color: #CBD5E1;
+          margin-bottom: 16px;
+        }
+
+        .nd-process-title {
+          font-size: 19px;
+          font-weight: 700;
+          color: #0F172A;
+          margin-bottom: 10px;
+        }
+
+        .nd-process-desc {
+          font-size: 14px;
+          color: #64748B;
+          line-height: 1.65;
+          margin-bottom: 20px;
+        }
+
+        .nd-process-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .nd-process-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 12.5px;
+          font-weight: 600;
+          color: #475569;
+          margin-bottom: 6px;
+        }
+
+        /* ── DOMAIN CAPABILITIES MATRIX (LIGHT) ── */
+        .nd-cap-section {
+          padding: 120px 24px;
+          background: #FFFFFF;
+          color: #0F172A;
+        }
+
+        .nd-filter-bar {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin-top: 36px;
+          margin-bottom: 52px;
+        }
+
+        .nd-filter-btn {
+          padding: 10px 22px;
+          border-radius: 100px;
+          font-size: 13.5px;
+          font-weight: 700;
+          border: 1.5px solid #E2E8F0;
+          background: #FFFFFF;
+          color: #64748B;
+          cursor: pointer;
+          transition: all 0.25s ease;
+        }
+
+        .nd-filter-btn:hover, .nd-filter-btn.active {
+          background: #2E29FF;
+          color: #FFFFFF;
+          border-color: #2E29FF;
+          box-shadow: 0 8px 20px rgba(46, 41, 255, 0.25);
+        }
+
+        .nd-cap-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 28px;
+        }
+
+        .nd-cap-card {
+          padding: 32px 28px;
+          border-radius: 28px;
+          background: #FFFFFF;
+          border: 1.5px solid #E2E8F0;
+          box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          position: relative;
+        }
+
+        .nd-cap-card:hover {
+          transform: translateY(-8px);
+          border-color: var(--cap-color, #2E29FF);
+          box-shadow: 0 24px 50px rgba(0, 0, 0, 0.07);
+        }
+
+        .nd-cap-icon-box {
+          width: 54px;
+          height: 54px;
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 22px;
+        }
+
+        .nd-cap-title {
+          font-size: 20px;
+          font-weight: 800;
+          color: #0F172A;
+          margin-bottom: 10px;
+        }
+
+        .nd-cap-desc {
+          font-size: 14.5px;
+          color: #64748B;
+          line-height: 1.65;
+          margin-bottom: 24px;
+        }
+
+        .nd-cap-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+
+        .nd-cap-tag {
+          font-size: 11.5px;
+          font-weight: 700;
+          background: #F8FAFC;
+          border: 1px solid #E2E8F0;
+          color: #475569;
+          padding: 5px 11px;
+          border-radius: 8px;
+        }
+
+        /* ── FAQ SECTION (LIGHT) ── */
+        .nd-faq-section {
+          padding: 120px 24px;
+          background: #F8FAFC;
+          color: #0F172A;
+        }
+
+        .nd-faq-search-box {
+          max-width: 580px;
+          margin: 32px auto 48px auto;
+          position: relative;
+        }
+
+        .nd-faq-input {
+          width: 100%;
+          padding: 16px 20px 16px 52px;
+          border-radius: 16px;
+          border: 1.5px solid #E2E8F0;
+          background: #FFFFFF;
+          font-size: 15px;
+          color: #0F172A;
+          outline: none;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .nd-faq-input:focus {
+          border-color: #2E29FF;
+          box-shadow: 0 8px 24px rgba(46, 41, 255, 0.1);
+        }
+
+        .nd-faq-item {
+          border-radius: 20px;
+          border: 1.5px solid #E2E8F0;
+          background: #FFFFFF;
+          margin-bottom: 14px;
+          overflow: hidden;
+          transition: all 0.3s ease;
+        }
+
+        .nd-faq-item.open {
+          border-color: rgba(46, 41, 255, 0.4);
+          box-shadow: 0 12px 32px rgba(46, 41, 255, 0.08);
+          background: #FFFFFF;
+        }
+
+        .nd-faq-btn {
+          width: 100%;
+          padding: 24px 28px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          text-align: left;
+        }
+
+        .nd-faq-question {
+          font-size: 17px;
+          font-weight: 700;
+          color: #0F172A;
+          line-height: 1.45;
+        }
+
+        .nd-faq-icon-wrap {
+          width: 34px;
+          height: 34px;
           border-radius: 50%;
-          background: radial-gradient(circle, rgba(46,41,255,0.3) 0%, transparent 70%);
-          top: 50%; left: 50%;
+          flex-shrink: 0;
+          background: #F1F5F9;
+          color: #475569;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+          font-size: 18px;
+          font-weight: 700;
+        }
+
+        .nd-faq-item.open .nd-faq-icon-wrap {
+          background: #2E29FF;
+          color: #FFFFFF;
+        }
+
+        .nd-faq-ans-wrap {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nd-faq-item.open .nd-faq-ans-wrap {
+          max-height: 320px;
+        }
+
+        .nd-faq-answer {
+          padding: 0 28px 24px 28px;
+          font-size: 15.5px;
+          color: #475569;
+          line-height: 1.8;
+        }
+
+        /* ── PRO CTA SECTION (VIBRANT ROYAL BLUE LIGHT ACCENT) ── */
+        .nd-cta-pro {
+          padding: 120px 24px;
+          background: linear-gradient(135deg, #2E29FF 0%, #1E1AD6 50%, #0D0B2E 100%);
+          position: relative;
+          overflow: hidden;
+          color: #FFFFFF;
+          text-align: center;
+        }
+
+        .nd-cta-glow {
+          position: absolute;
+          width: 700px;
+          height: 700px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+          top: 50%;
+          left: 50%;
           transform: translate(-50%, -50%);
           pointer-events: none;
         }
-        .nd-cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
-        .nd-cta-title { font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: #FFFFFF; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 18px; }
-        .nd-cta-sub { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 40px; }
-        .nd-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-        .nd-btn-white {
-          display: inline-flex; align-items: center; gap: 8px;
-          padding: 16px 32px; background: #FFFFFF; color: #1E1AD6;
-          font-weight: 800; font-size: 15px; border-radius: 12px;
-          text-decoration: none; border: none; cursor: pointer;
-          transition: transform 0.2s, box-shadow 0.2s;
-          box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-        .nd-btn-white:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(0,0,0,0.2); }
-        .nd-btn-outline {
-          display: inline-flex; align-items: center; gap: 8px;
-          padding: 16px 32px; background: transparent; color: rgba(255,255,255,0.85);
-          font-weight: 700; font-size: 15px; border-radius: 12px;
-          text-decoration: none; border: 1.5px solid rgba(255,255,255,0.25); cursor: pointer;
-          transition: border-color 0.2s, background 0.2s;
-        }
-        .nd-btn-outline:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 1024px) {
-          .nd-exec-wrap, .nd-exec-wrap.reverse { grid-template-columns: 1fr; direction: ltr; gap: 40px; }
-          .nd-values-grid { grid-template-columns: repeat(2, 1fr); }
-          .nd-team-grid { grid-template-columns: repeat(2, 1fr); }
+        .nd-cta-content {
+          max-width: 780px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 2;
         }
+
+        .nd-cta-title {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: clamp(36px, 5vw, 60px);
+          font-weight: 800;
+          letter-spacing: -1.5px;
+          line-height: 1.1;
+          margin-bottom: 24px;
+          color: #FFFFFF;
+        }
+
+        .nd-cta-desc {
+          font-size: 18px;
+          color: rgba(255, 255, 255, 0.85);
+          line-height: 1.75;
+          margin-bottom: 44px;
+        }
+
+        .nd-cta-btns {
+          display: flex;
+          gap: 16px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .nd-btn-primary-glow {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 16px 36px;
+          background: #FFFFFF;
+          color: #2E29FF !important;
+          font-weight: 800;
+          font-size: 15.5px;
+          border-radius: 14px;
+          text-decoration: none;
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .nd-btn-primary-glow:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .nd-btn-glass {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 16px 36px;
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(12px);
+          color: #FFFFFF !important;
+          font-weight: 700;
+          font-size: 15.5px;
+          border-radius: 14px;
+          text-decoration: none;
+          border: 1.5px solid rgba(255, 255, 255, 0.3);
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .nd-btn-glass:hover {
+          background: rgba(255, 255, 255, 0.2);
+          border-color: rgba(255, 255, 255, 0.6);
+          transform: translateY(-3px);
+        }
+
+        /* ── RESPONSIVE DESIGN ── */
+        @media (max-width: 1024px) {
+          .nd-hero-stats-grid { grid-template-columns: repeat(2, 1fr); }
+          .nd-leadership-grid { grid-template-columns: 1fr; gap: 32px; }
+          .nd-tech-grid { grid-template-columns: repeat(2, 1fr); }
+          .nd-values-grid { grid-template-columns: repeat(2, 1fr); }
+          .nd-process-grid { grid-template-columns: repeat(2, 1fr); }
+          .nd-cap-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
         @media (max-width: 640px) {
-          .nd-hero-stats { flex-direction: column; }
-          .nd-hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-          .nd-hero-stat:last-child { border-bottom: none; }
+          .nd-hero-pro { padding: 90px 16px 60px 16px; }
+          .nd-hero-stats-grid { grid-template-columns: 1fr; }
+          .nd-comparison-grid { grid-template-columns: 1fr; }
+          .nd-comp-row { grid-template-columns: 1fr; }
+          .nd-tech-grid { grid-template-columns: 1fr; }
           .nd-values-grid { grid-template-columns: 1fr; }
-          .nd-team-grid { grid-template-columns: 1fr; }
-          .nd-exec-img { height: 360px; }
+          .nd-process-grid { grid-template-columns: 1fr; }
+          .nd-cap-grid { grid-template-columns: 1fr; }
         }
       `}</style>
 
-      <div className="nd-about-page">
+      <div className="nd-about-root">
 
-        {/* ─── HERO ─────────────────────────────────────────────────────────────── */}
-        <section className="nd-hero">
-          <div className="nd-hero-inner">
+        {/* ─── PRO HERO SECTION (LIGHT) ─────────────────────────────────────────── */}
+        <section className="nd-hero-pro">
+          <div className="nd-hero-bg-grid" />
+          <div className="nd-hero-glow-1" />
+
+          <div className="nd-container" style={{ textAlign: 'center' }}>
             <Reveal direction="up" delay={0}>
-              <p style={{ fontSize: '13px', fontWeight: '700', letterSpacing: '2.5px', textTransform: 'uppercase', color: 'rgba(129,140,248,0.8)', marginBottom: '18px' }}>
-                About Us
-              </p>
+              <div className="nd-hero-pill">
+                <Sparkles size={15} style={{ color: '#2E29FF' }} />
+                <span>ABOUT NOVADESK STUDIO</span>
+              </div>
             </Reveal>
 
-            <Reveal direction="up" delay={60}>
-              <h1 className="nd-hero-title">
-                We Build Trsut That
-                <span className="nd-hero-title-grad">Actually Ships.</span>
+            <Reveal direction="up" delay={80}>
+              <h1 className="nd-hero-headline">
+                We Architect Systems.<br />
+                <span className="nd-gradient-text">Engineered for Legacy &amp; Scale.</span>
               </h1>
             </Reveal>
 
-            <Reveal direction="up" delay={120}>
-              <p className="nd-hero-sub">
-                A focused engineering studio led by founders who code — delivering fast, reliable digital products for startups and businesses worldwide.
+            <Reveal direction="up" delay={140}>
+              <p className="nd-hero-desc">
+                NovaDesk is a modern software engineering studio built on direct technical access, weekly shippable iterations, and zero agency fluff. We help visionary founders turn ideas into resilient software.
               </p>
+            </Reveal>
+
+            {/* Stats Glass Row */}
+            <Reveal direction="up" delay={200}>
+              <div className="nd-hero-stats-grid">
+                {heroStats.map((stat, idx) => (
+                  <div key={idx} className="nd-stat-glass-card">
+                    <div className="nd-stat-val" style={{ color: stat.color }}>{stat.value}</div>
+                    <div className="nd-stat-lbl">{stat.label}</div>
+                    <div className="nd-stat-sub">{stat.sub}</div>
+                  </div>
+                ))}
+              </div>
             </Reveal>
           </div>
         </section>
 
-        {/* ─── EXECUTIVE LEADERSHIP ────────────────────────────────────────── */}
-        <section className={`nd-section nd-leadership-section`}>
-          <div className="nd-section-inner-wide">
+        {/* ─── THE NOVADESK PARADIGM (WHY WE ARE DIFFERENT) ───────────────────── */}
+        <section className="nd-paradigm-section">
+          <div className="nd-container">
             <Reveal direction="up">
-              <div style={{ marginBottom: '72px' }}>
-                <span className="nd-section-eyebrow" style={{ color: '#2E29FF' }}>Executive Leadership</span>
-                <h2 className="nd-section-h2">Guided by Vision &amp; Technical Depth</h2>
-                <p className="nd-section-sub">
-                  Meet the founders who shape every decision, every product, and every partnership at NovaDesk.
+              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
+                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
+                  THE ANTI-AGENCY PARADIGM
+                </span>
+                <h2 className="nd-section-h2">Why Forward-Thinking Founders Choose Us</h2>
+                <p className="nd-section-lead" style={{ margin: '0 auto' }}>
+                  Traditional software agencies are broken. We redesigned the agency model around speed, direct technical access, and senior engineering execution.
                 </p>
               </div>
             </Reveal>
 
-            {/* ── HARSH PRATEEK ─── */}
-            <div className="nd-exec-wrap">
-              <Reveal direction="left" delay={0}>
-                <div className="nd-exec-content">
-                  <div className="nd-exec-role-pill" style={{ background: 'rgba(46,41,255,0.08)', color: '#2E29FF' }}>
-                    <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#2E29FF', display: 'inline-block' }} />
-                    Director &amp; Founder
-                  </div>
-                  <h3 className="nd-exec-name">Harsh Prateek</h3>
-                  <p className="nd-exec-text">
-                    <strong style={{ color: '#0F172A' }}>NovaDesk started with a straightforward frustration:</strong> watching good ideas get slowed down by process, not talent.
-                  </p>
-                  <p className="nd-exec-text">
-                    Most software agencies add bloated management layers between the client and the engineer actually writing the code. NovaDesk is built differently — providing direct access to senior developers who bring both technical execution and business product thinking.
-                  </p>
-                  <p className="nd-exec-text">
-                    Every system engineered under Harsh Prateek's leadership is built on a modern, high-performance stack (Next.js, FastAPI, Supabase, React, Node.js) for speed, security, and long-term maintainability.
-                  </p>
-                  <div className="nd-exec-sig">Harsh Prateek</div>
-                  <div className="nd-exec-highlights">
-                    {['Full-Stack Architecture', 'AI & GenAI', 'Product Strategy', 'Direct Client Access'].map((t, i) => (
-                      <div key={i} className="nd-exec-highlight-tag">
-                        <CheckCircle2 size={13} style={{ color: '#2E29FF' }} /> {t}
+            <div className="nd-comparison-grid">
+              {paradigmComparison.map((item, idx) => (
+                <Reveal key={idx} direction="up" delay={idx * 80}>
+                  <div className="nd-comp-card">
+                    <div className="nd-comp-header">
+                      <div style={{ 
+                        width: 44, height: 44, borderRadius: 12, 
+                        background: 'rgba(46, 41, 255, 0.08)', 
+                        display: 'flex', alignItems: 'center', justifyContent: 'center' 
+                      }}>
+                        <Icon name={item.icon} type="lineal" color={item.color} size={24} />
                       </div>
+                      <div className="nd-comp-title">{item.title}</div>
+                    </div>
+
+                    <div className="nd-comp-row">
+                      <div className="nd-comp-box trad">
+                        <div className="nd-comp-box-title">
+                          <AlertCircle size={13} /> Traditional Agency
+                        </div>
+                        {item.traditional}
+                      </div>
+
+                      <div className="nd-comp-box nova">
+                        <div className="nd-comp-box-title">
+                          <CheckCircle2 size={13} /> NovaDesk Approach
+                        </div>
+                        {item.novadesk}
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── TECHNICAL LEADERSHIP SECTION (LIGHT MODE - NO PORTRAIT IMAGES) ─── */}
+        <section className="nd-exec-section">
+          <div className="nd-container">
+            <Reveal direction="up">
+              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
+                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
+                  EXECUTIVE STEWARDSHIP
+                </span>
+                <h2 className="nd-section-h2">Guided by Engineering Precision</h2>
+                <p className="nd-section-lead" style={{ margin: '0 auto' }}>
+                  NovaDesk is directed by hands-on founders who actively code, architect systems, and lead client operations.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="nd-leadership-grid">
+              {/* HARSH PRATEEK CARD */}
+              <Reveal direction="up" delay={0}>
+                <div className="nd-leader-tech-card" style={{ '--leader-accent': '#2E29FF' }}>
+                  <div className="nd-terminal-header">
+                    <div className="nd-terminal-dots">
+                      <span className="nd-terminal-dot" style={{ background: '#FF5F56' }} />
+                      <span className="nd-terminal-dot" style={{ background: '#FFBD2E' }} />
+                      <span className="nd-terminal-dot" style={{ background: '#27C93F' }} />
+                    </div>
+                    <div>~ /novadesk/leadership/harsh-prateek</div>
+                    <Terminal size={14} />
+                  </div>
+
+                  <div className="nd-leader-badge" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
+                    <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#2E29FF' }} />
+                    Director &amp; Technical Founder
+                  </div>
+
+                  <h3 className="nd-leader-name">Harsh Prateek</h3>
+                  <p className="nd-leader-bio">
+                    NovaDesk was established to eliminate the bloat and indirect communication of traditional agencies. Harsh directs technical strategy, full-stack architecture, and AI integrations — giving clients direct developer access and clean production execution.
+                  </p>
+                  
+                  <div className="nd-leader-quote">
+                    "Software should be built by people who deeply understand both lines of code and business outcome. No fluff, no excuses."
+                  </div>
+
+                  <div className="nd-leader-signature">Harsh Prateek</div>
+
+                  <div className="nd-leader-tags">
+                    {['Full-Stack Architecture', 'GenAI Systems', 'Next.js & FastAPI', 'Direct Access'].map((t, i) => (
+                      <span key={i} className="nd-leader-tag">
+                        <CheckCircle2 size={13} style={{ color: '#2E29FF' }} /> {t}
+                      </span>
                     ))}
                   </div>
                 </div>
               </Reveal>
 
-              <Reveal direction="right" delay={100}>
-                <div className="nd-exec-img-wrap">
-                  <img src="/hero-my-image.webp" alt="Harsh Prateek - Founder & CEO at NovaDesk" className="nd-exec-img" />
-                </div>
-              </Reveal>
-            </div>
-
-            {/* ── DIVIDER ─── */}
-            <div style={{ height: '1px', background: 'linear-gradient(to right, transparent, #E2E8F0 30%, #E2E8F0 70%, transparent)', marginBottom: '80px' }} />
-
-            {/* ── PIUSHA PATRA ─── */}
-            <div className="nd-exec-wrap reverse">
-              <Reveal direction="left" delay={0}>
-                <div className="nd-exec-img-wrap">
-                  <img src="/Co-Founder.png" alt="Piusha Patra - Co-Founder & Director at NovaDesk" className="nd-exec-img" />
-                </div>
-              </Reveal>
-
-              <Reveal direction="right" delay={100}>
-                <div className="nd-exec-content">
-                  <div className="nd-exec-role-pill" style={{ background: 'rgba(0,184,130,0.1)', color: '#00B882' }}>
-                    <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#00B882', display: 'inline-block' }} />
-                    Co-Founder &amp; Director
+              {/* PIUSHA PATRA CARD */}
+              <Reveal direction="up" delay={100}>
+                <div className="nd-leader-tech-card" style={{ '--leader-accent': '#00B882' }}>
+                  <div className="nd-terminal-header">
+                    <div className="nd-terminal-dots">
+                      <span className="nd-terminal-dot" style={{ background: '#FF5F56' }} />
+                      <span className="nd-terminal-dot" style={{ background: '#FFBD2E' }} />
+                      <span className="nd-terminal-dot" style={{ background: '#27C93F' }} />
+                    </div>
+                    <div>~ /novadesk/leadership/piusha-patra</div>
+                    <Command size={14} />
                   </div>
-                  <h3 className="nd-exec-name">Piusha Patra</h3>
-                  <p className="nd-exec-text">
-                    I believe that every successful business is built on strong relationships, clear communication, and a shared vision. As the Co-Founder of NovaDesk, my focus is on shaping the company's direction beyond technology — building meaningful client relationships, streamlining operations, supporting our team, and ensuring that every project reflects our commitment to quality and trust.
+
+                  <div className="nd-leader-badge" style={{ background: 'rgba(0, 184, 130, 0.1)', color: '#00B882' }}>
+                    <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#00B882' }} />
+                    Co-Founder &amp; Director of Operations
+                  </div>
+
+                  <h3 className="nd-leader-name">Piusha Patra</h3>
+                  <p className="nd-leader-bio">
+                    Piusha leads strategic direction, operational alignment, and client growth partnerships. Her focus ensures that every engineering project at NovaDesk operates with complete transparency, strict quality standards, and long-term client trust.
                   </p>
-                  <p className="nd-exec-text">
-                    I am passionate about creating an environment where innovation meets collaboration. My goal is to help businesses grow by delivering not just digital solutions, but experiences that create lasting value. Every decision I make is guided by our vision of building a company that people can rely on, where creativity, integrity, and long-term partnerships always come first.
-                  </p>
-                  <div className="nd-exec-sig" style={{ color: '#00B882' }}>Piusha Patra</div>
-                  <div className="nd-exec-highlights">
-                    {['Client Relationships', 'Operations', 'Team Leadership', 'Strategic Vision'].map((t, i) => (
-                      <div key={i} className="nd-exec-highlight-tag">
+
+                  <div className="nd-leader-quote" style={{ borderLeftColor: '#00B882' }}>
+                    "Every lasting business is built on trust, transparency, and uncompromised quality. We build software partnerships that last for years."
+                  </div>
+
+                  <div className="nd-leader-signature" style={{ color: '#00B882' }}>Piusha Patra</div>
+
+                  <div className="nd-leader-tags">
+                    {['Client Partnerships', 'Operational Strategy', 'Project Governance', 'Quality Assurance'].map((t, i) => (
+                      <span key={i} className="nd-leader-tag">
                         <CheckCircle2 size={13} style={{ color: '#00B882' }} /> {t}
-                      </div>
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -728,28 +1497,66 @@ export default function AboutUs() {
           </div>
         </section>
 
-        {/* ─── CORE VALUES ─────────────────────────────────────────────────── */}
-        <section className="nd-section nd-values-section">
-          <div className="nd-section-inner">
+        {/* ─── TECH ECOSYSTEM MATRIX (LIGHT) ────────────────────────────────── */}
+        <section className="nd-tech-section">
+          <div className="nd-container">
             <Reveal direction="up">
-              <div style={{ marginBottom: '8px' }}>
-                <span className="nd-section-eyebrow" style={{ color: '#818CF8' }}>How We Build</span>
-                <h2 className="nd-section-h2" style={{ color: '#F8FAFC' }}>Our Core Engineering Values</h2>
-                <p className="nd-section-sub" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                  Four principles that guide every line of code, every product decision, and every client interaction.
+              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
+                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
+                  OUR TECH STACK
+                </span>
+                <h2 className="nd-section-h2">Battle-Tested Modern Technologies</h2>
+                <p className="nd-section-lead" style={{ margin: '0 auto' }}>
+                  We engineer products using modern frameworks chosen for speed, scalability, and long-term maintainability.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="nd-tech-grid">
+              {techStack.map((tech, idx) => (
+                <Reveal key={idx} direction="up" delay={idx * 50}>
+                  <div className="nd-tech-card">
+                    <div className="nd-tech-icon-wrap">
+                      <img src={tech.icon} alt={tech.name} />
+                    </div>
+                    <div>
+                      <div className="nd-tech-name">{tech.name}</div>
+                      <div className="nd-tech-desc">{tech.desc}</div>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── CORE ENGINEERING VALUES (LIGHT) ───────────────────────────────── */}
+        <section className="nd-values-section">
+          <div className="nd-container">
+            <Reveal direction="up">
+              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
+                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
+                  OUR PHILOSOPHY
+                </span>
+                <h2 className="nd-section-h2">The Principles That Govern Every Commit</h2>
+                <p className="nd-section-lead" style={{ margin: '0 auto' }}>
+                  Six core engineering pillars embedded into every line of code we write.
                 </p>
               </div>
             </Reveal>
 
             <div className="nd-values-grid">
-              {coreValues.map((v, i) => (
-                <Reveal key={i} direction="up" delay={i * 80}>
-                  <div className="nd-value-card">
-                    <div className="nd-value-icon" style={{ background: v.bg, color: v.color }}>
-                      {v.icon}
+              {coreValues.map((val, idx) => (
+                <Reveal key={idx} direction="up" delay={idx * 70}>
+                  <div className="nd-value-card" style={{ '--card-accent': val.color }}>
+                    <div className="nd-value-icon-box" style={{ background: val.bg }}>
+                      <Icon name={val.iconName} type={val.type} color={val.color} size={30} />
                     </div>
-                    <div className="nd-value-title">{v.title}</div>
-                    <div className="nd-value-desc">{v.desc}</div>
+                    <div className="nd-value-badge" style={{ background: val.bg, color: val.color }}>
+                      {val.badge}
+                    </div>
+                    <h3 className="nd-value-title">{val.title}</h3>
+                    <p className="nd-value-desc">{val.desc}</p>
                   </div>
                 </Reveal>
               ))}
@@ -757,38 +1564,92 @@ export default function AboutUs() {
           </div>
         </section>
 
-        {/* ─── TEAM GRID ───────────────────────────────────────────────────── */}
-        <section className="nd-section nd-team-section">
-          <div className="nd-section-inner">
+        {/* ─── DEVELOPMENT METHODOLOGY (LIGHT) ───────────────────────────────── */}
+        <section className="nd-process-section">
+          <div className="nd-container">
             <Reveal direction="up">
-              <div style={{ marginBottom: '8px' }}>
-                <span className="nd-section-eyebrow" style={{ color: '#2E29FF' }}>Our Core Team</span>
-                <h2 className="nd-section-h2">The Engineers &amp; Designers Behind NovaDesk</h2>
-                <p className="nd-section-sub">
-                  Handpicked senior specialists dedicated to full-stack engineering, GenAI integration, cloud infrastructure, and product design.
+              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
+                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
+                  HOW WE WORK
+                </span>
+                <h2 className="nd-section-h2">Our 4-Phase Delivery Framework</h2>
+                <p className="nd-section-lead" style={{ color: '#64748B', margin: '0 auto' }}>
+                  From raw concept to battle-tested production software in structured agile sprints.
                 </p>
               </div>
             </Reveal>
 
-            <div className="nd-team-grid">
-              {teamMembers.map((m, i) => (
-                <Reveal key={i} direction="up" delay={i * 60}>
-                  <div
-                    className="nd-team-card"
-                    style={{ '--card-accent': m.color }}
-                  >
-                    <div className="nd-team-card-img-wrap">
-                      <img src={m.image} alt={m.name} className="nd-team-card-img" />
-                    </div>
-                    <div className="nd-team-card-body">
-                      <div className="nd-team-name">{m.name}</div>
-                      <div className="nd-team-role" style={{ color: m.color }}>{m.role}</div>
-                      <div className="nd-team-bio">{m.bio}</div>
-                      <div className="nd-team-tags">
-                        {m.tags.map((t, j) => (
-                          <span key={j} className="nd-team-tag">{t}</span>
-                        ))}
+            <div className="nd-process-grid">
+              {processSteps.map((step, idx) => (
+                <Reveal key={idx} direction="up" delay={idx * 80}>
+                  <div className="nd-process-card" style={{ '--step-accent': step.color }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+                      <div className="nd-process-step-num">{step.step}</div>
+                      <div style={{ 
+                        width: 42, height: 42, borderRadius: 12, 
+                        background: `${step.color}12`, 
+                        display: 'flex', alignItems: 'center', justifyContent: 'center' 
+                      }}>
+                        <Icon name={step.icon} type="lineal" color={step.color} size={22} />
                       </div>
+                    </div>
+                    <h3 className="nd-process-title">{step.title}</h3>
+                    <p className="nd-process-desc">{step.desc}</p>
+                    <ul className="nd-process-list">
+                      {step.details.map((item, i) => (
+                        <li key={i} className="nd-process-item">
+                          <CheckCircle2 size={13} style={{ color: step.color }} /> {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── DOMAIN CAPABILITIES MATRIX (LIGHT) ─────────────────────────────── */}
+        <section className="nd-cap-section">
+          <div className="nd-container">
+            <Reveal direction="up">
+              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
+                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
+                  DOMAIN SPECIALTIES
+                </span>
+                <h2 className="nd-section-h2">Engineering Capabilities Across Domains</h2>
+                <p className="nd-section-lead" style={{ color: '#64748B', margin: '0 auto' }}>
+                  Senior technical specialists focused on full-stack architecture, GenAI integration, mobile apps, and DevOps infrastructure.
+                </p>
+
+                {/* Filter Buttons */}
+                <div className="nd-filter-bar">
+                  {['All', 'Full-Stack', 'AI & Data', 'Design', 'DevOps'].map((cat) => (
+                    <button
+                      key={cat}
+                      className={`nd-filter-btn ${capabilityTab === cat ? 'active' : ''}`}
+                      onClick={() => setCapabilityTab(cat)}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <div className="nd-cap-grid">
+              {filteredCapabilities.map((cap, idx) => (
+                <Reveal key={idx} direction="up" delay={idx * 60}>
+                  <div className="nd-cap-card" style={{ '--cap-color': cap.color }}>
+                    <div className="nd-cap-icon-box" style={{ background: cap.bg, color: cap.color }}>
+                      {cap.icon}
+                    </div>
+                    <h3 className="nd-cap-title">{cap.title}</h3>
+                    <p className="nd-cap-desc">{cap.desc}</p>
+                    <div className="nd-cap-tags">
+                      {cap.techs.map((tech, tIdx) => (
+                        <span key={tIdx} className="nd-cap-tag">{tech}</span>
+                      ))}
                     </div>
                   </div>
                 </Reveal>
@@ -797,47 +1658,89 @@ export default function AboutUs() {
           </div>
         </section>
 
-        {/* ─── FAQ ─────────────────────────────────────────────────────────── */}
-        <section className="nd-section nd-faq-section">
-          <div className="nd-section-inner" style={{ maxWidth: '860px' }}>
+        {/* ─── FREQUENTLY ASKED QUESTIONS (LIGHT) ──────────────────────────────── */}
+        <section className="nd-faq-section">
+          <div className="nd-container" style={{ maxWidth: '860px' }}>
             <Reveal direction="up">
-              <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-                <span className="nd-section-eyebrow" style={{ color: '#2E29FF' }}>Frequently Asked Questions</span>
-                <h2 className="nd-section-h2" style={{ margin: '0 auto' }}>Everything You Need to Know</h2>
+              <div style={{ textAlign: 'center' }}>
+                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
+                  FREQUENTLY ASKED QUESTIONS
+                </span>
+                <h2 className="nd-section-h2">Everything You Need to Know</h2>
+                <p className="nd-section-lead" style={{ color: '#64748B', margin: '0 auto' }}>
+                  Transparent answers about how we collaborate, contract, and deliver shippable code.
+                </p>
+              </div>
+
+              {/* Search Bar */}
+              <div className="nd-faq-search-box">
+                <Search size={18} style={{ position: 'absolute', left: 20, top: 18, color: '#94A3B8' }} />
+                <input
+                  type="text"
+                  placeholder="Search questions about process, stack, or pricing..."
+                  value={faqSearch}
+                  onChange={(e) => setFaqSearch(e.target.value)}
+                  className="nd-faq-input"
+                />
               </div>
             </Reveal>
 
-            {faqs.map((f, i) => (
-              <Reveal key={i} direction="up" delay={i * 60}>
-                <FaqItem
-                  q={f.q}
-                  a={f.a}
-                  open={activeFaq === i}
-                  onToggle={() => setActiveFaq(activeFaq === i ? null : i)}
-                />
-              </Reveal>
-            ))}
+            {filteredFaqs.length === 0 ? (
+              <div style={{ textAlign: 'center', padding: '40px 0', color: '#64748B' }}>
+                No matching questions found. Try searching another term or contact our leadership directly.
+              </div>
+            ) : (
+              filteredFaqs.map((faq, idx) => (
+                <Reveal key={idx} direction="up" delay={idx * 50}>
+                  <div className={`nd-faq-item ${activeFaq === idx ? 'open' : ''}`}>
+                    <button
+                      className="nd-faq-btn"
+                      onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
+                    >
+                      <span className="nd-faq-question">{faq.q}</span>
+                      <span className="nd-faq-icon-wrap">
+                        {activeFaq === idx ? '−' : '+'}
+                      </span>
+                    </button>
+                    <div className="nd-faq-ans-wrap">
+                      <p className="nd-faq-answer">{faq.a}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))
+            )}
           </div>
         </section>
 
-        {/* ─── CTA ─────────────────────────────────────────────────────────── */}
-        <section className="nd-cta-section">
-          <div className="nd-cta-inner">
+        {/* ─── PRO CTA SECTION ─────────────────────────────────────────────────── */}
+        <section className="nd-cta-pro">
+          <div className="nd-cta-glow" />
+
+          <div className="nd-cta-content">
             <Reveal direction="up">
-              <h2 className="nd-cta-title">Ready to Build Your<br />Next Big Product?</h2>
+              <span className="nd-hero-pill" style={{ background: 'rgba(255,255,255,0.15)', borderColor: 'rgba(255,255,255,0.3)', color: '#FFFFFF', marginBottom: 20 }}>
+                <Sparkles size={14} style={{ color: '#FFFFFF' }} />
+                <span>START YOUR PROJECT</span>
+              </span>
+              <h2 className="nd-cta-title">
+                Ready to Build Your Product<br />
+                With Senior Engineers?
+              </h2>
             </Reveal>
+
             <Reveal direction="up" delay={80}>
-              <p className="nd-cta-sub">
-                Partner directly with senior engineering leadership. Build high-performance web, mobile, and AI solutions that scale.
+              <p className="nd-cta-desc">
+                Partner directly with Founder Harsh Prateek &amp; Director Piusha Patra. Get transparent timelines, clean architecture, and weekly shippable code.
               </p>
             </Reveal>
-            <Reveal direction="up" delay={160}>
+
+            <Reveal direction="up" delay={140}>
               <div className="nd-cta-btns">
-                <Link to="/contact-us" className="nd-btn-white">
-                  Schedule a Free Consultation <ArrowRight size={16} />
+                <Link to="/contact-us" className="nd-btn-primary-glow">
+                  Schedule Founder Call <ArrowRight size={18} />
                 </Link>
-                <Link to="/get-a-free-quote" className="nd-btn-outline">
-                  Get a Free Quote <ArrowRight size={16} />
+                <Link to="/get-a-free-quote" className="nd-btn-glass">
+                  Get a Free Instant Quote <ExternalLink size={16} />
                 </Link>
               </div>
             </Reveal>
