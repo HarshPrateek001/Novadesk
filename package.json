@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "node backend/server.js",
+    "server:dev": "node --watch backend/server.js",
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"
@@ -12,9 +14,12 @@
   "dependencies": {
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide": "^4.1.4",
+    "@splinetool/react-spline": "^4.1.0",
+    "@splinetool/runtime": "^2.0.56",
     "cheerio": "^1.2.0",
     "html-to-jsx": "^0.0.4",
     "jsdom": "^29.1.1",
+    "lottie-web": "^5.13.0",
     "lucide-react": "^1.24.0",
     "pdfkit": "^0.19.1",
     "react": "^19.2.7",

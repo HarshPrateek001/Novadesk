@@ -1,268 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { 
-  MessageSquare, Clock, Code, Cpu, Sparkles, ArrowRight, CheckCircle2, 
-  ShieldCheck, Zap, Users, Award, TrendingUp, ChevronDown, Search, 
-  XCircle, AlertCircle, Terminal, Layers, Star, ExternalLink, Activity,
-  Server, Database, Lock, Globe, GitBranch, Shield, Command
+  ArrowRight, CheckCircle2, ShieldCheck, Zap, Users, Award, 
+  ChevronDown, Terminal, Layers, ExternalLink, 
+  Activity, Server, Database, Lock, Globe, GitBranch, Shield, 
+  Command, Clock, Code, Cpu, MessageSquare, Compass, Eye,
+  Check, FileText, Calendar, Send, ChevronRight, CornerDownRight,
+  ArrowLeft, Sparkles, BookOpen, Fingerprint, Laptop, Coffee
 } from 'lucide-react';
 import SEO from '../components/SEO';
-import { Link } from 'react-router-dom';
 
-// ─── DYNAMIC SVG ICON COMPONENT ──────────────────────────────────────────────
-// Dynamically renders black SVG icons from /icons/lineal or /icons/solid
-// and recolors them using CSS masks according to theme color specs.
-
-function Icon({ name, type = 'lineal', color = 'currentColor', size = 24, className = '', style = {} }) {
-  const iconPath = `/icons/${type}/${name}.svg`;
-  return (
-    <span
-      className={`nd-icon ${className}`}
-      style={{
-        display: 'inline-block',
-        width: typeof size === 'number' ? `${size}px` : size,
-        height: typeof size === 'number' ? `${size}px` : size,
-        backgroundColor: color,
-        WebkitMaskImage: `url("${iconPath}")`,
-        WebkitMaskRepeat: 'no-repeat',
-        WebkitMaskPosition: 'center',
-        WebkitMaskSize: 'contain',
-        maskImage: `url("${iconPath}")`,
-        maskRepeat: 'no-repeat',
-        maskPosition: 'center',
-        maskSize: 'contain',
-        flexShrink: 0,
-        transition: 'background-color 0.3s ease, transform 0.3s ease',
-        ...style
-      }}
-    />
-  );
-}
-
-// ─── DATA ────────────────────────────────────────────────────────────────────
-
-const heroStats = [
-  { value: "99.4%", label: "On-Time Delivery", sub: "50+ Shipped Sprints", icon: "speedometer", color: "#2E29FF" },
-  { value: "50+", label: "Shipped Platforms", sub: "Web, Mobile & AI Apps", icon: "rocket", color: "#00B882" },
-  { value: "100%", label: "Direct Senior Access", sub: "Zero Account Managers", icon: "group", color: "#F59E0B" },
-  { value: "4.9★", label: "Client Rating", sub: "Global Founders", icon: "award-2", color: "#EC4899" }
-];
-
-const paradigmComparison = [
-  {
-    title: "Project Communication",
-    traditional: "Account managers, indirect feedback loops, lost details.",
-    novadesk: "Direct Slack/Teams channel with lead engineers writing your code.",
-    icon: "chat-2",
-    color: "#2E29FF"
-  },
-  {
-    title: "Development Speed",
-    traditional: "Monthly milestone dumps with high uncertainty.",
-    novadesk: "Weekly live shippable builds with full transparency.",
-    icon: "rocket",
-    color: "#00B882"
-  },
-  {
-    title: "Code Architecture",
-    traditional: "Outsourced junior developers learning on your budget.",
-    novadesk: "Handcrafted by senior architects using modern Next.js & FastAPI.",
-    icon: "browser",
-    color: "#7C3AED"
-  },
-  {
-    title: "Pricing & Billing",
-    traditional: "Hidden surprise fees and inflated change request hours.",
-    novadesk: "Transparent sprint scoping with predictable flat rates.",
-    icon: "balance",
-    color: "#F59E0B"
-  }
-];
-
-const coreValues = [
-  {
-    iconName: "group",
-    type: "lineal",
-    title: "Direct Engineering Access",
-    desc: "Speak directly with the architects and engineers building your system. No telephone games, no middle layers.",
-    color: "#2E29FF",
-    bg: "rgba(46, 41, 255, 0.08)",
-    badge: "No Middlemen"
-  },
-  {
-    iconName: "speedometer",
-    type: "lineal",
-    title: "Rapid Shippable Velocity",
-    desc: "Continuous integration & weekly demo releases so you see real working software from day one.",
-    color: "#00B882",
-    bg: "rgba(0, 184, 130, 0.08)",
-    badge: "Fast Iteration"
-  },
-  {
-    iconName: "sitemap",
-    type: "lineal",
-    title: "Production-Grade Scalability",
-    desc: "Modern Next.js, Node.js, FastAPI, and Supabase stack designed for high availability and linear scaling.",
-    color: "#F59E0B",
-    bg: "rgba(245, 158, 11, 0.08)",
-    badge: "99.99% Uptime"
-  },
-  {
-    iconName: "light-bulb",
-    type: "lineal",
-    title: "AI-First Native Architecture",
-    desc: "Seamlessly embedding LLMs, custom RAG pipelines, and intelligent automation into business workflows.",
-    color: "#9333EA",
-    bg: "rgba(147, 51, 234, 0.08)",
-    badge: "GenAI Powered"
-  },
-  {
-    iconName: "shield-2",
-    type: "lineal",
-    title: "Zero-Trust Security & QA",
-    desc: "Automated end-to-end testing, security audits, and strict data encryption built into every deployment.",
-    color: "#EC4899",
-    bg: "rgba(236, 72, 153, 0.08)",
-    badge: "Bank-Grade QA"
-  },
-  {
-    iconName: "compass",
-    type: "lineal",
-    title: "Transparent Scoping & Counsel",
-    desc: "Clear timelines, realistic roadmaps, and truthful technical counsel over inflated sales promises.",
-    color: "#0EA5E9",
-    bg: "rgba(14, 165, 233, 0.08)",
-    badge: "100% Transparent"
-  }
-];
-
-const techStack = [
-  { name: "React / Next.js", icon: "/icons/nextjs.svg", desc: "Full-Stack Web Framework", category: "Frontend" },
-  { name: "Python / FastAPI", icon: "/icons/fastapi.svg", desc: "High-Performance Backend APIs", category: "Backend" },
-  { name: "Node.js", icon: "/icons/nodejs.svg", desc: "Scalable Microservices", category: "Backend" },
-  { name: "Supabase & Postgres", icon: "/icons/supabase.svg", desc: "Realtime Database & Auth", category: "Database" },
-  { name: "OpenAI & Gemini", icon: "/icons/openai.svg", desc: "GenAI Models & LLM Agents", category: "AI & ML" },
-  { name: "AWS & Docker", icon: "/icons/aws.svg", desc: "Cloud Container Orchestration", category: "DevOps" },
-  { name: "React Native", icon: "/icons/react.svg", desc: "Cross-Platform Mobile Apps", category: "Mobile" },
-  { name: "Figma", icon: "/icons/figma.svg", desc: "Design Systems & Wireframes", category: "Design" }
-];
-
-const processSteps = [
-  {
-    step: "01",
-    title: "Architecture & Discovery",
-    desc: "We analyze your technical goals, map domain data flows, and build a precise blueprint for rapid execution.",
-    icon: "compass",
-    color: "#2E29FF",
-    details: ["System Topology", "Database Schema Design", "Tech Stack Selection"]
-  },
-  {
-    step: "02",
-    title: "UX & Technical Design System",
-    desc: "Designing responsive, high-converting interfaces with micro-interactions and pixel-perfect Figma design systems.",
-    icon: "design",
-    color: "#7C3AED",
-    details: ["Interactive Wireframes", "Design System Tokens", "User Testing"]
-  },
-  {
-    step: "03",
-    title: "Agile Engineering Sprints",
-    desc: "Senior engineers write clean, maintainable code in 1-week sprints with automated test coverage.",
-    icon: "settings-2",
-    color: "#00B882",
-    details: ["Frontend & Backend Sprints", "Automated QA Suites", "Weekly Live Demos"]
-  },
-  {
-    step: "04",
-    title: "Production Launch & Scale",
-    desc: "Zero-downtime deployment, continuous cloud monitoring, and ongoing feature enhancement.",
-    icon: "rocket",
-    color: "#F59E0B",
-    details: ["CI/CD Pipeline", "Cloud Auto-scaling", "Post-Launch SLA"]
-  }
-];
-
-const capabilities = [
-  {
-    title: "Full-Stack Web Systems",
-    category: "Full-Stack",
-    desc: "Architecting high-throughput React & Next.js platforms with serverless backends and optimized render performance.",
-    icon: <Globe size={26} />,
-    color: "#2E29FF",
-    bg: "rgba(46, 41, 255, 0.08)",
-    techs: ["React", "Next.js", "Node.js", "PostgreSQL", "TypeScript"]
-  },
-  {
-    title: "AI & GenAI Integration",
-    category: "AI & Data",
-    desc: "Building custom LLM agents, RAG document pipelines, conversational bots, and intelligent business workflows.",
-    icon: <Cpu size={26} />,
-    color: "#9333EA",
-    bg: "rgba(147, 51, 234, 0.08)",
-    techs: ["Python", "FastAPI", "LangChain", "OpenAI", "Gemini"]
-  },
-  {
-    title: "Mobile App Development",
-    category: "Full-Stack",
-    desc: "Developing butter-smooth cross-platform iOS & Android mobile applications with offline-first state sync.",
-    icon: <Zap size={26} />,
-    color: "#F59E0B",
-    bg: "rgba(245, 158, 11, 0.08)",
-    techs: ["React Native", "iOS", "Android", "Supabase", "GraphQL"]
-  },
-  {
-    title: "Cloud & DevOps Infrastructure",
-    category: "DevOps",
-    desc: "Zero-downtime CI/CD deployment automation, Docker containerization, Kubernetes scaling, and AWS infrastructure.",
-    icon: <Server size={26} />,
-    color: "#00B882",
-    bg: "rgba(0, 184, 130, 0.08)",
-    techs: ["AWS", "Docker", "Kubernetes", "GitHub Actions", "Vercel"]
-  },
-  {
-    title: "UI/UX & Design Systems",
-    category: "Design",
-    desc: "Crafting scalable Figma design systems, micro-interactions, responsive layouts, and user conversion flows.",
-    icon: <Layers size={26} />,
-    color: "#0EA5E9",
-    bg: "rgba(14, 165, 233, 0.08)",
-    techs: ["Figma", "Design Tokens", "Micro-Interactions", "Wireframing"]
-  },
-  {
-    title: "QA Automation & Security",
-    category: "DevOps",
-    desc: "Comprehensive automated unit testing, Cypress E2E test suites, performance optimization, and security audits.",
-    icon: <ShieldCheck size={26} />,
-    color: "#EC4899",
-    bg: "rgba(236, 72, 153, 0.08)",
-    techs: ["Cypress", "Jest", "Security Scans", "Lighthouse 100"]
-  }
-];
-
-const faqs = [
-  {
-    q: "Who leads the development and operations at NovaDesk?",
-    a: "NovaDesk is led directly by Founder & CEO Harsh Prateek (handling technical architecture and full-stack execution) and Co-Founder Piusha Patra (handling strategic direction, client relationships, and operations). Clients work directly with leadership and senior engineering talent."
-  },
-  {
-    q: "Why choose NovaDesk over a traditional software agency?",
-    a: "Traditional agencies add unnecessary layers—account managers, coordinators, and junior developers learning on your budget. NovaDesk provides direct engineering access, transparent weekly shippable builds, and senior-level execution without bloated agency overhead."
-  },
-  {
-    q: "What technical stack does NovaDesk specialize in?",
-    a: "We specialize in modern, high-performance tech stacks including React, Next.js, TypeScript, Node.js, Python (FastAPI), Supabase, PostgreSQL, React Native, and enterprise AI APIs (OpenAI, Gemini, Custom RAG)."
-  },
-  {
-    q: "How do weekly shippable builds work?",
-    a: "Every week, our team pushes production-ready code to your staging environment. You participate in a weekly async or live demo to review actual features, test functionality, and approve next sprint priorities."
-  },
-  {
-    q: "What post-launch support and ongoing maintenance do you offer?",
-    a: "Every project includes a dedicated post-launch support window. We also offer continuous maintenance, cloud infrastructure scaling, and retainer models for continuous feature development."
-  }
-];
-
-// ─── SCROLL REVEAL HOOK ──────────────────────────────────────────────────────
-
+// ─── SCROLL REVEAL HELPER ────────────────────────────────────────────────────
 function useScrollReveal(options = {}) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -290,11 +38,11 @@ function Reveal({ children, delay = 0, direction = 'up', className = '' }) {
   const [ref, visible] = useScrollReveal();
 
   const translateMap = {
-    up: 'translateY(36px)',
-    down: 'translateY(-36px)',
-    left: 'translateX(-44px)',
-    right: 'translateX(44px)',
-    fade: 'scale(0.96)'
+    up: 'translateY(24px)',
+    down: 'translateY(-24px)',
+    left: 'translateX(-28px)',
+    right: 'translateX(28px)',
+    fade: 'scale(0.99)'
   };
 
   return (
@@ -303,8 +51,8 @@ function Reveal({ children, delay = 0, direction = 'up', className = '' }) {
       className={className}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? 'none' : translateMap[direction] || 'translateY(36px)',
-        transition: `opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+        transform: visible ? 'none' : translateMap[direction] || 'translateY(24px)',
+        transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
         willChange: 'opacity, transform'
       }}
     >
@@ -313,23 +61,191 @@ function Reveal({ children, delay = 0, direction = 'up', className = '' }) {
   );
 }
 
-// ─── MAIN ABOUT US COMPONENT (LIGHT LAYOUT THEME) ───────────────────────────
+// ─── LIVE WORLD CLOCK COMPONENT FOR GLOBAL FOOTPRINT ────────────────────────
+function WorldClock({ city, timezone, label }) {
+  const [time, setTime] = useState('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      try {
+        const formatter = new Intl.DateTimeFormat([], {
+          timeZone: timezone,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true
+        });
+        setTime(formatter.format(new Date()));
+      } catch {
+        setTime('--:-- --');
+      }
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, [timezone]);
+
+  return (
+    <div className="nd-clock-item">
+      <div className="nd-clock-dot" />
+      <div className="nd-clock-meta">
+        <div className="nd-clock-city">{city} <span className="nd-clock-zone">[{label}]</span></div>
+        <div className="nd-clock-time">{time}</div>
+      </div>
+    </div>
+  );
+}
+
+// ─── DATA DEFINITIONS ────────────────────────────────────────────────────────
+
+// 5 Non-Negotiable Studio Treaties (Editorial Guarantees)
+const studioTreaties = [
+  {
+    num: "01",
+    title: "Zero Junior Handoffs",
+    tagline: "Direct senior builder execution on every single sprint.",
+    narrative: "Traditional agencies win your business with senior partners and secretly pawn the work off to offshore juniors. At NovaDesk, Harsh Prateek personally architect-reviews every pull request, and Piusha Patra governs every sprint milestone. No juniors learning on your dollar.",
+    deliverables: [
+      "Architecture directly designed by Lead Systems Architects",
+      "Direct code-level communication with the engineers building your product",
+      "Zero account executive middlemen or game-of-telephone delays"
+    ]
+  },
+  {
+    num: "02",
+    title: "Clickable Staging Every 7 Days",
+    tagline: "You test real, working software every Friday. No theoretical slide decks.",
+    narrative: "PowerPoint presentations do not validate products. Every 7 days, your code automatically builds to a private, password-protected staging URL. You click through real UI, trigger real APIs, and test actual database flows on your mobile phone and browser.",
+    deliverables: [
+      "Weekly automated CI/CD branch staging deployments",
+      "Asynchronous Loom video walkthrough highlighting every new feature",
+      "Real-time feedback incorporation before the next sprint kickoff"
+    ]
+  },
+  {
+    num: "03",
+    title: "100% Day-1 Intellectual Property Sovereignty",
+    tagline: "Your Git repos, cloud infrastructure, and keys belong to you from Day 1.",
+    narrative: "We believe hostage agency models are unethical. All GitHub repositories, Supabase databases, Vercel deployments, and OpenAI API keys are provisioned directly in your company's name. Even if our engagement concludes, your platform operates autonomously without disruption.",
+    deliverables: [
+      "Full IP assignment and clean Git history handover on every commit",
+      "Zero proprietary locking libraries or hidden licensing fees",
+      "Complete environment credential transfer prior to final launch"
+    ]
+  },
+  {
+    num: "04",
+    title: "Predictable Fixed-Scope Sprints",
+    tagline: "Eliminating billable hourly padding in favor of committed outcomes.",
+    narrative: "Hourly billing incentives are inherently perverse: agencies make more money when they take longer to solve problems. NovaDesk operates strictly on 7-to-14-day fixed-scope milestone sprints. You know exactly what ships and exactly what it costs before work begins.",
+    deliverables: [
+      "Guaranteed scope-of-work delivery within committed sprint timelines",
+      "Transparent fixed sprint pricing with zero surprise change orders",
+      "Clear milestone acceptance criteria signed off before billing"
+    ]
+  },
+  {
+    num: "05",
+    title: "Direct WhatsApp & Slack Async Line",
+    tagline: "Sub-1 hour response windows directly with leadership.",
+    narrative: "No ticketing portals where your requests sit in a queue for 48 hours. You get a direct, shared Slack or WhatsApp channel with Harsh and Piusha. When you have an urgent architectural question or investor demo request, you speak directly to the builders.",
+    deliverables: [
+      "Sub-60 minute response time during active business hours",
+      "4+ hours guaranteed daily synchronous overlap across US, UK, and Gulf time zones",
+      "Direct access to technical decision-makers without bureaucratic red tape"
+    ]
+  }
+];
+
+// 4 Progression Chapters for the Interactive Studio Journal
+const studioChapters = [
+  {
+    chapter: "01",
+    era: "2024",
+    title: "The Clean Break",
+    subtitle: "Rejecting Agency Bloat",
+    lead: "NovaDesk was born out of frustration with traditional IT outsourcing: bloated hourly billing, disconnected account managers, and codebases designed for vendor lock-in.",
+    story: "Harsh and Piusha set out to build an intentional, boutique product engineering studio where elite founders could collaborate directly with senior architects. We established our founding rule: zero junior handoffs, fixed sprint pricing, and 100% IP sovereignty on Day 1.",
+    tangibleArtifact: "The Anti-Agency Framework: Fixed 14-day delivery sprints with sub-1 hour founder response times.",
+    metrics: [
+      "Eliminated hourly billing in favor of outcome-based sprints",
+      "Sub-1 hour direct architect response windows",
+      "100% Day-1 legal IP transfer agreements"
+    ]
+  },
+  {
+    chapter: "02",
+    era: "2024–25",
+    title: "The 21-Day MVP Framework",
+    subtitle: "Codifying Zero-to-Production Velocity",
+    lead: "Startups fail when they take six months to validate an idea. We engineered a standardized 21-day rapid production framework that takes founders from concept to live staging.",
+    story: "By decoupling client applications into standardized, modular architectures (PostgreSQL schemas, authentication primitives, and robust component design systems), we eliminated weeks of boilerplate waste while ensuring codebases maintain enterprise resilience for in-house scale.",
+    tangibleArtifact: "The Production Blueprint: Sub-3 week live production deployments with automated 7-day staging cycles.",
+    metrics: [
+      "Average 21 days from kickoff to live production deployment",
+      "Automated CI/CD staging environments updated every Friday",
+      "Zero failed launches across 50+ delivered milestone sprints"
+    ]
+  },
+  {
+    chapter: "03",
+    era: "2025",
+    title: "Applied AI & SaaS Core",
+    subtitle: "Beyond Gimmicks to Deterministic Systems",
+    lead: "While the industry flooded the market with shallow OpenAI chat wrappers, NovaDesk invested heavily in deterministic enterprise intelligence architectures.",
+    story: "We designed custom retrieval pipelines with pgvector, deterministic JSON schema enforcement, and autonomous agent loops that execute real database actions. We combined these intelligence layers with high-concurrency multi-tenant SaaS backends built for scale.",
+    tangibleArtifact: "Semantic Vector Vault: Production-grade RAG pipelines with sub-45ms retrieval latency and strict guardrails.",
+    metrics: [
+      "Sub-45ms vector search retrieval with custom pgvector indexes",
+      "Multi-tenant billing integrations with Stripe & global payment gateways",
+      "99.98% operational uptime across managed client production apps"
+    ]
+  },
+  {
+    chapter: "04",
+    era: "2026",
+    title: "Global Synchronous Studio",
+    subtitle: "India-Rooted Engineering, World-Class Delivery",
+    lead: "Today, NovaDesk operates as an elite embedded engineering squad for venture-backed founders and forward-thinking enterprises across North America, the Gulf, Europe, and India.",
+    story: "Operating from India’s premier software corridor, we provide 4+ hours of guaranteed real-time synchronous overlap across PST, EST, GMT, and GST. We function not as distant vendors, but as deeply trusted technical co-founders dedicated to our clients' compounding valuation.",
+    tangibleArtifact: "Synchronous Global Cadence: Real-time timezone overlap with zero-trust legal credential governance.",
+    metrics: [
+      "4+ hours daily synchronous overlap across PST, EST, GMT, and GST",
+      "Zero-trust credential governance and mutual NDA enforcement on Day 1",
+      "Dedicated senior squads operating as embedded technical co-founders"
+    ]
+  }
+];
+
+const faqs = [
+  {
+    q: "Do Harsh and Piusha personally work on our project?",
+    a: "Yes. NovaDesk is deliberately structured as a boutique, founder-led studio. Harsh Prateek directs the technical architecture and conducts every code review, while Piusha Patra leads sprint governance, milestone quality, and client collaboration. You have direct leadership accountability throughout."
+  },
+  {
+    q: "What happens if we want to transition to an in-house team later?",
+    a: "We actively prepare for it from Day 1. Because your codebase follows standard conventions, strict typing, and comprehensive architecture documentation, your new in-house hires can onboard in days. We even facilitate technical handover walkthroughs."
+  },
+  {
+    q: "How do you handle non-disclosure agreements (NDAs) and IP rights?",
+    a: "We sign a mutual non-disclosure agreement prior to our technical discovery session. All intellectual property, source code, designs, and cloud infrastructure keys belong solely to your company as each milestone is deployed."
+  },
+  {
+    q: "How does time zone collaboration work for international clients?",
+    a: "We combine an async-first workflow with 4+ hours of guaranteed real-time overlap across US (EST/PST), UK/Europe, and Gulf (GST) business hours. You receive daily loom/text updates and weekly live demo syncs at mutually convenient times."
+  },
+  {
+    q: "How does NovaDesk differ from hiring a freelancer or Upwork dev shop?",
+    a: "Freelancers pose single-point-of-failure risks and frequently ghost when overcommitted. Upwork dev shops bait with senior profiles and switch to junior developers. NovaDesk gives you an elite, accountable squad with full-stack, mobile, AI, and cloud DevOps under one cohesive guarantee."
+  }
+];
 
 export default function AboutUs() {
+  const [activeChapter, setActiveChapter] = useState(0);
+  const [activeTreaty, setActiveTreaty] = useState(0);
   const [activeFaq, setActiveFaq] = useState(null);
-  const [capabilityTab, setCapabilityTab] = useState('All');
-  const [faqSearch, setFaqSearch] = useState('');
 
-  const filteredCapabilities = capabilityTab === 'All'
-    ? capabilities
-    : capabilities.filter(c => c.category === capabilityTab);
-
-  const filteredFaqs = faqs.filter(f => 
-    f.q.toLowerCase().includes(faqSearch.toLowerCase()) || 
-    f.a.toLowerCase().includes(faqSearch.toLowerCase())
-  );
-
-  // JSON-LD Schemas (Preserved for SEO)
+  // SEO Schemas
   const personSchemaHarsh = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -372,1378 +288,1726 @@ export default function AboutUs() {
   const aboutPageSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "name": "About NovaDesk | Leadership, Directors & Engineering Team",
+    "name": "About NovaDesk | Executive Engineering Studio & Leadership",
     "url": "https://www.novadesk.site/about-us"
   };
 
   return (
     <>
       <SEO
-        keywords="About NovaDesk, Harsh Prateek, Piusha Patra, Piusha Patra NovaDesk, Harsh Prateek Founder, Piusha Patra Co-Founder, software development team, AI studio India"
-        title="About NovaDesk | Full-Stack & AI Development Studio"
-        description="NovaDesk is a premier software engineering studio led by Founder & CEO Harsh Prateek and Co-Founder Piusha Patra. Built around direct access, senior engineers, and AI innovation."
+        keywords="About NovaDesk, Harsh Prateek, Piusha Patra, Piusha Patra NovaDesk, Harsh Prateek Founder, bespoke software studio, digital product engineering, applied AI studio India"
+        title="About NovaDesk | The Human Software Engineering Studio"
+        description="NovaDesk is an authentic digital product and applied AI engineering studio founded by Harsh Prateek and Piusha Patra. Direct senior builder execution, weekly shippable staging, and zero junior handoffs."
         url="/about-us"
         author="Harsh Prateek & Piusha Patra"
         schema={[personSchemaHarsh, personSchemaPiusha, organizationSchema, aboutPageSchema]}
       />
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
-        /* ── LIGHT THEME ROOT ── */
-        .nd-about-root {
-          font-family: 'Plus Jakarta Sans', var(--font-sans), sans-serif;
-          color: #0F172A;
+        /* ─── OPTION 3: THE TANGIBLE HUMAN WORKSHOP & CRAFT JOURNAL ─── */
+        .nd-craft-page {
+          font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          color: #111827;
           background: #FFFFFF;
           overflow-x: hidden;
-        }
-
-        .nd-container {
-          max-width: 1240px;
-          margin: 0 auto;
-          position: relative;
-          z-index: 2;
-        }
-
-        /* ── HERO SECTION (LIGHT) ── */
-        .nd-hero-pro {
-          position: relative;
-          padding: 110px 24px 80px 24px;
-          background: linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 60%, #FFFFFF 100%);
-          overflow: hidden;
-          color: #0F172A;
-        }
-
-        .nd-hero-bg-grid {
-          position: absolute;
-          inset: 0;
-          background-image: 
-            linear-gradient(to right, rgba(46, 41, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(46, 41, 255, 0.03) 1px, transparent 1px);
-          background-size: 60px 60px;
-          mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 100%);
-          pointer-events: none;
-        }
-
-        .nd-hero-glow-1 {
-          position: absolute;
-          top: -150px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 800px;
-          height: 500px;
-          background: radial-gradient(circle, rgba(46,41,255,0.08) 0%, rgba(124,58,237,0.05) 40%, transparent 70%);
-          filter: blur(80px);
-          pointer-events: none;
-        }
-
-        .nd-hero-pill {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          padding: 8px 18px;
-          border-radius: 100px;
-          background: #FFFFFF;
-          border: 1px solid rgba(46, 41, 255, 0.2);
-          font-size: 13px;
-          font-weight: 700;
-          color: #2E29FF;
-          letter-spacing: 0.5px;
-          margin-bottom: 28px;
-          box-shadow: 0 4px 16px rgba(46,41,255,0.08);
-        }
-
-        .nd-hero-headline {
-          font-family: 'Space Grotesk', sans-serif;
-          font-size: clamp(42px, 5.8vw, 72px);
-          font-weight: 800;
-          line-height: 1.08;
-          letter-spacing: -2px;
-          margin-bottom: 24px;
-          color: #0F172A;
-        }
-
-        .nd-gradient-text {
-          background: linear-gradient(135deg, #2E29FF 0%, #7C3AED 50%, #00B882 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-
-        .nd-hero-desc {
-          font-size: clamp(17px, 2.2vw, 19.5px);
-          line-height: 1.75;
-          color: #475569;
-          max-width: 780px;
-          margin: 0 auto 52px auto;
-          font-weight: 400;
-        }
-
-        /* ── HERO STATS GRID (LIGHT) ── */
-        .nd-hero-stats-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 18px;
-          max-width: 1100px;
-          margin: 0 auto;
-        }
-
-        .nd-stat-glass-card {
-          padding: 28px 22px;
-          border-radius: 20px;
-          background: #FFFFFF;
-          border: 1.5px solid #E2E8F0;
-          box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
-          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-          text-align: center;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .nd-stat-glass-card:hover {
-          transform: translateY(-6px);
-          border-color: rgba(46, 41, 255, 0.3);
-          box-shadow: 0 20px 40px rgba(46, 41, 255, 0.08);
-        }
-
-        .nd-stat-val {
-          font-family: 'Space Grotesk', sans-serif;
-          font-size: 40px;
-          font-weight: 800;
-          line-height: 1;
-          margin-bottom: 10px;
-        }
-
-        .nd-stat-lbl {
-          font-size: 14px;
-          font-weight: 700;
-          color: #0F172A;
-          margin-bottom: 4px;
-        }
-
-        .nd-stat-sub {
-          font-size: 12px;
-          color: #64748B;
-        }
-
-        /* ── PARADIGM COMPARISON SECTION (LIGHT) ── */
-        .nd-paradigm-section {
-          padding: 110px 24px;
-          background: #F8FAFC;
-          position: relative;
-          color: #0F172A;
-        }
-
-        .nd-section-tag {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          padding: 6px 14px;
-          border-radius: 100px;
-          font-size: 11px;
-          font-weight: 800;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          margin-bottom: 14px;
-        }
-
-        .nd-section-h2 {
-          font-family: 'Space Grotesk', sans-serif;
-          font-size: clamp(32px, 4vw, 50px);
-          font-weight: 800;
-          letter-spacing: -1.2px;
-          line-height: 1.12;
-          margin-bottom: 18px;
-          color: #0F172A;
-        }
-
-        .nd-section-lead {
-          font-size: 17.5px;
-          color: #64748B;
-          max-width: 640px;
-          line-height: 1.7;
-        }
-
-        .nd-comparison-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 24px;
-          margin-top: 60px;
-        }
-
-        .nd-comp-card {
-          padding: 34px 30px;
-          border-radius: 24px;
-          background: #FFFFFF;
-          border: 1.5px solid #E2E8F0;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-          transition: all 0.35s ease;
-        }
-
-        .nd-comp-card:hover {
-          border-color: rgba(46, 41, 255, 0.3);
-          transform: translateY(-4px);
-          box-shadow: 0 20px 40px rgba(46, 41, 255, 0.06);
-        }
-
-        .nd-comp-header {
-          display: flex;
-          align-items: center;
-          gap: 14px;
-          margin-bottom: 24px;
-          padding-bottom: 18px;
-          border-bottom: 1px solid #F1F5F9;
-        }
-
-        .nd-comp-title {
-          font-size: 20px;
-          font-weight: 700;
-          color: #0F172A;
-        }
-
-        .nd-comp-row {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 16px;
-        }
-
-        .nd-comp-box {
-          padding: 16px;
-          border-radius: 14px;
-          font-size: 13.5px;
-          line-height: 1.6;
-        }
-
-        .nd-comp-box.trad {
-          background: #FEF2F2;
-          border: 1px solid rgba(239, 68, 68, 0.2);
-          color: #991B1B;
-        }
-
-        .nd-comp-box.nova {
-          background: #ECFDF5;
-          border: 1px solid rgba(16, 185, 129, 0.25);
-          color: #065F46;
-        }
-
-        .nd-comp-box-title {
-          font-size: 11px;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          margin-bottom: 6px;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-        }
-
-        /* ── TECHNICAL LEADERSHIP SECTION (LIGHT MODE - NO PORTRAIT IMAGES) ── */
-        .nd-exec-section {
-          padding: 120px 24px;
-          background: #FFFFFF;
-          color: #0F172A;
-          position: relative;
-        }
-
-        .nd-leadership-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 32px;
-          margin-top: 60px;
-        }
-
-        .nd-leader-tech-card {
-          padding: 44px 38px;
-          border-radius: 32px;
-          background: #FFFFFF;
-          border: 1.5px solid #E2E8F0;
-          box-shadow: 0 16px 40px rgba(15, 23, 42, 0.04);
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          position: relative;
-          overflow: hidden;
-        }
-
-        .nd-leader-tech-card::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 3px;
-          background: var(--leader-accent, #2E29FF);
-        }
-
-        .nd-leader-tech-card:hover {
-          transform: translateY(-8px);
-          border-color: var(--leader-accent, #2E29FF);
-          box-shadow: 0 28px 60px rgba(15, 23, 42, 0.08);
-        }
-
-        .nd-terminal-header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 12px 18px;
-          border-radius: 14px;
-          background: #F1F5F9;
-          border: 1px solid #E2E8F0;
-          font-family: 'Space Grotesk', monospace;
-          font-size: 12px;
-          color: #334155;
-          margin-bottom: 28px;
-        }
-
-        .nd-terminal-dots {
-          display: flex;
-          gap: 6px;
-        }
-
-        .nd-terminal-dot {
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-        }
-
-        .nd-leader-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          padding: 6px 14px;
-          border-radius: 100px;
-          font-size: 12px;
-          font-weight: 800;
-          letter-spacing: 0.5px;
-          text-transform: uppercase;
-          margin-bottom: 20px;
-        }
-
-        .nd-leader-name {
-          font-family: 'Space Grotesk', sans-serif;
-          font-size: clamp(30px, 3.5vw, 42px);
-          font-weight: 800;
-          color: #0F172A;
-          letter-spacing: -1.2px;
-          line-height: 1.1;
-          margin-bottom: 18px;
-        }
-
-        .nd-leader-bio {
-          font-size: 16px;
-          line-height: 1.75;
-          color: #475569;
-          margin-bottom: 24px;
-        }
-
-        .nd-leader-quote {
-          padding: 20px 24px;
-          border-left: 3.5px solid var(--leader-accent, #2E29FF);
-          background: #F8FAFC;
-          border-radius: 0 16px 16px 0;
-          font-size: 14.5px;
-          font-style: italic;
-          color: #1E293B;
-          margin-bottom: 28px;
           line-height: 1.65;
         }
 
-        .nd-leader-signature {
-          font-family: 'Georgia', serif;
-          font-size: 28px;
-          font-style: italic;
-          color: #0F172A;
-          margin-bottom: 28px;
-          opacity: 0.9;
+        .nd-craft-page * {
+          box-sizing: border-box;
         }
 
-        .nd-leader-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
+        .nd-shell {
+          max-width: 1240px;
+          margin: 0 auto;
+          padding: 0 32px;
         }
 
-        .nd-leader-tag {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          padding: 8px 14px;
-          border-radius: 10px;
-          background: #F1F5F9;
-          border: 1px solid #E2E8F0;
-          font-size: 12.5px;
-          font-weight: 600;
-          color: #334155;
-        }
-
-        /* ── TECH ECOSYSTEM MATRIX (LIGHT) ── */
-        .nd-tech-section {
-          padding: 110px 24px;
-          background: #F8FAFC;
-          color: #0F172A;
-          position: relative;
-        }
-
-        .nd-tech-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-          margin-top: 60px;
-        }
-
-        .nd-tech-card {
-          padding: 28px 22px;
-          border-radius: 20px;
-          background: #FFFFFF;
-          border: 1.5px solid #E2E8F0;
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
-          transition: all 0.35s ease;
-          display: flex;
-          align-items: center;
-          gap: 16px;
-        }
-
-        .nd-tech-card:hover {
-          transform: translateY(-5px);
-          border-color: rgba(46, 41, 255, 0.3);
-          box-shadow: 0 16px 36px rgba(46, 41, 255, 0.08);
-        }
-
-        .nd-tech-icon-wrap {
-          width: 48px;
-          height: 48px;
-          border-radius: 14px;
-          background: #F1F5F9;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-
-        .nd-tech-icon-wrap img {
-          width: 26px;
-          height: 26px;
-          object-fit: contain;
-        }
-
-        .nd-tech-name {
-          font-size: 16px;
-          font-weight: 700;
-          color: #0F172A;
-          margin-bottom: 2px;
-        }
-
-        .nd-tech-desc {
-          font-size: 12.5px;
-          color: #64748B;
-        }
-
-        /* ── CORE VALUES SECTION (LIGHT) ── */
-        .nd-values-section {
-          padding: 120px 24px;
-          background: #FFFFFF;
-          color: #0F172A;
-          position: relative;
-        }
-
-        .nd-values-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-          margin-top: 60px;
-        }
-
-        .nd-value-card {
-          padding: 36px 30px;
-          border-radius: 28px;
-          background: #FFFFFF;
-          border: 1.5px solid #E2E8F0;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          position: relative;
-          overflow: hidden;
-        }
-
-        .nd-value-card::after {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 3px;
-          background: var(--card-accent, #2E29FF);
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        .nd-value-card:hover {
-          transform: translateY(-8px);
-          border-color: var(--card-accent, #2E29FF);
-          box-shadow: 0 28px 60px rgba(0, 0, 0, 0.06);
-        }
-
-        .nd-value-card:hover::after {
-          opacity: 1;
-        }
-
-        .nd-value-icon-box {
-          width: 58px;
-          height: 58px;
-          border-radius: 16px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 24px;
-        }
-
-        .nd-value-badge {
-          display: inline-block;
-          padding: 4px 10px;
-          border-radius: 6px;
+        /* Monospaced Technical Eyebrow */
+        .nd-mono-tag {
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
           font-size: 11px;
           font-weight: 700;
-          letter-spacing: 0.5px;
+          letter-spacing: 1.5px;
           text-transform: uppercase;
-          margin-bottom: 14px;
-        }
-
-        .nd-value-title {
-          font-family: 'Space Grotesk', sans-serif;
-          font-size: 22px;
-          font-weight: 700;
-          color: #0F172A;
-          margin-bottom: 12px;
-        }
-
-        .nd-value-desc {
-          font-size: 14.5px;
           color: #64748B;
-          line-height: 1.7;
-        }
-
-        /* ── PROCESS TIMELINE SECTION (LIGHT) ── */
-        .nd-process-section {
-          padding: 120px 24px;
-          background: #F8FAFC;
-          color: #0F172A;
-        }
-
-        .nd-process-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-          margin-top: 60px;
-          position: relative;
-        }
-
-        .nd-process-card {
-          padding: 32px 24px;
-          border-radius: 24px;
-          background: #FFFFFF;
-          border: 1.5px solid #E2E8F0;
-          box-shadow: 0 6px 20px rgba(0,0,0,0.02);
-          transition: all 0.35s ease;
-          position: relative;
-        }
-
-        .nd-process-card:hover {
-          transform: translateY(-6px);
-          border-color: var(--step-accent, #2E29FF);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-        }
-
-        .nd-process-step-num {
-          font-family: 'Space Grotesk', sans-serif;
-          font-size: 44px;
-          font-weight: 800;
-          line-height: 1;
-          color: #CBD5E1;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
           margin-bottom: 16px;
         }
 
-        .nd-process-title {
-          font-size: 19px;
+        .nd-mono-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #2563EB;
+          display: inline-block;
+        }
+
+        /* ─── 1. HERO: CLEAN & PREMIUM DUO-FOUNDER CENTERPIECE ─── */
+        .nd-hero-atelier-canvas {
+          padding: 80px 0 0 0;
+          background: 
+            radial-gradient(ellipse 70% 50% at 50% 15%, rgba(37, 99, 235, 0.05) 0%, transparent 80%),
+            linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+          border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+          position: relative;
+          overflow: hidden;
+          text-align: center;
+        }
+
+        /* Duo Founders Centerpiece Frame */
+        .nd-hero-atelier-canvas .nd-shell {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .nd-hero-duo-stage {
+          position: relative;
+          max-width: 600px;
+          width: 100%;
+          margin: 0 auto 16px auto;
+          text-align: center;
+        }
+
+        .nd-hero-duo-img-wrap {
+          position: relative;
+          width: 100%;
+          max-width: 580px;
+          margin: 0 auto;
+        }
+
+        .nd-hero-duo-img {
+          width: 100%;
+          max-height: 440px;
+          object-fit: contain;
+          display: block;
+          margin: 0 auto;
+          filter: drop-shadow(0 16px 36px rgba(15, 23, 42, 0.05));
+        }
+
+        /* Clean Founder Credit Pill */
+        .nd-hero-duo-credit {
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          padding: 8px 20px;
+          background: rgba(255, 255, 255, 0.92);
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          border-radius: 999px;
+          box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+          margin-top: 14px;
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+          font-size: 11.5px;
           font-weight: 700;
+          color: #334155;
+          letter-spacing: 0.5px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .nd-credit-dot {
+          color: #2563EB;
+        }
+
+        /* Grand Integrated Headline Area */
+        .nd-hero-text-block {
+          text-align: center;
+          max-width: 760px;
+          margin: 32px auto 0 auto;
+          position: relative;
+          z-index: 5;
+          padding-bottom: 64px;
+        }
+
+        .nd-hero-main-h1 {
+          font-size: clamp(38px, 5.2vw, 68px);
+          font-weight: 800;
+          letter-spacing: -2px;
+          line-height: 1.08;
           color: #0F172A;
-          margin-bottom: 10px;
+          margin: 0 0 18px 0;
         }
 
-        .nd-process-desc {
+        .nd-hero-main-h1 em {
+          font-style: italic;
+          font-family: Georgia, serif;
+          font-weight: 400;
+          color: #2563EB;
+        }
+
+        .nd-hero-sub-p {
+          font-size: 17px;
+          color: #475569;
+          line-height: 1.75;
+          max-width: 600px;
+          margin: 0 auto 52px auto;
+        }
+
+        .nd-hero-cta-cluster {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
+        .nd-hero-btn-primary {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 14px 28px;
+          background: #0F172A;
+          color: #FFFFFF;
+          font-size: 14.5px;
+          font-weight: 700;
+          border-radius: 14px;
+          text-decoration: none;
+          transition: all 0.25s ease;
+          box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
+          white-space: nowrap;
+        }
+
+        .nd-hero-btn-primary:hover {
+          background: #2563EB;
+          transform: translateY(-2px);
+          box-shadow: 0 14px 32px rgba(37, 99, 235, 0.35);
+        }
+
+        .nd-hero-btn-secondary {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 14px 24px;
+          background: #FFFFFF;
+          color: #0F172A;
           font-size: 14px;
-          color: #64748B;
-          line-height: 1.65;
+          font-weight: 700;
+          border-radius: 14px;
+          border: 1.5px solid rgba(15, 23, 42, 0.14);
+          text-decoration: none;
+          transition: all 0.25s ease;
+          white-space: nowrap;
+        }
+
+        .nd-hero-btn-secondary:hover {
+          background: #F8FAFC;
+          border-color: #2563EB;
+          color: #2563EB;
+        }
+
+        /* ── BLUE TICKER (MATCHING HOME PAGE BLUE TICKER) ── */
+        .nd-blue-ticker-wrap { 
+          background: #2E29FF; 
+          padding: 18px 0; 
+          overflow: hidden; 
+          position: relative; 
+          z-index: 10; 
+          border-top: 1px solid rgba(255, 255, 255, 0.15); 
+          border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
+          margin-top: 48px;
+        }
+
+        .nd-blue-ticker-wrap::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; bottom: 0;
+          width: 140px;
+          background: linear-gradient(90deg, #2E29FF 0%, transparent 100%);
+          z-index: 3;
+          pointer-events: none;
+        }
+
+        .nd-blue-ticker-wrap::after {
+          content: '';
+          position: absolute;
+          top: 0; right: 0; bottom: 0;
+          width: 140px;
+          background: linear-gradient(270deg, #2E29FF 0%, transparent 100%);
+          z-index: 3;
+          pointer-events: none;
+        }
+
+        .nd-blue-ticker { display: flex; width: 100%; }
+        .nd-blue-ticker-track { 
+          display: flex; 
+          width: max-content; 
+          animation: nd-about-ticker-slide 32s linear infinite; 
+        }
+
+        .nd-blue-ticker-wrap:hover .nd-blue-ticker-track {
+          animation-play-state: paused;
+        }
+
+        .nd-blue-ticker-group { 
+          display: flex; 
+          align-items: center; 
+          gap: 52px; 
+          padding-right: 52px; 
+          white-space: nowrap; 
+        }
+
+        .nd-blue-ticker-group span { 
+          font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif; 
+          font-size: 14px; 
+          font-weight: 800; 
+          color: #FFFFFF; 
+          letter-spacing: 1.5px; 
+          text-transform: uppercase; 
+          display: flex; 
+          align-items: center; 
+          gap: 10px; 
+        }
+
+        .nd-ticker-star {
+          color: #FFB6DB;
+          font-size: 13px;
+        }
+
+        @keyframes nd-about-ticker-slide { 
+          0% { transform: translate3d(0, 0, 0); } 
+          100% { transform: translate3d(-50%, 0, 0); } 
+        }
+
+        @media (max-width: 1024px) {
+          .nd-hero-text-block {
+            margin-top: 20px;
+          }
+          .nd-vital-divider {
+            display: none;
+          }
+          .nd-hero-vitals-strip {
+            gap: 14px;
+          }
+        }
+
+        /* ─── 2. BEHIND THE SCREENS: WORKSHOP ARTIFACTS ─── */
+        .nd-artifacts-canvas {
+          padding: 110px 0;
+          background: #FFFFFF;
+          border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        }
+
+        .nd-artifacts-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 36px;
+          margin-top: 48px;
+        }
+
+        .nd-artifact-box {
+          background: #FAF9F6;
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          border-radius: 20px;
+          padding: 32px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .nd-artifact-box:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 16px 36px rgba(15, 23, 42, 0.05);
+        }
+
+        .nd-artifact-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
           margin-bottom: 20px;
+          border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+          padding-bottom: 14px;
         }
 
-        .nd-process-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
+        .nd-artifact-title {
+          font-size: 16px;
+          font-weight: 800;
+          color: #0F172A;
+          letter-spacing: -0.3px;
         }
 
-        .nd-process-item {
+        .nd-artifact-caption {
+          font-size: 14.5px;
+          color: #475569;
+          line-height: 1.7;
+          margin-top: 20px;
+        }
+
+        /* Terminal Artifact Specimen */
+        .nd-terminal-specimen {
+          background: #0B0F17;
+          color: #F8FAFC;
+          border-radius: 12px;
+          padding: 20px;
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+          font-size: 12.5px;
+          line-height: 1.6;
+          overflow-x: auto;
+          box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .nd-code-keyword { color: #F43F5E; }
+        .nd-code-fn { color: #38BDF8; }
+        .nd-code-string { color: #34D399; }
+        .nd-code-comment { color: #64748B; font-style: italic; }
+
+        /* Slack / Direct Chat Specimen */
+        .nd-chat-specimen {
+          background: #FFFFFF;
+          border: 1px solid #E2E8F0;
+          border-radius: 14px;
+          padding: 18px;
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+
+        .nd-chat-msg {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .nd-chat-avatar {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          object-fit: cover;
+          flex-shrink: 0;
+        }
+
+        .nd-chat-bubble {
+          background: #F1F5F9;
+          border-radius: 12px;
+          padding: 10px 14px;
+          font-size: 13.5px;
+          color: #1E293B;
+          line-height: 1.5;
+        }
+
+        .nd-chat-author {
+          font-size: 11.5px;
+          font-weight: 700;
+          color: #64748B;
+          margin-bottom: 2px;
+        }
+
+        /* Whiteboard Schema Specimen */
+        .nd-schema-specimen {
+          background: #FFFFFF;
+          border: 1px dashed #CBD5E1;
+          border-radius: 12px;
+          padding: 18px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          font-family: ui-monospace, monospace;
+          font-size: 12px;
+          color: #334155;
+        }
+
+        .nd-schema-row {
+          display: flex;
+          justify-content: space-between;
+          padding: 6px 10px;
+          background: #F8FAFC;
+          border-radius: 6px;
+        }
+
+        /* Staging Preview Specimen */
+        .nd-staging-specimen {
+          background: #FFFFFF;
+          border: 1px solid #E2E8F0;
+          border-radius: 12px;
+          padding: 16px;
+        }
+
+        .nd-staging-url-bar {
+          background: #F8FAFC;
+          border: 1px solid #E2E8F0;
+          border-radius: 6px;
+          padding: 6px 12px;
+          font-family: ui-monospace, monospace;
+          font-size: 11.5px;
+          color: #2563EB;
+          margin-bottom: 12px;
           display: flex;
           align-items: center;
           gap: 8px;
-          font-size: 12.5px;
-          font-weight: 600;
-          color: #475569;
-          margin-bottom: 6px;
         }
 
-        /* ── DOMAIN CAPABILITIES MATRIX (LIGHT) ── */
-        .nd-cap-section {
-          padding: 120px 24px;
-          background: #FFFFFF;
-          color: #0F172A;
-        }
-
-        .nd-filter-bar {
+        .nd-staging-badge-row {
           display: flex;
-          justify-content: center;
-          gap: 10px;
+          gap: 8px;
           flex-wrap: wrap;
-          margin-top: 36px;
-          margin-bottom: 52px;
         }
 
-        .nd-filter-btn {
-          padding: 10px 22px;
-          border-radius: 100px;
-          font-size: 13.5px;
+        .nd-staging-pill {
+          font-size: 11px;
           font-weight: 700;
-          border: 1.5px solid #E2E8F0;
-          background: #FFFFFF;
-          color: #64748B;
-          cursor: pointer;
-          transition: all 0.25s ease;
+          background: #ECFDF5;
+          color: #059669;
+          padding: 3px 8px;
+          border-radius: 4px;
         }
 
-        .nd-filter-btn:hover, .nd-filter-btn.active {
-          background: #2E29FF;
-          color: #FFFFFF;
-          border-color: #2E29FF;
-          box-shadow: 0 8px 20px rgba(46, 41, 255, 0.25);
-        }
-
-        .nd-cap-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 28px;
-        }
-
-        .nd-cap-card {
-          padding: 32px 28px;
-          border-radius: 28px;
-          background: #FFFFFF;
-          border: 1.5px solid #E2E8F0;
-          box-shadow: 0 6px 20px rgba(0,0,0,0.02);
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        /* ─── 3. THE STUDIO JOURNAL: 4 CHAPTERS OF PROGRESSION ─── */
+        .nd-journal-canvas {
+          padding: 110px 0;
+          background: #FAF9F6;
+          border-bottom: 1px solid rgba(15, 23, 42, 0.08);
           position: relative;
         }
 
-        .nd-cap-card:hover {
-          transform: translateY(-8px);
-          border-color: var(--cap-color, #2E29FF);
-          box-shadow: 0 24px 50px rgba(0, 0, 0, 0.07);
+        .nd-journal-header {
+          text-align: center;
+          max-width: 760px;
+          margin: 0 auto 56px auto;
         }
 
-        .nd-cap-icon-box {
-          width: 54px;
-          height: 54px;
-          border-radius: 16px;
+        .nd-journal-h2 {
+          font-size: clamp(30px, 4vw, 44px);
+          font-weight: 800;
+          letter-spacing: -1.2px;
+          color: #0F172A;
+          margin: 12px 0 16px 0;
+        }
+
+        /* Chapter Tabs Nav */
+        .nd-journal-nav {
+          display: flex;
+          justify-content: center;
+          gap: 12px;
+          margin-bottom: 40px;
+          flex-wrap: wrap;
+        }
+
+        .nd-journal-tab {
+          padding: 12px 24px;
+          background: #FFFFFF;
+          border: 1px solid rgba(15, 23, 42, 0.1);
+          border-radius: 12px;
+          font-size: 13.5px;
+          font-weight: 700;
+          color: #475569;
+          cursor: pointer;
+          transition: all 0.2s ease;
           display: flex;
           align-items: center;
-          justify-content: center;
-          margin-bottom: 22px;
+          gap: 8px;
         }
 
-        .nd-cap-title {
-          font-size: 20px;
+        .nd-journal-tab:hover {
+          border-color: #2563EB;
+          color: #2563EB;
+        }
+
+        .nd-journal-tab.active {
+          background: #0F172A;
+          color: #FFFFFF;
+          border-color: #0F172A;
+          box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+        }
+
+        /* Active Chapter Reading Pane */
+        .nd-chapter-pane {
+          background: #FFFFFF;
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          border-radius: 24px;
+          padding: 48px;
+          box-shadow: 0 16px 44px rgba(15, 23, 42, 0.04);
+          display: grid;
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: 52px;
+          align-items: center;
+        }
+
+        .nd-chapter-num-badge {
+          font-family: ui-monospace, monospace;
+          font-size: 13px;
           font-weight: 800;
-          color: #0F172A;
-          margin-bottom: 10px;
+          letter-spacing: 1px;
+          color: #2563EB;
+          margin-bottom: 12px;
+          display: inline-block;
         }
 
-        .nd-cap-desc {
-          font-size: 14.5px;
+        .nd-chapter-h3 {
+          font-size: clamp(24px, 3vw, 36px);
+          font-weight: 800;
+          letter-spacing: -0.8px;
+          color: #0F172A;
+          margin: 0 0 8px 0;
+          line-height: 1.2;
+        }
+
+        .nd-chapter-sub {
+          font-size: 15px;
+          font-weight: 700;
+          color: #2563EB;
+          margin-bottom: 20px;
+        }
+
+        .nd-chapter-lead {
+          font-size: 16px;
+          font-weight: 600;
+          color: #1E293B;
+          line-height: 1.7;
+          margin-bottom: 16px;
+        }
+
+        .nd-chapter-story {
+          font-size: 15px;
+          color: #475569;
+          line-height: 1.8;
+          margin-bottom: 28px;
+        }
+
+        .nd-chapter-controls {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .nd-chapter-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 10px 20px;
+          border-radius: 10px;
+          font-size: 13px;
+          font-weight: 700;
+          border: 1px solid #CBD5E1;
+          background: #FFFFFF;
+          color: #1E293B;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .nd-chapter-btn:hover:not(:disabled) {
+          border-color: #2563EB;
+          color: #2563EB;
+          background: #F8FAFC;
+        }
+
+        .nd-chapter-btn:disabled {
+          opacity: 0.35;
+          cursor: not-allowed;
+        }
+
+        /* Chapter Right Side Artifact Box */
+        .nd-chapter-artifact-box {
+          background: #F8FAFC;
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          border-radius: 18px;
+          padding: 32px;
+        }
+
+        .nd-chapter-artifact-title {
+          font-family: ui-monospace, monospace;
+          font-size: 11px;
+          font-weight: 800;
+          letter-spacing: 1.2px;
+          text-transform: uppercase;
           color: #64748B;
-          line-height: 1.65;
+          margin-bottom: 14px;
+          display: block;
+        }
+
+        .nd-chapter-tangible-text {
+          font-size: 15px;
+          font-weight: 700;
+          color: #0F172A;
+          line-height: 1.6;
+          border-left: 3px solid #2563EB;
+          padding-left: 14px;
           margin-bottom: 24px;
         }
 
-        .nd-cap-tags {
+        .nd-chapter-metrics-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
           display: flex;
-          flex-wrap: wrap;
-          gap: 6px;
+          flex-direction: column;
+          gap: 12px;
         }
 
-        .nd-cap-tag {
-          font-size: 11.5px;
+        .nd-chapter-metric-item {
+          font-size: 13.5px;
+          font-weight: 600;
+          color: #334155;
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          line-height: 1.5;
+        }
+
+        /* ─── 4. THE 5 NON-NEGOTIABLE STUDIO TREATIES ─── */
+        .nd-treaties-canvas {
+          padding: 110px 0;
+          background: #FFFFFF;
+          border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        }
+
+        .nd-treaties-layout {
+          display: grid;
+          grid-template-columns: 0.85fr 1.15fr;
+          gap: 56px;
+          align-items: flex-start;
+        }
+
+        .nd-treaty-accordion-list {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .nd-treaty-item {
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          border-radius: 16px;
+          overflow: hidden;
+          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+          background: #FAF9F6;
+        }
+
+        .nd-treaty-item.active {
+          border-color: #2563EB;
+          background: #FFFFFF;
+          box-shadow: 0 8px 24px rgba(37, 99, 235, 0.06);
+        }
+
+        .nd-treaty-trigger {
+          width: 100%;
+          padding: 24px 28px;
+          background: none;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+          text-align: left;
+        }
+
+        .nd-treaty-trigger-left {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+        }
+
+        .nd-treaty-num {
+          font-family: ui-monospace, monospace;
+          font-size: 14px;
+          font-weight: 800;
+          color: #2563EB;
+        }
+
+        .nd-treaty-heading {
+          font-size: 17px;
+          font-weight: 800;
+          color: #0F172A;
+          letter-spacing: -0.3px;
+        }
+
+        .nd-treaty-content {
+          padding: 0 28px 28px 28px;
+          border-top: 1px solid rgba(15, 23, 42, 0.04);
+          margin-top: -6px;
+        }
+
+        .nd-treaty-tagline {
+          font-size: 14.5px;
           font-weight: 700;
-          background: #F8FAFC;
-          border: 1px solid #E2E8F0;
+          color: #2563EB;
+          margin: 16px 0 10px 0;
+        }
+
+        .nd-treaty-desc {
+          font-size: 14.5px;
           color: #475569;
-          padding: 5px 11px;
+          line-height: 1.7;
+          margin-bottom: 18px;
+        }
+
+        .nd-treaty-deliverables {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .nd-treaty-del-item {
+          font-size: 13px;
+          font-weight: 600;
+          color: #1E293B;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        /* ─── 5. EXECUTIVE FOUNDER DOSSIERS ─── */
+        .nd-founders-canvas {
+          padding: 110px 0;
+          background: #FAF9F6;
+          border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        }
+
+        .nd-founders-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px;
+          margin-top: 48px;
+        }
+
+        .nd-founder-dossier-card {
+          background: #FFFFFF;
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          border-radius: 24px;
+          overflow: hidden;
+          box-shadow: 0 12px 36px rgba(15, 23, 42, 0.04);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .nd-founder-top-banner {
+          padding: 36px 36px 24px 36px;
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+        }
+
+        .nd-founder-avatar-wrap {
+          width: 110px;
+          height: 110px;
+          border-radius: 18px;
+          overflow: hidden;
+          border: 2px solid #E2E8F0;
+          flex-shrink: 0;
+        }
+
+        .nd-founder-avatar-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        .nd-founder-info h3 {
+          font-size: 24px;
+          font-weight: 800;
+          color: #0F172A;
+          letter-spacing: -0.6px;
+          margin: 0 0 6px 0;
+        }
+
+        .nd-founder-role {
+          font-size: 13.5px;
+          font-weight: 700;
+          color: #2563EB;
+          margin-bottom: 8px;
+        }
+
+        .nd-founder-creed {
+          font-size: 13px;
+          color: #64748B;
+          font-style: italic;
+          line-height: 1.5;
+        }
+
+        .nd-founder-body {
+          padding: 32px 36px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          flex-grow: 1;
+        }
+
+        .nd-founder-bio {
+          font-size: 14.5px;
+          color: #475569;
+          line-height: 1.75;
+          margin-bottom: 24px;
+        }
+
+        .nd-founder-skills-strip {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-bottom: 32px;
+        }
+
+        .nd-skill-chip {
+          font-size: 12px;
+          font-weight: 600;
+          background: #F1F5F9;
+          border: 1px solid #E2E8F0;
+          color: #334155;
+          padding: 5px 12px;
           border-radius: 8px;
         }
 
-        /* ── FAQ SECTION (LIGHT) ── */
-        .nd-faq-section {
-          padding: 120px 24px;
-          background: #F8FAFC;
-          color: #0F172A;
+        .nd-founder-cta-row {
+          border-top: 1px solid #F1F5F9;
+          padding-top: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
 
-        .nd-faq-search-box {
-          max-width: 580px;
-          margin: 32px auto 48px auto;
-          position: relative;
+        /* ─── 6. GLOBAL SYNCHRONOUS DELIVERY (LIVE WORLD CLOCKS) ─── */
+        .nd-global-canvas {
+          padding: 110px 0;
+          background: #FFFFFF;
+          border-bottom: 1px solid rgba(15, 23, 42, 0.08);
         }
 
-        .nd-faq-input {
+        .nd-global-layout {
+          display: grid;
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: 56px;
+          align-items: center;
+        }
+
+        .nd-clocks-terminal {
+          background: #0F172A;
+          color: #FFFFFF;
+          border-radius: 24px;
+          padding: 36px;
+          box-shadow: 0 16px 44px rgba(15, 23, 42, 0.12);
+        }
+
+        .nd-clocks-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          padding-bottom: 18px;
+          margin-bottom: 24px;
+        }
+
+        .nd-clocks-header-title {
+          font-family: ui-monospace, monospace;
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: #60A5FA;
+        }
+
+        .nd-clocks-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .nd-clock-item {
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 12px;
+          padding: 14px 18px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        }
+
+        .nd-clock-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #10B981;
+          box-shadow: 0 0 8px #10B981;
+          flex-shrink: 0;
+        }
+
+        .nd-clock-meta {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
           width: 100%;
-          padding: 16px 20px 16px 52px;
+        }
+
+        .nd-clock-city {
+          font-size: 14px;
+          font-weight: 700;
+          color: #FFFFFF;
+        }
+
+        .nd-clock-zone {
+          font-size: 11px;
+          color: #94A3B8;
+          font-weight: 500;
+        }
+
+        .nd-clock-time {
+          font-family: ui-monospace, monospace;
+          font-size: 14px;
+          color: #60A5FA;
+          font-weight: 700;
+        }
+
+        /* ─── 7. PARTNERSHIP FAQS ─── */
+        .nd-faq-canvas {
+          padding: 110px 0;
+          background: #FAF9F6;
+          border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        }
+
+        .nd-faq-grid {
+          display: grid;
+          grid-template-columns: 0.9fr 1.1fr;
+          gap: 56px;
+          align-items: flex-start;
+        }
+
+        .nd-faq-card {
+          background: #FFFFFF;
+          border: 1px solid rgba(15, 23, 42, 0.08);
           border-radius: 16px;
-          border: 1.5px solid #E2E8F0;
-          background: #FFFFFF;
-          font-size: 15px;
-          color: #0F172A;
-          outline: none;
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
-          transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .nd-faq-input:focus {
-          border-color: #2E29FF;
-          box-shadow: 0 8px 24px rgba(46, 41, 255, 0.1);
-        }
-
-        .nd-faq-item {
-          border-radius: 20px;
-          border: 1.5px solid #E2E8F0;
-          background: #FFFFFF;
-          margin-bottom: 14px;
+          margin-bottom: 12px;
           overflow: hidden;
-          transition: all 0.3s ease;
+          transition: all 0.2s ease;
         }
 
-        .nd-faq-item.open {
-          border-color: rgba(46, 41, 255, 0.4);
-          box-shadow: 0 12px 32px rgba(46, 41, 255, 0.08);
-          background: #FFFFFF;
+        .nd-faq-card.open {
+          border-color: rgba(37, 99, 235, 0.4);
+          box-shadow: 0 6px 20px rgba(37, 99, 235, 0.06);
         }
 
         .nd-faq-btn {
           width: 100%;
-          padding: 24px 28px;
-          background: transparent;
+          padding: 22px 24px;
+          background: none;
           border: none;
           cursor: pointer;
           display: flex;
-          align-items: center;
           justify-content: space-between;
+          align-items: center;
           gap: 16px;
           text-align: left;
         }
 
-        .nd-faq-question {
-          font-size: 17px;
+        .nd-faq-q-text {
+          font-size: 16px;
           font-weight: 700;
           color: #0F172A;
-          line-height: 1.45;
-        }
-
-        .nd-faq-icon-wrap {
-          width: 34px;
-          height: 34px;
-          border-radius: 50%;
-          flex-shrink: 0;
-          background: #F1F5F9;
-          color: #475569;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.3s ease;
-          font-size: 18px;
-          font-weight: 700;
-        }
-
-        .nd-faq-item.open .nd-faq-icon-wrap {
-          background: #2E29FF;
-          color: #FFFFFF;
-        }
-
-        .nd-faq-ans-wrap {
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nd-faq-item.open .nd-faq-ans-wrap {
-          max-height: 320px;
+          line-height: 1.4;
         }
 
         .nd-faq-answer {
-          padding: 0 28px 24px 28px;
-          font-size: 15.5px;
+          padding: 0 24px 22px 24px;
+          font-size: 14.5px;
           color: #475569;
-          line-height: 1.8;
+          line-height: 1.75;
+          border-top: 1px solid rgba(15, 23, 42, 0.04);
         }
 
-        /* ── PRO CTA SECTION (VIBRANT ROYAL BLUE LIGHT ACCENT) ── */
-        .nd-cta-pro {
-          padding: 120px 24px;
-          background: linear-gradient(135deg, #2E29FF 0%, #1E1AD6 50%, #0D0B2E 100%);
-          position: relative;
-          overflow: hidden;
+        /* ─── 8. FINAL EDITORIAL CONVERSION STRIP ─── */
+        .nd-cta-strip {
+          padding: 90px 0;
+          background: #0B0F17;
           color: #FFFFFF;
           text-align: center;
-        }
-
-        .nd-cta-glow {
-          position: absolute;
-          width: 700px;
-          height: 700px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          pointer-events: none;
+          position: relative;
         }
 
         .nd-cta-content {
-          max-width: 780px;
+          max-width: 720px;
           margin: 0 auto;
-          position: relative;
-          z-index: 2;
         }
 
-        .nd-cta-title {
-          font-family: 'Space Grotesk', sans-serif;
-          font-size: clamp(36px, 5vw, 60px);
+        .nd-cta-h2 {
+          font-size: clamp(30px, 4vw, 44px);
           font-weight: 800;
-          letter-spacing: -1.5px;
-          line-height: 1.1;
-          margin-bottom: 24px;
+          letter-spacing: -1.2px;
+          margin: 14px 0 18px 0;
+          line-height: 1.2;
+        }
+
+        .nd-cta-p {
+          font-size: 16.5px;
+          color: #94A3B8;
+          line-height: 1.7;
+          margin-bottom: 36px;
+        }
+
+        .nd-btn-primary {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 16px 36px;
+          background: #2563EB;
           color: #FFFFFF;
-        }
-
-        .nd-cta-desc {
-          font-size: 18px;
-          color: rgba(255, 255, 255, 0.85);
-          line-height: 1.75;
-          margin-bottom: 44px;
-        }
-
-        .nd-cta-btns {
-          display: flex;
-          gap: 16px;
-          justify-content: center;
-          flex-wrap: wrap;
-        }
-
-        .nd-btn-primary-glow {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          padding: 16px 36px;
-          background: #FFFFFF;
-          color: #2E29FF !important;
-          font-weight: 800;
-          font-size: 15.5px;
-          border-radius: 14px;
-          text-decoration: none;
-          border: none;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .nd-btn-primary-glow:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
-        }
-
-        .nd-btn-glass {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          padding: 16px 36px;
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(12px);
-          color: #FFFFFF !important;
+          font-size: 15px;
           font-weight: 700;
-          font-size: 15.5px;
-          border-radius: 14px;
+          border-radius: 12px;
           text-decoration: none;
-          border: 1.5px solid rgba(255, 255, 255, 0.3);
-          cursor: pointer;
-          transition: all 0.3s ease;
+          transition: all 0.25s ease;
+          box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
         }
 
-        .nd-btn-glass:hover {
-          background: rgba(255, 255, 255, 0.2);
-          border-color: rgba(255, 255, 255, 0.6);
-          transform: translateY(-3px);
+        .nd-btn-primary:hover {
+          background: #1D4ED8;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 28px rgba(37, 99, 235, 0.45);
         }
 
-        /* ── RESPONSIVE DESIGN ── */
+        /* Responsive Breakpoints */
         @media (max-width: 1024px) {
-          .nd-hero-stats-grid { grid-template-columns: repeat(2, 1fr); }
-          .nd-leadership-grid { grid-template-columns: 1fr; gap: 32px; }
-          .nd-tech-grid { grid-template-columns: repeat(2, 1fr); }
-          .nd-values-grid { grid-template-columns: repeat(2, 1fr); }
-          .nd-process-grid { grid-template-columns: repeat(2, 1fr); }
-          .nd-cap-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 640px) {
-          .nd-hero-pro { padding: 90px 16px 60px 16px; }
-          .nd-hero-stats-grid { grid-template-columns: 1fr; }
-          .nd-comparison-grid { grid-template-columns: 1fr; }
-          .nd-comp-row { grid-template-columns: 1fr; }
-          .nd-tech-grid { grid-template-columns: 1fr; }
-          .nd-values-grid { grid-template-columns: 1fr; }
-          .nd-process-grid { grid-template-columns: 1fr; }
-          .nd-cap-grid { grid-template-columns: 1fr; }
+          .nd-letter-grid,
+          .nd-artifacts-grid,
+          .nd-chapter-pane,
+          .nd-treaties-layout,
+          .nd-founders-grid,
+          .nd-global-layout,
+          .nd-faq-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
         }
       `}</style>
 
-      <div className="nd-about-root">
+      <div className="nd-craft-page">
 
-        {/* ─── PRO HERO SECTION (LIGHT) ─────────────────────────────────────────── */}
-        <section className="nd-hero-pro">
-          <div className="nd-hero-bg-grid" />
-          <div className="nd-hero-glow-1" />
+        {/* ─── 1. HERO: CLEAN & PREMIUM DUO-FOUNDER CENTERPIECE ─── */}
+        <section className="nd-hero-atelier-canvas">
+          <div className="nd-shell">
+            
 
-          <div className="nd-container" style={{ textAlign: 'center' }}>
-            <Reveal direction="up" delay={0}>
-              <div className="nd-hero-pill">
-                <Sparkles size={15} style={{ color: '#2E29FF' }} />
-                <span>ABOUT NOVADESK STUDIO</span>
+            {/* Duo Founders Portrait Centerpiece Stage */}
+            <Reveal direction="up" delay={20}>
+              <div className="nd-hero-duo-stage">
+                <div className="nd-hero-duo-img-wrap">
+                  <img 
+                    src="/novadesk_founders_duo_feathered.png" 
+                    alt="Harsh Prateek & Piusha Patra - Founders of NovaDesk" 
+                    className="nd-hero-duo-img"
+                  />
+                </div>
+                
+                {/* Clean, Elegant Leadership Attribution Pill */}
+                <div className="nd-hero-duo-credit">
+                  <span>HARSH PRATEEK <span style={{ opacity: 0.7, fontWeight: 500 }}>(Lead Systems Architect)</span></span>
+                  <span className="nd-credit-dot">•</span>
+                  <span>PIUSHA PATRA <span style={{ opacity: 0.7, fontWeight: 500 }}>(Director of Operations)</span></span>
+                </div>
               </div>
             </Reveal>
 
-            <Reveal direction="up" delay={80}>
-              <h1 className="nd-hero-headline">
-                We Architect Systems.<br />
-                <span className="nd-gradient-text">Engineered for Legacy &amp; Scale.</span>
-              </h1>
+            {/* Integrated Grand Typography Block (Below/Overlapping image fade) */}
+            <Reveal direction="up" delay={120}>
+              <div className="nd-hero-text-block">
+                <h1 className="nd-hero-main-h1">
+                  Build your Startup <br />
+                  with <em>NovaDesk</em>
+                </h1>
+                <p className="nd-hero-sub-p">
+                  We built NovaDesk to liberate ambitious founders from agency bloat, hourly billing markups, and offshore junior handoffs. You work directly with the senior engineering leaders building your product.
+                </p>
+
+                {/* High-Intent CTAs */}
+                <div className="nd-hero-cta-cluster">
+                  <Link to="/contact-us" className="nd-hero-btn-primary">
+                    Book Architecture Discovery with Founders <ArrowRight size={16} />
+                  </Link>
+                  <a href="#studio-treaties" className="nd-hero-btn-secondary">
+                    Explore Studio Treaties <ChevronDown size={15} />
+                  </a>
+                </div>
+
+              </div>
             </Reveal>
 
-            <Reveal direction="up" delay={140}>
-              <p className="nd-hero-desc">
-                NovaDesk is a modern software engineering studio built on direct technical access, weekly shippable iterations, and zero agency fluff. We help visionary founders turn ideas into resilient software.
-              </p>
-            </Reveal>
+          </div>
 
-            {/* Stats Glass Row */}
-            <Reveal direction="up" delay={200}>
-              <div className="nd-hero-stats-grid">
-                {heroStats.map((stat, idx) => (
-                  <div key={idx} className="nd-stat-glass-card">
-                    <div className="nd-stat-val" style={{ color: stat.color }}>{stat.value}</div>
-                    <div className="nd-stat-lbl">{stat.label}</div>
-                    <div className="nd-stat-sub">{stat.sub}</div>
+          {/* Full-Width Royal Blue Infinite Ticker (Matching Home Page) */}
+          <div className="nd-blue-ticker-wrap">
+            <div className="nd-blue-ticker">
+              <div className="nd-blue-ticker-track">
+                {[...Array(2)].map((_, idx) => (
+                  <div key={idx} className="nd-blue-ticker-group">
+                    <span><span className="nd-ticker-star">✦</span> 0 JUNIOR HANDOFFS</span>
+                    <span><span className="nd-ticker-star">✦</span> 7-DAY CLICKABLE STAGING</span>
+                    <span><span className="nd-ticker-star">✦</span> 100% DAY-1 IP SOVEREIGNTY</span>
+                    <span><span className="nd-ticker-star">✦</span> 21-DAY MVP FRAMEWORK</span>
+                    <span><span className="nd-ticker-star">✦</span> FIXED-SCOPE PREDICTABLE SPRINTS</span>
+                    <span><span className="nd-ticker-star">✦</span> DIRECT WHATSAPP &amp; SLACK</span>
+                    <span><span className="nd-ticker-star">✦</span> 4+ HOURS SYNCHRONOUS GLOBAL OVERLAP</span>
+                    <span><span className="nd-ticker-star">✦</span> ARCHITECT-REVIEWED CODE</span>
                   </div>
                 ))}
               </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* ─── THE NOVADESK PARADIGM (WHY WE ARE DIFFERENT) ───────────────────── */}
-        <section className="nd-paradigm-section">
-          <div className="nd-container">
-            <Reveal direction="up">
-              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
-                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
-                  THE ANTI-AGENCY PARADIGM
-                </span>
-                <h2 className="nd-section-h2">Why Forward-Thinking Founders Choose Us</h2>
-                <p className="nd-section-lead" style={{ margin: '0 auto' }}>
-                  Traditional software agencies are broken. We redesigned the agency model around speed, direct technical access, and senior engineering execution.
-                </p>
-              </div>
-            </Reveal>
-
-            <div className="nd-comparison-grid">
-              {paradigmComparison.map((item, idx) => (
-                <Reveal key={idx} direction="up" delay={idx * 80}>
-                  <div className="nd-comp-card">
-                    <div className="nd-comp-header">
-                      <div style={{ 
-                        width: 44, height: 44, borderRadius: 12, 
-                        background: 'rgba(46, 41, 255, 0.08)', 
-                        display: 'flex', alignItems: 'center', justifyContent: 'center' 
-                      }}>
-                        <Icon name={item.icon} type="lineal" color={item.color} size={24} />
-                      </div>
-                      <div className="nd-comp-title">{item.title}</div>
-                    </div>
-
-                    <div className="nd-comp-row">
-                      <div className="nd-comp-box trad">
-                        <div className="nd-comp-box-title">
-                          <AlertCircle size={13} /> Traditional Agency
-                        </div>
-                        {item.traditional}
-                      </div>
-
-                      <div className="nd-comp-box nova">
-                        <div className="nd-comp-box-title">
-                          <CheckCircle2 size={13} /> NovaDesk Approach
-                        </div>
-                        {item.novadesk}
-                      </div>
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
             </div>
           </div>
         </section>
 
-        {/* ─── TECHNICAL LEADERSHIP SECTION (LIGHT MODE - NO PORTRAIT IMAGES) ─── */}
-        <section className="nd-exec-section">
-          <div className="nd-container">
+        {/* ─── 2. BEHIND THE SCREENS: WORKSHOP ARTIFACTS ─── */}
+        <section className="nd-artifacts-canvas">
+          <div className="nd-shell">
             <Reveal direction="up">
-              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
-                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
-                  EXECUTIVE STEWARDSHIP
-                </span>
-                <h2 className="nd-section-h2">Guided by Engineering Precision</h2>
-                <p className="nd-section-lead" style={{ margin: '0 auto' }}>
-                  NovaDesk is directed by hands-on founders who actively code, architect systems, and lead client operations.
+              <div style={{ maxWidth: '780px' }}>
+                <div className="nd-mono-tag">
+                  <span className="nd-mono-dot" />
+                  [WORKSHOP EVIDENCE] • BEHIND THE SCREENS
+                </div>
+                <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-1.2px', color: '#0F172A', margin: '0 0 14px 0' }}>
+                  Real Software Engineering. Zero AI Gimmicks.
+                </h2>
+                <p style={{ fontSize: '16px', color: '#64748B', margin: 0 }}>
+                  Take a look at how production software is actually designed, verified, and shipped inside our studio every day.
                 </p>
               </div>
             </Reveal>
 
-            <div className="nd-leadership-grid">
-              {/* HARSH PRATEEK CARD */}
-              <Reveal direction="up" delay={0}>
-                <div className="nd-leader-tech-card" style={{ '--leader-accent': '#2E29FF' }}>
-                  <div className="nd-terminal-header">
-                    <div className="nd-terminal-dots">
-                      <span className="nd-terminal-dot" style={{ background: '#FF5F56' }} />
-                      <span className="nd-terminal-dot" style={{ background: '#FFBD2E' }} />
-                      <span className="nd-terminal-dot" style={{ background: '#27C93F' }} />
+            <div className="nd-artifacts-grid">
+              
+              {/* Artifact 01: Production Terminal Code */}
+              <Reveal direction="up" delay={50}>
+                <div className="nd-artifact-box">
+                  <div>
+                    <div className="nd-artifact-header">
+                      <span className="nd-artifact-title">ARTIFACT 01: DOWN TO THE METAL</span>
+                      <span className="nd-mono-tag" style={{ margin: 0, color: '#2563EB' }}>TypeScript / pgvector</span>
                     </div>
-                    <div>~ /novadesk/leadership/harsh-prateek</div>
-                    <Terminal size={14} />
+
+                    <div className="nd-terminal-specimen">
+                      <div><span className="nd-code-comment">// NovaDesk Core: Deterministic RAG Vector Query</span></div>
+                      <div><span className="nd-code-keyword">export async function</span> <span className="nd-code-fn">querySemanticVault</span>(prompt: <span className="nd-code-keyword">string</span>) &#123;</div>
+                      <div style={{ paddingLeft: '16px' }}><span className="nd-code-keyword">const</span> vector = <span className="nd-code-keyword">await</span> embed(prompt);</div>
+                      <div style={{ paddingLeft: '16px' }}><span className="nd-code-keyword">return await</span> db.query(sql`</div>
+                      <div style={{ paddingLeft: '32px' }}><span className="nd-code-string">SELECT id, chunk_data, 1 - (embedding &lt;=&gt; $&#123;vector&#125;) AS sim</span></div>
+                      <div style={{ paddingLeft: '32px' }}><span className="nd-code-string">FROM knowledge_vault WHERE sim &gt; 0.85 ORDER BY sim DESC LIMIT 5</span></div>
+                      <div style={{ paddingLeft: '16px' }}>`);</div>
+                      <div>&#125;</div>
+                    </div>
                   </div>
 
-                  <div className="nd-leader-badge" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
-                    <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#2E29FF' }} />
-                    Director &amp; Technical Founder
-                  </div>
-
-                  <h3 className="nd-leader-name">Harsh Prateek</h3>
-                  <p className="nd-leader-bio">
-                    NovaDesk was established to eliminate the bloat and indirect communication of traditional agencies. Harsh directs technical strategy, full-stack architecture, and AI integrations — giving clients direct developer access and clean production execution.
+                  <p className="nd-artifact-caption">
+                    We write typed, production-grade systems—deterministic vector retrieval, strict Postgres constraints, and clean domain isolation.
                   </p>
-                  
-                  <div className="nd-leader-quote">
-                    "Software should be built by people who deeply understand both lines of code and business outcome. No fluff, no excuses."
-                  </div>
-
-                  <div className="nd-leader-signature">Harsh Prateek</div>
-
-                  <div className="nd-leader-tags">
-                    {['Full-Stack Architecture', 'GenAI Systems', 'Next.js & FastAPI', 'Direct Access'].map((t, i) => (
-                      <span key={i} className="nd-leader-tag">
-                        <CheckCircle2 size={13} style={{ color: '#2E29FF' }} /> {t}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </Reveal>
 
-              {/* PIUSHA PATRA CARD */}
+              {/* Artifact 02: Direct Line WhatsApp / Slack */}
               <Reveal direction="up" delay={100}>
-                <div className="nd-leader-tech-card" style={{ '--leader-accent': '#00B882' }}>
-                  <div className="nd-terminal-header">
-                    <div className="nd-terminal-dots">
-                      <span className="nd-terminal-dot" style={{ background: '#FF5F56' }} />
-                      <span className="nd-terminal-dot" style={{ background: '#FFBD2E' }} />
-                      <span className="nd-terminal-dot" style={{ background: '#27C93F' }} />
+                <div className="nd-artifact-box">
+                  <div>
+                    <div className="nd-artifact-header">
+                      <span className="nd-artifact-title">ARTIFACT 02: DIRECT BUILDER LINE</span>
+                      <span className="nd-mono-tag" style={{ margin: 0, color: '#059669' }}>Zero Middlemen</span>
                     </div>
-                    <div>~ /novadesk/leadership/piusha-patra</div>
-                    <Command size={14} />
+
+                    <div className="nd-chat-specimen">
+                      <div className="nd-chat-msg">
+                        <img src="/hero-my-image.webp" alt="Harsh Prateek" className="nd-chat-avatar" />
+                        <div>
+                          <div className="nd-chat-author">Harsh Prateek (Lead Systems Architect)</div>
+                          <div className="nd-chat-bubble">
+                            "Staged the multi-tenant billing webhook on preview branch `v2.4`. Database migrations ran zero-downtime. Check staging link when free."
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="nd-chat-msg" style={{ flexDirection: 'row-reverse' }}>
+                        <div style={{ textAlign: 'right' }}>
+                          <div className="nd-chat-author">Client Founder</div>
+                          <div className="nd-chat-bubble" style={{ background: '#2563EB', color: '#FFFFFF' }}>
+                            "Tested on mobile Safari and Stripe test keys passed instantly! Ready to push to production."
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="nd-leader-badge" style={{ background: 'rgba(0, 184, 130, 0.1)', color: '#00B882' }}>
-                    <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#00B882' }} />
-                    Co-Founder &amp; Director of Operations
-                  </div>
-
-                  <h3 className="nd-leader-name">Piusha Patra</h3>
-                  <p className="nd-leader-bio">
-                    Piusha leads strategic direction, operational alignment, and client growth partnerships. Her focus ensures that every engineering project at NovaDesk operates with complete transparency, strict quality standards, and long-term client trust.
+                  <p className="nd-artifact-caption">
+                    No ticketing portals where your requests languish for 48 hours. You speak directly to Harsh and Piusha in a shared Slack or WhatsApp workspace.
                   </p>
+                </div>
+              </Reveal>
 
-                  <div className="nd-leader-quote" style={{ borderLeftColor: '#00B882' }}>
-                    "Every lasting business is built on trust, transparency, and uncompromised quality. We build software partnerships that last for years."
+              {/* Artifact 03: 7-Day Shippable Staging */}
+              <Reveal direction="up" delay={150}>
+                <div className="nd-artifact-box">
+                  <div>
+                    <div className="nd-artifact-header">
+                      <span className="nd-artifact-title">ARTIFACT 03: CLICKABLE STAGING</span>
+                      <span className="nd-mono-tag" style={{ margin: 0, color: '#2563EB' }}>Weekly Friday Demo</span>
+                    </div>
+
+                    <div className="nd-staging-specimen">
+                      <div className="nd-staging-url-bar">
+                        <Lock size={12} style={{ color: '#059669' }} />
+                        <span>https://staging-client-sprint.novadesk.app</span>
+                      </div>
+                      <div className="nd-staging-badge-row">
+                        <span className="nd-staging-pill">CI/CD PASSING</span>
+                        <span className="nd-staging-pill">POSTGRES HEALTHY</span>
+                        <span className="nd-staging-pill">AUTH STAGED</span>
+                        <span className="nd-staging-pill">VERCEL EDGE</span>
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="nd-leader-signature" style={{ color: '#00B882' }}>Piusha Patra</div>
+                  <p className="nd-artifact-caption">
+                    Every Friday, you test shippable code on your own devices. Slide decks don't validate businesses—clickable software does.
+                  </p>
+                </div>
+              </Reveal>
 
-                  <div className="nd-leader-tags">
-                    {['Client Partnerships', 'Operational Strategy', 'Project Governance', 'Quality Assurance'].map((t, i) => (
-                      <span key={i} className="nd-leader-tag">
-                        <CheckCircle2 size={13} style={{ color: '#00B882' }} /> {t}
-                      </span>
-                    ))}
+              {/* Artifact 04: Database Schema Blueprint */}
+              <Reveal direction="up" delay={200}>
+                <div className="nd-artifact-box">
+                  <div>
+                    <div className="nd-artifact-header">
+                      <span className="nd-artifact-title">ARTIFACT 04: ARCHITECTURE BLUEPRINT</span>
+                      <span className="nd-mono-tag" style={{ margin: 0, color: '#4F46E5' }}>Schema Discipline</span>
+                    </div>
+
+                    <div className="nd-schema-specimen">
+                      <div className="nd-schema-row">
+                        <span>TABLE: organizations</span>
+                        <span style={{ color: '#2563EB' }}>[PK: uuid, rls: enabled]</span>
+                      </div>
+                      <div className="nd-schema-row">
+                        <span>TABLE: tenant_subscriptions</span>
+                        <span style={{ color: '#059669' }}>[FK: org_id, stripe_sync]</span>
+                      </div>
+                      <div className="nd-schema-row">
+                        <span>TABLE: knowledge_vectors</span>
+                        <span style={{ color: '#D97706' }}>[dim: 1536, ivfflat_index]</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="nd-artifact-caption">
+                    Every system begins with rigorous data architecture on the whiteboard before writing a single API endpoint.
+                  </p>
+                </div>
+              </Reveal>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 3. THE STUDIO JOURNAL: 4 CHAPTERS OF PROGRESSION ─── */}
+        <section className="nd-journal-canvas">
+          <div className="nd-shell">
+            <Reveal direction="up">
+              <div className="nd-journal-header">
+                <div className="nd-mono-tag">
+                  <span className="nd-mono-dot" />
+                  [STUDIO CHRONICLE] • EVOLUTION OF AN ENGINEERING STANDARD
+                </div>
+                <h2 className="nd-journal-h2">
+                  The Four Chapters of NovaDesk
+                </h2>
+                <p style={{ fontSize: '16px', color: '#64748B', margin: 0 }}>
+                  Click each chapter below to inspect how our engineering methodologies and capabilities compound over time.
+                </p>
+              </div>
+            </Reveal>
+
+            {/* Chapter Selector Tabs */}
+            <div className="nd-journal-nav">
+              {studioChapters.map((chap, idx) => (
+                <button
+                  key={idx}
+                  className={`nd-journal-tab ${activeChapter === idx ? 'active' : ''}`}
+                  onClick={() => setActiveChapter(idx)}
+                >
+                  <BookOpen size={14} />
+                  <span>Chapter {chap.chapter}: {chap.title}</span>
+                  <span style={{ opacity: 0.6, fontSize: '12px' }}>({chap.era})</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Active Chapter Reading Pane */}
+            <div className="nd-chapter-pane">
+              {/* Left Column: Chapter Narrative */}
+              <div>
+                <span className="nd-chapter-num-badge">
+                  CHAPTER {studioChapters[activeChapter].chapter} • {studioChapters[activeChapter].era}
+                </span>
+                
+                <h3 className="nd-chapter-h3">
+                  {studioChapters[activeChapter].title}
+                </h3>
+
+                <div className="nd-chapter-sub">
+                  {studioChapters[activeChapter].subtitle}
+                </div>
+
+                <p className="nd-chapter-lead">
+                  "{studioChapters[activeChapter].lead}"
+                </p>
+
+                <p className="nd-chapter-story">
+                  {studioChapters[activeChapter].story}
+                </p>
+
+                <div className="nd-chapter-controls">
+                  <button 
+                    className="nd-chapter-btn"
+                    onClick={() => setActiveChapter(prev => Math.max(0, prev - 1))}
+                    disabled={activeChapter === 0}
+                  >
+                    <ArrowLeft size={14} /> Previous Chapter
+                  </button>
+                  <button 
+                    className="nd-chapter-btn"
+                    onClick={() => setActiveChapter(prev => Math.min(studioChapters.length - 1, prev + 1))}
+                    disabled={activeChapter === studioChapters.length - 1}
+                  >
+                    Next Chapter <ArrowRight size={14} />
+                  </button>
+                  <span style={{ fontSize: '13px', color: '#64748B', fontWeight: 600, marginLeft: 8 }}>
+                    {activeChapter + 1} of {studioChapters.length}
+                  </span>
+                </div>
+              </div>
+
+              {/* Right Column: Tangible Artifact & Impact Box */}
+              <div className="nd-chapter-artifact-box">
+                <span className="nd-chapter-artifact-title">
+                  TANGIBLE STUDIO DELIVERABLE
+                </span>
+
+                <div className="nd-chapter-tangible-text">
+                  {studioChapters[activeChapter].tangibleArtifact}
+                </div>
+
+                <span className="nd-chapter-artifact-title" style={{ marginTop: '20px' }}>
+                  KEY MILESTONES &amp; STANDARDS
+                </span>
+
+                <ul className="nd-chapter-metrics-list">
+                  {studioChapters[activeChapter].metrics.map((metric, mIdx) => (
+                    <li key={mIdx} className="nd-chapter-metric-item">
+                      <CheckCircle2 size={16} style={{ color: '#059669', flexShrink: 0, marginTop: 2 }} />
+                      <span>{metric}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ─── 4. THE 5 NON-NEGOTIABLE STUDIO TREATIES ─── */}
+        <section id="studio-treaties" className="nd-treaties-canvas">
+          <div className="nd-shell">
+            <div className="nd-treaties-layout">
+              
+              {/* Left Column: Treaty Lead */}
+              <Reveal direction="up">
+                <div>
+                  <div className="nd-mono-tag">
+                    <span className="nd-mono-dot" />
+                    [STUDIO LAW] • THE FIVE TREATIES
+                  </div>
+                  <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-1.2px', color: '#0F172A', margin: '0 0 16px 0', lineHeight: 1.2 }}>
+                    Non-Negotiable Guarantees We Put in Writing
+                  </h2>
+                  <p style={{ fontSize: '16px', color: '#475569', lineHeight: 1.75, marginBottom: '28px' }}>
+                    Agencies hide behind vague statements of work and ambiguous change orders. NovaDesk operates under five unyielding commitments that protect your capital, IP, and launch schedule.
+                  </p>
+                  <Link to="/contact-us" className="nd-btn-primary">
+                    Book Architecture Discovery <ArrowRight size={15} />
+                  </Link>
+                </div>
+              </Reveal>
+
+              {/* Right Column: Accordion Treaties */}
+              <div className="nd-treaty-accordion-list">
+                {studioTreaties.map((treaty, idx) => {
+                  const isOpen = activeTreaty === idx;
+                  return (
+                    <div 
+                      key={idx} 
+                      className={`nd-treaty-item ${isOpen ? 'active' : ''}`}
+                    >
+                      <button 
+                        className="nd-treaty-trigger"
+                        onClick={() => setActiveTreaty(isOpen ? null : idx)}
+                      >
+                        <div className="nd-treaty-trigger-left">
+                          <span className="nd-treaty-num">{treaty.num}</span>
+                          <span className="nd-treaty-heading">{treaty.title}</span>
+                        </div>
+                        <ChevronDown 
+                          size={18} 
+                          style={{ 
+                            color: isOpen ? '#2563EB' : '#94A3B8',
+                            transform: isOpen ? 'rotate(180deg)' : 'none',
+                            transition: 'transform 0.2s ease'
+                          }} 
+                        />
+                      </button>
+
+                      {isOpen && (
+                        <div className="nd-treaty-content">
+                          <div className="nd-treaty-tagline">{treaty.tagline}</div>
+                          <p className="nd-treaty-desc">{treaty.narrative}</p>
+                          <ul className="nd-treaty-deliverables">
+                            {treaty.deliverables.map((item, dIdx) => (
+                              <li key={dIdx} className="nd-treaty-del-item">
+                                <Check size={14} style={{ color: '#059669', flexShrink: 0 }} />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 5. EXECUTIVE FOUNDER DOSSIERS ─── */}
+        <section className="nd-founders-canvas">
+          <div className="nd-shell">
+            <Reveal direction="up">
+              <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto' }}>
+                <div className="nd-mono-tag">
+                  <span className="nd-mono-dot" />
+                  [STUDIO LEADERSHIP] • MEET THE ARCHITECTS
+                </div>
+                <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-1.2px', color: '#0F172A', margin: '0 0 14px 0' }}>
+                  Direct Executive Accountability
+                </h2>
+                <p style={{ fontSize: '16px', color: '#64748B', margin: 0 }}>
+                  We are deliberately structured as a boutique, founder-led studio. When you hire NovaDesk, you get Harsh and Piusha directly in your corner.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="nd-founders-grid">
+              
+              {/* HARSH PRATEEK */}
+              <Reveal direction="up" delay={50}>
+                <div className="nd-founder-dossier-card">
+                  <div>
+                    <div className="nd-founder-top-banner">
+                      <div className="nd-founder-avatar-wrap">
+                        <img 
+                          src="/hero-my-image.webp" 
+                          alt="Harsh Prateek - Director & Lead Systems Architect" 
+                          className="nd-founder-avatar-img"
+                        />
+                      </div>
+                      <div className="nd-founder-info">
+                        <h3>Harsh Prateek</h3>
+                        <div className="nd-founder-role">Director &amp; Lead Systems Architect</div>
+                        <div className="nd-founder-creed">
+                          "Software is craft. If you don't understand the database query at 2 AM, you shouldn't be architecting a client's business."
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="nd-founder-body">
+                      <p className="nd-founder-bio">
+                        Harsh oversees technical systems architecture, full-stack scalability, and applied GenAI workflows at NovaDesk. He directly architects database topologies, conducts code review governance, and ensures every staging deployment is rock-solid.
+                      </p>
+
+                      <div className="nd-founder-skills-strip">
+                        <span className="nd-skill-chip">Next.js 15 &amp; React</span>
+                        <span className="nd-skill-chip">FastAPI &amp; Python</span>
+                        <span className="nd-skill-chip">Supabase &amp; PostgreSQL</span>
+                        <span className="nd-skill-chip">Vector RAG Pipelines</span>
+                        <span className="nd-skill-chip">Direct Dev Access</span>
+                      </div>
+
+                      <div className="nd-founder-cta-row">
+                        <span style={{ fontSize: '12px', color: '#64748B', fontWeight: 600 }}>Technical Governance</span>
+                        <Link to="/contact-us" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13.5px', fontWeight: 700, color: '#2563EB', textDecoration: 'none' }}>
+                          Sync with Harsh <ArrowRight size={14} />
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Reveal>
-            </div>
-          </div>
-        </section>
 
-        {/* ─── TECH ECOSYSTEM MATRIX (LIGHT) ────────────────────────────────── */}
-        <section className="nd-tech-section">
-          <div className="nd-container">
-            <Reveal direction="up">
-              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
-                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
-                  OUR TECH STACK
-                </span>
-                <h2 className="nd-section-h2">Battle-Tested Modern Technologies</h2>
-                <p className="nd-section-lead" style={{ margin: '0 auto' }}>
-                  We engineer products using modern frameworks chosen for speed, scalability, and long-term maintainability.
-                </p>
-              </div>
-            </Reveal>
-
-            <div className="nd-tech-grid">
-              {techStack.map((tech, idx) => (
-                <Reveal key={idx} direction="up" delay={idx * 50}>
-                  <div className="nd-tech-card">
-                    <div className="nd-tech-icon-wrap">
-                      <img src={tech.icon} alt={tech.name} />
-                    </div>
-                    <div>
-                      <div className="nd-tech-name">{tech.name}</div>
-                      <div className="nd-tech-desc">{tech.desc}</div>
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── CORE ENGINEERING VALUES (LIGHT) ───────────────────────────────── */}
-        <section className="nd-values-section">
-          <div className="nd-container">
-            <Reveal direction="up">
-              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
-                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
-                  OUR PHILOSOPHY
-                </span>
-                <h2 className="nd-section-h2">The Principles That Govern Every Commit</h2>
-                <p className="nd-section-lead" style={{ margin: '0 auto' }}>
-                  Six core engineering pillars embedded into every line of code we write.
-                </p>
-              </div>
-            </Reveal>
-
-            <div className="nd-values-grid">
-              {coreValues.map((val, idx) => (
-                <Reveal key={idx} direction="up" delay={idx * 70}>
-                  <div className="nd-value-card" style={{ '--card-accent': val.color }}>
-                    <div className="nd-value-icon-box" style={{ background: val.bg }}>
-                      <Icon name={val.iconName} type={val.type} color={val.color} size={30} />
-                    </div>
-                    <div className="nd-value-badge" style={{ background: val.bg, color: val.color }}>
-                      {val.badge}
-                    </div>
-                    <h3 className="nd-value-title">{val.title}</h3>
-                    <p className="nd-value-desc">{val.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── DEVELOPMENT METHODOLOGY (LIGHT) ───────────────────────────────── */}
-        <section className="nd-process-section">
-          <div className="nd-container">
-            <Reveal direction="up">
-              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
-                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
-                  HOW WE WORK
-                </span>
-                <h2 className="nd-section-h2">Our 4-Phase Delivery Framework</h2>
-                <p className="nd-section-lead" style={{ color: '#64748B', margin: '0 auto' }}>
-                  From raw concept to battle-tested production software in structured agile sprints.
-                </p>
-              </div>
-            </Reveal>
-
-            <div className="nd-process-grid">
-              {processSteps.map((step, idx) => (
-                <Reveal key={idx} direction="up" delay={idx * 80}>
-                  <div className="nd-process-card" style={{ '--step-accent': step.color }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
-                      <div className="nd-process-step-num">{step.step}</div>
-                      <div style={{ 
-                        width: 42, height: 42, borderRadius: 12, 
-                        background: `${step.color}12`, 
-                        display: 'flex', alignItems: 'center', justifyContent: 'center' 
-                      }}>
-                        <Icon name={step.icon} type="lineal" color={step.color} size={22} />
+              {/* PIUSHA PATRA */}
+              <Reveal direction="up" delay={100}>
+                <div className="nd-founder-dossier-card">
+                  <div>
+                    <div className="nd-founder-top-banner">
+                      <div className="nd-founder-avatar-wrap">
+                        <img 
+                          src="/Co-Founder.png" 
+                          alt="Piusha Patra - Co-Founder & Director of Operations" 
+                          className="nd-founder-avatar-img"
+                        />
+                      </div>
+                      <div className="nd-founder-info">
+                        <h3>Piusha Patra</h3>
+                        <div className="nd-founder-role" style={{ color: '#4F46E5' }}>Co-Founder &amp; Director of Operations</div>
+                        <div className="nd-founder-creed">
+                          "We treat every client's capital like our own seed round. Speed without rigorous project governance is just expensive chaos."
+                        </div>
                       </div>
                     </div>
-                    <h3 className="nd-process-title">{step.title}</h3>
-                    <p className="nd-process-desc">{step.desc}</p>
-                    <ul className="nd-process-list">
-                      {step.details.map((item, i) => (
-                        <li key={i} className="nd-process-item">
-                          <CheckCircle2 size={13} style={{ color: step.color }} /> {item}
-                        </li>
-                      ))}
-                    </ul>
+
+                    <div className="nd-founder-body">
+                      <p className="nd-founder-bio">
+                        Piusha directs sprint cadence governance, milestone quality assurance, and long-term client growth partnerships at NovaDesk. Her leadership guarantees scopes stay disciplined, staging ships strictly on schedule, and client IP remains legally secure.
+                      </p>
+
+                      <div className="nd-founder-skills-strip">
+                        <span className="nd-skill-chip">Sprint Governance</span>
+                        <span className="nd-skill-chip">Milestone QA Assurance</span>
+                        <span className="nd-skill-chip">IP Sovereignty</span>
+                        <span className="nd-skill-chip">Client Growth Strategy</span>
+                        <span className="nd-skill-chip">Async Overlap Sync</span>
+                      </div>
+
+                      <div className="nd-founder-cta-row">
+                        <span style={{ fontSize: '12px', color: '#64748B', fontWeight: 600 }}>Operations Governance</span>
+                        <Link to="/contact-us" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13.5px', fontWeight: 700, color: '#4F46E5', textDecoration: 'none' }}>
+                          Sync with Piusha <ArrowRight size={14} />
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                </Reveal>
-              ))}
+                </div>
+              </Reveal>
+
             </div>
           </div>
         </section>
 
-        {/* ─── DOMAIN CAPABILITIES MATRIX (LIGHT) ─────────────────────────────── */}
-        <section className="nd-cap-section">
-          <div className="nd-container">
-            <Reveal direction="up">
-              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
-                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
-                  DOMAIN SPECIALTIES
-                </span>
-                <h2 className="nd-section-h2">Engineering Capabilities Across Domains</h2>
-                <p className="nd-section-lead" style={{ color: '#64748B', margin: '0 auto' }}>
-                  Senior technical specialists focused on full-stack architecture, GenAI integration, mobile apps, and DevOps infrastructure.
-                </p>
+        {/* ─── 6. GLOBAL SYNCHRONOUS DELIVERY (LIVE WORLD CLOCKS) ─── */}
+        <section className="nd-global-canvas">
+          <div className="nd-shell">
+            <div className="nd-global-layout">
+              <Reveal direction="up">
+                <div>
+                  <div className="nd-mono-tag">
+                    <span className="nd-mono-dot" />
+                    [GLOBAL OVERLAP] • TIMEZONE SYNCHRONICITY
+                  </div>
+                  <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-1.2px', color: '#0F172A', margin: '0 0 16px 0', lineHeight: 1.2 }}>
+                    India-Rooted Engineering, Synchronous Global Delivery
+                  </h2>
+                  <p style={{ fontSize: '16px', color: '#475569', lineHeight: 1.75, marginBottom: '24px' }}>
+                    Operating from India’s premier software corridor, NovaDesk blends world-class engineering discipline with the speed and flexibility demanded by international founders.
+                  </p>
+                  <p style={{ fontSize: '15px', color: '#64748B', lineHeight: 1.75 }}>
+                    We guarantee a minimum of 4+ hours of active real-time overlap across US (PST/EST), UK/Europe (GMT), and Gulf (GST) business hours every single workday.
+                  </p>
+                </div>
+              </Reveal>
 
-                {/* Filter Buttons */}
-                <div className="nd-filter-bar">
-                  {['All', 'Full-Stack', 'AI & Data', 'Design', 'DevOps'].map((cat) => (
-                    <button
-                      key={cat}
-                      className={`nd-filter-btn ${capabilityTab === cat ? 'active' : ''}`}
-                      onClick={() => setCapabilityTab(cat)}
-                    >
-                      {cat}
-                    </button>
-                  ))}
+              {/* World Clocks Terminal Card */}
+              <div className="nd-clocks-terminal">
+                <div className="nd-clocks-top">
+                  <span className="nd-clocks-header-title">LIVE STUDIO CLOCKS • ACTIVE OVERLAP</span>
+                  <span style={{ fontSize: '11px', color: '#10B981', fontWeight: 700 }}>SYNCHRONIZED</span>
+                </div>
+
+                <div className="nd-clocks-grid">
+                  <WorldClock city="San Francisco / LA" timezone="America/Los_Angeles" label="PST" />
+                  <WorldClock city="New York / Boston" timezone="America/New_York" label="EST" />
+                  <WorldClock city="London / Dublin" timezone="Europe/London" label="GMT" />
+                  <WorldClock city="Dubai / Abu Dhabi" timezone="Asia/Dubai" label="GST" />
+                  <WorldClock city="Bengaluru / Delhi" timezone="Asia/Kolkata" label="IST (HQ)" />
                 </div>
               </div>
-            </Reveal>
-
-            <div className="nd-cap-grid">
-              {filteredCapabilities.map((cap, idx) => (
-                <Reveal key={idx} direction="up" delay={idx * 60}>
-                  <div className="nd-cap-card" style={{ '--cap-color': cap.color }}>
-                    <div className="nd-cap-icon-box" style={{ background: cap.bg, color: cap.color }}>
-                      {cap.icon}
-                    </div>
-                    <h3 className="nd-cap-title">{cap.title}</h3>
-                    <p className="nd-cap-desc">{cap.desc}</p>
-                    <div className="nd-cap-tags">
-                      {cap.techs.map((tech, tIdx) => (
-                        <span key={tIdx} className="nd-cap-tag">{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
             </div>
           </div>
         </section>
 
-        {/* ─── FREQUENTLY ASKED QUESTIONS (LIGHT) ──────────────────────────────── */}
-        <section className="nd-faq-section">
-          <div className="nd-container" style={{ maxWidth: '860px' }}>
-            <Reveal direction="up">
-              <div style={{ textAlign: 'center' }}>
-                <span className="nd-section-tag" style={{ background: 'rgba(46, 41, 255, 0.08)', color: '#2E29FF' }}>
-                  FREQUENTLY ASKED QUESTIONS
-                </span>
-                <h2 className="nd-section-h2">Everything You Need to Know</h2>
-                <p className="nd-section-lead" style={{ color: '#64748B', margin: '0 auto' }}>
-                  Transparent answers about how we collaborate, contract, and deliver shippable code.
-                </p>
-              </div>
-
-              {/* Search Bar */}
-              <div className="nd-faq-search-box">
-                <Search size={18} style={{ position: 'absolute', left: 20, top: 18, color: '#94A3B8' }} />
-                <input
-                  type="text"
-                  placeholder="Search questions about process, stack, or pricing..."
-                  value={faqSearch}
-                  onChange={(e) => setFaqSearch(e.target.value)}
-                  className="nd-faq-input"
-                />
-              </div>
-            </Reveal>
-
-            {filteredFaqs.length === 0 ? (
-              <div style={{ textAlign: 'center', padding: '40px 0', color: '#64748B' }}>
-                No matching questions found. Try searching another term or contact our leadership directly.
-              </div>
-            ) : (
-              filteredFaqs.map((faq, idx) => (
-                <Reveal key={idx} direction="up" delay={idx * 50}>
-                  <div className={`nd-faq-item ${activeFaq === idx ? 'open' : ''}`}>
-                    <button
-                      className="nd-faq-btn"
-                      onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
-                    >
-                      <span className="nd-faq-question">{faq.q}</span>
-                      <span className="nd-faq-icon-wrap">
-                        {activeFaq === idx ? '−' : '+'}
-                      </span>
-                    </button>
-                    <div className="nd-faq-ans-wrap">
-                      <p className="nd-faq-answer">{faq.a}</p>
-                    </div>
+        {/* ─── 7. PARTNERSHIP FAQS ─── */}
+        <section className="nd-faq-canvas">
+          <div className="nd-shell">
+            <div className="nd-faq-grid">
+              
+              {/* Left Column: FAQ Lead */}
+              <Reveal direction="up">
+                <div>
+                  <div className="nd-mono-tag">
+                    <span className="nd-mono-dot" />
+                    [PARTNERSHIP DILIGENCE] • FREQUENTLY ASKED QUESTIONS
                   </div>
-                </Reveal>
-              ))
-            )}
+                  <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-1.2px', color: '#0F172A', margin: '0 0 16px 0', lineHeight: 1.2 }}>
+                    Clear Answers for Discerning Founders
+                  </h2>
+                  <p style={{ fontSize: '16px', color: '#475569', lineHeight: 1.75, marginBottom: '24px' }}>
+                    Everything you need to know about our legal IP protection, sprint cadence, and engineering governance before partnering.
+                  </p>
+                  <Link to="/contact-us" className="nd-btn-primary">
+                    Have Another Question? Ask Harsh <ArrowRight size={15} />
+                  </Link>
+                </div>
+              </Reveal>
+
+              {/* Right Column: FAQ Accordions */}
+              <div>
+                {faqs.map((faq, idx) => {
+                  const isOpen = activeFaq === idx;
+                  return (
+                    <div key={idx} className={`nd-faq-card ${isOpen ? 'open' : ''}`}>
+                      <button 
+                        className="nd-faq-btn"
+                        onClick={() => setActiveFaq(isOpen ? null : idx)}
+                      >
+                        <span className="nd-faq-q-text">{faq.q}</span>
+                        <ChevronDown 
+                          size={18} 
+                          style={{ 
+                            color: isOpen ? '#2563EB' : '#94A3B8',
+                            transform: isOpen ? 'rotate(180deg)' : 'none',
+                            transition: 'transform 0.2s ease',
+                            flexShrink: 0
+                          }} 
+                        />
+                      </button>
+
+                      {isOpen && (
+                        <div className="nd-faq-answer">
+                          {faq.a}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+            </div>
           </div>
         </section>
 
-        {/* ─── PRO CTA SECTION ─────────────────────────────────────────────────── */}
-        <section className="nd-cta-pro">
-          <div className="nd-cta-glow" />
-
-          <div className="nd-cta-content">
-            <Reveal direction="up">
-              <span className="nd-hero-pill" style={{ background: 'rgba(255,255,255,0.15)', borderColor: 'rgba(255,255,255,0.3)', color: '#FFFFFF', marginBottom: 20 }}>
-                <Sparkles size={14} style={{ color: '#FFFFFF' }} />
-                <span>START YOUR PROJECT</span>
-              </span>
-              <h2 className="nd-cta-title">
-                Ready to Build Your Product<br />
-                With Senior Engineers?
-              </h2>
-            </Reveal>
-
-            <Reveal direction="up" delay={80}>
-              <p className="nd-cta-desc">
-                Partner directly with Founder Harsh Prateek &amp; Director Piusha Patra. Get transparent timelines, clean architecture, and weekly shippable code.
-              </p>
-            </Reveal>
-
-            <Reveal direction="up" delay={140}>
-              <div className="nd-cta-btns">
-                <Link to="/contact-us" className="nd-btn-primary-glow">
-                  Schedule Founder Call <ArrowRight size={18} />
-                </Link>
-                <Link to="/get-a-free-quote" className="nd-btn-glass">
-                  Get a Free Instant Quote <ExternalLink size={16} />
-                </Link>
+        {/* ─── 8. FINAL CONVERSION STRIP ─── */}
+        <section className="nd-cta-strip">
+          <div className="nd-shell">
+            <div className="nd-cta-content">
+              <div className="nd-mono-tag" style={{ color: '#60A5FA' }}>
+                <span className="nd-mono-dot" style={{ background: '#60A5FA' }} />
+                [NEXT SPRINT RESERVATIONS OPEN]
               </div>
-            </Reveal>
+              <h2 className="nd-cta-h2">
+                Ready to build with senior engineers?
+              </h2>
+              <p className="nd-cta-p">
+                Skip the sales pitch. Schedule an architecture discovery session directly with Harsh Prateek and Piusha Patra to map your product roadmap.
+              </p>
+              <Link to="/contact-us" className="nd-btn-primary" style={{ fontSize: '16px', padding: '18px 40px' }}>
+                Schedule Architecture Sync with Founders <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
         </section>
 

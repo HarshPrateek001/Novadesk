@@ -951,14 +951,33 @@ export default function Home() {
 
         /* ── WHY DIFFERENT ── */
         .nd-achievements { 
-          background-color: #ffffff;
+          background-color: #2E29FF;
           background-image: 
-            linear-gradient(rgba(46, 41, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(46, 41, 255, 0.03) 1px, transparent 1px);
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
           background-size: 26px 26px;
           position: relative;
           overflow: hidden;
           padding: 100px 0;
+          color: #ffffff;
+        }
+        .nd-achievements .nd-section-tag {
+          color: #FFB6DB;
+        }
+        .nd-achievements .nd-section-h2 {
+          color: #ffffff;
+        }
+        .nd-achievements .nd-section-sub {
+          color: rgba(255, 255, 255, 0.85);
+        }
+        .nd-industries-section .nd-section-tag {
+          color: #FFB6DB !important;
+        }
+        .nd-industries-section .nd-section-h2 {
+          color: #ffffff !important;
+        }
+        .nd-industries-section .nd-section-sub {
+          color: rgba(255, 255, 255, 0.85) !important;
         }
         .nd-achievements::before {
           content: '';
@@ -986,7 +1005,7 @@ export default function Home() {
           pointer-events: none;
           z-index: 0;
         }
-        .nd-achievements-inner { max-width: 1500px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2; }
+        .nd-achievements-inner { max-width: 1650px; margin: 0 auto; padding: 0 30px; position: relative; z-index: 2; }
         .nd-section-tag { display:inline-flex; align-items:center; justify-content:center; gap:10px; font-size:14px; font-weight:700; color:#2E29FF; text-transform:uppercase; letter-spacing:1px; margin:0 auto 12px auto; text-align:center; }
         .nd-section-tag::before, .nd-section-tag::after { content:'✦'; font-size:12px; color:#FFB6DB; }
         .nd-section-h2 { font-size:40px; font-weight:800; color:#0A0A2E; margin-bottom:16px; text-align:center; }
@@ -1042,6 +1061,33 @@ export default function Home() {
         .nd-industry-card-container {
           width: 400px;
           flex-shrink: 0;
+        }
+
+        /* ── POP ANIMATION ON HOVER FOR WHY CHOOSE & INDUSTRIES CARDS ── */
+        .nd-why-choose-card-container > div,
+        .nd-industry-card-container > div {
+          transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                      border-color 0.4s ease;
+          cursor: pointer;
+          will-change: transform, box-shadow;
+        }
+
+        .nd-why-choose-card-container > div:hover,
+        .nd-industry-card-container > div:hover {
+          transform: translateY(-10px) scale(1.035);
+          box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28), 0 0 24px rgba(255, 182, 219, 0.25) !important;
+          border-color: rgba(255, 182, 219, 0.5) !important;
+        }
+
+        .nd-why-choose-card-container img,
+        .nd-industry-card-container img {
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nd-why-choose-card-container > div:hover img,
+        .nd-industry-card-container > div:hover img {
+          transform: scale(1.08);
         }
 
         /* ── PORTFOLIO / PRODUCT CATALOG (NOW BLOG) ── */
@@ -1704,14 +1750,186 @@ export default function Home() {
           display: inline-block !important;
         }
 
-        /* ── CORE SERVICES GLANCE ── */
-        .nd-core-glance { background: #ffffff; padding: 100px 0; border-bottom: 1px solid rgba(46, 41, 255, 0.06); }
-        .nd-core-glance-inner { max-width: 1330px; margin: 0 auto; padding: 0 40px; }
-        .nd-core-glance-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px; }
-        .nd-core-glance-card { background: #F8F9FF; border: 1px solid rgba(46, 41, 255, 0.05); border-radius: 16px; padding: 24px; text-align: left; transition: all 0.25s; }
-        .nd-core-glance-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(46, 41, 255, 0.06); border-color: rgba(46, 41, 255, 0.15); }
-        .nd-core-glance-title { font-size: 16px; font-weight: 700; color: #0A0A2E; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-        .nd-core-glance-desc { font-size: 13.5px; color: #4B5563; line-height: 1.6; margin: 0; }
+        /* ── ROLLER SHUTTER CORE SERVICES SECTION (ENHANCED & LARGER) ── */
+        .nd-shutter-section {
+          background: linear-gradient(180deg, #F8F9FF 0%, #EEF2FF 50%, #F8F9FF 100%);
+          padding: 120px 0;
+          position: relative;
+          overflow: hidden;
+        }
+        .nd-shutter-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 32px;
+          margin-top: 54px;
+        }
+        @media (max-width: 1200px) {
+          .nd-shutter-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+          }
+        }
+        @media (max-width: 680px) {
+          .nd-shutter-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+          }
+        }
+        .nd-shutter-card {
+          position: relative;
+          height: 310px;
+          background: #ffffff;
+          border-radius: 24px;
+          border: 1px solid rgba(46, 41, 255, 0.12);
+          box-shadow: 
+            0 12px 35px rgba(46, 41, 255, 0.05),
+            0 2px 6px rgba(0, 0, 0, 0.02);
+          overflow: hidden;
+          cursor: pointer;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nd-shutter-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 
+            0 24px 50px rgba(46, 41, 255, 0.2),
+            0 0 25px rgba(46, 41, 255, 0.08);
+          border-color: rgba(46, 41, 255, 0.4);
+        }
+        /* Front View */
+        .nd-shutter-front {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          padding: 36px 28px;
+          text-align: center;
+          background: linear-gradient(180deg, rgba(238, 242, 255, 0.8) 0%, #ffffff 65%);
+          position: relative;
+        }
+        .nd-shutter-bg-wave {
+          position: absolute;
+          top: -30px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 150%;
+          height: 130px;
+          background: radial-gradient(ellipse at center, rgba(46, 41, 255, 0.12) 0%, transparent 70%);
+          pointer-events: none;
+        }
+        .nd-shutter-icon-box {
+          width: 88px;
+          height: 88px;
+          border-radius: 26px;
+          background: linear-gradient(135deg, rgba(46, 41, 255, 0.1) 0%, rgba(99, 102, 241, 0.22) 100%);
+          border: 1px solid rgba(46, 41, 255, 0.16);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 10px 25px rgba(46, 41, 255, 0.1);
+          margin-bottom: 20px;
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .nd-shutter-card:hover .nd-shutter-icon-box {
+          transform: scale(1.12) rotate(-3deg);
+          box-shadow: 0 14px 30px rgba(46, 41, 255, 0.2);
+        }
+        .nd-shutter-title {
+          font-size: 22px;
+          font-weight: 800;
+          color: #0A0A2E;
+          margin: 0;
+          line-height: 1.25;
+          letter-spacing: -0.3px;
+        }
+        .nd-shutter-subtitle {
+          font-size: 13.5px;
+          color: #4B5563;
+          margin-top: 8px;
+          font-weight: 500;
+        }
+        .nd-shutter-front-badge {
+          position: absolute;
+          bottom: 16px;
+          right: 20px;
+          font-size: 11px;
+          font-weight: 700;
+          color: #2E29FF;
+          background: rgba(46, 41, 255, 0.06);
+          padding: 4px 10px;
+          border-radius: 20px;
+          letter-spacing: 0.5px;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          transition: background 0.3s, color 0.3s;
+        }
+        /* Shutter Overlay (Curtain) */
+        .nd-shutter-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, #1E1B4B 0%, #2E29FF 60%, #4F46E5 100%);
+          border-radius: 24px;
+          padding: 34px 28px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          color: #ffffff;
+          transform: translateY(-100%);
+          transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+          z-index: 10;
+          box-shadow: 0 12px 35px rgba(46, 41, 255, 0.35);
+        }
+        .nd-shutter-card:hover .nd-shutter-overlay {
+          transform: translateY(0);
+        }
+        .nd-shutter-overlay-tag {
+          display: inline-block;
+          font-size: 11px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          color: rgba(255, 255, 255, 0.7);
+          margin-bottom: 10px;
+          background: rgba(255, 255, 255, 0.12);
+          padding: 4px 12px;
+          border-radius: 12px;
+        }
+        .nd-shutter-overlay-title {
+          font-size: 20px;
+          font-weight: 800;
+          color: #ffffff;
+          margin-bottom: 12px;
+          letter-spacing: -0.3px;
+        }
+        .nd-shutter-overlay-text {
+          font-size: 14.5px;
+          line-height: 1.68;
+          color: rgba(255, 255, 255, 0.95);
+          font-weight: 400;
+          margin: 0;
+        }
+        .nd-shutter-overlay-link {
+          margin-top: 18px;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 13px;
+          font-weight: 700;
+          color: #ffffff;
+          background: rgba(255, 255, 255, 0.18);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          padding: 7px 18px;
+          border-radius: 20px;
+          transition: background 0.25s ease;
+        }
+        .nd-shutter-card:hover .nd-shutter-overlay-link {
+          background: rgba(255, 255, 255, 0.28);
+        }
+
+
 
         /* ── INTERACTIVE TECH FILTER BUTTONS ── */
         .nd-tech-filter-row {
@@ -2481,32 +2699,156 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 3. WHAT WE DO — CORE SERVICES GLANCE ── */}
-        <section className="nd-core-glance" style={{ background: '#f8f9ff', padding: '100px 0' }}>
-          <div className="nd-core-glance-inner" style={{ maxWidth: '1330px', margin: '0 auto', padding: '0 40px' }}>
-            <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+        {/* ── 3. WHAT WE DO — CORE SERVICES GLANCE (Roller Shutter Reveal) ── */}
+        <section className="nd-shutter-section">
+          <div className="nd-core-glance-inner" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '54px' }}>
               <div className="nd-section-tag">Core Services at a Glance</div>
-              <h2 className="nd-section-h2" style={{ fontSize: '40px', fontWeight: '800', color: '#0A0A2E', marginTop: '12px' }}>A Mission-Control Center for Your Software Needs</h2>
-              <p className="nd-section-sub" style={{ marginTop: '10px', textAlign: 'center' }}>
-                Every service is built to integrate cleanly with the next, so your product scales without technical debt piling up behind it.
+              <h2 className="nd-section-h2" style={{ fontSize: '42px', fontWeight: '800', color: '#0A0A2E', marginTop: '14px', letterSpacing: '-0.5px' }}>A Mission-Control Center for Your Software Needs</h2>
+              <p className="nd-section-sub" style={{ marginTop: '12px', textAlign: 'center', fontSize: '16px' }}>
+                Every service is built to integrate cleanly with the next, so your product scales without technical debt piling up behind it. Hover over any card to view detailed capabilities.
               </p>
             </div>
 
-            <div className="fintech_grid grid-4">
+            <div className="nd-shutter-grid">
               {[
-                { title: 'Web Development', desc: 'Business websites, web apps, landing pages, and custom CMS platforms designed for maximum conversion and speed.' },
-                { title: 'App Development', desc: 'High-performance native and cross-platform mobile apps for iOS and Android.' },
-                { title: 'SaaS Development', desc: 'Multi-tenant platforms, subscription billing gateways, custom dashboards, and user permission flows.' },
-                { title: 'AI & ML Integration', desc: 'LLM-powered features, custom chatbots, automation flows, and custom AI systems using Claude and OpenAI.' },
-                { title: 'UI/UX Design', desc: 'Product design, low-fidelity wireframes, interactive prototypes, and custom design systems.' },
-                { title: 'API Development', desc: 'Custom backend APIs, secure third-party integrations, and robust database architecture.' },
-                { title: 'Cloud & DevOps', desc: 'Hosting setup, secure CI/CD deployment pipelines, and active infrastructure management.' },
-                { title: 'Maintenance & Support', desc: 'Active bug fixes, security updates, performance monitoring, and ongoing scaling support.' }
+                { 
+                  title: 'Web Development',
+                  subtitle: 'High-speed Web & CMS Platforms',
+                  tag: 'WEB & CMS',
+                  desc: 'We build high-converting websites, web applications, landing pages, and custom CMS platforms engineered for maximum speed, SEO, and scalability.',
+                  icon: (
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="2" y="3" width="20" height="14" rx="3" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
+                      <path d="M8 21H16" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
+                      <path d="M12 17V21" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
+                      <circle cx="6" cy="7" r="1" fill="#2E29FF"/>
+                      <circle cx="9" cy="7" r="1" fill="#6366F1"/>
+                      <circle cx="12" cy="7" r="1" fill="#10B981"/>
+                      <path d="M6 11L10 14L6 17" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <line x1="12" y1="17" x2="17" y2="17" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round"/>
+                    </svg>
+                  )
+                },
+                { 
+                  title: 'App Development',
+                  subtitle: 'iOS & Android Mobile Applications',
+                  tag: 'MOBILE APPS',
+                  desc: 'High-performance native and cross-platform mobile apps for iOS and Android, delivered with fluid animations, intuitive UI, and offline capabilities.',
+                  icon: (
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="5" y="2" width="14" height="20" rx="3" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
+                      <line x1="10" y1="5" x2="14" y2="5" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
+                      <circle cx="12" cy="18" r="1.2" fill="#2E29FF"/>
+                      <path d="M9 10L12 13L15 10" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )
+                },
+                { 
+                  title: 'SaaS Development',
+                  subtitle: 'Multi-Tenant Product Platforms',
+                  tag: 'SAAS PLATFORMS',
+                  desc: 'End-to-end multi-tenant SaaS platforms featuring recurring subscription billing gateways, custom admin dashboards, and secure user permission flows.',
+                  icon: (
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6 19C3.79086 19 2 17.2091 2 15C2 13.0642 3.37684 11.4497 5.21554 11.0877C5.07435 10.4132 5 9.71536 5 9C5 5.13401 8.13401 2 12 2C15.421 2 18.2713 4.4589 18.88 7.74971C20.6721 8.29175 22 9.94364 22 11.9C22 14.3853 19.9853 16.4 17.5 16.4" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
+                      <path d="M12 11V21M12 21L8 17M12 21L16 17" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )
+                },
+                { 
+                  title: 'AI & ML Integration',
+                  subtitle: 'LLMs, AI Agents & Chatbots',
+                  tag: 'AI & AUTOMATION',
+                  desc: 'Production-grade LLM features, custom AI chatbots, intelligent workflow automation, and fine-tuned AI systems using Claude & OpenAI APIs.',
+                  icon: (
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="6" width="18" height="13" rx="3" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
+                      <circle cx="9" cy="11" r="1.5" fill="#2E29FF"/>
+                      <circle cx="15" cy="11" r="1.5" fill="#2E29FF"/>
+                      <path d="M9 15C9 15 10.5 16.5 12 16.5C13.5 16.5 15 15 15 15" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round"/>
+                      <path d="M12 2V6" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
+                      <circle cx="12" cy="2" r="1" fill="#6366F1"/>
+                    </svg>
+                  )
+                },
+                { 
+                  title: 'UI/UX Design',
+                  subtitle: 'Wireframes & Design Systems',
+                  tag: 'PRODUCT DESIGN',
+                  desc: 'User-centered product design, interactive prototypes, and comprehensive design systems built to elevate your brand and maximize user conversion.',
+                  icon: (
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8" strokeLinejoin="round"/>
+                      <path d="M2 17L12 22L22 17" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 12L12 17L22 12" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )
+                },
+                { 
+                  title: 'API Development',
+                  subtitle: 'REST, GraphQL & Backend Systems',
+                  tag: 'BACKEND SYSTEMS',
+                  desc: 'Custom backend RESTful and GraphQL APIs, secure third-party integrations, microservices, and database architecture built for reliability.',
+                  icon: (
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="4" width="18" height="6" rx="2" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
+                      <rect x="3" y="14" width="18" height="6" rx="2" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
+                      <circle cx="7" cy="7" r="1" fill="#2E29FF"/>
+                      <circle cx="7" cy="17" r="1" fill="#2E29FF"/>
+                      <line x1="12" y1="10" x2="12" y2="14" stroke="#6366F1" strokeWidth="1.8" strokeDasharray="2 2"/>
+                    </svg>
+                  )
+                },
+                { 
+                  title: 'Cloud & DevOps',
+                  subtitle: 'Infrastructure & CI/CD Pipelines',
+                  tag: 'CLOUD & DEVOPS',
+                  desc: 'Hosting configuration, secure automated CI/CD deployment pipelines, serverless infrastructure, and active server management on AWS & GCP.',
+                  icon: (
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 15V9C4 6.23858 6.23858 4 9 4H15C17.7614 4 20 6.23858 20 9V15C20 17.7614 17.7614 20 15 20H9C6.23858 20 4 17.7614 4 15Z" stroke="#2E29FF" strokeWidth="1.8"/>
+                      <path d="M8 12H16M16 12L13 9M16 12L13 15" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )
+                },
+                { 
+                  title: '24*7 Free Support',
+                  subtitle: 'Continuous Support & Scaling',
+                  tag: '24/7 SUPPORT',
+                  desc: 'Proactive bug fixes, continuous security updates, performance monitoring, and ongoing scaling support to ensure 100% operational uptime.',
+                  icon: (
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12V18C21 19.6569 19.6569 21 18 21H17V15H21" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
+                      <path d="M3 18C3 19.6569 4.34315 21 6 21H7V15H3" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
+                      <path d="M12 16V18" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round"/>
+                    </svg>
+                  )
+                }
               ].map((service, i) => (
-                <div key={i} className="fintech_card" style={{ minHeight: '280px' }}>
-                  <span className="num-circle">0{i + 1}</span>
-                  <h3 style={{ fontSize: '22px', fontWeight: '700', color: '#0F0D1D', marginBottom: '10px' }}>{service.title}</h3>
-                  <p style={{ fontSize: '14.5px', color: '#555', lineHeight: '1.6', margin: 0 }}>{service.desc}</p>
+                <div key={i} className="nd-shutter-card">
+                  {/* Front View */}
+                  <div className="nd-shutter-front">
+                    <div className="nd-shutter-bg-wave" />
+                    <div className="nd-shutter-icon-box">
+                      {service.icon}
+                    </div>
+                    <h3 className="nd-shutter-title">{service.title}</h3>
+                    <span className="nd-shutter-subtitle">{service.subtitle}</span>
+                    <div className="nd-shutter-front-badge">
+                      Details ↗
+                    </div>
+                  </div>
+
+                  {/* Roller Shutter Overlay */}
+                  <div className="nd-shutter-overlay">
+                    <span className="nd-shutter-overlay-tag">{service.tag}</span>
+                    <span className="nd-shutter-overlay-title">{service.title}</span>
+                    <p className="nd-shutter-overlay-text">{service.desc}</p>
+                    <div className="nd-shutter-overlay-link">
+                      Learn More ↗
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -2776,12 +3118,12 @@ export default function Home() {
         </section>
 
         {/* ── 8.5 INDUSTRIES WE SERVE ── */}
-        <section style={{ background:'#ffffff', padding:'100px 0', overflow: 'hidden' }}>
-          <div style={{ maxWidth:'1500px', margin:'0 auto', padding:'0 40px' }}>
+        <section className="nd-industries-section" style={{ background:'#2E29FF', padding:'100px 0', overflow: 'hidden' }}>
+          <div style={{ maxWidth:'1650px', margin:'0 auto', padding:'0 30px' }}>
             <div style={{ textAlign:'center', marginBottom:'40px' }}>
-              <div className="nd-section-tag">INDUSTRIES WE SERVE</div>
-              <h2 className="nd-section-h2" style={{ fontSize: '40px', fontWeight: '800', color: '#0A0A2E', marginTop: '12px' }}>Built for the Businesses That Drive Real Economies</h2>
-              <p className="nd-section-sub" style={{ marginTop: '10px', textAlign: 'center' }}>We work across both hyper-local businesses and broader India-wide and international clients — the same engineering discipline applies regardless of scale.</p>
+              <div className="nd-section-tag" style={{ color: '#FFB6DB' }}>INDUSTRIES WE SERVE</div>
+              <h2 className="nd-section-h2" style={{ fontSize: '40px', fontWeight: '800', color: '#ffffff', marginTop: '12px' }}>Built for the Businesses That Drive Real Economies</h2>
+              <p className="nd-section-sub" style={{ marginTop: '10px', textAlign: 'center', color: 'rgba(255, 255, 255, 0.85)' }}>We work across both hyper-local businesses and broader India-wide and international clients — the same engineering discipline applies regardless of scale.</p>
             </div>
 
             <div className="nd-industries-slider-wrap">
@@ -2935,87 +3277,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 9. PORTFOLIO / BLOG CATALOG ── */}
-        <section className="nd-portfolio">
-          <div className="nd-portfolio-inner">
-            <div className="nd-portfolio-header">
-              <div>
-                <div className="nd-portfolio-tag">✦ Latest Insights ✦</div>
-                <h2 className="nd-portfolio-h2">From Our Blog</h2>
-                <p className="nd-portfolio-sub">Explore the technical blueprints, product guides, and startup engineering frameworks built by our team.</p>
-              </div>
-              <div className="nd-portfolio-nav-buttons">
-                <button onClick={scrollBlogsLeft} className="nd-slider-nav-btn" aria-label="Previous Post">←</button>
-                <button onClick={scrollBlogsRight} className="nd-slider-nav-btn" aria-label="Next Post">→</button>
-              </div>
-            </div>
-            
-            <div className="nd-portfolio-slider-wrap">
-              <div ref={blogSliderRef} className="nd-portfolio-track-wrap">
-                {blogs.map((blog, i) => (
-                  <div key={blog.id || i} className="nd-portfolio-card-wrap">
-                    <Link to={`/blog/${blog.slug}`} className="nd-portfolio-card-link">
-                      <div className="nd-portfolio-card">
-                        <div className="nd-portfolio-img-wrap">
-                          <img src={blog.thumbnail || blog.coverImage} alt={blog.title} className="nd-portfolio-img" />
-                        </div>
-                        <div className="nd-portfolio-info">
-                          <div>
-                            <div className="nd-portfolio-meta">
-                              <span>{blog.publishDate ? new Date(blog.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : ''}</span>
-                              <span className="dot"></span>
-                              <span>{blog.readTime || 5} min read</span>
-                            </div>
-                            <h3 className="nd-portfolio-title">{blog.title}</h3>
-                            <p className="nd-portfolio-desc">{blog.excerpt}</p>
-                          </div>
-                          <div>
-                            <div className="nd-portfolio-tech" style={{ marginBottom: '20px' }}>
-                              <span>{blog.category}</span>
-                            </div>
-                            <div className="nd-portfolio-footer">
-                              <div className="nd-portfolio-author">
-                                <img src={blog.author?.avatar || '/hero-my-image.webp'} alt={blog.author?.name || 'Harsh Prateek'} />
-                                <span>{blog.author?.name || 'Harsh Prateek'}</span>
-                              </div>
-                              <span className="nd-portfolio-readmore">
-                                Read More →
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── 5. ACHIEVEMENTS / WHY CHOOSE NOVADESK ── */}
-        <section style={{ background:'linear-gradient(135deg,#0A0A2E 0%,#1a1a4e 100%)', padding:'100px 0' }}>
-          <div style={{ maxWidth:'800px', margin:'0 auto', padding:'0 24px', textAlign:'center' }}>
-            <div style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:'28px' }}>
-              <div style={{ fontSize:'12px', fontWeight:'700', color:'rgba(255,255,255,0.5)', letterSpacing:'2px', textTransform:'uppercase' }}>✦ A Note From the Founder ✦</div>
-              <blockquote style={{ fontSize:'22px', fontStyle:'italic', color:'#fff', lineHeight:'1.65', margin:0, fontWeight:'400', padding:'0 20px' }}>
-                "NovaDesk started from a simple frustration: too many businesses get burned by software partners who either overpromise and underdeliver, or disappear the moment things get complicated. We built NovaDesk to be the opposite of that — a team that treats your product with the same seriousness we'd want if it were our own."
-              </blockquote>
-              <p style={{ fontSize:'16px', color:'rgba(255,255,255,0.65)', lineHeight:'1.75', margin:0, maxWidth:'640px' }}>
-                We're still early. We're building our client base one honest, well-delivered project at a time. If you're looking for a partner who'll tell you the truth about your timeline, your budget, and your product — even when it's not what you want to hear — that's who we're trying to be.
-              </p>
-              <div style={{ display:'flex', alignItems:'center', gap:'16px', marginTop:'8px' }}>
-                <img src="/hero-my-image.webp" alt="Harsh Prateek, Founder of NovaDesk" style={{ width:'60px', height:'60px', borderRadius:'50%', objectFit:'cover', border:'2px solid rgba(255,255,255,0.2)' }} />
-                <div>
-                  <div style={{ fontSize:'16px', fontWeight:'700', color:'#fff', textAlign:'left' }}>Harsh Prateek</div>
-                  <div style={{ fontSize:'13px', color:'rgba(255,255,255,0.5)', textAlign:'left', marginTop:'3px' }}>Founder &amp; Lead Engineer, NovaDesk</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── 9. TOOLS & TECHNOLOGIES WE WORK WITH ── */}
+        {/* ── 9. TOOLS & TECHNOLOGIES WE WORK WITH / FAQs ── */}
         <section className="nd-faq">
           <div className="nd-faq-inner">
             <div className="nd-faq-tag">✦ FAQs ✦</div>
@@ -3025,11 +3287,11 @@ export default function Home() {
                 <FaqItem key={i} q={f.q} a={f.a} open={activeFaq === i} onToggle={() => setActiveFaq(activeFaq === i ? null : i)} />
               ))}
             </div>
-             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
-                          <Link to="/contact-us" className="nd-faq-cta-btn">
-                            Still have questions? Talk to Us ↗
-                          </Link>
-                        </div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+              <Link to="/contact-us" className="nd-faq-cta-btn">
+                Still have questions? Talk to Us ↗
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -3037,5 +3299,6 @@ export default function Home() {
     </>
   );
 }
+
 
 
