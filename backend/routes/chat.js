@@ -66,9 +66,10 @@ router.post('/stream', async (req, res) => {
   if (apiKey && apiKey !== 'YOUR_GEMINI_API_KEY_HERE') {
     const candidateModels = [
       process.env.GEMINI_MODEL,
-      'gemini-3.5-flash-lite',
-      'gemini-3.6-flash',
-      'gemini-flash-latest'
+      'gemini-2.0-flash',
+      'gemini-2.0-flash-lite',
+      'gemini-1.5-flash',
+      'gemini-1.5-pro'
     ].filter(Boolean);
 
     for (const modelName of candidateModels) {

@@ -66,8 +66,12 @@ router.post('/submit', async (req, res) => {
     leadsStore.unshift(lead);
     console.log(`[Lead Engine] ✅ New lead: ${lead.name} (${lead.email})`);
 
-    // Fire Telegram alert
-    sendTelegramAlert(lead).catch(console.error);
+    const tasks = [];
+
+    // Fire Telegram alert if configured
+    if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
+      tasks.push(sendTelegramAlert(lead));
+    }
 
     // Send emails if SMTP configured
     const transporter = getTransporter();
@@ -122,10 +126,15 @@ router.post('/submit', async (req, res) => {
         `
       };
 
-      transporter.sendMail(agencyMail).catch(e => console.error('Agency email error:', e));
+      tasks.push(transporter.sendMail(agencyMail).catch(e => console.error('Agency email error:', e)));
       if (lead.email?.includes('@')) {
-        transporter.sendMail(clientMail).catch(e => console.error('Client email error:', e));
+        tasks.push(transporter.sendMail(clientMail).catch(e => console.error('Client email error:', e)));
       }
+    }
+
+    // Safely wait for all background notification tasks to complete before ending serverless function
+    if (tasks.length > 0) {
+      await Promise.allSettled(tasks);
     }
 
     return res.status(200).json({ success: true, message: 'Lead received', leadId: lead.id });

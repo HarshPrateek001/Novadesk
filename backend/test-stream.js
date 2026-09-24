@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 async function testStream() {
   const apiKey = process.env.GEMINI_API_KEY;
   const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash-lite' });
+  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
 
   console.log('Testing generateContentStream...');
   try {

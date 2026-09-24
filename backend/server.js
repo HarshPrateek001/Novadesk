@@ -31,8 +31,8 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // Static uploads directory
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Health Check
-app.get('/api/health', (req, res) => {
+// Health Check & Root Info
+const statusResponse = (req, res) => {
   res.json({
     status: 'ok',
     service: 'NovaDesk Realtime AI & Lead Engine',
@@ -41,7 +41,11 @@ app.get('/api/health', (req, res) => {
     smtpConfigured: !!(process.env.SMTP_HOST && process.env.SMTP_USER),
     telegramConfigured: !!(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_BOT_TOKEN !== 'YOUR_TELEGRAM_BOT_TOKEN')
   });
-});
+};
+
+app.get('/', statusResponse);
+app.get('/health', statusResponse);
+app.get('/api/health', statusResponse);
 
 // Mount Routes
 app.use('/api/chat', chatRouter);
