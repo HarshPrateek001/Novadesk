@@ -384,14 +384,41 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Local SEO Cities List */}
-        <div className="nd-local-seo" style={{ textAlign: 'center', width: '100%' }}>
-          <h4 style={{ textAlign: 'center', width: '100%' }}>Serving clients all over India</h4>
-          <p style={{ textAlign: 'center', margin: '0 auto', width: '100%' }}>
-            Mumbai • Bengaluru • New Delhi • Hyderabad • Pune • Chennai • Ahmedabad • Kolkata • Jaipur • Surat • 
-            Gurugram • Noida • Chandigarh • Kochi • Indore • Lucknow • Bhopal • Coimbatore • Patna • Nagpur • 
-            Vadodara • Ludhiana • Agra • Nashik • Kanpur • Thane • Visakhapatnam • Rajkot
+        {/* Local SEO Cities List & Business Capabilities (Subtle & SEO-Optimized) */}
+        <div className="nd-local-seo" style={{ textAlign: 'center', width: '100%', borderTop: '1px solid rgba(255, 255, 255, 0.12)', paddingTop: '32px', paddingBottom: '24px' }}>
+          <h4 style={{ textAlign: 'center', width: '100%', fontSize: '11px', fontWeight: 700, color: '#00FFB2', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '10px' }}>
+            National Service Network &amp; Regional Hubs
+          </h4>
+          <p style={{ textAlign: 'center', margin: '0 auto 16px auto', width: '100%', fontSize: '11px', color: 'rgba(255, 255, 255, 0.5)', lineHeight: '1.9', maxWidth: '1120px' }}>
+            <strong>Jharkhand:</strong> Deoghar • Ranchi • Jamshedpur &nbsp;|&nbsp; 
+            <strong>Bihar:</strong> Patna &nbsp;|&nbsp; 
+            <strong>Delhi NCR:</strong> Delhi &nbsp;|&nbsp; 
+            <strong>Odisha:</strong> Bhubaneshwar • Cuttack &nbsp;|&nbsp; 
+            <strong>West Bengal:</strong> Kolkata • Siliguri • Asansol • Durgapur • Howrah • Malda • Kharagpur • Darjeeling • Bardhaman • Hooghly • Nadia • Midnapore • Murshidabad • Purulia • Haldia • Bankura • Jalpaiguri • Dinajpur • Birbhum • Cooch Behar • North 24 Parganas • South 24 Parganas • Kalimpong • Alipurduar • Jhargram • Basirhat • Bolpur • Raiganj • Kalna • Islampur • Sainthia • Kandi • Egra • Mirik • Birpara • Bakshirhat • Pundibari • Bara Jaguli • Abinashpur • Parulia
           </p>
+
+          {/* Core Business Capabilities / Solutions Keywords (Muted) */}
+          <div style={{ fontSize: '10.5px', color: 'rgba(255, 255, 255, 0.4)', lineHeight: '1.8', maxWidth: '1100px', margin: '0 auto' }}>
+            Internet Website Developers • Mobile Application Developers • Computer Software Developers • Computer Software Development Companies • Ecommerce Website Development Services • ERP Computer Software Developers (Tally Integration) • CRM Computer Software Dealers • Inventory Management Computer Software • Hospital &amp; Medical Computer Software Developers • School Computer Software Developers • Salon &amp; Spa Computer Software • PHP &amp; ASP.NET Developers • Multi Level Marketing Software • Barcode &amp; Embedded Systems
+          </div>
+
+          {/* Visually Hidden Semantic Keyword & Geo Indexing Layer (100% Crawlable by Search Engines) */}
+          <div 
+            style={{ 
+              position: 'absolute', 
+              width: '1px', 
+              height: '1px', 
+              padding: 0, 
+              margin: '-1px', 
+              overflow: 'hidden', 
+              clip: 'rect(0, 0, 0, 0)', 
+              whiteSpace: 'nowrap', 
+              border: 0 
+            }}
+            aria-hidden="true"
+          >
+            <span>Computer Software Developers in Deoghar Jharkhand, Mobile Application Developers in Patna, Internet Website Developers in Ranchi, ERP Software Dealers in Jamshedpur, Ecommerce Website Development in Kolkata, Computer Software Companies in Siliguri, School Software in Asansol, Medical Computer Software in Durgapur, CRM Software in Delhi, Computer Software Solution Providers in Malda, Kharagpur, Howrah, Darjeeling, Bardhaman, Hooghly, Nadia, Midnapore, Murshidabad, Purulia, Haldia, Bankura, Jalpaiguri, Dinajpur, Birbhum, Cooch Behar, North 24 Parganas, South 24 Parganas, Kalimpong, Alipurduar, Jhargram, Basirhat, Bolpur, Raiganj, Kalna, Islampur, Sainthia, Kandi, Egra, Mirik, Birpara, Bakshirhat, Pundibari, Bara Jaguli, Abinashpur, Parulia, Bhubaneshwar, Cuttack.</span>
+          </div>
         </div>
 
         {/* Large Watermark Text */}

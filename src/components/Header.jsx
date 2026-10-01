@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 
 // ── Icons (AutoAE-style minimalist vector assets)
@@ -47,7 +48,7 @@ const ArrowRight = () => (
 );
 
 const MenuIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <line x1="4" y1="7" x2="20" y2="7"/>
     <line x1="4" y1="12" x2="20" y2="12"/>
     <line x1="4" y1="17" x2="20" y2="17"/>
@@ -217,13 +218,14 @@ export default function Header() {
   const [activeServiceTab, setActiveServiceTab] = useState('ai');
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileActiveCategory, setMobileActiveCategory] = useState('ai');
   const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
 
   const timeoutRef = useRef(null);
+  const headerRef = useRef(null);
   const location = useLocation();
 
   // ── Hardware-accelerated rAF scroll listener with deadband hysteresis
-  // Prevents frame drops, layout thrashing, and jittering
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
@@ -231,7 +233,6 @@ export default function Header() {
         window.requestAnimationFrame(() => {
           const currentY = window.scrollY;
           setIsScrolled((prev) => {
-            // Hysteresis deadband: turns ON past 28px, turns OFF below 10px
             if (!prev && currentY > 28) return true;
             if (prev && currentY < 10) return false;
             return prev;
@@ -252,6 +253,38 @@ export default function Header() {
     setMobileOpen(false);
   }, [location.pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = prevOverflow;
+      };
+    }
+  }, [mobileOpen]);
+
+  // Close menus on outside click or Escape key
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (headerRef.current && !headerRef.current.contains(e.target)) {
+        setOpenMenu(null);
+      }
+    };
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setOpenMenu(null);
+        setMobileOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   // Smooth hover intent handlers with safe buffer
   const handleMouseEnter = (menu) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -270,6 +303,14 @@ export default function Header() {
     setOpenMenu(null);
   };
 
+  const toggleDropdown = (menu) => {
+    if (openMenu === menu) {
+      setOpenMenu(null);
+    } else {
+      setOpenMenu(menu);
+    }
+  };
+
   const currentService = servicesNav.find(s => s.id === activeServiceTab) || servicesNav[0];
 
   return (
@@ -277,14 +318,14 @@ export default function Header() {
       <style>{`
         /* ── ZERO-REFLOW HARDWARE-ACCELERATED HEADER ── */
         
-        /* 1. Top Announcement Strip in normal document flow (scrolls off smoothly like native web) */
+        /* 1. Top Announcement Strip */
         .aae-top-banner {
           width: 100%;
           background: #2E29FF;
           color: #FFFFFF;
           font-size: 12.5px;
           font-weight: 500;
-          padding: 8px 16px;
+          padding: 8px 36px 8px 16px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -293,6 +334,7 @@ export default function Header() {
           text-align: center;
           font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
           box-sizing: border-box;
+          line-height: 1.4;
         }
         .aae-top-banner a {
           color: #FFFFFF;
@@ -300,30 +342,34 @@ export default function Header() {
           text-decoration: underline;
           margin-left: 6px;
           transition: opacity 0.2s;
+          display: inline-block;
         }
         .aae-top-banner a:hover {
-          opacity: 0.9;
+          opacity: 0.85;
         }
         .aae-banner-close {
           position: absolute;
-          right: 16px;
+          right: 14px;
+          top: 50%;
+          transform: translateY(-50%);
           background: transparent;
           border: none;
           color: rgba(255, 255, 255, 0.8);
-          font-size: 16px;
+          font-size: 15px;
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 4px;
+          padding: 6px;
           border-radius: 50%;
-          transition: color 0.2s;
+          transition: color 0.2s, background-color 0.2s;
         }
         .aae-banner-close:hover {
-          color: #fff;
+          color: #FFFFFF;
+          background: rgba(255, 255, 255, 0.15);
         }
 
-        /* 2. Fixed-height Zero-Reflow Sticky Header Wrapper */
+        /* 2. Sticky Header Wrapper */
         .aae-header-wrapper {
           position: sticky;
           top: 0;
@@ -333,9 +379,9 @@ export default function Header() {
           display: flex;
           align-items: center;
           pointer-events: none;
-          contain: layout style;
           font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
           background: transparent;
+          transition: height 0.25s ease;
         }
 
         .aae-frame-container {
@@ -348,7 +394,7 @@ export default function Header() {
           pointer-events: none;
         }
 
-        /* 3. Constant Height Floating Pill (No Height / Margin Reflows) */
+        /* 3. Floating Pill */
         .aae-header-pill {
           pointer-events: auto;
           position: relative;
@@ -358,28 +404,26 @@ export default function Header() {
           width: 100%;
           max-width: 1240px;
           height: 56px;
-          padding: 0 24px;
+          padding: 0 22px;
           border-radius: 9999px;
           background: #FFFFFF;
           border: none;
           outline: none;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px -6px rgba(10, 10, 46, 0.07);
+          box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px -6px rgba(10, 10, 46, 0.08);
           transform: translate3d(0, 0, 0);
-          will-change: max-width, background-color, box-shadow;
+          will-change: max-width, box-shadow;
           transition: 
             max-width 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-            background-color 0.25s ease,
-            box-shadow 0.25s ease;
+            box-shadow 0.25s ease,
+            height 0.2s ease,
+            padding 0.2s ease;
           box-sizing: border-box;
         }
 
-        /* Scrolled state: Contracts width into sleek capsule pill with gentle elevation */
+        /* Scrolled state */
         .aae-header-pill.is-scrolled {
           max-width: 1140px;
-          background: #FFFFFF;
-          border: none;
-          outline: none;
-          box-shadow: 0 4px 24px -6px rgba(10, 10, 46, 0.10), 0 1px 4px rgba(0, 0, 0, 0.04);
+          box-shadow: 0 4px 24px -4px rgba(10, 10, 46, 0.12), 0 1px 4px rgba(0, 0, 0, 0.04);
         }
 
         /* Left Brand Logo */
@@ -389,6 +433,7 @@ export default function Header() {
           gap: 10px;
           text-decoration: none;
           flex-shrink: 0;
+          cursor: pointer;
         }
         .aae-brand-title {
           font-size: 19px;
@@ -406,13 +451,15 @@ export default function Header() {
           display: flex;
           align-items: center;
           gap: 4px;
+          flex-shrink: 0;
+          white-space: nowrap;
         }
 
         .aae-nav-btn {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          padding: 6px 14px;
+          padding: 6px 13px;
           border-radius: 9999px;
           font-size: 13.5px;
           font-weight: 600;
@@ -461,13 +508,13 @@ export default function Header() {
           color: #2E29FF;
         }
 
-        /* Right CTA Button (High conversion pill) */
+        /* Right CTA Button */
         .aae-cta-btn {
           display: inline-flex;
           align-items: center;
           gap: 6px;
           background: #2E29FF;
-          color: #FFFFFF;
+          color: #FFFFFF !important;
           padding: 8px 18px;
           border-radius: 9999px;
           font-size: 13px;
@@ -476,6 +523,7 @@ export default function Header() {
           box-shadow: 0 4px 14px rgba(46, 41, 255, 0.25);
           transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
           flex-shrink: 0;
+          white-space: nowrap;
         }
         .aae-cta-btn:hover {
           background: #1c17d4;
@@ -484,6 +532,22 @@ export default function Header() {
         }
         .aae-cta-btn:active {
           transform: translateY(0);
+        }
+
+        /* Tablet compact CTA */
+        .aae-tablet-cta {
+          display: none;
+          align-items: center;
+          gap: 4px;
+          background: #2E29FF;
+          color: #FFFFFF !important;
+          padding: 6px 14px;
+          border-radius: 9999px;
+          font-size: 12.5px;
+          font-weight: 700;
+          text-decoration: none;
+          box-shadow: 0 2px 8px rgba(46, 41, 255, 0.22);
+          margin-right: 6px;
         }
 
         /* Hamburger button */
@@ -498,22 +562,35 @@ export default function Header() {
           border: none;
           color: #0A0A2E;
           cursor: pointer;
-          transition: background 0.18s;
+          transition: background 0.18s, color 0.18s;
+          flex-shrink: 0;
         }
-        .aae-hamburger-btn:hover {
+        .aae-hamburger-btn:hover, .aae-hamburger-btn:active {
           background: rgba(46, 41, 255, 0.08);
           color: #2E29FF;
         }
 
-        /* ── Floating Mega Dropdowns (AutoAE Style Floating Cards) ── */
+        /* ── Floating Mega Dropdowns Anchored to Header Pill ── */
         .aae-dropdown-wrap {
           position: absolute;
-          top: calc(100% + 10px);
+          top: calc(100% + 8px);
           left: 50%;
           transform: translateX(-50%);
           z-index: 1000;
           pointer-events: auto;
+          max-width: min(880px, calc(100vw - 32px));
           animation: aaeDropdownFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Invisible hover bridge connecting pill to dropdown */
+        .aae-dropdown-wrap::before {
+          content: '';
+          position: absolute;
+          top: -12px;
+          left: 0;
+          right: 0;
+          height: 14px;
+          background: transparent;
         }
 
         @keyframes aaeDropdownFadeIn {
@@ -529,7 +606,7 @@ export default function Header() {
 
         .aae-dropdown-card {
           background: #FFFFFF;
-          border-radius: 22px;
+          border-radius: 20px;
           border: 1px solid rgba(46, 41, 255, 0.1);
           box-shadow: 0 24px 60px -15px rgba(10, 10, 46, 0.14), 0 0 0 1px rgba(46, 41, 255, 0.04);
           overflow: hidden;
@@ -539,11 +616,12 @@ export default function Header() {
         /* Services Menu Layout */
         .aae-services-menu {
           width: 860px;
+          max-width: calc(100vw - 32px);
           display: flex;
         }
 
         .aae-svc-sidebar {
-          width: 270px;
+          width: 260px;
           background: #F8F9FD;
           border-right: 1px solid rgba(46, 41, 255, 0.08);
           padding: 16px 12px;
@@ -589,17 +667,18 @@ export default function Header() {
 
         .aae-svc-content {
           flex: 1;
-          padding: 24px 28px;
+          padding: 24px 26px;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          min-width: 0;
         }
 
         .aae-svc-header {
-          margin-bottom: 18px;
+          margin-bottom: 16px;
         }
         .aae-svc-title {
-          font-size: 18px;
+          font-size: 17.5px;
           font-weight: 800;
           color: #0A0A2E;
           margin-bottom: 4px;
@@ -620,7 +699,7 @@ export default function Header() {
           display: flex;
           flex-direction: column;
           gap: 3px;
-          padding: 12px 14px;
+          padding: 11px 14px;
           border-radius: 12px;
           background: #FAFAFC;
           border: 1px solid rgba(46, 41, 255, 0.05);
@@ -649,9 +728,8 @@ export default function Header() {
           line-height: 1.4;
         }
 
-        /* Bottom highlight strip in services dropdown */
         .aae-svc-footer {
-          margin-top: 20px;
+          margin-top: 18px;
           padding-top: 14px;
           border-top: 1px solid rgba(46, 41, 255, 0.08);
           display: flex;
@@ -675,19 +753,20 @@ export default function Header() {
         /* Industries Menu Layout */
         .aae-industries-menu {
           width: 820px;
-          padding: 26px 30px;
+          max-width: calc(100vw - 32px);
+          padding: 24px 28px;
         }
 
         .aae-ind-top {
           display: flex;
           align-items: flex-end;
           justify-content: space-between;
-          margin-bottom: 20px;
+          margin-bottom: 18px;
           padding-bottom: 12px;
           border-bottom: 1px solid rgba(46, 41, 255, 0.08);
         }
         .aae-ind-top h3 {
-          font-size: 18px;
+          font-size: 17.5px;
           font-weight: 800;
           color: #0A0A2E;
           margin-bottom: 4px;
@@ -700,11 +779,11 @@ export default function Header() {
         .aae-ind-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 10px;
+          gap: 9px;
         }
 
         .aae-ind-card {
-          padding: 12px 14px;
+          padding: 11px 13px;
           border-radius: 12px;
           background: #FAFAFC;
           border: 1px solid rgba(46, 41, 255, 0.05);
@@ -736,28 +815,44 @@ export default function Header() {
           line-height: 1.4;
         }
 
-        /* ── Mobile Navigation Drawer ── */
+        /* ── Fullscreen Portal Mobile Drawer ── */
         .aae-mobile-drawer {
           position: fixed;
-          inset: 0;
-          background: rgba(10, 10, 46, 0.4);
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100vw;
+          height: 100vh;
+          height: 100dvh;
+          background: rgba(10, 10, 46, 0.45);
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
-          z-index: 99999;
+          z-index: 999999;
           display: flex;
           justify-content: flex-end;
           pointer-events: auto;
+          animation: aaeFadeIn 0.25s ease;
+        }
+
+        @keyframes aaeFadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
 
         .aae-drawer-panel {
           width: 100%;
-          max-width: 380px;
+          max-width: 400px;
           height: 100%;
+          height: 100dvh;
           background: #FFFFFF;
           display: flex;
           flex-direction: column;
-          box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
-          animation: aaeSlideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: -12px 0 35px rgba(0, 0, 0, 0.18);
+          animation: aaeSlideLeft 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+          position: relative;
+          box-sizing: border-box;
+          overflow: hidden;
         }
 
         @keyframes aaeSlideLeft {
@@ -769,13 +864,15 @@ export default function Header() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 18px 24px;
+          padding: 16px 20px;
           border-bottom: 1px solid #F1F3F9;
+          background: #FFFFFF;
+          flex-shrink: 0;
         }
 
         .aae-drawer-close-btn {
-          width: 36px;
-          height: 36px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           background: #F3F4F6;
           border: none;
@@ -784,12 +881,19 @@ export default function Header() {
           justify-content: center;
           cursor: pointer;
           color: #374151;
+          transition: background 0.18s, color 0.18s;
+        }
+        .aae-drawer-close-btn:hover, .aae-drawer-close-btn:active {
+          background: #EEF0FF;
+          color: #2E29FF;
         }
 
         .aae-drawer-body {
           flex: 1;
           overflow-y: auto;
-          padding: 12px 16px 120px;
+          overscroll-behavior: contain;
+          -webkit-overflow-scrolling: touch;
+          padding: 14px 16px 110px;
           display: flex;
           flex-direction: column;
           gap: 6px;
@@ -799,17 +903,26 @@ export default function Header() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 12px 16px;
+          padding: 12px 14px;
           border-radius: 12px;
           font-size: 15px;
           font-weight: 600;
           color: #111827;
           text-decoration: none;
-          transition: background 0.18s;
+          transition: background 0.18s, color 0.18s;
         }
-        .aae-drawer-link:hover {
+        .aae-drawer-link:hover, .aae-drawer-link:active {
           background: #F8F9FD;
           color: #2E29FF;
+        }
+
+        .aae-drawer-link-ai {
+          background: #EEF0FF;
+          color: #2E29FF;
+          border: 1px solid rgba(46, 41, 255, 0.15);
+        }
+        .aae-drawer-link-ai:hover {
+          background: #e2e5ff;
         }
 
         .aae-drawer-accordion-btn {
@@ -817,7 +930,7 @@ export default function Header() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 12px 16px;
+          padding: 12px 14px;
           border-radius: 12px;
           font-size: 15px;
           font-weight: 600;
@@ -826,46 +939,143 @@ export default function Header() {
           border: none;
           cursor: pointer;
           font-family: inherit;
-          transition: background 0.18s;
+          transition: background 0.18s, color 0.18s;
         }
-        .aae-drawer-accordion-btn:hover {
+        .aae-drawer-accordion-btn:hover, .aae-drawer-accordion-btn:active {
           background: #F8F9FD;
           color: #2E29FF;
         }
 
         .aae-drawer-sub-box {
           background: #F8F9FD;
-          border-radius: 12px;
-          padding: 8px 12px;
-          margin-top: 4px;
-          margin-bottom: 4px;
+          border-radius: 14px;
+          padding: 10px;
+          margin-top: 2px;
+          margin-bottom: 6px;
           display: flex;
           flex-direction: column;
-          gap: 2px;
+          gap: 6px;
+        }
+
+        /* Mobile service category groups */
+        .aae-drawer-cat-group {
+          background: #FFFFFF;
+          border-radius: 10px;
+          border: 1px solid rgba(46, 41, 255, 0.08);
+          overflow: hidden;
+        }
+
+        .aae-drawer-cat-btn {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px 12px;
+          background: #FFFFFF;
+          border: none;
+          font-family: inherit;
+          font-size: 13.5px;
+          font-weight: 700;
+          color: #1F2937;
+          cursor: pointer;
+          text-align: left;
+          transition: background 0.15s;
+        }
+        .aae-drawer-cat-btn:hover, .aae-drawer-cat-btn.open {
+          background: #F5F7FF;
+          color: #2E29FF;
+        }
+
+        .aae-drawer-cat-left {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .aae-cat-badge {
+          font-size: 10px;
+          font-weight: 700;
+          color: #2E29FF;
+          background: #EEF0FF;
+          padding: 1px 6px;
+          border-radius: 9999px;
+        }
+
+        .aae-drawer-cat-links {
+          padding: 4px 8px 8px;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          border-top: 1px solid rgba(46, 41, 255, 0.06);
+          background: #FAFAFC;
         }
 
         .aae-drawer-sub-link {
-          padding: 8px 12px;
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          padding: 8px 10px;
           border-radius: 8px;
-          font-size: 13.5px;
-          font-weight: 500;
-          color: #4B5563;
+          text-decoration: none;
+          transition: background 0.15s;
+        }
+        .aae-drawer-sub-link:hover, .aae-drawer-sub-link:active {
+          background: #EEF0FF;
+        }
+        .aae-drawer-sub-link-title {
+          font-size: 13px;
+          font-weight: 600;
+          color: #111827;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .aae-drawer-sub-link:hover .aae-drawer-sub-link-title {
+          color: #2E29FF;
+        }
+        .aae-drawer-sub-link-desc {
+          font-size: 11px;
+          color: #64748B;
+        }
+
+        /* Mobile Industries 2-column grid */
+        .aae-drawer-ind-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 6px;
+        }
+
+        .aae-drawer-ind-chip {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 9px 12px;
+          background: #FFFFFF;
+          border: 1px solid rgba(46, 41, 255, 0.08);
+          border-radius: 10px;
+          font-size: 12.5px;
+          font-weight: 600;
+          color: #1F2937;
           text-decoration: none;
           transition: all 0.15s;
         }
-        .aae-drawer-sub-link:hover {
-          color: #2E29FF;
+        .aae-drawer-ind-chip:hover, .aae-drawer-ind-chip:active {
           background: #EEF0FF;
+          color: #2E29FF;
+          border-color: rgba(46, 41, 255, 0.2);
         }
 
+        /* Pinned Drawer Footer */
         .aae-drawer-footer {
           position: absolute;
           bottom: 0;
           left: 0;
           right: 0;
-          padding: 16px 24px;
+          padding: 14px 20px calc(14px + env(safe-area-inset-bottom, 0px));
           background: #FFFFFF;
           border-top: 1px solid #F1F3F9;
+          box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.04);
+          z-index: 10;
         }
         .aae-drawer-cta {
           display: flex;
@@ -874,39 +1084,102 @@ export default function Header() {
           gap: 8px;
           width: 100%;
           background: #2E29FF;
-          color: #FFFFFF;
+          color: #FFFFFF !important;
           padding: 13px 20px;
           border-radius: 9999px;
           font-size: 14.5px;
           font-weight: 700;
           text-decoration: none;
           box-shadow: 0 4px 14px rgba(46, 41, 255, 0.25);
+          transition: background 0.18s;
+        }
+        .aae-drawer-cta:hover, .aae-drawer-cta:active {
+          background: #1c17d4;
         }
 
-        /* ── Responsive Queries ── */
+        /* ── RESPONSIVE BREAKPOINTS ── */
+
+        /* Laptops & Medium Desktops: compact spacing */
+        @media (max-width: 1200px) and (min-width: 1025px) {
+          .aae-header-pill {
+            padding: 0 16px !important;
+          }
+          .aae-nav-group {
+            gap: 2px !important;
+          }
+          .aae-nav-btn {
+            padding: 6px 10px !important;
+            font-size: 13px !important;
+          }
+          .aae-cta-btn {
+            padding: 7px 14px !important;
+            font-size: 12.5px !important;
+          }
+          .aae-services-menu {
+            width: 780px !important;
+          }
+          .aae-svc-sidebar {
+            width: 230px !important;
+          }
+          .aae-industries-menu {
+            width: 760px !important;
+          }
+        }
+
+        /* Tablets (<= 1024px) */
         @media (max-width: 1024px) {
           .aae-header-wrapper {
-            height: 60px !important;
+            height: 64px !important;
           }
           .aae-header-pill {
-            height: 48px !important;
-            padding: 0 14px !important;
+            height: 52px !important;
+            padding: 0 16px !important;
             max-width: 100% !important;
           }
           .aae-header-pill.is-scrolled {
             max-width: 100% !important;
           }
           .aae-nav-group,
-          .aae-cta-btn {
+          .aae-cta-btn,
+          .aae-dropdown-wrap {
             display: none !important;
           }
           .aae-hamburger-btn {
             display: flex !important;
           }
+          .aae-tablet-cta {
+            display: inline-flex !important;
+          }
+        }
+
+        /* Phones (<= 640px) */
+        @media (max-width: 640px) {
+          .aae-top-banner {
+            font-size: 11.5px !important;
+            padding: 6px 34px 6px 12px !important;
+            line-height: 1.35 !important;
+            justify-content: center !important;
+          }
+          .aae-header-wrapper {
+            height: 60px !important;
+          }
+          .aae-header-pill {
+            height: 48px !important;
+            padding: 0 14px !important;
+          }
+          .aae-brand-title {
+            font-size: 17.5px !important;
+          }
+          .aae-tablet-cta {
+            display: none !important;
+          }
+          .aae-drawer-panel {
+            max-width: 100% !important;
+          }
         }
       `}</style>
 
-      {/* 1. Top Announcement Bar in normal document flow (scrolls off smoothly) */}
+      {/* 1. Top Announcement Bar */}
       {bannerVisible && (
         <div className="aae-top-banner">
           <span>
@@ -923,8 +1196,8 @@ export default function Header() {
         </div>
       )}
 
-      {/* 2. Fixed-height Zero-Reflow Sticky Header Container */}
-      <header className="aae-header-wrapper">
+      {/* 2. Floating Pill Header Container */}
+      <header className="aae-header-wrapper" ref={headerRef}>
         <div className="aae-frame-container">
           <div className={`aae-header-pill ${isScrolled ? 'is-scrolled' : ''}`}>
             {/* 1. Left: Brand Logo */}
@@ -935,7 +1208,7 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* 2. Center: Nav Links */}
+            {/* 2. Center: Nav Links (Desktop) */}
             <nav className="aae-nav-group" aria-label="Primary Navigation">
               {/* Highlight Item: AI Studio with Sparkle & Beta tag */}
               <Link 
@@ -950,133 +1223,39 @@ export default function Header() {
 
               {/* Dropdown: Services */}
               <div 
-                className="relative"
                 onMouseEnter={() => handleMouseEnter('services')}
                 onMouseLeave={handleMouseLeave}
               >
                 <button 
                   className={`aae-nav-btn ${openMenu === 'services' ? 'active' : ''}`}
-                  onClick={() => setOpenMenu(openMenu === 'services' ? null : 'services')}
+                  onClick={() => toggleDropdown('services')}
                   aria-expanded={openMenu === 'services'}
+                  type="button"
                 >
                   Services
                   <CaretIcon isOpen={openMenu === 'services'} />
                 </button>
-
-                {/* Floating Services Dropdown Card */}
-                {openMenu === 'services' && (
-                  <div className="aae-dropdown-wrap">
-                    <div className="aae-dropdown-card aae-services-menu">
-                      {/* Left Sidebar Category Tabs */}
-                      <div className="aae-svc-sidebar">
-                        {servicesNav.map((s) => (
-                          <button
-                            key={s.id}
-                            className={`aae-svc-tab-btn ${activeServiceTab === s.id ? 'active' : ''}`}
-                            onMouseEnter={() => setActiveServiceTab(s.id)}
-                            onClick={() => setActiveServiceTab(s.id)}
-                          >
-                            <span className="aae-svc-tab-left">
-                              {s.icon}
-                              {s.label}
-                            </span>
-                            <ArrowRight />
-                          </button>
-                        ))}
-                      </div>
-
-                      {/* Right Sub-services Grid */}
-                      <div className="aae-svc-content">
-                        <div>
-                          <div className="aae-svc-header">
-                            <h4 className="aae-svc-title">{currentService.title}</h4>
-                            <p className="aae-svc-desc">{currentService.desc}</p>
-                          </div>
-
-                          <div className="aae-svc-grid">
-                            {currentService.links.map((link) => (
-                              <Link
-                                key={link.label}
-                                to={getServiceUrl(link.label)}
-                                className="aae-svc-link"
-                                onClick={closeDropdown}
-                              >
-                                <span className="aae-svc-link-title">
-                                  {link.label}
-                                  <ArrowRight />
-                                </span>
-                                <span className="aae-svc-link-desc">{link.desc}</span>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Bottom Highlight Strip */}
-                        <div className="aae-svc-footer">
-                          <span>🚀 Need rapid MVP prototyping with human engineers?</span>
-                          <Link to="/services/mvp-development" onClick={closeDropdown}>
-                            Explore 21-Day Sprint MVP →
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
 
               {/* Dropdown: Industries */}
               <div 
-                className="relative"
                 onMouseEnter={() => handleMouseEnter('industries')}
                 onMouseLeave={handleMouseLeave}
               >
                 <button 
                   className={`aae-nav-btn ${openMenu === 'industries' ? 'active' : ''}`}
-                  onClick={() => setOpenMenu(openMenu === 'industries' ? null : 'industries')}
+                  onClick={() => toggleDropdown('industries')}
                   aria-expanded={openMenu === 'industries'}
+                  type="button"
                 >
                   Industries
                   <CaretIcon isOpen={openMenu === 'industries'} />
                 </button>
-
-                {/* Floating Industries Dropdown Card */}
-                {openMenu === 'industries' && (
-                  <div className="aae-dropdown-wrap">
-                    <div className="aae-dropdown-card aae-industries-menu">
-                      <div className="aae-ind-top">
-                        <div>
-                          <h3>Software Tailored for Modern Industries</h3>
-                          <p>Production systems engineered for domain compliance, scale, and high conversion.</p>
-                        </div>
-                        <span style={{ fontSize: '12px', fontWeight: 700, color: '#2E29FF', background: '#EEF0FF', padding: '4px 10px', borderRadius: '20px' }}>
-                          12 Domain Verticals
-                        </span>
-                      </div>
-
-                      <div className="aae-ind-grid">
-                        {industries.map((ind) => (
-                          <Link
-                            key={ind.name}
-                            to={`/industries/${ind.name.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`}
-                            className="aae-ind-card"
-                            onClick={closeDropdown}
-                          >
-                            <span className="aae-ind-name">
-                              {ind.name}
-                              <ArrowUpRight />
-                            </span>
-                            <span className="aae-ind-card-desc">{ind.desc}</span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
 
               {/* Direct Links */}
               <Link to="/case-studies" className="aae-nav-btn" onMouseEnter={closeDropdown}>
-                Case Studies
+                Products
               </Link>
               <Link to="/about-us" className="aae-nav-btn" onMouseEnter={closeDropdown}>
                 About Us
@@ -1086,171 +1265,320 @@ export default function Header() {
               </Link>
             </nav>
 
-            {/* 3. Right: CTA Action Button */}
-            <Link to="/contact-us" className="aae-cta-btn" onClick={closeDropdown}>
-              Book a Call
-              <ArrowUpRight />
-            </Link>
+            {/* 3. Right: CTA Action & Hamburger Buttons */}
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Link to="/contact-us" className="aae-cta-btn" onClick={closeDropdown}>
+                Book a Call
+                <ArrowUpRight />
+              </Link>
 
-            {/* Mobile Hamburger Trigger */}
-            <button 
-              className="aae-hamburger-btn"
-              onClick={() => setMobileOpen(true)}
-              aria-label="Open navigation menu"
-            >
-              <MenuIcon />
-            </button>
+              <Link to="/contact-us" className="aae-tablet-cta" onClick={closeDropdown}>
+                Book a Call
+              </Link>
+
+              <button 
+                className="aae-hamburger-btn"
+                onClick={() => setMobileOpen(true)}
+                aria-label="Open navigation menu"
+                type="button"
+              >
+                <MenuIcon />
+              </button>
+            </div>
+
+            {/* ── Floating Mega Dropdowns anchored to the Header Pill ── */}
+            {openMenu === 'services' && (
+              <div 
+                className="aae-dropdown-wrap"
+                onMouseEnter={() => {
+                  if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                }}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="aae-dropdown-card aae-services-menu">
+                  {/* Left Sidebar Category Tabs */}
+                  <div className="aae-svc-sidebar">
+                    {servicesNav.map((s) => (
+                      <button
+                        key={s.id}
+                        type="button"
+                        className={`aae-svc-tab-btn ${activeServiceTab === s.id ? 'active' : ''}`}
+                        onMouseEnter={() => setActiveServiceTab(s.id)}
+                        onClick={() => setActiveServiceTab(s.id)}
+                      >
+                        <span className="aae-svc-tab-left">
+                          {s.icon}
+                          {s.label}
+                        </span>
+                        <ArrowRight />
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Right Sub-services Grid */}
+                  <div className="aae-svc-content">
+                    <div>
+                      <div className="aae-svc-header">
+                        <h4 className="aae-svc-title">{currentService.title}</h4>
+                        <p className="aae-svc-desc">{currentService.desc}</p>
+                      </div>
+
+                      <div className="aae-svc-grid">
+                        {currentService.links.map((link) => (
+                          <Link
+                            key={link.label}
+                            to={getServiceUrl(link.label)}
+                            className="aae-svc-link"
+                            onClick={closeDropdown}
+                          >
+                            <span className="aae-svc-link-title">
+                              {link.label}
+                              <ArrowRight />
+                            </span>
+                            <span className="aae-svc-link-desc">{link.desc}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Bottom Highlight Strip */}
+                    <div className="aae-svc-footer">
+                      <span>🚀 Need rapid MVP prototyping with human engineers?</span>
+                      <Link to="/services/mvp-development" onClick={closeDropdown}>
+                        Explore 21-Day Sprint MVP →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {openMenu === 'industries' && (
+              <div 
+                className="aae-dropdown-wrap"
+                onMouseEnter={() => {
+                  if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                }}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="aae-dropdown-card aae-industries-menu">
+                  <div className="aae-ind-top">
+                    <div>
+                      <h3>Software Tailored for Modern Industries</h3>
+                      <p>Production systems engineered for domain compliance, scale, and high conversion.</p>
+                    </div>
+                    <span style={{ fontSize: '12px', fontWeight: 700, color: '#2E29FF', background: '#EEF0FF', padding: '4px 10px', borderRadius: '20px', whiteSpace: 'nowrap' }}>
+                      12 Domain Verticals
+                    </span>
+                  </div>
+
+                  <div className="aae-ind-grid">
+                    {industries.map((ind) => (
+                      <Link
+                        key={ind.name}
+                        to={`/industries/${ind.name.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`}
+                        className="aae-ind-card"
+                        onClick={closeDropdown}
+                      >
+                        <span className="aae-ind-name">
+                          {ind.name}
+                          <ArrowUpRight />
+                        </span>
+                        <span className="aae-ind-card-desc">{ind.desc}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
+      </header>
 
-        {/* ── Mobile Drawer (AutoAE Style Slide Sheet) ── */}
-        {mobileOpen && (
-          <div className="aae-mobile-drawer" onClick={() => setMobileOpen(false)}>
-            <div className="aae-drawer-panel" onClick={(e) => e.stopPropagation()}>
-              {/* Drawer Top */}
-              <div className="aae-drawer-header">
-                <Link to="/" className="aae-brand" onClick={() => setMobileOpen(false)}>
-                  <LogoIcon />
-                  <div className="aae-brand-title">
-                    NOVA<span>DESK</span>
-                  </div>
-                </Link>
+      {/* ── Mobile Navigation Drawer Portal (Mounted to Document Body) ── */}
+      {mobileOpen && typeof document !== 'undefined' && createPortal(
+        <div 
+          className="aae-mobile-drawer" 
+          onClick={() => setMobileOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Navigation"
+        >
+          <div className="aae-drawer-panel" onClick={(e) => e.stopPropagation()}>
+            {/* Drawer Top Header */}
+            <div className="aae-drawer-header">
+              <Link to="/" className="aae-brand" onClick={() => setMobileOpen(false)}>
+                <LogoIcon />
+                <div className="aae-brand-title">
+                  NOVA<span>DESK</span>
+                </div>
+              </Link>
+              <button 
+                className="aae-drawer-close-btn"
+                onClick={() => setMobileOpen(false)}
+                aria-label="Close menu"
+                type="button"
+              >
+                <CloseIcon />
+              </button>
+            </div>
+
+            {/* Drawer Scrollable Content */}
+            <div className="aae-drawer-body">
+              {/* Highlight AI Studio */}
+              <Link 
+                to="/services/gen-ai-development" 
+                className="aae-drawer-link aae-drawer-link-ai"
+                onClick={() => setMobileOpen(false)}
+              >
+                <span style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700 }}>
+                  <SparklesIcon />
+                  AI Studio
+                </span>
+                <span className="aae-badge-beta">beta</span>
+              </Link>
+
+              {/* Services Accordion with Category Groups */}
+              <div>
                 <button 
-                  className="aae-drawer-close-btn"
-                  onClick={() => setMobileOpen(false)}
-                  aria-label="Close menu"
+                  type="button"
+                  className="aae-drawer-accordion-btn"
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  aria-expanded={mobileServicesOpen}
                 >
-                  <CloseIcon />
+                  <span style={{ fontWeight: 700 }}>Services</span>
+                  <CaretIcon isOpen={mobileServicesOpen} />
                 </button>
+
+                {mobileServicesOpen && (
+                  <div className="aae-drawer-sub-box">
+                    {servicesNav.map((cat) => {
+                      const isCatOpen = mobileActiveCategory === cat.id;
+                      return (
+                        <div key={cat.id} className="aae-drawer-cat-group">
+                          <button 
+                            type="button"
+                            className={`aae-drawer-cat-btn ${isCatOpen ? 'open' : ''}`}
+                            onClick={() => setMobileActiveCategory(isCatOpen ? null : cat.id)}
+                            aria-expanded={isCatOpen}
+                          >
+                            <div className="aae-drawer-cat-left">
+                              {cat.icon}
+                              <span>{cat.label}</span>
+                              {cat.badge && <span className="aae-cat-badge">{cat.badge}</span>}
+                            </div>
+                            <CaretIcon isOpen={isCatOpen} />
+                          </button>
+
+                          {isCatOpen && (
+                            <div className="aae-drawer-cat-links">
+                              {cat.links.map((link) => (
+                                <Link
+                                  key={link.label}
+                                  to={getServiceUrl(link.label)}
+                                  className="aae-drawer-sub-link"
+                                  onClick={() => setMobileOpen(false)}
+                                >
+                                  <div className="aae-drawer-sub-link-title">
+                                    {link.label}
+                                    <ArrowRight />
+                                  </div>
+                                  <div className="aae-drawer-sub-link-desc">{link.desc}</div>
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
 
-              {/* Drawer Content */}
-              <div className="aae-drawer-body">
-                {/* AI Studio direct link */}
-                <Link 
-                  to="/services/gen-ai-development" 
-                  className="aae-drawer-link"
-                  onClick={() => setMobileOpen(false)}
+              {/* Industries Accordion with 2-Column Grid */}
+              <div>
+                <button 
+                  type="button"
+                  className="aae-drawer-accordion-btn"
+                  onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+                  aria-expanded={mobileIndustriesOpen}
                 >
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <SparklesIcon />
-                    AI Studio
-                  </span>
-                  <span className="aae-badge-beta">beta</span>
-                </Link>
+                  <span style={{ fontWeight: 700 }}>Industries</span>
+                  <CaretIcon isOpen={mobileIndustriesOpen} />
+                </button>
 
-                {/* Services Accordion */}
-                <div>
-                  <button 
-                    className="aae-drawer-accordion-btn"
-                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  >
-                    <span>Services</span>
-                    <CaretIcon isOpen={mobileServicesOpen} />
-                  </button>
-
-                  {mobileServicesOpen && (
-                    <div className="aae-drawer-sub-box">
-                      {servicesNav.map((s) => (
-                        <div key={s.id} style={{ marginBottom: '8px' }}>
-                          <span style={{ fontSize: '11px', fontWeight: 800, color: '#9CA3AF', textTransform: 'uppercase', padding: '4px 12px', display: 'block' }}>
-                            {s.label}
-                          </span>
-                          {s.links.map((link) => (
-                            <Link
-                              key={link.label}
-                              to={getServiceUrl(link.label)}
-                              className="aae-drawer-sub-link"
-                              onClick={() => setMobileOpen(false)}
-                            >
-                              {link.label}
-                            </Link>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Industries Accordion */}
-                <div>
-                  <button 
-                    className="aae-drawer-accordion-btn"
-                    onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
-                  >
-                    <span>Industries</span>
-                    <CaretIcon isOpen={mobileIndustriesOpen} />
-                  </button>
-
-                  {mobileIndustriesOpen && (
-                    <div className="aae-drawer-sub-box">
+                {mobileIndustriesOpen && (
+                  <div className="aae-drawer-sub-box">
+                    <div className="aae-drawer-ind-grid">
                       {industries.map((ind) => (
                         <Link
                           key={ind.name}
                           to={`/industries/${ind.name.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`}
-                          className="aae-drawer-sub-link"
+                          className="aae-drawer-ind-chip"
                           onClick={() => setMobileOpen(false)}
                         >
-                          {ind.name}
+                          <span>{ind.name}</span>
+                          <ArrowUpRight />
                         </Link>
                       ))}
                     </div>
-                  )}
-                </div>
-
-                {/* Direct Links */}
-                <Link 
-                  to="/case-studies" 
-                  className="aae-drawer-link"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  <span>Case Studies</span>
-                  <ArrowRight />
-                </Link>
-
-                <Link 
-                  to="/about-us" 
-                  className="aae-drawer-link"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  <span>About Us</span>
-                  <ArrowRight />
-                </Link>
-
-                <Link 
-                  to="/blog" 
-                  className="aae-drawer-link"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  <span>Blogs</span>
-                  <ArrowRight />
-                </Link>
-
-                <Link 
-                  to="/contact-us" 
-                  className="aae-drawer-link"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  <span>Contact Us</span>
-                  <ArrowRight />
-                </Link>
+                  </div>
+                )}
               </div>
 
-              {/* Pinned Bottom CTA */}
-              <div className="aae-drawer-footer">
-                <Link 
-                  to="/contact-us" 
-                  className="aae-drawer-cta"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Book a Call
-                  <ArrowUpRight />
-                </Link>
-              </div>
+              {/* Direct Links */}
+              <Link 
+                to="/case-studies" 
+                className="aae-drawer-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                <span>Case Studies</span>
+                <ArrowRight />
+              </Link>
+
+              <Link 
+                to="/about-us" 
+                className="aae-drawer-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                <span>About Us</span>
+                <ArrowRight />
+              </Link>
+
+              <Link 
+                to="/blog" 
+                className="aae-drawer-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                <span>Blogs</span>
+                <ArrowRight />
+              </Link>
+
+              <Link 
+                to="/contact-us" 
+                className="aae-drawer-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                <span>Contact Us</span>
+                <ArrowRight />
+              </Link>
+            </div>
+
+            {/* Pinned Bottom CTA */}
+            <div className="aae-drawer-footer">
+              <Link 
+                to="/contact-us" 
+                className="aae-drawer-cta"
+                onClick={() => setMobileOpen(false)}
+              >
+                Book a Call
+                <ArrowUpRight />
+              </Link>
             </div>
           </div>
-        )}
-      </header>
+        </div>,
+        document.body
+      )}
     </>
   );
 }

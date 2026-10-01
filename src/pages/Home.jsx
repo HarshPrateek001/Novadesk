@@ -43,13 +43,14 @@ const IconCloud = () => (
 
 // ─── TYPING ANIMATION FOR HERO BLUE SUBHEADING ─────────────────────────────────
 const heroTypingServices = [
-  'Full-Stack & AI Studio',
-  'Web App Development',
+  'Computer Software Developers',
+  'Mobile Application Developers',
+  'Internet Website Developers',
+  'ERP & CRM Software Systems',
+  'Ecommerce Website Development',
   'Custom SaaS Platforms',
-  'Mobile App Engineering',
   'GenAI & Chatbot Solutions',
-  'UI/UX & Product Design',
-  'Enterprise Software Systems'
+  'Enterprise Software Engineering'
 ];
 
 function TypingHeading() {
@@ -518,10 +519,31 @@ export default function Home() {
         { label: 'Scalable Infrastructure Design', desc: 'Traffic spikes don\'t take your product down.' },
         { label: 'Cost Optimisation', desc: 'Cloud bill doesn\'t grow faster than your business.' }
       ]
+    },
+    erp: {
+      icon: <IconCart />,
+      label: 'ERP & Custom Software',
+      title: 'Computer Software Developers, ERP & Business Solutions',
+      desc: 'We are premier computer software developers providing custom ERP software, Tally integration, inventory management software, CRM solutions, and specialized software for medical hospitals, schools, salons, and MLM platforms.',
+      whothisfor: 'Enterprises, dealers, schools, clinics, and businesses requiring robust custom computer software and automated operations.',
+      links: [
+        { label: 'ERP Computer Software (Tally Integration)', desc: 'Custom enterprise software with automated Tally sync, ledgers, and billing.' },
+        { label: 'CRM Computer Software Dealers', desc: 'Sales pipeline automation, client follow-up engines, and support portals.' },
+        { label: 'Inventory Management Computer Software', desc: 'Real-time stock audits, automated reordering, and barcode scanner integration.' },
+        { label: 'Hospital & Medical Computer Software', desc: 'Clinic patient records, OPD/IPD tracking, pharmacy inventory, and doctor portals.' },
+        { label: 'Computer Software Developers For School', desc: 'Student fee management, online exams, admission portals, and LMS platforms.' },
+        { label: 'Salon & Spa Computer Software Dealers', desc: 'Client appointment booking, loyalty reward tracking, and automated POS billing.' },
+        { label: 'Computer Software Developers For PHP & ASP.NET', desc: 'High-speed web portals, custom backend software, and enterprise databases.' },
+        { label: 'Multi Level Marketing (MLM) Software', desc: 'Binary, matrix, and unilevel compensation plans with real-time payout trees.' }
+      ]
     }
   };
 
   const faqs = [
+    { q: 'Do you provide computer software development and ERP solutions in Deoghar, Patna, Ranchi, Kolkata, and across India?', a: 'Yes, NovaDesk is a recognized computer software development company providing custom software developers, ERP solutions, Tally integration, and mobile app developers across all national listing cities including Deoghar (Jharkhand), Patna, Ranchi, Jamshedpur, Kolkata, Siliguri, Asansol, Durgapur, Howrah, Malda, Kharagpur, Delhi, Bhubaneshwar, Cuttack, and 40+ regional hubs.' },
+    { q: 'What capabilities do your internet website developers and mobile application developers provide?', a: 'Our expert developers build high-conversion ecommerce website development services, enterprise internet websites, and native/cross-platform mobile apps for iOS and Android using React, Next.js, Flutter, PHP, and ASP.NET Core.' },
+    { q: 'Can NovaDesk build customized hospital, medical, and school computer software?', a: 'Yes. We engineer bespoke hospital computer software, clinic patient telemetry, EHR systems, and school computer software covering automated fee collection, report card generation, student records, and digital learning portals.' },
+    { q: 'Do you offer ERP computer software with Tally integration, inventory management, and salon/spa software?', a: 'Yes. We develop robust ERP computer software with bidirectional Tally sync, real-time inventory management software with barcode scanning, salon & spa appointment software, and multi-level marketing (MLM) software platforms.' },
     { q: 'What services does NovaDesk offer?', a: 'We offer web development, app development, SaaS product development, AI/ML integration, UI/UX design, API development, cloud deployment, and ongoing maintenance — all under one team.' },
     { q: 'How long does a typical project take?', a: 'Timelines vary by scope. A basic website may take 2–4 weeks, a mobile app typically takes 6–12 weeks, and a full SaaS product can take 2–4 months depending on complexity. You\'ll get a clear, honest timeline during the proposal stage — not a vague estimate.' },
     { q: 'Do you work with startups, or only established businesses?', a: 'Both. We work with early-stage founders building their first MVP as well as established local and regional businesses looking to build or upgrade their digital presence.' },
@@ -546,35 +568,243 @@ export default function Home() {
     { q: 'What if I only need one part of the process, like design or just development?', a: "That's completely fine. While we offer end-to-end service, we also work on standalone design, standalone development, or specific technical problems if that's what you need." },
   ];
 
+  // ─── 47 National Listing Cities for Area-Wise Enquiry Optimization ───
+  const nationalServiceCities = [
+    { name: 'Deoghar', state: 'Jharkhand' },
+    { name: 'Ranchi', state: 'Jharkhand' },
+    { name: 'Jamshedpur', state: 'Jharkhand' },
+    { name: 'Patna', state: 'Bihar' },
+    { name: 'Delhi', state: 'Delhi' },
+    { name: 'Bhubaneshwar', state: 'Odisha' },
+    { name: 'Cuttack', state: 'Odisha' },
+    { name: 'Kolkata', state: 'West Bengal' },
+    { name: 'Siliguri', state: 'West Bengal' },
+    { name: 'Asansol', state: 'West Bengal' },
+    { name: 'Durgapur', state: 'West Bengal' },
+    { name: 'Howrah', state: 'West Bengal' },
+    { name: 'Malda', state: 'West Bengal' },
+    { name: 'Kharagpur', state: 'West Bengal' },
+    { name: 'Darjeeling', state: 'West Bengal' },
+    { name: 'Bardhaman', state: 'West Bengal' },
+    { name: 'Hooghly', state: 'West Bengal' },
+    { name: 'Nadia', state: 'West Bengal' },
+    { name: 'Midnapore', state: 'West Bengal' },
+    { name: 'Murshidabad', state: 'West Bengal' },
+    { name: 'Purulia', state: 'West Bengal' },
+    { name: 'Haldia', state: 'West Bengal' },
+    { name: 'Bankura', state: 'West Bengal' },
+    { name: 'Jalpaiguri', state: 'West Bengal' },
+    { name: 'Dinajpur', state: 'West Bengal' },
+    { name: 'Birbhum', state: 'West Bengal' },
+    { name: 'Cooch Behar', state: 'West Bengal' },
+    { name: 'North 24 Parganas', state: 'West Bengal' },
+    { name: 'South 24 Parganas', state: 'West Bengal' },
+    { name: 'Kalimpong', state: 'West Bengal' },
+    { name: 'Alipurduar', state: 'West Bengal' },
+    { name: 'Jhargram', state: 'West Bengal' },
+    { name: 'Basirhat', state: 'West Bengal' },
+    { name: 'Bolpur', state: 'West Bengal' },
+    { name: 'Raiganj', state: 'West Bengal' },
+    { name: 'Kalna', state: 'West Bengal' },
+    { name: 'Islampur', state: 'West Bengal' },
+    { name: 'Sainthia', state: 'West Bengal' },
+    { name: 'Kandi', state: 'West Bengal' },
+    { name: 'Egra', state: 'West Bengal' },
+    { name: 'Mirik', state: 'West Bengal' },
+    { name: 'Birpara', state: 'West Bengal' },
+    { name: 'Bakshirhat', state: 'West Bengal' },
+    { name: 'Pundibari', state: 'West Bengal' },
+    { name: 'Bara Jaguli', state: 'West Bengal' },
+    { name: 'Abinashpur', state: 'West Bengal' },
+    { name: 'Parulia', state: 'West Bengal' }
+  ];
+
   const jsonLdSchema = [
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "NovaDesk",
+      "@type": "ProfessionalService",
+      "name": "NovaDesk - Computer Software Developers & Digital Solutions",
+      "alternateName": [
+        "NovaDesk Software Solutions",
+        "NovaDesk Computer Software Development Company"
+      ],
       "url": "https://www.novadesk.site",
       "logo": "https://www.novadesk.site/favicon.svg",
-      "description": "NovaDesk is a premier software engineering agency providing highly optimized offshore teams for custom Web apps, mobile systems, and AI deployments.",
+      "image": "https://www.novadesk.site/novadesk_team_5_members_hero.png",
+      "description": "NovaDesk is a premier computer software development company in India specializing in mobile application developers, internet website developers, ecommerce website development services, custom ERP & CRM software, and AI solutions.",
+      "priceRange": "$$",
+      "telephone": "+91-7870142813",
+      "email": "novadesk.site@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "India"
       },
-      "priceRange": "$$",
-      "sameAs": [
-        "https://www.linkedin.com/company/novadesk-solutions/",
-        "https://www.instagram.com/novadesk_officials_?igsh=MW5yZGtrbzg5aXNscg==",
-        "https://www.facebook.com/share/1BfvnjhFV9/",
-        "https://github.com/novadesksite-001"
-      ],
       "founder": {
         "@type": "Person",
         "name": "Harsh Prateek",
         "jobTitle": "Founder & Lead Engineer"
       },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "availableLanguage": ["English", "Hindi"]
-      }
+      "areaServed": nationalServiceCities.map(c => ({
+        "@type": "City",
+        "name": c.name,
+        "containedInPlace": {
+          "@type": "State",
+          "name": c.state
+        }
+      })),
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "NovaDesk Computer Software & Digital Solutions",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Internet Website Developers & Custom Web Development",
+              "description": "Custom enterprise website development, cloud web applications, and portal engineering using PHP, ASP.NET, React, and Next.js."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mobile Application Developers",
+              "description": "Native iOS, Android, and cross-platform mobile application development for enterprise and consumer markets."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Computer Software Developers & Development Companies",
+              "description": "Bespoke computer software development, custom software engineering, and digital solution providers."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Ecommerce Website Development Services",
+              "description": "High-conversion ecommerce website development, multi-vendor marketplaces, shopping cart integration, and custom checkout systems."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "ERP Computer Software Developers & Dealers (Tally Integration)",
+              "description": "Enterprise resource planning (ERP) computer software development, inventory tracking, Tally integration, and financial ledger automation."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "CRM Computer Software Developers & Solution Providers",
+              "description": "Customer relationship management (CRM) software development, sales pipeline tracking, and customer engagement solutions."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Inventory Management Computer Software Dealers",
+              "description": "Automated inventory management computer software, stock audit trails, supply chain optimization, and barcode integration."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Computer Software Developers For Hospital & Medical Dealers",
+              "description": "Medical computer software development, clinic management systems, EHR telemetry, and hospital administrative software."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Computer Software Developers For School & Educational Institutes",
+              "description": "School management software, student information systems, fees management, and virtual learning platforms."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Salon & Spa Computer Software Dealers",
+              "description": "Salon and spa management software, appointment scheduling, inventory management, and POS billing software."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Computer Software Developers For PHP & ASP Dot Net",
+              "description": "Full-stack computer software engineering using PHP, ASP.NET Core, Python, and modern cloud microservices."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Computer Software Developers For Multi Level Marketing (MLM)",
+              "description": "Custom MLM software development, binary/matrix plan calculation, distributor network trees, and automated payouts."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Barcode Computer Software Dealers & Embedded Systems",
+              "description": "Barcode computer software, label generation, WAP software development, and embedded hardware IoT software."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Corporate Software Companies & Freelance Developers",
+              "description": "Dedicated computer software engineers, corporate technology consulting, and senior freelance developer hire."
+            }
+          }
+        ]
+      },
+      "knowsAbout": [
+        "Internet Website Developers",
+        "Mobile Application Developers",
+        "Computer Software Developers",
+        "Computer Software Dealers",
+        "Computer Software Development Companies",
+        "Ecommerce Website Development Services",
+        "Computer Software Developers For ASP Dot Net",
+        "ERP Computer Software Dealers-Tally",
+        "Salon & Spa Computer Software Dealers",
+        "Computer Software Solution Providers",
+        "ERP Computer Software Dealers",
+        "Computer Software Developers For Multi Level Marketing",
+        "Computer Software Developers For PHP",
+        "Computer Software Engineers",
+        "ERP Computer Software Developers",
+        "Inventory Management Computer Software Dealers",
+        "Crm Computer Software Developers",
+        "Computer Software Developers In Wap",
+        "Computer Software Developers For Embedded System",
+        "Corporate Companies For Computer Software",
+        "Barcode Computer Software Dealers",
+        "Computer Software Developers For School",
+        "Computer Software Developers For Hospital",
+        "Medical Computer Software Dealers",
+        "Computer Software Developers For Medical",
+        "Crm Computer Software Dealers",
+        "Computer Software Developers For Freelance"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/novadesk-solutions/",
+        "https://www.instagram.com/novadesk_officials_?igsh=MW5yZGtrbzg5aXNscg==",
+        "https://www.facebook.com/share/1BfvnjhFV9/",
+        "https://github.com/novadesksite-001"
+      ]
     },
     {
       "@context": "https://schema.org",
@@ -593,9 +823,9 @@ export default function Home() {
   return (
     <>
       <SEO 
-        title="India's Premier Custom Software & AI Development Studio"
-        description="Partner with Novadesk, India's leading software development agency. We build scalable custom web apps, SaaS platforms, mobile solutions, and enterprise AI software."
-        keywords="Top software development agency in India, AI app developers, custom SaaS development, Web app development company, hire offshore developers, Novadesk"
+        title="NovaDesk | Computer Software Developers, Mobile Application & ERP Development"
+        description="NovaDesk is India's premier computer software development company specializing in mobile application developers, internet website developers, ecommerce website development services, ERP & CRM software solutions across Deoghar, Patna, Ranchi, Kolkata, Siliguri, Delhi, and 40+ regions."
+        keywords="Internet Website Developers, Mobile Application Developers, Computer Software Developers, Computer Software Dealers, Computer Software Development Companies, Ecommerce Website Development Services, Computer Software Developers For ASP Dot Net, ERP Computer Software Dealers-Tally, Salon & Spa Computer Software Dealers, Computer Software Solution Providers, ERP Computer Software Dealers, Computer Software Developers For Multi Level Marketing, Computer Software Developers For PHP, Computer Software Engineers, ERP Computer Software Developers, Inventory Management Computer Software Dealers, Crm Computer Software Developers, Computer Software Developers In Wap, Computer Software Developers For Embedded System, Corporate Companies For Computer Software, Barcode Computer Software Dealers, Computer Software Developers For School, Computer Software Developers For Hospital, Medical Computer Software Dealers, Computer Software Developers For Medical, Crm Computer Software Dealers, Computer Software Developers For Freelance, Deoghar, Patna, Ranchi, Jamshedpur, Kolkata, Siliguri, Asansol, Durgapur, Howrah, Delhi, NovaDesk, Harsh Prateek"
         url="/"
         schema={jsonLdSchema}
       />
@@ -2484,14 +2714,6 @@ export default function Home() {
           }
         }
       `}</style>
-      <SEO 
-        title="NovaDesk | Custom Software & AI Development Agency"
-        description="Founded by Harsh Prateek, NovaDesk is a top-tier custom software development studio, scalable web applications, mobile platforms, and enterprise AI agency."
-        keywords="Harsh Prateek, Harsh Prateek NovaDesk, Harsh Prateek Founder, Harsh Prateek Developer, NovaDesk, full stack developer India, AI agency India, custom software development"
-        image="https://www.novadesk.site/novadesk_team_5_members_hero.png"
-        url="/"
-        author="Harsh Prateek"
-      />
 
       <div className="nd">
 

@@ -2,15 +2,57 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 export default function SEO({ title, description, keywords, image, url, schema, author }) {
-  const siteTitle = "NovaDesk | Custom Software & AI Development Agency by Harsh Prateek";
-  const defaultDescription = "Founded by Harsh Prateek, NovaDesk is a premier software engineering studio specializing in custom full-stack web applications, mobile platforms, and enterprise AI integrations.";
+  const siteTitle = "NovaDesk | Computer Software Developers, Mobile Application & ERP Development";
+  const defaultDescription = "Founded by Harsh Prateek, NovaDesk is a premier computer software development company specializing in mobile application developers, ecommerce website development services, ERP & CRM software solutions across India.";
   const defaultImage = "https://www.novadesk.site/novadesk_team_5_members_hero.png";
   
   const pageTitle = title 
     ? (title.includes('NovaDesk') ? title : `${title} | NovaDesk`) 
     : siteTitle;
   const pageDescription = description || defaultDescription;
-  const pageKeywords = keywords || "Harsh Prateek, Harsh Prateek NovaDesk, Harsh Prateek Developer, Harsh Prateek AI Engineer, NovaDesk, software development agency in India, AI app developers, custom SaaS development, Web app development company, hire offshore developers";
+  
+  const defaultKeywords = [
+    "Internet Website Developers",
+    "Mobile Application Developers",
+    "Computer Software Developers",
+    "Computer Software Dealers",
+    "Computer Software Development Companies",
+    "Ecommerce Website Development Services",
+    "Computer Software Developers For ASP Dot Net",
+    "ERP Computer Software Dealers-Tally",
+    "Salon & Spa Computer Software Dealers",
+    "Computer Software Solution Providers",
+    "ERP Computer Software Dealers",
+    "Computer Software Developers For Multi Level Marketing",
+    "Computer Software Developers For PHP",
+    "Computer Software Engineers",
+    "ERP Computer Software Developers",
+    "Inventory Management Computer Software Dealers",
+    "Crm Computer Software Developers",
+    "Computer Software Developers In Wap",
+    "Computer Software Developers For Embedded System",
+    "Corporate Companies For Computer Software",
+    "Barcode Computer Software Dealers",
+    "Computer Software Developers For School",
+    "Computer Software Developers For Hospital",
+    "Medical Computer Software Dealers",
+    "Computer Software Developers For Medical",
+    "Crm Computer Software Dealers",
+    "Computer Software Developers For Freelance",
+    "Deoghar",
+    "Patna",
+    "Ranchi",
+    "Jamshedpur",
+    "Kolkata",
+    "Siliguri",
+    "Asansol",
+    "Durgapur",
+    "Delhi",
+    "Harsh Prateek",
+    "NovaDesk"
+  ].join(', ');
+
+  const pageKeywords = keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords;
   const pageUrl = url ? (url.startsWith('http') ? url : `https://www.novadesk.site${url}`) : "https://www.novadesk.site";
   const pageImage = image || defaultImage;
   const pageAuthor = author || "Harsh Prateek";
@@ -25,21 +67,24 @@ export default function SEO({ title, description, keywords, image, url, schema, 
       <meta name="keywords" content={pageKeywords} />
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta name="author" content={pageAuthor} />
+
+      {/* Regional & National Geographic Meta Tags */}
+      <meta name="geo.region" content="IN" />
+      <meta name="geo.placename" content="Deoghar, Patna, Ranchi, Kolkata, Siliguri, Delhi, Asansol, Durgapur, India" />
+      <meta name="coverage" content="National: Deoghar, Patna, Ranchi, Jamshedpur, Kolkata, Islampur, Malda, Siliguri, Midnapore, South 24 Parganas, Hooghly, Bolpur, Delhi, Bhubaneshwar, Cuttack, and 40+ Indian Regions" />
       
       {/* Thumbnail & Image Links for Search Engine Snippets */}
       <link rel="image_src" href={pageImage} />
       <meta name="thumbnail" content={pageImage} />
 
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="profile" />
+      <meta property="og:type" content="website" />
       <meta property="og:url" content={pageUrl} />
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:image" content={pageImage} />
-      <meta property="og:image:alt" content="Harsh Prateek - Founder & Lead Engineer at NovaDesk" />
+      <meta property="og:image:alt" content="NovaDesk - Computer Software Developers & AI Studio" />
       <meta property="og:site_name" content="NovaDesk" />
-      <meta property="profile:first_name" content="Harsh" />
-      <meta property="profile:last_name" content="Prateek" />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
@@ -59,4 +104,3 @@ export default function SEO({ title, description, keywords, image, url, schema, 
     </Helmet>
   );
 }
-
