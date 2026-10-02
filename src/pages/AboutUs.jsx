@@ -256,7 +256,11 @@ export default function AboutUs() {
     "alternateName": ["Harsh Prateek NovaDesk", "Harsh Prateek Founder", "Harsh Prateek Director"],
     "jobTitle": "Director & Founder",
     "worksFor": { "@type": "Organization", "@id": "https://www.novadesk.site/#organization", "name": "NovaDesk", "url": "https://www.novadesk.site" },
-    "url": "https://www.novadesk.site/about-us"
+    "url": "https://www.novadesk.site/about-us",
+    "sameAs": [
+      "https://www.linkedin.com/in/harshprateek001/",
+      "https://calendly.com/harshprateek001/30min"
+    ]
   };
 
   const personSchemaPiusha = {
@@ -282,6 +286,12 @@ export default function AboutUs() {
     "founders": [
       { "@type": "Person", "@id": "https://www.novadesk.site/#harsh-prateek", "name": "Harsh Prateek", "jobTitle": "Director & Founder" },
       { "@type": "Person", "@id": "https://www.novadesk.site/#piusha-patra", "name": "Piusha Patra", "jobTitle": "Co-Founder & Director" }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/novadesk-solutions/",
+      "https://www.instagram.com/novadesk_officials_?igsh=MW5yZGtrbzg5aXNscg==",
+      "https://www.facebook.com/share/1BfvnjhFV9/",
+      "https://github.com/novadesksite-001"
     ]
   };
 

@@ -40,13 +40,54 @@ function blogSitemapPlugin() {
           })
           .filter(b => b && b.status === 'published' && b.slug)
 
-        // Generate sitemap XML
+        // Complete canonical URL registry for sitemap generation
         const staticUrls = [
           { loc: '/', changefreq: 'daily', priority: '1.0' },
-          { loc: '/about-us', changefreq: 'monthly', priority: '0.8' },
-          { loc: '/contact-us', changefreq: 'monthly', priority: '0.8' },
-          { loc: '/case-studies', changefreq: 'weekly', priority: '0.8' },
-          { loc: '/blog', changefreq: 'daily', priority: '0.9' },
+          { loc: '/about-us', changefreq: 'weekly', priority: '0.95' },
+          { loc: '/get-a-free-quote', changefreq: 'weekly', priority: '0.95' },
+          { loc: '/contact-us', changefreq: 'monthly', priority: '0.85' },
+          { loc: '/case-studies', changefreq: 'weekly', priority: '0.90' },
+          { loc: '/blog', changefreq: 'daily', priority: '0.90' },
+          // Priority Commercial Services
+          { loc: '/services/web-development', changefreq: 'weekly', priority: '0.95' },
+          { loc: '/services/ai-development', changefreq: 'weekly', priority: '0.95' },
+          { loc: '/services/ecommerce-development', changefreq: 'weekly', priority: '0.90' },
+          { loc: '/services/ui-ux-design', changefreq: 'weekly', priority: '0.90' },
+          { loc: '/services/seo-services', changefreq: 'weekly', priority: '0.90' },
+          { loc: '/services/website-maintenance', changefreq: 'weekly', priority: '0.90' },
+          // Local SEO Locations
+          { loc: '/locations/kolkata', changefreq: 'weekly', priority: '0.90' },
+          { loc: '/locations/durgapur', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/locations/deoghar', changefreq: 'weekly', priority: '0.85' },
+          // Specialized Services
+          { loc: '/services/chatbot-development', changefreq: 'monthly', priority: '0.85' },
+          { loc: '/services/gen-ai-development', changefreq: 'weekly', priority: '0.90' },
+          { loc: '/services/ai-integrated-software', changefreq: 'monthly', priority: '0.85' },
+          { loc: '/services/conversational-ai', changefreq: 'monthly', priority: '0.85' },
+          { loc: '/services/web-application-development', changefreq: 'monthly', priority: '0.85' },
+          { loc: '/services/full-stack-development', changefreq: 'monthly', priority: '0.85' },
+          { loc: '/services/php-development', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/cms-development', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/wordpress-development', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/ecommerce-design', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/ecommerce-implementation', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/woocommerce-development', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/shopify-development', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/android-development', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/ios-development', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/mobile-app-development', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/react-native-development', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/mvp-development', changefreq: 'weekly', priority: '0.90' },
+          { loc: '/services/saas-development', changefreq: 'monthly', priority: '0.85' },
+          { loc: '/services/erp-software-development', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/crm-systems-development', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/enterprise-software-development', changefreq: 'monthly', priority: '0.80' },
+          { loc: '/services/custom-software-development', changefreq: 'monthly', priority: '0.80' },
+          // Industry
+          { loc: '/industries/fintech', changefreq: 'monthly', priority: '0.85' },
+          // Legal
+          { loc: '/privacy-policy', changefreq: 'yearly', priority: '0.30' },
+          { loc: '/terms', changefreq: 'yearly', priority: '0.30' }
         ]
 
         const staticEntries = staticUrls

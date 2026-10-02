@@ -623,6 +623,7 @@ export default function Home() {
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
+      "@id": "https://www.novadesk.site/#organization",
       "name": "NovaDesk - Computer Software Developers & Digital Solutions",
       "alternateName": [
         "NovaDesk Software Solutions",
@@ -630,7 +631,7 @@ export default function Home() {
       ],
       "url": "https://www.novadesk.site",
       "logo": "https://www.novadesk.site/favicon.svg",
-      "image": "https://www.novadesk.site/novadesk_team_5_members_hero.png",
+      "image": "https://www.novadesk.site/novadesk_team_5_members_hero.webp",
       "description": "NovaDesk is a premier computer software development company in India specializing in mobile application developers, internet website developers, ecommerce website development services, custom ERP & CRM software, and AI solutions.",
       "priceRange": "$$",
       "telephone": "+91-7870142813",
@@ -641,8 +642,14 @@ export default function Home() {
       },
       "founder": {
         "@type": "Person",
+        "@id": "https://www.novadesk.site/#harsh-prateek",
         "name": "Harsh Prateek",
-        "jobTitle": "Founder & Lead Engineer"
+        "jobTitle": "Founder & Lead Software Engineer",
+        "url": "https://www.novadesk.site/about-us",
+        "sameAs": [
+          "https://linkedin.com/in/harshprateek",
+          "https://calendly.com/itsharshprateek/30min"
+        ]
       },
       "areaServed": nationalServiceCities.map(c => ({
         "@type": "City",
@@ -2719,11 +2726,15 @@ export default function Home() {
 
         {/* ── 1. HERO (BACKGROUND IMAGE + SEAMLESS OVERLAY BASED ON PAGE.CSS RP-HERO) ── */}
         <section className="nd-hero">
-          {/* Background image stretched across right side — matching page.css rp-hero-bg-team */}
+          {/* Background image stretched across right side — LCP Optimized WebP */}
           <img 
-            src="/novadesk_team_5_members_hero.png" 
+            src="/novadesk_team_5_members_hero.webp" 
             alt="NOVADESK Engineering & Product Team" 
             className="nd-hero-bg-team"
+            width="960"
+            height="720"
+            fetchpriority="high"
+            decoding="sync"
           />
 
           {/* White Gradient Overlay for seamless left-to-right blend — matching page.css rp-hero-overlay */}

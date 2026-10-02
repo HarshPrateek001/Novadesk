@@ -1078,6 +1078,7 @@ export default function ChatWidget() {
                     setShowTeaser(false);
                     setTeaserDismissed(true);
                   }}
+                  aria-label="Dismiss suggestion"
                 >
                   ✕
                 </button>
@@ -1092,13 +1093,15 @@ export default function ChatWidget() {
           <div className="nd-capsule-aura" />
 
           {/* Main Futuristic Capsule */}
-          <div
+          <button
+            type="button"
             className="nd-futuristic-capsule"
             onClick={() => {
               setIsOpen(true);
               setShowTeaser(false);
             }}
             title="Press ⌘K or click to consult Nova AI"
+            aria-label="Open Nova AI Project Consultant"
           >
             <div className="nd-avatar-core">
               <div className="nd-core-radar" />
@@ -1122,13 +1125,13 @@ export default function ChatWidget() {
             <span className="nd-metallic-kbd">
               <span>⌘</span>K
             </span>
-          </div>
+          </button>
         </div>
       )}
 
       {/* COMPACT, AIRY MODAL (Clean, Zero Clutter) */}
       {isOpen && (
-        <div className="nd-consult-modal">
+        <div className="nd-consult-modal" role="dialog" aria-modal="true" aria-label="Nova AI Consultation">
           {/* Header */}
           <div className="nd-modal-header">
             <div className="nd-header-profile">
@@ -1146,6 +1149,7 @@ export default function ChatWidget() {
                 type="button"
                 className="nd-icon-button"
                 title="Restart chat"
+                aria-label="Restart chat conversation"
                 onClick={handleRestartChat}
               >
                 <IconRefresh />
@@ -1154,6 +1158,7 @@ export default function ChatWidget() {
                 type="button"
                 className="nd-icon-button"
                 title="Close (Esc)"
+                aria-label="Close chat window"
                 onClick={() => setIsOpen(false)}
               >
                 <IconClose />
@@ -1213,6 +1218,7 @@ export default function ChatWidget() {
                 type="button"
                 className="nd-attach-icon-btn"
                 title="Attach project brief"
+                aria-label="Attach project brief file"
                 onClick={() => fileInputRef.current?.click()}
                 disabled={isUploading}
               >
@@ -1225,12 +1231,14 @@ export default function ChatWidget() {
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 disabled={isStreaming || isUploading}
+                aria-label="Your message to Nova AI"
               />
               <button
                 type="submit"
                 className={`nd-send-btn ${inputText.trim() && !isStreaming ? 'active' : ''}`}
                 disabled={!inputText.trim() || isStreaming}
                 title="Send"
+                aria-label="Send message"
               >
                 <IconSend />
               </button>

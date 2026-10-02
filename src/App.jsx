@@ -22,6 +22,20 @@ const TermsConditions = React.lazy(() => import('./pages/TermsConditions'));
 // New blog = new JSON file in src/blogs/ — no React changes ever.
 const BlogListPage = React.lazy(() => import('./pages/blog/BlogListPage'));
 const BlogPostPage = React.lazy(() => import('./pages/blog/BlogPostPage'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
+
+// ─── Commercial Service Landing Pages
+const WebDevelopment = React.lazy(() => import('./pages/services/WebDevelopment'));
+const AiDevelopment = React.lazy(() => import('./pages/services/AiDevelopment'));
+const EcommerceDevelopment = React.lazy(() => import('./pages/services/EcommerceDevelopment'));
+const UiUxDesign = React.lazy(() => import('./pages/services/UiUxDesign'));
+const SeoServices = React.lazy(() => import('./pages/services/SeoServices'));
+const WebsiteMaintenance = React.lazy(() => import('./pages/services/WebsiteMaintenance'));
+
+// ─── Local SEO Landing Pages
+const Kolkata = React.lazy(() => import('./pages/locations/Kolkata'));
+const Durgapur = React.lazy(() => import('./pages/locations/Durgapur'));
+const Deoghar = React.lazy(() => import('./pages/locations/Deoghar'));
 
 import ChatWidget from './components/ChatWidget';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -66,16 +80,32 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about-us" element={<AboutUs />} />
-                <Route path="/harsh-prateek" element={<AboutUs />} />
-                <Route path="/harsh-prateek-novadesk" element={<AboutUs />} />
-                <Route path="/founder" element={<AboutUs />} />
-                <Route path="/piusha-patra" element={<AboutUs />} />
-                <Route path="/piusha-patra-novadesk" element={<AboutUs />} />
-                <Route path="/co-founder" element={<AboutUs />} />
+                {/* Founder / Team canonical redirects to preserve link equity without duplicate content */}
+                <Route path="/harsh-prateek" element={<Navigate to="/about-us" replace />} />
+                <Route path="/harsh-prateek-novadesk" element={<Navigate to="/about-us" replace />} />
+                <Route path="/founder" element={<Navigate to="/about-us" replace />} />
+                <Route path="/piusha-patra" element={<Navigate to="/about-us" replace />} />
+                <Route path="/piusha-patra-novadesk" element={<Navigate to="/about-us" replace />} />
+                <Route path="/co-founder" element={<Navigate to="/about-us" replace />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/contact-us" element={<ContactUs />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsConditions />} />
+
+                {/* ─── High-Priority Commercial Service Landing Pages ────── */}
+                <Route path="/services/web-development" element={<WebDevelopment />} />
+                <Route path="/services/ai-development" element={<AiDevelopment />} />
+                <Route path="/services/ecommerce-development" element={<EcommerceDevelopment />} />
+                <Route path="/services/ui-ux-design" element={<UiUxDesign />} />
+                <Route path="/services/seo-services" element={<SeoServices />} />
+                <Route path="/services/website-maintenance" element={<WebsiteMaintenance />} />
+
+                {/* ─── Local SEO Landing Pages ────────────────────────────── */}
+                <Route path="/locations/kolkata" element={<Kolkata />} />
+                <Route path="/locations/durgapur" element={<Durgapur />} />
+                <Route path="/locations/deoghar" element={<Deoghar />} />
+
+                {/* Specialized Service Pages */}
                 <Route path="/services/full-stack-development" element={<FullStackDevelopment />} />
                 <Route path="/services/web-application-development" element={<WebApplicationDevelopment />} />
                 <Route path="/services/chatbot-development" element={<ChatbotDevelopment />} />
@@ -130,8 +160,9 @@ export default function App() {
                   }
                 />
 
-                {/* Catch-all redirects to Home */}
-                <Route path="*" element={<Navigate to="/" replace />} />
+                {/* Dedicated 404 Route */}
+                <Route path="/404" element={<NotFound />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </React.Suspense>
           </main>

@@ -248,12 +248,14 @@ export default function GetAFreeQuote() {
                     
                     {/* First Name */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
-                        First Name
+                      <label htmlFor="quote-firstName" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                        First Name <span style={{ color: '#E11D48' }}>*</span>
                       </label>
                       <input
+                        id="quote-firstName"
                         type="text"
                         name="firstName"
+                        autoComplete="given-name"
                         required
                         value={formData.firstName}
                         onChange={handleChange}
@@ -264,12 +266,14 @@ export default function GetAFreeQuote() {
 
                     {/* Last Name */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                      <label htmlFor="quote-lastName" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
                         Last Name
                       </label>
                       <input
+                        id="quote-lastName"
                         type="text"
                         name="lastName"
+                        autoComplete="family-name"
                         value={formData.lastName}
                         onChange={handleChange}
                         placeholder="Enter your last name"
@@ -279,27 +283,31 @@ export default function GetAFreeQuote() {
 
                     {/* Phone Number */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                      <label htmlFor="quote-phone" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
                         Phone Number
                       </label>
                       <input
+                        id="quote-phone"
                         type="tel"
                         name="phone"
+                        autoComplete="tel"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="e.g. +1 (555) 000-0000"
+                        placeholder="e.g. +91 78701 42813"
                         style={inputStyle}
                       />
                     </div>
 
                     {/* Email */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
-                        Email
+                      <label htmlFor="quote-email" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                        Email <span style={{ color: '#E11D48' }}>*</span>
                       </label>
                       <input
+                        id="quote-email"
                         type="email"
                         name="email"
+                        autoComplete="email"
                         required
                         value={formData.email}
                         onChange={handleChange}
@@ -310,11 +318,12 @@ export default function GetAFreeQuote() {
 
                     {/* Project Type Dropdown */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                      <label htmlFor="quote-projectType" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
                         Project Type
                       </label>
                       <div style={{ position: 'relative' }}>
                         <select
+                          id="quote-projectType"
                           name="projectType"
                           value={formData.projectType}
                           onChange={handleChange}
@@ -342,11 +351,12 @@ export default function GetAFreeQuote() {
 
                     {/* Estimate Budget */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                      <label htmlFor="quote-budget" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
                         Estimate Budget
                       </label>
                       <div style={{ position: 'relative' }}>
                         <select
+                          id="quote-budget"
                           name="budget"
                           value={formData.budget}
                           onChange={handleChange}
@@ -371,10 +381,11 @@ export default function GetAFreeQuote() {
 
                     {/* Maximum time for the project */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                      <label htmlFor="quote-maxTime" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
                         Maximum time for the project
                       </label>
                       <input
+                        id="quote-maxTime"
                         type="text"
                         name="maxTime"
                         value={formData.maxTime}
@@ -386,12 +397,14 @@ export default function GetAFreeQuote() {
 
                     {/* Company Name */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                      <label htmlFor="quote-companyName" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
                         Company Name
                       </label>
                       <input
+                        id="quote-companyName"
                         type="text"
                         name="companyName"
+                        autoComplete="organization"
                         value={formData.companyName}
                         onChange={handleChange}
                         placeholder="e.g. NovaDesk Tech"
@@ -401,10 +414,11 @@ export default function GetAFreeQuote() {
 
                     {/* Required Skills */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                      <label htmlFor="quote-requiredSkills" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
                         Required Skills
                       </label>
                       <input
+                        id="quote-requiredSkills"
                         type="text"
                         name="requiredSkills"
                         value={formData.requiredSkills}
@@ -416,12 +430,14 @@ export default function GetAFreeQuote() {
 
                     {/* Country Dropdown */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                      <label htmlFor="quote-country" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
                         Country
                       </label>
                       <div style={{ position: 'relative' }}>
                         <select
+                          id="quote-country"
                           name="country"
+                          autoComplete="country-name"
                           value={formData.country}
                           onChange={handleChange}
                           style={{
@@ -451,8 +467,8 @@ export default function GetAFreeQuote() {
 
                   {/* UPLOAD FILE ZONE (Full width) */}
                   <div style={{ marginTop: '28px' }}>
-                    <label style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px', display: 'block' }}>
-                      Upload file
+                    <label htmlFor="quote-file" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px', display: 'block' }}>
+                      Upload Project Brief or Specification (Optional)
                     </label>
                     <div
                       onDragEnter={handleDrag}
@@ -471,10 +487,12 @@ export default function GetAFreeQuote() {
                       }}
                     >
                       <input
+                        id="quote-file"
                         type="file"
                         ref={fileInputRef}
                         onChange={handleFileChange}
                         style={{ display: 'none' }}
+                        aria-label="Upload Project Brief file"
                       />
                       <p style={{ fontSize: '13px', fontWeight: '600', color: '#475569', marginBottom: '12px' }}>
                         {formData.fileName ? (
@@ -486,7 +504,7 @@ export default function GetAFreeQuote() {
                       <button
                         type="button"
                         style={{
-                          backgroundColor: '#10B981', // Crisp green upload button as seen in reference image
+                          backgroundColor: '#10B981',
                           color: '#FFFFFF',
                           border: 'none',
                           padding: '8px 20px',
@@ -499,6 +517,7 @@ export default function GetAFreeQuote() {
                           gap: '6px',
                           boxShadow: '0 2px 8px rgba(16, 185, 129, 0.25)'
                         }}
+                        aria-label="Choose file to upload"
                       >
                         <UploadIcon /> Upload file
                       </button>
@@ -507,10 +526,11 @@ export default function GetAFreeQuote() {
 
                   {/* MESSAGE TEXTAREA */}
                   <div style={{ marginTop: '28px' }}>
-                    <label style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px', display: 'block' }}>
-                      Message
+                    <label htmlFor="quote-message" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px', display: 'block' }}>
+                      Project Details &amp; Message
                     </label>
                     <textarea
+                      id="quote-message"
                       name="message"
                       rows={5}
                       value={formData.message}

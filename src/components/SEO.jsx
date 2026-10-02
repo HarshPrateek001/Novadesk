@@ -1,10 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-export default function SEO({ title, description, keywords, image, url, schema, author }) {
+export default function SEO({ title, description, keywords, image, url, schema, author, breadcrumbs, noindex = false }) {
   const siteTitle = "NovaDesk | Computer Software Developers, Mobile Application & ERP Development";
   const defaultDescription = "Founded by Harsh Prateek, NovaDesk is a premier computer software development company specializing in mobile application developers, ecommerce website development services, ERP & CRM software solutions across India.";
-  const defaultImage = "https://www.novadesk.site/novadesk_team_5_members_hero.png";
+  const defaultImage = "https://www.novadesk.site/novadesk_team_5_members_hero.webp";
   
   const pageTitle = title 
     ? (title.includes('NovaDesk') ? title : `${title} | NovaDesk`) 
@@ -58,14 +58,31 @@ export default function SEO({ title, description, keywords, image, url, schema, 
   const pageAuthor = author || "Harsh Prateek";
 
   // Support both single schema object and array of schemas
-  const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+  const schemas = schema ? (Array.isArray(schema) ? [...schema] : [schema]) : [];
+
+  // Automatically inject BreadcrumbList schema if breadcrumbs are provided
+  if (breadcrumbs && Array.isArray(breadcrumbs) && breadcrumbs.length > 0) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbs.map((b, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": b.name,
+        "item": b.url.startsWith('http') ? b.url : `https://www.novadesk.site${b.url}`
+      }))
+    });
+  }
 
   return (
     <Helmet>
       <title>{pageTitle}</title>
       <meta name="description" content={pageDescription} />
       <meta name="keywords" content={pageKeywords} />
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta 
+        name="robots" 
+        content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} 
+      />
       <meta name="author" content={pageAuthor} />
 
       {/* Regional & National Geographic Meta Tags */}

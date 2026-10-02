@@ -48,14 +48,14 @@ export default function Footer() {
         }
         .nd-footer-top {
           display: grid;
-          grid-template-columns: 2.2fr 1fr 1.3fr 1.5fr;
-          gap: 60px;
-          padding-bottom: 60px;
+          grid-template-columns: 2fr 1fr 1.3fr 1fr 1.4fr;
+          gap: 40px;
+          padding-bottom: 50px;
         }
         .nd-footer-logo-area {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 18px;
         }
         .nd-footer-brand {
           display: flex;
@@ -65,28 +65,28 @@ export default function Footer() {
           color: #ffffff;
         }
         .nd-footer-brand-text {
-          font-size: 28px;
+          font-size: 26px;
           font-weight: 900;
           letter-spacing: -1px;
           text-transform: uppercase;
         }
         .nd-footer-desc {
-          font-size: 14px;
+          font-size: 13.5px;
           line-height: 1.65;
-          color: rgba(255, 255, 255, 0.85);
-          max-width: 440px;
+          color: rgba(255, 255, 255, 0.95);
+          max-width: 360px;
           font-weight: 400;
         }
         .nd-footer-socials {
           display: flex;
           gap: 12px;
-          margin-top: 10px;
+          margin-top: 6px;
         }
         .nd-footer-social-btn {
           width: 38px;
           height: 38px;
           border-radius: 50%;
-          background: rgba(255, 255, 255, 0.12);
+          background: rgba(255, 255, 255, 0.16);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -99,6 +99,10 @@ export default function Footer() {
           color: #2E29FF;
           transform: translateY(-2px);
         }
+        .nd-footer-social-btn:focus-visible {
+          outline: 2px solid #00FFB2;
+          outline-offset: 2px;
+        }
         
         .nd-footer-col h4 {
           font-size: 12px;
@@ -106,7 +110,7 @@ export default function Footer() {
           color: #00FFB2;
           text-transform: uppercase;
           letter-spacing: 1.5px;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
         }
         .nd-footer-links {
           list-style: none;
@@ -114,23 +118,27 @@ export default function Footer() {
           margin: 0;
           display: flex;
           flex-direction: column;
-          gap: 14px;
+          gap: 12px;
         }
         .nd-footer-links a {
           color: #ffffff;
           text-decoration: none;
-          font-size: 15px;
-          font-weight: 600;
-          transition: opacity 0.2s;
+          font-size: 14px;
+          font-weight: 500;
+          transition: opacity 0.2s, color 0.2s;
         }
         .nd-footer-links a:hover {
-          opacity: 0.75;
+          color: #00FFB2;
+        }
+        .nd-footer-links a:focus-visible {
+          outline: 2px solid #00FFB2;
+          outline-offset: 2px;
         }
 
         .nd-footer-contact-group {
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 12px;
         }
         .nd-footer-contact-label {
           font-size: 11px;
@@ -140,31 +148,34 @@ export default function Footer() {
           letter-spacing: 1px;
         }
         .nd-footer-contact-value {
-          font-size: 16px;
-          font-weight: 700;
+          font-size: 14.5px;
+          font-weight: 600;
           color: #ffffff;
           text-decoration: none;
         }
+        .nd-footer-contact-value:hover {
+          color: #00FFB2;
+        }
         .nd-footer-separator {
           height: 1px;
-          background: rgba(255, 255, 255, 0.15);
-          margin: 8px 0;
+          background: rgba(255, 255, 255, 0.2);
+          margin: 6px 0;
         }
 
         /* ── OFFICE LOCATIONS ── */
         .nd-footer-offices {
-          border-top: 1px solid rgba(255, 255, 255, 0.15);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-          padding: 40px 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          padding: 36px 0;
           display: grid;
           grid-template-columns: repeat(4, 1fr);
         }
         .nd-office-card {
-          padding: 0 24px;
-          border-left: 1px solid rgba(255, 255, 255, 0.15);
+          padding: 0 20px;
+          border-left: 1px solid rgba(255, 255, 255, 0.2);
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 10px;
         }
         .nd-office-card:first-child {
           border-left: none;
@@ -178,15 +189,15 @@ export default function Footer() {
           letter-spacing: 1px;
         }
         .nd-office-addr {
-          font-size: 13.5px;
+          font-size: 13px;
           line-height: 1.6;
-          color: rgba(255, 255, 255, 0.9);
+          color: #ffffff;
           font-weight: 400;
           display: flex;
           align-items: flex-start;
         }
         .nd-office-phone {
-          font-size: 13.5px;
+          font-size: 13px;
           color: #ffffff;
           text-decoration: none;
           font-weight: 600;
@@ -196,8 +207,8 @@ export default function Footer() {
 
         /* ── LOCAL SEO ── */
         .nd-local-seo {
-          border-top: 1px solid rgba(255, 255, 255, 0.15);
-          padding: 40px 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
+          padding: 36px 0 24px 0;
           text-align: center !important;
           display: flex;
           flex-direction: column;
@@ -205,33 +216,32 @@ export default function Footer() {
           justify-content: center;
         }
         .nd-local-seo h4 {
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 700;
           color: #00FFB2;
           text-transform: uppercase;
           letter-spacing: 1.5px;
-          margin-bottom: 16px;
+          margin-bottom: 12px;
           text-align: center !important;
         }
         .nd-local-seo p {
-          font-size: 13px;
-          color: rgba(255, 255, 255, 0.65);
-          line-height: 1.8;
-          max-width: 1000px;
+          font-size: 12.5px;
+          color: #ffffff;
+          line-height: 1.85;
+          max-width: 1100px;
           margin: 0 auto;
           text-align: center !important;
         }
 
-
         /* ── GIANT WATERMARK ── */
         .nd-footer-watermark {
-          font-size: clamp(30px, 12.5vw, 251px);
+          font-size: clamp(30px, 12.5vw, 240px);
           font-weight: 900;
           white-space: nowrap;
           overflow: hidden;
           width: 100%;
           text-align: center;
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -240,23 +250,15 @@ export default function Footer() {
           line-height: 0.85;
           user-select: none;
           font-family: inherit;
-          cursor: pointer;
+          cursor: default;
           transition: transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
           transform: translateY(0);
-        }
-        .nd-footer-watermark:hover {
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          color: transparent;
-          transform: translateY(-5px);
         }
 
         /* ── BOTTOM BAR ── */
         .nd-footer-bottom {
-          background: #1e1ad6;
-          padding: 24px 0;
+          background: #1914b8;
+          padding: 22px 0;
         }
         .nd-footer-bottom-inner {
           max-width: 1330px;
@@ -269,8 +271,8 @@ export default function Footer() {
           gap: 16px;
         }
         .nd-footer-copy {
-          font-size: 13px;
-          color: rgba(255, 255, 255, 0.7);
+          font-size: 13.5px;
+          color: #ffffff;
           font-weight: 500;
         }
         .nd-footer-bottom-links {
@@ -278,25 +280,25 @@ export default function Footer() {
           gap: 24px;
         }
         .nd-footer-bottom-links a {
-          color: rgba(255, 255, 255, 0.7);
+          color: #ffffff;
           text-decoration: none;
-          font-size: 13px;
+          font-size: 13.5px;
           font-weight: 500;
           transition: color 0.2s;
         }
         .nd-footer-bottom-links a:hover {
-          color: #ffffff;
+          color: #00FFB2;
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
+        @media (max-width: 1100px) {
           .nd-footer-top {
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 36px;
           }
           .nd-footer-offices {
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 28px;
           }
           .nd-office-card {
             border-left: none;
@@ -327,102 +329,104 @@ export default function Footer() {
       `}</style>
 
       <div className="nd-footer-container">
-        {/* Top Blocks */}
+        {/* Top Blocks: Structured 5-Column Hub */}
         <div className="nd-footer-top">
-          {/* Col 1 */}
+          {/* Col 1: Identity & Official Socials */}
           <div className="nd-footer-logo-area">
-            <Link to="/" className="nd-footer-brand">
+            <Link to="/" className="nd-footer-brand" aria-label="NovaDesk Homepage">
               <LogoIconWhite />
               <span className="nd-footer-brand-text">NOVA<span style={{ color: '#FFB6DB' }}>DESK</span></span>
             </Link>
             <p className="nd-footer-desc">
-              Founded by Harsh Prateek, NOVADESK is a premium software studio delivering web, mobile, UI/UX, and product engineering solutions. Recognized by Google Accelerator and LinkedIn, we've shipped 500+ projects across 50+ countries — turning ideas into products that attract funding, users, and real-world impact.
+              Founded by Harsh Prateek, NOVADESK is a high-performance software and AI engineering studio delivering scalable web platforms, mobile apps, SaaS architectures, and enterprise systems across India and global markets.
             </p>
-            <div className="nd-footer-socials">
-              <a href="https://www.linkedin.com/company/novadesk-solutions/" target="_blank" rel="noreferrer" className="nd-footer-social-btn"><LinkedInIcon /></a>
-              <a href="https://www.instagram.com/novadesk_officials_?igsh=MW5yZGtrbzg5aXNscg==" target="_blank" rel="noreferrer" className="nd-footer-social-btn"><InstagramIcon /></a>
-              <a href="https://www.facebook.com/share/1BfvnjhFV9/" target="_blank" rel="noreferrer" className="nd-footer-social-btn"><FacebookIcon /></a>
-              <a href="https://github.com/novadesksite-001" target="_blank" rel="noreferrer" className="nd-footer-social-btn"><GithubIcon /></a>
+            <div className="nd-footer-socials" aria-label="NovaDesk Official Social Profiles">
+              <a href="https://www.linkedin.com/company/novadesk-solutions/" target="_blank" rel="noopener noreferrer" className="nd-footer-social-btn" aria-label="NovaDesk on LinkedIn"><LinkedInIcon /></a>
+              <a href="https://www.instagram.com/novadesk_officials_?igsh=MW5yZGtrbzg5aXNscg==" target="_blank" rel="noopener noreferrer" className="nd-footer-social-btn" aria-label="NovaDesk on Instagram"><InstagramIcon /></a>
+              <a href="https://www.facebook.com/share/1BfvnjhFV9/" target="_blank" rel="noopener noreferrer" className="nd-footer-social-btn" aria-label="NovaDesk on Facebook"><FacebookIcon /></a>
+              <a href="https://github.com/novadesksite-001" target="_blank" rel="noopener noreferrer" className="nd-footer-social-btn" aria-label="NovaDesk on GitHub"><GithubIcon /></a>
             </div>
           </div>
 
-          {/* Col 2 */}
+          {/* Col 2: Company */}
           <div className="nd-footer-col">
-            <h4>Quick Links</h4>
+            <h4>Company</h4>
             <ul className="nd-footer-links">
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/about-us">Our Story</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
+              <li><Link to="/about-us">About Us</Link></li>
+              <li><Link to="/case-studies">Case Studies</Link></li>
+              <li><Link to="/blog">Engineering Blog</Link></li>
               <li><Link to="/contact-us">Contact Us</Link></li>
+              <li><Link to="/get-a-free-quote">Get Project Estimate</Link></li>
             </ul>
           </div>
 
-          {/* Col 3 */}
+          {/* Col 3: Services */}
           <div className="nd-footer-col">
-            <h4>Solutions</h4>
+            <h4>Services</h4>
             <ul className="nd-footer-links">
-              <li><Link to="/services/saas-development">SaaS Development</Link></li>
-              <li><Link to="/services/web-application-development">Web Application Development</Link></li>
-              <li><Link to="/services/gen-ai-development">AI Development</Link></li>
+              <li><Link to="/services/web-development">Web Development</Link></li>
               <li><Link to="/services/custom-software-development">Custom Software</Link></li>
+              <li><Link to="/services/saas-development">SaaS Development</Link></li>
+              <li><Link to="/services/ai-development">AI Development</Link></li>
+              <li><Link to="/services/ecommerce-development">E-Commerce Solutions</Link></li>
+              <li><Link to="/services/mobile-app-development">Mobile App Development</Link></li>
+              <li><Link to="/services/ui-ux-design">UI/UX Design</Link></li>
+              <li><Link to="/services/website-maintenance">Website Maintenance</Link></li>
             </ul>
           </div>
 
-          {/* Col 4 */}
+          {/* Col 4: Regional Hubs */}
           <div className="nd-footer-col">
+            <h4>Locations</h4>
+            <ul className="nd-footer-links">
+              <li><Link to="/locations/kolkata">Kolkata Hub</Link></li>
+              <li><Link to="/locations/durgapur">Durgapur IT Corridor</Link></li>
+              <li><Link to="/locations/deoghar">Deoghar HQ Studio</Link></li>
+              <li><Link to="/contact-us">Global Remote Delivery</Link></li>
+            </ul>
+          </div>
+
+          {/* Col 5: Founder & Direct Contact */}
+          <div className="nd-footer-col">
+            <h4>Leadership &amp; Contact</h4>
             <div className="nd-footer-contact-group">
-              <div className="nd-footer-contact-label">For Business:</div>
-              <div className="nd-footer-contact-label">Phone:</div>
-              <a href="tel:+917870142813" className="nd-footer-contact-value">+91-787 014 2813 (India)</a>
-              
+              <div style={{ fontSize: '13.5px', color: '#ffffff', lineHeight: '1.5' }}>
+                <strong>Harsh Prateek</strong>
+                <span style={{ display: 'block', fontSize: '12px', color: '#00FFB2' }}>Founder &amp; Lead Architect</span>
+              </div>
+              <div style={{ display: 'flex', gap: '14px', marginTop: '2px' }}>
+                <a href="https://linkedin.com/in/harshprateek" target="_blank" rel="noopener noreferrer" style={{ color: '#ffffff', fontSize: '12.5px', textDecoration: 'underline' }} aria-label="Harsh Prateek on LinkedIn">Personal LinkedIn</a>
+                <a href="https://calendly.com/itsharshprateek/30min" target="_blank" rel="noopener noreferrer" style={{ color: '#00FFB2', fontSize: '12.5px', textDecoration: 'underline' }} aria-label="Schedule 30-min Consultation with Founder">Book 30m Call</a>
+              </div>
+
               <div className="nd-footer-separator" />
               
-              <div className="nd-footer-contact-label">Email:</div>
-              <a href="mailto:novadesk.site@gmail.com" className="nd-footer-contact-value" style={{ display: 'block', fontSize: '15px' }}>novadesk.site@gmail.com</a>
-              <a href="mailto:novadesk.site@gmail.com" className="nd-footer-contact-value" style={{ display: 'block', fontSize: '15px', marginTop: '4px' }}>novadesk.site@gmail.com</a>
+              <div className="nd-footer-contact-label">Direct Inquiries:</div>
+              <a href="tel:+917870142813" className="nd-footer-contact-value" aria-label="Call NovaDesk at +91 787 014 2813">+91-787 014 2813</a>
+              <a href="mailto:novadesk.site@gmail.com" className="nd-footer-contact-value" aria-label="Email NovaDesk at novadesk.site@gmail.com">novadesk.site@gmail.com</a>
             </div>
           </div>
         </div>
 
-        {/* Local SEO Cities List & Business Capabilities (Subtle & SEO-Optimized) */}
-        <div className="nd-local-seo" style={{ textAlign: 'center', width: '100%', borderTop: '1px solid rgba(255, 255, 255, 0.12)', paddingTop: '32px', paddingBottom: '24px' }}>
-          <h4 style={{ textAlign: 'center', width: '100%', fontSize: '11px', fontWeight: 700, color: '#00FFB2', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '10px' }}>
-            National Service Network &amp; Regional Hubs
-          </h4>
-          <p style={{ textAlign: 'center', margin: '0 auto 16px auto', width: '100%', fontSize: '11px', color: 'rgba(255, 255, 255, 0.5)', lineHeight: '1.9', maxWidth: '1120px' }}>
-            <strong>Jharkhand:</strong> Deoghar • Ranchi • Jamshedpur &nbsp;|&nbsp; 
+        {/* Local SEO Cities List & Business Capabilities (Accessible & Crawlable) */}
+        <div className="nd-local-seo">
+          <h4>National Service Network &amp; Regional Hubs</h4>
+          <p>
+            <strong>Jharkhand:</strong> <Link to="/locations/deoghar" style={{ color: '#ffffff', textDecoration: 'underline' }}>Deoghar</Link> • Ranchi • Jamshedpur &nbsp;|&nbsp; 
             <strong>Bihar:</strong> Patna &nbsp;|&nbsp; 
             <strong>Delhi NCR:</strong> Delhi &nbsp;|&nbsp; 
             <strong>Odisha:</strong> Bhubaneshwar • Cuttack &nbsp;|&nbsp; 
-            <strong>West Bengal:</strong> Kolkata • Siliguri • Asansol • Durgapur • Howrah • Malda • Kharagpur • Darjeeling • Bardhaman • Hooghly • Nadia • Midnapore • Murshidabad • Purulia • Haldia • Bankura • Jalpaiguri • Dinajpur • Birbhum • Cooch Behar • North 24 Parganas • South 24 Parganas • Kalimpong • Alipurduar • Jhargram • Basirhat • Bolpur • Raiganj • Kalna • Islampur • Sainthia • Kandi • Egra • Mirik • Birpara • Bakshirhat • Pundibari • Bara Jaguli • Abinashpur • Parulia
+            <strong>West Bengal:</strong> <Link to="/locations/kolkata" style={{ color: '#ffffff', textDecoration: 'underline' }}>Kolkata</Link> • Siliguri • Asansol • <Link to="/locations/durgapur" style={{ color: '#ffffff', textDecoration: 'underline' }}>Durgapur</Link> • Howrah • Malda • Kharagpur • Darjeeling • Bardhaman • Hooghly • Nadia • Midnapore • Murshidabad • Purulia • Haldia • Bankura • Jalpaiguri • Dinajpur • Birbhum • Cooch Behar • North 24 Parganas • South 24 Parganas • Kalimpong • Alipurduar • Jhargram • Basirhat • Bolpur • Raiganj • Kalna • Islampur • Sainthia • Kandi • Egra • Mirik • Birpara • Bakshirhat • Pundibari • Bara Jaguli • Abinashpur • Parulia
           </p>
 
-          {/* Core Business Capabilities / Solutions Keywords (Muted) */}
-          <div style={{ fontSize: '10.5px', color: 'rgba(255, 255, 255, 0.4)', lineHeight: '1.8', maxWidth: '1100px', margin: '0 auto' }}>
-            Internet Website Developers • Mobile Application Developers • Computer Software Developers • Computer Software Development Companies • Ecommerce Website Development Services • ERP Computer Software Developers (Tally Integration) • CRM Computer Software Dealers • Inventory Management Computer Software • Hospital &amp; Medical Computer Software Developers • School Computer Software Developers • Salon &amp; Spa Computer Software • PHP &amp; ASP.NET Developers • Multi Level Marketing Software • Barcode &amp; Embedded Systems
-          </div>
-
-          {/* Visually Hidden Semantic Keyword & Geo Indexing Layer (100% Crawlable by Search Engines) */}
-          <div 
-            style={{ 
-              position: 'absolute', 
-              width: '1px', 
-              height: '1px', 
-              padding: 0, 
-              margin: '-1px', 
-              overflow: 'hidden', 
-              clip: 'rect(0, 0, 0, 0)', 
-              whiteSpace: 'nowrap', 
-              border: 0 
-            }}
-            aria-hidden="true"
-          >
-            <span>Computer Software Developers in Deoghar Jharkhand, Mobile Application Developers in Patna, Internet Website Developers in Ranchi, ERP Software Dealers in Jamshedpur, Ecommerce Website Development in Kolkata, Computer Software Companies in Siliguri, School Software in Asansol, Medical Computer Software in Durgapur, CRM Software in Delhi, Computer Software Solution Providers in Malda, Kharagpur, Howrah, Darjeeling, Bardhaman, Hooghly, Nadia, Midnapore, Murshidabad, Purulia, Haldia, Bankura, Jalpaiguri, Dinajpur, Birbhum, Cooch Behar, North 24 Parganas, South 24 Parganas, Kalimpong, Alipurduar, Jhargram, Basirhat, Bolpur, Raiganj, Kalna, Islampur, Sainthia, Kandi, Egra, Mirik, Birpara, Bakshirhat, Pundibari, Bara Jaguli, Abinashpur, Parulia, Bhubaneshwar, Cuttack.</span>
+          <div style={{ fontSize: '12px', color: '#ffffff', lineHeight: '1.8', maxWidth: '1100px', margin: '14px auto 0 auto', opacity: 0.9 }}>
+            Internet Website Developers • Mobile Application Developers • Computer Software Developers • Computer Software Development Companies • Ecommerce Website Development Services • ERP Computer Software Developers (Tally Integration) • CRM Computer Software Solutions • Inventory Management Computer Software • Hospital &amp; Medical Software Developers • School Software Solutions • Salon &amp; Spa Computer Software • Custom SaaS Architecture • AI &amp; GenAI Automation
           </div>
         </div>
 
         {/* Large Watermark Text */}
-        <div className="nd-footer-watermark">
+        <div className="nd-footer-watermark" aria-hidden="true">
           NovaDesk
         </div>
       </div>
@@ -431,11 +435,12 @@ export default function Footer() {
       <div className="nd-footer-bottom">
         <div className="nd-footer-bottom-inner">
           <div className="nd-footer-copy">
-            &copy; {new Date().getFullYear()} NOVADESK. All rights reserved.
+            &copy; {new Date().getFullYear()} NOVADESK. All rights reserved. Founded by Harsh Prateek.
           </div>
           <div className="nd-footer-bottom-links">
             <Link to="/privacy-policy">Privacy Policy</Link>
             <Link to="/terms">Terms &amp; Conditions</Link>
+            <Link to="/contact-us">Get in Touch</Link>
           </div>
         </div>
       </div>
