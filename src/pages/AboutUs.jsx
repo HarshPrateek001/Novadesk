@@ -184,35 +184,35 @@ const studioChapters = [
     metrics: [
       "Average 21 days from kickoff to live production deployment",
       "Automated CI/CD staging environments updated every Friday",
-      "Zero failed launches across 50+ delivered milestone sprints"
+      "Milestone-based delivery with weekly verified staging reviews"
     ]
   },
   {
     chapter: "03",
     era: "2025",
     title: "Applied AI & SaaS Core",
-    subtitle: "Beyond Gimmicks to Deterministic Systems",
-    lead: "While the industry flooded the market with shallow OpenAI chat wrappers, NovaDesk invested heavily in deterministic enterprise intelligence architectures.",
-    story: "We designed custom retrieval pipelines with pgvector, deterministic JSON schema enforcement, and autonomous agent loops that execute real database actions. We combined these intelligence layers with high-concurrency multi-tenant SaaS backends built for scale.",
-    tangibleArtifact: "Semantic Vector Vault: Production-grade RAG pipelines with sub-45ms retrieval latency and strict guardrails.",
+    subtitle: "Beyond Gimmicks to Practical Systems",
+    lead: "While the industry flooded the market with shallow AI wrappers, NovaDesk invested in practical, reliable business intelligence architectures.",
+    story: "We designed custom retrieval pipelines with pgvector, structured JSON schema enforcement, and workflow automation that executes real business actions. We combined these intelligence layers with robust multi-tenant SaaS backends built for scale.",
+    tangibleArtifact: "Semantic Vector Vault: Production-grade RAG pipelines with fast retrieval and strict business guardrails.",
     metrics: [
-      "Sub-45ms vector search retrieval with custom pgvector indexes",
-      "Multi-tenant billing integrations with Stripe & global payment gateways",
-      "99.98% operational uptime across managed client production apps"
+      "Fast vector search retrieval with custom PostgreSQL pgvector indexes",
+      "Multi-tenant billing integrations with payment gateways",
+      "Reliable cloud deployment with automated health and error monitoring"
     ]
   },
   {
     chapter: "04",
     era: "2026",
-    title: "Global Synchronous Studio",
-    subtitle: "India-Rooted Engineering, World-Class Delivery",
-    lead: "Today, NovaDesk operates as an elite embedded engineering squad for venture-backed founders and forward-thinking enterprises across North America, the Gulf, Europe, and India.",
-    story: "Operating from India’s premier software corridor, we provide 4+ hours of guaranteed real-time synchronous overlap across PST, EST, GMT, and GST. We function not as distant vendors, but as deeply trusted technical co-founders dedicated to our clients' compounding valuation.",
+    title: "Modern Engineering Studio",
+    subtitle: "India-Rooted Engineering, Global Capability",
+    lead: "Today, NovaDesk operates as a dedicated technical development partner for ambitious founders, growing businesses, and modern startups across India, the Gulf, and international markets.",
+    story: "We combine local business understanding with modern full-stack engineering standards. We provide guaranteed real-time synchronous overlap across international time zones. We function not as distant ticket-takers, but as deeply committed technical partners invested in our clients' growth.",
     tangibleArtifact: "Synchronous Global Cadence: Real-time timezone overlap with zero-trust legal credential governance.",
     metrics: [
-      "4+ hours daily synchronous overlap across PST, EST, GMT, and GST",
+      "4+ hours daily synchronous overlap across international time zones",
       "Zero-trust credential governance and mutual NDA enforcement on Day 1",
-      "Dedicated senior squads operating as embedded technical co-founders"
+      "Dedicated senior developers operating with complete IP transparency"
     ]
   }
 ];
@@ -259,7 +259,7 @@ export default function AboutUs() {
     "url": "https://www.novadesk.site/about-us",
     "sameAs": [
       "https://www.linkedin.com/in/harshprateek001/",
-      "https://calendly.com/harshprateek001/30min"
+      "https://calendly.com/itsharshprateek/30min"
     ]
   };
 

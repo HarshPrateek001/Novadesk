@@ -103,7 +103,7 @@ export default function Deoghar() {
       "jobTitle": "Founder & Lead Engineer",
       "sameAs": [
         "https://www.linkedin.com/in/harshprateek001/",
-        "https://calendly.com/harshprateek001/30min"
+        "https://calendly.com/itsharshprateek/30min"
       ]
     },
     "description": "NovaDesk's founding technology studio in Deoghar, Jharkhand. Building world-class web applications, AI tools, and digital solutions for local enterprises and global clients."
@@ -151,7 +151,7 @@ export default function Deoghar() {
                   Meet Us in Deoghar <ArrowRight />
                 </Link>
                 <a 
-                  href="https://calendly.com/harshprateek001/30min" 
+                  href="https://calendly.com/itsharshprateek/30min" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="nd-btn-outline"
@@ -368,7 +368,7 @@ export default function Deoghar() {
                 Request Free Deoghar Consultation <ArrowRight />
               </Link>
               <a 
-                href="https://calendly.com/harshprateek001/30min" 
+                href="https://calendly.com/itsharshprateek/30min" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="nd-btn-outline"

@@ -39,7 +39,7 @@ export default function AiDevelopment() {
     },
     {
       q: "How do you prevent hallucinations and ensure data privacy in enterprise AI?",
-      a: "We implement strict deterministic guardrails, structured JSON output validation, semantic vector retrieval thresholds, and zero-data-retention API configurations. We ensure your proprietary enterprise data is never used to train public public foundation models."
+      a: "We implement strict deterministic guardrails, structured JSON output validation, semantic vector retrieval thresholds, and zero-data-retention API configurations. We ensure your proprietary enterprise data is never used to train public foundation models."
     },
     {
       q: "Can AI capabilities be integrated into our existing web or mobile software?",

@@ -29,52 +29,52 @@ export default function CaseStudies() {
 
   const cases = [
     {
-      title: 'AI Automated Customer Support Desk',
-      category: 'ai',
-      categoryLabel: 'AI & GenAI',
-      desc: 'Built an enterprise RAG-powered conversational AI desk for a leading telecom enterprise, resolving 78% of incoming L1 support inquiries automatically with zero human intervention.',
-      metric: '78% Auto-resolution rate',
-      tech: ['Next.js', 'Python', 'LangChain', 'pgvector']
+      title: 'Automated Diagnostic Clinic & Telehealth Portal',
+      category: 'web',
+      categoryLabel: 'Healthcare Web Portal',
+      desc: 'Engineered an appointment booking engine, digital report vault, and automated WhatsApp lab test delivery portal for a regional multi-center diagnostic clinic.',
+      metric: 'WhatsApp PDF delivery & mobile OTP login',
+      tech: ['React', 'Node.js', 'PostgreSQL', 'WhatsApp Cloud API']
     },
     {
-      title: 'Multi-Tenant PropTech SaaS Marketplace',
+      title: 'High-Performance Headless D2C E-Commerce Store',
+      category: 'ecommerce',
+      categoryLabel: 'E-Commerce Storefront',
+      desc: 'Re-architected an apparel brand with a fast headless architecture, sub-second product page transitions, seamless mobile shopping cart, and one-click UPI checkout.',
+      metric: 'Sub-second mobile transitions & Razorpay checkout',
+      tech: ['Next.js', 'Shopify Storefront API', 'Tailwind', 'Vercel']
+    },
+    {
+      title: 'Multi-Tenant Commercial Property SaaS Platform',
       category: 'saas',
       categoryLabel: 'SaaS Platform',
-      desc: 'Engineered a next-gen property portal with smart recommendations, online booking deposits, virtual tour embeds, and automated owner background vetting workflows.',
-      metric: '$40M+ Gross booking volume',
+      desc: 'Engineered a commercial property management portal with lease tracking, tenant communication records, maintenance logging, and automated billing workflows.',
+      metric: 'Role-based access & automated invoice generation',
       tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe']
     },
     {
-      title: 'On-Demand Logistics & Delivery App',
-      category: 'mobile',
-      categoryLabel: 'Mobile App',
-      desc: 'A robust cross-platform mobile application mapping real-time driver routes, live GPS telemetry, route-optimization algorithms, and instant UPI digital payouts.',
-      metric: '120k+ Daily completed trips',
-      tech: ['React Native', 'Firebase', 'Google Maps API']
-    },
-    {
-      title: 'High-Volume Headless D2C E-Commerce Store',
-      category: 'ecommerce',
-      categoryLabel: 'E-Commerce',
-      desc: 'Re-architected an omnichannel retail brand from monolithic WooCommerce to a headless Shopify storefront, dropping page load times from 4.8s to 0.9s and boosting checkout conversions.',
-      metric: '+43% Conversion uplift',
-      tech: ['Shopify Storefront API', 'Next.js', 'Tailwind', 'Vercel']
-    },
-    {
-      title: 'Industrial Manufacturing ERP & Stock System',
+      title: 'Industrial Operations ERP & Warehouse Dispatch',
       category: 'saas',
-      categoryLabel: 'Enterprise ERP',
-      desc: 'Replaced disjointed Excel sheets for an industrial manufacturing plant with a custom cloud ERP tracking raw materials, warehouse batch dispatches, and automated GST billing.',
-      metric: '60% Admin time saved',
+      categoryLabel: 'Custom Operations Software',
+      desc: 'Replaced manual spreadsheet operations for an industrial supply business with a unified cloud portal tracking stock inventories, batch dispatches, and GST invoicing.',
+      metric: 'End-to-end stock audit trail & barcode sync',
       tech: ['React', 'FastAPI', 'PostgreSQL', 'Docker']
     },
     {
-      title: 'Automated Diagnostic Clinic & Telehealth Portal',
-      category: 'web',
-      categoryLabel: 'Web Platform',
-      desc: 'Engineered an appointment booking engine, digital prescription vault, and automated WhatsApp lab test delivery portal for a multi-center healthcare diagnostic chain.',
-      metric: '25,000+ Monthly patients',
-      tech: ['Next.js', 'Supabase', 'WhatsApp Cloud API']
+      title: 'On-Demand Route Mapping & Logistics Portal',
+      category: 'mobile',
+      categoryLabel: 'Logistics Application',
+      desc: 'A responsive dispatch portal mapping driver routes, waypoint assignments, real-time trip status updates, and automated digital delivery acknowledgments.',
+      metric: 'Live route dispatching & delivery receipt pipeline',
+      tech: ['React', 'Node.js', 'Google Maps API', 'Firebase']
+    },
+    {
+      title: 'AI-Powered Document Intelligence & Customer Desk',
+      category: 'ai',
+      categoryLabel: 'AI & Automation',
+      desc: 'Built a context-grounded retrieval-augmented generation (RAG) assistant that parses technical product documentation and handles repetitive customer inquiries with source citations.',
+      metric: 'Deterministic answers with source document citations',
+      tech: ['Next.js', 'Python', 'OpenAI / Claude API', 'pgvector']
     }
   ];
 
@@ -238,7 +238,7 @@ export default function CaseStudies() {
                 Get a Free Quote <ArrowRight />
               </Link>
               <a 
-                href="https://calendly.com/harshprateek001/30min" 
+                href="https://calendly.com/itsharshprateek/30min" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="nd-btn-outline"

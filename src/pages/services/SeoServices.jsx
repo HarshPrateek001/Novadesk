@@ -119,7 +119,7 @@ export default function SeoServices() {
                   Request Technical SEO Audit <ArrowRight />
                 </Link>
                 <a 
-                  href="https://calendly.com/harshprateek001/30min" 
+                  href="https://calendly.com/itsharshprateek/30min" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="nd-btn-outline"
@@ -348,7 +348,7 @@ export default function SeoServices() {
                 Claim Your Free SEO Audit <ArrowRight />
               </Link>
               <a 
-                href="https://calendly.com/harshprateek001/30min" 
+                href="https://calendly.com/itsharshprateek/30min" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="nd-btn-outline"

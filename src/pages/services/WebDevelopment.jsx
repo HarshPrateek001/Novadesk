@@ -47,7 +47,7 @@ export default function WebDevelopment() {
     },
     {
       q: "How much does custom web development cost at NovaDesk?",
-      a: "A focused business web application or high-converting startup MVP typically ranges from $2,500 to $10,000 (INR 2 Lakh to 8 Lakh), depending on database complexity, third-party integrations, and user authentication requirements. We operate on predictable, fixed-scope milestone sprints with zero surprise change orders."
+      a: "Project costs depend on your technical scope: modern business websites typically range from ₹25,000 to ₹75,000, while complex custom web applications, SaaS platforms, and startup MVPs typically range from ₹1,00,000 to ₹5,00,000+ ($1,200 to $6,000+ for international clients). We operate on transparent, milestone-based sprints with zero surprise change orders."
     },
     {
       q: "How long does it take to design and launch a custom website or web app?",

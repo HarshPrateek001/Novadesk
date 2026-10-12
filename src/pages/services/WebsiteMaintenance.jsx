@@ -119,7 +119,7 @@ export default function WebsiteMaintenance() {
                   Choose a Maintenance Plan <ArrowRight />
                 </Link>
                 <a 
-                  href="https://calendly.com/harshprateek001/30min" 
+                  href="https://calendly.com/itsharshprateek/30min" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="nd-btn-outline"
@@ -348,7 +348,7 @@ export default function WebsiteMaintenance() {
                 Explore Maintenance Retainers <ArrowRight />
               </Link>
               <a 
-                href="https://calendly.com/harshprateek001/30min" 
+                href="https://calendly.com/itsharshprateek/30min" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="nd-btn-outline"

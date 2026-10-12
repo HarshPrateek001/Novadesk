@@ -60,7 +60,17 @@ export default function NotFound() {
   ];
 
   return (
-    <div className="nd-service-page" style={{ minHeight: '85vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <div style={{
+      minHeight: '100vh',
+      backgroundColor: '#F8FAFC',
+      fontFamily: "'Space Grotesk', sans-serif",
+      paddingTop: '150px',
+      paddingBottom: '100px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxSizing: 'border-box'
+    }}>
       <SEO 
         title="404: Page Not Found | NovaDesk"
         description="The page you requested could not be found. Explore NovaDesk's custom software development, AI solutions, and engineering services."
@@ -68,89 +78,286 @@ export default function NotFound() {
         noindex={true}
       />
 
-      <section className="nd-service-hero" style={{ padding: '80px 0 60px' }}>
-        <div className="container text-center">
-          <span 
-            className="nd-service-pill" 
-            style={{ 
-              borderColor: 'rgba(239, 68, 68, 0.4)', 
-              color: '#F87171', 
-              background: 'rgba(239, 68, 68, 0.1)',
-              marginBottom: '20px',
-              display: 'inline-block'
-            }}
-          >
-            Error 404 • Resource Not Found
-          </span>
-          <h1 
-            style={{ 
-              fontSize: 'clamp(3.5rem, 8vw, 7rem)', 
-              fontWeight: 800, 
-              letterSpacing: '-0.04em',
-              lineHeight: 1,
-              margin: '0 0 20px',
-              background: 'linear-gradient(135deg, #FFFFFF 30%, #2E29FF 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}
-          >
-            404
-          </h1>
-          <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: '#FFFFFF', fontWeight: 600, marginBottom: '16px' }}>
-            This Page Does Not Exist in Our Architecture
-          </h2>
-          <p style={{ maxWidth: '620px', margin: '0 auto 36px', color: '#A0AEC0', fontSize: '1.1rem', lineHeight: 1.6 }}>
-            The URL you requested may have been relocated, updated, or does not exist. Use the shortcuts below to explore our services or head back to the homepage.
-          </p>
+      <style>{`
+        .nd-404-container {
+          width: 100%;
+          max-width: 1040px;
+          margin: 0 auto;
+          padding: 0 24px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          box-sizing: border-box;
+        }
+        .nd-404-badge {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          padding: 6px 16px;
+          border-radius: 30px;
+          background: #FEE2E2;
+          color: #DC2626;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          margin: 0 auto 16px auto;
+          border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+        .nd-404-number {
+          font-size: clamp(80px, 14vw, 150px);
+          font-weight: 900;
+          line-height: 1;
+          letter-spacing: -4px;
+          margin: 0 auto 12px auto;
+          text-align: center;
+          background: linear-gradient(135deg, #0052FF 0%, #2E29FF 50%, #7928CA 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .nd-404-title {
+          font-size: clamp(22px, 4vw, 32px);
+          font-weight: 800;
+          color: #0F172A;
+          margin: 0 auto 18px auto;
+          letter-spacing: -0.5px;
+          text-align: center;
+        }
+        .nd-404-desc {
+          font-size: 17px;
+          line-height: 1.65;
+          color: #64748B;
+          max-width: 520px;
+          margin: 0 auto 44px auto;
+          text-align: center !important;
+          text-wrap: balance;
+          display: block;
+        }
+        .nd-404-actions {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          flex-wrap: wrap;
+          margin-bottom: 72px;
+          width: 100%;
+        }
+        .nd-404-btn-primary {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          background: #0052FF;
+          color: #FFFFFF !important;
+          padding: 0 28px;
+          height: 48px;
+          border-radius: 50px;
+          font-size: 15px;
+          font-weight: 700;
+          text-decoration: none;
+          box-shadow: 0 4px 16px rgba(0, 82, 255, 0.25);
+          transition: all 0.2s ease;
+          border: 1.5px solid transparent;
+          box-sizing: border-box;
+        }
+        .nd-404-btn-primary:hover {
+          background: #0040C7;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(0, 82, 255, 0.35);
+        }
+        .nd-404-btn-secondary {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          background: #FFFFFF;
+          color: #0F172A !important;
+          padding: 0 28px;
+          height: 48px;
+          border-radius: 50px;
+          font-size: 15px;
+          font-weight: 700;
+          text-decoration: none;
+          border: 1.5px solid #CBD5E1;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+          transition: all 0.2s ease;
+          box-sizing: border-box;
+        }
+        .nd-404-btn-secondary:hover {
+          border-color: #0052FF;
+          color: #0052FF !important;
+          background: #F8FAFC;
+          transform: translateY(-2px);
+        }
+        .nd-404-grid-heading {
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: #94A3B8;
+          margin-bottom: 24px;
+          text-align: center;
+          width: 100%;
+        }
+        .nd-404-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 18px;
+          text-align: center;
+          max-width: 980px;
+          margin: 0 auto;
+          width: 100%;
+        }
+        .nd-404-card {
+          background: #FFFFFF;
+          border: 1px solid #E2E8F0;
+          border-radius: 16px;
+          padding: 24px 20px;
+          text-decoration: none;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          text-align: center;
+          transition: all 0.25s ease;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+          box-sizing: border-box;
+        }
+        .nd-404-card:hover {
+          border-color: #0052FF;
+          transform: translateY(-3px);
+          box-shadow: 0 12px 28px rgba(0, 82, 255, 0.08);
+        }
+        .nd-404-card-top {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          margin-bottom: 12px;
+          width: 100%;
+        }
+        .nd-404-card-badge {
+          font-size: 11px;
+          font-weight: 700;
+          color: #0052FF;
+          background: #EEF2FF;
+          padding: 4px 12px;
+          border-radius: 20px;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+        }
+        .nd-404-card-arrow {
+          color: #94A3B8;
+          display: inline-flex;
+          align-items: center;
+          transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .nd-404-card:hover .nd-404-card-arrow {
+          color: #0052FF;
+          transform: translateX(3px);
+        }
+        .nd-404-card-title {
+          font-size: 16px;
+          font-weight: 700;
+          color: #0F172A;
+          margin: 0 0 8px 0;
+          line-height: 1.35;
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          width: 100%;
+        }
+        .nd-404-card-desc {
+          font-size: 13.5px;
+          color: #64748B;
+          margin: 0 auto;
+          line-height: 1.5;
+          text-align: center;
+          width: 100%;
+          max-width: 270px;
+        }
+        @media (max-width: 900px) {
+          .nd-404-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 600px) {
+          .nd-404-grid {
+            grid-template-columns: 1fr;
+          }
+          .nd-404-actions {
+            flex-direction: column;
+            width: 100%;
+          }
+          .nd-404-btn-primary, .nd-404-btn-secondary {
+            width: 100%;
+            justify-content: center;
+            box-sizing: border-box;
+          }
+        }
+      `}</style>
 
-          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '60px' }}>
-            <Link to="/" className="nd-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
-              <HomeIcon /> Return to Homepage
-            </Link>
-            <Link to="/get-a-free-quote" className="nd-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
-              Request a Project Quote <ArrowRight />
-            </Link>
+      <div className="nd-404-container">
+        <span className="nd-404-badge">
+          Error 404 • Resource Not Found
+        </span>
+        <h1 className="nd-404-number">
+          404
+        </h1>
+        <h2 className="nd-404-title">
+          This Page Could Not Be Found
+        </h2>
+        <p className="nd-404-desc" style={{ textAlign: 'center', margin: '0 auto 44px auto' }}>
+          The page you're looking for doesn't exist or has been moved.<br />
+          Explore our services below or return to our homepage.
+        </p>
+
+        <div className="nd-404-actions">
+          <Link to="/" className="nd-404-btn-primary">
+            <HomeIcon /> Return to Homepage
+          </Link>
+          <Link to="/get-a-free-quote" className="nd-404-btn-secondary">
+            Request a Quote <ArrowRight />
+          </Link>
+        </div>
+
+        {/* Quick Hub Navigation Cards */}
+        <div style={{ width: '100%' }}>
+          <div className="nd-404-grid-heading">
+            Popular Destinations
           </div>
-
-          {/* Quick Hub Navigation Cards */}
-          <div style={{ textAlign: 'left', maxWidth: '1000px', margin: '0 auto' }}>
-            <h3 style={{ fontSize: '18px', color: '#FFFFFF', marginBottom: '20px', textAlign: 'center', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-              Popular Destinations
-            </h3>
-            <div className="row g-3">
-              {hubs.map((hub, i) => (
-                <div key={i} className="col-lg-4 col-md-6">
-                  <Link 
-                    to={hub.link} 
-                    className="nd-pain-card" 
-                    style={{ 
-                      display: 'block', 
-                      textDecoration: 'none', 
-                      height: '100%',
-                      padding: '24px 20px',
-                      transition: 'all 0.25s ease',
-                      border: '1px solid rgba(255, 255, 255, 0.08)'
-                    }}
-                  >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                      <span style={{ fontSize: '11px', color: '#00FFB2', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
-                        {hub.badge}
-                      </span>
+          <div className="nd-404-grid">
+            {hubs.map((hub, i) => (
+              <Link 
+                key={i} 
+                to={hub.link} 
+                className="nd-404-card"
+              >
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                  <div className="nd-404-card-top">
+                    <span className="nd-404-card-badge">
+                      {hub.badge}
+                    </span>
+                    <span className="nd-404-card-arrow">
                       <ArrowRight />
-                    </div>
-                    <h4 style={{ fontSize: '16px', color: '#FFFFFF', margin: '0 0 6px', fontWeight: 600 }}>
-                      {hub.title}
-                    </h4>
-                    <p style={{ fontSize: '13px', color: '#A0AEC0', margin: 0, lineHeight: 1.5 }}>
-                      {hub.desc}
-                    </p>
-                  </Link>
+                    </span>
+                  </div>
+                  <h3 className="nd-404-card-title">
+                    {hub.title}
+                  </h3>
+                  <p className="nd-404-card-desc">
+                    {hub.desc}
+                  </p>
                 </div>
-              ))}
-            </div>
+              </Link>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-export default function SEO({ title, description, keywords, image, url, schema, author, breadcrumbs, noindex = false }) {
-  const siteTitle = "NovaDesk | Computer Software Developers, Mobile Application & ERP Development";
-  const defaultDescription = "Founded by Harsh Prateek, NovaDesk is a premier computer software development company specializing in mobile application developers, ecommerce website development services, ERP & CRM software solutions across India.";
+export default function SEO({ title, description, keywords, image, url, schema, jsonLd, author, breadcrumbs, noindex = false }) {
+  const siteTitle = "NovaDesk | Websites, Software & Digital Products Built for Growth";
+  const defaultDescription = "NovaDesk is a software and web development agency engineering custom websites, e-commerce storefronts, web applications, and digital products for businesses and startups.";
   const defaultImage = "https://www.novadesk.site/novadesk_team_5_members_hero.webp";
   
   const pageTitle = title 
@@ -11,54 +11,16 @@ export default function SEO({ title, description, keywords, image, url, schema, 
     : siteTitle;
   const pageDescription = description || defaultDescription;
   
-  const defaultKeywords = [
-    "Internet Website Developers",
-    "Mobile Application Developers",
-    "Computer Software Developers",
-    "Computer Software Dealers",
-    "Computer Software Development Companies",
-    "Ecommerce Website Development Services",
-    "Computer Software Developers For ASP Dot Net",
-    "ERP Computer Software Dealers-Tally",
-    "Salon & Spa Computer Software Dealers",
-    "Computer Software Solution Providers",
-    "ERP Computer Software Dealers",
-    "Computer Software Developers For Multi Level Marketing",
-    "Computer Software Developers For PHP",
-    "Computer Software Engineers",
-    "ERP Computer Software Developers",
-    "Inventory Management Computer Software Dealers",
-    "Crm Computer Software Developers",
-    "Computer Software Developers In Wap",
-    "Computer Software Developers For Embedded System",
-    "Corporate Companies For Computer Software",
-    "Barcode Computer Software Dealers",
-    "Computer Software Developers For School",
-    "Computer Software Developers For Hospital",
-    "Medical Computer Software Dealers",
-    "Computer Software Developers For Medical",
-    "Crm Computer Software Dealers",
-    "Computer Software Developers For Freelance",
-    "Deoghar",
-    "Patna",
-    "Ranchi",
-    "Jamshedpur",
-    "Kolkata",
-    "Siliguri",
-    "Asansol",
-    "Durgapur",
-    "Delhi",
-    "Harsh Prateek",
-    "NovaDesk"
-  ].join(', ');
+  const defaultKeywords = "web development agency, custom software development, Next.js React developers, ecommerce development, startup MVP development, NovaDesk";
 
-  const pageKeywords = keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords;
+  const pageKeywords = keywords || defaultKeywords;
   const pageUrl = url ? (url.startsWith('http') ? url : `https://www.novadesk.site${url}`) : "https://www.novadesk.site";
   const pageImage = image || defaultImage;
   const pageAuthor = author || "Harsh Prateek";
 
-  // Support both single schema object and array of schemas
-  const schemas = schema ? (Array.isArray(schema) ? [...schema] : [schema]) : [];
+  // Support both single schema object, array of schemas, and jsonLd prop
+  const activeSchema = schema || jsonLd;
+  const schemas = activeSchema ? (Array.isArray(activeSchema) ? [...activeSchema] : [activeSchema]) : [];
 
   // Automatically inject BreadcrumbList schema if breadcrumbs are provided
   if (breadcrumbs && Array.isArray(breadcrumbs) && breadcrumbs.length > 0) {
@@ -85,10 +47,9 @@ export default function SEO({ title, description, keywords, image, url, schema, 
       />
       <meta name="author" content={pageAuthor} />
 
-      {/* Regional & National Geographic Meta Tags */}
+      {/* Regional Meta Tags */}
       <meta name="geo.region" content="IN" />
-      <meta name="geo.placename" content="Deoghar, Patna, Ranchi, Kolkata, Siliguri, Delhi, Asansol, Durgapur, India" />
-      <meta name="coverage" content="National: Deoghar, Patna, Ranchi, Jamshedpur, Kolkata, Islampur, Malda, Siliguri, Midnapore, South 24 Parganas, Hooghly, Bolpur, Delhi, Bhubaneshwar, Cuttack, and 40+ Indian Regions" />
+      <meta name="geo.placename" content="Kolkata, India" />
       
       {/* Thumbnail & Image Links for Search Engine Snippets */}
       <link rel="image_src" href={pageImage} />
@@ -100,7 +61,7 @@ export default function SEO({ title, description, keywords, image, url, schema, 
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:image" content={pageImage} />
-      <meta property="og:image:alt" content="NovaDesk - Computer Software Developers & AI Studio" />
+      <meta property="og:image:alt" content="NovaDesk - Software & Web Development Agency" />
       <meta property="og:site_name" content="NovaDesk" />
 
       {/* Twitter */}

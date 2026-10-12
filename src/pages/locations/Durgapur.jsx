@@ -102,7 +102,7 @@ export default function Durgapur() {
       "jobTitle": "Founder & Lead Engineer",
       "sameAs": [
         "https://www.linkedin.com/in/harshprateek001/",
-        "https://calendly.com/harshprateek001/30min"
+        "https://calendly.com/itsharshprateek/30min"
       ]
     },
     "description": "NovaDesk delivers custom industrial software, ERP solutions, manufacturing workflow automation, and modern web development for enterprises across Durgapur, Asansol, and Paschim Bardhaman."
@@ -150,7 +150,7 @@ export default function Durgapur() {
                   Discuss Your Durgapur Project <ArrowRight />
                 </Link>
                 <a 
-                  href="https://calendly.com/harshprateek001/30min" 
+                  href="https://calendly.com/itsharshprateek/30min" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="nd-btn-outline"
@@ -367,7 +367,7 @@ export default function Durgapur() {
                 Request Free Workflow Audit <ArrowRight />
               </Link>
               <a 
-                href="https://calendly.com/harshprateek001/30min" 
+                href="https://calendly.com/itsharshprateek/30min" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="nd-btn-outline"

@@ -102,7 +102,7 @@ export default function Kolkata() {
       "jobTitle": "Founder & Lead Engineer",
       "sameAs": [
         "https://www.linkedin.com/in/harshprateek001/",
-        "https://calendly.com/harshprateek001/30min"
+        "https://calendly.com/itsharshprateek/30min"
       ]
     },
     "description": "NovaDesk delivers modern web development, custom software engineering, e-commerce, and generative AI solutions for enterprises and startups in Kolkata, West Bengal."
@@ -150,7 +150,7 @@ export default function Kolkata() {
                   Start Your Kolkata Project <ArrowRight />
                 </Link>
                 <a 
-                  href="https://calendly.com/harshprateek001/30min" 
+                  href="https://calendly.com/itsharshprateek/30min" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="nd-btn-outline"
@@ -367,7 +367,7 @@ export default function Kolkata() {
                 Get a Quote for Your Kolkata Project <ArrowRight />
               </Link>
               <a 
-                href="https://calendly.com/harshprateek001/30min" 
+                href="https://calendly.com/itsharshprateek/30min" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="nd-btn-outline"

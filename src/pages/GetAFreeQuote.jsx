@@ -132,6 +132,23 @@ export default function GetAFreeQuote() {
       />
 
       <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', fontFamily: "'Space Grotesk', sans-serif" }}>
+        <style>{`
+          .nd-quote-form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px 32px;
+          }
+          @media (max-width: 720px) {
+            .nd-quote-form-grid {
+              grid-template-columns: 1fr;
+              gap: 20px;
+            }
+          }
+          .nd-quote-input:focus {
+            border-color: #0052FF !important;
+            box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.12) !important;
+          }
+        `}</style>
         
         {/* HERO WAVE HEADER */}
         <section style={{
@@ -239,17 +256,13 @@ export default function GetAFreeQuote() {
               ) : (
                 <form onSubmit={handleSubmit}>
                   
-                  {/* GRID LAYOUT */}
-                  <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                    gap: '24px 32px'
-                  }}>
+                  {/* GRID LAYOUT - 2 EQUAL BALANCED COLUMNS */}
+                  <div className="nd-quote-form-grid">
                     
                     {/* First Name */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label htmlFor="quote-firstName" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
-                        First Name <span style={{ color: '#E11D48' }}>*</span>
+                      <label htmlFor="quote-firstName" style={labelStyle}>
+                        First Name <span style={{ color: '#E11D48', marginLeft: '4px' }}>*</span>
                       </label>
                       <input
                         id="quote-firstName"
@@ -259,14 +272,15 @@ export default function GetAFreeQuote() {
                         required
                         value={formData.firstName}
                         onChange={handleChange}
-                        placeholder="Type your Name"
+                        placeholder="Enter your first name"
+                        className="nd-quote-input"
                         style={inputStyle}
                       />
                     </div>
 
                     {/* Last Name */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label htmlFor="quote-lastName" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                      <label htmlFor="quote-lastName" style={labelStyle}>
                         Last Name
                       </label>
                       <input
@@ -277,31 +291,15 @@ export default function GetAFreeQuote() {
                         value={formData.lastName}
                         onChange={handleChange}
                         placeholder="Enter your last name"
-                        style={inputStyle}
-                      />
-                    </div>
-
-                    {/* Phone Number */}
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label htmlFor="quote-phone" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
-                        Phone Number
-                      </label>
-                      <input
-                        id="quote-phone"
-                        type="tel"
-                        name="phone"
-                        autoComplete="tel"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="e.g. +91 78701 42813"
+                        className="nd-quote-input"
                         style={inputStyle}
                       />
                     </div>
 
                     {/* Email */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label htmlFor="quote-email" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
-                        Email <span style={{ color: '#E11D48' }}>*</span>
+                      <label htmlFor="quote-email" style={labelStyle}>
+                        Email Address <span style={{ color: '#E11D48', marginLeft: '4px' }}>*</span>
                       </label>
                       <input
                         id="quote-email"
@@ -312,13 +310,32 @@ export default function GetAFreeQuote() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="name@company.com"
+                        className="nd-quote-input"
+                        style={inputStyle}
+                      />
+                    </div>
+
+                    {/* Phone Number */}
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label htmlFor="quote-phone" style={labelStyle}>
+                        Phone Number
+                      </label>
+                      <input
+                        id="quote-phone"
+                        type="tel"
+                        name="phone"
+                        autoComplete="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="e.g. +91 78701 42813"
+                        className="nd-quote-input"
                         style={inputStyle}
                       />
                     </div>
 
                     {/* Project Type Dropdown */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label htmlFor="quote-projectType" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                      <label htmlFor="quote-projectType" style={labelStyle}>
                         Project Type
                       </label>
                       <div style={{ position: 'relative' }}>
@@ -327,21 +344,23 @@ export default function GetAFreeQuote() {
                           name="projectType"
                           value={formData.projectType}
                           onChange={handleChange}
+                          className="nd-quote-input"
                           style={{
                             ...inputStyle,
                             appearance: 'none',
+                            WebkitAppearance: 'none',
                             cursor: 'pointer',
                             color: formData.projectType ? '#0F172A' : '#94A3B8'
                           }}
                         >
                           <option value="" disabled>Select Project Type</option>
-                          <option value="Web Application">Web Application</option>
-                          <option value="Mobile App (iOS/Android)">Mobile App (iOS/Android)</option>
-                          <option value="AI / ML Solutions">AI / ML Solutions</option>
-                          <option value="Chatbot & Automation">Chatbot &amp; Automation</option>
-                          <option value="E-Commerce Store">E-Commerce Store</option>
-                          <option value="SaaS Platform">SaaS Platform</option>
-                          <option value="Custom Software Development">Custom Software Development</option>
+                          <option value="Business Website Development">Business Website Development</option>
+                          <option value="E-commerce Storefront">E-commerce Storefront</option>
+                          <option value="Custom Web Application">Custom Web Application</option>
+                          <option value="SaaS Platform Engineering">SaaS Platform Engineering</option>
+                          <option value="AI & Workflow Automation">AI &amp; Workflow Automation</option>
+                          <option value="Website Redesign & Speed Optimization">Website Redesign &amp; Speed Optimization</option>
+                          <option value="Website Maintenance & Support">Website Maintenance &amp; Support</option>
                         </select>
                         <div style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}>
                           <ChevronDown />
@@ -349,10 +368,10 @@ export default function GetAFreeQuote() {
                       </div>
                     </div>
 
-                    {/* Estimate Budget */}
+                    {/* Estimated Budget */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label htmlFor="quote-budget" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
-                        Estimate Budget
+                      <label htmlFor="quote-budget" style={labelStyle}>
+                        Estimated Budget
                       </label>
                       <div style={{ position: 'relative' }}>
                         <select
@@ -360,18 +379,23 @@ export default function GetAFreeQuote() {
                           name="budget"
                           value={formData.budget}
                           onChange={handleChange}
+                          className="nd-quote-input"
                           style={{
                             ...inputStyle,
                             appearance: 'none',
+                            WebkitAppearance: 'none',
                             cursor: 'pointer',
                             color: formData.budget ? '#0F172A' : '#94A3B8'
                           }}
                         >
-                          <option value="" disabled>Select Budget Range</option>
-                          <option value="Under $5,000">Under $5,000</option>
-                          <option value="$5,000 - $15,000">$5,000 - $15,000</option>
-                          <option value="$15,000 - $35,000">$15,000 - $35,000</option>
-                          <option value="$35,000+">$35,000+</option>
+                          <option value="" disabled>Select Estimated Budget Range</option>
+                          <option value="Under ₹25,000">Under ₹25,000</option>
+                          <option value="₹25,000 – ₹50,000">₹25,000 – ₹50,000</option>
+                          <option value="₹50,000 – ₹1,00,000">₹50,000 – ₹1,00,000</option>
+                          <option value="₹1,00,000 – ₹3,00,000">₹1,00,000 – ₹3,00,000</option>
+                          <option value="₹3,00,000+">₹3,00,000+</option>
+                          <option value="International ($1,000+)">International ($1,000+)</option>
+                          <option value="Need Technical Consultation">Not sure yet (Need technical advice)</option>
                         </select>
                         <div style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}>
                           <ChevronDown />
@@ -379,10 +403,10 @@ export default function GetAFreeQuote() {
                       </div>
                     </div>
 
-                    {/* Maximum time for the project */}
+                    {/* Expected Timeline */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label htmlFor="quote-maxTime" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
-                        Maximum time for the project
+                      <label htmlFor="quote-maxTime" style={labelStyle}>
+                        Expected Timeline
                       </label>
                       <input
                         id="quote-maxTime"
@@ -391,13 +415,14 @@ export default function GetAFreeQuote() {
                         value={formData.maxTime}
                         onChange={handleChange}
                         placeholder="e.g. 2 Weeks, 1 Month, ASAP"
+                        className="nd-quote-input"
                         style={inputStyle}
                       />
                     </div>
 
                     {/* Company Name */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label htmlFor="quote-companyName" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                      <label htmlFor="quote-companyName" style={labelStyle}>
                         Company Name
                       </label>
                       <input
@@ -408,29 +433,14 @@ export default function GetAFreeQuote() {
                         value={formData.companyName}
                         onChange={handleChange}
                         placeholder="e.g. NovaDesk Tech"
-                        style={inputStyle}
-                      />
-                    </div>
-
-                    {/* Required Skills */}
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label htmlFor="quote-requiredSkills" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
-                        Required Skills
-                      </label>
-                      <input
-                        id="quote-requiredSkills"
-                        type="text"
-                        name="requiredSkills"
-                        value={formData.requiredSkills}
-                        onChange={handleChange}
-                        placeholder="e.g. React, Node.js, Python, Figma"
+                        className="nd-quote-input"
                         style={inputStyle}
                       />
                     </div>
 
                     {/* Country Dropdown */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label htmlFor="quote-country" style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '8px' }}>
+                      <label htmlFor="quote-country" style={labelStyle}>
                         Country
                       </label>
                       <div style={{ position: 'relative' }}>
@@ -440,27 +450,46 @@ export default function GetAFreeQuote() {
                           autoComplete="country-name"
                           value={formData.country}
                           onChange={handleChange}
+                          className="nd-quote-input"
                           style={{
                             ...inputStyle,
                             appearance: 'none',
+                            WebkitAppearance: 'none',
                             cursor: 'pointer',
                             color: formData.country ? '#0F172A' : '#94A3B8'
                           }}
                         >
                           <option value="" disabled>Select Country</option>
+                          <option value="India">India</option>
                           <option value="United States">United States</option>
                           <option value="United Kingdom">United Kingdom</option>
-                          <option value="India">India</option>
+                          <option value="United Arab Emirates">United Arab Emirates</option>
                           <option value="Canada">Canada</option>
                           <option value="Australia">Australia</option>
                           <option value="Germany">Germany</option>
-                          <option value="United Arab Emirates">United Arab Emirates</option>
                           <option value="Other">Other</option>
                         </select>
                         <div style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}>
                           <ChevronDown />
                         </div>
                       </div>
+                    </div>
+
+                    {/* Required Skills */}
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label htmlFor="quote-requiredSkills" style={labelStyle}>
+                        Required Tech / Skills
+                      </label>
+                      <input
+                        id="quote-requiredSkills"
+                        type="text"
+                        name="requiredSkills"
+                        value={formData.requiredSkills}
+                        onChange={handleChange}
+                        placeholder="e.g. React, Next.js, Node.js, Python"
+                        className="nd-quote-input"
+                        style={inputStyle}
+                      />
                     </div>
 
                   </div>
@@ -536,10 +565,12 @@ export default function GetAFreeQuote() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Write details about your project or specific features required..."
+                      className="nd-quote-input"
                       style={{
                         ...inputStyle,
-                        width: '100%',
+                        height: 'auto',
                         minHeight: '140px',
+                        padding: '12px 16px',
                         resize: 'vertical',
                         lineHeight: '1.6'
                       }}
@@ -588,9 +619,10 @@ export default function GetAFreeQuote() {
 /* Common Input Style */
 const inputStyle = {
   width: '100%',
-  padding: '12px 16px',
+  height: '48px',
+  padding: '0 16px',
   borderRadius: '8px',
-  border: '1px solid #E2E8F0',
+  border: '1px solid #CBD5E1',
   backgroundColor: '#FFFFFF',
   color: '#0F172A',
   fontFamily: 'inherit',
@@ -599,4 +631,16 @@ const inputStyle = {
   outline: 'none',
   boxSizing: 'border-box',
   transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+};
+
+/* Common Label Style */
+const labelStyle = {
+  fontSize: '13px',
+  fontWeight: '700',
+  color: '#1E293B',
+  marginBottom: '8px',
+  display: 'flex',
+  alignItems: 'center',
+  minHeight: '20px',
+  lineHeight: '1.4',
 };

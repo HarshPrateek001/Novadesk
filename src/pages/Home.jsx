@@ -43,14 +43,14 @@ const IconCloud = () => (
 
 // ─── TYPING ANIMATION FOR HERO BLUE SUBHEADING ─────────────────────────────────
 const heroTypingServices = [
-  'Computer Software Developers',
-  'Mobile Application Developers',
-  'Internet Website Developers',
-  'ERP & CRM Software Systems',
-  'Ecommerce Website Development',
+  'Business Websites & Web Apps',
+  'E-commerce Storefronts',
   'Custom SaaS Platforms',
-  'GenAI & Chatbot Solutions',
-  'Enterprise Software Engineering'
+  'AI & Workflow Automation',
+  'Full-Stack Cloud Systems',
+  'Modern Website Redesigns',
+  'High-Performance Digital Products',
+  'End-to-End Software Engineering'
 ];
 
 function TypingHeading() {
@@ -357,71 +357,49 @@ export default function Home() {
 
   const projects = [
     { 
-      name: 'AI Support Desk', 
-      category: 'AI', 
-      desc: 'Automated L1 support for telecom', 
-      location: 'India', 
+      name: 'Diagnostic & Patient Portal', 
+      category: 'Web Application', 
+      desc: 'Digital test report delivery & doctor appointment bookings', 
+      location: 'Healthcare • India', 
       status: 'DEPLOYED',
-      mockTitle: 'REIMAGINING TECH SUPPORT',
-      mockTag: 'SUPPORT APP BY NOVADESK',
-      mockEmoji: '🤖',
+      mockTitle: 'HEALTHCARE & DIAGNOSTICS',
+      mockTag: 'PATIENT PORTAL BY NOVADESK',
+      mockEmoji: '🏥',
       mockGradient: 'linear-gradient(135deg, #00C6FF 0%, #0072FF 100%)'
     },
     { 
-      name: 'SaaS Property Portal', 
-      category: 'Web', 
-      desc: 'Multi-tenant real estate marketplace', 
-      location: 'UAE', 
+      name: 'D2C Headless Storefront', 
+      category: 'E-commerce', 
+      desc: 'Sub-second mobile checkout, UPI & inventory synchronization', 
+      location: 'Retail • India', 
       status: 'DEPLOYED',
-      mockTitle: 'REAL ESTATE MARKETPLACE',
-      mockTag: 'PROPERTY APP BY NOVADESK',
-      mockEmoji: '🏢',
+      mockTitle: 'RETAIL COMMERCE',
+      mockTag: 'D2C APPAREL BY NOVADESK',
+      mockEmoji: '🛍️',
       mockGradient: 'linear-gradient(135deg, #7F00FF 0%, #E100FF 100%)'
     },
     { 
-      name: 'Logistics App', 
-      category: 'Mobile', 
-      desc: 'On-demand delivery & tracking', 
-      location: 'Singapore', 
+      name: 'Commercial Property SaaS', 
+      category: 'SaaS Platform', 
+      desc: 'Multi-tenant commercial leasing workflow & tenant records', 
+      location: 'PropTech • UAE / India', 
       status: 'DEPLOYED',
-      mockTitle: 'ON-DEMAND LOGISTICS',
-      mockTag: 'TRACKING APP BY NOVADESK',
-      mockEmoji: '🚚',
+      mockTitle: 'PROPTECH PLATFORM',
+      mockTag: 'SAAS PORTAL BY NOVADESK',
+      mockEmoji: '🏢',
       mockGradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)'
     },
     { 
-      name: 'EdTech Platform', 
-      category: 'Web', 
-      desc: 'Learning management system', 
-      location: 'East Africa', 
+      name: 'Regional Business Catalog Portal', 
+      category: 'Web Portal', 
+      desc: 'Dynamic catalog & direct WhatsApp lead qualification', 
+      location: 'Regional SMB • West Bengal', 
       status: 'DEPLOYED',
-      mockTitle: 'LEARNING MANAGEMENT SYSTEM',
-      mockTag: 'EDTECH APP BY NOVADESK',
-      mockEmoji: '📚',
-      mockGradient: 'linear-gradient(135deg, #f857a6 0%, #ff5858 100%)'
-    },
-    { 
-      name: 'Wealth Management App', 
-      category: 'Mobile', 
-      desc: 'B2B portfolio tracker', 
-      location: 'India', 
-      status: 'DEPLOYED',
-      mockTitle: 'PORTFOLIO MONITORING',
-      mockTag: 'FINANCE APP BY NOVADESK',
-      mockEmoji: '💰',
+      mockTitle: 'BUSINESS COMMERCE',
+      mockTag: 'CATALOG PORTAL BY NOVADESK',
+      mockEmoji: '🏭',
       mockGradient: 'linear-gradient(135deg, #FFc312 0%, #EE5A24 100%)'
-    },
-    { 
-      name: 'E-commerce Marketplace', 
-      category: 'Web', 
-      desc: 'Multi-vendor shopping platform', 
-      location: 'India', 
-      status: 'DEPLOYED',
-      mockTitle: 'MULTI-VENDOR SHOPPING',
-      mockTag: 'MARKETPLACE BY NOVADESK',
-      mockEmoji: '🛍️',
-      mockGradient: 'linear-gradient(135deg, #12CBC4 0%, #1289A7 100%)'
-    },
+    }
   ];
 
   useEffect(() => {
@@ -522,101 +500,36 @@ export default function Home() {
     },
     erp: {
       icon: <IconCart />,
-      label: 'ERP & Custom Software',
-      title: 'Computer Software Developers, ERP & Business Solutions',
-      desc: 'We are premier computer software developers providing custom ERP software, Tally integration, inventory management software, CRM solutions, and specialized software for medical hospitals, schools, salons, and MLM platforms.',
-      whothisfor: 'Enterprises, dealers, schools, clinics, and businesses requiring robust custom computer software and automated operations.',
+      label: 'E-commerce & Portals',
+      title: 'E-commerce Storefronts, Custom Portals & Web Applications',
+      desc: 'We engineer high-converting online storefronts, customer portals, interactive administrative dashboards, and internal business management platforms designed for reliability, speed, and real revenue generation.',
+      whothisfor: 'D2C brands, retail businesses, regional service firms, and growing companies looking for custom web software.',
       links: [
-        { label: 'ERP Computer Software (Tally Integration)', desc: 'Custom enterprise software with automated Tally sync, ledgers, and billing.' },
-        { label: 'CRM Computer Software Dealers', desc: 'Sales pipeline automation, client follow-up engines, and support portals.' },
-        { label: 'Inventory Management Computer Software', desc: 'Real-time stock audits, automated reordering, and barcode scanner integration.' },
-        { label: 'Hospital & Medical Computer Software', desc: 'Clinic patient records, OPD/IPD tracking, pharmacy inventory, and doctor portals.' },
-        { label: 'Computer Software Developers For School', desc: 'Student fee management, online exams, admission portals, and LMS platforms.' },
-        { label: 'Salon & Spa Computer Software Dealers', desc: 'Client appointment booking, loyalty reward tracking, and automated POS billing.' },
-        { label: 'Computer Software Developers For PHP & ASP.NET', desc: 'High-speed web portals, custom backend software, and enterprise databases.' },
-        { label: 'Multi Level Marketing (MLM) Software', desc: 'Binary, matrix, and unilevel compensation plans with real-time payout trees.' }
+        { label: 'Headless & Custom E-commerce', desc: 'Sub-second product browsing with optimized mobile checkout.' },
+        { label: 'Payment Gateway Integration', desc: 'Secure UPI, Cards, NetBanking, Razorpay, Stripe, and Cashfree.' },
+        { label: 'Order & Inventory Automation', desc: 'Real-time stock audits, automated alerts, and courier webhook sync.' },
+        { label: 'Client & Patient Portals', desc: 'Secure authentication, role-based records, and automated notifications.' },
+        { label: 'Administrative Dashboards', desc: 'Internal operational metrics, role permissions, and financial exports.' },
+        { label: 'Custom Business Software (PHP / Node / Python)', desc: 'Clean, well-documented backend microservices with database design.' },
+        { label: 'API Integrations & Webhooks', desc: 'Bi-directional sync with CRM, accounting, and third-party tools.' },
+        { label: 'Conversion & Funnel Optimization', desc: 'Designed to capture high-intent inquiries and customer orders.' }
       ]
     }
   };
 
   const faqs = [
-    { q: 'Do you provide computer software development and ERP solutions in Deoghar, Patna, Ranchi, Kolkata, and across India?', a: 'Yes, NovaDesk is a recognized computer software development company providing custom software developers, ERP solutions, Tally integration, and mobile app developers across all national listing cities including Deoghar (Jharkhand), Patna, Ranchi, Jamshedpur, Kolkata, Siliguri, Asansol, Durgapur, Howrah, Malda, Kharagpur, Delhi, Bhubaneshwar, Cuttack, and 40+ regional hubs.' },
-    { q: 'What capabilities do your internet website developers and mobile application developers provide?', a: 'Our expert developers build high-conversion ecommerce website development services, enterprise internet websites, and native/cross-platform mobile apps for iOS and Android using React, Next.js, Flutter, PHP, and ASP.NET Core.' },
-    { q: 'Can NovaDesk build customized hospital, medical, and school computer software?', a: 'Yes. We engineer bespoke hospital computer software, clinic patient telemetry, EHR systems, and school computer software covering automated fee collection, report card generation, student records, and digital learning portals.' },
-    { q: 'Do you offer ERP computer software with Tally integration, inventory management, and salon/spa software?', a: 'Yes. We develop robust ERP computer software with bidirectional Tally sync, real-time inventory management software with barcode scanning, salon & spa appointment software, and multi-level marketing (MLM) software platforms.' },
-    { q: 'What services does NovaDesk offer?', a: 'We offer web development, app development, SaaS product development, AI/ML integration, UI/UX design, API development, cloud deployment, and ongoing maintenance — all under one team.' },
-    { q: 'How long does a typical project take?', a: 'Timelines vary by scope. A basic website may take 2–4 weeks, a mobile app typically takes 6–12 weeks, and a full SaaS product can take 2–4 months depending on complexity. You\'ll get a clear, honest timeline during the proposal stage — not a vague estimate.' },
-    { q: 'Do you work with startups, or only established businesses?', a: 'Both. We work with early-stage founders building their first MVP as well as established local and regional businesses looking to build or upgrade their digital presence.' },
-    { q: 'Can you integrate AI features into an existing product?', a: 'Yes — we specialize in adding AI/ML capabilities like chatbots, automation, and intelligent search into products that already exist, without requiring a full rebuild.' },
-    { q: 'Do you offer support after the project is delivered?', a: 'Yes. We offer maintenance and support arrangements to keep your product running smoothly, secure, and up to date after launch.' },
-    { q: 'How much does a project cost?', a: 'Pricing depends on scope, complexity, and timeline. We don\'t publish flat rates because that usually leads to either underscoping or overpaying. Reach out for a free consultation and you\'ll get a clear, itemized quote based on your actual requirements.' },
-    { q: 'Do you work with international clients?', a: 'Yes, we work with clients across India as well as international businesses looking for quality engineering at competitive rates.' },
-    { q: 'What industries do you specialize in?', a: "We've worked across restaurants, real estate, EdTech, healthcare, e-commerce, and professional services, along with broader startup and SaaS founder projects." },
-    { q: 'Can NovaDesk handle both design and development?', a: 'Yes — our team covers UI/UX design and full-stack development under one roof, so your project doesn\'t get split across disconnected vendors.' },
-    { q: 'What technologies do you use?', a: 'We primarily work with Next.js, React, TypeScript, FastAPI, Supabase, and modern AI APIs like Claude and OpenAI — chosen based on what fits your specific project.' },
-    { q: 'Do you sign NDAs before starting a project?', a: "Yes, we're happy to sign NDAs to protect your idea and business information before any detailed discussion begins." },
-    { q: 'How do I get started?', a: 'Book a free discovery call through our contact form, and we\'ll walk you through scoping, timeline, and next steps — no pressure, no obligation.' },
-    { q: 'Do you build MVPs for startups?', a: 'Yes, MVP development is one of our core specialties. We help founders go from idea to a working, launchable product without over-building features nobody\'s asked for yet.' },
-    { q: 'What makes NovaDesk different from other agencies?', a: "We combine full-stack development with real AI/ML expertise, direct communication (no account-manager layers), and honest scoping instead of inflated promises. We're a focused team, not a large outsourcing operation — and for many clients, that's exactly what they're looking for." },
-    { q: 'Can I request a specific tech stack?', a: "Absolutely. While we have our preferred stack for speed and reliability, we're flexible and can work with your existing systems and technical requirements." },
-    { q: 'How involved will I need to be during the project?', a: "As much or as little as you'd like — but we recommend regular check-ins so you can give feedback early, when it's cheap to make changes, rather than after launch." },
-    { q: 'What happens if my requirements change mid-project?', a: "Requirements evolving is normal, especially for new products. We build in structured check-ins specifically so scope changes can be discussed and priced transparently, instead of causing surprise delays or costs later." },
-    { q: 'Do you provide source code and documentation?', a: "Yes. You own your codebase, and we provide documentation so your product isn't a black box that only we can maintain." },
-    { q: 'Can you work with a limited budget for an early-stage startup?', a: "Yes — we're happy to have an honest conversation about what's realistically achievable within your budget, and help you prioritize what actually needs to be in a first version." },
-    { q: 'How do you ensure the quality of what you build?', a: 'We test throughout development, not just at the end — functionality, performance, and security checks happen within every sprint, so issues get caught early instead of surfacing after launch.' },
-    { q: 'Do you offer ongoing product strategy advice, or just development?', a: "Both. Many of our clients treat us as a technical thinking partner, not just an execution team — we're happy to weigh in on product decisions, not just build what's specified." },
-    { q: 'What if I only need one part of the process, like design or just development?', a: "That's completely fine. While we offer end-to-end service, we also work on standalone design, standalone development, or specific technical problems if that's what you need." },
-  ];
-
-  // ─── 47 National Listing Cities for Area-Wise Enquiry Optimization ───
-  const nationalServiceCities = [
-    { name: 'Deoghar', state: 'Jharkhand' },
-    { name: 'Ranchi', state: 'Jharkhand' },
-    { name: 'Jamshedpur', state: 'Jharkhand' },
-    { name: 'Patna', state: 'Bihar' },
-    { name: 'Delhi', state: 'Delhi' },
-    { name: 'Bhubaneshwar', state: 'Odisha' },
-    { name: 'Cuttack', state: 'Odisha' },
-    { name: 'Kolkata', state: 'West Bengal' },
-    { name: 'Siliguri', state: 'West Bengal' },
-    { name: 'Asansol', state: 'West Bengal' },
-    { name: 'Durgapur', state: 'West Bengal' },
-    { name: 'Howrah', state: 'West Bengal' },
-    { name: 'Malda', state: 'West Bengal' },
-    { name: 'Kharagpur', state: 'West Bengal' },
-    { name: 'Darjeeling', state: 'West Bengal' },
-    { name: 'Bardhaman', state: 'West Bengal' },
-    { name: 'Hooghly', state: 'West Bengal' },
-    { name: 'Nadia', state: 'West Bengal' },
-    { name: 'Midnapore', state: 'West Bengal' },
-    { name: 'Murshidabad', state: 'West Bengal' },
-    { name: 'Purulia', state: 'West Bengal' },
-    { name: 'Haldia', state: 'West Bengal' },
-    { name: 'Bankura', state: 'West Bengal' },
-    { name: 'Jalpaiguri', state: 'West Bengal' },
-    { name: 'Dinajpur', state: 'West Bengal' },
-    { name: 'Birbhum', state: 'West Bengal' },
-    { name: 'Cooch Behar', state: 'West Bengal' },
-    { name: 'North 24 Parganas', state: 'West Bengal' },
-    { name: 'South 24 Parganas', state: 'West Bengal' },
-    { name: 'Kalimpong', state: 'West Bengal' },
-    { name: 'Alipurduar', state: 'West Bengal' },
-    { name: 'Jhargram', state: 'West Bengal' },
-    { name: 'Basirhat', state: 'West Bengal' },
-    { name: 'Bolpur', state: 'West Bengal' },
-    { name: 'Raiganj', state: 'West Bengal' },
-    { name: 'Kalna', state: 'West Bengal' },
-    { name: 'Islampur', state: 'West Bengal' },
-    { name: 'Sainthia', state: 'West Bengal' },
-    { name: 'Kandi', state: 'West Bengal' },
-    { name: 'Egra', state: 'West Bengal' },
-    { name: 'Mirik', state: 'West Bengal' },
-    { name: 'Birpara', state: 'West Bengal' },
-    { name: 'Bakshirhat', state: 'West Bengal' },
-    { name: 'Pundibari', state: 'West Bengal' },
-    { name: 'Bara Jaguli', state: 'West Bengal' },
-    { name: 'Abinashpur', state: 'West Bengal' },
-    { name: 'Parulia', state: 'West Bengal' }
+    { q: 'Who will actually work on my project at NovaDesk?', a: 'You work directly with senior engineers and the agency founders (Harsh Prateek & Piusha Patra). We do not employ non-technical account managers who play telephone with your requirements. The people scoping your architecture are the ones writing your code.' },
+    { q: 'Do I own the source code and designs after completion?', a: 'Yes, 100%. Upon final project delivery and settlement, full intellectual property, source code repositories, design assets, and deployment environments belong entirely to you. We never lock you into proprietary platforms or hold your code hostage.' },
+    { q: 'How do you price projects? Are there hidden costs?', a: 'We scope projects with transparent, milestone-based estimates before starting work. You receive an itemized proposal detailing deliverables, timeline, and payment stages. There are zero hidden surprises.' },
+    { q: 'Can you take over or redesign an existing project?', a: 'Yes. We frequently help businesses rescue sluggish, poorly architected, or abandoned codebases. We begin with a code audit and architectural assessment, identify key bottlenecks and security vulnerabilities, and formulate an incremental modernization roadmap without disrupting current operations.' },
+    { q: 'What happens after launch? Do you provide warranty and support?', a: 'Every NovaDesk build includes a complimentary 30-day post-launch warranty covering any bug fixes, security monitoring, and minor adjustments. We also offer monthly maintenance, performance monitoring, and retainer engineering packages for ongoing feature development.' },
+    { q: 'How do we communicate and track progress during development?', a: 'We maintain clear, structured communication through a dedicated WhatsApp or Slack channel, weekly demo milestones, and shared task tracking. You get regular staging preview links so you can interact with the product throughout the build rather than waiting until the end.' },
+    { q: 'What services does NovaDesk offer?', a: 'We engineer business websites, modern e-commerce storefronts, custom web applications, SaaS platforms, AI/workflow automation, and provide ongoing website maintenance and speed optimization.' },
+    { q: 'How long does a typical project take?', a: 'Timelines vary by scope. A modern business website typically takes 2–3 weeks, an e-commerce storefront takes 3–5 weeks, and a full custom web application or SaaS MVP takes 4–8 weeks. You get a guaranteed timeline during discovery.' },
+    { q: 'Do you work with startups, or only established businesses?', a: 'Both. We work with early-stage founders building their first MVP as well as established local and regional businesses looking to upgrade their digital presence and conversion.' },
+    { q: 'Can you integrate AI features into an existing product?', a: 'Yes — we specialize in adding practical AI/automation capabilities like context-aware chatbots, document parsing, and automated qualification pipelines into existing platforms without requiring a complete rebuild.' },
+    { q: 'Do you sign NDAs before starting a project?', a: 'Yes, we are happy to sign non-disclosure agreements to protect your idea, proprietary data, and business information before detailed technical discussions begin.' },
+    { q: 'How do I get started?', a: 'Schedule a free 20-minute discovery call or send your project specifications through our contact form. We will review your requirements and provide an honest technical breakdown within 24 hours.' }
   ];
 
   const jsonLdSchema = [
@@ -624,15 +537,15 @@ export default function Home() {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "@id": "https://www.novadesk.site/#organization",
-      "name": "NovaDesk - Computer Software Developers & Digital Solutions",
+      "name": "NovaDesk",
       "alternateName": [
         "NovaDesk Software Solutions",
-        "NovaDesk Computer Software Development Company"
+        "NovaDesk Technologies"
       ],
       "url": "https://www.novadesk.site",
       "logo": "https://www.novadesk.site/favicon.svg",
       "image": "https://www.novadesk.site/novadesk_team_5_members_hero.webp",
-      "description": "NovaDesk is a premier computer software development company in India specializing in mobile application developers, internet website developers, ecommerce website development services, custom ERP & CRM software, and AI solutions.",
+      "description": "NovaDesk designs and engineers high-performance web applications, modern e-commerce stores, and custom software for growing businesses and startups.",
       "priceRange": "$$",
       "telephone": "+91-7870142813",
       "email": "novadesk.site@gmail.com",
@@ -651,164 +564,9 @@ export default function Home() {
           "https://calendly.com/itsharshprateek/30min"
         ]
       },
-      "areaServed": nationalServiceCities.map(c => ({
-        "@type": "City",
-        "name": c.name,
-        "containedInPlace": {
-          "@type": "State",
-          "name": c.state
-        }
-      })),
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "NovaDesk Computer Software & Digital Solutions",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Internet Website Developers & Custom Web Development",
-              "description": "Custom enterprise website development, cloud web applications, and portal engineering using PHP, ASP.NET, React, and Next.js."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Mobile Application Developers",
-              "description": "Native iOS, Android, and cross-platform mobile application development for enterprise and consumer markets."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Computer Software Developers & Development Companies",
-              "description": "Bespoke computer software development, custom software engineering, and digital solution providers."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Ecommerce Website Development Services",
-              "description": "High-conversion ecommerce website development, multi-vendor marketplaces, shopping cart integration, and custom checkout systems."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "ERP Computer Software Developers & Dealers (Tally Integration)",
-              "description": "Enterprise resource planning (ERP) computer software development, inventory tracking, Tally integration, and financial ledger automation."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "CRM Computer Software Developers & Solution Providers",
-              "description": "Customer relationship management (CRM) software development, sales pipeline tracking, and customer engagement solutions."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Inventory Management Computer Software Dealers",
-              "description": "Automated inventory management computer software, stock audit trails, supply chain optimization, and barcode integration."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Computer Software Developers For Hospital & Medical Dealers",
-              "description": "Medical computer software development, clinic management systems, EHR telemetry, and hospital administrative software."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Computer Software Developers For School & Educational Institutes",
-              "description": "School management software, student information systems, fees management, and virtual learning platforms."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Salon & Spa Computer Software Dealers",
-              "description": "Salon and spa management software, appointment scheduling, inventory management, and POS billing software."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Computer Software Developers For PHP & ASP Dot Net",
-              "description": "Full-stack computer software engineering using PHP, ASP.NET Core, Python, and modern cloud microservices."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Computer Software Developers For Multi Level Marketing (MLM)",
-              "description": "Custom MLM software development, binary/matrix plan calculation, distributor network trees, and automated payouts."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Barcode Computer Software Dealers & Embedded Systems",
-              "description": "Barcode computer software, label generation, WAP software development, and embedded hardware IoT software."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Corporate Software Companies & Freelance Developers",
-              "description": "Dedicated computer software engineers, corporate technology consulting, and senior freelance developer hire."
-            }
-          }
-        ]
-      },
-      "knowsAbout": [
-        "Internet Website Developers",
-        "Mobile Application Developers",
-        "Computer Software Developers",
-        "Computer Software Dealers",
-        "Computer Software Development Companies",
-        "Ecommerce Website Development Services",
-        "Computer Software Developers For ASP Dot Net",
-        "ERP Computer Software Dealers-Tally",
-        "Salon & Spa Computer Software Dealers",
-        "Computer Software Solution Providers",
-        "ERP Computer Software Dealers",
-        "Computer Software Developers For Multi Level Marketing",
-        "Computer Software Developers For PHP",
-        "Computer Software Engineers",
-        "ERP Computer Software Developers",
-        "Inventory Management Computer Software Dealers",
-        "Crm Computer Software Developers",
-        "Computer Software Developers In Wap",
-        "Computer Software Developers For Embedded System",
-        "Corporate Companies For Computer Software",
-        "Barcode Computer Software Dealers",
-        "Computer Software Developers For School",
-        "Computer Software Developers For Hospital",
-        "Medical Computer Software Dealers",
-        "Computer Software Developers For Medical",
-        "Crm Computer Software Dealers",
-        "Computer Software Developers For Freelance"
-      ],
       "sameAs": [
         "https://www.linkedin.com/company/novadesk-solutions/",
-        "https://www.instagram.com/novadesk_officials_?igsh=MW5yZGtrbzg5aXNscg==",
+        "https://www.instagram.com/novadesk_officials_/",
         "https://www.facebook.com/share/1BfvnjhFV9/",
         "https://github.com/novadesksite-001"
       ]
@@ -816,7 +574,7 @@ export default function Home() {
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
+      "mainEntity": faqs.slice(0, 8).map(faq => ({
         "@type": "Question",
         "name": faq.q,
         "acceptedAnswer": {
@@ -830,10 +588,9 @@ export default function Home() {
   return (
     <>
       <SEO 
-        title="NovaDesk | Computer Software Developers, Mobile Application & ERP Development"
-        description="NovaDesk is India's premier computer software development company specializing in mobile application developers, internet website developers, ecommerce website development services, ERP & CRM software solutions across Deoghar, Patna, Ranchi, Kolkata, Siliguri, Delhi, and 40+ regions."
-        keywords="Internet Website Developers, Mobile Application Developers, Computer Software Developers, Computer Software Dealers, Computer Software Development Companies, Ecommerce Website Development Services, Computer Software Developers For ASP Dot Net, ERP Computer Software Dealers-Tally, Salon & Spa Computer Software Dealers, Computer Software Solution Providers, ERP Computer Software Dealers, Computer Software Developers For Multi Level Marketing, Computer Software Developers For PHP, Computer Software Engineers, ERP Computer Software Developers, Inventory Management Computer Software Dealers, Crm Computer Software Developers, Computer Software Developers In Wap, Computer Software Developers For Embedded System, Corporate Companies For Computer Software, Barcode Computer Software Dealers, Computer Software Developers For School, Computer Software Developers For Hospital, Medical Computer Software Dealers, Computer Software Developers For Medical, Crm Computer Software Dealers, Computer Software Developers For Freelance, Deoghar, Patna, Ranchi, Jamshedpur, Kolkata, Siliguri, Asansol, Durgapur, Howrah, Delhi, NovaDesk, Harsh Prateek"
-        url="/"
+        title="NovaDesk | Websites, Software & Digital Products Built for Growth"
+        description="NovaDesk helps businesses and startups design and build fast, modern websites, e-commerce platforms, and custom software. Direct founder communication, full code ownership, and transparent milestone delivery."
+        canonical="https://www.novadesk.site/"
         schema={jsonLdSchema}
       />
       <style>{`
@@ -2745,35 +2502,37 @@ export default function Home() {
             <div className="nd-hero-left">
               <div className="nd-eyebrow">
                 <span className="nd-eyebrow-dot" />
-                TOP SOFTWARE DEVELOPMENT AGENCY IN INDIA
+                FULL-STACK SOFTWARE &amp; WEB DEVELOPMENT
               </div>
               <h1 className="nd-h1" style={{ textAlign: 'left' }}>
-                India's Premier <span className="nd-h1-blue">Custom Software &amp; AI</span> Studio
+                Websites, Software &amp; Digital Products <span className="nd-h1-blue">Built for Growth</span>
               </h1>
               <p className="nd-subtext-sm" style={{ textAlign: 'left' }}>
-                Trusted by early-stage founders and venture-backed teams. Hire expert offshore developers from India for high-quality engineering.
+                NovaDesk helps businesses and startups design and engineer fast, modern websites, e-commerce stores, and custom software. No bloated templates. Full code ownership. Real engineering delivered on time.
               </p>
               <div className="nd-industry-tags">
-                <span className="nd-ind-tag">Fintech</span>
-                <span className="nd-ind-tag">Healthcare</span>
-                <span className="nd-ind-tag">EdTech</span>
-                <span className="nd-ind-tag">Logistics</span>
-                <span className="nd-ind-tag">SaaS</span>
+                <span className="nd-ind-tag">Startups</span>
                 <span className="nd-ind-tag">E-Commerce</span>
+                <span className="nd-ind-tag">Healthcare</span>
+                <span className="nd-ind-tag">Education</span>
+                <span className="nd-ind-tag">SaaS</span>
+                <span className="nd-ind-tag">Local SMBs</span>
               </div>
               <div className="nd-cta-row">
-                <Link to="/contact-us" className="nd-btn-primary">Book a Free Consultation ↗</Link>
-                <Link to="/get-a-free-quote" className="nd-btn-outline">Get a Free Quote ↗</Link>
+                <Link to="/contact-us" className="nd-btn-primary">Start Your Project ↗</Link>
+                <Link to="/case-studies" className="nd-btn-outline">View Our Work ↗</Link>
               </div>
               <div className="nd-rating-row">
-                <div className="nd-avatars">
-                  <div className="nd-avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Client Avatar 1" className="nd-avatar-img" /></div>
-                  <div className="nd-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Client Avatar 2" className="nd-avatar-img" /></div>
-                  <div className="nd-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Client Avatar 3" className="nd-avatar-img" /></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div className="nd-stars">{[...Array(5)].map((_,i) => <IconStar key={i} />)}</div>
                 </div>
                 <div style={{ textAlign: 'left' }}>
-                  <div className="nd-stars">{[...Array(5)].map((_,i) => <IconStar key={i} />)}</div>
-                  <div className="nd-rating-text">3+ High-Impact Projects Delivered</div>
+                  <div className="nd-rating-text" style={{ fontWeight: 700, color: '#0A0A2E' }}>
+                    Verified Milestone Delivery
+                  </div>
+                  <div style={{ fontSize: '12.5px', color: '#64748B' }}>
+                    Direct Founder Access • 100% IP &amp; Code Ownership
+                  </div>
                 </div>
               </div>
             </div>
@@ -2786,15 +2545,14 @@ export default function Home() {
             <div className="nd-ticker-track">
               {[...Array(2)].map((_, idx) => (
                 <div key={idx} className="nd-ticker-group">
-                  <span>✦ NEXT.JS DEVELOPMENT</span>
-                  <span>✦ FASTAPI + PYTHON</span>
-                  <span>✦ SUPABASE + POSTGRESQL</span>
-                  <span>✦ GENERATIVE AI &amp; LLMS</span>
-                  <span>✦ CHATBOTS &amp; AGENTS</span>
-                  <span>✦ MOBILE FLUTTER APPS</span>
-                  <span>✦ 100% IP OWNERSHIP</span>
+                  <span>✦ BUSINESS WEBSITES</span>
+                  <span>✦ E-COMMERCE STORES</span>
+                  <span>✦ CUSTOM WEB APPLICATIONS</span>
+                  <span>✦ SAAS PLATFORMS</span>
+                  <span>✦ AI &amp; AUTOMATION</span>
+                  <span>✦ 100% IP &amp; CODE OWNERSHIP</span>
                   <span>✦ DIRECT DEVELOPER ACCESS</span>
-                  <span>✦ WEEKLY WORKABLE MILESTONES</span>
+                  <span>✦ TRANSPARENT MILESTONES</span>
                 </div>
               ))}
             </div>
@@ -2946,10 +2704,10 @@ export default function Home() {
             <div className="nd-shutter-grid">
               {[
                 { 
-                  title: 'Web Development',
+                  title: 'Business Websites',
                   subtitle: 'High-speed Web & CMS Platforms',
                   tag: 'WEB & CMS',
-                  desc: 'We build high-converting websites, web applications, landing pages, and custom CMS platforms engineered for maximum speed, SEO, and scalability.',
+                  desc: 'We build high-converting websites, landing pages, and manageable CMS platforms engineered for maximum speed, SEO, and lead capture.',
                   icon: (
                     <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect x="2" y="3" width="20" height="14" rx="3" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
@@ -2964,22 +2722,36 @@ export default function Home() {
                   )
                 },
                 { 
-                  title: 'App Development',
-                  subtitle: 'iOS & Android Mobile Applications',
-                  tag: 'MOBILE APPS',
-                  desc: 'High-performance native and cross-platform mobile apps for iOS and Android, delivered with fluid animations, intuitive UI, and offline capabilities.',
+                  title: 'E-commerce Stores',
+                  subtitle: 'Frictionless Mobile Checkout & Scale',
+                  tag: 'E-COMMERCE',
+                  desc: 'Modern online storefronts featuring sub-second catalog transitions, seamless domestic/global payment gateways, and automated inventory sync.',
                   icon: (
                     <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="5" y="2" width="14" height="20" rx="3" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
-                      <line x1="10" y1="5" x2="14" y2="5" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
-                      <circle cx="12" cy="18" r="1.2" fill="#2E29FF"/>
-                      <path d="M9 10L12 13L15 10" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="9" cy="21" r="1" stroke="#2E29FF" strokeWidth="2"/>
+                      <circle cx="20" cy="21" r="1" stroke="#2E29FF" strokeWidth="2"/>
+                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   )
                 },
                 { 
-                  title: 'SaaS Development',
-                  subtitle: 'Multi-Tenant Product Platforms',
+                  title: 'Custom Web Apps',
+                  subtitle: 'Internal Systems & Portals',
+                  tag: 'WEB APPS',
+                  desc: 'Scalable full-stack web applications, administrative dashboards, patient/client portals, and custom business automation tools built for daily workflows.',
+                  icon: (
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="4" width="18" height="6" rx="2" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
+                      <rect x="3" y="14" width="18" height="6" rx="2" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
+                      <circle cx="7" cy="7" r="1" fill="#2E29FF"/>
+                      <circle cx="7" cy="17" r="1" fill="#2E29FF"/>
+                      <line x1="12" y1="10" x2="12" y2="14" stroke="#6366F1" strokeWidth="1.8" strokeDasharray="2 2"/>
+                    </svg>
+                  )
+                },
+                { 
+                  title: 'SaaS Platforms',
+                  subtitle: 'Multi-Tenant Product Engineering',
                   tag: 'SAAS PLATFORMS',
                   desc: 'End-to-end multi-tenant SaaS platforms featuring recurring subscription billing gateways, custom admin dashboards, and secure user permission flows.',
                   icon: (
@@ -2990,10 +2762,10 @@ export default function Home() {
                   )
                 },
                 { 
-                  title: 'AI & ML Integration',
-                  subtitle: 'LLMs, AI Agents & Chatbots',
+                  title: 'AI & Automation',
+                  subtitle: 'LLMs, AI Agents & Workflows',
                   tag: 'AI & AUTOMATION',
-                  desc: 'Production-grade LLM features, custom AI chatbots, intelligent workflow automation, and fine-tuned AI systems using Claude & OpenAI APIs.',
+                  desc: 'Production-grade LLM features, custom AI customer support chatbots, document intelligence parsers, and automated multi-step business pipelines.',
                   icon: (
                     <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect x="3" y="6" width="18" height="13" rx="3" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
@@ -3006,10 +2778,10 @@ export default function Home() {
                   )
                 },
                 { 
-                  title: 'UI/UX Design',
-                  subtitle: 'Wireframes & Design Systems',
-                  tag: 'PRODUCT DESIGN',
-                  desc: 'User-centered product design, interactive prototypes, and comprehensive design systems built to elevate your brand and maximize user conversion.',
+                  title: 'Website Redesign',
+                  subtitle: 'Speed & Conversion Turnaround',
+                  tag: 'REDESIGN & UX',
+                  desc: 'Modernizing outdated, sluggish websites into fast, responsive, high-converting digital assets with improved UX and Core Web Vitals performance.',
                   icon: (
                     <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8" strokeLinejoin="round"/>
@@ -3019,37 +2791,10 @@ export default function Home() {
                   )
                 },
                 { 
-                  title: 'API Development',
-                  subtitle: 'REST, GraphQL & Backend Systems',
-                  tag: 'BACKEND SYSTEMS',
-                  desc: 'Custom backend RESTful and GraphQL APIs, secure third-party integrations, microservices, and database architecture built for reliability.',
-                  icon: (
-                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="3" y="4" width="18" height="6" rx="2" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
-                      <rect x="3" y="14" width="18" height="6" rx="2" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
-                      <circle cx="7" cy="7" r="1" fill="#2E29FF"/>
-                      <circle cx="7" cy="17" r="1" fill="#2E29FF"/>
-                      <line x1="12" y1="10" x2="12" y2="14" stroke="#6366F1" strokeWidth="1.8" strokeDasharray="2 2"/>
-                    </svg>
-                  )
-                },
-                { 
-                  title: 'Cloud & DevOps',
-                  subtitle: 'Infrastructure & CI/CD Pipelines',
-                  tag: 'CLOUD & DEVOPS',
-                  desc: 'Hosting configuration, secure automated CI/CD deployment pipelines, serverless infrastructure, and active server management on AWS & GCP.',
-                  icon: (
-                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4 15V9C4 6.23858 6.23858 4 9 4H15C17.7614 4 20 6.23858 20 9V15C20 17.7614 17.7614 20 15 20H9C6.23858 20 4 17.7614 4 15Z" stroke="#2E29FF" strokeWidth="1.8"/>
-                      <path d="M8 12H16M16 12L13 9M16 12L13 15" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  )
-                },
-                { 
-                  title: '24*7 Free Support',
-                  subtitle: 'Continuous Support & Scaling',
-                  tag: '24/7 SUPPORT',
-                  desc: 'Proactive bug fixes, continuous security updates, performance monitoring, and ongoing scaling support to ensure 100% operational uptime.',
+                  title: 'Maintenance & Support',
+                  subtitle: 'Security, Backups & Reliability',
+                  tag: 'MAINTENANCE',
+                  desc: 'Proactive bug fixes, continuous security updates, uptime monitoring, and retainer support so your digital infrastructure stays secure and fast.',
                   icon: (
                     <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12V18C21 19.6569 19.6569 21 18 21H17V15H21" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
