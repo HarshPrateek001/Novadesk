@@ -1,0 +1,54 @@
+# NovaDesk
+
+> NovaDesk is a premier full-stack software engineering, AI development, and digital product studio founded by Harsh Prateek. We build high-performance web platforms, mobile applications, custom SaaS architectures, generative AI solutions, and ERP/CRM systems for startups, scaling businesses, and enterprises across India and global markets.
+
+## Core Capabilities
+
+- **Custom Software & SaaS Development**: Scalable cloud architectures, multi-tenant SaaS platforms, 21-day MVP launches, microservices, and enterprise automation.
+- **AI & GenAI Solutions**: Custom LLM integration, autonomous support chatbots, conversational voice/text AI, RAG pipelines, and intelligent workflow automation.
+- **Web & Full-Stack Engineering**: High-speed, responsive, SEO-optimized web applications built with React, Next.js, Node.js, TypeScript, and modern headless CMS platforms.
+- **Mobile App Development**: Native iOS (Swift), native Android (Kotlin), and cross-platform (React Native, Flutter) mobile applications.
+- **E-Commerce Systems**: High-converting digital storefronts, Shopify development, WooCommerce architectures, custom checkout flows, and payment integrations.
+- **UI/UX Product Design**: Modern user interface and experience design, interactive prototypes, design systems, and conversion-focused wireframes.
+- **Enterprise Software & ERP/CRM**: Business management software, inventory management, CRM pipelines, and custom enterprise tools.
+- **Technical SEO & Performance**: PageSpeed optimization, WCAG accessibility, schema structured data, and organic search architecture.
+
+## Primary Pages & Endpoints
+
+- [Homepage](https://www.novadesk.site/): Official NovaDesk studio overview, live client portfolio, engineering principles, and technology showcase.
+- [FORGE AI Architecture](https://www.novadesk.site/forge-ai): Framework for Orchestrated Reasoning, Generation & Engineering — NovaDesk's AI initiative uniting iTHINK, iFORGE, and iEVOLVE for agent orchestration and model-agnostic intelligent ecosystems.
+- [About NovaDesk](https://www.novadesk.site/about-us): Company background, engineering philosophy, and leadership by founder Harsh Prateek.
+- [Get a Free Quote](https://www.novadesk.site/get-a-free-quote): Interactive project estimation and structured proposal request form for clients and AI agents.
+- [Case Studies](https://www.novadesk.site/case-studies): Real-world client case studies, technical architectures, metrics, and measurable business outcomes.
+- [Blog & Insights](https://www.novadesk.site/blog): Engineering guides, technical articles on AI, software architecture, web performance, and development best practices.
+- [Contact Us](https://www.novadesk.site/contact-us): Direct inquiry form, email, phone, and consultation booking channels.
+
+## Services Directory
+
+- [Web Development](https://www.novadesk.site/services/web-development): Modern, high-speed web application and portal engineering.
+- [AI Development & Integration](https://www.novadesk.site/services/ai-development): Generative AI, machine learning models, and smart agent workflows.
+- [Custom Software Development](https://www.novadesk.site/services/custom-software-development): Bespoke business software, internal tools, and ERP systems.
+- [SaaS Development](https://www.novadesk.site/services/saas-development): Multi-tenant cloud software architectures from MVP to scale.
+- [Mobile App Development](https://www.novadesk.site/services/mobile-app-development): iOS and Android cross-platform and native engineering.
+- [E-Commerce Development](https://www.novadesk.site/services/ecommerce-development): Custom storefronts, Shopify, WooCommerce, and payment gateway integration.
+- [UI/UX Design](https://www.novadesk.site/services/ui-ux-design): Product design, wireframes, user testing, and interactive prototypes.
+- [SEO Services](https://www.novadesk.site/services/seo-services): Technical SEO, organic search dominance, and conversion optimization.
+- [Website Maintenance](https://www.novadesk.site/services/website-maintenance): SLA-backed maintenance, security hardening, and performance monitoring.
+- [MVP Development](https://www.novadesk.site/services/mvp-development): 21-day rapid prototype-to-production framework for startup founders.
+- [Chatbot Development](https://www.novadesk.site/services/chatbot-development): Autonomous 24/7 customer support and lead generation bots.
+- [Gen AI Development](https://www.novadesk.site/services/gen-ai-development): Fine-tuned generative pipelines and proprietary LLM workflows.
+
+## Machine-Readable Resources
+
+- Full context documentation: [llms-full.txt](https://www.novadesk.site/llms-full.txt)
+- XML Sitemap: [sitemap.xml](https://www.novadesk.site/sitemap.xml)
+- RSS Feed: [rss.xml](https://www.novadesk.site/rss.xml)
+
+## Contact Information
+
+- **Founder**: Harsh Prateek
+- **Official Website**: https://www.novadesk.site
+- **Business Email**: support@novadesk.site / contact@novadesk.site
+- **WhatsApp / Direct Line**: +91 78701 42813
+- **Primary Market**: Global Remote Delivery & India
+

@@ -1,7 +1,24 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-export default function SEO({ title, description, keywords, image, url, schema, jsonLd, author, breadcrumbs, noindex = false }) {
+export default function SEO({
+  title,
+  description,
+  keywords,
+  image,
+  imageAlt,
+  imageWidth,
+  imageHeight,
+  ogType = 'website',
+  url,
+  canonical,
+  schema,
+  jsonLd,
+  author,
+  breadcrumbs,
+  noindex = false,
+  children,
+}) {
   const siteTitle = "NovaDesk | Websites, Software & Digital Products Built for Growth";
   const defaultDescription = "NovaDesk is a software and web development agency engineering custom websites, e-commerce storefronts, web applications, and digital products for businesses and startups.";
   const defaultImage = "https://www.novadesk.site/novadesk_team_5_members_hero.webp";
@@ -14,8 +31,14 @@ export default function SEO({ title, description, keywords, image, url, schema, 
   const defaultKeywords = "web development agency, custom software development, Next.js React developers, ecommerce development, startup MVP development, NovaDesk";
 
   const pageKeywords = keywords || defaultKeywords;
-  const pageUrl = url ? (url.startsWith('http') ? url : `https://www.novadesk.site${url}`) : "https://www.novadesk.site";
+  const canonicalTarget = canonical || url;
+  const pageUrl = canonicalTarget 
+    ? (canonicalTarget.startsWith('http') 
+        ? canonicalTarget 
+        : `https://www.novadesk.site${canonicalTarget.startsWith('/') ? canonicalTarget : `/${canonicalTarget}`}`) 
+    : "https://www.novadesk.site";
   const pageImage = image || defaultImage;
+  const pageImageAlt = imageAlt || "NovaDesk - Software & Web Development Agency";
   const pageAuthor = author || "Harsh Prateek";
 
   // Support both single schema object, array of schemas, and jsonLd prop
@@ -43,35 +66,37 @@ export default function SEO({ title, description, keywords, image, url, schema, 
       <meta name="keywords" content={pageKeywords} />
       <meta 
         name="robots" 
-        content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} 
+        content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} 
       />
       <meta name="author" content={pageAuthor} />
-
-      {/* Regional Meta Tags */}
-      <meta name="geo.region" content="IN" />
-      <meta name="geo.placename" content="Kolkata, India" />
       
       {/* Thumbnail & Image Links for Search Engine Snippets */}
       <link rel="image_src" href={pageImage} />
       <meta name="thumbnail" content={pageImage} />
 
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:locale" content="en_US" />
       <meta property="og:url" content={pageUrl} />
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:image" content={pageImage} />
-      <meta property="og:image:alt" content="NovaDesk - Software & Web Development Agency" />
+      {imageWidth ? <meta property="og:image:width" content={String(imageWidth)} /> : null}
+      {imageHeight ? <meta property="og:image:height" content={String(imageHeight)} /> : null}
+      <meta property="og:image:alt" content={pageImageAlt} />
       <meta property="og:site_name" content="NovaDesk" />
 
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={pageUrl} />
-      <meta property="twitter:title" content={pageTitle} />
-      <meta property="twitter:description" content={pageDescription} />
-      <meta property="twitter:image" content={pageImage} />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
+      <meta name="twitter:image" content={pageImage} />
+      <meta name="twitter:image:alt" content={pageImageAlt} />
 
-      <link rel="canonical" href={pageUrl} />
+      {!noindex ? <link rel="canonical" href={pageUrl} /> : null}
+
+      {children}
 
       {/* JSON-LD Schemas — one <script> per schema for Google compliance */}
       {schemas.map((s, i) => (

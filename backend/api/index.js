@@ -9,35 +9,47 @@ dotenv.config();
 
 const app = express();
 
-// ── Dynamic CORS: Allow frontend domains, previews & localhost ──
+// ── Strict CORS Allowlist: Allowed frontend origins & preview domains ──
 const explicitOrigins = [
   'https://www.novadesk.site',
   'https://novadesk.site',
   'https://novadesk.vercel.app',
   'http://localhost:5173',
-  'http://localhost:3000'
+  'http://localhost:3000',
+  'http://localhost:4173',
+  'http://127.0.0.1:5173',
+  'http://127.0.0.1:3000',
+  'http://127.0.0.1:4173'
 ];
+
+// Regex matching official NovaDesk Vercel preview deployments (e.g. https://novadesk-git-preview-xxx.vercel.app)
+const vercelPreviewRegex = /^https:\/\/novadesk(-[a-z0-9-]+)?\.vercel\.app$/;
+
+const isOriginAllowed = (origin) => {
+  if (!origin) return true;
+  if (explicitOrigins.includes(origin)) return true;
+  if (vercelPreviewRegex.test(origin)) return true;
+  if (process.env.FRONTEND_URL) {
+    const customOrigins = process.env.FRONTEND_URL.split(',').map((s) => s.trim()).filter(Boolean);
+    if (customOrigins.includes(origin)) return true;
+  }
+  return false;
+};
 
 app.use(cors({
   origin: (origin, callback) => {
     // Allow server-to-server, Postman, curl, or mobile app requests (no origin header)
     if (!origin) return callback(null, true);
 
-    if (
-      explicitOrigins.includes(origin) ||
-      origin.endsWith('.vercel.app') ||
-      origin.includes('novadesk.site') ||
-      origin.includes('localhost') ||
-      (process.env.FRONTEND_URL && origin === process.env.FRONTEND_URL)
-    ) {
+    if (isOriginAllowed(origin)) {
       return callback(null, true);
     }
 
-    // Allow other origins with callback to avoid unexpected CORS blocks on custom domains
-    return callback(null, true);
+    // Deny all other unlisted origins
+    return callback(null, false);
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-admin-key', 'x-api-key'],
   credentials: true
 }));
 

@@ -490,7 +490,6 @@ export default function WebDevelopment() {
             <Link to="/services/website-maintenance" className="nd-interlink-pill">Website Maintenance →</Link>
             <Link to="/blog/how-much-does-custom-software-development-cost" className="nd-interlink-pill">Web Development Cost Guide 2026 →</Link>
             <Link to="/blog/why-startups-choose-nodejs-for-backend" className="nd-interlink-pill">Why Startups Choose Node.js →</Link>
-            <Link to="/locations/kolkata" className="nd-interlink-pill">Web Development in Kolkata →</Link>
           </div>
         </section>
       </div>

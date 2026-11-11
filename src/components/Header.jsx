@@ -150,17 +150,17 @@ function FeaturedSidebar({ onClose }) {
 // ── Industries Data (12 Industries matching Image 1)
 const industries = [
   { name: 'Fintech', desc: 'Fintech software for payments, lending, and financial services.' },
-  { name: 'Staffing', desc: 'Providing skilled personnel to meet workforce needs.' },
   { name: 'Healthcare', desc: 'Secure software for healthcare providers and health startups.' },
   { name: 'Logistics', desc: 'Systems to track shipments and manage delivery operations.' },
-  { name: 'On-demand', desc: 'Services available instantly whenever you need them.' },
-  { name: 'Education', desc: 'Software for schools, edtech startups, and learning platforms.' },
   { name: 'Real Estate', desc: 'Software for property management and real estate platforms.' },
+  { name: 'Staffing', desc: 'Providing skilled personnel to meet workforce needs.' },
+  { name: 'Education', desc: 'Software for schools, edtech startups, and learning platforms.' },
   { name: 'Retail', desc: 'Software that helps retailers sell online and manage operations.' },
   { name: 'Marketplace', desc: 'Marketplace platforms that connect buyers and sellers.' },
   { name: 'Sports', desc: 'Apps and platforms for sports teams and fan engagement.' },
   { name: 'Food & Restaurant', desc: 'Software for restaurant management, ordering, and delivery.' },
   { name: 'Travel & Hospitality', desc: 'Booking systems and software for travel businesses.' },
+  { name: 'On-demand', desc: 'Services available instantly whenever you need them.' },
 ];
 
 function IndustriesMenuWindow({ onClose }) {
@@ -235,7 +235,7 @@ const servicesNav = [
       { label: 'Chatbot Development', desc: 'Autonomous 24/7 intelligent support bots.' },
       { label: 'Gen AI Development', desc: 'Custom fine-tuned generative AI pipelines.' },
       { label: 'AI Integrated Software', desc: 'Embed intelligent models into legacy apps.' },
-      { label: 'Conversational AI', desc: 'Advanced voice and text conversational models.' }
+      { label: 'Conversational AI', desc: 'Multi-lingual voice & text neural systems.' }
     ],
   },
   {
@@ -253,22 +253,6 @@ const servicesNav = [
       { label: 'CMS', desc: 'Easy-to-use content management systems.' },
       { label: 'WordPress', desc: 'Custom themes and plugins for WordPress.' },
       { label: 'Web Development', desc: 'Modern Next.js and high-performance platforms.' }
-    ],
-  },
-  {
-    id: 'ecommerce',
-    desktopLabel: 'Ecommerce Devlopment',
-    label: 'eCommerce Systems',
-    badge: 'High Conversion',
-    icon: <EcommerceIcon />,
-    title: 'Turn Visitors into Loyal Customers',
-    desc: 'We build custom eCommerce websites that combine intuitive user experiences, secure checkout, and scalable architecture.',
-    links: [
-      { label: 'eCommerce Design', desc: 'Conversion-optimized storefront designs.' },
-      { label: 'eCommerce Implementation', desc: 'Seamless integrations for retail ops.' },
-      { label: 'WooCommerce', desc: 'Flexible eCommerce powered by WordPress.' },
-      { label: 'Shopify Dev', desc: 'Custom Shopify themes and apps.' },
-      { label: 'eCommerce Development', desc: 'Scalable headless digital storefronts.' }
     ],
   },
   {
@@ -301,6 +285,22 @@ const servicesNav = [
       { label: 'CRMS System', desc: 'Customer relationship management tools.' },
       { label: 'Enterprises Software', desc: 'Large-scale corporate software solutions.' },
       { label: 'Custom Software', desc: 'Bespoke software tailored to your specific needs.' }
+    ],
+  },
+  {
+    id: 'ecommerce',
+    desktopLabel: 'Ecommerce Devlopment',
+    label: 'eCommerce Systems',
+    badge: 'High Conversion',
+    icon: <EcommerceIcon />,
+    title: 'Turn Visitors into Loyal Customers',
+    desc: 'We build custom eCommerce websites that combine intuitive user experiences, secure checkout, and scalable architecture.',
+    links: [
+      { label: 'eCommerce Design', desc: 'Conversion-optimized storefront designs.' },
+      { label: 'eCommerce Implementation', desc: 'Seamless integrations for retail ops.' },
+      { label: 'WooCommerce', desc: 'Flexible eCommerce powered by WordPress.' },
+      { label: 'Shopify Dev', desc: 'Custom Shopify themes and apps.' },
+      { label: 'eCommerce Development', desc: 'Scalable headless digital storefronts.' }
     ],
   },
 ];
@@ -1037,74 +1037,84 @@ export default function Header() {
           padding: 16px 18px 120px;
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 12px;
         }
 
-        .aae-drawer-link {
+        /* 1. Highlight AI Studio Button (Matches Image 1) */
+        .aae-drawer-ai-card {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 12px 14px;
-          border-radius: 12px;
-          font-size: 15px;
-          font-weight: 700;
-          color: #111827;
+          padding: 14px 18px;
+          background: #EEF2FF;
+          border: 1.5px solid #D9E2FF;
+          border-radius: 16px;
           text-decoration: none;
-          transition: background 0.18s, color 0.18s;
+          color: #2E29FF;
+          transition: background 0.18s, transform 0.18s;
         }
-        .aae-drawer-link:hover, .aae-drawer-link:active {
-          background: #F8F9FD;
+        .aae-drawer-ai-card:hover {
+          background: #E5EAFF;
+        }
+        .aae-drawer-ai-left {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 16px;
+          font-weight: 700;
           color: #2E29FF;
         }
-
-        .aae-drawer-link-ai {
-          background: #EEF0FF;
+        .aae-badge-beta {
+          font-size: 11px;
+          font-weight: 700;
+          font-style: italic;
           color: #2E29FF;
-          border: 1px solid rgba(46, 41, 255, 0.15);
-          margin-bottom: 4px;
-        }
-        .aae-drawer-link-ai:hover {
-          background: #e2e5ff;
+          background: #DBE3FE;
+          padding: 2px 10px;
+          border-radius: 9999px;
         }
 
-        .aae-drawer-accordion-btn {
+        /* Section Accordion Trigger (Services / Industries) */
+        .aae-drawer-section-btn {
           width: 100%;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 12px 14px;
-          border-radius: 12px;
-          font-size: 16px;
-          font-weight: 700;
-          color: #0A0A2E;
+          padding: 6px 4px;
           background: transparent;
           border: none;
           cursor: pointer;
           font-family: inherit;
-          transition: background 0.18s, color 0.18s;
         }
-        .aae-drawer-accordion-btn:hover, .aae-drawer-accordion-btn:active {
-          background: #F8F9FD;
-          color: #2E29FF;
+        .aae-drawer-section-title {
+          font-size: 18px;
+          font-weight: 700;
+          color: #111827;
         }
 
-        .aae-drawer-sub-box {
-          background: #F8F9FD;
-          border-radius: 14px;
+        /* Outer Container Card */
+        .aae-drawer-container-box {
+          background: #F8FAFD;
+          border: 1px solid #EEF2F7;
+          border-radius: 16px;
           padding: 10px;
-          margin-top: 4px;
-          margin-bottom: 8px;
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 8px;
+          margin-top: 6px;
         }
 
         /* Mobile service category groups */
         .aae-drawer-cat-group {
           background: #FFFFFF;
-          border-radius: 10px;
-          border: 1px solid rgba(46, 41, 255, 0.08);
+          border-radius: 12px;
+          border: 1px solid #EEF0F6;
           overflow: hidden;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+          transition: border-color 0.18s;
+        }
+        .aae-drawer-cat-group.active {
+          border-color: rgba(46, 41, 255, 0.2);
         }
 
         .aae-drawer-cat-btn {
@@ -1112,7 +1122,7 @@ export default function Header() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 11px 12px;
+          padding: 13px 14px;
           background: #FFFFFF;
           border: none;
           font-family: inherit;
@@ -1123,8 +1133,8 @@ export default function Header() {
           text-align: left;
           transition: background 0.15s, color 0.15s;
         }
-        .aae-drawer-cat-btn:hover, .aae-drawer-cat-btn.open {
-          background: #F5F7FF;
+        .aae-drawer-cat-btn.open {
+          background: #FFFFFF;
           color: #2E29FF;
         }
 
@@ -1135,38 +1145,45 @@ export default function Header() {
         }
 
         .aae-cat-badge {
-          font-size: 10px;
+          font-size: 10.5px;
           font-weight: 700;
           color: #2E29FF;
           background: #EEF0FF;
-          padding: 1px 6px;
+          padding: 2px 7px;
           border-radius: 9999px;
+          white-space: nowrap;
         }
 
         .aae-drawer-cat-links {
-          padding: 6px 8px 10px;
+          padding: 4px 14px 12px;
           display: flex;
           flex-direction: column;
-          gap: 4px;
-          border-top: 1px solid rgba(46, 41, 255, 0.06);
-          background: #FAFAFC;
+          gap: 6px;
+          border-top: 1px solid #F1F5F9;
+          background: #FFFFFF;
         }
 
         .aae-drawer-sub-link {
           display: flex;
           flex-direction: column;
           gap: 2px;
-          padding: 8px 10px;
+          padding: 10px 4px;
           border-radius: 8px;
           text-decoration: none;
+          border-bottom: 1px solid #F8FAFC;
           transition: background 0.15s;
         }
+        .aae-drawer-sub-link:last-child {
+          border-bottom: none;
+        }
         .aae-drawer-sub-link:hover, .aae-drawer-sub-link:active {
-          background: #EEF0FF;
+          background: #F4F6FF;
+          padding-left: 8px;
+          padding-right: 8px;
         }
         .aae-drawer-sub-link-title {
-          font-size: 13px;
-          font-weight: 600;
+          font-size: 13.5px;
+          font-weight: 700;
           color: #111827;
           display: flex;
           align-items: center;
@@ -1176,36 +1193,53 @@ export default function Header() {
           color: #2E29FF;
         }
         .aae-drawer-sub-link-desc {
-          font-size: 11.5px;
+          font-size: 12px;
           color: #64748B;
           line-height: 1.4;
         }
 
-        /* Mobile Industries 2-column grid */
+        /* Mobile Industries 2-column grid (Matches Image 2) */
         .aae-drawer-ind-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 8px;
+          gap: 10px;
         }
 
         .aae-drawer-ind-chip {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 10px 12px;
+          padding: 12px 14px;
           background: #FFFFFF;
-          border: 1px solid rgba(46, 41, 255, 0.08);
-          border-radius: 10px;
-          font-size: 12.5px;
+          border: 1px solid #EEF0F6;
+          border-radius: 12px;
+          font-size: 13.5px;
           font-weight: 600;
           color: #1F2937;
           text-decoration: none;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
           transition: all 0.15s;
         }
         .aae-drawer-ind-chip:hover, .aae-drawer-ind-chip:active {
           background: #EEF0FF;
           color: #2E29FF;
           border-color: rgba(46, 41, 255, 0.2);
+        }
+
+        /* Direct Links (Case Studies, About Us - Matches Image 2) */
+        .aae-drawer-nav-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 14px 6px;
+          font-size: 17px;
+          font-weight: 700;
+          color: #111827;
+          text-decoration: none;
+          transition: color 0.18s;
+        }
+        .aae-drawer-nav-item:hover, .aae-drawer-nav-item:active {
+          color: #2E29FF;
         }
 
         /* Pinned Drawer Footer */
@@ -1258,15 +1292,14 @@ export default function Header() {
 
             {/* 2. Center: Nav Links */}
             <nav className="nd-nav-group" aria-label="Primary Navigation">
-              {/* Highlight Item: AI Studio with Sparkle & Beta tag */}
+              {/* Highlight Item: FORGE AI Showcase */}
               <Link 
-                to="/services/gen-ai-development" 
+                to="/forge-ai" 
                 className="nd-nav-btn nd-sparkle-btn"
                 onMouseEnter={closeDropdown}
               >
                 <SparklesIcon />
-                <span>AI Studio</span>
-                <span className="nd-badge-beta">beta</span>
+                <span>FORGE AI</span>
               </Link>
 
               {/* Dropdown: Services */}
@@ -1376,37 +1409,39 @@ export default function Header() {
 
               {/* Drawer Scrollable Content */}
               <div className="aae-drawer-body">
-                {/* 1. Highlight AI Studio (Matches Image 1) */}
+                {/* 1. Highlight FORGE AI Showcase */}
                 <Link 
-                  to="/services/gen-ai-development" 
-                  className="aae-drawer-link aae-drawer-link-ai"
+                  to="/forge-ai" 
+                  className="aae-drawer-ai-card"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700 }}>
+                  <div className="aae-drawer-ai-left">
                     <SparklesIcon />
-                    AI Studio
-                  </span>
-                  <span className="nd-badge-beta">beta</span>
+                    <span>FORGE AI</span>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
                 </Link>
 
                 {/* 2. Services Accordion with Category Groups (Matches Image 1) */}
                 <div>
                   <button 
                     type="button"
-                    className="aae-drawer-accordion-btn"
+                    className="aae-drawer-section-btn"
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                     aria-expanded={mobileServicesOpen}
                   >
-                    <span style={{ fontWeight: 700, fontSize: '16px', color: '#0A0A2E' }}>Services</span>
+                    <span className="aae-drawer-section-title">Services</span>
                     <CaretIcon isOpen={mobileServicesOpen} />
                   </button>
 
                   {mobileServicesOpen && (
-                    <div className="aae-drawer-sub-box">
+                    <div className="aae-drawer-container-box">
                       {servicesNav.map((cat) => {
                         const isCatOpen = mobileActiveCategory === cat.id;
                         return (
-                          <div key={cat.id} className="aae-drawer-cat-group">
+                          <div key={cat.id} className={`aae-drawer-cat-group ${isCatOpen ? 'active' : ''}`}>
                             <button 
                               type="button"
                               className={`aae-drawer-cat-btn ${isCatOpen ? 'open' : ''}`}
@@ -1415,7 +1450,7 @@ export default function Header() {
                             >
                               <div className="aae-drawer-cat-left">
                                 {cat.icon}
-                                <span style={{ fontWeight: 700 }}>{cat.label}</span>
+                                <span>{cat.label}</span>
                                 {cat.badge && <span className="aae-cat-badge">{cat.badge}</span>}
                               </div>
                               <CaretIcon isOpen={isCatOpen} />
@@ -1450,16 +1485,16 @@ export default function Header() {
                 <div>
                   <button 
                     type="button"
-                    className="aae-drawer-accordion-btn"
+                    className="aae-drawer-section-btn"
                     onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
                     aria-expanded={mobileIndustriesOpen}
                   >
-                    <span style={{ fontWeight: 700, fontSize: '16px', color: '#0A0A2E' }}>Industries</span>
+                    <span className="aae-drawer-section-title">Industries</span>
                     <CaretIcon isOpen={mobileIndustriesOpen} />
                   </button>
 
                   {mobileIndustriesOpen && (
-                    <div className="aae-drawer-sub-box">
+                    <div className="aae-drawer-container-box">
                       <div className="aae-drawer-ind-grid">
                         {industries.map((ind) => (
                           <Link
@@ -1477,66 +1512,33 @@ export default function Header() {
                   )}
                 </div>
 
-                {/* 4. Direct Links (Matches Image 2) */}
+                {/* 4. Direct Links (Matches Image 2: Case Studies, About Us) */}
                 <Link 
                   to="/case-studies" 
-                  className="aae-drawer-link"
+                  className="aae-drawer-nav-item"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <span style={{ fontWeight: 700, color: '#0A0A2E' }}>Case Studies</span>
+                  <span>Case Studies</span>
                   <ArrowRight />
                 </Link>
 
                 <Link 
                   to="/about-us" 
-                  className="aae-drawer-link"
+                  className="aae-drawer-nav-item"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <span style={{ fontWeight: 700, color: '#0A0A2E' }}>About Us</span>
+                  <span>About Us</span>
                   <ArrowRight />
                 </Link>
 
                 <Link 
                   to="/blog" 
-                  className="aae-drawer-link"
+                  className="aae-drawer-nav-item"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <span style={{ fontWeight: 700, color: '#0A0A2E' }}>Blogs</span>
+                  <span>Blogs</span>
                   <ArrowRight />
                 </Link>
-
-                {/* 5. Regional Studios */}
-                <div style={{ padding: '14px 14px 8px', borderTop: '1px solid #EDF2F7', marginTop: '6px' }}>
-                  <span style={{ fontSize: '11px', fontWeight: 800, color: '#2E29FF', textTransform: 'uppercase', letterSpacing: '0.8px', display: 'block', marginBottom: '8px' }}>
-                    Regional Studios
-                  </span>
-                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                    <Link 
-                      to="/locations/kolkata" 
-                      className="aae-drawer-ind-chip" 
-                      style={{ fontSize: '12px', padding: '6px 12px' }}
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      Kolkata ↗
-                    </Link>
-                    <Link 
-                      to="/locations/durgapur" 
-                      className="aae-drawer-ind-chip" 
-                      style={{ fontSize: '12px', padding: '6px 12px' }}
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      Durgapur ↗
-                    </Link>
-                    <Link 
-                      to="/locations/deoghar" 
-                      className="aae-drawer-ind-chip" 
-                      style={{ fontSize: '12px', padding: '6px 12px' }}
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      Deoghar HQ ↗
-                    </Link>
-                  </div>
-                </div>
               </div>
 
               {/* Pinned Bottom CTA */}

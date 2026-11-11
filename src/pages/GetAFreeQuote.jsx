@@ -254,7 +254,11 @@ export default function GetAFreeQuote() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit}>
+                <form 
+                  onSubmit={handleSubmit}
+                  toolname="request_project_quote"
+                  tooldescription="Submit a project estimation request for web, custom software, SaaS, mobile app, or AI development to NovaDesk"
+                >
                   
                   {/* GRID LAYOUT - 2 EQUAL BALANCED COLUMNS */}
                   <div className="nd-quote-form-grid">
@@ -268,6 +272,7 @@ export default function GetAFreeQuote() {
                         id="quote-firstName"
                         type="text"
                         name="firstName"
+                        toolparamdescription="First name of the client"
                         autoComplete="given-name"
                         required
                         value={formData.firstName}
@@ -287,6 +292,7 @@ export default function GetAFreeQuote() {
                         id="quote-lastName"
                         type="text"
                         name="lastName"
+                        toolparamdescription="Last name of the client"
                         autoComplete="family-name"
                         value={formData.lastName}
                         onChange={handleChange}
@@ -305,6 +311,7 @@ export default function GetAFreeQuote() {
                         id="quote-email"
                         type="email"
                         name="email"
+                        toolparamdescription="Work or personal email address of the client"
                         autoComplete="email"
                         required
                         value={formData.email}
@@ -324,6 +331,7 @@ export default function GetAFreeQuote() {
                         id="quote-phone"
                         type="tel"
                         name="phone"
+                        toolparamdescription="Contact phone or WhatsApp number of the client"
                         autoComplete="tel"
                         value={formData.phone}
                         onChange={handleChange}
@@ -342,6 +350,7 @@ export default function GetAFreeQuote() {
                         <select
                           id="quote-projectType"
                           name="projectType"
+                          toolparamdescription="Requested service category or project type"
                           value={formData.projectType}
                           onChange={handleChange}
                           className="nd-quote-input"
@@ -377,6 +386,7 @@ export default function GetAFreeQuote() {
                         <select
                           id="quote-budget"
                           name="budget"
+                          toolparamdescription="Target budget range for the project"
                           value={formData.budget}
                           onChange={handleChange}
                           className="nd-quote-input"
@@ -412,6 +422,7 @@ export default function GetAFreeQuote() {
                         id="quote-maxTime"
                         type="text"
                         name="maxTime"
+                        toolparamdescription="Expected project delivery timeline"
                         value={formData.maxTime}
                         onChange={handleChange}
                         placeholder="e.g. 2 Weeks, 1 Month, ASAP"
@@ -429,6 +440,7 @@ export default function GetAFreeQuote() {
                         id="quote-companyName"
                         type="text"
                         name="companyName"
+                        toolparamdescription="Company, brand, or startup name"
                         autoComplete="organization"
                         value={formData.companyName}
                         onChange={handleChange}
@@ -447,6 +459,7 @@ export default function GetAFreeQuote() {
                         <select
                           id="quote-country"
                           name="country"
+                          toolparamdescription="Client country or location"
                           autoComplete="country-name"
                           value={formData.country}
                           onChange={handleChange}
@@ -484,6 +497,7 @@ export default function GetAFreeQuote() {
                         id="quote-requiredSkills"
                         type="text"
                         name="requiredSkills"
+                        toolparamdescription="Required technologies or technical stack"
                         value={formData.requiredSkills}
                         onChange={handleChange}
                         placeholder="e.g. React, Next.js, Node.js, Python"
@@ -561,6 +575,7 @@ export default function GetAFreeQuote() {
                     <textarea
                       id="quote-message"
                       name="message"
+                      toolparamdescription="Detailed description or requirements for the project"
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}

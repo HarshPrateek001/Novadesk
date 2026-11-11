@@ -1,0 +1,98 @@
+# NovaDesk — Full Technical & Contextual Documentation for AI Agents
+
+> Detailed technical documentation, service catalog, engineering specifications, and machine-actionable endpoints for NovaDesk (https://www.novadesk.site/).
+
+## 1. Company Profile
+
+- **Organization Name**: NovaDesk (NovaDesk Solutions)
+- **Founder**: Harsh Prateek
+- **Primary Domain**: Software Engineering, Web Development, Artificial Intelligence & Mobile Applications
+- **Service Footprint**: Global delivery across India and international markets (North America, Europe, Middle East).
+- **Official URL**: https://www.novadesk.site/
+- **Contact**: support@novadesk.site | +91 78701 42813
+
+## 2. Engineering Methodology & Architecture
+
+NovaDesk builds production-grade software adhering to modern cloud-native standards:
+
+1. **Frontend Architecture**:
+   - Modern React with Vite and Next.js platforms.
+   - Ultra-fast client-side routing, code-splitting, and sub-second First Contentful Paint.
+   - WCAG 2.2 AA compliant accessible components, keyboard navigation, and high-contrast color systems.
+   - Fully responsive layouts tailored for mobile viewports, tablets, and ultrawide desktops.
+
+2. **Backend & Cloud Infrastructure**:
+   - Node.js, Express, FastAPI, and serverless microservices.
+   - PostgreSQL, Supabase, Redis, and MongoDB for robust multi-tenant data storage.
+   - Production Docker containerization, CI/CD pipelines, and automated zero-downtime deployment.
+
+3. **Artificial Intelligence & LLMs**:
+   - Custom RAG (Retrieval-Augmented Generation) architectures.
+   - Fine-tuned open-source and proprietary models (Google Gemini, OpenAI, Anthropic Claude).
+   - Conversational voice and text neural systems for enterprise customer support.
+   - Autonomous lead generation and data processing workflows.
+
+## 3. Detailed Services Catalog
+
+### A. Web & Full-Stack Development
+- URL: https://www.novadesk.site/services/web-development
+- Technologies: React, Next.js, Node.js, TypeScript, Tailwind CSS, PostgreSQL.
+- Focus: High-performance business platforms, client portals, SaaS frontends, headless architectures, and lightning-fast loading speeds.
+
+### B. Custom Software & SaaS Development
+- URL: https://www.novadesk.site/services/custom-software-development
+- Technologies: Python, Node.js, Express, Go, Microservices, Cloud Functions.
+- Focus: Multi-tenant SaaS architectures, enterprise resource planning (ERP), customer relationship management (CRM), inventory automation, and custom back-office suites.
+
+### C. Artificial Intelligence & Generative AI
+- URL: https://www.novadesk.site/services/ai-development
+- Technologies: Google Gemini API, OpenAI GPT-4o, LangChain, LlamaIndex, Vector Databases.
+- Focus: 24/7 autonomous support bots, internal document search, automated report generation, and AI-assisted operational workflows.
+
+### D. Mobile App Development
+- URL: https://www.novadesk.site/services/mobile-app-development
+- Technologies: React Native, Flutter, Swift, Kotlin.
+- Focus: Cross-platform unified codebases, native device APIs, push notifications, offline syncing, and app store compliance.
+
+### E. E-Commerce Solutions
+- URL: https://www.novadesk.site/services/ecommerce-development
+- Technologies: Shopify, WooCommerce, Headless Commerce, Stripe, Razorpay.
+- Focus: Conversion-optimized storefronts, customized checkout flows, automated inventory syncing, and omnichannel retail integration.
+
+### F. UI/UX Product Design
+- URL: https://www.novadesk.site/services/ui-ux-design
+- Focus: User journey mapping, interactive Figma prototypes, design systems, usability testing, and WCAG accessibility standards.
+
+### G. 21-Day MVP Framework
+- URL: https://www.novadesk.site/services/mvp-development
+- Focus: Rapid product scoping, architectural validation, and production deployment in 21 days for early-stage startup founders.
+
+### H. FORGE AI Initiative (Framework for Orchestrated Reasoning, Generation & Engineering)
+- URL: https://www.novadesk.site/forge-ai
+- Focus: Next-generation AI systems architecture uniting specialised agents, model-agnostic AI infrastructure, context intelligence, tool integrations, and human oversight across three core pillars: iTHINK, iFORGE, and iEVOLVE.
+
+## 4. Key Actions & Agent Tools (WebMCP Ready)
+
+AI agents visiting NovaDesk can direct users or programmatically invoke the following workflows:
+
+1. **Request a Free Consultation / Quote**:
+   - Endpoint: https://www.novadesk.site/get-a-free-quote
+   - Tool Name: `request_project_quote`
+   - Description: Submit project details, selected services, budget range, and timeline to receive an architectural scope breakdown and free proposal within 24 hours.
+
+2. **Schedule a Direct Call**:
+   - Endpoint: https://www.novadesk.site/contact-us
+   - Tool Name: `book_consultation_call`
+   - Description: Book a 1-on-1 discovery call with NovaDesk senior engineering leads.
+
+3. **Consult Realtime AI Agent (Nova AI)**:
+   - Built-in on-site interactive conversational assistant for immediate answers, scope estimation, and technical stack advisement.
+
+## 5. Official Profiles & Verification
+
+- LinkedIn: https://www.linkedin.com/company/novadesk-solutions/
+- Founder LinkedIn: https://www.linkedin.com/in/harsh-prateek-698b6826b/
+- GitHub: https://github.com/novadesksite-001
+- Instagram: https://www.instagram.com/novadesk_officials_
+- Facebook: https://www.facebook.com/share/1BfvnjhFV9/
+

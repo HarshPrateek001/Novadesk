@@ -1,8 +1,153 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "novadesk.site"
+        }
+      ],
+      "destination": "https://www.novadesk.site/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/harsh-prateek",
+      "destination": "/about-us",
+      "permanent": true
+    },
+    {
+      "source": "/harsh-prateek-novadesk",
+      "destination": "/about-us",
+      "permanent": true
+    },
+    {
+      "source": "/founder",
+      "destination": "/about-us",
+      "permanent": true
+    },
+    {
+      "source": "/piusha-patra",
+      "destination": "/about-us",
+      "permanent": true
+    },
+    {
+      "source": "/piusha-patra-novadesk",
+      "destination": "/about-us",
+      "permanent": true
+    },
+    {
+      "source": "/co-founder",
+      "destination": "/about-us",
+      "permanent": true
+    }
+  ],
   "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/about-us", "destination": "/index.html" },
+    { "source": "/case-studies", "destination": "/index.html" },
+    { "source": "/contact-us", "destination": "/index.html" },
+    { "source": "/forge-ai", "destination": "/index.html" },
+    { "source": "/get-a-free-quote", "destination": "/index.html" },
+    { "source": "/privacy-policy", "destination": "/index.html" },
+    { "source": "/terms", "destination": "/index.html" },
+    { "source": "/services/web-development", "destination": "/index.html" },
+    { "source": "/services/ai-development", "destination": "/index.html" },
+    { "source": "/services/ecommerce-development", "destination": "/index.html" },
+    { "source": "/services/ui-ux-design", "destination": "/index.html" },
+    { "source": "/services/seo-services", "destination": "/index.html" },
+    { "source": "/services/website-maintenance", "destination": "/index.html" },
+    { "source": "/services/full-stack-development", "destination": "/index.html" },
+    { "source": "/services/web-application-development", "destination": "/index.html" },
+    { "source": "/services/chatbot-development", "destination": "/index.html" },
+    { "source": "/services/gen-ai-development", "destination": "/index.html" },
+    { "source": "/services/ai-integrated-software", "destination": "/index.html" },
+    { "source": "/services/conversational-ai", "destination": "/index.html" },
+    { "source": "/services/php-development", "destination": "/index.html" },
+    { "source": "/services/cms-development", "destination": "/index.html" },
+    { "source": "/services/wordpress-development", "destination": "/index.html" },
+    { "source": "/services/ecommerce-design", "destination": "/index.html" },
+    { "source": "/services/ecommerce-implementation", "destination": "/index.html" },
+    { "source": "/services/woocommerce-development", "destination": "/index.html" },
+    { "source": "/services/shopify-development", "destination": "/index.html" },
+    { "source": "/services/android-development", "destination": "/index.html" },
+    { "source": "/services/ios-development", "destination": "/index.html" },
+    { "source": "/services/mobile-app-development", "destination": "/index.html" },
+    { "source": "/services/react-native-development", "destination": "/index.html" },
+    { "source": "/services/saas-development", "destination": "/index.html" },
+    { "source": "/services/erp-software-development", "destination": "/index.html" },
+    { "source": "/services/crm-systems-development", "destination": "/index.html" },
+    { "source": "/services/enterprise-software-development", "destination": "/index.html" },
+    { "source": "/services/custom-software-development", "destination": "/index.html" },
+    { "source": "/services/mvp-development", "destination": "/index.html" },
+    { "source": "/industries/fintech", "destination": "/index.html" },
+    { "source": "/industries/healthcare", "destination": "/index.html" },
+    { "source": "/industries/logistics", "destination": "/index.html" },
+    { "source": "/industries/real-estate", "destination": "/index.html" },
+    { "source": "/industries/staffing", "destination": "/index.html" },
+    { "source": "/industries/education", "destination": "/index.html" },
+    { "source": "/industries/retail", "destination": "/index.html" },
+    { "source": "/industries/marketplace", "destination": "/index.html" },
+    { "source": "/industries/sports", "destination": "/index.html" },
+    { "source": "/industries/food-and-restaurant", "destination": "/index.html" },
+    { "source": "/industries/travel-and-hospitality", "destination": "/index.html" },
+    { "source": "/industries/on-demand", "destination": "/index.html" },
+    { "source": "/blog", "destination": "/index.html" },
+    { "source": "/blog/:slug([a-zA-Z0-9_-]+)", "destination": "/index.html" }
+  ],
+  "headers": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), browsing-topics=()" }
+      ]
+    },
+    {
+      "source": "/404",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/404.html",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^.*\\.vercel\\.app$"
+        }
+      ],
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/icons/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/(manifest.json|robots.txt|sitemap.xml|llms.txt|llms-full.txt)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+      ]
     }
   ]
 }

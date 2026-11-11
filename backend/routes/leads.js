@@ -145,10 +145,52 @@ router.post('/submit', async (req, res) => {
 });
 
 /**
- * GET /api/leads — View recent leads (in-memory)
+ * Admin Authentication Middleware
+ * Protects administrative endpoints against unauthenticated access.
+ * Validates request header credentials against process.env.ADMIN_API_KEY:
+ * - x-admin-key: <key>
+ * - x-api-key: <key>
+ * - Authorization: Bearer <key>
+ *
+ * Fail-safe: If ADMIN_API_KEY is not configured or empty, access is rejected by default.
  */
-router.get('/', (req, res) => {
-  return res.json({ leads: leadsStore });
+export function requireAdminAuth(req, res, next) {
+  const configuredKey = process.env.ADMIN_API_KEY?.trim();
+
+  // Fail-safe: reject requests by default if ADMIN_API_KEY is unset or default placeholder
+  if (!configuredKey || configuredKey === 'YOUR_ADMIN_API_KEY_HERE') {
+    return res.status(401).json({
+      success: false,
+      error: 'Unauthorized: Admin API key required'
+    });
+  }
+
+  const authHeader = req.headers.authorization;
+  let bearerToken = null;
+  if (authHeader && authHeader.startsWith('Bearer ')) {
+    bearerToken = authHeader.slice(7).trim();
+  }
+
+  const providedKey =
+    req.headers['x-admin-key'] ||
+    req.headers['x-api-key'] ||
+    bearerToken;
+
+  if (!providedKey || providedKey !== configuredKey) {
+    return res.status(401).json({
+      success: false,
+      error: 'Unauthorized: Admin API key required'
+    });
+  }
+
+  next();
+}
+
+/**
+ * GET /api/leads — View recent leads (in-memory, admin protected)
+ */
+router.get('/', requireAdminAuth, (req, res) => {
+  return res.json({ success: true, leads: leadsStore });
 });
 
 export default router;

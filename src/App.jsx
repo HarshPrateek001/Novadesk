@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // ─── Blog System: Provider Pattern
 // Import the context provider — wraps all blog routes.
@@ -14,6 +15,7 @@ const Home = React.lazy(() => import('./pages/Home'));
 const AboutUs = React.lazy(() => import('./pages/AboutUs'));
 const CaseStudies = React.lazy(() => import('./pages/CaseStudies'));
 const ContactUs = React.lazy(() => import('./pages/ContactUs'));
+const ForgeAI = React.lazy(() => import('./pages/ForgeAI'));
 const PrivacyPolicy = React.lazy(() => import('./pages/PrivacyPolicy'));
 const TermsConditions = React.lazy(() => import('./pages/TermsConditions'));
 
@@ -22,7 +24,7 @@ const TermsConditions = React.lazy(() => import('./pages/TermsConditions'));
 // New blog = new JSON file in src/blogs/ — no React changes ever.
 const BlogListPage = React.lazy(() => import('./pages/blog/BlogListPage'));
 const BlogPostPage = React.lazy(() => import('./pages/blog/BlogPostPage'));
-const NotFound = React.lazy(() => import('./pages/NotFound'));
+import NotFound from './pages/NotFound';
 
 // ─── Commercial Service Landing Pages
 const WebDevelopment = React.lazy(() => import('./pages/services/WebDevelopment'));
@@ -32,13 +34,8 @@ const UiUxDesign = React.lazy(() => import('./pages/services/UiUxDesign'));
 const SeoServices = React.lazy(() => import('./pages/services/SeoServices'));
 const WebsiteMaintenance = React.lazy(() => import('./pages/services/WebsiteMaintenance'));
 
-// ─── Local SEO Landing Pages
-const Kolkata = React.lazy(() => import('./pages/locations/Kolkata'));
-const Durgapur = React.lazy(() => import('./pages/locations/Durgapur'));
-const Deoghar = React.lazy(() => import('./pages/locations/Deoghar'));
-
-import ChatWidget from './components/ChatWidget';
-import WhatsAppButton from './components/WhatsAppButton';
+const ChatWidget = React.lazy(() => import('./components/ChatWidget'));
+const WhatsAppButton = React.lazy(() => import('./components/WhatsAppButton'));
 
 const FullStackDevelopment = React.lazy(() => import('./pages/services/FullStackDevelopment'));
 const WebApplicationDevelopment = React.lazy(() => import('./pages/services/WebApplicationDevelopment'));
@@ -65,6 +62,7 @@ const CustomSoftwareDevelopment = React.lazy(() => import('./pages/services/Cust
 const MvpDevelopment = React.lazy(() => import('./pages/services/MvpDevelopment'));
 
 const Fintech = React.lazy(() => import('./pages/industries/Fintech'));
+const IndustryPage = React.lazy(() => import('./pages/industries/IndustryPage'));
 
 const GetAFreeQuote = React.lazy(() => import('./pages/GetAFreeQuote'));
 
@@ -76,8 +74,9 @@ export default function App() {
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <Header />
           <main style={{ flex: 1 }}>
-            <React.Suspense fallback={<div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px'}}>Loading...</div>}>
-              <Routes>
+            <ErrorBoundary>
+              <React.Suspense fallback={<div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px'}}>Loading...</div>}>
+                <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about-us" element={<AboutUs />} />
                 {/* Founder / Team canonical redirects to preserve link equity without duplicate content */}
@@ -89,6 +88,7 @@ export default function App() {
                 <Route path="/co-founder" element={<Navigate to="/about-us" replace />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/contact-us" element={<ContactUs />} />
+                <Route path="/forge-ai" element={<ForgeAI />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsConditions />} />
 
@@ -99,11 +99,6 @@ export default function App() {
                 <Route path="/services/ui-ux-design" element={<UiUxDesign />} />
                 <Route path="/services/seo-services" element={<SeoServices />} />
                 <Route path="/services/website-maintenance" element={<WebsiteMaintenance />} />
-
-                {/* ─── Local SEO Landing Pages ────────────────────────────── */}
-                <Route path="/locations/kolkata" element={<Kolkata />} />
-                <Route path="/locations/durgapur" element={<Durgapur />} />
-                <Route path="/locations/deoghar" element={<Deoghar />} />
 
                 {/* Specialized Service Pages */}
                 <Route path="/services/full-stack-development" element={<FullStackDevelopment />} />
@@ -131,6 +126,7 @@ export default function App() {
                 <Route path="/services/mvp-development" element={<MvpDevelopment />} />
                 
                 <Route path="/industries/fintech" element={<Fintech />} />
+                <Route path="/industries/:slug" element={<IndustryPage />} />
                 <Route path="/get-a-free-quote" element={<GetAFreeQuote />} />
 
                 {/* ─── Blog Routes ───────────────────────────────────────────
@@ -165,10 +161,13 @@ export default function App() {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </React.Suspense>
-          </main>
+          </ErrorBoundary>
+        </main>
           <Footer />
-          <ChatWidget />
-          <WhatsAppButton />
+          <React.Suspense fallback={null}>
+            <ChatWidget />
+            <WhatsAppButton />
+          </React.Suspense>
         </div>
       </Router>
     </HelmetProvider>

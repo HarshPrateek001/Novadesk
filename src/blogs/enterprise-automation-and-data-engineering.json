@@ -1,0 +1,66 @@
+{
+  "id": "blog-012",
+  "slug": "enterprise-automation-and-data-engineering",
+  "title": "Enterprise Automation & Data Pipelines for Regulated Operations",
+  "excerpt": "How unified data platforms and intelligent workflow automation bridge fragmented silos to power real-time executive decisions and auditable operational speed.",
+  "description": "Discover how regulated industries design deterministic data pipelines, event-driven automation, and AI decision intelligence with full lineage and governance.",
+  "author": {
+    "name": "Harsh Prateek",
+    "role": "Founder & CEO, NovaDesk",
+    "bio": "Harsh is a Full-Stack Engineer and AI architect with 14+ years of experience building digital products for startups and regulated enterprises.",
+    "avatar": "/hero-my-image.webp",
+    "linkedin": "https://linkedin.com/in/harshprateek"
+  },
+  "publishDate": "2026-08-18",
+  "updatedDate": "2026-08-18",
+  "category": "Data & Automation",
+  "tags": ["Data Engineering", "Process Automation", "AI Pipelines", "Governance", "Analytics"],
+  "coverImage": "/insights/data-automation.webp",
+  "thumbnail": "/insights/data-automation.webp",
+  "readTime": 7,
+  "featured": false,
+  "seoTitle": "Enterprise Automation & Data Pipelines Guide | NovaDesk",
+  "seoDescription": "Build reliable, auditable data pipelines and intelligent workflow automation that bridge critical business silos across regulated industries.",
+  "status": "published",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Enterprise organizations rarely suffer from a lack of data—they suffer from disconnected operational silos, brittle CSV exports, and manual approval chains that delay mission-critical decisions by days."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Designing Governed, High-Velocity Data Foundations",
+      "id": "data-foundations"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Schema-enforced ingestion pipelines with dead-letter queues and automated anomaly alerts.",
+        "Event-driven orchestration connecting ERP, CRM, compliance, and customer-facing apps.",
+        "Human-in-the-loop AI verification workflows for regulated approvals and exception handling.",
+        "Row-level access policies and complete lineage tracking for regulatory auditability."
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Automate Complex Workflows with Precision",
+      "id": "cta"
+    },
+    {
+      "type": "paragraph",
+      "text": "NovaDesk builds custom data platforms and intelligent automation systems tailored for reliability, security, and measurable ROI."
+    },
+    {
+      "type": "button",
+      "label": "Explore Data & Automation Solutions",
+      "href": "/contact-us",
+      "variant": "primary"
+    }
+  ]
+}
+

@@ -41,260 +41,37 @@ const IconCloud = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
 );
 
-// ─── TYPING ANIMATION FOR HERO BLUE SUBHEADING ─────────────────────────────────
-const heroTypingServices = [
-  'Business Websites & Web Apps',
-  'E-commerce Storefronts',
-  'Custom SaaS Platforms',
-  'AI & Workflow Automation',
-  'Full-Stack Cloud Systems',
-  'Modern Website Redesigns',
-  'High-Performance Digital Products',
-  'End-to-End Software Engineering'
-];
-
-function TypingHeading() {
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
-  const [reverse, setReverse] = useState(false);
-  const [blink, setBlink] = useState(true);
-
-  // Cursor Blink
-  useEffect(() => {
-    const timeout = setInterval(() => {
-      setBlink((prev) => !prev);
-    }, 450);
-    return () => clearInterval(timeout);
-  }, []);
-
-  // Typing logic
-  useEffect(() => {
-    if (subIndex === heroTypingServices[index].length + 1 && !reverse) {
-      const timeout = setTimeout(() => {
-        setReverse(true);
-      }, 2400);
-      return () => clearTimeout(timeout);
-    }
-
-    if (subIndex === 0 && reverse) {
-      setReverse(false);
-      setIndex((prev) => (prev + 1) % heroTypingServices.length);
-      return;
-    }
-
-    const timeout = setTimeout(() => {
-      setSubIndex((prev) => prev + (reverse ? -1 : 1));
-    }, reverse ? 35 : 70);
-
-    return () => clearTimeout(timeout);
-  }, [subIndex, index, reverse]);
-
-  return (
-    <h2 className="nd-h1-blue">
-      <span>{heroTypingServices[index].substring(0, subIndex)}</span>
-      <span className={`nd-typing-cursor ${blink ? 'blink' : ''}`}>|</span>
-    </h2>
-  );
-}
-
-// ─── 3D TECH CARD COMPONENT ─────────────────────────────────────────────
-const techCategoriesData = [
-  { category: 'Frontend', items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'] },
-  { category: 'Backend', items: ['FastAPI', 'Node.js', 'Python'] },
-  { category: 'Database', items: ['Supabase', 'PostgreSQL', 'pgvector'] },
-  { category: 'AI & ML', items: ['Claude API', 'OpenAI API', 'RAG architectures', 'custom LLM integrations'] },
-  { category: 'Cloud & DevOps', items: ['Vercel', 'AWS', 'CI/CD pipelines'] },
-  { category: 'Mobile & Design', items: ['React Native', 'Flutter', 'Figma', 'Modern UI systems'] }
-];
-
-const TechCard3D = ({ tech, index }) => {
-  const cardRef = useRef(null);
-  const [transform, setTransform] = useState('perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale3d(1, 1, 1)');
-  const [glow, setGlow] = useState({ x: 50, y: 50, opacity: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = -((y - centerY) / centerY) * 12;
-    const rotateY = ((x - centerX) / centerX) * 12;
-
-    setTransform(`perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(14px) scale3d(1.025, 1.025, 1.025)`);
-    setGlow({
-      x: ((x / rect.width) * 100).toFixed(1),
-      y: ((y / rect.height) * 100).toFixed(1),
-      opacity: 1
-    });
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    setTransform('perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale3d(1, 1, 1)');
-    setGlow((prev) => ({ ...prev, opacity: 0 }));
-  };
-
-  const categoryIcons = [
-    // 01: Frontend
-    <svg key="fe" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>,
-    // 02: Backend
-    <svg key="be" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>,
-    // 03: Database
-    <svg key="db" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>,
-    // 04: AI & ML
-    <svg key="ai" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path><circle cx="12" cy="12" r="4"></circle></svg>,
-    // 05: Cloud & DevOps
-    <svg key="cloud" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>,
-    // 06: Mobile & Design
-    <svg key="mobile" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-  ];
-
-  return (
-    <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className="nd-tech-3d-card-wrapper"
-    >
-      <div
-        className={`nd-tech-3d-card ${isHovered ? 'hovered' : ''}`}
-        style={{ transform }}
-      >
-        <div
-          className="nd-tech-3d-glow"
-          style={{
-            background: `radial-gradient(400px circle at ${glow.x}% ${glow.y}%, rgba(46, 41, 255, 0.18), transparent 70%)`,
-            opacity: glow.opacity
-          }}
-        />
-
-        <div className="nd-tech-3d-orb">
-          0{index + 1}
-        </div>
-
-        <div className="nd-tech-3d-header">
-          <div className="nd-tech-3d-icon-badge">
-            {categoryIcons[index % categoryIcons.length]}
-          </div>
-          <h3 className="nd-tech-3d-title">{tech.category}</h3>
-        </div>
-
-        <div className="nd-tech-3d-list">
-          {tech.items.map((item, idx) => (
-            <div key={idx} className="nd-tech-3d-pill">
-              <span className="nd-tech-pill-dot" />
-              {item}
-            </div>
-          ))}
-        </div>
-
-        <div className="nd-tech-3d-bottom-glow" />
-      </div>
-    </div>
-  );
-};
-
-// ─── COUNTER HOOK ─────────────────────────────────────────────────────────
-function useCounter(end, duration = 1500, isVisible) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!isVisible) return;
-    let start = 0;
-    const increment = end / (duration / 16);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) { setCount(end); clearInterval(timer); }
-      else setCount(Math.floor(start));
-    }, 16);
-    return () => clearInterval(timer);
-  }, [isVisible, end, duration]);
-  return count;
-}
-
-// ─── ANIMATED COUNTER STAT ───────────────────────────────────────────────
-function StatCard({ num, label, desc, isVisible }) {
-  const parsed = parseInt(num.replace(/[^0-9]/g, ''));
-  const suffix = num.replace(/[0-9]/g, '');
-  const count = useCounter(parsed, 1500, isVisible);
-  return (
-    <div className="nd-stat-card">
-      <h3 className="nd-stat-num">{count}{suffix}</h3>
-      <div>
-        <h4 className="nd-stat-label">{label}</h4>
-        <p className="nd-stat-desc">{desc}</p>
-      </div>
-    </div>
-  );
-}
-
-// ─── PROJECT CARD ─────────────────────────────────────────────────────────
-function ProjectCard({ name, category, desc, location, mockTitle, mockTag, mockEmoji, mockGradient }) {
-  return (
-    <div className="nd-project-card">
-      <div className="nd-project-header" style={{ background: mockGradient }}>
-        {/* Play Button Overlay */}
-        <div className="nd-project-play-btn">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </div>
-        
-        {/* Visual Mock Contents */}
-        <div className="nd-project-mock-content">
-          <div className="nd-project-mock-left">
-            <div className="nd-project-mock-title">{mockTitle}</div>
-            <div className="nd-project-mock-tag">{mockTag}</div>
-          </div>
-          <div className="nd-project-mock-right">
-            <div className="nd-project-mock-logo">
-              <span className="nd-project-mock-emoji">{mockEmoji}</span>
-              <span className="nd-project-mock-brand">NOVADESK</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Bottom Body */}
-      <div className="nd-project-body">
-        <div className="nd-project-meta-left">
-          <h3 className="nd-project-title-text">{name}</h3>
-          <p className="nd-project-desc-text">{desc}</p>
-        </div>
-        <div className="nd-project-meta-right">
-          <div className="nd-project-loc-tag">
-            <span className="nd-pin"><IconPin /></span>
-            <span>{location}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // ─── FAQ ITEM ─────────────────────────────────────────────────────────────
 const IconChevronDown = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
 );
 
-function FaqItem({ q, a, open, onToggle }) {
+function FaqItem({ q, a, open, onToggle, id = 0 }) {
   return (
     <div className={`nd-faq-item ${open ? 'nd-faq-open' : ''}`}>
-      <button className="nd-faq-q" onClick={onToggle}>
+      <button 
+        type="button"
+        className="nd-faq-q" 
+        onClick={onToggle}
+        aria-expanded={open}
+        aria-controls={`faq-answer-${id}`}
+        id={`faq-btn-${id}`}
+      >
         <span>{q}</span>
-        <span className="nd-faq-icon">
+        <span className="nd-faq-icon" aria-hidden="true">
           <IconChevronDown />
         </span>
       </button>
-      {open && <div className="nd-faq-a">{a}</div>}
+      {open && (
+        <div 
+          className="nd-faq-a"
+          id={`faq-answer-${id}`}
+          role="region"
+          aria-labelledby={`faq-btn-${id}`}
+        >
+          {a}
+        </div>
+      )}
     </div>
   );
 }
@@ -318,6 +95,186 @@ const techRow2 = [
   { name: 'Tailwind', icon: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.9.2 1.6.9 2.4 1.7 1.2 1.3 2.7 2.9 5.4 2.9 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.9-.2-1.6-.9-2.4-1.7-1.2-1.3-2.7-2.9-5.4-2.9zm-6 6.4c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.9.2 1.6.9 2.4 1.7 1.2 1.3 2.7 2.9 5.4 2.9 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.9-.2-1.6-.9-2.4-1.7-1.2-1.3-2.7-2.9-5.4-2.9z" fill="#38BDF8"/></svg> }
 ];
 
+
+// ─── FIVE PILLARS: ONE PRODUCT MINDSET DATA (EXPERION REPLICA) ───────────
+const pillarsData = [
+  {
+    num: '01',
+    title: 'Product Engineering',
+    accent: '#6a215b',
+    bgImage: '/pillars/engineering.webp',
+    link: '/services/web-application-development',
+    subhead: 'Turning Product Strategy Into Scalable Digital Products',
+    bullets: [
+      'Scalable product architecture and technology decisions',
+      'Full-stack product development and platform engineering',
+      'AI-enabled product capabilities and integrations'
+    ],
+    summary: 'We turn product strategy into resilient digital products built to scale, evolve, and deliver long-term value.'
+  },
+  {
+    num: '02',
+    title: 'Experience Design',
+    accent: '#0f5a4e',
+    bgImage: '/pillars/experience-design.webp',
+    link: '/services/ui-ux-design',
+    subhead: 'Design That Drives Adoption, Not Just Aesthetics',
+    bullets: [
+      'User research & behavioral insight',
+      'Experience strategy & service design',
+      'Product UX/UI design & interaction design',
+      'Design systems for scalable digital products'
+    ],
+    summary: 'Intuitive experiences that drive adoption and engagement.'
+  },
+  {
+    num: '03',
+    title: 'Data & AI',
+    accent: '#9e3a24',
+    bgImage: '/pillars/data-ai.webp',
+    link: '/services/ai-development',
+    subhead: 'Building The Foundations For Enterprise AI',
+    bullets: [
+      'AI readiness assessment and strategic use-case discovery',
+      'Responsible AI governance, risk, and compliance frameworks',
+      'Data platform readiness for AI and machine learning',
+      'AI innovation labs and rapid prototyping programs'
+    ],
+    summary: 'Preparing data, platforms, and governance for AI adoption.'
+  },
+  {
+    num: '04',
+    title: 'Digital Transformation',
+    accent: '#1e4d73',
+    bgImage: '/pillars/digital-transformation.webp',
+    link: '/services/custom-software-development',
+    subhead: 'Enterprise Transformation With Product Thinking & Engineering.',
+    bullets: [
+      'Digital transformation strategy and business model evolution',
+      'Legacy modernization and platform reinvention',
+      'Cloud-native architecture and connected digital ecosystems',
+      'Intelligent automation and AI-enabled operations'
+    ],
+    summary: 'Enabling enterprises to scale and deliver value.'
+  },
+  {
+    num: '05',
+    title: 'Quality Engineering',
+    accent: '#113a6e',
+    bgImage: '/pillars/quality-engineering.webp',
+    link: '/services/website-maintenance',
+    subhead: 'Ensuring Digital Products Perform Flawlessly At Scale',
+    bullets: [
+      'Test strategy and automated testing frameworks',
+      'Continuous testing within CI/CD pipelines',
+      'Performance, security, and reliability testing'
+    ],
+    summary: 'We embed quality across the product lifecycle to ensure reliability, performance, and user trust.'
+  }
+];
+
+const RESOURCE_FILTERS = [
+  'Artificial Intelligence',
+  'Application Development',
+  'Cloud Modernization',
+  'Cybersecurity & FinTech',
+  'Data & Automation',
+  'Design & UX',
+  'Healthcare IT',
+  'SaaS Engineering',
+  'Web Engineering',
+  'Enterprise Strategy'
+];
+
+const RESOURCE_CATALOG_DEFAULTS = [
+  {
+    slug: 'ai-integration-in-healthcare-software',
+    title: 'AI Integration in Healthcare Software: Trends and Use Cases',
+    coverImage: '/insights/healthcare-ai.webp',
+    categories: ['Artificial Intelligence', 'Healthcare IT', 'Cybersecurity & FinTech'],
+    tagLabel: 'Blog'
+  },
+  {
+    slug: 'cybersecurity-and-compliance-in-fintech',
+    title: 'Cybersecurity and PCI-DSS Compliance in Modern FinTech Platforms',
+    coverImage: '/insights/fintech-cybersecurity.webp',
+    categories: ['Cybersecurity & FinTech', 'Healthcare IT', 'Cloud Modernization'],
+    tagLabel: 'Blog'
+  },
+  {
+    slug: 'cloud-application-modernization-guide',
+    title: 'Cloud Application Modernization: Migrating Legacy Systems Safely',
+    coverImage: '/insights/cloud-modernization.webp',
+    categories: ['Cloud Modernization', 'Application Development', 'Cybersecurity & FinTech', 'Enterprise Strategy'],
+    tagLabel: 'Blog'
+  },
+  {
+    slug: 'enterprise-automation-and-data-engineering',
+    title: 'Enterprise Automation & Data Pipelines for Regulated Operations',
+    coverImage: '/insights/data-automation.webp',
+    categories: ['Data & Automation', 'Artificial Intelligence', 'Healthcare IT', 'Cybersecurity & FinTech'],
+    tagLabel: 'Blog'
+  },
+  {
+    slug: 'accelerating-dev-with-generative-ai',
+    title: 'Accelerating Custom Software Development with Generative AI',
+    coverImage: '/insights/generative-ai-dev.webp',
+    categories: ['Artificial Intelligence', 'Application Development', 'Data & Automation'],
+    tagLabel: 'Blog'
+  },
+  {
+    slug: 'custom-saas-architecture',
+    title: 'Building a Multi-Tenant SaaS Platform for Scale in 2026',
+    coverImage: '/insights/multi-tenant-saas.webp',
+    categories: ['SaaS Engineering', 'Cloud Modernization', 'Enterprise Strategy'],
+    tagLabel: 'Blog'
+  },
+  {
+    slug: 'hiring-react-js-development-company',
+    title: 'The Ultimate Guide to Hiring a React.js Development Company',
+    coverImage: '/insights/react-engineering.webp',
+    categories: ['Web Engineering', 'Application Development', 'Design & UX'],
+    tagLabel: 'Blog'
+  },
+  {
+    slug: 'saas-vs-custom-software-which-is-right-for-your-business',
+    title: 'SaaS vs Custom Software: Which Is Right for Your Business?',
+    coverImage: '/insights/saas-vs-custom.webp',
+    categories: ['SaaS Engineering', 'Application Development', 'Enterprise Strategy'],
+    tagLabel: 'Blog'
+  },
+  {
+    slug: 'why-startups-choose-nodejs-for-backend',
+    title: 'Why High-Growth Startups Choose Node.js for Backend Scale',
+    coverImage: '/insights/nodejs-backend.webp',
+    categories: ['Cloud Modernization', 'SaaS Engineering', 'Data & Automation'],
+    tagLabel: 'Blog'
+  },
+  {
+    slug: 'how-much-does-custom-software-development-cost',
+    title: 'How Much Does Custom Software Development Cost in 2026?',
+    coverImage: '/insights/software-cost-guide.webp',
+    categories: ['Enterprise Strategy', 'SaaS Engineering', 'Application Development'],
+    tagLabel: 'Blog'
+  },
+  {
+    slug: 'seo-guide-2026',
+    title: 'The Complete SEO Guide for Tech Startups & Digital Products',
+    coverImage: '/insights/tech-seo-growth.webp',
+    categories: ['Web Engineering', 'Design & UX', 'Enterprise Strategy'],
+    tagLabel: 'Blog'
+  },
+  {
+    slug: 'why-your-business-needs-a-website',
+    title: 'Why Your Business Needs a High-Converting Web Platform',
+    coverImage: '/insights/business-web-platform.webp',
+    categories: ['Web Engineering', 'Design & UX'],
+    tagLabel: 'Blog'
+  }
+];
+
+const RESOURCE_META_MAP = new Map(RESOURCE_CATALOG_DEFAULTS.map((item) => [item.slug, item]));
+
 // ─── MAIN HOME ────────────────────────────────────────────────────────────
 export default function Home() {
   const [activeTab, setActiveTab] = useState('ai');
@@ -326,10 +283,15 @@ export default function Home() {
   const statsRef = useRef(null);
   const [currentProject, setCurrentProject] = useState(0);
   const [activeTechFilter, setActiveTechFilter] = useState('All');
+  const [activeMobilePillar, setActiveMobilePillar] = useState(0);
   
   // ─── BLOG SLIDER STATE & METHODS ───
   const [blogs, setBlogs] = useState([]);
+  const [activeResourceCat, setActiveResourceCat] = useState('All');
+  const [isResourceFiltering, setIsResourceFiltering] = useState(false);
+  const [isSliderPaused, setIsSliderPaused] = useState(false);
   const blogSliderRef = useRef(null);
+  const filterTimerRef = useRef(null);
 
   useEffect(() => {
     blogService.getAllBlogs().then((data) => {
@@ -337,15 +299,99 @@ export default function Home() {
     });
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (filterTimerRef.current) clearTimeout(filterTimerRef.current);
+    };
+  }, []);
+
+  const resourceCards = React.useMemo(() => {
+    if (!blogs || blogs.length === 0) return RESOURCE_CATALOG_DEFAULTS;
+    const bySlug = new Map(blogs.map((b) => [b.slug, b]));
+    const orderedSlugs = RESOURCE_CATALOG_DEFAULTS.map((d) => d.slug);
+    const merged = orderedSlugs
+      .map((slug) => {
+        const meta = RESOURCE_META_MAP.get(slug);
+        const post = bySlug.get(slug);
+        if (!post && !meta) return null;
+        return {
+          slug,
+          title: meta?.title || post.title,
+          coverImage: meta?.coverImage || post?.coverImage,
+          categories: meta?.categories || [post?.category].filter(Boolean),
+          tagLabel: meta?.tagLabel || 'Blog'
+        };
+      })
+      .filter(Boolean);
+
+    blogs.forEach((post) => {
+      if (!RESOURCE_META_MAP.has(post.slug)) {
+        merged.push({
+          slug: post.slug,
+          title: post.title,
+          coverImage: post.coverImage,
+          categories: [post.category, ...(post.tags || [])].filter(Boolean),
+          tagLabel: 'Blog'
+        });
+      }
+    });
+    return merged;
+  }, [blogs]);
+
+  const filteredResourceCards = React.useMemo(() => {
+    if (activeResourceCat === 'All') return resourceCards;
+    return resourceCards.filter((card) =>
+      card.categories.some((c) => c.toLowerCase() === activeResourceCat.toLowerCase())
+    );
+  }, [resourceCards, activeResourceCat]);
+
+  const handleResourceFilter = (cat) => {
+    const nextCat = activeResourceCat === cat ? 'All' : cat;
+    if (nextCat === activeResourceCat) return;
+    if (filterTimerRef.current) clearTimeout(filterTimerRef.current);
+    setIsResourceFiltering(true);
+    filterTimerRef.current = setTimeout(() => {
+      setActiveResourceCat(nextCat);
+      if (blogSliderRef.current) {
+        blogSliderRef.current.scrollTo({ left: 0, behavior: 'auto' });
+      }
+      requestAnimationFrame(() => {
+        setIsResourceFiltering(false);
+      });
+    }, 280);
+  };
+
+  useEffect(() => {
+    if (isSliderPaused || isResourceFiltering || filteredResourceCards.length <= 3) return;
+    const interval = setInterval(() => {
+      const el = blogSliderRef.current;
+      if (!el) return;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (maxScroll <= 12) return;
+      if (el.scrollLeft >= maxScroll - 24) {
+        el.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        el.scrollBy({ left: 390, behavior: 'smooth' });
+      }
+    }, 3400);
+    return () => clearInterval(interval);
+  }, [isSliderPaused, isResourceFiltering, filteredResourceCards.length]);
+
   const scrollBlogsLeft = () => {
     if (blogSliderRef.current) {
-      blogSliderRef.current.scrollBy({ left: -412, behavior: 'smooth' });
+      blogSliderRef.current.scrollBy({ left: -390, behavior: 'smooth' });
     }
   };
 
   const scrollBlogsRight = () => {
     if (blogSliderRef.current) {
-      blogSliderRef.current.scrollBy({ left: 412, behavior: 'smooth' });
+      const el = blogSliderRef.current;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (el.scrollLeft >= maxScroll - 24) {
+        el.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        el.scrollBy({ left: 390, behavior: 'smooth' });
+      }
     }
   };
 
@@ -590,6 +636,7 @@ export default function Home() {
       <SEO 
         title="NovaDesk | Websites, Software & Digital Products Built for Growth"
         description="NovaDesk helps businesses and startups design and build fast, modern websites, e-commerce platforms, and custom software. Direct founder communication, full code ownership, and transparent milestone delivery."
+        url="/"
         canonical="https://www.novadesk.site/"
         schema={jsonLdSchema}
       />
@@ -1744,186 +1791,409 @@ export default function Home() {
           display: inline-block !important;
         }
 
-        /* ── ROLLER SHUTTER CORE SERVICES SECTION (ENHANCED & LARGER) ── */
-        .nd-shutter-section {
-          background: linear-gradient(180deg, #F8F9FF 0%, #EEF2FF 50%, #F8F9FF 100%);
-          padding: 120px 0;
+        /* ── FIVE PILLARS: ONE PRODUCT MINDSET (EXPERION ULTRA-SMOOTH REPLICA) ── */
+        .nd-pillars-section {
+          background-color: #ffffff;
+          padding: 100px 0 110px;
           position: relative;
           overflow: hidden;
         }
-        .nd-shutter-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 32px;
-          margin-top: 54px;
+
+        .nd-pillars-container {
+          max-width: 1540px;
+          margin: 0 auto;
+          padding: 0 24px;
         }
-        @media (max-width: 1200px) {
-          .nd-shutter-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 28px;
-          }
+
+        .nd-pillars-header {
+          margin-bottom: 40px;
+          text-align: left;
         }
-        @media (max-width: 680px) {
-          .nd-shutter-grid {
-            grid-template-columns: 1fr;
-            gap: 24px;
-          }
+
+        .nd-pillars-subhead {
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 1.2;
+          color: #1E293B;
+          margin: 0 0 12px 0;
+          letter-spacing: -0.4px;
         }
-        .nd-shutter-card {
-          position: relative;
-          height: 310px;
-          background: #ffffff;
-          border-radius: 24px;
-          border: 1px solid rgba(46, 41, 255, 0.12);
-          box-shadow: 
-            0 12px 35px rgba(46, 41, 255, 0.05),
-            0 2px 6px rgba(0, 0, 0, 0.02);
-          overflow: hidden;
-          cursor: pointer;
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .nd-shutter-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 
-            0 24px 50px rgba(46, 41, 255, 0.2),
-            0 0 25px rgba(46, 41, 255, 0.08);
-          border-color: rgba(46, 41, 255, 0.4);
-        }
-        /* Front View */
-        .nd-shutter-front {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          height: 100%;
-          padding: 36px 28px;
-          text-align: center;
-          background: linear-gradient(180deg, rgba(238, 242, 255, 0.8) 0%, #ffffff 65%);
-          position: relative;
-        }
-        .nd-shutter-bg-wave {
-          position: absolute;
-          top: -30px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 150%;
-          height: 130px;
-          background: radial-gradient(ellipse at center, rgba(46, 41, 255, 0.12) 0%, transparent 70%);
-          pointer-events: none;
-        }
-        .nd-shutter-icon-box {
-          width: 88px;
-          height: 88px;
-          border-radius: 26px;
-          background: linear-gradient(135deg, rgba(46, 41, 255, 0.1) 0%, rgba(99, 102, 241, 0.22) 100%);
-          border: 1px solid rgba(46, 41, 255, 0.16);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 10px 25px rgba(46, 41, 255, 0.1);
-          margin-bottom: 20px;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        .nd-shutter-card:hover .nd-shutter-icon-box {
-          transform: scale(1.12) rotate(-3deg);
-          box-shadow: 0 14px 30px rgba(46, 41, 255, 0.2);
-        }
-        .nd-shutter-title {
-          font-size: 22px;
-          font-weight: 800;
+
+        .nd-pillars-title {
+          font-size: 52px;
+          font-weight: 700;
+          line-height: 1.15;
+          letter-spacing: -1px;
           color: #0A0A2E;
           margin: 0;
-          line-height: 1.25;
-          letter-spacing: -0.3px;
         }
-        .nd-shutter-subtitle {
-          font-size: 13.5px;
-          color: #4B5563;
-          margin-top: 8px;
-          font-weight: 500;
+
+        @media (max-width: 768px) {
+          .nd-pillars-subhead { font-size: 19px; }
+          .nd-pillars-title { font-size: 34px; }
         }
-        .nd-shutter-front-badge {
-          position: absolute;
-          bottom: 16px;
-          right: 20px;
-          font-size: 11px;
-          font-weight: 700;
-          color: #2E29FF;
-          background: rgba(46, 41, 255, 0.06);
-          padding: 4px 10px;
-          border-radius: 20px;
-          letter-spacing: 0.5px;
+
+        /* ── ULTRA-SMOOTH HARDWARE-ACCELERATED FLEX TRACK ── */
+        .nd-pillars-track {
           display: flex;
-          align-items: center;
-          gap: 4px;
-          transition: background 0.3s, color 0.3s;
+          gap: 14px;
+          height: 420px;
+          width: 100%;
+          align-items: stretch;
+          transform: translateZ(0);
+          -webkit-transform: translateZ(0);
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
         }
-        /* Shutter Overlay (Curtain) */
-        .nd-shutter-overlay {
+
+        .nd-pillar-item {
+          flex: 1;
+          height: 100%;
+          position: relative;
+          border-radius: 20px;
+          overflow: hidden;
+          text-decoration: none;
+          color: #ffffff;
+          transition: flex 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+          will-change: flex;
+          cursor: pointer;
+          background: #000000;
+          display: block;
+          transform: translateZ(0);
+          -webkit-transform: translateZ(0);
+        }
+
+        /* When hovering track, non-hovered items shrink with silky deceleration */
+        .nd-pillars-track:hover .nd-pillar-item {
+          flex: 0.38;
+        }
+
+        .nd-pillars-track:hover .state-initial {
+          opacity: 0;
+          pointer-events: none;
+          transform: scale(0.96);
+        }
+
+        .nd-pillars-track:hover .state-shrunk {
+          opacity: 1;
+          pointer-events: auto;
+          transform: scale(1);
+        }
+
+        /* Hovered item expands broadly with cinematic momentum */
+        .nd-pillars-track .nd-pillar-item:hover {
+          flex: 3.4 !important;
+          box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+          z-index: 5;
+        }
+
+        .nd-pillars-track .nd-pillar-item:hover .state-shrunk {
+          opacity: 0;
+          pointer-events: none;
+          transform: scale(0.94);
+        }
+
+        .nd-pillars-track .nd-pillar-item:hover .state-expanded {
+          opacity: 1;
+          pointer-events: auto;
+          transform: translateY(0);
+          transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.14s, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.14s;
+        }
+
+        /* ── CARD LAYERS WITH GPU COMPOSITING ── */
+        .nd-pillar-bg-layer {
           position: absolute;
           inset: 0;
-          background: linear-gradient(135deg, #1E1B4B 0%, #2E29FF 60%, #4F46E5 100%);
-          border-radius: 24px;
-          padding: 34px 28px;
+          background-size: cover;
+          background-position: center;
+          transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+          transform: scale(1) translateZ(0);
+          will-change: transform;
+        }
+
+        .nd-pillar-item:hover .nd-pillar-bg-layer {
+          transform: scale(1.06) translateZ(0);
+        }
+
+        .nd-pillar-overlay-layer {
+          position: absolute;
+          inset: 0;
+          background-color: rgba(0, 0, 0, 0.38);
+          transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nd-pillar-item:hover .nd-pillar-overlay-layer {
+          background-color: rgba(0, 0, 0, 0.78);
+        }
+
+        /* Shared States Base */
+        .state-initial,
+        .state-shrunk,
+        .state-expanded {
+          position: absolute;
+          inset: 0;
+          transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          will-change: transform, opacity;
+        }
+
+        /* ── 1. STATE INITIAL ── */
+        .state-initial {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          z-index: 2;
+        }
+
+        .state-initial .pillar-number-display {
+          opacity: 0.35;
+          padding: 24px 22px;
+          display: block;
+          font-weight: 300;
+          font-size: 64px;
+          line-height: 1;
+          letter-spacing: -2px;
+          color: #ffffff;
+        }
+
+        /* Fixed height for footer so all 5 cards have exactly identical footer & button arrow area */
+        .state-initial .initial-footer {
+          margin-top: auto;
+          background-color: var(--accent);
+          height: 64px;
+          box-sizing: border-box;
+          padding: 0 18px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 6px;
+          width: 100%;
+        }
+
+        .state-initial .initial-title {
+          font-weight: 500;
+          font-size: 17px;
+          line-height: 1.2;
+          letter-spacing: -0.2px;
+          color: #ffffff;
+          margin: 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .state-initial .initial-arrow {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          width: 22px;
+          height: 22px;
+          color: #ffffff;
+          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nd-pillar-item:hover .initial-arrow {
+          transform: translateX(3px);
+        }
+
+        /* ── 2. STATE SHRUNK ── */
+        .state-shrunk {
+          opacity: 0;
+          pointer-events: none;
+          transform: scale(0.96);
+          z-index: 2;
+          padding: 24px 0;
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+        }
+
+        .state-shrunk .pillar-number-display {
+          opacity: 0.35;
+          padding: 0;
           text-align: center;
+          width: 100%;
+          font-weight: 300;
+          font-size: 46px;
+          line-height: 1;
           color: #ffffff;
-          transform: translateY(-100%);
-          transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
-          z-index: 10;
-          box-shadow: 0 12px 35px rgba(46, 41, 255, 0.35);
         }
-        .nd-shutter-card:hover .nd-shutter-overlay {
-          transform: translateY(0);
-        }
-        .nd-shutter-overlay-tag {
-          display: inline-block;
-          font-size: 11px;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-          color: rgba(255, 255, 255, 0.7);
-          margin-bottom: 10px;
-          background: rgba(255, 255, 255, 0.12);
-          padding: 4px 12px;
-          border-radius: 12px;
-        }
-        .nd-shutter-overlay-title {
+
+        .state-shrunk .shrunk-title-vertical {
+          transform: rotate(-90deg);
+          transform-origin: left bottom;
+          white-space: nowrap;
           font-size: 20px;
-          font-weight: 800;
+          font-weight: 500;
+          position: absolute;
+          bottom: 34px;
+          left: 54px;
           color: #ffffff;
-          margin-bottom: 12px;
-          letter-spacing: -0.3px;
+          letter-spacing: -0.2px;
         }
-        .nd-shutter-overlay-text {
-          font-size: 14.5px;
-          line-height: 1.68;
-          color: rgba(255, 255, 255, 0.95);
+
+        /* ── 3. STATE EXPANDED (Zero-Jank with min-width fixed text coordinate layout) ── */
+        .state-expanded {
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(10px);
+          z-index: 3;
+          padding: 34px 38px 28px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          overflow: hidden;
+        }
+
+        .expanded-top,
+        .expanded-body {
+          width: 100%;
+          min-width: 380px; /* Prevents text layout reflow stutter during flex expansion */
+        }
+
+        .expanded-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          margin-bottom: 6px;
+        }
+
+        .expanded-title {
+          font-size: 26px;
+          font-weight: 600;
+          color: #ffffff;
+          margin: 0;
+          letter-spacing: -0.4px;
+        }
+
+        .expanded-number {
+          font-size: 26px;
           font-weight: 400;
+          color: rgba(255, 255, 255, 0.45);
+          letter-spacing: -0.5px;
+        }
+
+        .expanded-body {
+          margin: 12px 0 16px;
+        }
+
+        .expanded-subhead {
+          font-size: 16px;
+          font-weight: 500;
+          color: #ffffff;
+          margin: 0 0 12px 0;
+          line-height: 1.4;
+        }
+
+        .expanded-bullets {
+          list-style-type: disc;
+          padding-left: 18px;
+          margin: 0 0 14px 0;
+        }
+
+        .expanded-bullets li {
+          font-size: 14px;
+          line-height: 1.55;
+          color: rgba(255, 255, 255, 0.95);
+          margin-bottom: 4px;
+        }
+
+        .expanded-summary {
+          font-size: 13.5px;
+          line-height: 1.5;
+          color: rgba(255, 255, 255, 0.85);
           margin: 0;
         }
-        .nd-shutter-overlay-link {
-          margin-top: 18px;
+
+        .expanded-footer {
+          margin-top: auto;
+          display: flex;
+          align-items: center;
+        }
+
+        .expanded-arrow-icon {
           display: inline-flex;
           align-items: center;
-          gap: 6px;
-          font-size: 13px;
-          font-weight: 700;
+          justify-content: center;
           color: #ffffff;
-          background: rgba(255, 255, 255, 0.18);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          padding: 7px 18px;
-          border-radius: 20px;
-          transition: background 0.25s ease;
-        }
-        .nd-shutter-card:hover .nd-shutter-overlay-link {
-          background: rgba(255, 255, 255, 0.28);
+          font-size: 22px;
+          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        .nd-pillar-item:hover .expanded-arrow-icon {
+          transform: translateX(4px);
+        }
 
+        /* ── RESPONSIVE MOBILE VIEW (<= 991px) ── */
+        @media (max-width: 991px) {
+          .nd-pillars-section {
+            padding: 70px 0;
+          }
+          .nd-pillars-track {
+            display: none !important;
+          }
+          .nd-pillars-mobile-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            width: 100%;
+          }
+          .nd-pillar-mobile-card {
+            border-radius: 18px;
+            overflow: hidden;
+            background: #000000;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .nd-pillar-mobile-header {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            background-color: var(--accent);
+            position: relative;
+            z-index: 3;
+            color: #ffffff;
+          }
+          .nd-pillar-mobile-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+          }
+          .nd-pillar-mobile-num {
+            font-size: 22px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.6);
+          }
+          .nd-pillar-mobile-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+            margin: 0;
+          }
+          .nd-pillar-mobile-toggle {
+            font-size: 20px;
+            color: #ffffff;
+            font-weight: 300;
+          }
+          .nd-pillar-mobile-content {
+            padding: 24px 20px;
+            position: relative;
+            z-index: 3;
+            background: rgba(0, 0, 0, 0.88);
+            color: #ffffff;
+          }
+        }
+
+        @media (min-width: 992px) {
+          .nd-pillars-mobile-stack {
+            display: none !important;
+          }
+        }
 
         /* ── INTERACTIVE TECH FILTER BUTTONS ── */
         .nd-tech-filter-row {
@@ -2477,6 +2747,374 @@ export default function Home() {
             100% { transform: translateX(-50%); }
           }
         }
+
+        /* ── BUILT FOR COMPLEX, REGULATED INDUSTRIES (BLOGS / INSIGHTS) ── */
+        .nd-resource-section {
+          padding: 100px 0;
+          background-color: #000000;
+          background-image:
+            radial-gradient(circle at 0% 0%, rgba(23, 62, 148, 0.78) 0%, transparent 45%),
+            radial-gradient(circle at 100% 50%, rgba(17, 46, 110, 0.73) 0%, transparent 40%);
+          overflow: hidden;
+          color: #ffffff;
+          position: relative;
+        }
+        .nd-resource-container {
+          max-width: 1540px;
+          margin: 0 auto;
+          padding: 0 24px;
+        }
+        .nd-resource-top {
+          margin-bottom: 46px;
+          max-width: 1200px;
+        }
+        .nd-resource-sub {
+          font-size: 22px;
+          font-weight: 400;
+          line-height: 1.3;
+          opacity: 1;
+          color: rgba(255, 255, 255, 0.92);
+          display: block;
+          margin-bottom: 20px;
+        }
+        .nd-resource-title {
+          font-weight: 500;
+          font-size: clamp(32px, 4.4vw, 68px);
+          line-height: 1.14;
+          letter-spacing: -0.045em;
+          color: #ffffff;
+          margin: 0;
+        }
+        .nd-resource-filters {
+          margin-bottom: 56px;
+        }
+        .nd-resource-filter-list {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 12px;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        .nd-resource-filter-item {
+          padding: 13px 26px;
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 50px;
+          color: #ffffff;
+          cursor: pointer;
+          font-family: inherit;
+          font-size: 15.5px;
+          font-weight: 400;
+          line-height: 1.25;
+          transition: background-color 0.28s ease, color 0.28s ease, border-color 0.28s ease, transform 0.25s ease;
+          white-space: nowrap;
+        }
+        .nd-resource-filter-item:hover,
+        .nd-resource-filter-item.active {
+          background: #ffffff;
+          color: #000000;
+          border-color: #ffffff;
+        }
+        .nd-resource-filter-item.active {
+          font-weight: 500;
+        }
+        .nd-resource-view-all {
+          display: inline-flex;
+          align-items: center;
+          gap: 9px;
+          padding: 13px 28px;
+          border-radius: 50px;
+          background-color: #2b2bff;
+          border: 1px solid #2b2bff;
+          color: #ffffff;
+          font-family: inherit;
+          font-size: 15.5px;
+          font-weight: 500;
+          line-height: 1.25;
+          text-decoration: none;
+          white-space: nowrap;
+          transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+        .nd-resource-view-all:hover {
+          background-color: #1a1ad6;
+          border-color: #1a1ad6;
+          color: #ffffff;
+        }
+        .nd-resource-view-all svg {
+          transition: transform 0.3s ease;
+          flex-shrink: 0;
+        }
+        .nd-resource-view-all:hover svg {
+          transform: translateX(4px);
+        }
+        .nd-resource-slider-container {
+          padding-left: calc((100% - min(100%, 1540px)) / 2 + 24px);
+          transition: opacity 0.34s ease, transform 0.34s cubic-bezier(0.16, 1, 0.3, 1);
+          will-change: opacity, transform;
+        }
+        .nd-resource-slider-container.filtering {
+          opacity: 0;
+          transform: translateY(20px);
+          pointer-events: none;
+        }
+        .nd-resource-track {
+          display: flex;
+          gap: 24px;
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          padding-right: 40px;
+          padding-bottom: 6px;
+        }
+        .nd-resource-track::-webkit-scrollbar {
+          display: none;
+        }
+        .nd-resource-slide {
+          flex: 0 0 clamp(320px, 24.5vw, 390px);
+          outline: none;
+        }
+        .nd-resource-card {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          height: 450px;
+          border-radius: 16px;
+          overflow: hidden;
+          text-decoration: none;
+          background: #111111;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          transition: border-color 0.4s ease, box-shadow 0.5s ease;
+        }
+        .nd-resource-card:hover {
+          border-color: rgba(255, 255, 255, 0.25);
+          box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
+        }
+        .nd-resource-card-bg {
+          position: absolute;
+          inset: 0;
+          background-size: cover;
+          background-position: center;
+          transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+          will-change: transform;
+        }
+        .nd-resource-card:hover .nd-resource-card-bg {
+          transform: scale(1.1);
+        }
+        .nd-resource-card-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, rgba(0, 0, 0, 0.76) 0%, rgba(0, 0, 0, 0.16) 54%, rgba(0, 0, 0, 0.62) 100%);
+          z-index: 1;
+        }
+        .nd-resource-card-content {
+          position: relative;
+          height: 100%;
+          padding: 38px 34px;
+          display: flex;
+          flex-direction: column;
+          box-sizing: border-box;
+          z-index: 2;
+        }
+        .nd-resource-card-title {
+          color: #ffffff;
+          margin: 0;
+          font-weight: 500;
+          font-size: 25px;
+          line-height: 1.22;
+          letter-spacing: -0.025em;
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        .nd-resource-card-footer {
+          margin-top: auto;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+        }
+        .nd-resource-tag {
+          display: inline-block;
+          padding: 8px 14px;
+          background: rgba(255, 255, 255, 0.12);
+          border: 1.5px solid rgba(255, 255, 255, 0.22);
+          color: #ffffff;
+          font-size: 13px;
+          font-weight: 500;
+          line-height: 1.2;
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          border-radius: 10px;
+        }
+        .nd-resource-card-arrow {
+          width: 34px;
+          height: 34px;
+          border-radius: 50%;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          color: #ffffff;
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+        }
+        .nd-resource-card:hover .nd-resource-card-arrow {
+          background: #ffffff;
+          color: #000000;
+          transform: translateX(3px);
+        }
+        .nd-resource-controls-row {
+          max-width: 1540px;
+          margin: 32px auto 0;
+          padding: 0 24px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+        }
+        .nd-resource-meta-hint {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.65);
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .nd-resource-reset-btn {
+          background: transparent;
+          border: none;
+          color: #7c9eff;
+          font-family: inherit;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          padding: 0;
+          text-decoration: underline;
+          text-underline-offset: 3px;
+        }
+        .nd-resource-reset-btn:hover {
+          color: #ffffff;
+        }
+        .nd-resource-nav-btns {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .nd-resource-nav-btn {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          background: rgba(255, 255, 255, 0.06);
+          color: #ffffff;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+        }
+        .nd-resource-nav-btn:hover {
+          background: #ffffff;
+          color: #000000;
+          border-color: #ffffff;
+          transform: scale(1.04);
+        }
+        .nd-resource-mobile-footer {
+          display: none;
+          padding: 28px 20px 0;
+          justify-content: flex-start;
+        }
+        .nd-resource-mobile-footer .nd-resource-mobile-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 12px 24px;
+          border: 1px solid rgba(255, 255, 255, 0.72);
+          border-radius: 12px;
+          font-size: 16px;
+          font-weight: 500;
+          color: #ffffff;
+          text-decoration: none;
+          transition: background-color 0.25s ease, color 0.25s ease;
+        }
+        .nd-resource-mobile-footer .nd-resource-mobile-btn:hover {
+          background: #ffffff;
+          color: #000000;
+        }
+        @media (max-width: 1024px) {
+          .nd-resource-title {
+            font-size: 48px;
+            line-height: 1.18;
+          }
+          .nd-resource-slide {
+            flex: 0 0 clamp(290px, 40vw, 350px);
+          }
+          .nd-resource-card {
+            height: 400px;
+          }
+          .nd-resource-card-content {
+            padding: 30px 26px;
+          }
+          .nd-resource-card-title {
+            font-size: 22px;
+          }
+        }
+        @media (max-width: 768px) {
+          .nd-resource-section {
+            padding: 56px 0;
+          }
+          .nd-resource-container {
+            padding: 0 20px;
+          }
+          .nd-resource-sub {
+            font-size: 18px;
+            margin-bottom: 14px;
+          }
+          .nd-resource-title {
+            font-size: 32px;
+            line-height: 1.24;
+            letter-spacing: -0.8px;
+          }
+          .nd-resource-filters {
+            margin-bottom: 32px;
+          }
+          .nd-resource-filter-item {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 9px 18px;
+            font-size: 14.5px;
+          }
+          .nd-resource-view-all {
+            padding: 9px 20px;
+            font-size: 14.5px;
+          }
+          .nd-resource-slider-container {
+            padding-left: 20px;
+          }
+          .nd-resource-track {
+            gap: 16px;
+            padding-right: 20px;
+          }
+          .nd-resource-slide {
+            flex: 0 0 clamp(270px, 78vw, 325px);
+          }
+          .nd-resource-card {
+            height: 380px;
+          }
+          .nd-resource-card-title {
+            font-size: 21px;
+          }
+          .nd-resource-controls-row {
+            padding: 0 20px;
+          }
+          .nd-resource-mobile-footer {
+            display: flex;
+          }
+        }
       `}</style>
 
       <div className="nd">
@@ -2690,145 +3328,143 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 3. WHAT WE DO — CORE SERVICES GLANCE (Roller Shutter Reveal) ── */}
-        <section className="nd-shutter-section">
-          <div className="nd-core-glance-inner" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px' }}>
-            <div style={{ textAlign: 'center', marginBottom: '54px' }}>
-              <div className="nd-section-tag">Core Services at a Glance</div>
-              <h2 className="nd-section-h2" style={{ fontSize: '42px', fontWeight: '800', color: '#0A0A2E', marginTop: '14px', letterSpacing: '-0.5px' }}>A Mission-Control Center for Your Software Needs</h2>
-              <p className="nd-section-sub" style={{ marginTop: '12px', textAlign: 'center', fontSize: '16px' }}>
-                Every service is built to integrate cleanly with the next, so your product scales without technical debt piling up behind it. Hover over any card to view detailed capabilities.
-              </p>
+        {/* ── 3. FIVE PILLARS: ONE PRODUCT MINDSET (EXPERION REPLICA) ── */}
+        <section className="nd-pillars-section" id="five-pillars">
+          <div className="nd-pillars-container">
+            <div className="nd-pillars-header">
+              <p className="nd-pillars-subhead">Five Pillars. One Product Mindset.</p>
+              <h2 className="nd-pillars-title">
+                Everything It Takes to Build<br />High-Impact Digital Products
+              </h2>
             </div>
 
-            <div className="nd-shutter-grid">
-              {[
-                { 
-                  title: 'Business Websites',
-                  subtitle: 'High-speed Web & CMS Platforms',
-                  tag: 'WEB & CMS',
-                  desc: 'We build high-converting websites, landing pages, and manageable CMS platforms engineered for maximum speed, SEO, and lead capture.',
-                  icon: (
-                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="2" y="3" width="20" height="14" rx="3" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
-                      <path d="M8 21H16" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
-                      <path d="M12 17V21" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
-                      <circle cx="6" cy="7" r="1" fill="#2E29FF"/>
-                      <circle cx="9" cy="7" r="1" fill="#6366F1"/>
-                      <circle cx="12" cy="7" r="1" fill="#10B981"/>
-                      <path d="M6 11L10 14L6 17" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                      <line x1="12" y1="17" x2="17" y2="17" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round"/>
-                    </svg>
-                  )
-                },
-                { 
-                  title: 'E-commerce Stores',
-                  subtitle: 'Frictionless Mobile Checkout & Scale',
-                  tag: 'E-COMMERCE',
-                  desc: 'Modern online storefronts featuring sub-second catalog transitions, seamless domestic/global payment gateways, and automated inventory sync.',
-                  icon: (
-                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="9" cy="21" r="1" stroke="#2E29FF" strokeWidth="2"/>
-                      <circle cx="20" cy="21" r="1" stroke="#2E29FF" strokeWidth="2"/>
-                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  )
-                },
-                { 
-                  title: 'Custom Web Apps',
-                  subtitle: 'Internal Systems & Portals',
-                  tag: 'WEB APPS',
-                  desc: 'Scalable full-stack web applications, administrative dashboards, patient/client portals, and custom business automation tools built for daily workflows.',
-                  icon: (
-                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="3" y="4" width="18" height="6" rx="2" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
-                      <rect x="3" y="14" width="18" height="6" rx="2" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
-                      <circle cx="7" cy="7" r="1" fill="#2E29FF"/>
-                      <circle cx="7" cy="17" r="1" fill="#2E29FF"/>
-                      <line x1="12" y1="10" x2="12" y2="14" stroke="#6366F1" strokeWidth="1.8" strokeDasharray="2 2"/>
-                    </svg>
-                  )
-                },
-                { 
-                  title: 'SaaS Platforms',
-                  subtitle: 'Multi-Tenant Product Engineering',
-                  tag: 'SAAS PLATFORMS',
-                  desc: 'End-to-end multi-tenant SaaS platforms featuring recurring subscription billing gateways, custom admin dashboards, and secure user permission flows.',
-                  icon: (
-                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M6 19C3.79086 19 2 17.2091 2 15C2 13.0642 3.37684 11.4497 5.21554 11.0877C5.07435 10.4132 5 9.71536 5 9C5 5.13401 8.13401 2 12 2C15.421 2 18.2713 4.4589 18.88 7.74971C20.6721 8.29175 22 9.94364 22 11.9C22 14.3853 19.9853 16.4 17.5 16.4" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
-                      <path d="M12 11V21M12 21L8 17M12 21L16 17" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  )
-                },
-                { 
-                  title: 'AI & Automation',
-                  subtitle: 'LLMs, AI Agents & Workflows',
-                  tag: 'AI & AUTOMATION',
-                  desc: 'Production-grade LLM features, custom AI customer support chatbots, document intelligence parsers, and automated multi-step business pipelines.',
-                  icon: (
-                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="3" y="6" width="18" height="13" rx="3" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8"/>
-                      <circle cx="9" cy="11" r="1.5" fill="#2E29FF"/>
-                      <circle cx="15" cy="11" r="1.5" fill="#2E29FF"/>
-                      <path d="M9 15C9 15 10.5 16.5 12 16.5C13.5 16.5 15 15 15 15" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round"/>
-                      <path d="M12 2V6" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
-                      <circle cx="12" cy="2" r="1" fill="#6366F1"/>
-                    </svg>
-                  )
-                },
-                { 
-                  title: 'Website Redesign',
-                  subtitle: 'Speed & Conversion Turnaround',
-                  tag: 'REDESIGN & UX',
-                  desc: 'Modernizing outdated, sluggish websites into fast, responsive, high-converting digital assets with improved UX and Core Web Vitals performance.',
-                  icon: (
-                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#EBF0FF" stroke="#2E29FF" strokeWidth="1.8" strokeLinejoin="round"/>
-                      <path d="M2 17L12 22L22 17" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M2 12L12 17L22 12" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  )
-                },
-                { 
-                  title: 'Maintenance & Support',
-                  subtitle: 'Security, Backups & Reliability',
-                  tag: 'MAINTENANCE',
-                  desc: 'Proactive bug fixes, continuous security updates, uptime monitoring, and retainer support so your digital infrastructure stays secure and fast.',
-                  icon: (
-                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12V18C21 19.6569 19.6569 21 18 21H17V15H21" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
-                      <path d="M3 18C3 19.6569 4.34315 21 6 21H7V15H3" stroke="#2E29FF" strokeWidth="1.8" strokeLinecap="round"/>
-                      <path d="M12 16V18" stroke="#6366F1" strokeWidth="1.8" strokeLinecap="round"/>
-                    </svg>
-                  )
-                }
-              ].map((service, i) => (
-                <div key={i} className="nd-shutter-card">
-                  {/* Front View */}
-                  <div className="nd-shutter-front">
-                    <div className="nd-shutter-bg-wave" />
-                    <div className="nd-shutter-icon-box">
-                      {service.icon}
-                    </div>
-                    <h3 className="nd-shutter-title">{service.title}</h3>
-                    <span className="nd-shutter-subtitle">{service.subtitle}</span>
-                    <div className="nd-shutter-front-badge">
-                      Details ↗
+            {/* Desktop Flex Accordion Track (min-width: 992px) */}
+            <div className="nd-pillars-track">
+              {pillarsData.map((pillar) => (
+                <Link
+                  key={pillar.num}
+                  to={pillar.link}
+                  className="nd-pillar-item"
+                  style={{ '--accent': pillar.accent }}
+                  aria-label={pillar.title + ' - ' + pillar.subhead}
+                >
+                  {/* Background Fluid Texture Image */}
+                  <div 
+                    className="nd-pillar-bg-layer"
+                    style={{ backgroundImage: 'url(' + pillar.bgImage + ')' }}
+                  />
+                  <div className="nd-pillar-overlay-layer" />
+
+                  {/* 1. Initial State (Visible when track is not hovered) */}
+                  <div className="state-initial">
+                    <span className="pillar-number-display">{pillar.num}</span>
+                    <div className="initial-footer">
+                      <h3 className="initial-title">{pillar.title}</h3>
+                      <div className="initial-arrow">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Roller Shutter Overlay */}
-                  <div className="nd-shutter-overlay">
-                    <span className="nd-shutter-overlay-tag">{service.tag}</span>
-                    <span className="nd-shutter-overlay-title">{service.title}</span>
-                    <p className="nd-shutter-overlay-text">{service.desc}</p>
-                    <div className="nd-shutter-overlay-link">
-                      Learn More ↗
+                  {/* 2. Shrunk State (Visible when sibling item is hovered) */}
+                  <div className="state-shrunk">
+                    <span className="pillar-number-display">{pillar.num}</span>
+                    <h3 className="shrunk-title-vertical">{pillar.title}</h3>
+                  </div>
+
+                  {/* 3. Expanded State (Pure Clean White Typography, matching Image 1) */}
+                  <div className="state-expanded">
+                    <div className="expanded-top">
+                      <h3 className="expanded-title">{pillar.title}</h3>
+                      <span className="expanded-number">{pillar.num}</span>
+                    </div>
+
+                    <div className="expanded-body">
+                      <div className="expanded-subhead">{pillar.subhead}</div>
+                      <ul className="expanded-bullets">
+                        {pillar.bullets.map((bullet, idx) => (
+                          <li key={idx}>{bullet}</li>
+                        ))}
+                      </ul>
+                      <p className="expanded-summary">{pillar.summary}</p>
+                    </div>
+
+                    <div className="expanded-footer">
+                      <div className="expanded-arrow-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
+            </div>
+
+            {/* Mobile / Tablet Accordion Stack (max-width: 991px) */}
+            <div className="nd-pillars-mobile-stack">
+              {pillarsData.map((pillar, idx) => {
+                const isActive = activeMobilePillar === idx;
+                return (
+                  <div
+                    key={pillar.num}
+                    className={'nd-pillar-mobile-card ' + (isActive ? 'is-active' : '')}
+                    style={{ '--accent': pillar.accent }}
+                  >
+                    <div
+                      className="nd-pillar-mobile-header"
+                      onClick={() => setActiveMobilePillar(isActive ? -1 : idx)}
+                      role="button"
+                      tabIndex={0}
+                      aria-expanded={isActive}
+                    >
+                      <div className="nd-pillar-mobile-title-wrap">
+                        <span className="nd-pillar-mobile-num">{pillar.num}</span>
+                        <h3 className="nd-pillar-mobile-title">{pillar.title}</h3>
+                      </div>
+                      <div className="nd-pillar-mobile-toggle">
+                        {isActive ? '−' : '+'}
+                      </div>
+                    </div>
+
+                    {isActive && (
+                      <div className="nd-pillar-mobile-content">
+                        <div className="expanded-subhead">{pillar.subhead}</div>
+                        <ul className="expanded-bullets">
+                          {pillar.bullets.map((bullet, bIdx) => (
+                            <li key={bIdx}>{bullet}</li>
+                          ))}
+                        </ul>
+                        <p className="expanded-summary" style={{ marginBottom: '18px' }}>
+                          {pillar.summary}
+                        </p>
+                        <Link 
+                          to={pillar.link} 
+                          style={{ 
+                            display: 'inline-flex', 
+                            alignItems: 'center', 
+                            gap: '8px', 
+                            color: '#ffffff', 
+                            textDecoration: 'none', 
+                            fontWeight: '600',
+                            fontSize: '14.5px' 
+                          }}
+                        >
+                          <span>Explore {pillar.title}</span>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                          </svg>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -2906,17 +3542,32 @@ export default function Home() {
             </div>
 
             <div className="nd-services-wrapper">
-              <nav className="nd-service-nav">
+              <nav className="nd-service-nav" aria-label="Services navigation" role="tablist">
                 {Object.entries(tabs).map(([key, t]) => (
-                  <button key={key} className={`nd-tab-btn ${activeTab === key ? 'active' : ''}`} onClick={() => setActiveTab(key)}>
+                  <button 
+                    key={key} 
+                    type="button"
+                    role="tab"
+                    id={`tab-${key}`}
+                    aria-selected={activeTab === key}
+                    aria-controls={`tabpanel-${key}`}
+                    className={`nd-tab-btn ${activeTab === key ? 'active' : ''}`} 
+                    onClick={() => setActiveTab(key)}
+                  >
                     {t.icon} {t.label}
                   </button>
                 ))}
               </nav>
               <div className="nd-service-content">
                 {Object.entries(tabs).map(([key, t]) => (
-                  <article key={key} className={`nd-service-article ${activeTab === key ? 'active' : ''}`}>
-                    <h2 className="nd-service-title">{t.title}</h2>
+                  <article 
+                    key={key} 
+                    role="tabpanel"
+                    id={`tabpanel-${key}`}
+                    aria-labelledby={`tab-${key}`}
+                    className={`nd-service-article ${activeTab === key ? 'active' : ''}`}
+                  >
+                    <h3 className="nd-service-title">{t.title}</h3>
                     <p className="nd-service-desc-detail">{t.desc}</p>
                     <div className="nd-service-links">
                       {t.links.map((l, i) => (
@@ -3255,6 +3906,130 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── 11. BUILT FOR COMPLEX, REGULATED INDUSTRIES (BLOGS & INSIGHTS) ── */}
+        <section className="nd-resource-section" id="insights-blogs">
+          <div className="nd-resource-container">
+            <div className="nd-resource-top">
+              <span className="nd-resource-sub">Built for complex, regulated industries</span>
+              <h2 className="nd-resource-title">
+                Deep domain expertise that bridges critical business gaps and enables faster decision-making
+              </h2>
+            </div>
+
+            <div className="nd-resource-filters">
+              <ul className="nd-resource-filter-list">
+                {RESOURCE_FILTERS.map((cat) => (
+                  <li key={cat}>
+                    <button
+                      type="button"
+                      className={`nd-resource-filter-item${activeResourceCat === cat ? ' active' : ''}`}
+                      onClick={() => handleResourceFilter(cat)}
+                      aria-pressed={activeResourceCat === cat}
+                      title={activeResourceCat === cat ? 'Click again to show all insights' : `Filter by ${cat}`}
+                    >
+                      {cat}
+                    </button>
+                  </li>
+                ))}
+                <li>
+                  <Link to="/blog" className="nd-resource-view-all">
+                    View All
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            className={`nd-resource-slider-container${isResourceFiltering ? ' filtering' : ''}`}
+            onMouseEnter={() => setIsSliderPaused(true)}
+            onMouseLeave={() => setIsSliderPaused(false)}
+            onFocus={() => setIsSliderPaused(true)}
+            onBlur={() => setIsSliderPaused(false)}
+          >
+            <div className="nd-resource-track" ref={blogSliderRef}>
+              {filteredResourceCards.map((item) => (
+                <div className="nd-resource-slide" key={item.slug}>
+                  <Link to={`/blog/${item.slug}`} className="nd-resource-card">
+                    <div
+                      className="nd-resource-card-bg"
+                      style={{ backgroundImage: `url('${item.coverImage}')` }}
+                    />
+                    <div className="nd-resource-card-overlay" />
+                    <div className="nd-resource-card-content">
+                      <h3 className="nd-resource-card-title">{item.title}</h3>
+                      <div className="nd-resource-card-footer">
+                        <span className="nd-resource-tag">{item.tagLabel || 'Blog'}</span>
+                        <span className="nd-resource-card-arrow" aria-hidden="true">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="nd-resource-controls-row">
+            <div className="nd-resource-meta-hint">
+              <span>
+                {activeResourceCat === 'All'
+                  ? `Showing all ${filteredResourceCards.length} engineering & domain insights`
+                  : `${filteredResourceCards.length} insights in ${activeResourceCat}`}
+              </span>
+              {activeResourceCat !== 'All' && (
+                <button
+                  type="button"
+                  className="nd-resource-reset-btn"
+                  onClick={() => handleResourceFilter(activeResourceCat)}
+                >
+                  Show all
+                </button>
+              )}
+            </div>
+            <div className="nd-resource-nav-btns">
+              <button
+                type="button"
+                className="nd-resource-nav-btn"
+                onClick={scrollBlogsLeft}
+                aria-label="Scroll insights left"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                className="nd-resource-nav-btn"
+                onClick={scrollBlogsRight}
+                aria-label="Scroll insights right"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div className="nd-resource-mobile-footer">
+            <Link to="/blog" className="nd-resource-mobile-btn">
+              View All Insights
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
+          </div>
+        </section>
+
         {/* ── 9. TOOLS & TECHNOLOGIES WE WORK WITH / FAQs ── */}
         <section className="nd-faq">
           <div className="nd-faq-inner">
@@ -3262,7 +4037,7 @@ export default function Home() {
             <h2 className="nd-faq-title">Your Software Development Questions, Answered</h2>
             <div className="nd-faq-list">
               {faqs.map((f, i) => (
-                <FaqItem key={i} q={f.q} a={f.a} open={activeFaq === i} onToggle={() => setActiveFaq(activeFaq === i ? null : i)} />
+                <FaqItem key={i} id={i} q={f.q} a={f.a} open={activeFaq === i} onToggle={() => setActiveFaq(activeFaq === i ? null : i)} />
               ))}
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>

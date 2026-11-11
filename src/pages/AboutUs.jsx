@@ -1395,7 +1395,7 @@ export default function AboutUs() {
               <div className="nd-hero-duo-stage">
                 <div className="nd-hero-duo-img-wrap">
                   <img 
-                    src="/novadesk_founders_duo_feathered.png" 
+                    src="/novadesk_founders_duo_feathered.webp" 
                     alt="Harsh Prateek & Piusha Patra - Founders of NovaDesk" 
                     className="nd-hero-duo-img"
                   />

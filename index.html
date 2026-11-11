@@ -1,21 +1,42 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-W62RHVHF');</script>
-    <!-- End Google Tag Manager -->
-    
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2E29FF" />
     <title>NovaDesk | Computer Software Developers, Mobile Application & ERP Development</title>
+
+    <!-- Google Tag Manager & GA4 (Deferred Non-Blocking Loader for Core Web Vitals) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      function initAnalytics() {
+        if (window._analyticsInitialized) return;
+        window._analyticsInitialized = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-W62RHVHF');
+
+        var g = document.createElement('script');
+        g.async = true;
+        g.src = 'https://www.googletagmanager.com/gtag/js?id=G-2NLQ6QRW4C';
+        document.head.appendChild(g);
+        gtag("js", new Date());
+        gtag("config", "G-2NLQ6QRW4C");
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(initAnalytics, { timeout: 2000 });
+      } else {
+        window.addEventListener('load', function() { setTimeout(initAnalytics, 1000); });
+      }
+    </script>
 
     <!-- SEO Meta Tags -->
     <meta name="author" content="Harsh Prateek" />
@@ -25,14 +46,9 @@
     />
     <meta
       name="keywords"
-      content="Internet Website Developers, Mobile Application Developers, Computer Software Developers, Computer Software Dealers, Computer Software Development Companies, Ecommerce Website Development Services, Computer Software Developers For ASP Dot Net, ERP Computer Software Dealers-Tally, Salon & Spa Computer Software Dealers, Computer Software Solution Providers, ERP Computer Software Dealers, Computer Software Developers For Multi Level Marketing, Computer Software Developers For PHP, Computer Software Engineers, ERP Computer Software Developers, Inventory Management Computer Software Dealers, Crm Computer Software Developers, Computer Software Developers In Wap, Computer Software Developers For Embedded System, Corporate Companies For Computer Software, Barcode Computer Software Dealers, Computer Software Developers For School, Computer Software Developers For Hospital, Medical Computer Software Dealers, Computer Software Developers For Medical, Crm Computer Software Dealers, Computer Software Developers For Freelance, Deoghar, Patna, Ranchi, Jamshedpur, Kolkata, Siliguri, Asansol, Durgapur, Howrah, Delhi, NovaDesk, Harsh Prateek"
+      content="Custom Software Development, Web Development, Mobile App Development, AI Development, Enterprise Software, Next.js, React, Cloud Engineering, UI/UX Design, NovaDesk, Harsh Prateek"
     />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-
-    <!-- Geo & Regional Coverage Tags -->
-    <meta name="geo.region" content="IN" />
-    <meta name="geo.placename" content="Deoghar, Patna, Ranchi, Kolkata, Siliguri, Delhi, Asansol, Durgapur, India" />
-    <meta name="coverage" content="National: Deoghar, Patna, Ranchi, Jamshedpur, Kolkata, Islampur, Malda, Siliguri, Midnapore, South 24 Parganas, Hooghly, Bolpur, Delhi, Bhubaneshwar, Cuttack, and 40+ Indian Regions" />
 
     <!-- Thumbnail Links for Google Search Snippets -->
     <link rel="image_src" href="https://www.novadesk.site/hero-my-image.webp" />
@@ -76,32 +92,50 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FORGE AI Architectural Typography (Manrope 200..700 Unified Variable Scale) -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Splide CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
     
-    <!-- Custom CSS -->
+    <!-- Custom Stylesheets (Base, Fintech, Navigation) -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/fintech-style.css">
     <link rel="stylesheet" href="/css/navigation.css">
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NLQ6QRW4C"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "G-2NLQ6QRW4C");
-    </script>
-    <!-- Bootstrap, Splide, AOS JS (Deferred to prevent render blocking) -->
+    <!-- Bootstrap, Splide, AOS JS Scripts -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
     <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- AI Agentic Browsing & WebMCP Protocol Discovery Links -->
+    <link rel="agent-context" type="text/plain" href="/llms.txt" />
+    <link rel="ai-model-context" type="text/plain" href="/llms.txt" />
+    <script>
+      /* WebMCP (Model Context Protocol) runtime context for AI agents */
+      if (typeof window !== 'undefined') {
+        window.__MODEL_CONTEXT__ = {
+          name: "NovaDesk AI & Engineering Platform",
+          description: "Premier AI, mobile, web, and custom ERP/CRM engineering agency.",
+          llmsTxt: "/llms.txt",
+          tools: [
+            {
+              name: "request_project_quote",
+              description: "Submit project specifications to calculate timeline and cost quote.",
+              endpoint: "/get-a-free-quote"
+            },
+            {
+              name: "schedule_consultation",
+              description: "Book an engineering consultation call with NovaDesk specialists.",
+              endpoint: "/contact-us"
+            }
+          ]
+        };
+      }
+    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->

@@ -40,6 +40,7 @@ body {
   background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Accessible Keyboard Focus Indicators */
@@ -1871,3 +1872,25 @@ h6 {
     padding: 40px 20px;
   }
 }
+
+.btn-consultation-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1.5px solid #2E29FF;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #2E29FF;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin-top: 24px;
+}
+.btn-consultation-white:hover {
+  background: #EEF0FF;
+  transform: translateY(-1px);
+}
+

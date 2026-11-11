@@ -1,4 +1,43 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /uploads/
+Disallow: /404
+Disallow: /404.html
+Disallow: /wp-admin
+Disallow: /wp-login.php
+Disallow: /wp-content
+Disallow: /wp-includes
+Disallow: /xmlrpc.php
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?utm_
+Disallow: /*?s=
+Disallow: /*?&
 
+# Explicit AI Agent & LLM Crawler Permissions
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Agentic Discovery & Sitemaps
 Sitemap: https://www.novadesk.site/sitemap.xml
+# LLM Context: https://www.novadesk.site/llms.txt
+# LLM Full Context: https://www.novadesk.site/llms-full.txt

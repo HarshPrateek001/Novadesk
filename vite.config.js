@@ -22,8 +22,10 @@ function blogSitemapPlugin() {
     name: 'blog-sitemap',
     closeBundle: async () => {
       try {
-        const blogsDir = resolve(__dirname, 'src/blogs')
-        const distDir = resolve(__dirname, 'dist')
+        const currentDir = import.meta.dirname || process.cwd()
+        const blogsDir = resolve(currentDir, 'src/blogs')
+        const distDir = resolve(currentDir, 'dist')
+        const publicDir = resolve(currentDir, 'public')
         const SITE_URL = 'https://www.novadesk.site'
 
         if (!fs.existsSync(blogsDir)) return
@@ -47,6 +49,7 @@ function blogSitemapPlugin() {
           { loc: '/get-a-free-quote', changefreq: 'weekly', priority: '0.95' },
           { loc: '/contact-us', changefreq: 'monthly', priority: '0.85' },
           { loc: '/case-studies', changefreq: 'weekly', priority: '0.90' },
+          { loc: '/forge-ai', changefreq: 'weekly', priority: '0.95' },
           { loc: '/blog', changefreq: 'daily', priority: '0.90' },
           // Priority Commercial Services
           { loc: '/services/web-development', changefreq: 'weekly', priority: '0.95' },
@@ -55,10 +58,6 @@ function blogSitemapPlugin() {
           { loc: '/services/ui-ux-design', changefreq: 'weekly', priority: '0.90' },
           { loc: '/services/seo-services', changefreq: 'weekly', priority: '0.90' },
           { loc: '/services/website-maintenance', changefreq: 'weekly', priority: '0.90' },
-          // Local SEO Locations
-          { loc: '/locations/kolkata', changefreq: 'weekly', priority: '0.90' },
-          { loc: '/locations/durgapur', changefreq: 'weekly', priority: '0.85' },
-          { loc: '/locations/deoghar', changefreq: 'weekly', priority: '0.85' },
           // Specialized Services
           { loc: '/services/chatbot-development', changefreq: 'monthly', priority: '0.85' },
           { loc: '/services/gen-ai-development', changefreq: 'weekly', priority: '0.90' },
@@ -83,16 +82,29 @@ function blogSitemapPlugin() {
           { loc: '/services/crm-systems-development', changefreq: 'monthly', priority: '0.80' },
           { loc: '/services/enterprise-software-development', changefreq: 'monthly', priority: '0.80' },
           { loc: '/services/custom-software-development', changefreq: 'monthly', priority: '0.80' },
-          // Industry
+          // Industry Pages
           { loc: '/industries/fintech', changefreq: 'monthly', priority: '0.85' },
+          { loc: '/industries/healthcare', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/industries/logistics', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/industries/real-estate', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/industries/staffing', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/industries/education', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/industries/retail', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/industries/marketplace', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/industries/sports', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/industries/food-and-restaurant', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/industries/travel-and-hospitality', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/industries/on-demand', changefreq: 'weekly', priority: '0.85' },
           // Legal
           { loc: '/privacy-policy', changefreq: 'yearly', priority: '0.30' },
           { loc: '/terms', changefreq: 'yearly', priority: '0.30' }
         ]
 
+        const today = new Date().toISOString().split('T')[0]
         const staticEntries = staticUrls
           .map(u => `  <url>
     <loc>${SITE_URL}${u.loc}</loc>
+    <lastmod>${today}</lastmod>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
   </url>`)
@@ -113,6 +125,10 @@ function blogSitemapPlugin() {
 ${staticEntries}
 ${blogEntries}
 </urlset>`
+
+        if (fs.existsSync(publicDir)) {
+          fs.writeFileSync(resolve(publicDir, 'sitemap.xml'), sitemap, 'utf-8')
+        }
 
         if (fs.existsSync(distDir)) {
           fs.writeFileSync(resolve(distDir, 'sitemap.xml'), sitemap, 'utf-8')
@@ -145,6 +161,10 @@ ${rssItems}
   </channel>
 </rss>`
 
+        if (fs.existsSync(publicDir)) {
+          fs.writeFileSync(resolve(publicDir, 'rss.xml'), rss, 'utf-8')
+        }
+
         if (fs.existsSync(distDir)) {
           fs.writeFileSync(resolve(distDir, 'rss.xml'), rss, 'utf-8')
           console.log(`[blog-sitemap] ✅ Generated rss.xml with ${Math.min(blogs.length, 20)} entries`)
@@ -161,6 +181,26 @@ export default defineConfig({
     react(),
     blogSitemapPlugin(),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom') || id.includes('react-helmet-async')) {
+              return 'vendor-react';
+            }
+            if (id.includes('lucide-react') || id.includes('react-icons')) {
+              return 'vendor-icons';
+            }
+            if (id.includes('lottie-web')) {
+              return 'vendor-lottie';
+            }
+          }
+        }
+      }
+    },
+    chunkSizeWarningLimit: 600,
+  },
   server: {
     proxy: {
       '/api': {

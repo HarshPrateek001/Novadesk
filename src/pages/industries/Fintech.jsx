@@ -155,15 +155,15 @@ export default function Fintech() {
               </div>
               <div className="top-20-award">
                 <a href="https://blog.google/intl/en-in/introducing-the-2024-class-of-google-for-startups-accelerator-ai-first/" target="_blank">
-                  <img src="https://engineerbabu.com/assets/img/icons/google-logo.svg" height="35px" alt="AI ACCELERATOR" loading="eager"/>
+                  <img src="/assets/img/icons/google-logo.webp" height="35px" alt="AI ACCELERATOR" loading="eager"/>
                   <span>AI Accelerator Top 20 Startups</span>
                 </a>
                 <a href="https://www.linkedin.com/pulse/linkedin-top-startups-2024-20-indian-companies-rise-jjbie/" target="_blank">
-                  <img src="https://engineerbabu.com/assets/img/icons/linkedin-logo.svg" height="35px" alt="Indian Startups" loading="eager"/>
+                  <img src="/assets/img/icons/linkedin-logo.webp" height="35px" alt="Indian Startups" loading="eager"/>
                   <span>Top 20 Indian Startups</span>
                 </a>
                 <p>
-                  <img src="https://engineerbabu.com/assets/img/icons/harvard-vusiness-school-logo.svg" height="35px" alt="Tech Innovations" loading="eager"/>
+                  <img src="/assets/img/icons/harvard-logo.webp" height="35px" alt="Tech Innovations" loading="eager"/>
                   <span>Featured in Harvard’s Top 10 Tech Innovations</span>
                 </p>
               </div>
@@ -171,10 +171,10 @@ export default function Fintech() {
             </div>
             <div className="col hire_developers_card">
               <div className="mingcute animation-float">
-                <img src="https://engineerbabu.com/assets/img/hire/mingcute_ai_fill.webp" className="mingcute" alt="mingcute ai"/>
+                <img src="/icons/solid/secure.svg" className="mingcute" alt="mingcute ai"/>
               </div>
               <div data-aos="fade-up" data-aos-duration="800">
-                <img src="https://engineerbabu.com/assets/img/hire/fintech-app-developers.webp" className="developers" fetchpriority="high" loading="eager" alt="fintech app developers"/>
+                <img src="/fullstack_hero_illustration.webp" className="developers" fetchpriority="high" loading="eager" alt="fintech app developers"/>
               </div>
               <div className="certified animation-float">
                 <p><span>Fintech Software Engineers</span></p>
@@ -197,20 +197,20 @@ export default function Fintech() {
                       <div className="splide__track">
                         <div className="splide__list">
                           <div className="splide__slide images-card">
-                            <picture><img src="https://engineerbabu.com/assets/img/hire/usp/pci.webp" alt="PCI DSS"/> </picture>
+                            <picture><img src="/assets/img/compliance/pci.webp" alt="PCI DSS"/> </picture>
                           </div>
                           <div className="splide__slide images-card">
-                            <picture><img src="https://engineerbabu.com/assets/img/hire/usp/psd2.webp" alt="PSD2"/> </picture>
+                            <picture><img src="/assets/img/compliance/psd2.webp" alt="PSD2"/> </picture>
                           </div>
                           <div className="splide__slide images-card">
-                            <picture><img src="https://engineerbabu.com/assets/img/hire/usp/gdpr.webp" alt="GDPR"/> </picture>
+                            <picture><img src="/assets/img/compliance/gdpr.webp" alt="GDPR"/> </picture>
                           </div>
                           <div className="splide__slide images-card">
-                            <picture><img src="https://engineerbabu.com/assets/img/hire/usp/aml.webp" alt="AML/KYC"/> </picture>
+                            <picture><img src="/assets/img/compliance/aml.webp" alt="AML/KYC"/> </picture>
                           </div>
 
                           <div className="splide__slide images-card">
-                            <picture><img src="https://engineerbabu.com/assets/img/hire/usp/ccpa.webp" alt="CCPA"/> </picture>
+                            <picture><img src="/assets/img/compliance/ccpa.webp" alt="CCPA"/> </picture>
                           </div>
                           
                       </div>
@@ -262,7 +262,7 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#AnishAchuthan" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
                         <img src="/assets/img/testimonials/case_study_1.png" className="w-100" alt="Bank Open Neobank Platform" loading="lazy"/>
                         <div className="text_bottom white">
@@ -283,7 +283,7 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#aIBasedHackthonAssessment" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
                         <img src="/assets/img/testimonials/case_study_2.png" className="w-100" alt="AI Based Hackthon Assessment" loading="lazy"/>
                         <div className="text_bottom white ">
@@ -304,7 +304,7 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#harshitThareja" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
                         <img src="/assets/img/testimonials/case_study_3.png" className="w-100" alt="Airbox E-commerce Marketplace" loading="lazy"/>
                           <div className="text_bottom white">
@@ -324,7 +324,7 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#bhavanagupta" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
                         <img src="/assets/img/testimonials/case_study_4.png" className="w-100" alt="Chhattisgarh Police Summons &amp; Warrant Management" loading="lazy"/>
                         <div className="text_bottom white ">
@@ -344,7 +344,7 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#farajaKottaNyalandu" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
                         <img src="/assets/img/testimonials/case_study_5.png" className="w-100" alt="Shule Direct - Faraja Kotta Nyalandu" loading="lazy"/>
                           <div className="text_bottom white">
@@ -364,9 +364,9 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#invulbWealthManagement" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/invulb-wealth-management-app.webp" className="w-100" alt="Invulb Wealth Management App" loading="lazy"/>
+                        <img src="/assets/img/testimonials/case_study_1.webp" className="w-100" alt="Invulb Wealth Management App" loading="lazy"/>
                           <div className="text_bottom white">
                            <div className="profile_img">
                             <div className="profile-text">
@@ -385,9 +385,9 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#rihenAjmera" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/framebazaar.webp" className="w-100" alt="Framebazaar - Rihen Ajmera" loading="lazy"/>
+                        <img src="/assets/img/testimonials/case_study_2.webp" className="w-100" alt="Framebazaar - Rihen Ajmera" loading="lazy"/>
                           <div className="text_bottom white">
                            <div className="profile_img">
                             <div className="profile-text">
@@ -405,9 +405,9 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#healthcarePlatforms" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/lumiere.webp" className="w-100" alt="Lumiere B2B Healthcare Marketplace" loading="lazy"/>
+                        <img src="/assets/img/testimonials/case_study_3.webp" className="w-100" alt="Lumiere B2B Healthcare Marketplace" loading="lazy"/>
                         <div className="text_bottom white">
                           <div className="profile_img">
                             <div className="profile-text">
@@ -425,9 +425,9 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#shoppiApp" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/shoppi-app.webp" className="w-100" alt="Shoppi Grocery Delivery App" loading="lazy"/>
+                        <img src="/assets/img/testimonials/case_study_4.webp" className="w-100" alt="Shoppi Grocery Delivery App" loading="lazy"/>
                         <div className="text_bottom white">
                           <div className="profile_img">
                             <div className="profile-text">
@@ -445,9 +445,9 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#askMeApp" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/askme-edtech-app.webp" className="w-100" alt="AskMe EdTech App" loading="lazy"/>
+                        <img src="/assets/img/testimonials/case_study_5.webp" className="w-100" alt="AskMe EdTech App" loading="lazy"/>
                         <div className="text_bottom white">
                           <div className="profile_img">
                             <div className="profile-text">
@@ -466,9 +466,9 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#salmanHabib" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/burq-scaled.webp" className="w-100" alt="BURQ Custom Logistics Platform" loading="lazy"/>
+                        <img src="/assets/img/testimonials/why_choose_1.webp" className="w-100" alt="BURQ Custom Logistics Platform" loading="lazy"/>
                         <div className="text_bottom white">
                           <div className="profile_img">
                             <div className="profile-text">
@@ -487,9 +487,9 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#supersourcingAIRecruiter" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/supersourcing-power-ai.webp" className="w-100" alt="AI-Powered Hiring Platform" loading="lazy"/>
+                        <img src="/assets/img/testimonials/why_choose_2.webp" className="w-100" alt="AI-Powered Hiring Platform" loading="lazy"/>
                         <div className="text_bottom white">
                           <div className="profile_img">
                             <div className="profile-text">
@@ -508,9 +508,9 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#baxolileMabinya" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/deviare.webp" className="w-100" alt="Digital Training Platform Baxolile Mabinya" loading="lazy"/>
+                        <img src="/assets/img/testimonials/why_choose_3.webp" className="w-100" alt="Digital Training Platform Baxolile Mabinya" loading="lazy"/>
                         <div className="text_bottom white ">
                           <div className="profile_img">
                           <div className="profile-text">
@@ -529,9 +529,9 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#deepakVerma" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/delivr.webp" className="w-100" alt="Delivery Management Platform Deepak Verma" loading="lazy"/>
+                        <img src="/assets/img/testimonials/why_choose_4.webp" className="w-100" alt="Delivery Management Platform Deepak Verma" loading="lazy"/>
                         <div className="text_bottom white ">
                           <div className="profile_img">
                           <div className="profile-text">
@@ -549,9 +549,9 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#raviKshirsagar" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/rx-agile.webp" className="w-100" alt="Rx Agile - Trainer-First Learning Platform" loading="lazy"/>
+                        <img src="/assets/img/testimonials/why_choose_5.webp" className="w-100" alt="Rx Agile - Trainer-First Learning Platform" loading="lazy"/>
                         <div className="text_bottom white">
                           <div className="profile_img">
                             <div className="profile-text">
@@ -571,9 +571,9 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#nigerianAirForce" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/nigerian-air-force.webp" className="w-100" alt="Nigerian Air Force" loading="lazy"/>
+                        <img src="/assets/img/testimonials/why_choose_6.webp" className="w-100" alt="Nigerian Air Force" loading="lazy"/>
                         <div className="text_bottom white">
                           <div className="profile_img">
                             <div className="profile-text">
@@ -591,9 +591,9 @@ export default function Fintech() {
                     <div className="splide__slide box-shadow">
                       <div className="testimonial-box white">
                         <span className="click white" data-bs-target="#ahmedRiad" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/review/youtubeplaylightblue.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/butterfly.webp" className="w-100" alt="Ahmed Riad" loading="lazy"/>
+                        <img src="/assets/img/testimonials/why_choose_7.webp" className="w-100" alt="Ahmed Riad" loading="lazy"/>
                         <div className="text_bottom white">
                           <div className="profile_img">
                             <div className="profile-text">
@@ -650,7 +650,7 @@ export default function Fintech() {
        
               <div className="service_card">
                 <picture>
-                  <img src="https://engineerbabu.com/assets/img/icons/system-development.svg" alt="ui ux design for fintech apps" loading="lazy" width="64" height="64" />
+                  <img src="/icons/solid/layout.svg" alt="ui ux design for fintech apps" loading="lazy" width="64" height="64" />
                 </picture>
                 <div className="textbox">
                   <h3>UI/UX Design for Fintech Apps</h3>
@@ -662,7 +662,7 @@ export default function Fintech() {
               
               <div className="service_card">
                 <picture>
-                  <img src="https://engineerbabu.com/assets/img/icons/software-development.svg" alt=" ai enabled fintech solutions" loading="lazy" width="64" height="64" />
+                  <img src="/icons/solid/bulb.svg" alt=" ai enabled fintech solutions" loading="lazy" width="64" height="64" />
                 </picture>
                 <div className="textbox">
                   <h3>AI-enabled Fintech Solutions</h3>
@@ -673,7 +673,7 @@ export default function Fintech() {
               
               <div className="service_card">
                 <picture>
-                  <img src="https://engineerbabu.com/assets/img/icons/automation-systems.svg" alt="cloud based fintech solutions" loading="lazy" width="64" height="64" />
+                  <img src="/icons/solid/cloud-network.svg" alt="cloud based fintech solutions" loading="lazy" width="64" height="64" />
                 </picture>
                 <div className="textbox">
                   <h3>Cloud-based Fintech Solutions</h3>
@@ -684,7 +684,7 @@ export default function Fintech() {
               
               <div className="service_card">
                 <picture>
-                  <img src="https://engineerbabu.com/assets/img/icons/lending-workflows.svg" alt="omnichannel fintech experiences" loading="lazy" width="64" height="64" />
+                  <img src="/icons/solid/transfer.svg" alt="omnichannel fintech experiences" loading="lazy" width="64" height="64" />
                 </picture>
                 <div className="textbox">
                   <h3>Omnichannel Fintech Experiences</h3>
@@ -695,7 +695,7 @@ export default function Fintech() {
         
               <div className="service_card">
                 <picture>
-                  <img src="https://engineerbabu.com/assets/img/icons/reporting-tools.svg" alt="custom fintech app development" loading="lazy" width="64" height="64" />
+                  <img src="/icons/solid/pie-chart.svg" alt="custom fintech app development" loading="lazy" width="64" height="64" />
                 </picture>
                 <div className="textbox">
                   <h3>Custom Fintech App Development Services</h3>
@@ -704,7 +704,7 @@ export default function Fintech() {
               </div>
               <div className="service_card">
                 <picture>
-                  <img src="https://engineerbabu.com/assets/img/icons/api-integrations.svg" alt="fintech app support and maintenance" loading="lazy" width="64" height="64" />
+                  <img src="/icons/solid/setting.svg" alt="fintech app support and maintenance" loading="lazy" width="64" height="64" />
                 </picture>
                 <div className="textbox">
                   <h3>Fintech App Support and Maintenance</h3>
@@ -739,12 +739,12 @@ export default function Fintech() {
                     <div className="splide__slide">
                       <div className="testimonial-box">
                         <span className="click" data-bs-target="#harshitThareja1" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/icons/play-icon-tranprent.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/harish-testimonial.webp" className="w-100" alt="mabel-anish" loading="lazy"/>
+                        <img src="/assets/img/testimonials/case_study_1.webp" className="w-100" alt="mabel-anish" loading="lazy"/>
                           <div className="text_bottom white">
                            <div className="profile_img">
-                          <img src="https://engineerbabu.com/assets/img/testimonials/harshit_thareja_airbox.webp" alt="Harshit Thareja" loading="lazy"/>
+                          <img src="/images/nova_avatar.webp" alt="Harshit Thareja" loading="lazy"/>
                            <div className="profile-text">
                              <p className="text"> Harshit Thareja <span>Co-Founder</span> </p>
                              <div className="profile_location">
@@ -760,12 +760,12 @@ export default function Fintech() {
                     <div className="splide__slide">
                       <div className="testimonial-box">
                         <span className="click" data-bs-target="#AnishAchuthan1" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/icons/play-icon-tranprent.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/mabel-anish-testimonial.webp" className="w-100" alt="mabel-anish" loading="lazy"/>
+                        <img src="/assets/img/testimonials/case_study_2.webp" className="w-100" alt="mabel-anish" loading="lazy"/>
                          <div className="text_bottom white">
                            <div className="profile_img">
-                          <img src="https://engineerbabu.com/assets/img/testimonials/anish-achuthan-profile.webp" alt="bhavna" loading="lazy"/>
+                          <img src="/images/nova_avatar.webp" alt="bhavna" loading="lazy"/>
                            <div className="profile-text">
                              <p className="text"> Anish Achuthan<span>CEO &amp; Co-Founder</span> </p>
                              <div className="profile_location">
@@ -781,12 +781,12 @@ export default function Fintech() {
                     <div className="splide__slide">
                       <div className="testimonial-box">
                         <span className="click" data-bs-target="#bhavanagupta1" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/icons/play-icon-tranprent.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/bhavna-testimonial.webp" className="w-100" alt="bhavna-testimonial" loading="lazy"/>
+                        <img src="/assets/img/testimonials/case_study_3.webp" className="w-100" alt="bhavna-testimonial" loading="lazy"/>
                          <div className="text_bottom white">
                            <div className="profile_img">
-                          <img src="https://engineerbabu.com/assets/img/testimonials/avatar-bhavana_gupta.png" alt="bhavna" loading="lazy"/>
+                          <img src="/images/nova_avatar.webp" alt="bhavna" loading="lazy"/>
                            <div className="profile-text">
                              <p className="text"> Bhavna Gupta<span>IPS Officer</span> </p>
                              <div className="profile_location">
@@ -802,12 +802,12 @@ export default function Fintech() {
                     <div className="splide__slide">
                       <div className="testimonial-box">
                         <span className="click" data-bs-target="#showGround" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/icons/play-icon-tranprent.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
                         <img src="/assets/img/testimonials/danny_schwartz.webp" className="w-100" alt="Danny" loading="lazy"/>
                          <div className="text_bottom white">
                            <div className="profile_img">
-                          <img src="https://engineerbabu.com/assets/img/testimonials/Avatar_show_ground.webp" alt="Danny" loading="lazy"/>
+                          <img src="/images/nova_avatar.webp" alt="Danny" loading="lazy"/>
                            <div className="profile-text">
                              <p className="text">  Danny Schwartz<span>Founder &amp; CEO</span> </p>
                              <div className="profile_location">
@@ -823,12 +823,12 @@ export default function Fintech() {
                     <div className="splide__slide">
                       <div className="testimonial-box">
                         <span className="click" data-bs-target="#4ThoughtGlobal" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/icons/play-icon-tranprent.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/4Thought_global.webp" className="w-100" alt="4Thought_global" loading="lazy"/>
+                        <img src="/assets/img/testimonials/why_choose_1.webp" className="w-100" alt="4Thought_global" loading="lazy"/>
                          <div className="text_bottom white">
                            <div className="profile_img">
-                          <img src="https://engineerbabu.com/assets/img/testimonials/Avatar_4Thought_global.svg" alt="Adam" loading="lazy"/>
+                          <img src="/images/nova_avatar.webp" alt="Adam" loading="lazy"/>
                            <div className="profile-text">
                              <p className="text"> Adam Faanes <span>CTO &amp; Co-Founder</span> </p>
                              <div className="profile_location">
@@ -844,12 +844,12 @@ export default function Fintech() {
                     <div className="splide__slide">
                       <div className="testimonial-box">
                         <span className="click" data-bs-target="#andileNgcaba" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/icons/play-icon-tranprent.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/andile_ngcaba.webp" className="w-100" alt="Andile Ngcaba" loading="lazy"/>
+                        <img src="/assets/img/testimonials/why_choose_2.webp" className="w-100" alt="Andile Ngcaba" loading="lazy"/>
                          <div className="text_bottom white">
                            <div className="profile_img">
-                          <img src="https://engineerbabu.com/assets/img/testimonials/avtar_andile-ngcaba.webp" alt="Andile Ngcaba" loading="lazy"/>
+                          <img src="/images/nova_avatar.webp" alt="Andile Ngcaba" loading="lazy"/>
                            <div className="profile-text">
                              <p className="text">  Andile Ngcaba<span>Chairman &amp; Founder</span> </p>
                              <div className="profile_location">
@@ -865,12 +865,12 @@ export default function Fintech() {
                     <div className="splide__slide">
                       <div className="testimonial-box">
                         <span className="click" data-bs-target="#lakshmikantSingh" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/icons/play-icon-tranprent.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/lakshmikant_singh.webp" className="w-100" alt="Lakshmikant Singh" loading="lazy"/>
+                        <img src="/assets/img/testimonials/why_choose_3.webp" className="w-100" alt="Lakshmikant Singh" loading="lazy"/>
                          <div className="text_bottom white">
                            <div className="profile_img">
-                          <img src="https://engineerbabu.com/assets/img/testimonials/avatar-lakshmikant_singh.webp" alt="Lakshmikant Singh" loading="lazy"/>
+                          <img src="/images/nova_avatar.webp" alt="Lakshmikant Singh" loading="lazy"/>
                            <div className="profile-text">
                              <p className="text"> Lakshmikant Singh<span>Founder &amp; CEO</span> </p>
                              <div className="profile_location">
@@ -886,12 +886,12 @@ export default function Fintech() {
                     <div className="splide__slide">
                       <div className="testimonial-box">
                         <span className="click" data-bs-target="#baxolileMabinyaCase" data-bs-toggle="modal">
-                          <img src="https://engineerbabu.com/assets/img/icons/play-icon-tranprent.svg" alt="play" loading="lazy"/>
+                          <img src="/assets/img/icons/play-button.svg" alt="play" loading="lazy"/>
                         </span>
-                        <img src="https://engineerbabu.com/assets/img/testimonials/baxolile_mabinya_t.webp" className="w-100" alt="Baxolile Mabinya" loading="lazy"/>
+                        <img src="/assets/img/testimonials/why_choose_4.webp" className="w-100" alt="Baxolile Mabinya" loading="lazy"/>
                          <div className="text_bottom white">
                            <div className="profile_img">
-                          <img src="https://engineerbabu.com/assets/img/testimonials/Avatar_baxolile_mabinya.svg" alt="baxolile_mabinya" loading="lazy"/>
+                          <img src="/images/nova_avatar.webp" alt="baxolile_mabinya" loading="lazy"/>
                            <div className="profile-text">
                              <p className="text"> Baxolile Mabinya <span>Co-Founder</span> </p>
                              <div className="profile_location">
@@ -926,7 +926,7 @@ export default function Fintech() {
             <div className="models_grid">
               <div className="models_col">
                 <picture>
-                  <img src="https://engineerbabu.com/assets/img/hire/icons/dedicated.svg" alt="dedicated"/>
+                  <img src="/icons/solid/team.svg" alt="dedicated"/>
                 </picture>
                 <h3>Team <span>Augmentation</span></h3>
                 <p className="text">Scale your team quickly and hire vetted fintech developers who integrate seamlessly into your workflows. A flexible model for businesses that need speed without long-term hiring commitments.</p>
@@ -939,7 +939,7 @@ export default function Fintech() {
               </div>
               <div className="models_col">
                 <picture>
-                  <img src="https://engineerbabu.com/assets/img/hire/icons/fixed.svg" alt="fixed"/>
+                  <img src="/icons/solid/target.svg" alt="fixed"/>
                 </picture>
                 <h3>Dedicated Fintech <span>Development Teams</span></h3>
                 <p className="text">A cross-functional team working exclusively on your project, covering everything from UI/UX design to compliance and deployment. Ideal for startups and enterprises looking for long-term continuity and fast execution.</p>
@@ -952,7 +952,7 @@ export default function Fintech() {
               </div>
               <div className="models_col">
                 <picture>
-                  <img src="https://engineerbabu.com/assets/img/hire/icons/hourly.svg" alt="hourly"/>
+                  <img src="/icons/solid/rotary.svg" alt="hourly"/>
                 </picture>
                 <h3>Full Project  <span>Outsourcing</span></h3>
                 <p className="text">From strategy to support, we offer end-to-end fintech app development services. Perfect for companies that want hands-off delivery, ongoing optimisation, and a secure, scalable product without managing in-house teams.</p>
@@ -987,7 +987,7 @@ export default function Fintech() {
                 <div className="splide__track">
                    <div className="splide__list">                    
                     <div className="splide__slide focused_area">
-                        <a href="/industries/fintech/banking-app-development" rel="noopener noreferrer">
+                        <a href="/services/mobile-app-development" rel="noopener noreferrer">
                         <div className="inner_img border-radius-24">
                           <img src="/assets/img/industries/banking_app.png" className="w-100" alt="Banking App Development" loading="lazy"/>
                         </div>
@@ -1001,7 +1001,7 @@ export default function Fintech() {
                     
                     
                     <div className="splide__slide focused_area">
-                     <a href="/industries/fintech/financial-software-development" rel="noopener noreferrer">
+                     <a href="/services/custom-software-development" rel="noopener noreferrer">
                       <div className="inner_img border-radius-24">
                         <img src="/assets/img/industries/financial_software.png" className="w-100" alt="Financial Software Development" loading="lazy"/>
                       </div>        
@@ -1016,7 +1016,7 @@ export default function Fintech() {
                                        
                                      
                     <div className="splide__slide focused_area">
-                       <a href="/industries/fintech/payment-app-development" rel="noopener noreferrer">
+                       <a href="/services/mobile-app-development" rel="noopener noreferrer">
                         <div className="inner_img border-radius-24">
                           <img src="/assets/img/industries/payment_app.png" className="w-100" alt="Payment App Development" loading="lazy"/>
                         </div>
@@ -1031,7 +1031,7 @@ export default function Fintech() {
                     
                                      
                     <div className="splide__slide focused_area">                      
-                        <a href="/industries/fintech/lending-software-development-company" rel="noopener noreferrer">
+                        <a href="/services/enterprise-software-development" rel="noopener noreferrer">
                         <div className="inner_img border-radius-24">
                           <img src="/assets/img/industries/lending_software.png" className="w-100" alt="Lending Software Development" loading="lazy"/>
                         </div>        
@@ -1046,7 +1046,7 @@ export default function Fintech() {
                     
                                      
                     <div className="splide__slide focused_area">
-                        <a href="/industries/fintech/investment-software-development" rel="noopener noreferrer">
+                        <a href="/services/saas-development" rel="noopener noreferrer">
                         <div className="inner_img border-radius-24">
                           <img src="/assets/img/industries/investment_software.png" className="w-100" alt="Investment Software Development" loading="lazy"/>
                         </div>        
@@ -1060,7 +1060,7 @@ export default function Fintech() {
                     </div> 
 
                      <div className="splide__slide focused_area">
-                        <a href="/industries/fintech/insurance-software-development" rel="noopener noreferrer">
+                        <a href="/services/enterprise-software-development" rel="noopener noreferrer">
                           <div className="inner_img border-radius-24">
                             <img src="/assets/img/industries/insurance_software.png" className="w-100" alt="Insurance Software Development" loading="lazy"/>
                           </div>        
@@ -1075,8 +1075,8 @@ export default function Fintech() {
                     
                                      
                     <div className="splide__slide focused_area">
-                       <a href="/industries/fintech/trading-software-development" rel="noopener noreferrer">
-                          <img src="https://engineerbabu.com/assets/img/industries/financial_software_development.webp" className="w-100" alt="Financial Software Development" loading="lazy"/>
+                       <a href="/services/full-stack-development" rel="noopener noreferrer">
+                          <img src="/assets/img/industries/financial_software.webp" className="w-100" alt="Financial Software Development" loading="lazy"/>
                         <div className="text_bottom">
                           <h3>Trading Platform Development</h3>
                           <p>
@@ -1155,7 +1155,7 @@ export default function Fintech() {
               <div className="cta-image">
                 <iframe src="https://cdn.lottielab.com/l/9omFPdtnddVdox.html" width="124" height="124" frameBorder="0" loading="lazy" title="FinTech Lottie Animation"></iframe>
                 <picture>
-                  <img src="https://engineerbabu.com/assets/img/hire/contact-cta.webp" alt="contact us" loading="lazy"/>
+                  <img src="/why_us_main.webp" alt="contact us" loading="lazy"/>
                 </picture>
               </div>
             </div>
@@ -1263,7 +1263,7 @@ export default function Fintech() {
                   <div className="splide__slide">
                     <a href="/blog/why-your-business-needs-a-website">
                       <div className="blog_card">
-                        <img src="https://engineerbabu.com/blog/wp-content/uploads/2025/09/How-to-build-a-stock-trading-app-like-Robinhood.jpg" width="100%" alt="How to Build an App like Robinhood?"/>
+                        <img src="/blogs/saas-custom-cover.png" width="100%" alt="How to Build an App like Robinhood?"/>
                         <div className="tag">
                           <div className="cat">Fintech</div>
                           <div className="time">5 Min Read</div>
@@ -1273,8 +1273,8 @@ export default function Fintech() {
                         </div>
                         <div className="author">
                           <div className="details">
-                            <img src="https://engineerbabu.com/assets/img/mayank-pratap-white.webp" alt="Mayank Pratap Singh"/>
-                            <p>Mayank Pratap Singh <span>Founder &amp; CEO of Novadesk</span></p>
+                            <img src="/images/nova_avatar.webp" alt="Harsh Prateek"/>
+                            <p>Harsh Prateek <span>Founder &amp; CEO of NovaDesk</span></p>
                           </div>
                           <svg width="46" height="49" viewBox="0 0 46 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="0.833374" y="1.10999" width="44" height="47" rx="3.5" fill="#F3F7FB"></rect> <rect x="0.833374" y="1.10999" width="44" height="47" rx="3.5" stroke="#D4DCFF"></rect> <path d="M26.8021 29.86C26.6563 29.735 26.5834 29.5683 26.5834 29.36C26.5834 29.1517 26.6563 28.9746 26.8021 28.8287L29.7709 25.86H17.0834C16.625 25.8183 16.375 25.5579 16.3334 25.0787C16.375 24.6412 16.625 24.4017 17.0834 24.36H29.7709L26.8021 21.3912C26.5105 21.0371 26.5105 20.6829 26.8021 20.3287C27.1563 20.0371 27.5105 20.0371 27.8646 20.3287L32.1146 24.5787C32.4063 24.9329 32.4063 25.2871 32.1146 25.6412L27.8646 29.8912C27.5105 30.1829 27.1563 30.1725 26.8021 29.86Z" fill="#0F0D1D"></path> </svg>
                         </div>
@@ -1285,7 +1285,7 @@ export default function Fintech() {
                   <div className="splide__slide">
                     <a href="/blog/seo-guide-2026">
                       <div className="blog_card">
-                        <img src="https://engineerbabu.com/blog/wp-content/uploads/2025/08/AI-and-Machine-Learning-ML-in-Fintech_-Use-Cases-and-Benefits.jpg" width="100%" alt="AI and Machine Learning (ML) in Fintech: Use Cases &amp; Benefits"/>
+                        <img src="/blogs/ai-healthcare-cover.png" width="100%" alt="AI and Machine Learning (ML) in Fintech: Use Cases &amp; Benefits"/>
                         <div className="tag">
                           <div className="cat">Fintech</div>
                           <div className="time">6 Min Read</div>
@@ -1295,8 +1295,8 @@ export default function Fintech() {
                         </div>
                         <div className="author">
                           <div className="details">
-                            <img src="https://engineerbabu.com/assets/img/mayank-pratap-white.webp" alt="Mayank Pratap Singh"/>
-                            <p>Mayank Pratap Singh <span>Founder &amp; CEO of Novadesk</span></p>
+                            <img src="/images/nova_avatar.webp" alt="Harsh Prateek"/>
+                            <p>Harsh Prateek <span>Founder &amp; CEO of NovaDesk</span></p>
                           </div>
                           <svg width="46" height="49" viewBox="0 0 46 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="0.833374" y="1.10999" width="44" height="47" rx="3.5" fill="#F3F7FB"></rect> <rect x="0.833374" y="1.10999" width="44" height="47" rx="3.5" stroke="#D4DCFF"></rect> <path d="M26.8021 29.86C26.6563 29.735 26.5834 29.5683 26.5834 29.36C26.5834 29.1517 26.6563 28.9746 26.8021 28.8287L29.7709 25.86H17.0834C16.625 25.8183 16.375 25.5579 16.3334 25.0787C16.375 24.6412 16.625 24.4017 17.0834 24.36H29.7709L26.8021 21.3912C26.5105 21.0371 26.5105 20.6829 26.8021 20.3287C27.1563 20.0371 27.5105 20.0371 27.8646 20.3287L32.1146 24.5787C32.4063 24.9329 32.4063 25.2871 32.1146 25.6412L27.8646 29.8912C27.5105 30.1829 27.1563 30.1725 26.8021 29.86Z" fill="#0F0D1D"></path> </svg>
                         </div>
@@ -1307,7 +1307,7 @@ export default function Fintech() {
                   <div className="splide__slide">
                        <a href="/blog">
                       <div className="blog_card">
-                        <img src="https://engineerbabu.com/blog/wp-content/uploads/2025/08/Insurance-Mobile-App-Development.jpg" width="100%" alt="Insurance Mobile App Development"/>
+                        <img src="/blogs/dev-cost-cover.png" width="100%" alt="Insurance Mobile App Development"/>
                         <div className="tag">
                           <div className="cat">Fintech</div>
                           <div className="time">9 Min Read</div>
@@ -1317,8 +1317,8 @@ export default function Fintech() {
                         </div>
                         <div className="author">
                           <div className="details">
-                            <img src="https://engineerbabu.com/assets/img/mayank-pratap-white.webp" alt="Mayank Pratap Singh"/>
-                            <p>Mayank Pratap Singh <span>Founder &amp; CEO of Novadesk</span></p>
+                            <img src="/images/nova_avatar.webp" alt="Harsh Prateek"/>
+                            <p>Harsh Prateek <span>Founder &amp; CEO of NovaDesk</span></p>
                           </div>
                           <svg width="46" height="49" viewBox="0 0 46 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="0.833374" y="1.10999" width="44" height="47" rx="3.5" fill="#F3F7FB"></rect> <rect x="0.833374" y="1.10999" width="44" height="47" rx="3.5" stroke="#D4DCFF"></rect> <path d="M26.8021 29.86C26.6563 29.735 26.5834 29.5683 26.5834 29.36C26.5834 29.1517 26.6563 28.9746 26.8021 28.8287L29.7709 25.86H17.0834C16.625 25.8183 16.375 25.5579 16.3334 25.0787C16.375 24.6412 16.625 24.4017 17.0834 24.36H29.7709L26.8021 21.3912C26.5105 21.0371 26.5105 20.6829 26.8021 20.3287C27.1563 20.0371 27.5105 20.0371 27.8646 20.3287L32.1146 24.5787C32.4063 24.9329 32.4063 25.2871 32.1146 25.6412L27.8646 29.8912C27.5105 30.1829 27.1563 30.1725 26.8021 29.86Z" fill="#0F0D1D"></path> </svg>
                         </div>
@@ -1329,7 +1329,7 @@ export default function Fintech() {
                   <div className="splide__slide">
                    <a href="/blog">
                       <div className="blog_card">
-                        <img src="https://engineerbabu.com/blog/wp-content/uploads/2025/08/Neobank-App-Development_-A-Step-by-Step-Process.jpg" width="100%" alt="Neobank App Development: A Step-by-Step Process"/>
+                        <img src="/blogs/react-hire-cover.png" width="100%" alt="Neobank App Development: A Step-by-Step Process"/>
                         <div className="tag">
                           <div className="cat">Fintech</div>
                           <div className="time">9 min Read</div>
@@ -1339,8 +1339,8 @@ export default function Fintech() {
                         </div>
                         <div className="author">
                           <div className="details">
-                            <img src="https://engineerbabu.com/assets/img/mayank-pratap-white.webp" alt="Mayank Pratap Singh"/>
-                            <p>Mayank Pratap Singh <span>Founder &amp; CEO of Novadesk</span></p>
+                            <img src="/images/nova_avatar.webp" alt="Harsh Prateek"/>
+                            <p>Harsh Prateek <span>Founder &amp; CEO of NovaDesk</span></p>
                           </div>
                           <svg width="46" height="49" viewBox="0 0 46 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="0.833374" y="1.10999" width="44" height="47" rx="3.5" fill="#F3F7FB"></rect> <rect x="0.833374" y="1.10999" width="44" height="47" rx="3.5" stroke="#D4DCFF"></rect> <path d="M26.8021 29.86C26.6563 29.735 26.5834 29.5683 26.5834 29.36C26.5834 29.1517 26.6563 28.9746 26.8021 28.8287L29.7709 25.86H17.0834C16.625 25.8183 16.375 25.5579 16.3334 25.0787C16.375 24.6412 16.625 24.4017 17.0834 24.36H29.7709L26.8021 21.3912C26.5105 21.0371 26.5105 20.6829 26.8021 20.3287C27.1563 20.0371 27.5105 20.0371 27.8646 20.3287L32.1146 24.5787C32.4063 24.9329 32.4063 25.2871 32.1146 25.6412L27.8646 29.8912C27.5105 30.1829 27.1563 30.1725 26.8021 29.86Z" fill="#0F0D1D"></path> </svg>
                         </div>
@@ -1351,7 +1351,7 @@ export default function Fintech() {
                   <div className="splide__slide">
                     <a href="/blog">
                       <div className="blog_card">
-                        <img src="https://engineerbabu.com/blog/wp-content/uploads/2025/08/Role-of-AI-in-Fintech.jpg" width="100%" alt="AI Tools for Fintech: 8 Platforms Driving Smarter Operations"/>
+                        <img src="/blogs/node-backend-cover.png" width="100%" alt="AI Tools for Fintech: 8 Platforms Driving Smarter Operations"/>
                         <div className="tag">
                           <div className="cat">Fintech</div>
                           <div className="time">7 Min Read</div>
@@ -1361,8 +1361,8 @@ export default function Fintech() {
                         </div>
                         <div className="author">
                           <div className="details">
-                            <img src="https://engineerbabu.com/assets/img/mayank-pratap-white.webp" alt="Mayank Pratap Singh"/>
-                            <p>Mayank Pratap Singh <span>Founder &amp; CEO of Novadesk</span></p>
+                            <img src="/images/nova_avatar.webp" alt="Harsh Prateek"/>
+                            <p>Harsh Prateek <span>Founder &amp; CEO of NovaDesk</span></p>
                           </div>
                           <svg width="46" height="49" viewBox="0 0 46 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="0.833374" y="1.10999" width="44" height="47" rx="3.5" fill="#F3F7FB"></rect> <rect x="0.833374" y="1.10999" width="44" height="47" rx="3.5" stroke="#D4DCFF"></rect> <path d="M26.8021 29.86C26.6563 29.735 26.5834 29.5683 26.5834 29.36C26.5834 29.1517 26.6563 28.9746 26.8021 28.8287L29.7709 25.86H17.0834C16.625 25.8183 16.375 25.5579 16.3334 25.0787C16.375 24.6412 16.625 24.4017 17.0834 24.36H29.7709L26.8021 21.3912C26.5105 21.0371 26.5105 20.6829 26.8021 20.3287C27.1563 20.0371 27.5105 20.0371 27.8646 20.3287L32.1146 24.5787C32.4063 24.9329 32.4063 25.2871 32.1146 25.6412L27.8646 29.8912C27.5105 30.1829 27.1563 30.1725 26.8021 29.86Z" fill="#0F0D1D"></path> </svg>
                         </div>
