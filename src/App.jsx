@@ -15,6 +15,7 @@ import { BlogProvider } from './context/BlogContext.jsx';
 const Home = React.lazy(() => import('./pages/Home'));
 const AboutUs = React.lazy(() => import('./pages/AboutUs'));
 const CaseStudies = React.lazy(() => import('./pages/CaseStudies'));
+const CaseStudyDetail = React.lazy(() => import('./pages/CaseStudyDetail'));
 const ContactUs = React.lazy(() => import('./pages/ContactUs'));
 const ForgeAI = React.lazy(() => import('./pages/ForgeAI'));
 const PrivacyPolicy = React.lazy(() => import('./pages/PrivacyPolicy'));
@@ -88,6 +89,7 @@ export default function App() {
                 <Route path="/piusha-patra-novadesk" element={<Navigate to="/about-us" replace />} />
                 <Route path="/co-founder" element={<Navigate to="/about-us" replace />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
                 <Route path="/contact-us" element={<ContactUs />} />
                 <Route path="/forge-ai" element={<ForgeAI />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />

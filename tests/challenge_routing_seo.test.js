@@ -84,7 +84,7 @@ describe('Live Server Routing, 404 Integrity & Search Console Hygiene', () => {
 
     for (const routePath of routeMatches) {
       if (routePath === '*' || routePath === '/404') continue;
-      if (routePath === '/industries/:slug' || routePath === '/blog/:slug') continue;
+      if (routePath === '/industries/:slug' || routePath === '/blog/:slug' || routePath === '/case-studies/:slug') continue;
       const handled = rewriteSources.has(routePath) || redirectSources.has(routePath);
       assert.equal(handled, true, `App.jsx route "${routePath}" must be covered by vercel.json rewrites or redirects`);
     }

@@ -1,0 +1,835 @@
+/* ==========================================================================
+   NovaDesk Case Study In-Depth Detail Page Stylesheet
+   Theme: Pure White & Royal Blue (#2E29FF) — Enterprise Agency Aesthetic
+   Inspired by Experion Global Enterprise Case Study Layout
+   ========================================================================== */
+
+.csd-page {
+  background-color: #FFFFFF;
+  color: #0A0A2E;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: var(--font-sans, "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif);
+}
+
+/* Subtle Soft Blue Background Glow */
+.csd-ambient-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1400px;
+  height: 600px;
+  background: radial-gradient(
+    60% 50% at 50% 0%,
+    rgba(46, 41, 255, 0.06) 0%,
+    rgba(238, 242, 255, 0.5) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.csd-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.csd-hero {
+  padding-top: 135px;
+  padding-bottom: 50px;
+}
+
+.csd-breadcrumb-wrap {
+  margin-bottom: 24px;
+}
+
+.csd-kicker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  border-radius: 9999px;
+  background: #EEF2FF;
+  border: 1px solid rgba(46, 41, 255, 0.22);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2E29FF;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 8px rgba(46, 41, 255, 0.06);
+}
+
+.csd-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2E29FF;
+  box-shadow: 0 0 8px rgba(46, 41, 255, 0.6);
+  animation: csd-pulse 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes csd-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.85); }
+}
+
+.csd-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #0A0A2E;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  max-width: 1050px;
+}
+
+.csd-blue-gradient {
+  background: linear-gradient(135deg, #0A0A2E 25%, #2E29FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.csd-lead {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: #475569;
+  line-height: 1.65;
+  max-width: 860px;
+  margin-bottom: 36px;
+}
+
+/* ==========================================================================
+   Project Meta Information Strip
+   ========================================================================== */
+.csd-meta-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 22px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  margin-bottom: 48px;
+}
+
+.csd-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.csd-meta-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748B;
+}
+
+.csd-meta-value {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0A0A2E;
+  line-height: 1.4;
+}
+
+.csd-meta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #2E29FF;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.csd-meta-link:hover {
+  color: #1E1BCC;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Hero Visual / Device Frame
+   ========================================================================== */
+.csd-visual-container {
+  margin-bottom: 80px;
+}
+
+.csd-browser-mockup {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -15px rgba(46, 41, 255, 0.12), 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.csd-browser-header {
+  height: 42px;
+  background: #F8FAFC;
+  border-bottom: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 8px;
+}
+
+.csd-browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #CBD5E1;
+}
+
+.csd-browser-url {
+  flex: 1;
+  max-width: 480px;
+  margin: 0 auto;
+  height: 26px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11.5px;
+  color: #64748B;
+  font-family: monospace;
+}
+
+.csd-browser-img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* ==========================================================================
+   Section Headers
+   ========================================================================== */
+.csd-section-header {
+  margin-bottom: 36px;
+}
+
+.csd-section-kicker {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2E29FF;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.csd-section-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: #0A0A2E;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.csd-section-desc {
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.6;
+  max-width: 760px;
+}
+
+/* ==========================================================================
+   Executive Overview & Client Profile (2-Col Grid)
+   ========================================================================== */
+.csd-overview-section {
+  margin-bottom: 80px;
+}
+
+.csd-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.csd-overview-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.csd-overview-card.is-accent {
+  background: #EEF2FF;
+  border-color: rgba(46, 41, 255, 0.22);
+}
+
+.csd-overview-card h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0A0A2E;
+  margin: 0;
+}
+
+.csd-overview-card p {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.68;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Challenges vs Solutions (Experion-Style Deep Dive)
+   ========================================================================== */
+.csd-cs-section {
+  margin-bottom: 88px;
+}
+
+.csd-cs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.csd-cs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.csd-cs-box {
+  border-radius: 18px;
+  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s ease;
+}
+
+.csd-cs-box:hover {
+  transform: translateY(-3px);
+}
+
+.csd-cs-box.is-challenge {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+}
+
+.csd-cs-box.is-solution {
+  background: #F8FAFC;
+  border: 1.5px solid rgba(46, 41, 255, 0.22);
+  box-shadow: 0 6px 20px -6px rgba(46, 41, 255, 0.08);
+}
+
+.csd-cs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 6px;
+  align-self: flex-start;
+}
+
+.csd-cs-badge.badge-challenge {
+  background: #F1F5F9;
+  color: #475569;
+  border: 1px solid #E2E8F0;
+}
+
+.csd-cs-badge.badge-solution {
+  background: #EEF2FF;
+  color: #2E29FF;
+  border: 1px solid rgba(46, 41, 255, 0.2);
+}
+
+.csd-cs-box h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0A0A2E;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.csd-cs-box p {
+  font-size: 14.5px;
+  color: #475569;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Outcomes & Quantified Impact (Numbers That Matter)
+   ========================================================================== */
+.csd-outcomes-section {
+  padding: 72px 0;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+  margin-bottom: 88px;
+}
+
+.csd-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 44px;
+}
+
+.csd-metric-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(46, 41, 255, 0.04);
+  transition: all 0.25s ease;
+}
+
+.csd-metric-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(46, 41, 255, 0.3);
+  box-shadow: 0 10px 24px -6px rgba(46, 41, 255, 0.12);
+}
+
+.csd-metric-val {
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  color: #2E29FF;
+  line-height: 1.15;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.csd-metric-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.csd-outcomes-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.csd-outcomes-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0A0A2E;
+  margin-bottom: 20px;
+}
+
+.csd-outcomes-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 28px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.csd-outcome-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14.5px;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.csd-outcome-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: #2E29FF;
+}
+
+/* ==========================================================================
+   Technical Architecture Blueprint
+   ========================================================================== */
+.csd-arch-section {
+  margin-bottom: 88px;
+}
+
+.csd-arch-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.csd-arch-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 22px 26px;
+  display: grid;
+  grid-template-columns: 190px 1fr auto;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s ease;
+}
+
+.csd-arch-card:hover {
+  border-color: rgba(46, 41, 255, 0.25);
+  box-shadow: 0 8px 24px -6px rgba(46, 41, 255, 0.08);
+}
+
+.csd-arch-layer-name {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2E29FF;
+  background: #EEF2FF;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.csd-arch-content h4 {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #0A0A2E;
+  margin: 0 0 4px 0;
+}
+
+.csd-arch-content p {
+  font-size: 14px;
+  color: #475569;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.csd-arch-tech {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #64748B;
+  background: #F1F5F9;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Client Testimonial Box
+   ========================================================================== */
+.csd-testimonial-section {
+  margin-bottom: 88px;
+}
+
+.csd-testimonial-card {
+  background: linear-gradient(135deg, #EEF2FF 0%, #FFFFFF 100%);
+  border: 1.5px solid rgba(46, 41, 255, 0.25);
+  border-radius: 24px;
+  padding: 44px 40px;
+  box-shadow: 0 16px 40px -15px rgba(46, 41, 255, 0.1);
+  position: relative;
+}
+
+.csd-quote-mark {
+  font-size: 72px;
+  line-height: 1;
+  color: rgba(46, 41, 255, 0.15);
+  font-family: Georgia, serif;
+  position: absolute;
+  top: 24px;
+  left: 36px;
+  pointer-events: none;
+}
+
+.csd-testimonial-quote {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-style: italic;
+  color: #0A0A2E;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.csd-testimonial-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.csd-testimonial-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #2E29FF;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.csd-testimonial-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0A0A2E;
+}
+
+.csd-testimonial-role {
+  font-size: 13.5px;
+  color: #64748B;
+}
+
+/* ==========================================================================
+   Related Case Studies (Experion Style "More Stories")
+   ========================================================================== */
+.csd-related-section {
+  margin-bottom: 88px;
+}
+
+.csd-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.csd-related-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.csd-related-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(46, 41, 255, 0.35);
+  box-shadow: 0 16px 36px -12px rgba(46, 41, 255, 0.15);
+}
+
+.csd-related-media {
+  height: 180px;
+  overflow: hidden;
+  background: #F1F5F9;
+  position: relative;
+}
+
+.csd-related-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.csd-related-card:hover .csd-related-img {
+  transform: scale(1.05);
+}
+
+.csd-related-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.csd-related-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2E29FF;
+  margin-bottom: 6px;
+}
+
+.csd-related-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0A0A2E;
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.csd-related-link-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2E29FF;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ==========================================================================
+   Bottom High-Converting CTA Banner
+   ========================================================================== */
+.csd-cta-box {
+  background: linear-gradient(135deg, #2E29FF 0%, #1E1BCC 100%);
+  border-radius: 28px;
+  padding: 60px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px -15px rgba(46, 41, 255, 0.4);
+  color: #FFFFFF;
+  margin-bottom: 60px;
+}
+
+.csd-cta-box::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.csd-cta-box h2 {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.csd-cta-box p {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: #E0E7FF;
+  max-width: 680px;
+  margin: 0 auto 36px;
+  line-height: 1.65;
+}
+
+.csd-cta-btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.csd-btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #FFFFFF;
+  color: #2E29FF;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+}
+
+.csd-btn-white:hover {
+  background: #EEF2FF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+  color: #1E1BCC;
+}
+
+.csd-btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.csd-btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .csd-meta-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .csd-overview-grid {
+    grid-template-columns: 1fr;
+  }
+  .csd-cs-row {
+    grid-template-columns: 1fr;
+  }
+  .csd-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .csd-outcomes-list {
+    grid-template-columns: 1fr;
+  }
+  .csd-arch-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .csd-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .csd-hero {
+    padding-top: 110px;
+  }
+  .csd-meta-strip {
+    grid-template-columns: 1fr;
+    padding: 18px 20px;
+    gap: 14px;
+  }
+  .csd-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .csd-related-grid {
+    grid-template-columns: 1fr;
+  }
+  .csd-cta-box {
+    padding: 38px 22px;
+  }
+  .csd-testimonial-card {
+    padding: 32px 24px;
+  }
+}

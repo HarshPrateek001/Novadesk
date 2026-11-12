@@ -551,15 +551,49 @@
   border-color: rgba(46, 41, 255, 0.15);
 }
 
-/* Card Button */
-.cs-card-action-btn {
+/* Card Button Group */
+.cs-card-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cs-btn-solid-blue {
   width: 100%;
   padding: 11px 16px;
   border-radius: 11px;
-  background: #FFFFFF;
+  background: #2E29FF;
   border: 1.5px solid #2E29FF;
-  color: #2E29FF;
+  color: #FFFFFF;
   font-size: 13.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(46, 41, 255, 0.25);
+}
+
+.cs-btn-solid-blue:hover {
+  background: #1E1BCC;
+  border-color: #1E1BCC;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(46, 41, 255, 0.4);
+}
+
+/* Card Button */
+.cs-card-action-btn {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 11px;
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  color: #475569;
+  font-size: 13px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -570,9 +604,9 @@
 }
 
 .cs-card-action-btn:hover {
-  background: #2E29FF;
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(46, 41, 255, 0.3);
+  background: #EEF2FF;
+  border-color: rgba(46, 41, 255, 0.35);
+  color: #2E29FF;
 }
 
 /* ==========================================================================
