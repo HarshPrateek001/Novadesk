@@ -247,10 +247,10 @@ export default function ForgeStorytelling() {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 150,
-    damping: 26,
-    mass: 0.6,
-    restDelta: 0.0005,
+    stiffness: 280,
+    damping: 32,
+    mass: 0.15,
+    restDelta: 0.0008,
   });
 
   const coreX = useTransform(

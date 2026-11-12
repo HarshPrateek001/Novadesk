@@ -6,27 +6,24 @@
 export const DESKTOP_CHAPTER_VARIANTS = {
   initial: (direction = 1) => ({
     opacity: 0,
-    y: direction >= 0 ? 34 : -34,
-    scale: 0.98,
-    filter: 'blur(5px)',
+    y: direction >= 0 ? 30 : -30,
+    scale: 0.985,
   }),
   animate: {
     opacity: 1,
     y: 0,
     scale: 1,
-    filter: 'blur(0px)',
     transition: {
-      duration: 0.3,
+      duration: 0.28,
       ease: [0.22, 1, 0.36, 1],
     },
   },
   exit: (direction = 1) => ({
     opacity: 0,
-    y: direction >= 0 ? -28 : 28,
-    scale: 0.985,
-    filter: 'blur(4px)',
+    y: direction >= 0 ? -24 : 24,
+    scale: 0.99,
     transition: {
-      duration: 0.18,
+      duration: 0.16,
       ease: [0.4, 0, 1, 1],
     },
   }),
