@@ -1,0 +1,902 @@
+/* ==========================================================================
+   NovaDesk Case Studies & Products Portfolio Stylesheet
+   Identity: Dark Cyber-Luxe, Royal Blue (#2E29FF), Neon Mint (#00FFB2)
+   ========================================================================== */
+
+.cs-page {
+  background-color: #030712;
+  color: #F8FAFC;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: inherit;
+}
+
+/* Background Ambient Lighting */
+.cs-ambient-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1400px;
+  height: 600px;
+  background: radial-gradient(
+    50% 50% at 50% 20%,
+    rgba(46, 41, 255, 0.16) 0%,
+    rgba(0, 255, 178, 0.05) 45%,
+    rgba(3, 7, 18, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cs-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 700px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black 30%, transparent 95%);
+  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 95%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Container */
+.cs-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.cs-hero {
+  padding-top: 130px;
+  padding-bottom: 50px;
+}
+
+.cs-breadcrumb-wrap {
+  margin-bottom: 24px;
+}
+
+.cs-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(46, 41, 255, 0.12);
+  border: 1px solid rgba(46, 41, 255, 0.35);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #C0BFFF;
+  margin-bottom: 20px;
+}
+
+.cs-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00FFB2;
+  box-shadow: 0 0 10px #00FFB2;
+  animation: cs-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes cs-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.cs-hero-title {
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #FFFFFF;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+
+.cs-gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 20%, #8292FD 60%, #00FFB2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.cs-hero-lead {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: #94A3B8;
+  line-height: 1.65;
+  max-width: 780px;
+  margin-bottom: 36px;
+}
+
+/* ==========================================================================
+   Metrics Strip
+   ========================================================================== */
+.cs-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.cs-metric-card {
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-metric-card:hover {
+  border-color: rgba(46, 41, 255, 0.4);
+  background: rgba(15, 23, 42, 0.85);
+  transform: translateY(-2px);
+}
+
+.cs-metric-value {
+  font-size: clamp(1.8rem, 2.5vw, 2.3rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 4px;
+  font-feature-settings: 'tnum';
+  background: linear-gradient(135deg, #FFFFFF 40%, #00FFB2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cs-metric-label {
+  font-size: 13px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Filter Tabs
+   ========================================================================== */
+.cs-filter-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  margin-bottom: 40px;
+}
+
+.cs-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cs-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: #94A3B8;
+  transition: all 0.25s ease;
+}
+
+.cs-tab-btn:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.cs-tab-btn.is-active {
+  background: #2E29FF;
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 18px rgba(46, 41, 255, 0.45);
+}
+
+.cs-tab-count {
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: inherit;
+  font-weight: 700;
+}
+
+.cs-tab-btn.is-active .cs-tab-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+
+.cs-filter-stat {
+  font-size: 13px;
+  color: #64748B;
+  padding-right: 12px;
+}
+
+.cs-filter-stat strong {
+  color: #00FFB2;
+}
+
+/* ==========================================================================
+   Spotlight Card (Flagship Feature)
+   ========================================================================== */
+.cs-spotlight-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(7, 11, 25, 0.95) 100%);
+  border: 1px solid rgba(46, 41, 255, 0.35);
+  box-shadow: 0 20px 50px -20px rgba(46, 41, 255, 0.3);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 48px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-spotlight-card::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 255, 178, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cs-spotlight-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cs-spotlight-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #00FFB2;
+}
+
+.cs-spotlight-title {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #FFFFFF;
+}
+
+.cs-spotlight-desc {
+  font-size: 15px;
+  color: #94A3B8;
+  line-height: 1.65;
+}
+
+.cs-spotlight-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(3, 7, 18, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cs-stat-item-label {
+  font-size: 11px;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.cs-stat-item-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: #00FFB2;
+}
+
+.cs-spotlight-media {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000000;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  aspect-ratio: 16 / 10;
+}
+
+.cs-spotlight-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-spotlight-card:hover .cs-spotlight-img {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   Product Grid & Cards
+   ========================================================================== */
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 70px;
+}
+
+.cs-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  backdrop-filter: blur(12px);
+}
+
+.cs-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(46, 41, 255, 0.45);
+  box-shadow: 0 20px 40px -15px rgba(46, 41, 255, 0.3);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+/* Card Mockup Window */
+.cs-card-media {
+  position: relative;
+  height: 190px;
+  background: #050711;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cs-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.9;
+}
+
+.cs-card:hover .cs-card-img {
+  transform: scale(1.06);
+  opacity: 1;
+}
+
+.cs-card-badge-overlay {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.cs-category-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(3, 7, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #00FFB2;
+  backdrop-filter: blur(8px);
+}
+
+.cs-card-arrow-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(3, 7, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  z-index: 2;
+}
+
+.cs-card:hover .cs-card-arrow-btn {
+  background: #2E29FF;
+  border-color: #2E29FF;
+  color: #FFFFFF;
+  transform: scale(1.08) rotate(45deg);
+}
+
+/* Card Body */
+.cs-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.cs-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.35;
+  margin-bottom: 10px;
+  transition: color 0.2s ease;
+}
+
+.cs-card:hover .cs-card-title {
+  color: #93C5FD;
+}
+
+.cs-card-desc {
+  font-size: 13.5px;
+  color: #94A3B8;
+  line-height: 1.6;
+  margin-bottom: 18px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Highlight Outcome Box */
+.cs-outcome-box {
+  background: rgba(0, 255, 178, 0.05);
+  border: 1px solid rgba(0, 255, 178, 0.18);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+}
+
+.cs-outcome-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748B;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.cs-outcome-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: #00FFB2;
+  line-height: 1.3;
+}
+
+/* Tech Pills */
+.cs-tech-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.cs-tech-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(46, 41, 255, 0.09);
+  color: #C0BFFF;
+  border: 1px solid rgba(46, 41, 255, 0.22);
+}
+
+/* Card Button */
+.cs-card-action-btn {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #E2E8F0;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.cs-card-action-btn:hover {
+  background: #2E29FF;
+  border-color: #2E29FF;
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   Technical Architecture Modal
+   ========================================================================== */
+.cs-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(14px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: cs-fade-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cs-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cs-modal-window {
+  background: #0B0F1F;
+  border: 1px solid rgba(46, 41, 255, 0.4);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 50px rgba(46, 41, 255, 0.2);
+  border-radius: 24px;
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: cs-modal-scale 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cs-modal-scale {
+  from { transform: scale(0.94); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.cs-modal-header {
+  padding: 24px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: sticky;
+  top: 0;
+  background: #0B0F1F;
+  z-index: 10;
+}
+
+.cs-modal-close-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94A3B8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cs-modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+.cs-modal-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.cs-modal-section-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #93C5FD;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cs-modal-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cs-modal-box {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.cs-modal-box h4 {
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.cs-modal-box p {
+  font-size: 13.5px;
+  color: #94A3B8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cs-architecture-layer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cs-arch-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px 16px;
+  background: rgba(3, 7, 18, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.cs-arch-layer-name {
+  width: 110px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #C0BFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.cs-arch-layer-detail {
+  font-size: 13px;
+  color: #CBD5E1;
+  line-height: 1.45;
+}
+
+.cs-modal-footer {
+  padding: 20px 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(7, 11, 25, 0.8);
+}
+
+/* ==========================================================================
+   Engineering Standards Strip
+   ========================================================================== */
+.cs-standards-section {
+  padding: 60px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 60px;
+}
+
+.cs-standards-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cs-standards-title h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.cs-standards-title p {
+  color: #94A3B8;
+  font-size: 15px;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.cs-standards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.cs-standard-card {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cs-standard-num {
+  font-size: 12px;
+  font-weight: 800;
+  color: #2E29FF;
+  letter-spacing: 0.1em;
+}
+
+.cs-standard-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.35;
+}
+
+.cs-standard-card p {
+  font-size: 13.5px;
+  color: #94A3B8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   CTA Banner
+   ========================================================================== */
+.cs-cta-box {
+  background: linear-gradient(135deg, rgba(46, 41, 255, 0.18) 0%, rgba(15, 23, 42, 0.95) 70%);
+  border: 1px solid rgba(46, 41, 255, 0.35);
+  box-shadow: 0 25px 60px -20px rgba(46, 41, 255, 0.25);
+  border-radius: 28px;
+  padding: 56px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.cs-cta-box h2 {
+  font-size: clamp(2rem, 3.5vw, 2.7rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.cs-cta-box p {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: #CBD5E1;
+  max-width: 680px;
+  margin: 0 auto 36px;
+  line-height: 1.65;
+}
+
+.cs-cta-btn-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cs-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #2E29FF;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(46, 41, 255, 0.45);
+}
+
+.cs-btn-primary:hover {
+  background: #221ECC;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(46, 41, 255, 0.6);
+  color: #FFFFFF;
+}
+
+.cs-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.cs-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .cs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cs-spotlight-card {
+    grid-template-columns: 1fr;
+  }
+  .cs-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cs-standards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .cs-hero {
+    padding-top: 110px;
+  }
+  .cs-grid {
+    grid-template-columns: 1fr;
+  }
+  .cs-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .cs-standards-grid {
+    grid-template-columns: 1fr;
+  }
+  .cs-modal-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .cs-filter-section {
+    border-radius: 18px;
+  }
+  .cs-spotlight-card {
+    padding: 24px;
+  }
+  .cs-cta-box {
+    padding: 36px 20px;
+  }
+  .cs-arch-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .cs-arch-layer-name {
+    width: auto;
+  }
+}
