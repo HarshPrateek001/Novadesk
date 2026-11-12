@@ -18,7 +18,7 @@ const ArrowRight = ({ size = 18 }) => (
 );
 
 const CheckCircleIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00FFB2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E29FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
     <polyline points="22 4 12 14.01 9 11.01"/>
   </svg>
@@ -32,7 +32,7 @@ const CloseIcon = () => (
 );
 
 const LayersIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00FFB2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E29FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <polygon points="12 2 2 7 12 12 22 7 12 2"/>
     <polyline points="2 17 12 22 22 17"/>
     <polyline points="2 12 12 17 22 12"/>
@@ -500,10 +500,10 @@ export default function CaseStudies() {
             {/* Modal Header */}
             <div className="cs-modal-header">
               <div>
-                <span className="cs-category-badge" style={{ marginBottom: '8px', display: 'inline-block' }}>
+                <span className="cs-modal-badge">
                   {selectedCase.categoryLabel} • {selectedCase.region}
                 </span>
-                <h3 id="cs-modal-title" style={{ fontSize: '1.45rem', fontWeight: 800, color: '#FFFFFF', margin: 0 }}>
+                <h3 id="cs-modal-title" className="cs-modal-title">
                   {selectedCase.title}
                 </h3>
               </div>
@@ -525,7 +525,7 @@ export default function CaseStudies() {
                   <h4>The Business Problem</h4>
                   <p>{selectedCase.challenge}</p>
                 </div>
-                <div className="cs-modal-box" style={{ borderColor: 'rgba(0, 255, 178, 0.25)' }}>
+                <div className="cs-modal-solution-box">
                   <h4>NovaDesk Engineered Solution</h4>
                   <p>{selectedCase.solution}</p>
                 </div>
@@ -537,7 +537,7 @@ export default function CaseStudies() {
                   <CheckCircleIcon />
                   <span>Verified Production Benchmarks</span>
                 </div>
-                <div className="cs-spotlight-stats" style={{ background: 'rgba(15, 23, 42, 0.7)' }}>
+                <div className="cs-modal-stats">
                   {selectedCase.metricsList.map((m, idx) => (
                     <div key={idx} className="cs-stat-item">
                       <div className="cs-stat-item-label">{m.label}</div>
@@ -567,13 +567,13 @@ export default function CaseStudies() {
 
               {/* Client Testimonial */}
               {selectedCase.testimonial && (
-                <div className="cs-modal-box" style={{ background: 'rgba(46, 41, 255, 0.08)', borderColor: 'rgba(46, 41, 255, 0.3)' }}>
-                  <p style={{ fontStyle: 'italic', color: '#E2E8F0', marginBottom: '12px', fontSize: '14.5px' }}>
+                <div className="cs-modal-testimonial">
+                  <p className="cs-modal-testimonial-quote">
                     "{selectedCase.testimonial.quote}"
                   </p>
-                  <div style={{ fontSize: '13px', fontWeight: 700, color: '#FFFFFF' }}>
+                  <div className="cs-modal-testimonial-author">
                     {selectedCase.testimonial.author}
-                    <span style={{ color: '#94A3B8', fontWeight: 400, marginLeft: '8px' }}>
+                    <span className="cs-modal-testimonial-role">
                       — {selectedCase.testimonial.role}
                     </span>
                   </div>
@@ -583,7 +583,7 @@ export default function CaseStudies() {
 
             {/* Modal Footer CTA */}
             <div className="cs-modal-footer">
-              <span style={{ fontSize: '13px', color: '#94A3B8' }}>
+              <span className="cs-modal-footer-note">
                 Need an architecture audit for your team?
               </span>
               <Link 
@@ -646,7 +646,7 @@ export default function CaseStudies() {
             milestone deliverables, and transparent pricing within 24 hours.
           </p>
           <div className="cs-cta-btn-group">
-            <Link to="/get-a-free-quote" className="cs-btn-primary">
+            <Link to="/get-a-free-quote" className="cs-btn-white">
               <span>Get a Detailed Scope Estimate</span>
               <ArrowRight size={17} />
             </Link>
@@ -654,7 +654,7 @@ export default function CaseStudies() {
               href="https://calendly.com/itsharshprateek/30min" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="cs-btn-outline"
+              className="cs-btn-outline-white"
             >
               <span>Book Founder Strategy Call</span>
               <ArrowUpRight size={17} />
