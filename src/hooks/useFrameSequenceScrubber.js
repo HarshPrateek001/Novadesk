@@ -27,6 +27,7 @@ export function useFrameSequenceScrubber({
   onReady,
 }) {
   const [isReady, setIsReady] = useState(false);
+  const isReadyRef = useRef(false);
   const loadedCountRef = useRef(0);
   const imagesRef = useRef([]);
   const onReadyRef = useRef(onReady);
@@ -107,7 +108,8 @@ export function useFrameSequenceScrubber({
           loadedFlags[idx] = 1;
           loadedCountRef.current += 1;
 
-          if (idx === 0 && !isReady) {
+          if (idx === 0 && !isReadyRef.current) {
+            isReadyRef.current = true;
             setIsReady(true);
             onReadyRef.current?.();
             drawFrame(renderedProgress, true);
