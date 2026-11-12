@@ -102,7 +102,7 @@ export default function CaseStudies() {
         title="Client Case Studies & Verified Results | NovaDesk"
         description="Explore NovaDesk's real-world client case studies across custom web applications, SaaS platforms, e-commerce, and enterprise AI engineering. Verified ROI and metrics."
         url="/case-studies"
-        keywords="software development case studies, web app portfolio, AI development case studies, SaaS engineering results, NovaDesk work, ecommerce case study India"
+        keywords="software development case studies, custom web app portfolio, AI engineering case studies, B2B SaaS architecture results, ecommerce conversion case study, enterprise product delivery, NovaDesk work"
         breadcrumbs={breadcrumbs}
         schema={portfolioSchema}
       />

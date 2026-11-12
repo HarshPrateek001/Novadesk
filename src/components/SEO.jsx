@@ -28,7 +28,7 @@ export default function SEO({
     : siteTitle;
   const pageDescription = description || defaultDescription;
   
-  const defaultKeywords = "web development agency, custom software development, Next.js React developers, ecommerce development, startup MVP development, NovaDesk";
+  const defaultKeywords = "custom software development company, AI software development agency, web application development services, SaaS product engineering, mobile app development company, ecommerce development agency, NovaDesk";
 
   const pageKeywords = keywords || defaultKeywords;
   const canonicalTarget = canonical || url;

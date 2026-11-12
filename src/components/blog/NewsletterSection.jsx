@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { submitLeadPayload } from '../../services/novaAiService';
+import { trackEvent } from '../../lib/analytics';
 
 const GOOGLE_SCRIPT_FALLBACK = "https://script.google.com/macros/s/AKfycby5JEjLhCyXvkxfKEu05WEbN9HlSRs4USuCQTudEygl7Cy_3YCN1zcD3E5f5DGKUpMY/exec";
 
@@ -61,6 +62,7 @@ export function NewsletterSection() {
 
       setStatus('success');
       setEmail('');
+      trackEvent('newsletter_signup', { form_location: 'blog_newsletter' });
     } catch (err) {
       console.error('[Newsletter] Submission error:', err);
       setStatus('error');

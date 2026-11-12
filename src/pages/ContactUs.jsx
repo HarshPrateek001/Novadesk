@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import { trackEvent } from '../lib/analytics';
 
 const CalendlyWidget = () => {
   useEffect(() => {
@@ -10,7 +11,15 @@ const CalendlyWidget = () => {
     script.async = true;
     document.body.appendChild(script);
 
+    const handleCalendlyMessage = (e) => {
+      if (e.origin === 'https://calendly.com' && e.data?.event === 'calendly.event_scheduled') {
+        trackEvent('schedule_consultation', { form_name: 'calendly_widget' });
+      }
+    };
+    window.addEventListener('message', handleCalendlyMessage);
+
     return () => {
+      window.removeEventListener('message', handleCalendlyMessage);
       // Clean up the script when the component unmounts
       if (document.body.contains(script)) {
         document.body.removeChild(script);
@@ -39,7 +48,7 @@ export default function ContactUs() {
   return (
     <>
       <SEO 
-        keywords="Contact NovaDesk, software agency contact, hire developers, free software consultation" 
+        keywords="contact software development agency, hire custom software developers, book software architecture consultation, AI engineering discovery call, dedicated engineering team inquiry, NovaDesk contact" 
         title="Contact Us"
         description="Schedule a free consultation or get in touch with our team to start building your next big idea."
         url="/contact-us"

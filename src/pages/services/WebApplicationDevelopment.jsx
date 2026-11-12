@@ -90,7 +90,7 @@ export default function WebApplicationDevelopment() {
         title="Custom Web Application Development Services"
         description="Custom web application development for startups & businesses — dashboards, portals, booking systems, internal tools. Built to scale. Get a free quote."
         url="/services/web-application-development"
-        keywords="web application development, custom web app, React development, business dashboard, internal tools"
+        keywords="web application development company, custom B2B web app engineering, SaaS web application development, React and Node.js portal developers, internal tools engineering agency, cloud-native web apps, NovaDesk"
         schema={schemaJson}
       />
 

@@ -85,7 +85,7 @@ export default function EcommerceDevelopment() {
         title="E-Commerce Development Company | Custom Online Stores & Shopify"
         description="NovaDesk is a premier e-commerce development company in India building high-converting online stores, Shopify platforms, and custom headless e-commerce solutions. Get a quote."
         url="/services/ecommerce-development"
-        keywords="ecommerce development company, custom ecommerce development services, hire Shopify developers, headless ecommerce development, online store developers India"
+        keywords="ecommerce development company, B2B ecommerce web development agency, custom online storefront development, headless ecommerce development, Shopify Plus and WooCommerce agency, ecommerce payment gateway integration, NovaDesk ecommerce"
         schema={[serviceSchema, faqSchema]}
         breadcrumbs={breadcrumbs}
       />

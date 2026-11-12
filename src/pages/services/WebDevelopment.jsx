@@ -97,7 +97,7 @@ export default function WebDevelopment() {
         title="Web Development Company | Custom Web Development Services"
         description="NovaDesk is a top web development company in India building fast, accessible, high-converting websites and modern web apps for startups and global enterprises. Get a project estimate."
         url="/services/web-development"
-        keywords="web development company, custom web development services, hire web developers, Next.js development, React development agency, modern website engineering India"
+        keywords="custom web development company, bespoke web development agency, hire Next.js React developers, B2B web platform engineering, Core Web Vitals web development, modern website engineering, NovaDesk"
         schema={[serviceSchema, faqSchema]}
         breadcrumbs={breadcrumbs}
       />

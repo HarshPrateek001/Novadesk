@@ -135,7 +135,7 @@ export default function Fintech() {
         title="Fintech App Development Company | Novadesk"
         description="Novadesk is a leading fintech app development company in India, trusted by startups & enterprises. We build secure and compliant fintech solutions."
         url="/industries/fintech"
-        keywords="Fintech App Development Company"
+        keywords="fintech app development company, custom financial software development services, digital wallet app development, neobank platform engineering, PCI-DSS compliant fintech developers, payment gateway integration agency, regtech software development, NovaDesk fintech"
       />
 
       <main>

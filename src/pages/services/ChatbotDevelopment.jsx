@@ -671,7 +671,7 @@ export default function ChatbotDevelopment() {
         description="Build custom AI chatbots that automate customer support, qualify leads 24/7, and integrate with your CRM. We develop rule-based bots, NLP chatbots, GPT-4/LLM RAG assistants, voice agents & hybrid systems. Free consultation."
         url="/services/chatbot-development"
         image="https://www.novadesk.site/og-image.png"
-        keywords="chatbot development services, custom AI chatbot, conversational AI development, NLP chatbot developers, GPT-4 chatbot, LLM chatbot development, RAG chatbot, WhatsApp chatbot development, chatbot integration CRM, Dialogflow development, chatbot for customer support, lead generation chatbot, AI chatbot company India, voice bot development, omnichannel chatbot deployment"
+        keywords="enterprise AI chatbot development services, RAG chatbot integration, WhatsApp AI chatbot automation, omnichannel conversational AI agents, customer support AI assistant, LLM tool-calling chatbot, lead qualification AI bot, NovaDesk"
         schema={schemaJson}
       />
 

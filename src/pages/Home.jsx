@@ -592,6 +592,16 @@ export default function Home() {
       "logo": "https://www.novadesk.site/favicon.svg",
       "image": "https://www.novadesk.site/novadesk_team_5_members_hero.webp",
       "description": "NovaDesk designs and engineers high-performance web applications, modern e-commerce stores, and custom software for growing businesses and startups.",
+      "knowsAbout": [
+        "Custom Software Development",
+        "Generative AI & Agentic Workflows",
+        "Web Application Engineering",
+        "Multi-Tenant SaaS Architecture",
+        "Mobile App Development",
+        "E-Commerce Platforms",
+        "Cloud-Native DevOps",
+        "Technical SEO"
+      ],
       "priceRange": "$$",
       "telephone": "+91-7870142813",
       "email": "novadesk.site@gmail.com",
@@ -636,6 +646,7 @@ export default function Home() {
       <SEO 
         title="NovaDesk | Websites, Software & Digital Products Built for Growth"
         description="NovaDesk helps businesses and startups design and build fast, modern websites, e-commerce platforms, and custom software. Direct founder communication, full code ownership, and transparent milestone delivery."
+        keywords="custom software development company, bespoke software development services, AI software development agency, web application development agency, B2B SaaS product engineering, startup MVP development company, mobile app development agency, NovaDesk"
         url="/"
         canonical="https://www.novadesk.site/"
         schema={jsonLdSchema}

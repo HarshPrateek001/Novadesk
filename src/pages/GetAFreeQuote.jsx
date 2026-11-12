@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import { trackEvent } from '../lib/analytics';
 
 /* ─── SVG Icons ─────────────────────────────────────────────────────────── */
 const ChevronDown = () => (
@@ -105,6 +106,11 @@ export default function GetAFreeQuote() {
       } else {
         await new Promise((resolve) => setTimeout(resolve, 1200));
       }
+      trackEvent('generate_lead', {
+        form_name: 'get_a_free_quote',
+        project_type: formData.projectType || 'unspecified',
+        budget_range: formData.budget || 'unspecified',
+      });
     } catch (error) {
       console.error("Submission error:", error);
     } finally {
@@ -126,7 +132,7 @@ export default function GetAFreeQuote() {
       <SEO
         title="Request a Quote | NovaDesk"
         description="Entrust with high professionalism, NovaDesk offers pixel-perfect web & mobile application development, third-party integrations, and AI solutions."
-        keywords="Request a quote, web development quote, mobile app estimate, software quote India, hire developers NovaDesk"
+        keywords="custom software development cost estimate, software project quote, web application pricing, mobile app development quote, MVP cost estimator, hire software engineers, NovaDesk quote"
         url="/get-a-free-quote"
         schema={quoteSchema}
       />

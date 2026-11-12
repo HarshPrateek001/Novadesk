@@ -305,7 +305,7 @@ export default function AboutUs() {
   return (
     <>
       <SEO
-        keywords="About NovaDesk, Harsh Prateek, Piusha Patra, Piusha Patra NovaDesk, Harsh Prateek Founder, bespoke software studio, digital product engineering, applied AI studio India"
+        keywords="About NovaDesk, Harsh Prateek Founder, Piusha Patra NovaDesk, bespoke software development partner, custom AI engineering studio, outsourced software development team, digital product engineering agency"
         title="About NovaDesk | The Human Software Engineering Studio"
         description="NovaDesk is an authentic digital product and applied AI engineering studio founded by Harsh Prateek and Piusha Patra. Direct senior builder execution, weekly shippable staging, and zero junior handoffs."
         url="/about-us"

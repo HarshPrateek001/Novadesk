@@ -260,6 +260,10 @@ export default function BlogListPage() {
           name="description"
           content="Engineering intelligence and fresh perspectives on AI, cloud modernization, custom software, FinTech security, and digital growth from NovaDesk."
         />
+        <meta
+          name="keywords"
+          content="software engineering blog, generative AI architecture guides, SaaS engineering insights, technical SEO best practices, cloud modernization articles, custom software cost guide, NovaDesk insights"
+        />
         <meta property="og:title" content="NovaDesk Blog & Engineering Insights" />
         <meta property="og:description" content="Fresh thinking on AI, cloud, and digital business to help you decide what to build next." />
         <meta property="og:type" content="website" />

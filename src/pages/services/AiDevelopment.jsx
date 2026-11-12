@@ -85,7 +85,7 @@ export default function AiDevelopment() {
         title="AI Development Company | Generative AI & Intelligent Systems"
         description="NovaDesk is a premier AI development company engineering custom generative AI systems, enterprise chatbots, RAG vector pipelines, and autonomous workflows. Get a free AI consultation."
         url="/services/ai-development"
-        keywords="AI development company, generative AI solutions, custom AI chatbots, enterprise RAG development, AI software engineering India, hire AI developers"
+        keywords="custom AI development company, generative AI development partners, enterprise RAG solutions, agentic AI workflow automation, Model Context Protocol MCP integration, LLM fine-tuning services, hire AI engineers, NovaDesk AI"
         schema={[serviceSchema, faqSchema]}
         breadcrumbs={breadcrumbs}
       />

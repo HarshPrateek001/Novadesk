@@ -85,7 +85,7 @@ export default function UiUxDesign() {
         title="UI/UX Design Company | Digital Product & SaaS Design Studio"
         description="NovaDesk is a premier UI/UX design studio crafting modern, accessible, conversion-driven digital products, SaaS dashboards, and mobile applications. Get a design quote."
         url="/services/ui-ux-design"
-        keywords="UI UX design company, product design agency, SaaS UI UX design, mobile app design studio, hire Figma designers, digital product design India"
+        keywords="UI UX design agency for SaaS, product design studio, B2B web application UX design, mobile app UI UX designers, Figma design systems agency, conversion rate optimization UX, NovaDesk design"
         schema={[serviceSchema, faqSchema]}
         breadcrumbs={breadcrumbs}
       />

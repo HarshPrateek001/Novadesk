@@ -7,6 +7,7 @@ const industryData = {
   'healthcare': {
     name: 'Healthcare',
     title: 'Healthcare Software Development Company | HIPAA-Compliant HealthTech',
+    keywords: 'healthcare software development company, HIPAA compliant app development, custom EHR EMR software development, telehealth app development agency, HealthTech software solutions, patient portal development, NovaDesk healthcare',
     badge: 'HEALTHCARE & HEALTHTECH',
     h1: 'Engineering Secure, Compliant Healthcare Software',
     subtitle: 'From telemedicine portals and EHR/EMR integrations to patient mobile apps and AI diagnostics — built to strict HIPAA and ISO standards.',
@@ -31,6 +32,7 @@ const industryData = {
   'logistics': {
     name: 'Logistics',
     title: 'Logistics & Supply Chain Software Development | NovaDesk',
+    keywords: 'logistics software development company, supply chain app development services, fleet management software development, warehouse management system WMS development, last-mile delivery app, freight platform engineering, NovaDesk logistics',
     badge: 'LOGISTICS & SUPPLY CHAIN',
     h1: 'Custom Logistics, Fleet & Warehouse Management Software',
     subtitle: 'Real-time GPS fleet tracking, route optimization algorithms, automated dispatch, and cloud warehouse management systems (WMS).',
@@ -55,6 +57,7 @@ const industryData = {
   'real-estate': {
     name: 'Real Estate',
     title: 'Real Estate & PropTech Software Development | NovaDesk',
+    keywords: 'real estate app development company, PropTech software development services, MLS integration software, property management software development, real estate CRM development, virtual property tour platform, NovaDesk real estate',
     badge: 'REAL ESTATE & PROPTECH',
     h1: 'Scalable PropTech Platforms & Property Portals',
     subtitle: 'Custom MLS/RETS integrations, tenant leasing portals, digital lease signing, and interactive 3D virtual tour platforms.',
@@ -79,6 +82,7 @@ const industryData = {
   'staffing': {
     name: 'Staffing',
     title: 'Staffing & HR Tech Software Development | NovaDesk',
+    keywords: 'staffing agency software development, recruitment software development company, ATS applicant tracking system development, HR tech software solutions, on-demand staffing platform, job portal app development, NovaDesk staffing',
     badge: 'STAFFING & HR TECH',
     h1: 'Applicant Tracking Systems & Workforce Platforms',
     subtitle: 'AI-assisted resume screening, automated recruiter workflows, interview pipelines, and contractor payroll management.',
@@ -103,6 +107,7 @@ const industryData = {
   'education': {
     name: 'Education',
     title: 'EdTech & Learning Management Software Development | NovaDesk',
+    keywords: 'EdTech software development company, e-learning app development services, custom LMS learning management system development, virtual classroom software, school university management ERP, EdTech mobile apps, NovaDesk education',
     badge: 'EDTECH & E-LEARNING',
     h1: 'Next-Generation Learning Management Systems (LMS)',
     subtitle: 'Interactive virtual classrooms, AI quiz generation, progress analytics, and SCORM/xAPI compliant course delivery.',
@@ -127,6 +132,7 @@ const industryData = {
   'retail': {
     name: 'Retail',
     title: 'Retail Software & POS Systems Development | NovaDesk',
+    keywords: 'retail software development company, omnichannel retail POS development, retail inventory management software, custom ecommerce store engineering, retail loyalty app development, headless commerce retail, NovaDesk retail',
     badge: 'RETAIL & OMNICHANNEL',
     h1: 'Omnichannel Retail Platforms & Cloud POS Systems',
     subtitle: 'Unified online and offline inventory synchronization, customer loyalty programs, and high-speed in-store checkout.',
@@ -151,6 +157,7 @@ const industryData = {
   'marketplace': {
     name: 'Marketplace',
     title: 'Multi-Vendor Marketplace Platform Development | NovaDesk',
+    keywords: 'multi-vendor marketplace app development, B2B marketplace software development company, custom online marketplace platform, peer-to-peer marketplace app, service marketplace engineering, escrow payment marketplace, NovaDesk marketplace',
     badge: 'MARKETPLACE & PLATFORMS',
     h1: 'Scalable Two-Sided Marketplaces & Multi-Vendor Platforms',
     subtitle: 'Automated vendor onboarding, commission split payouts, dispute resolution, and escrow payment architectures.',
@@ -175,6 +182,7 @@ const industryData = {
   'sports': {
     name: 'Sports',
     title: 'Sports Tech & Fan Engagement Software Development | NovaDesk',
+    keywords: 'sports app development company, live sports score streaming platform, tournament league management software, athlete performance analytics app, fan engagement platform development, fantasy sports software engineering, NovaDesk sports',
     badge: 'SPORTS TECH & ANALYTICS',
     h1: 'Sports Management, Analytics & Fan Engagement Platforms',
     subtitle: 'Tournament fixtures, athlete biometric telemetry, live score streaming, and branded fan community apps.',
@@ -199,6 +207,7 @@ const industryData = {
   'food-and-restaurant': {
     name: 'Food & Restaurant',
     title: 'Restaurant Tech & Online Food Ordering Software | NovaDesk',
+    keywords: 'food delivery app development company, restaurant online ordering system software, kitchen display system KDS development, cloud kitchen software, contactless QR ordering app, white-label food delivery app, NovaDesk foodtech',
     badge: 'FOODTECH & RESTAURANTS',
     h1: 'Custom Food Delivery Apps, POS & Kitchen Display Systems',
     subtitle: 'Zero-commission online ordering, real-time rider tracking, table QR digital menus, and Kitchen Display Systems (KDS).',
@@ -223,6 +232,7 @@ const industryData = {
   'travel-and-hospitality': {
     name: 'Travel & Hospitality',
     title: 'Travel & Hospitality Software Development Company | NovaDesk',
+    keywords: 'travel booking app development company, hotel management software PMS development, OTA channel manager integration, flight hotel booking engine, tour travel portal development, hospitality guest app, NovaDesk travel',
     badge: 'TRAVEL & HOSPITALITY',
     h1: 'Travel Booking Engines & Hotel Management Software',
     subtitle: 'Direct booking engines, GDS/OTA channel managers, itinerary planners, and contactless hotel guest experiences.',
@@ -247,6 +257,7 @@ const industryData = {
   'on-demand': {
     name: 'On-Demand',
     title: 'On-Demand App Development Company | Uber-Like Custom Apps',
+    keywords: 'on-demand app development company, hyperlocal delivery app development, Uber-like app development services, multi-vendor on-demand platform, real-time GPS dispatch software, quick-commerce Q-commerce app, NovaDesk on-demand',
     badge: 'ON-DEMAND & HYPERLOCAL',
     h1: 'Custom On-Demand Service & Delivery Applications',
     subtitle: 'Uber-for-X platforms featuring three apps in one: Customer App, Service Provider App, and Mission-Control Admin Dashboard.',
@@ -295,6 +306,7 @@ export default function IndustryPage() {
       "url": "https://www.novadesk.site"
     },
     "description": data.subtitle,
+    "keywords": data.keywords,
     "areaServed": "India, Global",
     "serviceType": `${data.name} Software Engineering`
   };
@@ -304,6 +316,7 @@ export default function IndustryPage() {
       <SEO 
         title={data.title}
         description={data.subtitle}
+        keywords={data.keywords}
         url={`/industries/${cleanSlug}`}
         canonical={`https://www.novadesk.site/industries/${cleanSlug}`}
         schema={jsonLdSchema}

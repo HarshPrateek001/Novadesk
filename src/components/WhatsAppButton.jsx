@@ -1,4 +1,5 @@
 import React from 'react';
+import { trackEvent } from '../lib/analytics';
 
 const IconWhatsApp = () => (
   <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
@@ -16,6 +17,7 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer" 
       className="nd-whatsapp-wrapper"
       aria-label="Contact us on WhatsApp"
+      onClick={() => trackEvent('whatsapp_click', { location: 'floating_button' })}
     >
       <style>{`
         .nd-whatsapp-wrapper {

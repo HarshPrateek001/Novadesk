@@ -49,6 +49,7 @@ export default function ServiceTemplate({ service }) {
       "url": "https://www.novadesk.site/"
     },
     "areaServed": ["India", "United States", "United Kingdom", "Worldwide"],
+    "keywords": service.keywords,
     "description": service.serviceDescription || service.description
   };
 
