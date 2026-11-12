@@ -38,6 +38,7 @@ like/
 scratch/
 .agents/
 .kilo/
+archived_files/
 
 # Root scratch files
 txt1
@@ -46,3 +47,5 @@ t5d42NEZJZ.json
 instructions.txt
 company_overview.pdf
 generate-pdf.cjs
+FORGE_AI_Core_activating_bdfd0172_1080p.mp4
+FORGE_FRAME_ANALYSIS.md
