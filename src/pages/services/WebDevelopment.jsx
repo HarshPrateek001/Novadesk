@@ -6,7 +6,7 @@ import Breadcrumb from '../../components/Breadcrumb';
 // Clean SVG Icons
 const ArrowRight = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M5 12h14M12 5l7 7-7 7"/>
+    <path d="M5 12h14M12 5l7 7-7 7" />
   </svg>
 );
 
@@ -18,7 +18,7 @@ const CheckCircle = () => (
 );
 
 const ChevronDown = ({ isOpen }) => (
-  <svg 
+  <svg
     width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
     style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.25s ease' }}
     aria-hidden="true"
@@ -93,7 +93,7 @@ export default function WebDevelopment() {
 
   return (
     <div className="nd-service-page">
-      <SEO 
+      <SEO
         title="Web Development Company | Custom Web Development Services"
         description="NovaDesk is a top web development company in India building fast, accessible, high-converting websites and modern web apps for startups and global enterprises. Get a project estimate."
         url="/services/web-development"
@@ -428,7 +428,7 @@ export default function WebDevelopment() {
         <section className="nd-process-box">
           <span style={{ fontSize: '11px', fontWeight: 700, color: '#00FFB2', letterSpacing: '1.5px', textTransform: 'uppercase' }}>EXECUTION CADENCE</span>
           <h2 style={{ fontSize: '32px', fontWeight: 800, color: '#ffffff', marginTop: '6px' }}>How NovaDesk Ships Production Web Software</h2>
-          
+
           <div className="nd-process-steps-grid">
             <div className="nd-step-card">
               <div className="nd-step-num">Step 01</div>
@@ -463,9 +463,9 @@ export default function WebDevelopment() {
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             {faqs.map((faq, idx) => (
               <div key={idx} className="nd-faq-item">
-                <button 
-                  type="button" 
-                  className="nd-faq-btn" 
+                <button
+                  type="button"
+                  className="nd-faq-btn"
                   onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
                   aria-expanded={openFaq === idx}
                 >

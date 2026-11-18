@@ -226,12 +226,10 @@ async function runAll() {
     assert.strictEqual(staleMatches.length, 0, `Found stale "Full-Stack Web Development" in: ${staleMatches.join(', ')}`);
   });
 
-  test('All 21 service files in src/pages/services/ are refactored to use ServiceTemplate', () => {
+  test('Remaining 18 service files in src/pages/services/ are refactored to use ServiceTemplate', () => {
     const serviceFiles = [
-      { file: 'AiIntegratedSoftware.jsx', slug: 'ai-integrated-software' },
       { file: 'AndroidDevelopment.jsx', slug: 'android-development' },
       { file: 'CmsDevelopment.jsx', slug: 'cms-development' },
-      { file: 'ConversationalAi.jsx', slug: 'conversational-ai' },
       { file: 'CrmSystemsDevelopment.jsx', slug: 'crm-systems-development' },
       { file: 'CustomSoftwareDevelopment.jsx', slug: 'custom-software-development' },
       { file: 'EcommerceDesign.jsx', slug: 'ecommerce-design' },
@@ -239,7 +237,6 @@ async function runAll() {
       { file: 'EnterpriseSoftwareDevelopment.jsx', slug: 'enterprise-software-development' },
       { file: 'ErpSoftwareDevelopment.jsx', slug: 'erp-software-development' },
       { file: 'FullStackDevelopment.jsx', slug: 'full-stack-development' },
-      { file: 'GenAiDevelopment.jsx', slug: 'gen-ai-development' },
       { file: 'IosDevelopment.jsx', slug: 'ios-development' },
       { file: 'MobileAppDevelopment.jsx', slug: 'mobile-app-development' },
       { file: 'MvpDevelopment.jsx', slug: 'mvp-development' },
@@ -267,7 +264,7 @@ async function runAll() {
     });
   });
 
-  test('8 custom service pages remain preserved and uncorrupted', () => {
+  test('11 custom service pages remain preserved and uncorrupted', () => {
     const customPages = [
       'WebDevelopment.jsx',
       'AiDevelopment.jsx',
@@ -276,7 +273,10 @@ async function runAll() {
       'SeoServices.jsx',
       'WebsiteMaintenance.jsx',
       'ChatbotDevelopment.jsx',
-      'WebApplicationDevelopment.jsx'
+      'WebApplicationDevelopment.jsx',
+      'GenAiDevelopment.jsx',
+      'AiIntegratedSoftware.jsx',
+      'ConversationalAi.jsx'
     ];
     customPages.forEach(file => {
       const filePath = path.resolve(`src/pages/services/${file}`);

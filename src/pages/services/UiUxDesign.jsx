@@ -5,12 +5,12 @@ import Breadcrumb from '../../components/Breadcrumb';
 
 const ArrowRight = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M5 12h14M12 5l7 7-7 7"/>
+    <path d="M5 12h14M12 5l7 7-7 7" />
   </svg>
 );
 
 const ChevronDown = ({ isOpen }) => (
-  <svg 
+  <svg
     width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
     style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.25s ease' }}
     aria-hidden="true"
@@ -81,7 +81,7 @@ export default function UiUxDesign() {
 
   return (
     <div className="nd-service-page">
-      <SEO 
+      <SEO
         title="UI/UX Design Company | Digital Product & SaaS Design Studio"
         description="NovaDesk is a premier UI/UX design studio crafting modern, accessible, conversion-driven digital products, SaaS dashboards, and mobile applications. Get a design quote."
         url="/services/ui-ux-design"
@@ -292,7 +292,7 @@ export default function UiUxDesign() {
         <section className="nd-process-box">
           <span style={{ fontSize: '11px', fontWeight: 700, color: '#00FFB2', letterSpacing: '1.5px', textTransform: 'uppercase' }}>DESIGN METHODOLOGY</span>
           <h2 style={{ fontSize: '32px', fontWeight: 800, color: '#ffffff', marginTop: '6px' }}>Our 4-Stage Product Design Cycle</h2>
-          
+
           <div className="nd-process-steps-grid">
             <div className="nd-step-card">
               <div className="nd-step-num">Step 01</div>
@@ -326,9 +326,9 @@ export default function UiUxDesign() {
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             {faqs.map((faq, idx) => (
               <div key={idx} className="nd-faq-item">
-                <button 
-                  type="button" 
-                  className="nd-faq-btn" 
+                <button
+                  type="button"
+                  className="nd-faq-btn"
                   onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
                   aria-expanded={openFaq === idx}
                 >
