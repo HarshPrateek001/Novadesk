@@ -22,6 +22,24 @@ const IconChevronDown = () => (
   </svg>
 );
 
+const HeroCheckBadge = () => (
+  <span style={{
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    borderRadius: '50%',
+    background: 'rgba(46, 41, 255, 0.1)',
+    color: '#2E29FF',
+    flexShrink: 0
+  }}>
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+  </span>
+);
+
 function FaqItem({ q, a, open, onToggle }) {
   return (
     <div className={`nd-faq-item ${open ? 'nd-faq-open' : ''}`}>
@@ -530,41 +548,123 @@ export default function GenAiDevelopment() {
           <div className="fs-container fs-hero-grid">
             <div className="fs-hero-text">
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(46,41,255,0.08)', border: '1px solid rgba(46,41,255,0.2)', padding: '6px 16px', borderRadius: '40px', fontSize: '11px', fontWeight: '700', color: '#2E29FF', letterSpacing: '0.8px', textTransform: 'uppercase', marginBottom: '20px' }}>
-                ENTERPRISE GENERATIVE AI STUDIO
+                Enterprise Generative AI Studio
               </div>
               <h1 className="fs-hero-title">
                 Generative AI Built for <span className="fs-text-blue">Real Business Workflows</span>
               </h1>
-              <p className="fs-hero-desc" style={{ marginBottom: '32px' }}>
+              <p className="fs-hero-desc" style={{ marginBottom: '38px' }}>
                 Transform unstructured enterprise documents, databases, and repetitive workflows into grounded, high-accuracy AI tools. We engineer private RAG pipelines, autonomous agent swarms, and sovereign on-premise LLMs with zero vendor lock-in.
               </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '36px' }}>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
                   <Link to="/contact-us" className="fs-btn fs-btn-primary" style={{ height: '52px', padding: '0 28px', borderRadius: '12px', fontSize: '15px', fontWeight: '700', boxShadow: '0 8px 20px rgba(46, 41, 255, 0.25)' }}>
                     Book Architecture Consultation <ArrowRight />
                   </Link>
-                  <Link to="/case-studies" className="fs-btn" style={{ height: '52px', padding: '0 26px', borderRadius: '12px', fontSize: '15px', fontWeight: '700', backgroundColor: '#0B0F19', color: '#ffffff', textDecoration: 'none' }}>
+                  <Link to="/case-studies" className="fs-btn" style={{ height: '52px', padding: '0 26px', borderRadius: '12px', fontSize: '15px', fontWeight: '700', backgroundColor: '#0B0F19', color: '#ffffff', border: 'none', textDecoration: 'none' }}>
                     Explore Case Studies →
                   </Link>
                 </div>
 
                 <div style={{ fontSize: '13.5px', color: '#475569', display: 'flex', flexWrap: 'wrap', gap: '22px', fontWeight: '600', marginTop: '6px', alignItems: 'center' }}>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    <CheckCircle /> 100% Code & Weights Ownership
+                    <HeroCheckBadge /> 100% Code & Weights Ownership
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    <CheckCircle /> Zero Data Egress / Air-Gapped Ready
+                    <HeroCheckBadge /> Zero Public Data Egress
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    <CheckCircle /> Sub-Second Hybrid Vector Search
+                    <HeroCheckBadge /> Sub-Second Hybrid Vector Search
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="fs-hero-image-wrapper">
-              <HeroGenAiAnimation />
+            <HeroGenAiAnimation />
+          </div>
+        </section>
+
+        {/* TRUST ACCREDITATION TICKER & ROYAL BLUE METRICS SECTION */}
+        <section className="fs-agency-alt">
+          <div className="nd-ticker-wrap">
+            <div className="nd-ticker">
+              <div className="nd-ticker-track">
+                {[...Array(2)].map((_, idx) => (
+                  <div key={idx} className="nd-ticker-group">
+                    <span>✦ ENTERPRISE RAG PIPELINES</span>
+                    <span>✦ PRIVATE VLLM HOSTING</span>
+                    <span>✦ AUTONOMOUS LANGGRAPH AGENTS</span>
+                    <span>✦ HYBRID PGVECTOR SEARCH</span>
+                    <span>✦ GROUNDED MULTI-MODAL MODELS</span>
+                    <span>✦ 100% IP & WEIGHT OWNERSHIP</span>
+                    <span>✦ ZERO PUBLIC DATA EGRESS</span>
+                    <span>✦ GUARANTEED SUB-SECOND SLA</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="fs-agency-alt-bg">
+            <div className="nd-intro">
+              <div className="nd-intro-inner">
+                <div className="nd-intro-text">
+                  <h2>Built for enterprises that demand <em>grounded, verifiable reasoning</em></h2>
+                  <p>Skip generic prompts and hallucinated wrappers. We engineer high-precision enterprise generative architectures anchored to private databases with deterministic guardrails.</p>
+                </div>
+                <div className="nd-intro-stats">
+                  <div className="nd-intro-stat">
+                    <div className="nd-intro-stat-num">&lt;0.8<sub>s</sub></div>
+                    <div className="nd-intro-stat-label">Time to First Token</div>
+                  </div>
+                  <div className="nd-intro-divider" />
+                  <div className="nd-intro-stat">
+                    <div className="nd-intro-stat-num">99.4<sub>%</sub></div>
+                    <div className="nd-intro-stat-label">Citation Groundedness</div>
+                  </div>
+                  <div className="nd-intro-divider" />
+                  <div className="nd-intro-stat">
+                    <div className="nd-intro-stat-num">100<sub>%</sub></div>
+                    <div className="nd-intro-stat-label">Weights & IP Ownership</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="fs-usp-bar-transparent">
+              <div className="fs-container fs-usp-grid">
+                <div className="fs-usp-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                  </svg>
+                  <div>Custom-Built,<br/>Fully Owned Weights</div>
+                </div>
+                <div className="fs-usp-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/>
+                  </svg>
+                  <div>Hybrid Vector Search<br/>& Dense Re-Ranking</div>
+                </div>
+                <div className="fs-usp-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                  <div>Free Initial Strategy<br/>& Architecture Call</div>
+                </div>
+                <div className="fs-usp-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                  </svg>
+                  <div>Continuous Evals<br/>& Ragas Benchmarking</div>
+                </div>
+                <div className="fs-usp-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                  </svg>
+                  <div>Transparent,<br/>Milestone-Based Fees</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
