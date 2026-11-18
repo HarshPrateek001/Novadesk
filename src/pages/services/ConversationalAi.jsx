@@ -36,7 +36,7 @@ function FaqItem({ q, a, open, onToggle }) {
   );
 }
 
-// Interactive Hero Simulation Widget: Live Voice Agent & Telephony Streamer
+// 1. Interactive Hero Simulation Widget
 function HeroVoiceAnimation() {
   const [callerState, setCallerState] = useState(0);
   const [isInterrupted, setIsInterrupted] = useState(false);
@@ -80,20 +80,19 @@ function HeroVoiceAnimation() {
   return (
     <div className="nd-hero-browser-wrapper">
       <div className="nd-browser-card">
-        <div className="nd-browser-topbar nd-browser-topbar-flex">
+        <div className="nd-browser-topbar">
           <div className="nd-browser-dots">
             <span className="nd-dot red"></span>
             <span className="nd-dot yellow"></span>
             <span className="nd-dot green"></span>
           </div>
-          <div className="nd-status-tag active">
-            <span className="nd-status-dot"></span>
+          <div className="nd-browser-url">
+            <span className="nd-status-dot" style={{ background: '#10B981', boxShadow: '0 0 6px #10B981', marginRight: '6px' }}></span>
             Real-Time SIP Telephony · WebSockets Audio
           </div>
         </div>
 
         <div className="nd-voice-body">
-          {/* Active Call UI Card */}
           <div className="nd-voice-call-card">
             <div className="nd-voice-caller-row">
               <div className="nd-caller-meta">
@@ -110,7 +109,6 @@ function HeroVoiceAnimation() {
               </span>
             </div>
 
-            {/* Pulsing Audio Waveform */}
             <div className="nd-waveform-wrap">
               {[18, 36, 48, 24, 42, 54, 30, 48, 22, 40, 50, 26, 44, 32].map((height, i) => (
                 <div
@@ -124,7 +122,6 @@ function HeroVoiceAnimation() {
               ))}
             </div>
 
-            {/* Live Streaming Audio Transcript */}
             <div className="nd-voice-transcript">
               <div className="nd-vt-row">
                 <span className="nd-vt-speaker caller">Caller:</span>
@@ -142,7 +139,6 @@ function HeroVoiceAnimation() {
               </div>
             </div>
 
-            {/* Interactive Telephony Action Controls */}
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '4px' }}>
               <button
                 type="button"
@@ -163,7 +159,6 @@ function HeroVoiceAnimation() {
             </div>
           </div>
 
-          {/* Sub-500ms Latency Metrics Strip */}
           <div className="nd-voice-metrics-strip">
             <div className="nd-vm-item">
               <span className="nd-vm-lbl">STT (Deepgram)</span>
@@ -188,7 +183,7 @@ function HeroVoiceAnimation() {
   );
 }
 
-// Interactive Architecture Visualizer
+// 2. Interactive Architecture Visualizer
 function ArchVizConversational({ activeArch }) {
   return (
     <div className="av-wrapper">
@@ -391,6 +386,78 @@ export default function ConversationalAi() {
     window.scrollTo(0, 0);
   }, []);
 
+  const architectures = [
+    {
+      title: "Sub-500ms Audio Pipeline",
+      tagline: "Ultra-Low Latency Speech Loop",
+      badge: "Human-Like Timing",
+      complexity: "High",
+      useCases: ["Natural voice calls", "High-urgency dispatch", "Hands-free field operations", "Phone booking deflection"],
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+          <path d="M19 10v1a7 7 0 0 1-14 0v-1"></path>
+          <line x1="12" y1="19" x2="12" y2="23"></line>
+          <line x1="8" y1="23" x2="16" y2="23"></line>
+        </svg>
+      )
+    },
+    {
+      title: "Telephony SIP & WebRTC",
+      tagline: "Carrier PBX & PSTN Trunking",
+      badge: "Full Telephony",
+      complexity: "High",
+      useCases: ["Inbound toll-free routing", "Outbound campaign dialers", "Web app voice widgets", "Mobile SDK speech-to-speech"],
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      )
+    },
+    {
+      title: "Turn-Taking & Barge-In",
+      tagline: "Silero Voice Activity Detection",
+      badge: "Adaptive Flow",
+      complexity: "High",
+      useCases: ["Caller corrections", "Conversational interruptions", "Acoustic background filtering", "Zero robotic pauses"],
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+      )
+    },
+    {
+      title: "Omnichannel Unified Brain",
+      tagline: "Single Conversational Core",
+      badge: "Omnichannel",
+      complexity: "Medium",
+      useCases: ["WhatsApp Business API", "Two-way SMS workflows", "Cross-channel session linking", "Website conversational widgets"],
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+      )
+    },
+    {
+      title: "Sentiment & Warm Transfer",
+      tagline: "Live Human Escalation & Screen Pop",
+      badge: "Human-in-the-Loop",
+      complexity: "Medium",
+      useCases: ["VIP customer routing", "High-frustration handoff", "Complex transaction escalations", "Seamless context handoff"],
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+      )
+    }
+  ];
+
   const faqs = [
     {
       q: "What is Conversational AI, and how does it differ from a standard chatbot?",
@@ -465,61 +532,6 @@ export default function ConversationalAi() {
     }
   ];
 
-  const capabilities = [
-    {
-      title: "Sub-500ms Real-Time Voice Agents",
-      tagline: "Ultra-Low Latency Speech Pipeline",
-      badge: "Human-Like Timing",
-      desc: "Deploy voice agents that converse with lifelike pauses, emotion, and dynamic pacing in under 400ms end-to-end turnaround latency via streaming WebSockets.",
-      bullets: ["Streaming Deepgram Nova-2 STT", "Groq & vLLM fast token inference", "Cartesia Sonic natural TTS", "Sub-400ms roundtrip turnaround"]
-    },
-    {
-      title: "Telephony SIP & PBX Trunking",
-      tagline: "Carrier-Grade Inbound/Outbound",
-      badge: "Full Telephony",
-      desc: "Connect voice agents directly to your existing telephone infrastructure. We support Twilio Voice, Vonage, Telnyx, Amazon Chime, and Asterisk/FreeSWITCH SIP servers.",
-      bullets: ["Bi-directional PCM audio streaming", "Direct DID phone number routing", "Automated outbound campaign dialers", "WebRTC web & mobile SDKs"]
-    },
-    {
-      title: "Natural Turn-Taking & Barge-In",
-      tagline: "Voice Activity Detection (VAD)",
-      badge: "Adaptive Flow",
-      desc: "Allow callers to interrupt the AI agent mid-sentence just like a human conversation. Silero VAD purges outgoing audio buffers in under 40ms to adapt to new input.",
-      bullets: ["Acoustic noise & cough filtering", "Sub-40ms audio stream cancellation", "Preserved conversation context", "Zero robotic clashing"]
-    },
-    {
-      title: "Omnichannel WhatsApp & SMS",
-      tagline: "Unified Multi-Channel Brain",
-      badge: "24/7 Automation",
-      desc: "Power your phone calls, WhatsApp Business API, SMS, and website chat from a single conversational core. Update your business logic once, deploy everywhere.",
-      bullets: ["WhatsApp interactive lists & buttons", "Two-way SMS dispatch & notifications", "Omnichannel user identity linking", "Shared knowledge base vault"]
-    },
-    {
-      title: "Sentiment Routing & Warm Transfer",
-      tagline: "Live Human Escalation",
-      badge: "Zero Dropped Context",
-      desc: "Detect caller frustration, high-value inquiries, or complex issues in real time. The agent executes a warm SIP transfer with live context screen-pop to human specialists.",
-      bullets: ["Real-time acoustic sentiment scoring", "Warm SIP REFER transfer protocol", "Full transcript & CRM screen pop", "Zero customer repetition required"]
-    },
-    {
-      title: "Multilingual Real-Time Translation",
-      tagline: "Global Dialect & Accent Support",
-      badge: "Global Reach",
-      desc: "Serve international callers with real-time speech translation and language detection across 30+ languages and localized regional accents with accurate phonetic matching.",
-      bullets: ["Automatic spoken language detection", "Localized regional accent modeling", "Phonetic alphanumeric name spelling", "Cross-lingual intent recognition"]
-    }
-  ];
-
-  const steps = [
-    { num: "01", title: "Acoustic & Call Flow Audit", time: "Week 1", desc: "Analyze historical call recordings, IVR call trees, typical customer intents, and acoustic background noise environments." },
-    { num: "02", title: "Telephony Architecture & SIP Hookup", time: "Week 2", desc: "Configure carrier SIP trunks, WebSockets audio streaming servers, and secure bi-directional audio codecs (G.711 / Opus)." },
-    { num: "03", title: "Low-Latency STT & TTS Pipeline", time: "Weeks 2–3", desc: "Tune streaming speech-to-text models with custom phonetic domain glossaries and configure expressive neural text-to-speech voices." },
-    { num: "04", title: "Dialogue State & Tool Calling", time: "Weeks 3–5", desc: "Develop conversational graph logic with real-time CRM API lookups, appointment scheduling hooks, and database queries." },
-    { num: "05", title: "Barge-In & Stress Testing", time: "Weeks 5–6", desc: "Simulate poor cellular connectivity, heavy background street noise, and rapid human interruptions to guarantee robust barge-in behavior." },
-    { num: "06", title: "Pilot Launch & Live Call Shadowing", time: "Weeks 6–7", desc: "Route a 10% slice of inbound telephony traffic to the voice agent while senior support reps shadow live calls and evaluate accuracy." },
-    { num: "07", title: "Full Scale Deployment & SLA", time: "Week 8+", desc: "100% call deflection rollout with real-time audio latency telemetry, sentiment tracking, and ongoing intent expansion." }
-  ];
-
   return (
     <>
       <SEO 
@@ -571,100 +583,267 @@ export default function ConversationalAi() {
               </div>
             </div>
 
-            {/* Live Interactive Hero Simulation */}
             <div className="fs-hero-image-wrapper">
               <HeroVoiceAnimation />
             </div>
           </div>
         </section>
 
-        {/* 2. FOUNDER-LED VALUE STRIP */}
-        <section className="fs-agency-alt">
-          <div className="fs-container">
-            <div className="fs-agency-grid">
-              <div className="fs-agency-card">
-                <div className="fs-agency-num">&lt; 400ms</div>
-                <div className="fs-agency-label">End-to-End Latency</div>
-                <div className="fs-agency-sub">Streaming WebSockets audio pipeline</div>
-              </div>
-              <div className="fs-agency-card">
-                <div className="fs-agency-num">72%</div>
-                <div className="fs-agency-label">Inbound Call Deflection</div>
-                <div className="fs-agency-sub">Routine inquiries resolved without human reps</div>
-              </div>
-              <div className="fs-agency-card">
-                <div className="fs-agency-num">100%</div>
-                <div className="fs-agency-label">Barge-In Support</div>
-                <div className="fs-agency-sub">VAD halts playback when caller interrupts</div>
-              </div>
-              <div className="fs-agency-card">
-                <div className="fs-agency-num">0</div>
-                <div className="fs-agency-label">Vendor Lock-In</div>
-                <div className="fs-agency-sub">You own all telephony and prompt code</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. INTERACTIVE ARCHITECTURE VISUALIZER */}
+        {/* 2. OVERVIEW SECTION (EXACT MATCH CHATBOT TEMPLATE WITH ARCHVIZ TABS & SPLIT CARDS) */}
         <section className="fs-section fs-section-bg-slate">
           <div className="fs-container">
-            <div className="fs-tag-arrows">TELEPHONY BLUEPRINTS</div>
-            <h2 className="fs-section-title">Production Conversational Architectures</h2>
+            <div className="fs-tag-arrows">SERVICE OVERVIEW</div>
+            <h2 className="fs-section-title">The Power of Natural Speech Automation</h2>
             <p className="fs-section-subtitle">
-              Voice software requires precision engineering across streaming codecs, voice activity detection, and SIP telephony gateways. Click below to inspect our architecture.
+              Customers don't want to navigate numeric keypad menus or listen to static IVR scripts. They want to speak naturally and be understood immediately. We engineer conversational voice systems with realistic prosody, contextual understanding, and instantaneous response.
             </p>
 
-            <div className="av-tabs" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center', margin: '24px 0 32px' }}>
-              {["Sub-500ms Audio Pipeline", "Telephony SIP & WebRTC", "Turn-Taking & Barge-In", "Omnichannel Brain", "Sentiment Escalation"].map((name, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  className={`fs-btn ${activeArch === i ? 'fs-btn-primary' : 'fs-btn-white'}`}
-                  style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '13px' }}
-                  onClick={() => setActiveArch(i)}
-                >
-                  {name}
-                </button>
-              ))}
+            <div style={{ marginTop: '48px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '12px', color: '#0b0f19' }}>
+                Voice & Conversational Architectures We Deploy
+              </h3>
+              <p style={{ fontSize: '15px', color: '#64748b', marginBottom: '32px', fontWeight: '500' }}>
+                Select an architecture below to explore its audio streaming latency, telephony protocols, and practical use cases.
+              </p>
+
+              <div className="fs-overview-layout">
+                {/* Vertical Tabs Selector */}
+                <div className="fs-overview-tabs">
+                  {architectures.map((arch, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      className={`fs-overview-tab ${activeArch === index ? 'active' : ''}`}
+                      onClick={() => setActiveArch(index)}
+                    >
+                      <div className="fs-overview-tab-icon">
+                        {arch.icon}
+                      </div>
+                      <div className="fs-overview-tab-text">
+                        <h4>{arch.title}</h4>
+                        <span>{arch.tagline}</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Preview Detail Card */}
+                <div className="fs-overview-preview">
+                  <div className="fs-overview-preview-card">
+                    <div>
+                      <div className="fs-overview-preview-header">
+                        <span className="fs-overview-preview-badge">{architectures[activeArch].badge}</span>
+                        <div style={{ fontSize: '13px', fontWeight: '700', color: '#64748b', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          Complexity: 
+                          <span style={{ color: architectures[activeArch].complexity === 'High' ? '#EA4335' : '#FBBC05' }}>
+                            {architectures[activeArch].complexity}
+                          </span>
+                        </div>
+                      </div>
+                      <h3>{architectures[activeArch].title}</h3>
+                      <div className="fs-overview-preview-tagline" style={{ marginBottom: '16px' }}>{architectures[activeArch].tagline}</div>
+                    </div>
+
+                    <ArchVizConversational activeArch={activeArch} />
+
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '16px' }}>
+                      {architectures[activeArch].useCases.map((useCase, idx) => (
+                        <div key={idx} style={{ background: 'rgba(46, 41, 255, 0.05)', border: '1px solid rgba(46, 41, 255, 0.15)', borderRadius: '20px', padding: '6px 14px', fontSize: '12px', fontWeight: '600', color: '#2E29FF', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                          <span>✦ {useCase}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <ArchVizConversational activeArch={activeArch} />
+            {/* Split Cards: Do's vs Don'ts */}
+            <div className="fs-split-cards">
+              <div className="fs-split-card fs-split-card-success">
+                <h3>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  What Makes a Voice AI Project Succeed
+                </h3>
+                <ul className="fs-split-list">
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon"><CheckCircle /></div>
+                    <div><strong>Sub-400ms Turnaround Latency:</strong> Matching natural human conversational timing with streaming audio pipelines so the conversation flows seamlessly.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon"><CheckCircle /></div>
+                    <div><strong>Natural Barge-in Handling:</strong> Allowing callers to interrupt the bot mid-sentence, instantly stopping playback within 40ms without confusion.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon"><CheckCircle /></div>
+                    <div><strong>Warm SIP Screen Pop:</strong> Transferring escalated callers to human reps with full caller ID, transcript, and sentiment summary already visible.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon"><CheckCircle /></div>
+                    <div><strong>Phonetic Spell-Check Engine:</strong> Accurately capturing complex names, alphanumeric order numbers, and email addresses over noisy cellular connections.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon"><CheckCircle /></div>
+                    <div><strong>Native Carrier PBX Integration:</strong> Connecting directly to Twilio, FreeSWITCH, or Asterisk via standard SIP trunks rather than brittle audio proxies.</div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="fs-split-card fs-split-card-failure">
+                <h3>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  Why Legacy IVRs & Bad Voice Bots Fail (And How to Avoid It)
+                </h3>
+                <ul className="fs-split-list">
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
+                    <div><strong>Awkward 3-Second Audio Delays:</strong> Clunky speech models that hesitate before answering, forcing callers and bots to talk over each other.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
+                    <div><strong>Inability to Handle Interruptions:</strong> The bot continues droning through a long paragraph even when the caller says "Wait, that's wrong!"</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
+                    <div><strong>Cold Transfer Drops:</strong> Escalating frustrated callers into an unannounced hold queue where they must repeat their entire problem.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
+                    <div><strong>Acoustic Noise Brittleness:</strong> The bot completely fails when callers are on speakerphone, in a car, or on a busy street.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
+                    <div><strong>Rigid Multiple-Choice Scripts:</strong> Forcing human speech into artificial constraints rather than understanding flexible conversational phrasing.</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </section>
 
-        {/* 4. COMPARISON: RIGID ROBOTIC IVR VS NOVADESK REAL-TIME VOICE */}
+        {/* 3. WHY CHOOSE US SECTION (EXACT STICKY SPOTLIGHT + DIFFERENTIATORS + SPLIT COMPARISON) */}
         <section className="fs-section">
           <div className="fs-container">
-            <div className="fs-tag-arrows">CUSTOMER EXPERIENCE</div>
-            <h2 className="fs-section-title">Why Legacy IVR Menus Destroy Brand Loyalty</h2>
-            <p className="fs-section-subtitle">
-              Customers dread "Press 1 for billing" mazes with monotone voices that don't listen. NovaDesk delivers responsive, empathetic voice agents that resolve problems in seconds.
-            </p>
+            <div className="fs-tag-arrows">WHY CHOOSE US</div>
 
-            <div className="fs-comp-grid">
+            <div className="fs-why-us-grid">
+              <div className="fs-why-us-sticky">
+                <h2 className="fs-section-title" style={{ marginBottom: '24px' }}>
+                  A Telephony-First Approach to Voice AI
+                </h2>
+                <p style={{ fontSize: '15px', color: '#475569', lineHeight: '1.65' }}>
+                  Building voice agents requires deep systems expertise across WebSockets audio streaming, Voice Activity Detection, and SIP PBX routing. We engineer real enterprise software, not fragile wrappers.
+                </p>
+
+                <div className="fs-value-spotlight">
+                  <h4>The NovaDesk Promise</h4>
+                  <ul className="fs-spotlight-list">
+                    <li className="fs-spotlight-item">
+                      <CheckCircle />
+                      <span>100% Code & Telephony Ownership</span>
+                    </li>
+                    <li className="fs-spotlight-item">
+                      <CheckCircle />
+                      <span>No Hidden Platform Per-Minute Markups</span>
+                    </li>
+                    <li className="fs-spotlight-item">
+                      <CheckCircle />
+                      <span>Direct Developer Slack & Video Channels</span>
+                    </li>
+                    <li className="fs-spotlight-item">
+                      <CheckCircle />
+                      <span>Strict HIPAA & SOC 2 Audio Compliance</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="fs-differentiators-stack">
+                <div className="fs-diff-row">
+                  <div className="fs-diff-number">01</div>
+                  <div className="fs-diff-content">
+                    <h3>Sub-400ms Conversational Turnaround</h3>
+                    <p>We stream audio frames directly over WebSockets. Speech recognition, model inference, and voice synthesis complete in under 400ms total.</p>
+                  </div>
+                </div>
+                <div className="fs-diff-row">
+                  <div className="fs-diff-number">02</div>
+                  <div className="fs-diff-content">
+                    <h3>Fluid Interruption Handling (Barge-In)</h3>
+                    <p>Callers can interrupt the bot naturally. Silero VAD detects speech in milliseconds and instantly clears outgoing audio buffers.</p>
+                  </div>
+                </div>
+                <div className="fs-diff-row">
+                  <div className="fs-diff-number">03</div>
+                  <div className="fs-diff-content">
+                    <h3>Carrier-Grade PBX Compatibility</h3>
+                    <p>Integrate with any SIP carrier including Twilio Voice, Vonage, Telnyx, Amazon Chime, or your private Asterisk/FreeSWITCH servers.</p>
+                  </div>
+                </div>
+                <div className="fs-diff-row">
+                  <div className="fs-diff-number">04</div>
+                  <div className="fs-diff-content">
+                    <h3>Warm SIP Transfer with Screen Pop</h3>
+                    <p>When callers need a human, they are transferred seamlessly with full identity, transcript history, and problem summaries sent to the rep's screen.</p>
+                  </div>
+                </div>
+                <div className="fs-diff-row">
+                  <div className="fs-diff-number">05</div>
+                  <div className="fs-diff-content">
+                    <h3>Acoustic Noise Resilience</h3>
+                    <p>Our audio pipelines include advanced noise suppression and acoustic echo cancellation to perform flawlessly in cars and public transit.</p>
+                  </div>
+                </div>
+                <div className="fs-diff-row">
+                  <div className="fs-diff-number">06</div>
+                  <div className="fs-diff-content">
+                    <h3>Continuous Audio Retraining</h3>
+                    <p>We review call transcripts and drop-off points post-launch, retraining intent graphs and acoustic phonetic dictionaries continuously.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Premium Comparison Split */}
+            <div className="fs-comparison-split">
               <div className="fs-comp-card fs-comp-card-cookie">
                 <div className="fs-comp-header">
-                  <span className="fs-comp-badge">Legacy Telephony / Old IVR</span>
-                  <h3>Rigid Robotic Phone Menus</h3>
-                  <p>Frustrating automated phone systems that drive customers to hang up.</p>
+                  <span className="fs-comp-badge">Legacy IVR / Cookie-Cutter</span>
+                  <h3>Rigid Robotic Phone Trees</h3>
+                  <p>Frustrating phone systems that drive customers to hang up.</p>
                 </div>
                 <div className="fs-comp-list">
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✕</span>
-                    <div><strong>Endless Keypad Trees:</strong> "Press 1 for Sales, Press 2 for Support" forces customers through cumbersome multi-minute menus.</div>
+                    <div><strong>Endless Keypad Mazes:</strong> "Press 1 for Billing, Press 2 for Support" forces callers through cumbersome multi-minute menus.</div>
                   </div>
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✕</span>
-                    <div><strong>Awkward Multi-Second Delays:</strong> Clunky speech models pause for 2 to 4 seconds, causing callers to talk over each other.</div>
+                    <div><strong>Awkward Multi-Second Pauses:</strong> Clunky speech models pause for 2 to 4 seconds, causing callers to talk over each other.</div>
                   </div>
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✕</span>
-                    <div><strong>No Interruption Handling:</strong> The bot speaks over the customer and forces them to listen to pre-recorded audio blocks.</div>
+                    <div><strong>Zero Interruption Support:</strong> The bot speaks over the customer and forces them to listen to entire pre-recorded audio blocks.</div>
                   </div>
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✕</span>
-                    <div><strong>Cold Transfer Drops:</strong> When callers demand a human, they are dumped into hold queues without context and must repeat themselves.</div>
+                    <div><strong>Cold Transfer Drops:</strong> Callers are dumped into hold queues without context and must re-explain their issue from scratch.</div>
+                  </div>
+                  <div className="fs-comp-item">
+                    <span className="fs-comp-item-icon">✕</span>
+                    <div><strong>Monotone Robotic Voice:</strong> Unnatural synthetic speech devoid of conversational pacing, breath sounds, or empathy.</div>
+                  </div>
+                  <div className="fs-comp-item">
+                    <span className="fs-comp-item-icon">✕</span>
+                    <div><strong>High Telecom Platform Lock-in:</strong> Heavy proprietary per-minute markups on top of standard carrier costs.</div>
                   </div>
                 </div>
               </div>
@@ -678,7 +857,7 @@ export default function ConversationalAi() {
                 <div className="fs-comp-list">
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✓</span>
-                    <div><strong>Natural Speech Intake:</strong> Callers speak freely in plain language: "I need to change my flight" — zero keypads required.</div>
+                    <div><strong>Natural Speech Intake:</strong> Callers speak freely in plain language: "I need to reschedule my freight pickup" — zero keypads required.</div>
                   </div>
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✓</span>
@@ -690,111 +869,526 @@ export default function ConversationalAi() {
                   </div>
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✓</span>
-                    <div><strong>Warm SIP Screen Pop:</strong> Human agents receive the live call along with caller ID, problem summary, and full chat logs.</div>
+                    <div><strong>Warm SIP Screen Pop:</strong> Human reps receive the live call along with caller ID, problem summary, and full chat logs.</div>
+                  </div>
+                  <div className="fs-comp-item">
+                    <span className="fs-comp-item-icon">✓</span>
+                    <div><strong>Expressive Neural Prosody:</strong> Realistic human pacing with conversational breathing and contextual emotional inflection.</div>
+                  </div>
+                  <div className="fs-comp-item">
+                    <span className="fs-comp-item-icon">✓</span>
+                    <div><strong>100% Code & Telephony Ownership:</strong> Zero platform markups. You pay raw carrier rates directly to Twilio or your SIP provider.</div>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </section>
 
-        {/* 5. 6 CORE CAPABILITIES */}
+        {/* 4. FEATURES SECTION (EXACT BENTO GRID MATCH) */}
         <section className="fs-section fs-section-bg-slate">
           <div className="fs-container">
-            <div className="fs-tag-arrows">VOICE CAPABILITIES</div>
-            <h2 className="fs-section-title">End-to-End Conversational AI Engineering</h2>
+            <div className="fs-tag-arrows">SYSTEM FEATURES</div>
+            <h2 className="fs-section-title">Enterprise Capabilities for Real-Time Voice Agents</h2>
             <p className="fs-section-subtitle">
-              From carrier telephony trunking to omnichannel WhatsApp messaging, we engineer conversational systems that scale effortlessly.
+              We construct custom conversational voice bots equipped with advanced acoustic and telephony capabilities to handle complex business calls.
+            </p>
+
+            <div className="fs-bento-grid">
+              {/* Card 1: Streaming Speech Recognition (Wide - 2 Cols) */}
+              <div className="fs-bento-card fs-bento-col-2">
+                <div className="fs-bento-card-badge">Streaming STT</div>
+                <h3>Streaming Speech-to-Text & Acoustic Modeling</h3>
+                <p>Deepgram Nova-2 and Whisper Large-v3 streaming audio pipelines transcribe speech in under 120ms with noise reduction and custom phonetic domain dictionaries.</p>
+
+                <div style={{ marginTop: '20px', background: '#f8fafc', padding: '16px', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', fontSize: '13px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <span style={{ fontWeight: '700', color: '#2E29FF' }}>Acoustic Stream: 16kHz Linear PCM over WebSockets</span>
+                    <span style={{ fontSize: '11px', background: '#e2e8f0', padding: '2px 8px', borderRadius: '4px' }}>STT Latency: 112ms</span>
+                  </div>
+                  <code style={{ fontSize: '12px', color: '#0f172a', display: 'block', background: '#ffffff', padding: '10px', borderRadius: '8px', border: '1px solid #cbd5e1' }}>
+                    Transcribed: "Reschedule freight pickup batch #9042" ➔ Phonetic Match Confidence: 99.4%
+                  </code>
+                </div>
+              </div>
+
+              {/* Card 2: Neural Voice Synthesis (Regular - 1 Col) */}
+              <div className="fs-bento-card">
+                <div className="fs-bento-card-badge" style={{ background: 'rgba(52,168,83,0.05)', color: '#34A853' }}>Neural TTS</div>
+                <h3>Expressive Neural Voice Synthesis</h3>
+                <p>Cartesia Sonic and ElevenLabs Flash synthesize lifelike voice with conversational breathing, natural pauses, and zero robotic monotone.</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '16px' }}>
+                  <span className="fs-bento-channel-badge">Cartesia Sonic</span>
+                  <span className="fs-bento-channel-badge">ElevenLabs</span>
+                  <span className="fs-bento-channel-badge">Natural Prosody</span>
+                </div>
+              </div>
+
+              {/* Card 3: Carrier SIP Integration (Regular - 1 Col) */}
+              <div className="fs-bento-card">
+                <div className="fs-bento-card-badge" style={{ background: 'rgba(251,188,5,0.08)', color: '#D97706' }}>Telephony</div>
+                <h3>Carrier SIP Trunking</h3>
+                <p>Native integration with telecom carriers and PBX platforms supporting toll-free DIDs, call recording, and dual-channel audio.</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '16px' }}>
+                  <span className="fs-lang-pill">Twilio Voice</span>
+                  <span className="fs-lang-pill">FreeSWITCH</span>
+                  <span className="fs-lang-pill">Asterisk</span>
+                  <span className="fs-lang-pill">Telnyx</span>
+                </div>
+              </div>
+
+              {/* Card 4: Voice Activity Detection & Barge-In (Wide - 2 Cols) */}
+              <div className="fs-bento-card fs-bento-col-2">
+                <div className="fs-bento-card-badge" style={{ background: 'rgba(234,67,53,0.05)', color: '#EA4335' }}>Turn-Taking</div>
+                <h3>Natural Barge-In & Voice Activity Detection (VAD)</h3>
+                <p>Callers can interrupt the bot naturally at any point. Silero VAD detects human speech in milliseconds and instantly flushes outbound audio buffers.</p>
+
+                <div style={{ marginTop: '20px', background: '#f8fafc', padding: '14px 18px', borderRadius: '12px', border: '1px dashed rgba(234,67,53,0.3)', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px' }}>
+                  <div style={{ color: '#EA4335', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#EA4335' }}></span>
+                    VAD Signal: Human Speech Detected ➔ Output Audio Stream Flushed in 34ms
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 5: Multi-Dialect & Accent Modeling */}
+              <div className="fs-bento-card">
+                <div className="fs-bento-card-badge">Multilingual</div>
+                <h3>30+ Dialects & Accents</h3>
+                <p>Fluently detect and converse in English (US, UK, Aus, India), Spanish, French, German, and Hindi with localized regional phrasing.</p>
+                <div style={{ marginTop: '12px' }}>
+                  <span className="fs-lang-pill" style={{ background: 'rgba(46,41,255,0.08)', color: '#2E29FF' }}>Real-Time Language Detection</span>
+                </div>
+              </div>
+
+              {/* Card 6: Acoustic Frustration Scoring */}
+              <div className="fs-bento-card">
+                <div className="fs-bento-card-badge">Sentiment</div>
+                <h3>Acoustic Sentiment Scoring</h3>
+                <p>Detect elevated voice pitch, speech speed, and frustration cues in real time, scoring sentiment to trigger proactive human escalation.</p>
+                <div style={{ marginTop: '12px' }}>
+                  <span className="fs-lang-pill" style={{ background: 'rgba(16,185,129,0.08)', color: '#10B981' }}>Live Sentiment Telemetry</span>
+                </div>
+              </div>
+
+              {/* Card 7: Warm SIP REFER Live Human Handoff (Wide - 2 Cols) */}
+              <div className="fs-bento-card fs-bento-col-2">
+                <div className="fs-bento-card-badge">Escalation</div>
+                <h3>Warm SIP REFER Transfer with Context Screen Pop</h3>
+                <p>When high-value or frustrated callers need human assistance, the agent performs a warm SIP transfer. The support agent's screen pops with caller ID, CRM record, and verbatim transcript before answering.</p>
+                <div style={{ display: 'flex', gap: '8px', marginTop: '14px' }}>
+                  <span className="fs-bento-channel-badge">SIP REFER Protocol</span>
+                  <span className="fs-bento-channel-badge">CRM Screen Pop</span>
+                  <span className="fs-bento-channel-badge">Zero Context Loss</span>
+                </div>
+              </div>
+
+              {/* Card 8: Omnichannel Messaging Unified Dispatcher (Wide - 2 Cols) */}
+              <div className="fs-bento-card fs-bento-col-2">
+                <div className="fs-bento-card-badge">Omnichannel</div>
+                <h3>Unified Brain Across WhatsApp, SMS & Voice</h3>
+                <p>Power your phone lines, WhatsApp Business API, SMS text reminders, and web voice widgets from one central conversational core. Update business rules once, deploy everywhere.</p>
+                <div style={{ marginTop: '12px', background: '#0b0f19', color: '#38bdf8', padding: '10px 14px', borderRadius: '8px', fontSize: '11px', fontFamily: 'monospace' }}>
+                  {'{ "channels": ["PHONE_SIP", "WHATSAPP_CLOUD", "TWILIO_SMS", "WEBRTC"], "unified_brain": true }'}
+                </div>
+              </div>
+            </div>
+
+            {/* Feature Comparison Matrix Table */}
+            <div style={{ marginTop: '60px' }}>
+              <h3 style={{ fontSize: '22px', fontWeight: '800', marginBottom: '20px', color: '#0b0f19' }}>
+                Architecture Comparison: Legacy IVR vs NovaDesk Real-Time Voice AI
+              </h3>
+              <div className="fs-table-container">
+                <table className="fs-table">
+                  <thead>
+                    <tr>
+                      <th>Telephony Vector</th>
+                      <th>Traditional IVR ('Press 1')</th>
+                      <th>Generic Voice Bot Wrapper</th>
+                      <th>NovaDesk Real-Time Voice Agent</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>End-to-End Latency</strong></td>
+                      <td>Static audio file lookup</td>
+                      <td>2.5s - 4.5s (Awkward pauses)</td>
+                      <td><span className="fs-lang-pill" style={{ background: 'rgba(52,168,83,0.1)', color: '#34A853' }}>Sub-400ms (Human Conversational)</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Interruption (Barge-In)</strong></td>
+                      <td>Not supported (Plays until end)</td>
+                      <td>Clashes with caller speech</td>
+                      <td><span className="fs-lang-pill" style={{ background: 'rgba(52,168,83,0.1)', color: '#34A853' }}>Sub-40ms Silero VAD Cancellation</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Input Method</strong></td>
+                      <td>Keypad DTMF digits only</td>
+                      <td>Simple keyword matching</td>
+                      <td><span className="fs-lang-pill" style={{ background: 'rgba(52,168,83,0.1)', color: '#34A853' }}>Natural Spoken Language Dialogue</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Human Agent Escalation</strong></td>
+                      <td>Cold queue dump (No context)</td>
+                      <td>Call drops or disconnected</td>
+                      <td><span className="fs-lang-pill" style={{ background: 'rgba(52,168,83,0.1)', color: '#34A853' }}>Warm SIP REFER + Screen Pop</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Phonetic Spell Checking</strong></td>
+                      <td>None</td>
+                      <td>Fails on names / addresses</td>
+                      <td><span className="fs-lang-pill" style={{ background: 'rgba(52,168,83,0.1)', color: '#34A853' }}>Phonetic Alphanumeric Matcher</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Platform Cost</strong></td>
+                      <td>Expensive legacy PBX licenses</td>
+                      <td>$0.30 - $0.80 per minute</td>
+                      <td><span className="fs-lang-pill" style={{ background: 'rgba(52,168,83,0.1)', color: '#34A853' }}>Raw Carrier Pricing ($0.05-$0.12/min)</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* 5. BENEFITS SECTION (EXACT MATCH CHATBOT TEMPLATE WITH CARDS & METRICS TABLE) */}
+        <section className="fs-section">
+          <div className="fs-container">
+            <div className="fs-tag-arrows">BUSINESS BENEFITS</div>
+            <h2 className="fs-section-title">Measurable Business Value From Day One</h2>
+            <p className="fs-section-subtitle">
+              Deploying autonomous voice agents slashes call center operating costs while delivering instant, queue-free customer service.
             </p>
 
             <div className="fs-grid-3">
-              {capabilities.map((cap, i) => (
-                <div key={i} className="fs-card-premium">
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-                    <span style={{ fontSize: '11px', fontWeight: '800', color: '#2E29FF', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                      {cap.tagline}
-                    </span>
-                    <span style={{ fontSize: '10px', background: 'rgba(46,41,255,0.08)', color: '#2E29FF', padding: '3px 8px', borderRadius: '4px', fontWeight: '700' }}>
-                      {cap.badge}
-                    </span>
-                  </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#0B0F19', marginBottom: '10px' }}>
-                    {cap.title}
-                  </h3>
-                  <p style={{ fontSize: '14px', color: '#475569', lineHeight: '1.6', marginBottom: '18px' }}>
-                    {cap.desc}
-                  </p>
-                  <ul className="fs-bullet-list" style={{ marginTop: 'auto' }}>
-                    {cap.bullets.map((b, idx) => (
-                      <li key={idx} className="fs-bullet-item" style={{ fontSize: '13px' }}>
-                        <CheckCircle />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              <div className="fs-card-premium">
+                <h3>72% Inbound Call Deflection</h3>
+                <p>Routine inquiries (order tracking, appointment scheduling, password resets) are resolved end-to-end without burdening human support agents.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>0 Second Queue Hold Times</h3>
+                <p>Every customer is answered immediately on the first ring, effortlessly handling holiday shopping rushes or emergency weather surges.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>65% Cost Per Resolved Call Savings</h3>
+                <p>Reduce cost per resolved call from $6–$12 with live call center staff down to $0.40–$0.90 with automated voice agents.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>4.8/5 Customer Satisfaction (CSAT)</h3>
+                <p>Callers appreciate immediate answers, zero hold music, and intelligent warm transfers when complex problems require human specialists.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Infinite Concurrency Scaling</h3>
+                <p>Handle 1,000 simultaneous incoming phone calls with identical sub-400ms performance without hiring temporary call center staff.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Unbroken Transcript Context</h3>
+                <p>Every call recording and transcript is automatically summarized, tagged with sentiment, and logged directly into your CRM.</p>
+              </div>
             </div>
+
+            {/* Expected Business Impact Metrics Table */}
+            <div style={{ marginTop: '50px' }}>
+              <h3 style={{ fontSize: '22px', fontWeight: '800', marginBottom: '20px', color: '#0b0f19' }}>
+                Expected Business Impact Metrics
+              </h3>
+              <div className="fs-table-container">
+                <table className="fs-table">
+                  <thead>
+                    <tr>
+                      <th>Benefit</th>
+                      <th>Expected Business Impact</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Inbound Hold Time Elimination</strong></td>
+                      <td>Reduces abandoned call rates to near zero by answering calls instantaneously on ring one.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Support Team Productivity</strong></td>
+                      <td>Frees support agents to focus entirely on high-value, high-empathy customer retention cases.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Telephony Compute Efficiency</strong></td>
+                      <td>Delivers major cost savings compared to traditional outsourced overseas call center retainers.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Omnichannel Identity Sync</strong></td>
+                      <td>Links caller phone numbers to their WhatsApp and web accounts, providing a unified customer history.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Full Telephony Stack Ownership</strong></td>
+                      <td>All voice models, prompt state machines, and audio data belong permanently to your organization.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
           </div>
         </section>
 
-        {/* 6. BUSINESS IMPACT & ROI */}
-        <section className="fs-section">
-          <div className="fs-container">
-            <div className="fs-tag-arrows">MEASURABLE IMPACT</div>
-            <h2 className="fs-section-title">Commercial ROI for Support & Operations</h2>
-            <p className="fs-section-subtitle">
-              Voice automation drastically slashes call center operational expenses while accelerating customer resolution times.
-            </p>
-
-            <div className="fs-roi-grid">
-              <div className="fs-roi-card">
-                <div className="fs-roi-stat">72%</div>
-                <div className="fs-roi-title">Routine Call Deflection</div>
-                <p className="fs-roi-desc">Resolves order tracking, scheduling, balance checks, and tier-1 inquiries automatically without human reps.</p>
-              </div>
-              <div className="fs-roi-card">
-                <div className="fs-roi-stat">0 Sec</div>
-                <div className="fs-roi-title">Customer Queue Hold Time</div>
-                <p className="fs-roi-desc">Every caller is answered instantly on the first ring, handling massive concurrent call spikes with ease.</p>
-              </div>
-              <div className="fs-roi-card">
-                <div className="fs-roi-stat">65%</div>
-                <div className="fs-roi-title">Cost Per Resolved Ticket Savings</div>
-                <p className="fs-roi-desc">Reduces cost per resolved call from $6–$12 with human agents down to $0.40–$0.90 with automated voice AI.</p>
-              </div>
-              <div className="fs-roi-card">
-                <div className="fs-roi-stat">4.8/5</div>
-                <div className="fs-roi-title">Customer Satisfaction (CSAT)</div>
-                <p className="fs-roi-desc">Callers appreciate immediate answers, zero hold music, and intelligent warm transfers when needed.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 7. 7-STAGE DELIVERY METHODOLOGY */}
+        {/* 6. OUR PROCESS SECTION (EXACT MATCH CHATBOT TIMELINE + PROCESS TABLE + TRACK CARDS) */}
         <section className="fs-process-blue">
           <div className="fs-container">
-            <div className="fs-tag-white">DELIVERY PROCESS</div>
-            <h2 className="fs-title-white">Our 7-Stage Voice Engineering Roadmap</h2>
-            <p className="fs-subtitle-white">
-              From initial acoustic auditing to live call shadowing and SLA monitoring, we deliver enterprise-grade conversational systems.
-            </p>
-
-            <div className="fs-process-cards">
-              {steps.map((st, i) => (
-                <div key={i} className="fs-process-card">
-                  <div className="fs-step-number">{st.num}</div>
-                  <div className="fs-step-time">{st.time}</div>
-                  <h3 className="fs-step-title">{st.title}</h3>
-                  <p className="fs-step-desc">{st.desc}</p>
-                </div>
-              ))}
+            <div className="fs-process-header-wrap">
+              <div className="fs-process-header-left">
+                <div className="fs-process-tag-lines">← OUR ROADMAP →</div>
+                <h2>A Structured Methodology for Launching Voice Agents</h2>
+              </div>
+              <div className="fs-process-header-right">
+                <p>
+                  From acoustic modeling to live call shadowing and SLA monitoring, we engineer carrier-grade conversational voice systems.
+                </p>
+              </div>
             </div>
+
+            <div className="fs-timeline-blue">
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 01</span>
+                  <h3>Acoustic & Call Flow Audit</h3>
+                  <p>In-depth audit of historical call recordings, typical customer inquiries, IVR trees, and acoustic background noise environments.</p>
+                </div>
+              </div>
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 02</span>
+                  <h3>Telephony Architecture & SIP Hookup</h3>
+                  <p>Configuring carrier SIP trunks, WebSockets audio streaming servers, and secure bi-directional audio codecs (G.711 / Opus).</p>
+                </div>
+              </div>
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 03</span>
+                  <h3>Low-Latency STT & TTS Pipeline</h3>
+                  <p>Tuning streaming speech-to-text models with custom phonetic domain glossaries and configuring expressive neural text-to-speech voices.</p>
+                </div>
+              </div>
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 04</span>
+                  <h3>Dialogue State & Tool Calling</h3>
+                  <p>Developing conversational graph logic with real-time CRM API lookups, appointment scheduling hooks, and database queries.</p>
+                </div>
+              </div>
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 05</span>
+                  <h3>Barge-In & Stress Testing</h3>
+                  <p>Simulating poor cellular connectivity, heavy background street noise, and rapid human interruptions to guarantee robust barge-in behavior.</p>
+                </div>
+              </div>
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 06</span>
+                  <h3>Pilot Launch & Live Call Shadowing</h3>
+                  <p>Routing a 10% slice of inbound telephony traffic to the voice agent while senior support reps shadow live calls and evaluate accuracy.</p>
+                </div>
+              </div>
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 07</span>
+                  <h3>Full Scale Deployment & SLA</h3>
+                  <p>100% call deflection rollout with real-time audio latency telemetry, sentiment tracking, and ongoing intent expansion.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Process duration table (Clean White Executive Theme) */}
+            <div style={{ marginTop: '60px' }}>
+              <h3 style={{ fontSize: '22px', fontWeight: '800', marginBottom: '20px', color: '#ffffff' }}>
+                Timeline Breakdown
+              </h3>
+              <div className="fs-table-container" style={{ background: '#ffffff', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 20px 40px rgba(0,0,0,0.12)', padding: '8px', overflow: 'hidden' }}>
+                <table className="fs-table" style={{ background: '#ffffff', color: '#0b0f19' }}>
+                  <thead>
+                    <tr style={{ background: '#f8fafc' }}>
+                      <th style={{ color: '#0b0f19', borderBottom: '2px solid #e2e8f0', background: '#f8fafc', fontWeight: '800' }}>Phase</th>
+                      <th style={{ color: '#0b0f19', borderBottom: '2px solid #e2e8f0', background: '#f8fafc', fontWeight: '800' }}>Key Activities</th>
+                      <th style={{ color: '#0b0f19', borderBottom: '2px solid #e2e8f0', background: '#f8fafc', fontWeight: '800' }}>Typical Duration</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style={{ color: '#0b0f19', borderBottom: '1px solid #e2e8f0' }}><strong>Discovery & Audio Audit</strong></td>
+                      <td style={{ color: '#475569', borderBottom: '1px solid #e2e8f0' }}>Acoustic analysis, intent tree scoping, telephony credentials, CRM access</td>
+                      <td style={{ borderBottom: '1px solid #e2e8f0' }}><span className="fs-lang-pill" style={{ background: '#f1f5f9', color: '#0b0f19', border: '1px solid #cbd5e1' }}>1–2 weeks</span></td>
+                    </tr>
+                    <tr>
+                      <td style={{ color: '#0b0f19', borderBottom: '1px solid #e2e8f0' }}><strong>SIP & Codec Setup</strong></td>
+                      <td style={{ color: '#475569', borderBottom: '1px solid #e2e8f0' }}>Twilio/FreeSWITCH hookup, WebSockets pipeline, Silero VAD calibration</td>
+                      <td style={{ borderBottom: '1px solid #e2e8f0' }}><span className="fs-lang-pill" style={{ background: '#f1f5f9', color: '#0b0f19', border: '1px solid #cbd5e1' }}>1–3 weeks</span></td>
+                    </tr>
+                    <tr>
+                      <td style={{ color: '#0b0f19', borderBottom: '1px solid #e2e8f0' }}><strong>Dialogue & Integration</strong></td>
+                      <td style={{ color: '#475569', borderBottom: '1px solid #e2e8f0' }}>Conversational state machine, database lookups, voice persona tuning</td>
+                      <td style={{ borderBottom: '1px solid #e2e8f0' }}><span className="fs-lang-pill" style={{ background: 'rgba(46,41,255,0.08)', color: '#2E29FF', border: '1px solid rgba(46,41,255,0.2)' }}>2–4 weeks</span></td>
+                    </tr>
+                    <tr>
+                      <td style={{ color: '#0b0f19', borderBottom: '1px solid #e2e8f0' }}><strong>Barge-In QA & Shadowing</strong></td>
+                      <td style={{ color: '#475569', borderBottom: '1px solid #e2e8f0' }}>Noise stress tests, warm transfer validation, live 10% traffic pilot</td>
+                      <td style={{ borderBottom: '1px solid #e2e8f0' }}><span className="fs-lang-pill" style={{ background: '#f1f5f9', color: '#0b0f19', border: '1px solid #cbd5e1' }}>1–2 weeks</span></td>
+                    </tr>
+                    <tr>
+                      <td style={{ color: '#0b0f19', borderBottom: '1px solid #e2e8f0' }}><strong>Full Production Launch</strong></td>
+                      <td style={{ color: '#475569', borderBottom: '1px solid #e2e8f0' }}>100% traffic shift, live latency monitoring, sentiment tracking, SLA active</td>
+                      <td style={{ borderBottom: '1px solid #e2e8f0' }}><span className="fs-lang-pill" style={{ background: '#f1f5f9', color: '#0b0f19', border: '1px solid #cbd5e1' }}>1 week</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Split cards for Project Track & Client Requirements */}
+            <div className="fs-grid-2" style={{ marginTop: '50px', gap: '24px' }}>
+              <div className="fs-track-card-blue">
+                <h3>
+                  <span style={{ color: '#34A853' }}>✓</span> How We Keep Projects On Track
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(52,168,83,0.15)', color: '#34A853', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✓</div>
+                    <div><strong>Live Audio Demos:</strong> Call test telephone numbers and hear working voice agent milestones every week.</div>
+                  </div>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(52,168,83,0.15)', color: '#34A853', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✓</div>
+                    <div><strong>Live Call Shadowing:</strong> Support managers listen in real time to pilot calls during the staging rollout.</div>
+                  </div>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(52,168,83,0.15)', color: '#34A853', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✓</div>
+                    <div><strong>Direct Developer Slack:</strong> Rapid engineering coordination with lead telecom and speech developers.</div>
+                  </div>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(52,168,83,0.15)', color: '#34A853', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✓</div>
+                    <div><strong>Fallback Trunking:</strong> Instant automated failover to human queues if latency exceeds preset SLA thresholds.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="fs-track-card-blue">
+                <h3>
+                  <span style={{ color: '#60A5FA' }}>✦</span> What We Need From You
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(96,165,250,0.15)', color: '#60A5FA', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✦</div>
+                    <div><strong>Historical Call Recordings:</strong> Audio samples to train speech acoustic models and identify edge-case intents.</div>
+                  </div>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(96,165,250,0.15)', color: '#60A5FA', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✦</div>
+                    <div><strong>Telephony Carrier Access:</strong> SIP trunk credentials (Twilio, FreeSWITCH, Asterisk, or Telnyx).</div>
+                  </div>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(96,165,250,0.15)', color: '#60A5FA', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✦</div>
+                    <div><strong>Support Workflow Policies:</strong> Clarification on escalation thresholds and warm transfer destinations.</div>
+                  </div>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(96,165,250,0.15)', color: '#60A5FA', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✦</div>
+                    <div><strong>Active Pilot Feedback:</strong> Reviewing call transcripts during the 10% shadow phase to calibrate accuracy.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
 
-        {/* 8. TOOLS & TECH STACK */}
+        {/* 7. INDUSTRIES WE SERVE (EXACT MATCH CHATBOT TEMPLATE WITH CARDS & TABLE) */}
+        <section className="fs-section fs-section-bg-slate">
+          <div className="fs-container">
+            <div className="fs-tag-arrows">INDUSTRY APPLICATIONS</div>
+            <h2 className="fs-section-title">Conversational AI Tailored to Your Sector</h2>
+            <p className="fs-section-subtitle">
+              We design conversational architectures configured to meet the unique compliance guidelines, telephony parameters, and customer intents of your industry.
+            </p>
+
+            <div className="fs-grid-3" style={{ marginBottom: '60px' }}>
+              <div className="fs-card-premium">
+                <h3>Healthcare & Clinics</h3>
+                <p>Automate patient appointment bookings, prescription refill status lookups, and clinic hours inquiries aligned with HIPAA security guidelines.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Logistics & Fleet Dispatch</h3>
+                <p>Support driver check-ins, automate freight pickup reschedules, provide shipment transit ETAs, and dispatch emergency route updates.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Banking & Financial Support</h3>
+                <p>Automate card security freezes, balance checks, payment due date inquiries, and loan application status with multi-factor authentication.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Hospitality & Travel</h3>
+                <p>Handle hotel room reservation modifications, flight itinerary changes, check-in questions, and restaurant concierge bookings 24/7.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Real Estate & Property Management</h3>
+                <p>Qualify inbound tenant inquiries, schedule property walkthrough viewings, and coordinate emergency maintenance ticket intake.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>E-Commerce & Retail Support</h3>
+                <p>Automate order shipment tracking, process return authorization requests, and answer sizing and inventory questions over the phone.</p>
+              </div>
+            </div>
+
+            {/* Industry comparison table */}
+            <div style={{ marginTop: '50px' }}>
+              <h3 style={{ fontSize: '22px', fontWeight: '800', marginBottom: '20px', color: '#0b0f19' }}>
+                Common Industry Voice AI Use Cases
+              </h3>
+              <div className="fs-table-container">
+                <table className="fs-table">
+                  <thead>
+                    <tr>
+                      <th>Industry</th>
+                      <th>Common Voice AI Applications</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Healthcare</strong></td>
+                      <td>Patient intake, automated appointment reminders, prescription refill confirmations.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Logistics & Freight</strong></td>
+                      <td>Automated driver load check-ins, delivery scheduling, freight ETA inquiries.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Banking & Financial</strong></td>
+                      <td>Card security freezes, fraud confirmation prompts, balance and billing inquiries.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Hospitality & Travel</strong></td>
+                      <td>Reservation rescheduling, flight delay notifications, hotel concierge inquiries.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Real Estate</strong></td>
+                      <td>Automated buyer lead qualification, open house bookings, maintenance requests.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>E-Commerce</strong></td>
+                      <td>Order tracking deflection, return authorization, product inventory checks.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* 8. TOOLS & TECHNOLOGIES (EXACT MATCH CHATBOT 4-BOX TECH STACK) */}
         <section className="expertise experts">
           <div className="container">
             <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '40px' }}>
@@ -815,19 +1409,19 @@ export default function ConversationalAi() {
                     <ul className="fs-bullet-list">
                       <li className="fs-bullet-item">
                         <CheckCircle />
-                        <div><strong>Speech-to-Text (STT):</strong> Deepgram Nova-2, Whisper Large-v3, AssemblyAI.</div>
+                        <div><strong>Speech-to-Text (STT):</strong> Deepgram Nova-2, Whisper Large-v3, Silero VAD.</div>
                       </li>
                       <li className="fs-bullet-item">
                         <CheckCircle />
-                        <div><strong>Text-to-Speech (TTS):</strong> Cartesia Sonic, ElevenLabs, OpenAI Voice, PlayHT.</div>
+                        <div><strong>Text-to-Speech (TTS):</strong> Cartesia Sonic, ElevenLabs, OpenAI Audio, PlayHT.</div>
                       </li>
                       <li className="fs-bullet-item">
                         <CheckCircle />
-                        <div><strong>Telephony & WebRTC:</strong> Twilio Voice, FreeSWITCH, Asterisk, LiveKit, Pipecat.</div>
+                        <div><strong>Telephony & WebRTC:</strong> Twilio Voice SIP, FreeSWITCH, Asterisk, LiveKit, Pipecat.</div>
                       </li>
                       <li className="fs-bullet-item">
                         <CheckCircle />
-                        <div><strong>Real-Time Serving:</strong> Python AsyncIO, FastAPI, WebSockets, Redis Session Cache.</div>
+                        <div><strong>Real-Time Serving:</strong> Python AsyncIO, FastAPI, WebSockets, Redis Cache.</div>
                       </li>
                     </ul>
                   </div>
@@ -901,7 +1495,7 @@ export default function ConversationalAi() {
           </div>
         </section>
 
-        {/* 9. TRUST & SECURITY STANDARDS */}
+        {/* 9. WHY CLIENTS TRUST US (EXACT MATCH CHATBOT 6-CARD GRID) */}
         <section className="fs-section fs-section-bg-slate">
           <div className="fs-container">
             <div className="fs-tag-arrows">TRUST & TELEPHONY STANDARDS</div>
@@ -933,13 +1527,14 @@ export default function ConversationalAi() {
               </div>
               <div className="fs-card-premium">
                 <h3>Transparent Pricing & Compute</h3>
-                <p>Clear deliverable milestones and itemized carrier minute estimates. You never receive surprise platform charges.</p>
+                <p>Clear deliverable milestones and itemized carrier minute estimates. You never receive surprise platform markups.</p>
               </div>
             </div>
+
           </div>
         </section>
 
-        {/* 10. COMPREHENSIVE FAQ SECTION */}
+        {/* 10. FAQ SECTION (EXACT MATCH HOMEPAGE / CHATBOT FAQ) */}
         <section className="nd-faq">
           <div className="nd-faq-inner">
             <div className="nd-faq-tag">✦ FAQS ✦</div>
@@ -957,7 +1552,7 @@ export default function ConversationalAi() {
           </div>
         </section>
 
-        {/* 11. CLOSING HIGH-CONVERTING CTA BANNER */}
+        {/* 11. FINAL CALL TO ACTION (REDESIGNED COMPACT BANNER) */}
         <div className="fs-container" style={{ paddingBottom: '60px' }}>
           <section className="fs-cta-bottom">
             <div className="fs-cta-content-grid">

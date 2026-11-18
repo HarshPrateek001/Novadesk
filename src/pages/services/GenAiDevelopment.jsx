@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import SEO from '../../components/SEO';
 import { Link } from 'react-router-dom';
 import './ai-service-template.css';
@@ -36,7 +36,7 @@ function FaqItem({ q, a, open, onToggle }) {
   );
 }
 
-// Interactive Hero Simulation Widget: Live Generative AI Token Streamer
+// 1. Interactive Hero Simulation Widget
 function HeroGenAiAnimation() {
   const [activeModel, setActiveModel] = useState(0);
   const [streamProgress, setStreamProgress] = useState(0);
@@ -90,20 +90,19 @@ function HeroGenAiAnimation() {
   return (
     <div className="nd-hero-browser-wrapper">
       <div className="nd-browser-card">
-        <div className="nd-browser-topbar nd-browser-topbar-flex">
+        <div className="nd-browser-topbar">
           <div className="nd-browser-dots">
             <span className="nd-dot red"></span>
             <span className="nd-dot yellow"></span>
             <span className="nd-dot green"></span>
           </div>
-          <div className="nd-status-tag active">
-            <span className="nd-status-dot"></span>
+          <div className="nd-browser-url">
+            <span className="nd-status-dot" style={{ background: '#10B981', boxShadow: '0 0 6px #10B981', marginRight: '6px' }}></span>
             Private Enterprise Cluster · vLLM Engine
           </div>
         </div>
 
         <div className="nd-genai-body">
-          {/* Model Switcher Tabs */}
           <div className="nd-genai-model-tabs">
             {scenarios.map((sc, idx) => (
               <button
@@ -117,13 +116,11 @@ function HeroGenAiAnimation() {
             ))}
           </div>
 
-          {/* User Prompt Box */}
           <div className="nd-genai-prompt-box">
             <span className="nd-genai-prompt-lbl">Enterprise Query / Task Trigger</span>
             <p className="nd-genai-prompt-txt">"{current.prompt}"</p>
           </div>
 
-          {/* Live Streaming LLM Console */}
           <div className="nd-genai-stream-box">
             <div className="nd-genai-stream-head">
               <span>● INFERENCE IN PROGRESS</span>
@@ -160,7 +157,7 @@ function HeroGenAiAnimation() {
   );
 }
 
-// Interactive Architecture Visualizer
+// 2. Interactive Architecture Visualizer
 function ArchVizGenAi({ activeArch }) {
   return (
     <div className="av-wrapper">
@@ -367,6 +364,80 @@ export default function GenAiDevelopment() {
     window.scrollTo(0, 0);
   }, []);
 
+  const architectures = [
+    {
+      title: "Enterprise RAG Pipeline",
+      tagline: "Hybrid Vector (HNSW) + Keyword (BM25)",
+      badge: "High Accuracy",
+      complexity: "High",
+      useCases: ["Technical knowledge vaults", "Regulatory compliance search", "Legal document analysis", "Medical literature discovery"],
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      )
+    },
+    {
+      title: "LoRA Domain Fine-Tuning",
+      tagline: "QLoRA Parameter-Efficient Adaptation",
+      badge: "Domain Specialized",
+      complexity: "High",
+      useCases: ["Custom coding styles", "Proprietary dialect matching", "Complex medical nomenclature", "Internal audit protocols"],
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      )
+    },
+    {
+      title: "Multi-Agent LangGraph Swarm",
+      tagline: "Stateful Autonomous Task Forces",
+      badge: "Autonomous Execution",
+      complexity: "Very High",
+      useCases: ["Financial report synthesis", "Automated code generation & QA", "Competitor intelligence tracking", "Supply chain disruption analysis"],
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      )
+    },
+    {
+      title: "Sovereign Private vLLM",
+      tagline: "Air-Gapped Private VPC Clusters",
+      badge: "Zero Data Egress",
+      complexity: "High",
+      useCases: ["Defense & aerospace data", "HIPAA clinical pipelines", "Banking transaction analysis", "Proprietary trade secrets"],
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+          <line x1="6" y1="6" x2="6.01" y2="6"></line>
+          <line x1="6" y1="18" x2="6.01" y2="18"></line>
+        </svg>
+      )
+    },
+    {
+      title: "Multimodal Document Intelligence",
+      tagline: "Vision OCR + Spatial JSON Extractor",
+      badge: "Zero Manual Entry",
+      complexity: "Medium",
+      useCases: ["Accounts payable invoices", "Customs declarations", "Legal contracts & amendments", "Complex blueprint annotations"],
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+      )
+    }
+  ];
+
   const faqs = [
     {
       q: "What is enterprise Generative AI development, and how does it differ from public ChatGPT?",
@@ -441,61 +512,6 @@ export default function GenAiDevelopment() {
     }
   ];
 
-  const capabilities = [
-    {
-      title: "Enterprise RAG Pipelines",
-      tagline: "Hybrid Vector & Keyword Knowledge Vaults",
-      badge: "High Accuracy",
-      desc: "Connect LLMs to internal wikis, SQL databases, and unstructured PDF archives. We utilize pgvector, Cohere re-rankers, and semantic chunking to guarantee hallucination-free answers with precise line-item source citations.",
-      bullets: ["Sub-second vector retrieval", "Hybrid dense (HNSW) + sparse (BM25) search", "Context window compression", "Automatic knowledge re-indexing"]
-    },
-    {
-      title: "Private LLM Fine-Tuning",
-      tagline: "Domain-Specific QLoRA Adaptation",
-      badge: "Sovereign AI",
-      desc: "Adapt open-weights foundation models (DeepSeek-R1, Llama 3.3, Mistral) to your industry terminology, internal style guides, and proprietary workflows with parameter-efficient fine-tuning on dedicated GPUs.",
-      bullets: ["Curated instruction dataset synthesis", "4-bit / 8-bit QLoRA weight optimization", "Zero catastrophic forgetting", "Full model weights ownership"]
-    },
-    {
-      title: "Autonomous Agent Swarms",
-      tagline: "LangGraph Multi-Agent Workflows",
-      badge: "Workflow Automation",
-      desc: "Deploy collaborative agent teams that break down complex goals, conduct research, generate code in sandboxed interpreters, verify results, and push updates directly into your ERP or CRM.",
-      bullets: ["Stateful multi-agent graphs", "Sandboxed Python execution", "Human-in-the-loop approval gates", "Self-healing tool retries"]
-    },
-    {
-      title: "Multimodal Document Intelligence",
-      tagline: "Vision-Language Document Parsing",
-      badge: "Zero Manual Entry",
-      desc: "Convert messy invoices, legal contracts, engineering schematics, and medical records into structured, type-safe JSON schemas with 99.8% field extraction precision.",
-      bullets: ["Table & spatial bounding box extraction", "Complex handwriting & stamp OCR", "Pydantic schema validation", "Direct ERP/Database synchronization"]
-    },
-    {
-      title: "Sovereign Air-Gapped Deployments",
-      tagline: "On-Premise & Private VPC Clusters",
-      badge: "Strict Compliance",
-      desc: "Deploy enterprise inference clusters using vLLM and TensorRT-LLM inside your AWS, GCP, or private data centers. Complete immunity from external API outages and data egress regulations.",
-      bullets: ["Continuous PagedAttention batching", "Zero external network egress", "HIPAA, SOC 2 & GDPR compliant", "Predictable compute pricing"]
-    },
-    {
-      title: "Enterprise Guardrails & Red-Teaming",
-      tagline: "Hallucination & Jailbreak Firewalls",
-      badge: "Mission-Critical Safety",
-      desc: "Protect brand reputation and sensitive data with automated NeMo guardrails, prompt injection firewalls, real-time PII anonymization, and continuous automated red-teaming.",
-      bullets: ["Real-time prompt injection detection", "Field-level PII data redaction", "Automated Ragas evaluation benchmarks", "Deterministic safety fallbacks"]
-    }
-  ];
-
-  const steps = [
-    { num: "01", title: "Discovery & Data Readiness", time: "Week 1", desc: "Audit existing knowledge bases, API interfaces, compliance guidelines, and define quantitative eval benchmarks." },
-    { num: "02", title: "Architecture Blueprinting", time: "Week 2", desc: "Select optimal model topologies (cloud API vs sovereign on-prem), design vector chunking schemas, and draft security guardrails." },
-    { num: "03", title: "Vector Indexing & Ingestion", time: "Weeks 2–3", desc: "Build automated data pipelines that parse documents, generate vector embeddings, and establish hybrid BM25 + pgvector indexes." },
-    { num: "04", title: "Agent & Prompt Orchestration", time: "Weeks 3–5", desc: "Develop LangGraph execution graphs, system prompt architectures, tool-calling interfaces, and structured output validators." },
-    { num: "05", title: "Red-Teaming & Guardrail Hardening", time: "Weeks 5–6", desc: "Execute automated adversarial prompt injection attacks, verify PII masking filters, and calibrate hallucination detectors." },
-    { num: "06", title: "Staging Benchmark Validation", time: "Weeks 6–7", desc: "Run golden evaluation datasets through Ragas and TruLens to benchmark faithfulness, answer relevancy, and context recall." },
-    { num: "07", title: "Production Deployment & Evals", time: "Week 8+", desc: "Zero-downtime deployment with live telemetry (Langfuse), latency optimization, and ongoing drift monitoring." }
-  ];
-
   return (
     <>
       <SEO 
@@ -547,100 +563,267 @@ export default function GenAiDevelopment() {
               </div>
             </div>
 
-            {/* Live Interactive Hero Simulation */}
             <div className="fs-hero-image-wrapper">
               <HeroGenAiAnimation />
             </div>
           </div>
         </section>
 
-        {/* 2. FOUNDER-LED VALUE STRIP */}
-        <section className="fs-agency-alt">
-          <div className="fs-container">
-            <div className="fs-agency-grid">
-              <div className="fs-agency-card">
-                <div className="fs-agency-num">99.8%</div>
-                <div className="fs-agency-label">Grounded Accuracy</div>
-                <div className="fs-agency-sub">Multi-layer hybrid RAG with citations</div>
-              </div>
-              <div className="fs-agency-card">
-                <div className="fs-agency-num">&lt; 18ms</div>
-                <div className="fs-agency-label">Time-to-First-Token</div>
-                <div className="fs-agency-sub">Continuous batching on vLLM clusters</div>
-              </div>
-              <div className="fs-agency-card">
-                <div className="fs-agency-num">$0</div>
-                <div className="fs-agency-label">Vendor Seat Tax</div>
-                <div className="fs-agency-sub">Pay only for raw compute & infrastructure</div>
-              </div>
-              <div className="fs-agency-card">
-                <div className="fs-agency-num">100%</div>
-                <div className="fs-agency-label">IP & Code Ownership</div>
-                <div className="fs-agency-sub">You own all prompts, adapters & pipelines</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. INTERACTIVE ARCHITECTURE VISUALIZER */}
+        {/* 2. OVERVIEW SECTION (EXACT MATCH CHATBOT TEMPLATE WITH ARCHVIZ TABS & SPLIT CARDS) */}
         <section className="fs-section fs-section-bg-slate">
           <div className="fs-container">
-            <div className="fs-tag-arrows">TECHNICAL BLUEPRINTS</div>
-            <h2 className="fs-section-title">Production Generative AI Architectures</h2>
+            <div className="fs-tag-arrows">SERVICE OVERVIEW</div>
+            <h2 className="fs-section-title">The Foundation of Enterprise Reasoning</h2>
             <p className="fs-section-subtitle">
-              We design custom AI pipelines tailored to your security posture, latency targets, and domain complexity. Click below to inspect our architectural blueprints.
+              Generative AI is not about generic prompts. It is about connecting foundational models to your private corporate knowledge vaults, establishing deterministic guardrails, and automating complex decision chains.
             </p>
 
-            <div className="av-tabs" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center', margin: '24px 0 32px' }}>
-              {["Enterprise RAG Vault", "LoRA Fine-Tuning", "Multi-Agent Swarm", "Private Sovereign vLLM", "Multimodal Vision AI"].map((name, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  className={`fs-btn ${activeArch === i ? 'fs-btn-primary' : 'fs-btn-white'}`}
-                  style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '13px' }}
-                  onClick={() => setActiveArch(i)}
-                >
-                  {name}
-                </button>
-              ))}
+            <div style={{ marginTop: '48px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '12px', color: '#0b0f19' }}>
+                Generative AI Architectures We Deploy
+              </h3>
+              <p style={{ fontSize: '15px', color: '#64748b', marginBottom: '32px', fontWeight: '500' }}>
+                Select an architecture below to explore its data topology, latency metrics, and enterprise use cases.
+              </p>
+
+              <div className="fs-overview-layout">
+                {/* Vertical Tabs Selector */}
+                <div className="fs-overview-tabs">
+                  {architectures.map((arch, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      className={`fs-overview-tab ${activeArch === index ? 'active' : ''}`}
+                      onClick={() => setActiveArch(index)}
+                    >
+                      <div className="fs-overview-tab-icon">
+                        {arch.icon}
+                      </div>
+                      <div className="fs-overview-tab-text">
+                        <h4>{arch.title}</h4>
+                        <span>{arch.tagline}</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Preview Detail Card */}
+                <div className="fs-overview-preview">
+                  <div className="fs-overview-preview-card">
+                    <div>
+                      <div className="fs-overview-preview-header">
+                        <span className="fs-overview-preview-badge">{architectures[activeArch].badge}</span>
+                        <div style={{ fontSize: '13px', fontWeight: '700', color: '#64748b', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          Complexity: 
+                          <span style={{ color: architectures[activeArch].complexity === 'Very High' || architectures[activeArch].complexity === 'High' ? '#EA4335' : '#FBBC05' }}>
+                            {architectures[activeArch].complexity}
+                          </span>
+                        </div>
+                      </div>
+                      <h3>{architectures[activeArch].title}</h3>
+                      <div className="fs-overview-preview-tagline" style={{ marginBottom: '16px' }}>{architectures[activeArch].tagline}</div>
+                    </div>
+
+                    <ArchVizGenAi activeArch={activeArch} />
+
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '16px' }}>
+                      {architectures[activeArch].useCases.map((useCase, idx) => (
+                        <div key={idx} style={{ background: 'rgba(46, 41, 255, 0.05)', border: '1px solid rgba(46, 41, 255, 0.15)', borderRadius: '20px', padding: '6px 14px', fontSize: '12px', fontWeight: '600', color: '#2E29FF', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                          <span>✦ {useCase}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <ArchVizGenAi activeArch={activeArch} />
+            {/* Split Cards: Do's vs Don'ts */}
+            <div className="fs-split-cards">
+              <div className="fs-split-card fs-split-card-success">
+                <h3>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  What Makes an Enterprise Gen AI Project Succeed
+                </h3>
+                <ul className="fs-split-list">
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon"><CheckCircle /></div>
+                    <div><strong>Hybrid Dense + Sparse Search:</strong> Combining HNSW vector search with BM25 keyword matching to prevent missing crucial domain acronyms and exact serial numbers.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon"><CheckCircle /></div>
+                    <div><strong>Cross-Encoder Re-Ranking:</strong> Scoring retrieved chunks with Cohere/BGE re-rankers to discard irrelevant background noise before prompting the LLM.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon"><CheckCircle /></div>
+                    <div><strong>Automated Golden Evals:</strong> Continuous testing against ground-truth QA datasets using Ragas to measure faithfulness and context precision on every deployment.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon"><CheckCircle /></div>
+                    <div><strong>Deterministic Guardrails:</strong> NeMo guardrails and PII scrubbers intercepting inputs/outputs to guarantee compliance and block prompt injections.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon"><CheckCircle /></div>
+                    <div><strong>Sub-Second Latency Architecture:</strong> Streaming token responses over WebSockets with speculative decoding and vLLM continuous batching.</div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="fs-split-card fs-split-card-failure">
+                <h3>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  Why Generic LLM Wrappers Fail (And How to Avoid It)
+                </h3>
+                <ul className="fs-split-list">
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
+                    <div><strong>Unanchored Hallucinations:</strong> Naive vector search returns generic fragments, causing the model to invent plausible-sounding false answers.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
+                    <div><strong>Data Sovereignty Leaks:</strong> Transmitting unmasked PII and sensitive trade secrets through consumer-grade public API endpoints.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
+                    <div><strong>Astronomical Token Inefficiencies:</strong> Dumping entire PDF files into context windows instead of semantic chunking, causing massive monthly bills.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
+                    <div><strong>Fragile Prompt Chaining:</strong> Building multi-step logic on brittle strings rather than stateful LangGraph agent control planes.</div>
+                  </li>
+                  <li className="fs-split-item">
+                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
+                    <div><strong>Zero Verifiable Citations:</strong> Producing responses without line-item page and paragraph references, making enterprise compliance impossible.</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </section>
 
-        {/* 4. COMPARISON: GENERIC WRAPPERS VS NOVADESK ARCHITECTURE */}
+        {/* 3. WHY CHOOSE US SECTION (EXACT STICKY SPOTLIGHT + DIFFERENTIATORS + SPLIT COMPARISON) */}
         <section className="fs-section">
           <div className="fs-container">
-            <div className="fs-tag-arrows">ENGINEERING COMPARISON</div>
-            <h2 className="fs-section-title">Why Off-The-Shelf Wrappers Fail in Production</h2>
-            <p className="fs-section-subtitle">
-              Most SaaS wrappers offer brittle API proxies that hallucinate, leak private data, and inflate monthly seat costs. Here is how NovaDesk delivers true enterprise software.
-            </p>
+            <div className="fs-tag-arrows">WHY CHOOSE US</div>
 
-            <div className="fs-comp-grid">
+            <div className="fs-why-us-grid">
+              <div className="fs-why-us-sticky">
+                <h2 className="fs-section-title" style={{ marginBottom: '24px' }}>
+                  An Engineering-First Generative AI Partner
+                </h2>
+                <p style={{ fontSize: '15px', color: '#475569', lineHeight: '1.65' }}>
+                  There is no shortage of shallow SaaS wrappers. NovaDesk differentiates itself by engineering custom enterprise software, deterministic security boundaries, and sovereign model architectures.
+                </p>
+
+                <div className="fs-value-spotlight">
+                  <h4>The NovaDesk Promise</h4>
+                  <ul className="fs-spotlight-list">
+                    <li className="fs-spotlight-item">
+                      <CheckCircle />
+                      <span>100% Source Code & Adapter Weights</span>
+                    </li>
+                    <li className="fs-spotlight-item">
+                      <CheckCircle />
+                      <span>No Proprietary Vendor Platform Lock-In</span>
+                    </li>
+                    <li className="fs-spotlight-item">
+                      <CheckCircle />
+                      <span>Direct Developer Slack & Video Channels</span>
+                    </li>
+                    <li className="fs-spotlight-item">
+                      <CheckCircle />
+                      <span>Strict SOC 2 & HIPAA Compliance</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="fs-differentiators-stack">
+                <div className="fs-diff-row">
+                  <div className="fs-diff-number">01</div>
+                  <div className="fs-diff-content">
+                    <h3>Deterministic Grounding First</h3>
+                    <p>We eliminate guesswork. Models answer exclusively from verified internal document indexes with line-item page and paragraph citations.</p>
+                  </div>
+                </div>
+                <div className="fs-diff-row">
+                  <div className="fs-diff-number">02</div>
+                  <div className="fs-diff-content">
+                    <h3>Sovereign On-Premise Infrastructure</h3>
+                    <p>Host open-weights foundation models (DeepSeek-R1, Llama 3.3) on your own AWS/GCP Kubernetes clusters with zero external network egress.</p>
+                  </div>
+                </div>
+                <div className="fs-diff-row">
+                  <div className="fs-diff-number">03</div>
+                  <div className="fs-diff-content">
+                    <h3>Continuous Evaluation (CI/CD for AI)</h3>
+                    <p>Every pull request is scored against golden evaluation datasets via Ragas and TruLens to benchmark accuracy and faithfulness.</p>
+                  </div>
+                </div>
+                <div className="fs-diff-row">
+                  <div className="fs-diff-number">04</div>
+                  <div className="fs-diff-content">
+                    <h3>Stateful Multi-Agent Workflows</h3>
+                    <p>Move beyond linear prompts. LangGraph swarms execute complex multi-step research, Python data analysis, and validation autonomously.</p>
+                  </div>
+                </div>
+                <div className="fs-diff-row">
+                  <div className="fs-diff-number">05</div>
+                  <div className="fs-diff-content">
+                    <h3>Production Latency Engineering</h3>
+                    <p>We optimize token generation speed using vLLM continuous batching, PagedAttention, and streaming WebSockets for sub-18ms TTFT.</p>
+                  </div>
+                </div>
+                <div className="fs-diff-row">
+                  <div className="fs-diff-number">06</div>
+                  <div className="fs-diff-content">
+                    <h3>Post-Launch Continuous Evals</h3>
+                    <p>We establish active Langfuse telemetry to detect real-time semantic drift, catch edge-case errors, and continuously retrain LoRA adapters.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Premium Comparison Split */}
+            <div className="fs-comparison-split">
               <div className="fs-comp-card fs-comp-card-cookie">
                 <div className="fs-comp-header">
-                  <span className="fs-comp-badge">Generic SaaS / Off-the-shelf</span>
+                  <span className="fs-comp-badge">Generic SaaS / Low-Code</span>
                   <h3>Fragile API Wrappers</h3>
-                  <p>Shallow wrappers that break under real enterprise stress.</p>
+                  <p>Shallow wrappers that break under real enterprise compliance loads.</p>
                 </div>
                 <div className="fs-comp-list">
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✕</span>
-                    <div><strong>High Hallucination Rates:</strong> Unfiltered prompts answer from general web memory rather than your verified documents.</div>
+                    <div><strong>High Hallucination Rates:</strong> Unfiltered prompts answer from general web memory rather than verified enterprise files.</div>
                   </div>
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✕</span>
-                    <div><strong>Data Privacy Risks:</strong> Enterprise prompts transit third-party proxy servers without zero-retention guarantees.</div>
+                    <div><strong>Data Privacy Risks:</strong> Prompts transit multi-tenant third-party proxy servers without zero-data-retention guarantees.</div>
                   </div>
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✕</span>
-                    <div><strong>Per-Seat Subscriptions:</strong> Costs scale punitively with employee headcount rather than actual computational usage.</div>
+                    <div><strong>Per-Seat Subscriptions:</strong> Software costs inflate punitively with employee headcount rather than actual compute usage.</div>
                   </div>
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✕</span>
-                    <div><strong>No Source Verification:</strong> Outputs lack line-item page and paragraph citations, making compliance review impossible.</div>
+                    <div><strong>No Source Citations:</strong> Outputs lack verifiable file and paragraph references, failing basic compliance audits.</div>
+                  </div>
+                  <div className="fs-comp-item">
+                    <span className="fs-comp-item-icon">✕</span>
+                    <div><strong>No Model Fine-Tuning:</strong> Restricted to generic system prompts without the ability to adapt model weights to domain terminology.</div>
+                  </div>
+                  <div className="fs-comp-item">
+                    <span className="fs-comp-item-icon">✕</span>
+                    <div><strong>Proprietary Lock-In:</strong> If you leave the SaaS platform, all prompts, conversation history, and workflows are permanently lost.</div>
                   </div>
                 </div>
               </div>
@@ -649,128 +832,544 @@ export default function GenAiDevelopment() {
                 <div className="fs-comp-header">
                   <span className="fs-comp-badge">The NovaDesk Way</span>
                   <h3>Custom Grounded Systems</h3>
-                  <p>Enterprise-grade architectures designed for security, accuracy, and longevity.</p>
+                  <p>Enterprise-grade architectures engineered for accuracy, sovereignty, and longevity.</p>
                 </div>
                 <div className="fs-comp-list">
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✓</span>
-                    <div><strong>Deterministic Grounding:</strong> Hybrid vector + BM25 search with cross-encoder re-ranking guarantees answers cite verified facts.</div>
+                    <div><strong>Deterministic Grounding:</strong> Hybrid vector + BM25 search with cross-encoders ensures models only answer from verified data.</div>
                   </div>
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✓</span>
-                    <div><strong>Private VPC / Air-Gapped:</strong> Host models in your own cloud or on-premise infrastructure with zero data egress.</div>
+                    <div><strong>Private VPC / Air-Gapped:</strong> Deploy inside your AWS/GCP clusters with zero external network data egress.</div>
                   </div>
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✓</span>
-                    <div><strong>100% IP & Code Ownership:</strong> Zero recurring seat licensing. You own the code, weights, schemas, and infrastructure.</div>
+                    <div><strong>100% Code & Weight Ownership:</strong> You own all source code, LoRA adapter weights, prompt pipelines, and vector schemas.</div>
                   </div>
                   <div className="fs-comp-item">
                     <span className="fs-comp-item-icon">✓</span>
                     <div><strong>Verifiable Citation Trails:</strong> Every synthesized sentence references the exact file name, page number, and paragraph block.</div>
                   </div>
+                  <div className="fs-comp-item">
+                    <span className="fs-comp-item-icon">✓</span>
+                    <div><strong>QLoRA Domain Adaptation:</strong> Specialized 4-bit adapter weights fine-tuned on your internal syntax and protocols.</div>
+                  </div>
+                  <div className="fs-comp-item">
+                    <span className="fs-comp-item-icon">✓</span>
+                    <div><strong>Zero Recurring License Tax:</strong> Pay only for your raw server infrastructure with zero per-seat software fees.</div>
+                  </div>
                 </div>
               </div>
             </div>
+
           </div>
         </section>
 
-        {/* 5. 6 CORE CAPABILITIES */}
+        {/* 4. FEATURES SECTION (EXACT BENTO GRID MATCH) */}
         <section className="fs-section fs-section-bg-slate">
           <div className="fs-container">
-            <div className="fs-tag-arrows">CAPABILITIES</div>
-            <h2 className="fs-section-title">Complete Generative AI Engineering Suite</h2>
+            <div className="fs-tag-arrows">SYSTEM FEATURES</div>
+            <h2 className="fs-section-title">Enterprise-Grade Features for Mission-Critical Gen AI</h2>
             <p className="fs-section-subtitle">
-              From high-accuracy internal knowledge vaults to autonomous multi-agent task forces, we build end-to-end AI applications ready for production scale.
+              We construct custom Generative AI applications equipped with advanced operational capabilities to handle complex business use cases.
+            </p>
+
+            <div className="fs-bento-grid">
+              {/* Card 1: Advanced Semantic Chunking & Re-Ranking (Wide - 2 Cols) */}
+              <div className="fs-bento-card fs-bento-col-2">
+                <div className="fs-bento-card-badge">Hybrid RAG</div>
+                <h3>Advanced Semantic Chunking & Re-Ranking</h3>
+                <p>We preserve tables, header hierarchies, and spatial schemas across complex documents. Cross-encoder re-rankers filter the top 50 passages down to the exact relevant context.</p>
+
+                <div style={{ marginTop: '20px', background: '#f8fafc', padding: '16px', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', fontSize: '13px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <span style={{ fontWeight: '700', color: '#2E29FF' }}>Semantic Chunker: ParentDocumentRetriever</span>
+                    <span style={{ fontSize: '11px', background: '#e2e8f0', padding: '2px 8px', borderRadius: '4px' }}>Chunk Size: 512 tokens</span>
+                  </div>
+                  <code style={{ fontSize: '12px', color: '#0f172a', display: 'block', background: '#ffffff', padding: '10px', borderRadius: '8px', border: '1px solid #cbd5e1' }}>
+                    Matched: 10-K_Report.pdf (Section 4.2 - Multi-Tenant SLA) ➔ Cross-Encoder Score: 0.984
+                  </code>
+                </div>
+              </div>
+
+              {/* Card 2: Multi-Model Routing (Regular - 1 Col) */}
+              <div className="fs-bento-card">
+                <div className="fs-bento-card-badge" style={{ background: 'rgba(52,168,83,0.05)', color: '#34A853' }}>Dynamic Routing</div>
+                <h3>Intelligent Model Routing</h3>
+                <p>Route simple lookups to fast local models and complex multi-step reasoning to frontier reasoning engines, reducing token costs by up to 65%.</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '16px' }}>
+                  <span className="fs-bento-channel-badge">Claude 3.7</span>
+                  <span className="fs-bento-channel-badge">GPT-4o</span>
+                  <span className="fs-bento-channel-badge">DeepSeek-R1</span>
+                  <span className="fs-bento-channel-badge">Llama 3.3</span>
+                </div>
+              </div>
+
+              {/* Card 3: Vector Storage Matrix (Regular - 1 Col) */}
+              <div className="fs-bento-card">
+                <div className="fs-bento-card-badge" style={{ background: 'rgba(251,188,5,0.08)', color: '#D97706' }}>Vector DBs</div>
+                <h3>Enterprise Vector Stores</h3>
+                <p>Native integration with high-throughput vector databases supporting HNSW indexing and metadata filtering.</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '16px' }}>
+                  <span className="fs-lang-pill">pgvector</span>
+                  <span className="fs-lang-pill">Pinecone</span>
+                  <span className="fs-lang-pill">Qdrant</span>
+                  <span className="fs-lang-pill">Milvus</span>
+                </div>
+              </div>
+
+              {/* Card 4: Hallucination Guardrails (Wide - 2 Cols) */}
+              <div className="fs-bento-card fs-bento-col-2">
+                <div className="fs-bento-card-badge" style={{ background: 'rgba(234,67,53,0.05)', color: '#EA4335' }}>Safety Firewall</div>
+                <h3>Enterprise Guardrails & PII Sanitization</h3>
+                <p>Automated NeMo guardrails intercept prompts in real time, masking Social Security Numbers, credit cards, and proprietary source code while blocking prompt injection attacks.</p>
+
+                <div style={{ marginTop: '20px', background: '#f8fafc', padding: '14px 18px', borderRadius: '12px', border: '1px dashed rgba(234,67,53,0.3)', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12.5px' }}>
+                  <div style={{ color: '#EA4335', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#EA4335' }}></span>
+                    Security Interceptor: Sanitized 2 PII entities (Tax ID, Employee Phone) before LLM inference.
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 5: Stateful Multi-Turn Memory */}
+              <div className="fs-bento-card">
+                <div className="fs-bento-card-badge">Stateful Memory</div>
+                <h3>Contextual Session Cache</h3>
+                <p>Redis-powered multi-turn conversation caching preserves context across hours of user interaction without context window overflows.</p>
+                <div style={{ marginTop: '12px' }}>
+                  <span className="fs-lang-pill" style={{ background: 'rgba(46,41,255,0.08)', color: '#2E29FF' }}>TTL Managed Redis Cache</span>
+                </div>
+              </div>
+
+              {/* Card 6: Continuous Eval Observability */}
+              <div className="fs-bento-card">
+                <div className="fs-bento-card-badge">Observability</div>
+                <h3>Langfuse Telemetry</h3>
+                <p>Full observability across token costs, latency traces, confidence scores, and user feedback down to the individual request.</p>
+                <div style={{ marginTop: '12px' }}>
+                  <span className="fs-lang-pill" style={{ background: 'rgba(16,185,129,0.08)', color: '#10B981' }}>Live Request Tracing</span>
+                </div>
+              </div>
+
+              {/* Card 7: Air-Gapped Private VPC (Wide - 2 Cols) */}
+              <div className="fs-bento-card fs-bento-col-2">
+                <div className="fs-bento-card-badge">Strict Compliance</div>
+                <h3>Air-Gapped Sovereign Deployment</h3>
+                <p>Host models inside your private AWS VPC, GCP, or on-premise Kubernetes clusters. Zero external token metering, complete immunity from cloud outages, and full HIPAA/SOC2 compliance.</p>
+                <div style={{ display: 'flex', gap: '8px', marginTop: '14px' }}>
+                  <span className="fs-bento-channel-badge">AWS EKS</span>
+                  <span className="fs-bento-channel-badge">Google GKE</span>
+                  <span className="fs-bento-channel-badge">On-Premises GPUs</span>
+                </div>
+              </div>
+
+              {/* Card 8: Structured JSON Schema Extraction (Wide - 2 Cols) */}
+              <div className="fs-bento-card fs-bento-col-2">
+                <div className="fs-bento-card-badge">Type Safety</div>
+                <h3>Guaranteed JSON Schema Outputs</h3>
+                <p>Models output strictly validated Pydantic and JSON Schema structures with zero markdown syntax errors, ready for direct database ingestion.</p>
+                <div style={{ marginTop: '12px', background: '#0b0f19', color: '#38bdf8', padding: '10px 14px', borderRadius: '8px', fontSize: '11px', fontFamily: 'monospace' }}>
+                  {'{ "status": "PARSED", "confidence": 0.998, "schema_valid": true }'}
+                </div>
+              </div>
+            </div>
+
+            {/* Feature Comparison Matrix Table */}
+            <div style={{ marginTop: '60px' }}>
+              <h3 style={{ fontSize: '22px', fontWeight: '800', marginBottom: '20px', color: '#0b0f19' }}>
+                Architecture Comparison: Basic Wrappers vs NovaDesk Enterprise Systems
+              </h3>
+              <div className="fs-table-container">
+                <table className="fs-table">
+                  <thead>
+                    <tr>
+                      <th>Capability</th>
+                      <th>Consumer AI / Basic Wrapper</th>
+                      <th>Generic SaaS Tool</th>
+                      <th>NovaDesk Enterprise Gen AI</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Data Privacy & Egress</strong></td>
+                      <td>Public training pool</td>
+                      <td>Third-party multi-tenant cloud</td>
+                      <td><span className="fs-lang-pill" style={{ background: 'rgba(52,168,83,0.1)', color: '#34A853' }}>100% Private VPC / Air-Gapped</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Hallucination Defense</strong></td>
+                      <td>Zero grounding controls</td>
+                      <td>Basic vector search</td>
+                      <td><span className="fs-lang-pill" style={{ background: 'rgba(52,168,83,0.1)', color: '#34A853' }}>Hybrid RAG + Re-Ranker + NeMo</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Verifiable Citations</strong></td>
+                      <td>None</td>
+                      <td>Generic document name</td>
+                      <td><span className="fs-lang-pill" style={{ background: 'rgba(52,168,83,0.1)', color: '#34A853' }}>Line-item page & paragraph tags</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Code & Model IP</strong></td>
+                      <td>Vendor owned</td>
+                      <td>Proprietary platform locked</td>
+                      <td><span className="fs-lang-pill" style={{ background: 'rgba(52,168,83,0.1)', color: '#34A853' }}>100% Client IP Ownership</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Domain Fine-Tuning</strong></td>
+                      <td>Not supported</td>
+                      <td>Prompt templates only</td>
+                      <td><span className="fs-lang-pill" style={{ background: 'rgba(52,168,83,0.1)', color: '#34A853' }}>QLoRA Adapter Weights</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Latency & Serving</strong></td>
+                      <td>1.5s - 4.0s (Rate limited)</td>
+                      <td>800ms - 2.0s</td>
+                      <td><span className="fs-lang-pill" style={{ background: 'rgba(52,168,83,0.1)', color: '#34A853' }}>Sub-18ms TTFT (vLLM PagedAttention)</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* 5. BENEFITS SECTION (EXACT MATCH CHATBOT TEMPLATE WITH CARDS & METRICS TABLE) */}
+        <section className="fs-section">
+          <div className="fs-container">
+            <div className="fs-tag-arrows">BUSINESS BENEFITS</div>
+            <h2 className="fs-section-title">Measurable Business Value From Day One</h2>
+            <p className="fs-section-subtitle">
+              Deploying custom Generative AI allows enterprises to eliminate manual research bottlenecks, automate document intake, and reduce operational overhead.
             </p>
 
             <div className="fs-grid-3">
-              {capabilities.map((cap, i) => (
-                <div key={i} className="fs-card-premium">
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-                    <span style={{ fontSize: '11px', fontWeight: '800', color: '#2E29FF', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                      {cap.tagline}
-                    </span>
-                    <span style={{ fontSize: '10px', background: 'rgba(46,41,255,0.08)', color: '#2E29FF', padding: '3px 8px', borderRadius: '4px', fontWeight: '700' }}>
-                      {cap.badge}
-                    </span>
-                  </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#0B0F19', marginBottom: '10px' }}>
-                    {cap.title}
-                  </h3>
-                  <p style={{ fontSize: '14px', color: '#475569', lineHeight: '1.6', marginBottom: '18px' }}>
-                    {cap.desc}
-                  </p>
-                  <ul className="fs-bullet-list" style={{ marginTop: 'auto' }}>
-                    {cap.bullets.map((b, idx) => (
-                      <li key={idx} className="fs-bullet-item" style={{ fontSize: '13px' }}>
-                        <CheckCircle />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              <div className="fs-card-premium">
+                <h3>82% Faster Knowledge Retrieval</h3>
+                <p>Engineers, paralegals, and analysts query millions of internal pages and receive grounded answers in seconds rather than digging through static wikis.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>94% Automated Document Intake</h3>
+                <p>Eliminate manual data entry. Invoices, claims, legal contracts, and medical records are parsed directly into database schemas with validation.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>$0 Vendor Seat Taxation</h3>
+                <p>Ditch expensive per-seat software licenses. Deploy custom private infrastructure where costs scale with compute usage rather than headcount.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Zero Human Hallucination Risk</h3>
+                <p>Strict cross-encoder re-ranking and verifiable citation trails guarantee that every statement is grounded in your verified corporate files.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Autonomous Agent Execution</h3>
+                <p>Multi-agent LangGraph workflows handle end-to-end task chains: planning, data querying, code execution, validation, and database updates.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Sovereign Regulatory Immunity</h3>
+                <p>Comply with strict HIPAA, GDPR, and defense data regulations by keeping all model weights and embeddings within your private cloud perimeter.</p>
+              </div>
             </div>
+
+            {/* Expected Business Impact Metrics Table */}
+            <div style={{ marginTop: '50px' }}>
+              <h3 style={{ fontSize: '22px', fontWeight: '800', marginBottom: '20px', color: '#0b0f19' }}>
+                Expected Business Impact Metrics
+              </h3>
+              <div className="fs-table-container">
+                <table className="fs-table">
+                  <thead>
+                    <tr>
+                      <th>Benefit</th>
+                      <th>Expected Business Impact</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Document Intake Automation</strong></td>
+                      <td>Reduces manual data entry time by over 90% while cutting error rates to near zero.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Cross-Repository Search</strong></td>
+                      <td>Unifies data trapped across Google Drive, Notion, PostgreSQL, and PDF archives into one instant interface.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Compute Cost Efficiency</strong></td>
+                      <td>Cuts API expenses by up to 65% through intelligent model routing and prompt context compression.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Autonomous Analysis Sprints</strong></td>
+                      <td>Multi-agent teams conduct research and financial modeling in minutes that previously required days of analyst time.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Full Intellectual Property Rights</strong></td>
+                      <td>Zero platform dependency risk; all code, weights, prompts, and embeddings remain your company assets.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
           </div>
         </section>
 
-        {/* 6. BUSINESS IMPACT & ROI */}
-        <section className="fs-section">
-          <div className="fs-container">
-            <div className="fs-tag-arrows">MEASURABLE ROI</div>
-            <h2 className="fs-section-title">Real Business Impact in Numbers</h2>
-            <p className="fs-section-subtitle">
-              Generative AI is only valuable when it cuts operating costs, accelerates revenue cycles, or unlocks net-new business capabilities.
-            </p>
-
-            <div className="fs-roi-grid">
-              <div className="fs-roi-card">
-                <div className="fs-roi-stat">82%</div>
-                <div className="fs-roi-title">Knowledge Retrieval Velocity</div>
-                <p className="fs-roi-desc">Engineers and support staff locate critical answers across millions of files in seconds instead of hours.</p>
-              </div>
-              <div className="fs-roi-card">
-                <div className="fs-roi-stat">94%</div>
-                <div className="fs-roi-title">Document Processing Automation</div>
-                <p className="fs-roi-desc">Invoices, claims, contracts, and clinical documents extracted with structured schema validation.</p>
-              </div>
-              <div className="fs-roi-card">
-                <div className="fs-roi-stat">65%</div>
-                <div className="fs-roi-title">Cost Reduction vs Off-The-Shelf</div>
-                <p className="fs-roi-desc">Eliminate per-seat software licensing by routing queries through optimized private inference clusters.</p>
-              </div>
-              <div className="fs-roi-card">
-                <div className="fs-roi-stat">0</div>
-                <div className="fs-roi-title">Compliance & Data Leaks</div>
-                <p className="fs-roi-desc">Zero external model training, automated PII sanitization, and strict enterprise VPC boundary enforcement.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 7. 7-STAGE DELIVERY METHODOLOGY */}
+        {/* 6. OUR PROCESS SECTION (EXACT MATCH CHATBOT TIMELINE + PROCESS TABLE + TRACK CARDS) */}
         <section className="fs-process-blue">
           <div className="fs-container">
-            <div className="fs-tag-white">HOW WE SHIP PRODUCTION AI</div>
-            <h2 className="fs-title-white">Our 7-Stage Engineering Roadmap</h2>
-            <p className="fs-subtitle-white">
-              We eliminate technical debt by following a rigorous evaluation-first methodology from initial data audit to production telemetry.
-            </p>
-
-            <div className="fs-process-cards">
-              {steps.map((st, i) => (
-                <div key={i} className="fs-process-card">
-                  <div className="fs-step-number">{st.num}</div>
-                  <div className="fs-step-time">{st.time}</div>
-                  <h3 className="fs-step-title">{st.title}</h3>
-                  <p className="fs-step-desc">{st.desc}</p>
-                </div>
-              ))}
+            <div className="fs-process-header-wrap">
+              <div className="fs-process-header-left">
+                <div className="fs-process-tag-lines">← OUR ROADMAP →</div>
+                <h2>A Structured Methodology for Launching Enterprise Gen AI</h2>
+              </div>
+              <div className="fs-process-header-right">
+                <p>
+                  We eliminate technical debt by following an evaluation-first engineering process from initial data audit to production telemetry.
+                </p>
+              </div>
             </div>
+
+            <div className="fs-timeline-blue">
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 01</span>
+                  <h3>Discovery & Data Readiness Audit</h3>
+                  <p>In-depth audit of knowledge repositories, document schemas, API tokens, and compliance boundaries. We establish quantitative golden eval datasets.</p>
+                </div>
+              </div>
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 02</span>
+                  <h3>Architecture & Security Blueprinting</h3>
+                  <p>Selecting optimal model topologies (cloud API vs sovereign private vLLM), designing chunking strategies, and drafting deterministic safety guardrails.</p>
+                </div>
+              </div>
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 03</span>
+                  <h3>Vector Indexing & Hybrid Ingestion</h3>
+                  <p>We build automated ingestion pipelines that parse documents, generate high-dimensional embeddings, and create hybrid pgvector + BM25 indexes.</p>
+                </div>
+              </div>
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 04</span>
+                  <h3>Agent & Prompt Graph Orchestration</h3>
+                  <p>Developing stateful LangGraph execution graphs, system prompt architectures, tool-calling interfaces, and Pydantic schema output validators.</p>
+                </div>
+              </div>
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 05</span>
+                  <h3>Red-Teaming & Guardrail Hardening</h3>
+                  <p>Executing automated adversarial prompt injection attacks, verifying PII masking filters, and calibrating NeMo hallucination detectors.</p>
+                </div>
+              </div>
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 06</span>
+                  <h3>Staging Benchmark Validation (CI/CD)</h3>
+                  <p>Running golden evaluation datasets through Ragas and TruLens to benchmark faithfulness, answer relevancy, and context recall prior to release.</p>
+                </div>
+              </div>
+              <div className="fs-timeline-item-blue">
+                <div className="fs-timeline-dot-blue"></div>
+                <div className="fs-timeline-content-blue">
+                  <span className="fs-timeline-step-badge">STEP 07</span>
+                  <h3>Production Deployment & Live Telemetry</h3>
+                  <p>Zero-downtime release with Langfuse real-time latency tracing, token cost monitoring, automated alerting, and continuous LoRA retraining.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Process duration table (Clean White Executive Theme) */}
+            <div style={{ marginTop: '60px' }}>
+              <h3 style={{ fontSize: '22px', fontWeight: '800', marginBottom: '20px', color: '#ffffff' }}>
+                Timeline Breakdown
+              </h3>
+              <div className="fs-table-container" style={{ background: '#ffffff', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 20px 40px rgba(0,0,0,0.12)', padding: '8px', overflow: 'hidden' }}>
+                <table className="fs-table" style={{ background: '#ffffff', color: '#0b0f19' }}>
+                  <thead>
+                    <tr style={{ background: '#f8fafc' }}>
+                      <th style={{ color: '#0b0f19', borderBottom: '2px solid #e2e8f0', background: '#f8fafc', fontWeight: '800' }}>Phase</th>
+                      <th style={{ color: '#0b0f19', borderBottom: '2px solid #e2e8f0', background: '#f8fafc', fontWeight: '800' }}>Key Activities</th>
+                      <th style={{ color: '#0b0f19', borderBottom: '2px solid #e2e8f0', background: '#f8fafc', fontWeight: '800' }}>Typical Duration</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style={{ color: '#0b0f19', borderBottom: '1px solid #e2e8f0' }}><strong>Discovery & Scoping</strong></td>
+                      <td style={{ color: '#475569', borderBottom: '1px solid #e2e8f0' }}>Data readiness audit, golden test set creation, compliance definition</td>
+                      <td style={{ borderBottom: '1px solid #e2e8f0' }}><span className="fs-lang-pill" style={{ background: '#f1f5f9', color: '#0b0f19', border: '1px solid #cbd5e1' }}>1–2 weeks</span></td>
+                    </tr>
+                    <tr>
+                      <td style={{ color: '#0b0f19', borderBottom: '1px solid #e2e8f0' }}><strong>Vector Indexing & RAG</strong></td>
+                      <td style={{ color: '#475569', borderBottom: '1px solid #e2e8f0' }}>Document ingestion, chunk optimization, pgvector/HNSW configuration</td>
+                      <td style={{ borderBottom: '1px solid #e2e8f0' }}><span className="fs-lang-pill" style={{ background: '#f1f5f9', color: '#0b0f19', border: '1px solid #cbd5e1' }}>1–3 weeks</span></td>
+                    </tr>
+                    <tr>
+                      <td style={{ color: '#0b0f19', borderBottom: '1px solid #e2e8f0' }}><strong>Agent / Model Tuning</strong></td>
+                      <td style={{ color: '#475569', borderBottom: '1px solid #e2e8f0' }}>LangGraph state machine build, tool calling hooks, QLoRA adapter training</td>
+                      <td style={{ borderBottom: '1px solid #e2e8f0' }}><span className="fs-lang-pill" style={{ background: 'rgba(46,41,255,0.08)', color: '#2E29FF', border: '1px solid rgba(46,41,255,0.2)' }}>2–4 weeks</span></td>
+                    </tr>
+                    <tr>
+                      <td style={{ color: '#0b0f19', borderBottom: '1px solid #e2e8f0' }}><strong>Red-Teaming & Evals</strong></td>
+                      <td style={{ color: '#475569', borderBottom: '1px solid #e2e8f0' }}>Adversarial penetration tests, PII scrubbing, Ragas accuracy scoring</td>
+                      <td style={{ borderBottom: '1px solid #e2e8f0' }}><span className="fs-lang-pill" style={{ background: '#f1f5f9', color: '#0b0f19', border: '1px solid #cbd5e1' }}>1–2 weeks</span></td>
+                    </tr>
+                    <tr>
+                      <td style={{ color: '#0b0f19', borderBottom: '1px solid #e2e8f0' }}><strong>Production Rollout</strong></td>
+                      <td style={{ color: '#475569', borderBottom: '1px solid #e2e8f0' }}>Zero-downtime deployment, vLLM continuous batching, Langfuse monitoring</td>
+                      <td style={{ borderBottom: '1px solid #e2e8f0' }}><span className="fs-lang-pill" style={{ background: '#f1f5f9', color: '#0b0f19', border: '1px solid #cbd5e1' }}>1 week</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Split cards for Project Track & Client Requirements */}
+            <div className="fs-grid-2" style={{ marginTop: '50px', gap: '24px' }}>
+              <div className="fs-track-card-blue">
+                <h3>
+                  <span style={{ color: '#34A853' }}>✓</span> How We Keep Projects On Track
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(52,168,83,0.15)', color: '#34A853', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✓</div>
+                    <div><strong>Weekly Working Demos:</strong> Review working RAG prototypes and agent traces every week.</div>
+                  </div>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(52,168,83,0.15)', color: '#34A853', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✓</div>
+                    <div><strong>Live Eval Dashboards:</strong> Real-time access to automated Ragas accuracy scores on golden test sets.</div>
+                  </div>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(52,168,83,0.15)', color: '#34A853', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✓</div>
+                    <div><strong>Direct Developer Slack:</strong> Real-time engineering communication with zero account manager telephone games.</div>
+                  </div>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(52,168,83,0.15)', color: '#34A853', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✓</div>
+                    <div><strong>Rollback Safeguards:</strong> Immutable git commits and adapter checkpoints for zero-risk production deploys.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="fs-track-card-blue">
+                <h3>
+                  <span style={{ color: '#60A5FA' }}>✦</span> What We Need From You
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(96,165,250,0.15)', color: '#60A5FA', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✦</div>
+                    <div><strong>Sample Documentation:</strong> Clean or messy, internal PDFs, wikis, and guidelines to seed the vector vault.</div>
+                  </div>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(96,165,250,0.15)', color: '#60A5FA', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✦</div>
+                    <div><strong>Domain Subject Matter Expert:</strong> A key point of contact to clarify specialized industry acronyms.</div>
+                  </div>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(96,165,250,0.15)', color: '#60A5FA', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✦</div>
+                    <div><strong>API & Cloud Access:</strong> Sandbox access to target AWS/GCP clusters or databases.</div>
+                  </div>
+                  <div className="fs-track-item-blue">
+                    <div style={{ background: 'rgba(96,165,250,0.15)', color: '#60A5FA', borderRadius: '50%', width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0 }}>✦</div>
+                    <div><strong>Timely Review Feedback:</strong> Active validation during conversation flow and acceptance testing.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
 
-        {/* 8. TOOLS & TECH STACK */}
+        {/* 7. INDUSTRIES WE SERVE (EXACT MATCH CHATBOT TEMPLATE WITH CARDS & TABLE) */}
+        <section className="fs-section fs-section-bg-slate">
+          <div className="fs-container">
+            <div className="fs-tag-arrows">INDUSTRY APPLICATIONS</div>
+            <h2 className="fs-section-title">Generative AI Tailored to Your Sector</h2>
+            <p className="fs-section-subtitle">
+              We design generative architectures configured to meet the unique compliance guidelines, data formats, and latency requirements of your industry.
+            </p>
+
+            <div className="fs-grid-3" style={{ marginBottom: '60px' }}>
+              <div className="fs-card-premium">
+                <h3>Banking & Fintech</h3>
+                <p>Automate fraud investigation memos, parse loan documentation, conduct AML screening, and generate investment analysis briefs with strict audit logging.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Healthcare & Life Sciences</h3>
+                <p>Extract clinical pathology biomarkers into FHIR schemas, synthesize clinical trial data, and build HIPAA-compliant internal doctor research assistants.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Legal & Compliance</h3>
+                <p>Redline massive contracts in seconds, identify non-standard indemnification clauses, and cite precedent court filings with exact page citations.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>E-Commerce & Retail</h3>
+                <p>Generate hyper-personalized product descriptions, automate vendor catalog onboarding, and deploy conversational shopping recommendation assistants.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Logistics & Supply Chain</h3>
+                <p>Parse complex customs declarations, extract shipping manifests, optimize freight schedules, and predict supply chain bottleneck disruptions.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Enterprise SaaS</h3>
+                <p>Embed native in-app AI copilots, automate customer ticket deflection, and generate SQL analytics queries directly from natural language.</p>
+              </div>
+            </div>
+
+            {/* Industry comparison table */}
+            <div style={{ marginTop: '50px' }}>
+              <h3 style={{ fontSize: '22px', fontWeight: '800', marginBottom: '20px', color: '#0b0f19' }}>
+                Common Industry Use Cases
+              </h3>
+              <div className="fs-table-container">
+                <table className="fs-table">
+                  <thead>
+                    <tr>
+                      <th>Industry</th>
+                      <th>Common Generative AI Use Cases</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Banking & Fintech</strong></td>
+                      <td>Credit risk memo generation, KYC verification, anti-money laundering anomaly detection.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Healthcare</strong></td>
+                      <td>Clinical trial patient matching, radiology report synthesis, HIPAA doctor intake forms.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Legal & Contracts</strong></td>
+                      <td>Automated contract redlining, compliance audit cross-checks, patent prior art discovery.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Manufacturing & Hardware</strong></td>
+                      <td>CAD blueprint extraction, equipment maintenance troubleshooting, bill of materials validation.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>E-Commerce & Retail</strong></td>
+                      <td>Dynamic SEO product copy, multilingual catalog translation, intelligent returns triaging.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Enterprise Software</strong></td>
+                      <td>Natural language to SQL, automatic documentation generation, automated pull request reviews.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* 8. TOOLS & TECHNOLOGIES (EXACT MATCH CHATBOT 4-BOX TECH STACK) */}
         <section className="expertise experts">
           <div className="container">
             <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '40px' }}>
@@ -781,12 +1380,12 @@ export default function GenAiDevelopment() {
                     Modern Foundation Models & AI Tooling
                   </h2>
                   <p style={{ fontSize: '15px', color: '#475569', lineHeight: '1.6' }}>
-                    We pick proven, open, and high-performance technologies. We never lock your business into closed proprietary black boxes, ensuring your engineering team can maintain and extend the code.
+                    We pick proven, open, and high-performance technologies. We never lock your business into closed proprietary black boxes, ensuring your internal team can maintain and extend the code.
                   </p>
 
                   <div style={{ marginTop: '24px' }}>
                     <h3 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '12px', color: '#0b0f19' }}>
-                      Our Technology Selection Matrix:
+                      How We Choose Your Stack:
                     </h3>
                     <ul className="fs-bullet-list">
                       <li className="fs-bullet-item">
@@ -795,15 +1394,15 @@ export default function GenAiDevelopment() {
                       </li>
                       <li className="fs-bullet-item">
                         <CheckCircle />
-                        <div><strong>Orchestration & Agents:</strong> LangChain, LangGraph, LlamaIndex, CrewAI, AutoGen.</div>
+                        <div><strong>Orchestration & Agents:</strong> LangChain, LangGraph, LlamaIndex, CrewAI, FastAPI.</div>
                       </li>
                       <li className="fs-bullet-item">
                         <CheckCircle />
-                        <div><strong>Vector Databases:</strong> pgvector (PostgreSQL), Pinecone, Qdrant, Milvus, Chroma.</div>
+                        <div><strong>Vector Databases:</strong> pgvector (PostgreSQL), Pinecone, Qdrant, Milvus, Redis.</div>
                       </li>
                       <li className="fs-bullet-item">
                         <CheckCircle />
-                        <div><strong>Serving & Telemetry:</strong> vLLM, TensorRT-LLM, Langfuse, TruLens, Docker, Kubernetes.</div>
+                        <div><strong>Serving & Telemetry:</strong> vLLM, TensorRT-LLM, Langfuse, Ragas, Docker, Kubernetes.</div>
                       </li>
                     </ul>
                   </div>
@@ -877,45 +1476,46 @@ export default function GenAiDevelopment() {
           </div>
         </section>
 
-        {/* 9. TRUST & SECURITY STANDARDS */}
+        {/* 9. WHY CLIENTS TRUST US (EXACT MATCH CHATBOT 6-CARD GRID) */}
         <section className="fs-section fs-section-bg-slate">
           <div className="fs-container">
-            <div className="fs-tag-arrows">TRUST & COMPLIANCE</div>
-            <h2 className="fs-section-title">An Engineering-First AI Partner</h2>
+            <div className="fs-tag-arrows">TRUST & SECURITY</div>
+            <h2 className="fs-section-title">An Engineering-First Partner</h2>
             <p className="fs-section-subtitle">
-              We build production software with direct developer access, strict compliance boundaries, and zero hidden platform licensing.
+              We focus on clean coding standards, robust integrations, and clear communication patterns to build reliable software.
             </p>
 
             <div className="fs-grid-3">
               <div className="fs-card-premium">
                 <h3>100% IP & Weight Ownership</h3>
-                <p>All source code, prompts, embeddings, and fine-tuned adapter weights belong to your company. Zero vendor lock-in.</p>
+                <p>All source code, prompt graphs, embeddings, and fine-tuned LoRA weights belong to your company. Zero vendor lock-in.</p>
               </div>
               <div className="fs-card-premium">
-                <h3>Direct Lead Engineer Access</h3>
-                <p>Work directly with lead AI and systems engineers. No non-technical account managers slowing down technical scoping.</p>
+                <h3>Direct Lead Engineer Channels</h3>
+                <p>Communicate directly with lead AI and systems engineers. Avoid account manager telephone games for faster code scoping.</p>
               </div>
               <div className="fs-card-premium">
-                <h3>Enterprise Security & Privacy</h3>
-                <p>End-to-end data encryption, automated PII sanitization, and strict zero-data-retention API contracts by default.</p>
+                <h3>Production-Ready Security</h3>
+                <p>We implement end-to-end data encryption protocols, clean authorization headers, and secure database parameters by default.</p>
               </div>
               <div className="fs-card-premium">
-                <h3>Production SLA Guarantees</h3>
-                <p>Guaranteed uptime, sub-second latency targets, and dedicated post-launch support contracts for model drift monitoring.</p>
+                <h3>SLA Support Contracts</h3>
+                <p>We guarantee system uptime and active post-launch bug patches. Our engineering team is always available for version upgrades.</p>
+              </div>
+              <div className="fs-card-premium">
+                <h3>Transparent Estimation</h3>
+                <p>No arbitrary pricing packages. You receive an itemized list of deliverables, project schedules, and server usage expectations.</p>
               </div>
               <div className="fs-card-premium">
                 <h3>Cross-Platform Ecosystem</h3>
                 <p>Seamlessly integrate with our <Link to="/services/chatbot-development" style={{ color: '#2E29FF', fontWeight: '700' }}>AI Chatbot</Link>, <Link to="/services/conversational-ai" style={{ color: '#2E29FF', fontWeight: '700' }}>Voice Agents</Link>, and <Link to="/forge-ai" style={{ color: '#2E29FF', fontWeight: '700' }}>FORGE AI</Link> frameworks.</p>
               </div>
-              <div className="fs-card-premium">
-                <h3>Transparent Project Scope</h3>
-                <p>No vague hourly billing. You get clear milestones, deliverable checklists, and compute usage estimates before development begins.</p>
-              </div>
             </div>
+
           </div>
         </section>
 
-        {/* 10. COMPREHENSIVE FAQ SECTION */}
+        {/* 10. FAQ SECTION (EXACT MATCH HOMEPAGE / CHATBOT FAQ) */}
         <section className="nd-faq">
           <div className="nd-faq-inner">
             <div className="nd-faq-tag">✦ FAQS ✦</div>
@@ -933,7 +1533,7 @@ export default function GenAiDevelopment() {
           </div>
         </section>
 
-        {/* 11. CLOSING HIGH-CONVERTING CTA BANNER */}
+        {/* 11. FINAL CALL TO ACTION (REDESIGNED COMPACT BANNER) */}
         <div className="fs-container" style={{ paddingBottom: '60px' }}>
           <section className="fs-cta-bottom">
             <div className="fs-cta-content-grid">

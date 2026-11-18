@@ -2410,10 +2410,27 @@
 .nd-browser-topbar-flex {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 18px;
-  background: #f1f5f9;
-  border-bottom: 1px solid #e2e8f0;
+  justify-content: center;
+  position: relative;
+  height: 44px;
+  padding: 0 16px;
+  background: #F8FAFC;
+  border-bottom: 1px solid #E2E8F0;
+}
+.nd-browser-topbar-flex .nd-browser-dots,
+.nd-browser-topbar .nd-browser-dots {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 5;
+}
+.nd-browser-topbar-flex .nd-status-tag,
+.nd-browser-topbar .nd-status-tag {
+  margin: 0 auto;
 }
 .nd-status-tag {
   display: inline-flex;

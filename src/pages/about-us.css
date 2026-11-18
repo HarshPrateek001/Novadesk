@@ -1117,6 +1117,7 @@
 .au-cta-desc {
   font-size: clamp(0.95rem, 1.35vw, 1.05rem);
   color: #E0E7FF;
+  width: 100% !important;
   max-width: 640px;
   margin: 0 auto 28px auto !important;
   line-height: 1.62;
