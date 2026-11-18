@@ -239,7 +239,7 @@ export default function AboutUs() {
           </div>
 
           <div className="au-hero-grid">
-            <div className="au-reveal">
+            <div className="au-hero-content au-reveal">
               <div className="au-kicker-badge">
                 <span className="au-live-dot" />
                 <span>Small Studio • Big Care For Every Build</span>
@@ -265,31 +265,29 @@ export default function AboutUs() {
               </div>
 
               <div className="au-hero-trust-tag">
-                <CheckCircleIcon />
-                <span>Zero account managers • Direct developer access • Real results</span>
+                <div className="au-hero-trust-item">
+                  <CheckCircleIcon />
+                  <span>Zero account managers</span>
+                </div>
+                <span className="au-hero-trust-sep">•</span>
+                <div className="au-hero-trust-item">
+                  <span>Direct developer access</span>
+                </div>
+                <span className="au-hero-trust-sep">•</span>
+                <div className="au-hero-trust-item">
+                  <span>Real results</span>
+                </div>
               </div>
             </div>
 
-            {/* Founder Visual Frame */}
-            <div className="au-hero-visual-card au-reveal au-delay-2">
-              <div className="au-hero-img-wrap">
-                <img 
-                  src="/novadesk_founders_duo_feathered.webp" 
-                  alt="NovaDesk Studio Founders" 
-                  className="au-hero-img"
-                  loading="eager"
-                />
-              </div>
-              <div className="au-hero-badge-float">
-                <div>
-                  <div className="au-hero-badge-title">NovaDesk Studio</div>
-                  <div className="au-hero-badge-sub">Founder-Led Engineering</div>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span className="au-live-dot" />
-                  <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.04em', color: '#2E29FF' }}>ACTIVE BUILDS</span>
-                </div>
-              </div>
+            {/* Modern 3D Floating Studio Illustration (NO BOX CONTAINER!) */}
+            <div className="au-hero-visual-wrap au-reveal au-delay-2">
+              <img 
+                src="/about_us_hero_3d_transparent.webp" 
+                alt="NovaDesk Studio Digital Engineering Visual" 
+                className="au-hero-3d-img"
+                loading="eager"
+              />
             </div>
           </div>
         </div>
@@ -305,6 +303,15 @@ export default function AboutUs() {
               <p className="au-section-desc">
                 Understanding the real business challenge before writing a single line of code.
               </p>
+              <div className="au-story-portrait-wrap">
+                <img 
+                  src="/novadesk_founders_duo_feathered.webp" 
+                  alt="NovaDesk Studio Founders" 
+                  className="au-story-portrait-img" 
+                  loading="lazy" 
+                />
+                <span className="au-story-portrait-caption">Founders • NovaDesk Studio</span>
+              </div>
             </div>
 
             <div className="au-story-content au-reveal au-delay-1">
