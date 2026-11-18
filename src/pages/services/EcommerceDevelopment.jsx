@@ -168,26 +168,26 @@ export default function EcommerceDevelopment() {
           transition: all 0.25s ease;
         }
         .nd-btn-sec:hover { background: #F4F6FF; border-color: #2E29FF; }
-        .nd-svc-grid {
+        .nd-page-svc-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 28px;
           margin: 60px 0;
         }
-        .nd-svc-card {
+        .nd-page-svc-card {
           background: #F8FAFC;
           border: 1px solid #E2E8F0;
           border-radius: 20px;
           padding: 36px 28px;
           transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .nd-svc-card:hover {
+        .nd-page-svc-card:hover {
           transform: translateY(-4px);
           border-color: rgba(46, 41, 255, 0.3);
           box-shadow: 0 16px 36px rgba(46, 41, 255, 0.08);
           background: #ffffff;
         }
-        .nd-svc-card-tag {
+        .nd-page-svc-card-tag {
           font-size: 11px;
           font-weight: 700;
           color: #2E29FF;
@@ -196,13 +196,13 @@ export default function EcommerceDevelopment() {
           margin-bottom: 12px;
           display: block;
         }
-        .nd-svc-card h3 {
+        .nd-page-svc-card h3 {
           font-size: 22px;
           font-weight: 800;
           color: #0A0A2E;
           margin-bottom: 12px;
         }
-        .nd-svc-card p {
+        .nd-page-svc-card p {
           font-size: 14.5px;
           line-height: 1.6;
           color: #475569;
@@ -302,11 +302,11 @@ export default function EcommerceDevelopment() {
           background: #EEF0FF;
         }
         @media (max-width: 1024px) {
-          .nd-svc-grid { grid-template-columns: 1fr 1fr; }
+          .nd-page-svc-grid { grid-template-columns: 1fr 1fr; }
           .nd-process-steps-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
         }
         @media (max-width: 640px) {
-          .nd-svc-grid { grid-template-columns: 1fr; }
+          .nd-page-svc-grid { grid-template-columns: 1fr; }
           .nd-process-steps-grid { grid-template-columns: 1fr; }
           .nd-process-box { padding: 40px 20px; }
         }
@@ -339,34 +339,34 @@ export default function EcommerceDevelopment() {
             <h2 style={{ fontSize: '36px', fontWeight: 800, color: '#0A0A2E', marginTop: '8px' }}>Engineered for High-Volume Online Commerce</h2>
           </div>
 
-          <div className="nd-svc-grid">
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Headless Storefronts</span>
+          <div className="nd-page-svc-grid">
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Headless Storefronts</span>
               <h3>Next.js &amp; Shopify APIs</h3>
               <p>Decoupled architectures separating frontend speed from backend commerce logic for sub-second category filtering and instant page transitions.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Shopify Plus</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Shopify Plus</span>
               <h3>Custom Shopify Engineering</h3>
               <p>Bespoke Liquid theme development, private app development, wholesale/B2B portals, and automated checkout customization.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Payment Architecture</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Payment Architecture</span>
               <h3>Global Gateway Integration</h3>
               <p>Frictionless checkout with Stripe, Razorpay, Apple Pay, Google Pay, automated fraud screening, and localized currency pricing.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">ERP &amp; Inventory</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">ERP &amp; Inventory</span>
               <h3>Warehouse &amp; Accounting Sync</h3>
               <p>Automated inventory sync with Tally, ERP systems, 3PL logistics platforms, and live shipping rate calculators.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Conversion Rate Optimization</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Conversion Rate Optimization</span>
               <h3>Frictionless Checkout UX</h3>
               <p>One-page checkout flows, smart abandoned cart recovery sequences, upsell engines, and mobile-first touch optimization.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Performance Benchmark</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Performance Benchmark</span>
               <h3>Sub-2s Catalog Load Times</h3>
               <p>Core Web Vitals optimized product catalog with automated image WebP generation, lazy-loaded carousels, and edge caching.</p>
             </div>

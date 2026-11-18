@@ -180,26 +180,26 @@ export default function AiDevelopment() {
           background: #F4F6FF;
           border-color: #2E29FF;
         }
-        .nd-svc-grid {
+        .nd-page-svc-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 28px;
           margin: 60px 0;
         }
-        .nd-svc-card {
+        .nd-page-svc-card {
           background: #F8FAFC;
           border: 1px solid #E2E8F0;
           border-radius: 20px;
           padding: 36px 28px;
           transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .nd-svc-card:hover {
+        .nd-page-svc-card:hover {
           transform: translateY(-4px);
           border-color: rgba(46, 41, 255, 0.3);
           box-shadow: 0 16px 36px rgba(46, 41, 255, 0.08);
           background: #ffffff;
         }
-        .nd-svc-card-tag {
+        .nd-page-svc-card-tag {
           font-size: 11px;
           font-weight: 700;
           color: #2E29FF;
@@ -208,13 +208,13 @@ export default function AiDevelopment() {
           margin-bottom: 12px;
           display: block;
         }
-        .nd-svc-card h3 {
+        .nd-page-svc-card h3 {
           font-size: 22px;
           font-weight: 800;
           color: #0A0A2E;
           margin-bottom: 12px;
         }
-        .nd-svc-card p {
+        .nd-page-svc-card p {
           font-size: 14.5px;
           line-height: 1.6;
           color: #475569;
@@ -323,11 +323,11 @@ export default function AiDevelopment() {
           background: #EEF0FF;
         }
         @media (max-width: 1024px) {
-          .nd-svc-grid { grid-template-columns: 1fr 1fr; }
+          .nd-page-svc-grid { grid-template-columns: 1fr 1fr; }
           .nd-process-steps-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
         }
         @media (max-width: 640px) {
-          .nd-svc-grid { grid-template-columns: 1fr; }
+          .nd-page-svc-grid { grid-template-columns: 1fr; }
           .nd-process-steps-grid { grid-template-columns: 1fr; }
           .nd-process-box { padding: 40px 20px; }
         }
@@ -360,34 +360,34 @@ export default function AiDevelopment() {
             <h2 style={{ fontSize: '36px', fontWeight: 800, color: '#0A0A2E', marginTop: '8px' }}>Production-Ready Artificial Intelligence</h2>
           </div>
 
-          <div className="nd-svc-grid">
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">RAG Architecture</span>
+          <div className="nd-page-svc-grid">
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">RAG Architecture</span>
               <h3>Retrieval-Augmented Generation</h3>
               <p>Sub-45ms vector search retrieval pipelines with pgvector and semantic embeddings that let your team query internal documents with zero hallucinations.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Conversational AI</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Conversational AI</span>
               <h3>Autonomous Support Agents</h3>
               <p>Customer service bots that resolve tier-1 queries, schedule appointments, query live databases, and seamlessly escalate to human agents.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">System Integration</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">System Integration</span>
               <h3>API &amp; Database AI Layers</h3>
               <p>Connect OpenAI, Claude, and open-source models into existing ERPs, CRMs, and PostgreSQL platforms with strict schema enforcement.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Process Automation</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Process Automation</span>
               <h3>Intelligent Document Processing</h3>
               <p>Automate parsing, data extraction, invoice reconciliation, and structured summaries from complex PDFs and business records.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Privacy First</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Privacy First</span>
               <h3>Zero-Data Retention Guardrails</h3>
               <p>Enterprise privacy architectures ensuring confidential business and customer information remains sovereign and compliant.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Predictive Analytics</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Predictive Analytics</span>
               <h3>Machine Learning Workflows</h3>
               <p>Churn prediction, demand forecasting, dynamic pricing algorithms, and personalized recommendation engines tailored to your data.</p>
             </div>

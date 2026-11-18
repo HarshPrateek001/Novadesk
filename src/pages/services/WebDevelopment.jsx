@@ -199,26 +199,26 @@ export default function WebDevelopment() {
         }
 
         /* Pillars Grid */
-        .nd-svc-grid {
+        .nd-page-svc-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 28px;
           margin: 60px 0;
         }
-        .nd-svc-card {
+        .nd-page-svc-card {
           background: #F8FAFC;
           border: 1px solid #E2E8F0;
           border-radius: 20px;
           padding: 36px 28px;
           transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .nd-svc-card:hover {
+        .nd-page-svc-card:hover {
           transform: translateY(-4px);
           border-color: rgba(46, 41, 255, 0.3);
           box-shadow: 0 16px 36px rgba(46, 41, 255, 0.08);
           background: #ffffff;
         }
-        .nd-svc-card-tag {
+        .nd-page-svc-card-tag {
           font-size: 11px;
           font-weight: 700;
           color: #2E29FF;
@@ -227,13 +227,13 @@ export default function WebDevelopment() {
           margin-bottom: 12px;
           display: block;
         }
-        .nd-svc-card h3 {
+        .nd-page-svc-card h3 {
           font-size: 22px;
           font-weight: 800;
           color: #0A0A2E;
           margin-bottom: 12px;
         }
-        .nd-svc-card p {
+        .nd-page-svc-card p {
           font-size: 14.5px;
           line-height: 1.6;
           color: #475569;
@@ -351,11 +351,11 @@ export default function WebDevelopment() {
         }
 
         @media (max-width: 1024px) {
-          .nd-svc-grid { grid-template-columns: 1fr 1fr; }
+          .nd-page-svc-grid { grid-template-columns: 1fr 1fr; }
           .nd-process-steps-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
         }
         @media (max-width: 640px) {
-          .nd-svc-grid { grid-template-columns: 1fr; }
+          .nd-page-svc-grid { grid-template-columns: 1fr; }
           .nd-process-steps-grid { grid-template-columns: 1fr; }
           .nd-process-box { padding: 40px 20px; }
         }
@@ -390,34 +390,34 @@ export default function WebDevelopment() {
             <h2 style={{ fontSize: '36px', fontWeight: 800, color: '#0A0A2E', marginTop: '8px' }}>Web Systems Engineered for Conversion &amp; Scale</h2>
           </div>
 
-          <div className="nd-svc-grid">
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Frontend Excellence</span>
+          <div className="nd-page-svc-grid">
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Frontend Excellence</span>
               <h3>React &amp; Next.js Platforms</h3>
               <p>Modern component architectures with server-side rendering (SSR), sub-second page transitions, and strict Core Web Vitals optimization.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Backend Resilience</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Backend Resilience</span>
               <h3>Node.js &amp; Python APIs</h3>
               <p>Scalable cloud microservices, RESTful and GraphQL endpoints, robust PostgreSQL schemas, and low-latency database queries.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Commercial Conversion</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Commercial Conversion</span>
               <h3>E-Commerce &amp; Portals</h3>
               <p>High-conversion checkout flows, multi-currency payment gateway integrations (Stripe, Razorpay), customer portals, and real-time dashboards.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Security &amp; Performance</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Security &amp; Performance</span>
               <h3>OWASP-Grade Web Security</h3>
               <p>Enterprise credential encryption, role-based access control (RBAC), CSRF/XSS guardrails, and automated CI/CD branch deployments.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Accessible Architecture</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Accessible Architecture</span>
               <h3>WCAG 2.2 AA Compliance</h3>
               <p>Inclusive interfaces with full keyboard navigation, screen reader compatibility, high-contrast typography, and accessible form controls.</p>
             </div>
-            <div className="nd-svc-card">
-              <span className="nd-svc-card-tag">Technical SEO Ready</span>
+            <div className="nd-page-svc-card">
+              <span className="nd-page-svc-card-tag">Technical SEO Ready</span>
               <h3>Search &amp; AI Discoverability</h3>
               <p>Comprehensive JSON-LD structured data, canonical routing, clean URL structures, and programmatic sitemap generation for maximum visibility.</p>
             </div>

@@ -98,49 +98,49 @@ const EcommerceIcon = () => (
 // ── Right Sidebar: Featured Case Study, Scale with Experts CTA & Stats (Shared across Services & Industries)
 function FeaturedSidebar({ onClose }) {
   return (
-    <div className="nd-mega-sidebar">
-      <div className="nd-side-header">FEATURED CASE STUDY</div>
+    <div className="nd-hdr-mega-sidebar nd-mega-sidebar">
+      <div className="nd-hdr-side-header nd-side-header">FEATURED CASE STUDY</div>
       
       {/* Featured Card */}
-      <Link to="/case-studies" className="nd-side-featured-card" onClick={onClose}>
-        <span className="nd-side-tag">AI &amp; AUTOMATION</span>
-        <div className="nd-side-card-title">AI Customer Support Desk</div>
-        <div className="nd-side-card-metric">
+      <Link to="/case-studies" className="nd-hdr-side-featured-card nd-side-featured-card" onClick={onClose}>
+        <span className="nd-hdr-side-tag nd-side-tag">AI &amp; AUTOMATION</span>
+        <div className="nd-hdr-side-card-title nd-side-card-title">AI Customer Support Desk</div>
+        <div className="nd-hdr-side-card-metric nd-side-card-metric">
           78%
           <span>L1 TICKET AUTO-RESOLUTION</span>
         </div>
-        <p className="nd-side-card-desc">
+        <p className="nd-hdr-side-card-desc nd-side-card-desc">
           Designed for telecom enterprise scale. Automates incoming L1 support workflows cleanly.
         </p>
-        <div className="nd-side-card-link">
+        <div className="nd-hdr-side-card-link nd-side-card-link">
           Read Case Study →
         </div>
       </Link>
 
       {/* Solid Blue CTA Box */}
-      <div className="nd-side-cta-box">
-        <div className="nd-side-cta-title">Build and Scale with Experts</div>
-        <div className="nd-side-cta-desc">
+      <div className="nd-hdr-side-cta-box nd-side-cta-box">
+        <div className="nd-hdr-side-cta-title nd-side-cta-title">Build and Scale with Experts</div>
+        <div className="nd-hdr-side-cta-desc nd-side-cta-desc">
           Development, AI, cloud, and product engineering to power your next big idea.
         </div>
-        <Link to="/contact-us" className="nd-side-cta-btn" onClick={onClose}>
+        <Link to="/contact-us" className="nd-hdr-side-cta-btn nd-side-cta-btn" onClick={onClose}>
           Schedule a Free Consultation ↗
         </Link>
       </div>
 
       {/* Stats Counter */}
-      <div className="nd-side-stats">
-        <div className="nd-side-stat-item">
-          <span className="nd-side-stat-num">500</span>
-          <span className="nd-side-stat-lbl">FORTUNE</span>
+      <div className="nd-hdr-side-stats nd-side-stats">
+        <div className="nd-hdr-side-stat-item nd-side-stat-item">
+          <span className="nd-hdr-side-stat-num nd-side-stat-num">500</span>
+          <span className="nd-hdr-side-stat-lbl nd-side-stat-lbl">FORTUNE</span>
         </div>
-        <div className="nd-side-stat-item">
-          <span className="nd-side-stat-num">132</span>
-          <span className="nd-side-stat-lbl">STARTUPS</span>
+        <div className="nd-hdr-side-stat-item nd-side-stat-item">
+          <span className="nd-hdr-side-stat-num nd-side-stat-num">132</span>
+          <span className="nd-hdr-side-stat-lbl nd-side-stat-lbl">STARTUPS</span>
         </div>
-        <div className="nd-side-stat-item">
-          <span className="nd-side-stat-num">04</span>
-          <span className="nd-side-stat-lbl">UNICORNS</span>
+        <div className="nd-hdr-side-stat-item nd-side-stat-item">
+          <span className="nd-hdr-side-stat-num nd-side-stat-num">04</span>
+          <span className="nd-hdr-side-stat-lbl nd-side-stat-lbl">UNICORNS</span>
         </div>
       </div>
     </div>
@@ -167,20 +167,20 @@ function IndustriesMenuWindow({ onClose }) {
   return (
     <div className="nd-mega-card nd-mega-industries">
       <div className="nd-mega-left">
-        <div className="nd-mega-header">
+        <div className="nd-hdr-mega-header nd-mega-header">
           <h3>Software Built for Growing Businesses</h3>
           <p>We build software that helps companies launch products and scale faster.</p>
         </div>
-        <div className="nd-ind-grid">
+        <div className="nd-hdr-ind-grid nd-ind-grid">
           {industries.map((ind) => (
             <Link 
               key={ind.name} 
               to={`/industries/${ind.name.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`} 
-              className="nd-ind-card" 
+              className="nd-hdr-ind-card nd-ind-card" 
               onClick={onClose}
             >
-              <div className="nd-ind-card-title">{ind.name}</div>
-              <div className="nd-ind-card-desc">{ind.desc}</div>
+              <div className="nd-hdr-ind-card-title nd-ind-card-title">{ind.name}</div>
+              <div className="nd-hdr-ind-card-desc nd-ind-card-desc">{ind.desc}</div>
             </Link>
           ))}
         </div>
@@ -312,12 +312,12 @@ function ServicesMenuWindow({ onClose }) {
   return (
     <div className="nd-mega-card nd-mega-services">
       {/* Left Navigation Category Tabs */}
-      <nav className="nd-svc-sidebar" aria-label="Service categories">
+      <nav className="nd-hdr-svc-sidebar nd-svc-sidebar" aria-label="Service categories">
         {servicesNav.map(s => (
           <button
             key={s.id}
             type="button"
-            className={`nd-svc-tab-btn ${activeService === s.id ? 'active' : ''}`}
+            className={`nd-hdr-svc-tab-btn nd-svc-tab-btn ${activeService === s.id ? 'active' : ''}`}
             onMouseEnter={() => setActiveService(s.id)}
             onClick={() => setActiveService(s.id)}
           >
@@ -328,21 +328,21 @@ function ServicesMenuWindow({ onClose }) {
       </nav>
 
       {/* Center Sub-services Content */}
-      <div className="nd-svc-center">
-        <div className="nd-mega-header">
+      <div className="nd-hdr-svc-center nd-svc-center">
+        <div className="nd-hdr-mega-header nd-mega-header">
           <h3>{current.title}</h3>
           <p>{current.desc}</p>
         </div>
-        <div className="nd-svc-grid">
+        <div className="nd-hdr-svc-grid nd-svc-grid">
           {current.links.map(l => (
             <Link 
               key={l.label} 
               to={getServiceUrl(l.label)} 
-              className="nd-svc-card" 
+              className="nd-hdr-svc-card nd-svc-card" 
               onClick={onClose}
             >
-              <div className="nd-svc-card-title">{l.label}</div>
-              <div className="nd-svc-card-desc">{l.desc}</div>
+              <div className="nd-hdr-svc-card-title nd-svc-card-title">{l.label}</div>
+              <div className="nd-hdr-svc-card-desc nd-svc-card-desc">{l.desc}</div>
             </Link>
           ))}
         </div>
@@ -436,7 +436,7 @@ export default function Header() {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       setOpenMenu(null);
-    }, 180);
+    }, 240);
   };
 
   const toggleDropdown = (menu) => {
@@ -456,7 +456,7 @@ export default function Header() {
         .nd-header-wrapper {
           position: sticky;
           top: 14px;
-          z-index: 1000;
+          z-index: 99999 !important;
           width: 100%;
           display: flex;
           justify-content: center;
@@ -464,7 +464,16 @@ export default function Header() {
           pointer-events: none;
           padding: 0 16px;
           box-sizing: border-box;
-          font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+          font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+          border: none !important;
+          border-bottom: none !important;
+          background: transparent !important;
+        }
+
+        .nd-header-wrapper *,
+        .nd-header-wrapper *::before,
+        .nd-header-wrapper *::after {
+          box-sizing: border-box;
         }
 
         .nd-frame-box {
@@ -609,7 +618,7 @@ export default function Header() {
           border-radius: 8px;
         }
 
-        /* ── 3. MEGA DROPDOWN POPUP WINDOW (Matches Image 1 & 2 Exactly) ── */
+        /* ── 3. MEGA DROPDOWN POPUP WINDOW (Strictly Isolated & Uniform Across All Pages) ── */
         @keyframes ndMenuFadeSlide {
           from {
             opacity: 0;
@@ -623,13 +632,13 @@ export default function Header() {
 
         .nd-mega-popup-wrap {
           position: absolute;
-          top: 68px;
+          top: 64px;
           left: 0;
           right: 0;
           width: 100%;
           max-width: 1140px;
           margin: 0 auto;
-          z-index: 1000;
+          z-index: 99999 !important;
           pointer-events: auto;
           display: flex;
           justify-content: center;
@@ -637,299 +646,409 @@ export default function Header() {
           box-sizing: border-box;
         }
 
-        /* The Card: 2px solid #2E29FF border matching reference screenshot! */
-        .nd-mega-card {
+        /* Invisible hover bridge between floating pill (60px) and dropdown (64px) */
+        .nd-mega-popup-wrap::before {
+          content: '';
+          position: absolute;
+          top: -12px;
+          left: 0;
+          right: 0;
+          height: 16px;
+          background: transparent;
+          pointer-events: auto;
+        }
+
+        /* The Mega Card: Royal Blue Border (#2E29FF), 24px Radius, White Background */
+        .nd-header-wrapper .nd-mega-card {
           position: relative;
-          background: #FFFFFF;
-          border: 2px solid #2E29FF;
-          border-radius: 24px;
-          box-shadow: 0 24px 60px rgba(46, 41, 255, 0.14), 0 8px 24px rgba(0, 0, 0, 0.06);
-          display: flex;
-          width: 100%;
-          overflow: hidden;
-          box-sizing: border-box;
+          background: #FFFFFF !important;
+          border: 2px solid #2E29FF !important;
+          border-radius: 24px !important;
+          box-shadow: 0 24px 60px rgba(46, 41, 255, 0.14), 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+          display: flex !important;
+          width: 100% !important;
+          overflow: hidden !important;
+          box-sizing: border-box !important;
+          font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+          color: #0A0A2E !important;
+          text-align: left !important;
+        }
+
+        .nd-header-wrapper .nd-mega-card *,
+        .nd-header-wrapper .nd-mega-card h3,
+        .nd-header-wrapper .nd-mega-card p,
+        .nd-header-wrapper .nd-mega-card a,
+        .nd-header-wrapper .nd-mega-card button {
+          box-sizing: border-box !important;
+          font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
         }
 
         /* Shared Header in Dropdowns */
-        .nd-mega-header {
-          margin-bottom: 22px;
+        .nd-header-wrapper .nd-hdr-mega-header,
+        .nd-header-wrapper .nd-mega-header {
+          margin-bottom: 22px !important;
+          text-align: left !important;
         }
-        .nd-mega-header h3 {
-          font-size: 21px;
-          font-weight: 800;
-          color: #0A0A2E;
-          margin: 0 0 6px 0;
+        .nd-header-wrapper .nd-hdr-mega-header h3,
+        .nd-header-wrapper .nd-mega-header h3 {
+          font-size: 21px !important;
+          font-weight: 800 !important;
+          color: #0A0A2E !important;
+          margin: 0 0 6px 0 !important;
+          line-height: 1.25 !important;
+          letter-spacing: -0.3px !important;
         }
-        .nd-mega-header p {
-          font-size: 13.5px;
-          color: #64748B;
-          margin: 0;
-          line-height: 1.5;
-        }
-
-        /* ── INDUSTRIES DROPDOWN (Image 1 Layout) ── */
-        .nd-mega-industries .nd-mega-left {
-          flex: 1;
-          padding: 30px 34px;
-        }
-        .nd-ind-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 12px;
-        }
-        .nd-ind-card {
-          padding: 13px 15px;
-          background: #FFFFFF;
-          border: 1px solid #EDF2F7;
-          border-radius: 12px;
-          text-decoration: none;
-          display: flex;
-          flex-direction: column;
-          gap: 3px;
-          transition: all 0.18s ease;
-        }
-        .nd-ind-card:hover {
-          background: #F8FAFC;
-          border-color: rgba(46, 41, 255, 0.3);
-          transform: translateY(-1px);
-        }
-        .nd-ind-card-title {
-          font-size: 14px;
-          font-weight: 700;
-          color: #0A0A2E;
-        }
-        .nd-ind-card:hover .nd-ind-card-title {
-          color: #2E29FF;
-        }
-        .nd-ind-card-desc {
-          font-size: 11.5px;
-          color: #64748B;
-          line-height: 1.45;
+        .nd-header-wrapper .nd-hdr-mega-header p,
+        .nd-header-wrapper .nd-mega-header p {
+          font-size: 13.5px !important;
+          color: #64748B !important;
+          margin: 0 !important;
+          line-height: 1.5 !important;
         }
 
-        /* ── SERVICES DROPDOWN (Image 2 Layout: 3 Columns) ── */
-        .nd-mega-services {
-          display: flex;
+        /* ── INDUSTRIES DROPDOWN ── */
+        .nd-header-wrapper .nd-mega-industries .nd-mega-left {
+          flex: 1 !important;
+          padding: 30px 34px !important;
+          box-sizing: border-box !important;
         }
-        .nd-svc-sidebar {
-          width: 230px;
-          background: #FFFFFF;
-          padding: 24px 14px;
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-          border-right: 1px solid #EDF2F7;
-          flex-shrink: 0;
+        .nd-header-wrapper .nd-hdr-ind-grid,
+        .nd-header-wrapper .nd-ind-grid {
+          display: grid !important;
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 12px !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          box-sizing: border-box !important;
         }
-        .nd-svc-tab-btn {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 8px;
-          padding: 11px 14px;
-          border: none;
-          background: transparent;
-          font-family: inherit;
-          font-size: 13.5px;
-          font-weight: 600;
-          color: #4B5563;
-          cursor: pointer;
-          border-radius: 10px;
-          text-align: left;
-          transition: all 0.18s ease;
-          width: 100%;
+        .nd-header-wrapper .nd-hdr-ind-card,
+        .nd-header-wrapper .nd-ind-card {
+          padding: 13px 15px !important;
+          background: #FFFFFF !important;
+          border: 1px solid #EDF2F7 !important;
+          border-radius: 12px !important;
+          text-decoration: none !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 3px !important;
+          margin: 0 !important;
+          box-shadow: none !important;
+          transition: all 0.18s ease !important;
+          box-sizing: border-box !important;
         }
-        .nd-svc-tab-btn:hover {
-          background: #F3F4F6;
-          color: #111827;
+        .nd-header-wrapper .nd-hdr-ind-card:hover,
+        .nd-header-wrapper .nd-ind-card:hover {
+          background: #F8FAFC !important;
+          border-color: rgba(46, 41, 255, 0.3) !important;
+          transform: translateY(-1px) !important;
+          box-shadow: 0 4px 12px rgba(46, 41, 255, 0.06) !important;
         }
-        .nd-svc-tab-btn.active {
-          background: #2E29FF;
-          color: #FFFFFF;
-          font-weight: 700;
+        .nd-header-wrapper .nd-hdr-ind-card-title,
+        .nd-header-wrapper .nd-ind-card-title {
+          font-size: 14px !important;
+          font-weight: 700 !important;
+          color: #0A0A2E !important;
+          line-height: 1.3 !important;
+          margin: 0 !important;
+          transition: color 0.15s !important;
         }
-        .nd-svc-tab-btn.active svg {
-          stroke: #FFFFFF;
+        .nd-header-wrapper .nd-hdr-ind-card:hover .nd-hdr-ind-card-title,
+        .nd-header-wrapper .nd-ind-card:hover .nd-hdr-ind-card-title {
+          color: #2E29FF !important;
+        }
+        .nd-header-wrapper .nd-hdr-ind-card-desc,
+        .nd-header-wrapper .nd-ind-card-desc {
+          font-size: 11.5px !important;
+          color: #64748B !important;
+          line-height: 1.45 !important;
+          margin: 0 !important;
         }
 
-        .nd-svc-center {
-          flex: 1;
-          padding: 30px 34px;
+        /* ── SERVICES DROPDOWN ── */
+        .nd-header-wrapper .nd-mega-services {
+          display: flex !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
         }
-        .nd-svc-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 12px;
+        .nd-header-wrapper .nd-hdr-svc-sidebar,
+        .nd-header-wrapper .nd-svc-sidebar {
+          width: 230px !important;
+          background: #FFFFFF !important;
+          padding: 24px 14px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 6px !important;
+          border-right: 1px solid #EDF2F7 !important;
+          flex-shrink: 0 !important;
+          margin: 0 !important;
+          box-sizing: border-box !important;
         }
-        .nd-svc-card {
-          padding: 15px 16px;
-          background: #FFFFFF;
-          border: 1px solid #EDF2F7;
-          border-radius: 12px;
-          text-decoration: none;
-          display: flex;
-          flex-direction: column;
-          gap: 3px;
-          transition: all 0.18s ease;
+        .nd-header-wrapper .nd-hdr-svc-tab-btn,
+        .nd-header-wrapper .nd-svc-tab-btn {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: space-between !important;
+          gap: 8px !important;
+          padding: 11px 14px !important;
+          border: none !important;
+          background: transparent !important;
+          font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+          font-size: 13.5px !important;
+          font-weight: 600 !important;
+          color: #4B5563 !important;
+          cursor: pointer !important;
+          border-radius: 10px !important;
+          text-align: left !important;
+          transition: all 0.18s ease !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          margin: 0 !important;
+          outline: none !important;
         }
-        .nd-svc-card:hover {
-          background: #F8FAFC;
-          border-color: rgba(46, 41, 255, 0.3);
-          transform: translateY(-1px);
+        .nd-header-wrapper .nd-hdr-svc-tab-btn:hover,
+        .nd-header-wrapper .nd-svc-tab-btn:hover {
+          background: #F3F4F6 !important;
+          color: #111827 !important;
         }
-        .nd-svc-card-title {
-          font-size: 14px;
-          font-weight: 700;
-          color: #0A0A2E;
-          transition: color 0.15s;
+        .nd-header-wrapper .nd-hdr-svc-tab-btn.active,
+        .nd-header-wrapper .nd-svc-tab-btn.active {
+          background: #2E29FF !important;
+          color: #FFFFFF !important;
+          font-weight: 700 !important;
         }
-        .nd-svc-card:hover .nd-svc-card-title {
-          color: #2E29FF;
+        .nd-header-wrapper .nd-hdr-svc-tab-btn.active svg,
+        .nd-header-wrapper .nd-svc-tab-btn.active svg {
+          stroke: #FFFFFF !important;
         }
-        .nd-svc-card-desc {
-          font-size: 11.5px;
-          color: #64748B;
-          line-height: 1.45;
+
+        .nd-header-wrapper .nd-hdr-svc-center,
+        .nd-header-wrapper .nd-svc-center {
+          flex: 1 !important;
+          padding: 30px 34px !important;
+          box-sizing: border-box !important;
+        }
+        .nd-header-wrapper .nd-hdr-svc-grid,
+        .nd-header-wrapper .nd-svc-grid {
+          display: grid !important;
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 12px !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          box-sizing: border-box !important;
+        }
+        .nd-header-wrapper .nd-hdr-svc-card,
+        .nd-header-wrapper .nd-svc-card {
+          padding: 15px 16px !important;
+          background: #FFFFFF !important;
+          border: 1px solid #EDF2F7 !important;
+          border-radius: 12px !important;
+          text-decoration: none !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 3px !important;
+          margin: 0 !important;
+          box-shadow: none !important;
+          transition: all 0.18s ease !important;
+          box-sizing: border-box !important;
+        }
+        .nd-header-wrapper .nd-hdr-svc-card:hover,
+        .nd-header-wrapper .nd-svc-card:hover {
+          background: #F8FAFC !important;
+          border-color: rgba(46, 41, 255, 0.3) !important;
+          transform: translateY(-1px) !important;
+          box-shadow: 0 4px 12px rgba(46, 41, 255, 0.06) !important;
+        }
+        .nd-header-wrapper .nd-hdr-svc-card-title,
+        .nd-header-wrapper .nd-svc-card-title {
+          font-size: 14px !important;
+          font-weight: 700 !important;
+          color: #0A0A2E !important;
+          margin: 0 !important;
+          line-height: 1.3 !important;
+          transition: color 0.15s !important;
+        }
+        .nd-header-wrapper .nd-hdr-svc-card:hover .nd-hdr-svc-card-title,
+        .nd-header-wrapper .nd-svc-card:hover .nd-svc-card-title {
+          color: #2E29FF !important;
+        }
+        .nd-header-wrapper .nd-hdr-svc-card-desc,
+        .nd-header-wrapper .nd-svc-card-desc {
+          font-size: 11.5px !important;
+          color: #64748B !important;
+          line-height: 1.45 !important;
+          margin: 0 !important;
         }
 
         /* ── RIGHT SIDEBAR: FEATURED CASE STUDY & STATS (Shared) ── */
-        .nd-mega-sidebar {
-          width: 275px;
-          background: #FFFFFF;
-          border-left: 1px solid #EDF2F7;
-          padding: 24px 20px;
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-          flex-shrink: 0;
+        .nd-header-wrapper .nd-hdr-mega-sidebar,
+        .nd-header-wrapper .nd-mega-sidebar {
+          width: 275px !important;
+          background: #FFFFFF !important;
+          border-left: 1px solid #EDF2F7 !important;
+          padding: 24px 20px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 15px !important;
+          flex-shrink: 0 !important;
+          margin: 0 !important;
+          box-sizing: border-box !important;
         }
-        .nd-side-header {
-          font-size: 10.5px;
-          font-weight: 800;
-          color: #2E29FF;
-          text-transform: uppercase;
-          letter-spacing: 1.2px;
-          margin: 0;
-        }
-        .nd-side-featured-card {
-          background: #FFFFFF;
-          border: 1px solid #EDF2F7;
-          border-radius: 14px;
-          padding: 15px;
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-          transition: all 0.2s ease;
-          text-decoration: none;
-        }
-        .nd-side-featured-card:hover {
-          transform: translateY(-2px);
-          border-color: rgba(46, 41, 255, 0.3);
-          box-shadow: 0 8px 20px rgba(46, 41, 255, 0.08);
-        }
-        .nd-side-tag {
-          font-size: 9.5px;
-          font-weight: 800;
-          color: #2E29FF;
-          background: #EEF0FF;
-          padding: 3px 9px;
-          border-radius: 9999px;
-          align-self: flex-start;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-        }
-        .nd-side-card-title {
-          font-size: 14px;
-          font-weight: 800;
-          color: #0A0A2E;
-          line-height: 1.35;
-          margin-top: 2px;
-        }
-        .nd-side-card-metric {
-          font-size: 24px;
-          font-weight: 900;
-          color: #00B882;
-          margin: 2px 0 0;
-          line-height: 1;
-        }
-        .nd-side-card-metric span {
-          font-size: 9px;
-          font-weight: 700;
-          color: #64748B;
-          text-transform: uppercase;
-          display: block;
-          margin-top: 3px;
-        }
-        .nd-side-card-desc {
-          font-size: 11px;
-          color: #64748B;
-          line-height: 1.5;
-          margin: 4px 0 0 0;
-        }
-        .nd-side-card-link {
-          font-size: 11.5px;
-          font-weight: 700;
-          color: #2E29FF;
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          margin-top: 4px;
-        }
-        .nd-side-cta-box {
-          background: #2E29FF;
-          border-radius: 14px;
-          padding: 16px 14px;
-          color: #FFFFFF;
-        }
-        .nd-side-cta-title {
-          font-size: 13px;
-          font-weight: 800;
-          color: #FFFFFF;
-          margin: 0 0 5px 0;
-        }
-        .nd-side-cta-desc {
-          font-size: 10.5px;
-          color: rgba(255, 255, 255, 0.85);
-          line-height: 1.45;
-          margin: 0 0 11px 0;
-        }
-        .nd-side-cta-btn {
-          display: block;
-          background: #FFFFFF;
+        .nd-header-wrapper .nd-hdr-side-header,
+        .nd-header-wrapper .nd-side-header {
+          font-size: 10.5px !important;
+          font-weight: 800 !important;
           color: #2E29FF !important;
-          padding: 8px 12px;
-          border-radius: 9999px;
-          font-size: 11px;
-          font-weight: 700;
-          text-decoration: none;
-          text-align: center;
-          transition: all 0.18s ease;
+          text-transform: uppercase !important;
+          letter-spacing: 1.2px !important;
+          margin: 0 !important;
         }
-        .nd-side-cta-btn:hover {
-          background: #EEF0FF;
+        .nd-header-wrapper .nd-hdr-side-featured-card,
+        .nd-header-wrapper .nd-side-featured-card {
+          background: #FFFFFF !important;
+          border: 1px solid #EDF2F7 !important;
+          border-radius: 14px !important;
+          padding: 15px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 6px !important;
+          transition: all 0.2s ease !important;
+          text-decoration: none !important;
+          margin: 0 !important;
+          box-sizing: border-box !important;
         }
-        .nd-side-stats {
-          display: flex;
-          justify-content: space-between;
-          padding: 0 2px;
+        .nd-header-wrapper .nd-hdr-side-featured-card:hover,
+        .nd-header-wrapper .nd-side-featured-card:hover {
+          transform: translateY(-2px) !important;
+          border-color: rgba(46, 41, 255, 0.3) !important;
+          box-shadow: 0 8px 20px rgba(46, 41, 255, 0.08) !important;
         }
-        .nd-side-stat-item {
-          text-align: center;
+        .nd-header-wrapper .nd-hdr-side-tag,
+        .nd-header-wrapper .nd-side-tag {
+          font-size: 9.5px !important;
+          font-weight: 800 !important;
+          color: #2E29FF !important;
+          background: #EEF0FF !important;
+          padding: 3px 9px !important;
+          border-radius: 9999px !important;
+          align-self: flex-start !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.5px !important;
+          margin: 0 !important;
         }
-        .nd-side-stat-num {
-          display: block;
-          font-size: 17px;
-          font-weight: 800;
-          color: #2E29FF;
+        .nd-header-wrapper .nd-hdr-side-card-title,
+        .nd-header-wrapper .nd-side-card-title {
+          font-size: 14px !important;
+          font-weight: 800 !important;
+          color: #0A0A2E !important;
+          line-height: 1.35 !important;
+          margin: 2px 0 0 0 !important;
         }
-        .nd-side-stat-lbl {
-          display: block;
-          font-size: 8.5px;
-          color: #64748B;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.3px;
-          margin-top: 2px;
+        .nd-header-wrapper .nd-hdr-side-card-metric,
+        .nd-header-wrapper .nd-side-card-metric {
+          font-size: 24px !important;
+          font-weight: 900 !important;
+          color: #00B882 !important;
+          margin: 2px 0 0 0 !important;
+          line-height: 1 !important;
+        }
+        .nd-header-wrapper .nd-hdr-side-card-metric span,
+        .nd-header-wrapper .nd-side-card-metric span {
+          font-size: 9px !important;
+          font-weight: 700 !important;
+          color: #64748B !important;
+          text-transform: uppercase !important;
+          display: block !important;
+          margin-top: 3px !important;
+        }
+        .nd-header-wrapper .nd-hdr-side-card-desc,
+        .nd-header-wrapper .nd-side-card-desc {
+          font-size: 11px !important;
+          color: #64748B !important;
+          line-height: 1.5 !important;
+          margin: 4px 0 0 0 !important;
+        }
+        .nd-header-wrapper .nd-hdr-side-card-link,
+        .nd-header-wrapper .nd-side-card-link {
+          font-size: 11.5px !important;
+          font-weight: 700 !important;
+          color: #2E29FF !important;
+          display: flex !important;
+          align-items: center !important;
+          gap: 4px !important;
+          margin-top: 4px !important;
+          text-decoration: none !important;
+        }
+        .nd-header-wrapper .nd-hdr-side-cta-box,
+        .nd-header-wrapper .nd-side-cta-box {
+          background: #2E29FF !important;
+          border-radius: 14px !important;
+          padding: 16px 14px !important;
+          color: #FFFFFF !important;
+          margin: 0 !important;
+          box-sizing: border-box !important;
+        }
+        .nd-header-wrapper .nd-hdr-side-cta-title,
+        .nd-header-wrapper .nd-side-cta-title {
+          font-size: 13px !important;
+          font-weight: 800 !important;
+          color: #FFFFFF !important;
+          margin: 0 0 5px 0 !important;
+          line-height: 1.3 !important;
+        }
+        .nd-header-wrapper .nd-hdr-side-cta-desc,
+        .nd-header-wrapper .nd-side-cta-desc {
+          font-size: 10.5px !important;
+          color: rgba(255, 255, 255, 0.85) !important;
+          line-height: 1.45 !important;
+          margin: 0 0 11px 0 !important;
+        }
+        .nd-header-wrapper .nd-hdr-side-cta-btn,
+        .nd-header-wrapper .nd-side-cta-btn {
+          display: block !important;
+          background: #FFFFFF !important;
+          color: #2E29FF !important;
+          padding: 8px 12px !important;
+          border-radius: 9999px !important;
+          font-size: 11px !important;
+          font-weight: 700 !important;
+          text-decoration: none !important;
+          text-align: center !important;
+          transition: all 0.18s ease !important;
+          margin: 0 !important;
+        }
+        .nd-header-wrapper .nd-hdr-side-cta-btn:hover,
+        .nd-header-wrapper .nd-side-cta-btn:hover {
+          background: #EEF0FF !important;
+        }
+        .nd-header-wrapper .nd-hdr-side-stats,
+        .nd-header-wrapper .nd-side-stats {
+          display: flex !important;
+          justify-content: space-between !important;
+          padding: 0 2px !important;
+          margin: 0 !important;
+          box-sizing: border-box !important;
+        }
+        .nd-header-wrapper .nd-hdr-side-stat-item,
+        .nd-header-wrapper .nd-side-stat-item {
+          text-align: center !important;
+        }
+        .nd-header-wrapper .nd-hdr-side-stat-num,
+        .nd-header-wrapper .nd-side-stat-num {
+          display: block !important;
+          font-size: 17px !important;
+          font-weight: 800 !important;
+          color: #2E29FF !important;
+          line-height: 1.2 !important;
+        }
+        .nd-header-wrapper .nd-hdr-side-stat-lbl,
+        .nd-header-wrapper .nd-side-stat-lbl {
+          display: block !important;
+          font-size: 8.5px !important;
+          color: #64748B !important;
+          font-weight: 700 !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.3px !important;
+          margin-top: 2px !important;
         }
 
         /* ── 4. RESPONSIVE BREAKPOINTS (Tablets & Mobile) ── */

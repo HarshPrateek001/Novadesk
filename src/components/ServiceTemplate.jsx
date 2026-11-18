@@ -204,26 +204,26 @@ export default function ServiceTemplate({ service }) {
         }
 
         /* Capabilities Grid */
-        .nd-svc-grid {
+        .nd-page-svc-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 28px;
           margin: 50px 0 80px 0;
         }
-        .nd-svc-card {
+        .nd-page-svc-card {
           background: #F8FAFC;
           border: 1px solid #E2E8F0;
           border-radius: 20px;
           padding: 36px 28px;
           transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .nd-svc-card:hover {
+        .nd-page-svc-card:hover {
           transform: translateY(-4px);
           border-color: rgba(46, 41, 255, 0.3);
           box-shadow: 0 16px 36px rgba(46, 41, 255, 0.08);
           background: #ffffff;
         }
-        .nd-svc-card-tag {
+        .nd-page-svc-card-tag {
           font-size: 11px;
           font-weight: 700;
           color: #2E29FF;
@@ -232,13 +232,13 @@ export default function ServiceTemplate({ service }) {
           margin-bottom: 12px;
           display: block;
         }
-        .nd-svc-card h3 {
+        .nd-page-svc-card h3 {
           font-size: 21px;
           font-weight: 800;
           color: #0A0A2E;
           margin-bottom: 12px;
         }
-        .nd-svc-card p {
+        .nd-page-svc-card p {
           font-size: 14.5px;
           line-height: 1.6;
           color: #475569;
@@ -356,12 +356,12 @@ export default function ServiceTemplate({ service }) {
         }
 
         @media (max-width: 1024px) {
-          .nd-svc-grid { grid-template-columns: 1fr 1fr; }
+          .nd-page-svc-grid { grid-template-columns: 1fr 1fr; }
           .nd-process-steps-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
           .nd-metrics-strip { grid-template-columns: 1fr 1fr 1fr; }
         }
         @media (max-width: 640px) {
-          .nd-svc-grid { grid-template-columns: 1fr; }
+          .nd-page-svc-grid { grid-template-columns: 1fr; }
           .nd-process-steps-grid { grid-template-columns: 1fr; }
           .nd-metrics-strip { grid-template-columns: 1fr; gap: 16px; }
           .nd-process-box { padding: 40px 20px; }
@@ -413,10 +413,10 @@ export default function ServiceTemplate({ service }) {
             </h2>
           </div>
 
-          <div className="nd-svc-grid">
+          <div className="nd-page-svc-grid">
             {(service.capabilities || []).map((cap, idx) => (
-              <div key={idx} className="nd-svc-card">
-                <span className="nd-svc-card-tag">{cap.tag}</span>
+              <div key={idx} className="nd-page-svc-card">
+                <span className="nd-page-svc-card-tag">{cap.tag}</span>
                 <h3>{cap.title}</h3>
                 <p>{cap.desc}</p>
               </div>
