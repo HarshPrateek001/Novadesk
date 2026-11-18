@@ -1,7 +1,7 @@
 /* ==========================================================================
    NovaDesk About Us Page Stylesheet
-   Theme: Pure White & Royal Blue (#2E29FF) — Founder-Led Studio Aesthetic
-   Clean, Human, High-Trust, Senior Front-End Craftsmanship
+   Theme: High-Trust White & Royal Blue (#2E29FF) Alternating Rhythm
+   Senior Front-End Engineering • 60fps GPU-Accelerated Micro-Interactions
    ========================================================================== */
 
 .au-page {
@@ -11,6 +11,87 @@
   position: relative;
   overflow-x: hidden;
   font-family: var(--font-sans, "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif);
+}
+
+.au-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Alternating Section Rhythm Classes (White -> Blue -> White -> Blue...)
+   ========================================================================== */
+.au-section-white {
+  background-color: #FFFFFF;
+}
+
+.au-section-ice {
+  background-color: #F0F4FF;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.au-section-blue {
+  background: linear-gradient(135deg, #1712C6 0%, #2E29FF 45%, #0D0A75 100%);
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.au-section-blue::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  right: -150px;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.au-section-blue::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -150px;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Smooth Viewport Entrance Animations (IntersectionObserver)
+   ========================================================================== */
+.au-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.au-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.au-delay-1 { transition-delay: 0.08s; }
+.au-delay-2 { transition-delay: 0.16s; }
+.au-delay-3 { transition-delay: 0.24s; }
+.au-delay-4 { transition-delay: 0.32s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .au-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* Ambient Radial Glow */
@@ -24,24 +105,16 @@
   height: 640px;
   background: radial-gradient(
     60% 50% at 50% 0%,
-    rgba(46, 41, 255, 0.055) 0%,
-    rgba(238, 242, 255, 0.45) 45%,
+    rgba(46, 41, 255, 0.06) 0%,
+    rgba(238, 242, 255, 0.5) 45%,
     rgba(255, 255, 255, 0) 100%
   );
   pointer-events: none;
   z-index: 0;
 }
 
-.au-container {
-  max-width: 1220px;
-  margin: 0 auto;
-  padding: 0 24px;
-  position: relative;
-  z-index: 1;
-}
-
 /* ==========================================================================
-   Common Typography & Badges
+   Typography & Kickers
    ========================================================================== */
 .au-kicker-badge {
   display: inline-flex;
@@ -57,7 +130,7 @@
   text-transform: uppercase;
   color: #2E29FF;
   margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(46, 41, 255, 0.05);
+  box-shadow: 0 2px 8px rgba(46, 41, 255, 0.06);
 }
 
 .au-live-dot {
@@ -65,7 +138,7 @@
   height: 8px;
   border-radius: 50%;
   background: #2E29FF;
-  box-shadow: 0 0 8px rgba(46, 41, 255, 0.6);
+  box-shadow: 0 0 10px rgba(46, 41, 255, 0.8);
   animation: au-pulse 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
@@ -82,11 +155,11 @@
 }
 
 .au-section-header {
-  margin-bottom: 44px;
+  margin-bottom: 48px;
 }
 
 .au-section-kicker {
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -109,6 +182,43 @@
   color: #475569;
   line-height: 1.65;
   max-width: 680px;
+  margin: 0;
+}
+
+/* White Section Header Overrides (For Royal Blue Section) */
+.au-section-header-white {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 52px auto;
+}
+
+.au-section-kicker-white {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.au-section-title-white {
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 14px 0;
+}
+
+.au-section-desc-white {
+  font-size: 16.5px;
+  color: #D6E0FF;
+  line-height: 1.65;
   margin: 0;
 }
 
@@ -182,7 +292,7 @@
 .au-btn-white:hover {
   background: #EEF2FF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   color: #1E1BCC;
 }
 
@@ -190,8 +300,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
   color: #FFFFFF;
   font-weight: 600;
   font-size: 15.5px;
@@ -202,18 +312,23 @@
 }
 
 .au-btn-outline-white:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   border-color: #FFFFFF;
   color: #FFFFFF;
   transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   1. Hero Section
+   1. Hero Section (White)
    ========================================================================== */
 .au-hero {
   padding-top: 135px;
-  padding-bottom: 72px;
+  padding-bottom: 76px;
+  position: relative;
+}
+
+.au-breadcrumb-wrap {
+  margin-bottom: 24px;
 }
 
 .au-hero-grid {
@@ -257,11 +372,6 @@
   font-weight: 500;
 }
 
-.au-hero-trust-tag svg {
-  color: #2E29FF;
-}
-
-/* Hero Visual Box */
 .au-hero-visual-card {
   position: relative;
   background: #FFFFFF;
@@ -292,14 +402,20 @@
   left: 18px;
   right: 18px;
   background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   border: 1px solid rgba(46, 41, 255, 0.18);
   border-radius: 14px;
   padding: 12px 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  animation: au-float 4.5s ease-in-out infinite;
+}
+
+@keyframes au-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 .au-hero-badge-title {
@@ -315,11 +431,10 @@
 }
 
 /* ==========================================================================
-   2. Our Story Section
+   2. Our Story Section (Soft Ice-Blue #F0F4FF)
    ========================================================================== */
 .au-story-section {
-  padding: 80px 0;
-  border-top: 1px solid #F1F5F9;
+  padding: 88px 0;
 }
 
 .au-story-grid {
@@ -349,14 +464,15 @@
 
 .au-story-highlight-box {
   margin-top: 12px;
-  background: #EEF2FF;
-  border: 1.5px solid rgba(46, 41, 255, 0.2);
+  background: #FFFFFF;
+  border: 2px solid #2E29FF;
   border-radius: 16px;
   padding: 24px 28px;
+  box-shadow: 0 10px 30px rgba(46, 41, 255, 0.08);
 }
 
 .au-story-highlight-box p {
-  font-size: 16px;
+  font-size: 16.5px;
   font-weight: 700;
   color: #0A0A2E;
   line-height: 1.6;
@@ -364,13 +480,10 @@
 }
 
 /* ==========================================================================
-   3. What We Believe Section
+   3. What We Believe Section (White)
    ========================================================================== */
 .au-believe-section {
-  padding: 80px 0;
-  background: #F8FAFC;
-  border-top: 1px solid #E2E8F0;
-  border-bottom: 1px solid #E2E8F0;
+  padding: 92px 0;
 }
 
 .au-believe-grid {
@@ -388,7 +501,7 @@
   flex-direction: column;
   gap: 12px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
@@ -398,24 +511,26 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 4px;
-  height: 0;
+  right: 0;
+  height: 3px;
   background: #2E29FF;
-  transition: height 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
 }
 
 .au-believe-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: rgba(46, 41, 255, 0.3);
-  box-shadow: 0 12px 30px -8px rgba(46, 41, 255, 0.1);
+  box-shadow: 0 16px 36px -10px rgba(46, 41, 255, 0.12);
 }
 
 .au-believe-card:hover::before {
-  height: 100%;
+  transform: scaleX(1);
 }
 
 .au-believe-num {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 800;
   color: #2E29FF;
   letter-spacing: 0.08em;
@@ -437,10 +552,24 @@
 }
 
 /* ==========================================================================
-   4. How We Work (4-Step Process)
+   4. How We Work (Deep Royal Blue #2E29FF)
    ========================================================================== */
 .au-process-section {
-  padding: 88px 0;
+  padding: 96px 0;
+}
+
+.au-process-track-wrapper {
+  position: relative;
+}
+
+.au-process-timeline-bar {
+  position: absolute;
+  top: 52px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.45) 50%, rgba(255, 255, 255, 0.1) 100%);
+  z-index: 1;
 }
 
 .au-process-grid {
@@ -448,62 +577,69 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 22px;
   position: relative;
+  z-index: 2;
 }
 
 .au-process-card {
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 20px;
-  padding: 30px 24px;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s ease;
-  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #FFFFFF;
 }
 
 .au-process-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(46, 41, 255, 0.3);
-  box-shadow: 0 12px 28px -8px rgba(46, 41, 255, 0.12);
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.28);
 }
 
-.au-step-pill {
+.au-step-pill-blue {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: #EEF2FF;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #FFFFFF;
   color: #2E29FF;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.au-process-card:hover .au-step-pill-blue {
+  transform: scale(1.1) rotate(-4deg);
 }
 
 .au-process-card h3 {
   font-size: 1.25rem;
   font-weight: 800;
-  color: #0A0A2E;
+  color: #FFFFFF;
   margin: 0;
 }
 
 .au-process-card p {
-  font-size: 14px;
-  color: #475569;
+  font-size: 14.5px;
+  color: #D6E0FF;
   line-height: 1.65;
   margin: 0;
 }
 
 /* ==========================================================================
-   5. What We Build (Services Recap)
+   5. What We Build (White)
    ========================================================================== */
 .au-build-section {
-  padding: 80px 0;
-  background: #F8FAFC;
-  border-top: 1px solid #E2E8F0;
-  border-bottom: 1px solid #E2E8F0;
+  padding: 92px 0;
 }
 
 .au-build-grid {
@@ -521,13 +657,13 @@
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .au-build-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: rgba(46, 41, 255, 0.35);
-  box-shadow: 0 16px 36px -10px rgba(46, 41, 255, 0.14);
+  box-shadow: 0 18px 40px -10px rgba(46, 41, 255, 0.15);
 }
 
 .au-build-icon-wrap {
@@ -540,6 +676,11 @@
   justify-content: center;
   color: #2E29FF;
   margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.au-build-card:hover .au-build-icon-wrap {
+  transform: scale(1.08) rotate(3deg);
 }
 
 .au-build-card h3 {
@@ -565,7 +706,7 @@
   font-weight: 700;
   font-size: 14px;
   text-decoration: none;
-  transition: gap 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .au-build-link:hover {
@@ -574,10 +715,10 @@
 }
 
 /* ==========================================================================
-   6. Meet the Founder
+   6. Meet the Founder (Soft Ice-Blue #EEF2FF)
    ========================================================================== */
 .au-founder-section {
-  padding: 92px 0;
+  padding: 96px 0;
 }
 
 .au-founder-card {
@@ -611,6 +752,11 @@
   object-fit: cover;
   object-position: top center;
   display: block;
+  transition: transform 0.4s ease;
+}
+
+.au-founder-card:hover .au-founder-img {
+  transform: scale(1.03);
 }
 
 .au-founder-status-pill {
@@ -629,7 +775,7 @@
   font-weight: 700;
   color: #0A0A2E;
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .au-founder-content {
@@ -654,7 +800,7 @@
 }
 
 .au-founder-promise-box {
-  background: #EEF2FF;
+  background: #F0F4FF;
   border-left: 4px solid #2E29FF;
   border-radius: 0 14px 14px 0;
   padding: 18px 22px;
@@ -686,7 +832,7 @@
   color: #FFFFFF;
   font-weight: 700;
   font-size: 14px;
-  padding: 10px 20px;
+  padding: 11px 20px;
   border-radius: 10px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -696,18 +842,19 @@
   background: #005E93;
   color: #FFFFFF;
   transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 119, 181, 0.35);
 }
 
 .au-btn-email {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #F1F5F9;
-  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
   color: #0A0A2E;
   font-weight: 700;
   font-size: 14px;
-  padding: 10px 20px;
+  padding: 11px 20px;
   border-radius: 10px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -715,76 +862,112 @@
 
 .au-btn-email:hover {
   background: #EEF2FF;
-  border-color: rgba(46, 41, 255, 0.25);
+  border-color: #2E29FF;
   color: #2E29FF;
   transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   7. Tools We Build With
+   7. Tools We Build With (White • Fully Centered & Aligned with Authentic SVGs)
    ========================================================================== */
 .au-tools-section {
-  padding: 72px 0;
-  background: #F8FAFC;
-  border-top: 1px solid #E2E8F0;
-  border-bottom: 1px solid #E2E8F0;
+  padding: 96px 0;
   text-align: center;
 }
 
-.au-tools-section .au-section-desc {
-  margin: 0 auto 36px auto;
+.au-tools-header {
+  max-width: 680px;
+  margin: 0 auto 48px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.au-tools-strip {
+.au-tools-header .au-section-desc {
+  margin: 0 auto;
+}
+
+.au-tools-grid {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 16px;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
-.au-tool-pill {
+.au-tool-card {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   background: #FFFFFF;
   border: 1.5px solid #E2E8F0;
   border-radius: 9999px;
-  padding: 9px 20px;
-  font-size: 14px;
+  padding: 10px 22px 10px 12px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(10, 10, 46, 0.03);
+}
+
+.au-tool-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: #2E29FF;
+  background: #F8FAFF;
+  box-shadow: 0 12px 28px -6px rgba(46, 41, 255, 0.18);
+}
+
+.au-tool-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.au-tool-card:hover .au-tool-icon-wrap {
+  transform: scale(1.12);
+}
+
+.au-tool-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.au-tool-name {
+  font-size: 14.5px;
   font-weight: 700;
   color: #0A0A2E;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-  transition: all 0.25s ease;
+  letter-spacing: -0.01em;
 }
 
-.au-tool-pill:hover {
-  border-color: #2E29FF;
-  color: #2E29FF;
+.au-tool-badge {
+  font-size: 11px;
+  font-weight: 700;
   background: #EEF2FF;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(46, 41, 255, 0.1);
-}
-
-.au-tool-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #2E29FF;
+  color: #2E29FF;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  border: 1px solid rgba(46, 41, 255, 0.15);
 }
 
 /* ==========================================================================
-   8. Selected Work (Real Projects Showcase)
+   8. Selected Work (Soft Ice-Blue #F0F4FF)
    ========================================================================== */
 .au-work-section {
-  padding: 88px 0;
+  padding: 92px 0;
 }
 
 .au-work-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 26px;
-  margin-bottom: 38px;
+  margin-bottom: 40px;
 }
 
 .au-work-card {
@@ -795,7 +978,7 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   color: inherit;
 }
@@ -870,6 +1053,11 @@
   font-size: 13.5px;
   font-weight: 700;
   color: #2E29FF;
+  transition: gap 0.2s ease;
+}
+
+.au-work-card:hover .au-work-link {
+  gap: 10px;
 }
 
 .au-work-center-btn {
@@ -880,13 +1068,13 @@
    9. Closing CTA Banner
    ========================================================================== */
 .au-cta-section {
-  padding-bottom: 72px;
+  padding: 20px 0 88px 0;
 }
 
 .au-cta-box {
-  background: linear-gradient(135deg, #2E29FF 0%, #1E1BCC 100%);
+  background: linear-gradient(135deg, #2E29FF 0%, #1510C8 100%);
   border-radius: 28px;
-  padding: 60px 44px;
+  padding: 64px 44px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -894,14 +1082,11 @@
   color: #FFFFFF;
 }
 
-.au-cta-box::before {
-  content: '';
+.au-cta-mesh-glow {
   position: absolute;
-  top: -120px;
-  right: -120px;
-  width: 360px;
-  height: 360px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.18) 0%, transparent 55%),
+              radial-gradient(circle at 15% 85%, rgba(0, 0, 0, 0.22) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -912,6 +1097,8 @@
   line-height: 1.25;
   margin: 0 0 16px 0;
   letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
 }
 
 .au-cta-box p {
@@ -920,6 +1107,8 @@
   max-width: 660px;
   margin: 0 auto 36px auto;
   line-height: 1.65;
+  position: relative;
+  z-index: 1;
 }
 
 .au-cta-btn-group {
@@ -928,6 +1117,8 @@
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 /* ==========================================================================
@@ -952,6 +1143,9 @@
   }
   .au-founder-img-wrap {
     height: 320px;
+  }
+  .au-process-timeline-bar {
+    display: none;
   }
   .au-process-grid {
     grid-template-columns: repeat(2, 1fr);
