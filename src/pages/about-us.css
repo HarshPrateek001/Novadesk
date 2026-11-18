@@ -1,7 +1,7 @@
 /* ==========================================================================
    NovaDesk About Us Page Stylesheet
    Theme: High-Trust White & Royal Blue (#2E29FF) Alternating Rhythm
-   Senior Front-End Engineering • 60fps GPU-Accelerated Micro-Interactions
+   Senior Front-End Engineering • Compact, Proportional & High-Fidelity
    ========================================================================== */
 
 .au-page {
@@ -14,7 +14,7 @@
 }
 
 .au-container {
-  max-width: 1220px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
@@ -71,8 +71,8 @@
    ========================================================================== */
 .au-reveal {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(22px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -101,12 +101,12 @@
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1400px;
-  height: 640px;
+  max-width: 1300px;
+  height: 520px;
   background: radial-gradient(
     60% 50% at 50% 0%,
-    rgba(46, 41, 255, 0.06) 0%,
-    rgba(238, 242, 255, 0.5) 45%,
+    rgba(46, 41, 255, 0.055) 0%,
+    rgba(238, 242, 255, 0.45) 40%,
     rgba(255, 255, 255, 0) 100%
   );
   pointer-events: none;
@@ -119,26 +119,26 @@
 .au-kicker-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
+  gap: 7px;
+  padding: 4px 12px;
   border-radius: 9999px;
   background: #EEF2FF;
   border: 1px solid rgba(46, 41, 255, 0.2);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #2E29FF;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(46, 41, 255, 0.06);
+  margin-bottom: 14px;
+  box-shadow: 0 2px 6px rgba(46, 41, 255, 0.05);
 }
 
 .au-live-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #2E29FF;
-  box-shadow: 0 0 10px rgba(46, 41, 255, 0.8);
+  box-shadow: 0 0 8px rgba(46, 41, 255, 0.8);
   animation: au-pulse 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
@@ -155,70 +155,70 @@
 }
 
 .au-section-header {
-  margin-bottom: 48px;
+  margin-bottom: 38px;
 }
 
 .au-section-kicker {
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #2E29FF;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .au-section-title {
-  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-size: clamp(1.85rem, 3vw, 2.45rem);
   font-weight: 800;
   color: #0A0A2E;
   letter-spacing: -0.025em;
   line-height: 1.2;
-  margin: 0 0 14px 0;
+  margin: 0 0 10px 0;
 }
 
 .au-section-desc {
-  font-size: 16px;
+  font-size: 15.5px;
   color: #475569;
-  line-height: 1.65;
-  max-width: 680px;
+  line-height: 1.6;
+  max-width: 640px;
   margin: 0;
 }
 
 /* White Section Header Overrides (For Royal Blue Section) */
 .au-section-header-white {
   text-align: center;
-  max-width: 720px;
-  margin: 0 auto 52px auto;
+  max-width: 700px;
+  margin: 0 auto 42px auto;
 }
 
 .au-section-kicker-white {
   display: inline-block;
-  padding: 5px 14px;
+  padding: 4px 13px;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.35);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #FFFFFF;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .au-section-title-white {
-  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-size: clamp(1.85rem, 3vw, 2.45rem);
   font-weight: 800;
   color: #FFFFFF;
   letter-spacing: -0.025em;
   line-height: 1.2;
-  margin: 0 0 14px 0;
+  margin: 0 0 10px 0;
 }
 
 .au-section-desc-white {
-  font-size: 16.5px;
+  font-size: 15.5px;
   color: #D6E0FF;
-  line-height: 1.65;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -228,16 +228,16 @@
 .au-btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   background: #2E29FF;
   color: #FFFFFF;
   font-weight: 700;
-  font-size: 15px;
-  padding: 13px 26px;
-  border-radius: 12px;
+  font-size: 14px;
+  padding: 11px 22px;
+  border-radius: 10px;
   text-decoration: none;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 16px rgba(46, 41, 255, 0.3);
+  box-shadow: 0 4px 14px rgba(46, 41, 255, 0.28);
   border: none;
   cursor: pointer;
 }
@@ -245,21 +245,21 @@
 .au-btn-primary:hover {
   background: #1E1BCC;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(46, 41, 255, 0.45);
+  box-shadow: 0 7px 20px rgba(46, 41, 255, 0.4);
   color: #FFFFFF;
 }
 
 .au-btn-outline {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   background: #FFFFFF;
   border: 1.5px solid #CBD5E1;
   color: #0A0A2E;
   font-weight: 700;
-  font-size: 15px;
-  padding: 13px 26px;
-  border-radius: 12px;
+  font-size: 14px;
+  padding: 11px 22px;
+  border-radius: 10px;
   text-decoration: none;
   transition: all 0.25s ease;
   cursor: pointer;
@@ -272,102 +272,56 @@
   transform: translateY(-2px);
 }
 
-.au-btn-white {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #FFFFFF;
-  color: #2E29FF;
-  font-weight: 700;
-  font-size: 15.5px;
-  padding: 14px 30px;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
-  border: none;
-  cursor: pointer;
-}
-
-.au-btn-white:hover {
-  background: #EEF2FF;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-  color: #1E1BCC;
-}
-
-.au-btn-outline-white {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1.5px solid rgba(255, 255, 255, 0.45);
-  color: #FFFFFF;
-  font-weight: 600;
-  font-size: 15.5px;
-  padding: 14px 28px;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-
-.au-btn-outline-white:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: #FFFFFF;
-  color: #FFFFFF;
-  transform: translateY(-2px);
-}
-
 /* ==========================================================================
-   1. Hero Section (White)
+   1. Hero Section (Compact, Clean & Proportional)
    ========================================================================== */
 .au-hero {
-  padding-top: 135px;
-  padding-bottom: 76px;
+  padding-top: 96px;
+  padding-bottom: 44px;
   position: relative;
 }
 
 .au-breadcrumb-wrap {
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .au-hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.18fr 0.82fr;
   align-items: center;
-  gap: 48px;
+  gap: 40px;
 }
 
 .au-hero-title {
-  font-size: clamp(2.4rem, 4.8vw, 4rem);
+  font-size: clamp(1.95rem, 3.2vw, 2.75rem);
   font-weight: 800;
-  line-height: 1.12;
+  line-height: 1.16;
   color: #0A0A2E;
-  letter-spacing: -0.035em;
-  margin-bottom: 22px;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
 }
 
 .au-hero-subtext {
-  font-size: clamp(1.08rem, 1.8vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.25vw, 1.05rem);
   color: #475569;
-  line-height: 1.65;
-  margin-bottom: 34px;
-  max-width: 580px;
+  line-height: 1.58;
+  margin-bottom: 22px;
+  max-width: 530px;
 }
 
 .au-hero-cta-group {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
 }
 
 .au-hero-trust-tag {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 13.5px;
+  gap: 8px;
+  font-size: 12.5px;
   color: #64748B;
   font-weight: 500;
 }
@@ -376,21 +330,24 @@
   position: relative;
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
-  border-radius: 24px;
-  padding: 14px;
-  box-shadow: 0 20px 50px -15px rgba(46, 41, 255, 0.12), 0 2px 10px rgba(0, 0, 0, 0.03);
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 16px 40px -12px rgba(46, 41, 255, 0.12), 0 2px 8px rgba(0, 0, 0, 0.03);
+  max-width: 440px;
+  margin-left: auto;
 }
 
 .au-hero-img-wrap {
   position: relative;
-  border-radius: 18px;
+  border-radius: 14px;
   overflow: hidden;
   background: #F8FAFC;
+  height: 260px;
 }
 
 .au-hero-img {
   width: 100%;
-  height: 380px;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
   display: block;
@@ -398,34 +355,35 @@
 
 .au-hero-badge-float {
   position: absolute;
-  bottom: 18px;
-  left: 18px;
-  right: 18px;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(46, 41, 255, 0.18);
-  border-radius: 14px;
-  padding: 12px 18px;
+  border-radius: 12px;
+  padding: 9px 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   animation: au-float 4.5s ease-in-out infinite;
 }
 
 @keyframes au-float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-5px); }
 }
 
 .au-hero-badge-title {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: #0A0A2E;
 }
 
 .au-hero-badge-sub {
-  font-size: 11.5px;
+  font-size: 10.5px;
   color: #2E29FF;
   font-weight: 600;
 }
@@ -434,45 +392,45 @@
    2. Our Story Section (Soft Ice-Blue #F0F4FF)
    ========================================================================== */
 .au-story-section {
-  padding: 88px 0;
+  padding: 68px 0;
 }
 
 .au-story-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 56px;
+  gap: 48px;
   align-items: flex-start;
 }
 
 .au-story-heading-sticky {
   position: sticky;
-  top: 120px;
+  top: 100px;
 }
 
 .au-story-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .au-story-p {
-  font-size: 16.5px;
+  font-size: 15.5px;
   color: #334155;
-  line-height: 1.75;
+  line-height: 1.7;
   margin: 0;
 }
 
 .au-story-highlight-box {
-  margin-top: 12px;
+  margin-top: 10px;
   background: #FFFFFF;
   border: 2px solid #2E29FF;
-  border-radius: 16px;
-  padding: 24px 28px;
-  box-shadow: 0 10px 30px rgba(46, 41, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 24px rgba(46, 41, 255, 0.07);
 }
 
 .au-story-highlight-box p {
-  font-size: 16.5px;
+  font-size: 15.5px;
   font-weight: 700;
   color: #0A0A2E;
   line-height: 1.6;
@@ -483,25 +441,25 @@
    3. What We Believe Section (White)
    ========================================================================== */
 .au-believe-section {
-  padding: 92px 0;
+  padding: 68px 0;
 }
 
 .au-believe-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .au-believe-card {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
-  border-radius: 20px;
-  padding: 34px 30px;
+  border-radius: 18px;
+  padding: 26px 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 10px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
@@ -516,13 +474,13 @@
   background: #2E29FF;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.35s ease;
+  transition: transform 0.3s ease;
 }
 
 .au-believe-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: rgba(46, 41, 255, 0.3);
-  box-shadow: 0 16px 36px -10px rgba(46, 41, 255, 0.12);
+  box-shadow: 0 12px 28px -6px rgba(46, 41, 255, 0.1);
 }
 
 .au-believe-card:hover::before {
@@ -530,14 +488,14 @@
 }
 
 .au-believe-num {
-  font-size: 13.5px;
+  font-size: 12.5px;
   font-weight: 800;
   color: #2E29FF;
   letter-spacing: 0.08em;
 }
 
 .au-believe-card h3 {
-  font-size: 1.25rem;
+  font-size: 1.18rem;
   font-weight: 800;
   color: #0A0A2E;
   margin: 0;
@@ -545,9 +503,9 @@
 }
 
 .au-believe-card p {
-  font-size: 14.8px;
+  font-size: 14.2px;
   color: #475569;
-  line-height: 1.65;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -555,7 +513,7 @@
    4. How We Work (Deep Royal Blue #2E29FF)
    ========================================================================== */
 .au-process-section {
-  padding: 96px 0;
+  padding: 72px 0;
 }
 
 .au-process-track-wrapper {
@@ -564,7 +522,7 @@
 
 .au-process-timeline-bar {
   position: absolute;
-  top: 52px;
+  top: 45px;
   left: 8%;
   right: 8%;
   height: 2px;
@@ -575,63 +533,63 @@
 .au-process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  gap: 18px;
   position: relative;
   z-index: 2;
 }
 
 .au-process-card {
   background: rgba(255, 255, 255, 0.09);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 20px;
-  padding: 32px 24px;
+  border-radius: 18px;
+  padding: 26px 20px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   color: #FFFFFF;
 }
 
 .au-process-card:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.28);
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.25);
 }
 
 .au-step-pill-blue {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   background: #FFFFFF;
   color: #2E29FF;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 800;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
 }
 
 .au-process-card:hover .au-step-pill-blue {
-  transform: scale(1.1) rotate(-4deg);
+  transform: scale(1.08) rotate(-4deg);
 }
 
 .au-process-card h3 {
-  font-size: 1.25rem;
+  font-size: 1.18rem;
   font-weight: 800;
   color: #FFFFFF;
   margin: 0;
 }
 
 .au-process-card p {
-  font-size: 14.5px;
+  font-size: 13.8px;
   color: #D6E0FF;
-  line-height: 1.65;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -639,43 +597,43 @@
    5. What We Build (White)
    ========================================================================== */
 .au-build-section {
-  padding: 92px 0;
+  padding: 68px 0;
 }
 
 .au-build-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
+  gap: 22px;
 }
 
 .au-build-card {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
-  border-radius: 22px;
-  padding: 36px 30px;
+  border-radius: 20px;
+  padding: 30px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .au-build-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: rgba(46, 41, 255, 0.35);
-  box-shadow: 0 18px 40px -10px rgba(46, 41, 255, 0.15);
+  box-shadow: 0 14px 32px -8px rgba(46, 41, 255, 0.12);
 }
 
 .au-build-icon-wrap {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   background: #EEF2FF;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #2E29FF;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   transition: transform 0.3s ease;
 }
 
@@ -684,18 +642,18 @@
 }
 
 .au-build-card h3 {
-  font-size: 1.28rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: #0A0A2E;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   line-height: 1.3;
 }
 
 .au-build-card p {
-  font-size: 14.5px;
+  font-size: 14px;
   color: #475569;
-  line-height: 1.65;
-  margin-bottom: 24px;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .au-build-link {
@@ -704,7 +662,7 @@
   gap: 8px;
   color: #2E29FF;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13.5px;
   text-decoration: none;
   transition: all 0.2s ease;
 }
@@ -718,19 +676,19 @@
    6. Meet the Founder (Soft Ice-Blue #EEF2FF)
    ========================================================================== */
 .au-founder-section {
-  padding: 96px 0;
+  padding: 72px 0;
 }
 
 .au-founder-card {
   background: #FFFFFF;
   border: 1.5px solid rgba(46, 41, 255, 0.18);
-  border-radius: 28px;
-  padding: 48px;
+  border-radius: 24px;
+  padding: 38px;
   display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 52px;
+  grid-template-columns: 290px 1fr;
+  gap: 40px;
   align-items: center;
-  box-shadow: 0 20px 50px -15px rgba(46, 41, 255, 0.1), 0 2px 10px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 16px 40px -12px rgba(46, 41, 255, 0.09), 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
 .au-founder-img-col {
@@ -739,11 +697,11 @@
 
 .au-founder-img-wrap {
   width: 100%;
-  height: 380px;
-  border-radius: 20px;
+  height: 290px;
+  border-radius: 16px;
   overflow: hidden;
   background: #EEF2FF;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .au-founder-img {
@@ -761,31 +719,31 @@
 
 .au-founder-status-pill {
   position: absolute;
-  bottom: -14px;
+  bottom: -12px;
   left: 50%;
   transform: translateX(-50%);
   background: #FFFFFF;
   border: 1px solid rgba(46, 41, 255, 0.2);
   border-radius: 9999px;
-  padding: 6px 16px;
+  padding: 5px 14px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
+  gap: 7px;
+  font-size: 11.5px;
   font-weight: 700;
   color: #0A0A2E;
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
 .au-founder-content {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
 }
 
 .au-founder-greeting {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
   font-weight: 800;
   color: #0A0A2E;
   letter-spacing: -0.02em;
@@ -793,22 +751,22 @@
 }
 
 .au-founder-bio {
-  font-size: 15.8px;
+  font-size: 15.2px;
   color: #334155;
-  line-height: 1.7;
+  line-height: 1.68;
   margin: 0;
 }
 
 .au-founder-promise-box {
   background: #F0F4FF;
   border-left: 4px solid #2E29FF;
-  border-radius: 0 14px 14px 0;
-  padding: 18px 22px;
-  margin: 8px 0;
+  border-radius: 0 12px 12px 0;
+  padding: 15px 18px;
+  margin: 4px 0;
 }
 
 .au-founder-promise {
-  font-size: 15.5px;
+  font-size: 15px;
   font-weight: 700;
   font-style: italic;
   color: #0A0A2E;
@@ -819,9 +777,9 @@
 .au-founder-btn-group {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 .au-btn-linkedin {
@@ -831,8 +789,8 @@
   background: #0077B5;
   color: #FFFFFF;
   font-weight: 700;
-  font-size: 14px;
-  padding: 11px 20px;
+  font-size: 13.5px;
+  padding: 10px 18px;
   border-radius: 10px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -853,8 +811,8 @@
   border: 1.5px solid #CBD5E1;
   color: #0A0A2E;
   font-weight: 700;
-  font-size: 14px;
-  padding: 11px 20px;
+  font-size: 13.5px;
+  padding: 10px 18px;
   border-radius: 10px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -871,13 +829,13 @@
    7. Tools We Build With (White • Fully Centered & Aligned with Authentic SVGs)
    ========================================================================== */
 .au-tools-section {
-  padding: 96px 0;
+  padding: 68px 0;
   text-align: center;
 }
 
 .au-tools-header {
-  max-width: 680px;
-  margin: 0 auto 48px auto;
+  max-width: 620px;
+  margin: 0 auto 36px auto;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -893,33 +851,33 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  max-width: 980px;
+  gap: 14px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
 .au-tool-card {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   background: #FFFFFF;
   border: 1.5px solid #E2E8F0;
   border-radius: 9999px;
-  padding: 10px 22px 10px 12px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 8px rgba(10, 10, 46, 0.03);
+  padding: 8px 18px 8px 10px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(10, 10, 46, 0.02);
 }
 
 .au-tool-card:hover {
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-3px) scale(1.02);
   border-color: #2E29FF;
   background: #F8FAFF;
-  box-shadow: 0 12px 28px -6px rgba(46, 41, 255, 0.18);
+  box-shadow: 0 8px 20px -4px rgba(46, 41, 255, 0.16);
 }
 
 .au-tool-icon-wrap {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #F1F5F9;
   display: flex;
@@ -936,22 +894,22 @@
 .au-tool-info {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
 }
 
 .au-tool-name {
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 700;
   color: #0A0A2E;
   letter-spacing: -0.01em;
 }
 
 .au-tool-badge {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   background: #EEF2FF;
   color: #2E29FF;
-  padding: 3px 8px;
+  padding: 2px 8px;
   border-radius: 9999px;
   border: 1px solid rgba(46, 41, 255, 0.15);
 }
@@ -960,37 +918,37 @@
    8. Selected Work (Soft Ice-Blue #F0F4FF)
    ========================================================================== */
 .au-work-section {
-  padding: 92px 0;
+  padding: 68px 0;
 }
 
 .au-work-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
-  margin-bottom: 40px;
+  gap: 22px;
+  margin-bottom: 32px;
 }
 
 .au-work-card {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
-  border-radius: 20px;
+  border-radius: 18px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   color: inherit;
 }
 
 .au-work-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: rgba(46, 41, 255, 0.35);
-  box-shadow: 0 16px 36px -10px rgba(46, 41, 255, 0.14);
+  box-shadow: 0 14px 32px -8px rgba(46, 41, 255, 0.12);
 }
 
 .au-work-media {
-  height: 190px;
+  height: 175px;
   overflow: hidden;
   background: #F1F5F9;
   position: relative;
@@ -1009,22 +967,22 @@
 
 .au-work-category-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
+  top: 12px;
+  left: 12px;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(46, 41, 255, 0.2);
   color: #2E29FF;
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 6px;
+  padding: 3px 8px;
+  border-radius: 5px;
 }
 
 .au-work-body {
-  padding: 24px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -1032,25 +990,25 @@
 }
 
 .au-work-title {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   font-weight: 800;
   color: #0A0A2E;
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
   line-height: 1.3;
 }
 
 .au-work-outcome {
-  font-size: 14px;
+  font-size: 13.5px;
   color: #475569;
-  line-height: 1.6;
-  margin-bottom: 18px;
+  line-height: 1.58;
+  margin-bottom: 16px;
 }
 
 .au-work-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 700;
   color: #2E29FF;
   transition: gap 0.2s ease;
@@ -1065,48 +1023,77 @@
 }
 
 /* ==========================================================================
-   9. Closing CTA Banner
+   9. Closing CTA Banner (Cosmic Royal Blue & Elegant Finish)
    ========================================================================== */
 .au-cta-section {
-  padding: 20px 0 88px 0;
+  padding: 24px 0 76px 0;
 }
 
 .au-cta-box {
-  background: linear-gradient(135deg, #2E29FF 0%, #1510C8 100%);
-  border-radius: 28px;
-  padding: 64px 44px;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: radial-gradient(circle at 50% 0%, #3530F5 0%, #201BD4 45%, #0F0B85 100%);
+  border-radius: 24px;
+  padding: 52px 38px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 25px 60px -15px rgba(46, 41, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 22px 55px -12px rgba(32, 27, 212, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   color: #FFFFFF;
 }
 
 .au-cta-mesh-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.18) 0%, transparent 55%),
-              radial-gradient(circle at 15% 85%, rgba(0, 0, 0, 0.22) 0%, transparent 60%);
+  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.18) 0%, transparent 50%),
+              radial-gradient(circle at 15% 85%, rgba(0, 0, 0, 0.25) 0%, transparent 60%);
   pointer-events: none;
 }
 
+.au-cta-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 13px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.au-cta-kicker-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ADE80;
+  box-shadow: 0 0 8px #4ADE80;
+}
+
 .au-cta-box h2 {
-  font-size: clamp(2rem, 3.6vw, 2.85rem);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
   font-weight: 800;
   color: #FFFFFF;
-  line-height: 1.25;
-  margin: 0 0 16px 0;
-  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.025em;
   position: relative;
   z-index: 1;
 }
 
 .au-cta-box p {
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-size: clamp(0.95rem, 1.35vw, 1.05rem);
   color: #E0E7FF;
-  max-width: 660px;
-  margin: 0 auto 36px auto;
-  line-height: 1.65;
+  max-width: 620px;
+  margin: 0 auto 28px auto;
+  line-height: 1.62;
   position: relative;
   z-index: 1;
 }
@@ -1115,10 +1102,75 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
   position: relative;
   z-index: 1;
+  margin-bottom: 24px;
+}
+
+.au-btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #FFFFFF;
+  color: #201BD4;
+  font-weight: 800;
+  font-size: 14.5px;
+  padding: 12px 28px;
+  border-radius: 11px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.14);
+  border: none;
+  cursor: pointer;
+}
+
+.au-btn-white:hover {
+  background: #EEF2FF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  color: #1611C8;
+}
+
+.au-btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 12px 24px;
+  border-radius: 11px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.au-btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.au-cta-trust-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: #C7D7FE;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.au-cta-trust-dot {
+  color: rgba(255, 255, 255, 0.4);
 }
 
 /* ==========================================================================
@@ -1127,22 +1179,26 @@
 @media (max-width: 1024px) {
   .au-hero-grid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
+  }
+  .au-hero-visual-card {
+    max-width: 100%;
+    margin-left: 0;
   }
   .au-story-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
   }
   .au-story-heading-sticky {
     position: static;
   }
   .au-founder-card {
     grid-template-columns: 1fr;
-    padding: 36px;
-    gap: 32px;
+    padding: 32px;
+    gap: 28px;
   }
   .au-founder-img-wrap {
-    height: 320px;
+    height: 280px;
   }
   .au-process-timeline-bar {
     display: none;
@@ -1160,8 +1216,11 @@
 
 @media (max-width: 640px) {
   .au-hero {
-    padding-top: 110px;
-    padding-bottom: 48px;
+    padding-top: 88px;
+    padding-bottom: 36px;
+  }
+  .au-hero-img-wrap {
+    height: 230px;
   }
   .au-believe-grid {
     grid-template-columns: 1fr;
@@ -1170,9 +1229,16 @@
     grid-template-columns: 1fr;
   }
   .au-founder-card {
-    padding: 24px 18px;
+    padding: 22px 16px;
   }
   .au-cta-box {
-    padding: 40px 22px;
+    padding: 38px 20px;
+  }
+  .au-cta-trust-bar {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .au-cta-trust-dot {
+    display: none;
   }
 }

@@ -627,6 +627,10 @@ export default function AboutUs() {
         <div className="au-container">
           <div className="au-cta-box au-reveal">
             <div className="au-cta-mesh-glow" aria-hidden="true" />
+            <div className="au-cta-kicker">
+              <span className="au-cta-kicker-dot" />
+              <span>Direct Founder Access</span>
+            </div>
             <h2>Have an idea or a problem worth solving?</h2>
             <p>
               Tell us about it. We will reply personally, usually within one working day, with honest thoughts and a clear next step. No pressure, no sales script.
@@ -645,6 +649,13 @@ export default function AboutUs() {
                 <span>Book Founder Strategy Call</span>
                 <ArrowUpRight size={17} />
               </a>
+            </div>
+            <div className="au-cta-trust-bar">
+              <span>⚡ Direct Engineer Reply</span>
+              <span className="au-cta-trust-dot">•</span>
+              <span>🔒 Zero Spam or Sales Scripts</span>
+              <span className="au-cta-trust-dot">•</span>
+              <span>💬 Free Technical Consultation</span>
             </div>
           </div>
         </div>
