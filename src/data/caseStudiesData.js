@@ -404,3 +404,4 @@ export function getRelatedCaseStudies(currentSlug, limit = 3) {
     .filter(c => c.slug !== currentSlug)
     .slice(0, limit);
 }
+
