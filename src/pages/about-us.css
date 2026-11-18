@@ -1056,6 +1056,9 @@
   border-radius: 24px;
   padding: 52px 38px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.22);
@@ -1104,18 +1107,24 @@
   line-height: 1.2;
   margin: 0 0 14px 0;
   letter-spacing: -0.025em;
+  text-align: center;
+  text-wrap: balance;
   position: relative;
   z-index: 1;
 }
 
-.au-cta-box p {
+.au-cta-box p,
+.au-cta-desc {
   font-size: clamp(0.95rem, 1.35vw, 1.05rem);
   color: #E0E7FF;
-  max-width: 620px;
-  margin: 0 auto 28px auto;
+  max-width: 640px;
+  margin: 0 auto 28px auto !important;
   line-height: 1.62;
+  text-align: center !important;
+  text-wrap: balance;
   position: relative;
   z-index: 1;
+  display: block;
 }
 
 .au-cta-btn-group {

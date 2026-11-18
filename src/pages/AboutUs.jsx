@@ -639,7 +639,7 @@ export default function AboutUs() {
               <span>Direct Founder Access</span>
             </div>
             <h2>Have an idea or a problem worth solving?</h2>
-            <p>
+            <p className="au-cta-desc">
               Tell us about it. We will reply personally, usually within one working day, with honest thoughts and a clear next step. No pressure, no sales script.
             </p>
             <div className="au-cta-btn-group">
