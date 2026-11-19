@@ -679,7 +679,7 @@ export default function ChatbotDevelopment() {
         .fs-page {
           font-family: 'Space Grotesk', sans-serif;
           background-color: #ffffff;
-          overflow-x: hidden;
+          overflow-x: clip;
           color: #0b0f19;
         }
         
@@ -2693,17 +2693,27 @@ export default function ChatbotDevelopment() {
           display: grid;
           grid-template-columns: 0.8fr 1.2fr;
           gap: 40px;
+          align-items: start;
           margin-top: 48px;
         }
         @media (max-width: 991px) {
           .fs-overview-layout {
             grid-template-columns: 1fr;
+            align-items: stretch;
           }
         }
         .fs-overview-tabs {
           display: flex;
           flex-direction: column;
           gap: 16px;
+          position: sticky;
+          top: 100px;
+          z-index: 2;
+        }
+        @media (max-width: 991px) {
+          .fs-overview-tabs {
+            position: static;
+          }
         }
         .fs-overview-tab {
           display: flex;
@@ -2936,11 +2946,16 @@ export default function ChatbotDevelopment() {
           .fs-why-us-grid {
             grid-template-columns: 1fr;
             gap: 40px;
+            align-items: stretch;
+          }
+          .fs-why-us-sticky {
+            position: static;
           }
         }
         .fs-why-us-sticky {
           position: sticky;
           top: 100px;
+          z-index: 2;
         }
         .fs-value-spotlight {
           background: rgba(46, 41, 255, 0.04);
