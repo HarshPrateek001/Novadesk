@@ -1,0 +1,6 @@
+Reason,Source,Validation,Pages
+Not found (404),Website,Not Started,1
+Crawled - currently not indexed,Google systems,Started,7
+Excluded by ‘noindex’ tag,Website,N/A,0
+Page with redirect,Website,Passed,0
+Discovered - currently not indexed,Google systems,Passed,24
