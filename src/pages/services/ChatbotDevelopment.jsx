@@ -2693,7 +2693,7 @@ export default function ChatbotDevelopment() {
           display: grid;
           grid-template-columns: 0.8fr 1.2fr;
           gap: 40px;
-          align-items: start;
+          align-items: stretch;
           margin-top: 48px;
         }
         @media (max-width: 991px) {
@@ -2706,14 +2706,7 @@ export default function ChatbotDevelopment() {
           display: flex;
           flex-direction: column;
           gap: 16px;
-          position: sticky;
-          top: 100px;
-          z-index: 2;
-        }
-        @media (max-width: 991px) {
-          .fs-overview-tabs {
-            position: static;
-          }
+          position: static;
         }
         .fs-overview-tab {
           display: flex;
@@ -2954,8 +2947,8 @@ export default function ChatbotDevelopment() {
         }
         .fs-why-us-sticky {
           position: sticky;
-          top: 100px;
-          z-index: 2;
+          top: 120px;
+          z-index: 10;
         }
         .fs-value-spotlight {
           background: rgba(46, 41, 255, 0.04);
