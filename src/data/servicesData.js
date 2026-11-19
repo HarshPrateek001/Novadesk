@@ -136,6 +136,111 @@ export const servicesData = {
       { num: '100/100', lbl: 'Core Web Vitals Score' },
       { num: '0', lbl: 'Plugin Vulnerability Surface' }
     ],
+    architectures: [
+      {
+        badge: "Composable CMS",
+        complexity: "Production Grade",
+        title: "Headless Sanity & Next.js App Router",
+        tagline: "Decoupled content studio with real-time editorial previews and GROQ-optimized data pipelines.",
+        useCases: ["High-Growth SaaS Sites", "Multi-Brand Marketing Portals", "Enterprise Content Hubs", "Dynamic Landing Page Builders"],
+        steps: [
+          { badge: "Layer 01", title: "Sanity Studio v3", desc: "Custom visual content studio with schema-as-code and live visual draft editing." },
+          { badge: "Layer 02", title: "Next.js 15 App Router", desc: "React Server Components with automatic on-demand ISR revalidation via webhooks." },
+          { badge: "Layer 03", title: "Edge CDN & Image Pipeline", desc: "Global asset caching with automatic WebP conversion and responsive srcset." },
+          { badge: "Layer 04", title: "Structured Schema & SEO", desc: "Automated JSON-LD schema generation and dynamic XML sitemap syndication." }
+        ]
+      },
+      {
+        badge: "Self-Hosted Control",
+        complexity: "High Performance",
+        title: "Strapi Enterprise & PostgreSQL",
+        tagline: "Fully owned, open-source headless CMS backends with custom REST and GraphQL endpoints.",
+        useCases: ["Regulated Industries", "Proprietary Data Compliance", "B2B Custom Portals", "Internal Knowledge Bases"],
+        steps: [
+          { badge: "Step 01", title: "Strapi Headless Core", desc: "Node.js REST/GraphQL engine with role-based editorial access control." },
+          { badge: "Step 02", title: "PostgreSQL Database", desc: "ACID-compliant relational database with connection pooling and automated backups." },
+          { badge: "Step 03", title: "Private S3 Media Bucket", desc: "Encrypted object storage with signed URLs for confidential documents and assets." },
+          { badge: "Step 04", title: "Dockerized Cloud Deploy", desc: "Containerized deployments on AWS ECS or DigitalOcean with zero downtime." }
+        ]
+      },
+      {
+        badge: "TypeScript Native",
+        complexity: "Developer First",
+        title: "Payload CMS Monorepo Architecture",
+        tagline: "100% type-safe headless CMS embedded directly into your Next.js application codebase.",
+        useCases: ["Modern Full-Stack Applications", "Developer-Led Teams", "Complex Relational Content", "Fast Iteration MVPs"],
+        steps: [
+          { badge: "Phase 01", title: "Unified TypeScript Schema", desc: "Shared database types across CMS fields, backend APIs, and React UI components." },
+          { badge: "Phase 02", title: "Local API & Drizzle/Prisma", desc: "Zero network latency for internal queries using direct database connections." },
+          { badge: "Phase 03", title: "Custom Admin UI Blocks", desc: "Tailored dashboard views and interactive widget editors for marketing staff." },
+          { badge: "Phase 04", title: "Single Repository CI/CD", desc: "One-click Vercel or AWS deployments with end-to-end type checking." }
+        ]
+      },
+      {
+        badge: "Global Scale",
+        complexity: "Enterprise Grade",
+        title: "Multilingual & Multi-Tenant CMS Hubs",
+        tagline: "Unified publishing infrastructure across multiple domains, international regions, and translation pipelines.",
+        useCases: ["International Enterprise Brands", "Multi-Language Portals", "Franchise Networks", "Global Media Publishers"],
+        steps: [
+          { badge: "Tier 01", title: "Locale-Based Content Routing", desc: "Automated subpath and hreflang tagging across 50+ languages and regional locales." },
+          { badge: "Tier 02", title: "Editorial Approval Hierarchies", desc: "Multi-stage drafting, legal sign-off triggers, and scheduled publishing cadences." },
+          { badge: "Tier 03", title: "Translation API Pipelines", desc: "Automated sync with DeepL, Phrase, or human localization services." },
+          { badge: "Tier 04", title: "Geo-Distributed Edge Serving", desc: "Sub-50ms page delivery worldwide powered by Cloudflare edge networks." }
+        ]
+      },
+      {
+        badge: "Omnichannel API",
+        complexity: "Full Composable",
+        title: "Decoupled Content Mesh & Syndication",
+        tagline: "One central CMS feeding your web portal, mobile apps, email campaigns, and partner micro-sites.",
+        useCases: ["Cross-Platform Ecosystems", "Mobile App Backends", "Smart In-Store Displays", "Automated Newsletter Feeds"],
+        steps: [
+          { badge: "Node 01", title: "Unified GraphQL Content Mesh", desc: "Single query endpoint serving structured JSON to any frontend consumer." },
+          { badge: "Node 02", title: "Instant Webhook Broadcasts", desc: "Real-time cache invalidation triggered on every published content edit." },
+          { badge: "Node 03", title: "Mobile SDK Data Bindings", desc: "Lightweight cached responses tailored for iOS and Android native apps." },
+          { badge: "Node 04", title: "Analytics & Attribution", desc: "Real-time content engagement telemetry and conversion attribution tracking." }
+        ]
+      }
+    ],
+    whyUs: [
+      {
+        num: "01",
+        title: "Senior Product Engineering, No Offshore Handoffs",
+        desc: "You work directly with senior architects led by founder Harsh Prateek. We architect clean content models, write strictly typed code, and maintain direct Slack communication with your team."
+      },
+      {
+        num: "02",
+        title: "100% Code & Content Sovereignty",
+        desc: "You own all repository commits, database schemas, and media assets. Zero proprietary agency lock-in, zero ongoing CMS licensing fees for open-source stacks."
+      },
+      {
+        num: "03",
+        title: "Modular Visual Slice Machine",
+        desc: "We build intuitive visual page-builder blocks so your marketing team can publish new landing pages in minutes without needing developer assistance."
+      },
+      {
+        num: "04",
+        title: "Sub-Second Core Web Vitals Guaranteed",
+        desc: "By separating frontend rendering from content storage, our Next.js architectures consistently achieve 95+ Google PageSpeed scores with zero layout shift."
+      },
+      {
+        num: "05",
+        title: "Zero Plugin Vulnerability Surface",
+        desc: "Unlike traditional monolithic CMS platforms vulnerable to SQL injections, our headless backends sit securely behind private tokens with static frontend generation."
+      },
+      {
+        num: "06",
+        title: "Zero-Downtime Data Migration",
+        desc: "We write automated ETL migration scripts that transition all your existing articles, metadata, author profiles, and 301 redirects without losing a single ranking."
+      }
+    ],
+    benefits: [
+      { num: "3.5x", lbl: "Faster Editorial Publishing", desc: "Marketers launch customized landing pages with visual blocks without filing engineering tickets." },
+      { num: "99.9%", lbl: "Cache Hit Ratio", desc: "Edge CDN distribution ensures instantaneous page rendering and near-zero server CPU load." },
+      { num: "0", lbl: "Third-Party Plugin Bloat", desc: "Pure React and modern headless APIs eliminate security vulnerabilities and slow database bottlenecks." },
+      { num: "100%", lbl: "SEO Equity Preservation", desc: "Precise URL canonicalization, structured JSON-LD schemas, and 301 redirect mappings protect your traffic." }
+    ],
     capabilitiesTag: 'CMS CAPABILITIES',
     capabilitiesTitle: 'Decoupled Content Systems Built for Scale',
     capabilities: [
@@ -159,7 +264,9 @@ export const servicesData = {
       { q: 'What is the main advantage of a headless CMS over traditional WordPress?', a: 'A headless CMS separates content creation from frontend presentation. This delivers sub-second page load times, impervious security (no public database exposure), and the ability to feed the same content into mobile apps and web portals simultaneously.' },
       { q: 'Can we migrate all our existing WordPress articles and images without losing SEO rankings?', a: 'Yes. We build custom migration scripts that extract all existing markdown, HTML, metadata, and images while maintaining exact slug paths and implementing 301 redirect maps for any restructured URLs.' },
       { q: 'Which headless CMS platform is best for our business?', a: 'We recommend Sanity.io or Strapi for mid-sized and enterprise companies seeking visual block editing, Payload CMS for developers wanting TypeScript native control, or custom-built CMS architectures for proprietary workflows.' },
-      { q: 'Can non-technical marketers easily create and publish new landing pages?', a: 'Absolutely. We design reusable visual block builders (modular slice machine) allowing marketers to assemble new landing pages in minutes without touching a single line of code.' }
+      { q: 'Can non-technical marketers easily create and publish new landing pages?', a: 'Absolutely. We design reusable visual block builders (modular slice machine) allowing marketers to assemble new landing pages in minutes without touching a single line of code.' },
+      { q: 'How does a decoupled CMS protect our business against security breaches?', a: 'Traditional CMS platforms expose their database and admin endpoints directly to the public web. In a headless setup, your visitors interact solely with a static or edge-cached React frontend, while the CMS database stays isolated behind authenticated private APIs.' },
+      { q: 'How long does an end-to-end CMS migration or development project take?', a: 'A focused headless CMS implementation with custom design, visual blocks, and data migration typically takes 3 to 6 weeks. Every Friday, you test working components on private staging.' }
     ],
     interlinks: [
       { title: 'WordPress Development →', url: '/services/wordpress-development' },
@@ -568,6 +675,111 @@ export const servicesData = {
       { num: '100%', lbl: 'TypeScript Type Safety' },
       { num: '7 Days', lbl: 'Staging Delivery Cadence' }
     ],
+    architectures: [
+      {
+        badge: "Full-Stack React",
+        complexity: "Production Grade",
+        title: "Next.js 15 & React Server Components",
+        tagline: "Hybrid streaming SSR and static edge caching delivering instant page transitions and maximum SEO equity.",
+        useCases: ["SaaS Dashboards", "Customer Portals", "High-Traffic Web Apps", "Dynamic Product Marketplaces"],
+        steps: [
+          { badge: "Layer 01", title: "React Server Components (RSC)", desc: "Zero client-side bundle overhead for data-heavy components with instant server streaming." },
+          { badge: "Layer 02", title: "Type-Safe Server Actions & tRPC", desc: "End-to-end typed contract binding frontend UI interactions directly to database operations." },
+          { badge: "Layer 03", title: "Edge Middleware & Auth", desc: "Sub-20ms authentication verification and dynamic routing running directly on edge servers." },
+          { badge: "Layer 04", title: "Automated Core Web Vitals", desc: "Strict image optimization, font preloading, and zero layout shift on mobile and desktop." }
+        ]
+      },
+      {
+        badge: "Distributed Backend",
+        complexity: "High Throughput",
+        title: "Node.js & Go Microservices Architecture",
+        tagline: "Resilient containerized backend services engineered for high concurrent user loads and horizontal auto-scaling.",
+        useCases: ["Enterprise Platforms", "Financial Transactions", "Data Aggregation Pipelines", "High-Volume REST/gRPC APIs"],
+        steps: [
+          { badge: "Step 01", title: "High-Speed API Gateway", desc: "Rate limiting, SSL termination, and request telemetry handling thousands of requests per second." },
+          { badge: "Step 02", title: "Modular Domain Microservices", desc: "Isolated microservices communicating via lightweight gRPC and RabbitMQ event buses." },
+          { badge: "Step 03", title: "Connection Pooled PostgreSQL", desc: "Optimized read replicas, index partitioning, and sub-5ms query response benchmarks." },
+          { badge: "Step 04", title: "Docker & Kubernetes Deployment", desc: "Self-healing container clusters orchestrated on AWS ECS/EKS with automated rolling updates." }
+        ]
+      },
+      {
+        badge: "Real-Time Systems",
+        complexity: "Real-Time",
+        title: "Event-Driven & WebSocket Data Mesh",
+        tagline: "Bi-directional WebSocket streaming, live collaboration cursors, and background job processing.",
+        useCases: ["Live Financial Tickers", "Collaborative Workspaces", "Chat & Notification Centers", "IoT Telemetry Dashboards"],
+        steps: [
+          { badge: "Phase 01", title: "Persistent WebSocket Gateway", desc: "Low-latency socket connections with automated reconnection fallbacks." },
+          { badge: "Phase 02", title: "Redis Pub/Sub Message Broker", desc: "Sub-millisecond event fanout across horizontally distributed server instances." },
+          { badge: "Phase 03", title: "Asynchronous BullMQ Workers", desc: "Offloading intensive PDF exports, email queues, and third-party API syncs." },
+          { badge: "Phase 04", title: "Optimistic UI State Sync", desc: "Instant local UI feedback with server-reconciled consistency guards." }
+        ]
+      },
+      {
+        badge: "Data Architecture",
+        complexity: "Enterprise Scale",
+        title: "Supabase & PostgreSQL Relational Engine",
+        tagline: "Enterprise database architecture with Row-Level Security (RLS), automated backups, and vector embeddings.",
+        useCases: ["Multi-Tenant SaaS", "Regulated Healthcare", "Fintech Payment Ledgers", "Enterprise CRM Tools"],
+        steps: [
+          { badge: "Gate 01", title: "Normalized Relational Modeling", desc: "Strict foreign key constraints, composite indexing, and automated migration scripts." },
+          { badge: "Gate 02", title: "Row-Level Security (RLS)", desc: "Database-enforced tenant isolation preventing cross-account data leaks." },
+          { badge: "Gate 03", title: "PgVector Semantic Indexing", desc: "Hybrid keyword and vector similarity queries embedded natively in SQL." },
+          { badge: "Gate 04", title: "Point-in-Time Recovery (PITR)", desc: "Automated continuous backup snapshots with zero data loss recovery guarantees." }
+        ]
+      },
+      {
+        badge: "Enterprise Security",
+        complexity: "SOC 2 Hardened",
+        title: "Zero-Trust Identity & API Protection",
+        tagline: "Comprehensive security architecture featuring OAuth2/SAML SSO, CSRF protection, and automated vulnerability scanning.",
+        useCases: ["Corporate Portals", "Regulated Banking", "Government Compliance", "Mission-Critical SaaS"],
+        steps: [
+          { badge: "Module 01", title: "Enterprise SSO & MFA", desc: "Seamless SAML, Okta, and Google Workspace integration with hardware key MFA." },
+          { badge: "Module 02", title: "Cryptographic Token Rotation", desc: "Short-lived JWTs, rotating refresh tokens, and automated session revocation." },
+          { badge: "Module 03", title: "OWASP Top 10 Protection", desc: "Strict input sanitization, CSP headers, rate-limiting, and SQL injection barriers." },
+          { badge: "Module 04", title: "Immutable Audit Trails", desc: "Append-only security access logs for compliance reporting and anomaly detection." }
+        ]
+      }
+    ],
+    whyUs: [
+      {
+        num: "01",
+        title: "Direct Senior Developer Collaboration",
+        desc: "You work directly with senior product engineers led by founder Harsh Prateek. No account managers playing telephone, no outsourced junior contractors. Fast answers, sharp code, and direct Slack channels."
+      },
+      {
+        num: "02",
+        title: "100% Day-One Code & IP Ownership",
+        desc: "You own every single line of source code, database migration, CI/CD pipeline, and Docker container from day one. Zero proprietary agency frameworks, zero licensing fees, zero vendor lock-in."
+      },
+      {
+        num: "03",
+        title: "Weekly Clickable Staging Releases",
+        desc: "No multi-month radio silences. Every Friday, you receive a working staging deployment with an async video walkthrough explaining every feature, metric, and architectural decision."
+      },
+      {
+        num: "04",
+        title: "Engineered for Core Web Vitals & Speed",
+        desc: "Speed is a core business feature. We optimize critical render paths, leverage modern SSR and edge caching, and build semantic HTML to deliver 95+ PageSpeed scores that drive organic search rankings."
+      },
+      {
+        num: "05",
+        title: "Production-Hardened Security & Compliance",
+        desc: "From OWASP Top 10 protection and CSRF mitigation to strict role-based access control (RBAC) and database encryption, our engineering adheres to enterprise SOC 2 and GDPR standards."
+      },
+      {
+        num: "06",
+        title: "Transparent, Milestone-Based Sprints",
+        desc: "Predictable budgets with zero surprise change orders. We work on defined milestone-based sprints with clear deliverables, guaranteed SLAs, and full technical documentation."
+      }
+    ],
+    benefits: [
+      { num: "40%", lbl: "Lower Cloud Infrastructure Costs", desc: "Clean code, efficient connection pooling, and edge caching minimize cloud hosting bills." },
+      { num: "3.5x", lbl: "Faster Feature Releases", desc: "Modular, strictly typed TypeScript architecture allows your team to iterate with speed." },
+      { num: "99.99%", lbl: "Guaranteed Production Uptime", desc: "Redundant cloud infrastructure and automated failover keep your business online 24/7." },
+      { num: "100%", lbl: "Complete IP & Asset Sovereignty", desc: "Full git history, release credentials, and architecture blueprints transferred to you." }
+    ],
     capabilitiesTag: 'STACK CAPABILITIES',
     capabilitiesTitle: 'Harmonized Frontend, Backend & Cloud Architecture',
     capabilities: [
@@ -591,7 +803,9 @@ export const servicesData = {
       { q: 'What is your core full-stack technology stack?', a: 'Our primary stack utilizes Next.js and React on the frontend, Node.js or Python on the backend, PostgreSQL/Supabase for databases, Redis for caching, and Tailwind CSS for responsive styling—all unified with 100% TypeScript type safety.' },
       { q: 'How do you prevent technical debt in fast-moving projects?', a: 'We enforce strict code reviews, automated linting via Oxlint/ESLint, clean architecture layer separation, and automated regression test suites on every pull request.' },
       { q: 'Can you inherit and refactor an existing codebase?', a: 'Yes. We conduct a thorough code audit to evaluate test coverage, dependency vulnerabilities, and database efficiency, then implement an incremental refactoring plan without halting active features.' },
-      { q: 'Who owns the code repository and cloud accounts?', a: 'You maintain 100% intellectual property sovereignty from day one. All code is committed directly to your GitHub organization with full documentation.' }
+      { q: 'Who owns the code repository and cloud accounts?', a: 'You maintain 100% intellectual property sovereignty from day one. All code is committed directly to your GitHub organization with full documentation.' },
+      { q: 'How do you handle database migrations without causing downtime?', a: 'We use forward-compatible database migration patterns (expand and contract pattern) with automated Prisma/Drizzle migration scripts, running non-blocking column additions and blue/green deployments.' },
+      { q: 'How does your milestone sprint framework ensure projects stay on schedule?', a: 'We operate in transparent 2-week sprints with predefined deliverables. Every Friday, you test shippable code on private staging, eliminating last-minute surprises and budget overruns.' }
     ],
     interlinks: [
       { title: 'Web Development Services →', url: '/services/web-development' },
@@ -838,6 +1052,111 @@ export const servicesData = {
       { num: 'Sub-80ms', lbl: 'Average API Execution Speed' },
       { num: '100%', lbl: 'PSR Standards Compliant' }
     ],
+    architectures: [
+      {
+        badge: "High Concurrency",
+        complexity: "Production Grade",
+        title: "Laravel Octane & FrankenPHP In-Memory Engine",
+        tagline: "Ultra-fast execution keeping your application bootstrapped in memory for blistering sub-30ms response times.",
+        useCases: ["High-Volume SaaS Backends", "Transactional Payment APIs", "Real-Time Telemetry Systems", "High-Traffic E-Commerce"],
+        steps: [
+          { badge: "Layer 01", title: "FrankenPHP / Swoole Server", desc: "Persistent memory worker pool eliminating PHP request bootstrapping overhead." },
+          { badge: "Layer 02", title: "Type-Safe Eloquent ORM", desc: "Strictly typed models with query caching and eager-loading relationship optimization." },
+          { badge: "Layer 03", title: "Redis State & Connection Pool", desc: "Shared in-memory caching and Redis connection pooling across server workers." },
+          { badge: "Layer 04", title: "Automated Pest Testing", desc: "Comprehensive behavioral test suites executed before zero-downtime deployment." }
+        ]
+      },
+      {
+        badge: "Clean Architecture",
+        complexity: "Enterprise Scale",
+        title: "Domain-Driven Design (DDD) & Symfony Modular Core",
+        tagline: "Enterprise layer separation isolating core business logic from database and transport layers.",
+        useCases: ["Complex Enterprise ERPs", "Financial Accounting Engines", "Multi-Tenant B2B Portals", "Long-Term Scalable Systems"],
+        steps: [
+          { badge: "Step 01", title: "Domain Entities & Value Objects", desc: "Pure business logic models completely independent of third-party framework dependencies." },
+          { badge: "Step 02", title: "Command-Query Responsibility (CQRS)", desc: "Separating read queries from transactional write commands for optimized performance." },
+          { badge: "Step 03", title: "Repository Pattern & DTOs", desc: "Strict type-safe Data Transfer Objects ensuring verified API request payloads." },
+          { badge: "Step 04", title: "PHPStan Level 9 Static Analysis", desc: "Zero runtime type errors guaranteed via mathematical static analysis proofs." }
+        ]
+      },
+      {
+        badge: "API First",
+        complexity: "High Performance",
+        title: "Headless PHP REST & GraphQL Gateways",
+        tagline: "Tokenized, documented API backends engineered to serve Next.js frontends, mobile apps, and partner integrations.",
+        useCases: ["Mobile App Backends", "Decoupled Web Applications", "Public Developer APIs", "Microservices Inter-Communication"],
+        steps: [
+          { badge: "Phase 01", title: "Laravel Sanctum / Passport Auth", desc: "Secure tokenized authentication, API scopes, and personal access token rotation." },
+          { badge: "Phase 02", title: "OpenAPI & Swagger Documentation", desc: "Interactive live API documentation generated automatically from controller annotations." },
+          { badge: "Phase 03", title: "Rate Limiting & Throttling", desc: "Sliding-window IP and token rate limiters preventing API abuse and DoS spikes." },
+          { badge: "Phase 04", title: "Distributed Sentry Tracing", desc: "Real-time error capture with full stack traces and performance bottleneck profiling." }
+        ]
+      },
+      {
+        badge: "Modernization",
+        complexity: "Migration Specialist",
+        title: "Zero-Downtime Legacy PHP 5/7 Refactoring",
+        tagline: "Safely upgrading outdated procedural PHP monoliths into modern, strictly-typed PHP 8.3+ architectures.",
+        useCases: ["Aging Business Portals", "Technical Debt Elimination", "Security Vulnerability Remediation", "PHP 8 Performance Upgrades"],
+        steps: [
+          { badge: "Phase 01", title: "Automated Rector AST Refactoring", desc: "Programmatic AST transformation replacing deprecated syntax and functions." },
+          { badge: "Phase 02", title: "Integration Test Safety Net", desc: "Characterization test suites capturing exact existing application behavior." },
+          { badge: "Phase 03", title: "Strangler-Fig Module Extraction", desc: "Carving out high-value features into clean modern modules without halting live operations." },
+          { badge: "Phase 04", title: "Cloud Container Migration", desc: "Migrating from shared cPanel hosting to automated Dockerized cloud infrastructure." }
+        ]
+      },
+      {
+        badge: "Async Processing",
+        complexity: "High Scale",
+        title: "Laravel Horizon & Asynchronous Redis Queues",
+        tagline: "Distributed background job workers managing millions of daily background tasks with live dashboard telemetry.",
+        useCases: ["Bulk Transaction Processing", "Automated Invoice Generation", "Webhook Dispatch Systems", "Email & SMS Notification Feeds"],
+        steps: [
+          { badge: "Module 01", title: "Redis Queue Partitions", desc: "Prioritized high, default, and low urgency queue lanes ensuring instant responsiveness." },
+          { badge: "Module 02", title: "Laravel Horizon Telemetry", desc: "Real-time monitoring of queue throughput, wait times, and job failure metrics." },
+          { badge: "Module 03", title: "Automated Failure Retries", desc: "Exponential backoff algorithms preventing database locks during third-party API downtime." },
+          { badge: "Module 04", title: "Cron & Scheduled Tasks", desc: "Serverless scheduled task orchestration with automated Slack alerting on failure." }
+        ]
+      }
+    ],
+    whyUs: [
+      {
+        num: "01",
+        title: "Strict Modern PHP 8.3+ Engineering",
+        desc: "We write modern, strictly-typed PHP using PHP 8.3 features like JIT compilation, enums, readonly classes, and match expressions. Zero obsolete procedural code, zero dirty hacks."
+      },
+      {
+        num: "02",
+        title: "Direct Senior Developer Collaboration",
+        desc: "You partner directly with senior backend engineers led by founder Harsh Prateek. Direct Slack channels, rapid technical answers, and no junior intermediaries."
+      },
+      {
+        num: "03",
+        title: "100% Code & Infrastructure Ownership",
+        desc: "You own all Git repositories, Laravel Forge recipes, Docker configs, and database migrations from day one with zero ongoing agency licensing penalties."
+      },
+      {
+        num: "04",
+        title: "Sub-50ms API Execution Speeds",
+        desc: "By combining Laravel Octane with FrankenPHP, query indexing, and Redis caching, we achieve sub-50ms API responses that easily scale to millions of monthly requests."
+      },
+      {
+        num: "05",
+        title: "Zero-Downtime Legacy Modernization",
+        desc: "We upgrade outdated PHP 5.x and 7.x codebases using automated test suites and the strangler fig pattern, improving security and performance without disrupting active users."
+      },
+      {
+        num: "06",
+        title: "Rigorous Automated QA & Security",
+        desc: "Every pull request must pass PHPStan Level 9, Pest unit tests, and OWASP security vulnerability scans before being merged to production."
+      }
+    ],
+    benefits: [
+      { num: "Sub-50ms", lbl: "API Response Speeds", desc: "Laravel Octane in-memory execution delivers instantaneous server response times." },
+      { num: "50%", lbl: "Server Resource Savings", desc: "Modern PHP 8.3 JIT and connection pooling dramatically lower cloud computing costs." },
+      { num: "100%", lbl: "PSR Standards Compliance", desc: "Strict adherence to PSR-1, PSR-4, and PSR-12 guarantees clean, maintainable code." },
+      { num: "0", lbl: "Vendor Platform Lock-In", desc: "Open-source foundations mean you can host anywhere—AWS, DigitalOcean, or private bare-metal." }
+    ],
     capabilitiesTag: 'PHP CAPABILITIES',
     capabilitiesTitle: 'Modern Software Engineering with Modern PHP',
     capabilities: [
@@ -861,7 +1180,9 @@ export const servicesData = {
       { q: 'Is PHP still a good choice for modern web applications?', a: 'Absolutely. Modern PHP (8.2/8.3) with JIT compilation, strict typing, and frameworks like Laravel/Symfony is faster, more mature, and more productive than ever. It powers enterprise backends, payment systems, and SaaS platforms worldwide.' },
       { q: 'Can you safely upgrade our old PHP 5.6 or 7.x application without breaking live users?', a: 'Yes. We use automated test harnesses and static analysis tools to incrementally refactor legacy code, resolving deprecated functions and syntax errors before deploying to staging for side-by-side verification.' },
       { q: 'How do you make Laravel applications handle heavy traffic spikes?', a: 'We employ Laravel Octane with FrankenPHP/Swoole to keep the application in memory, utilize Redis for caching and background queues, implement database read replicas, and offload static assets to cloud CDNs.' },
-      { q: 'Do you adhere to official PHP-FIG standards?', a: 'Yes. All code is authored in strict compliance with PSR-1, PSR-4, and PSR-12 coding guidelines, verified by automated PHP-CS-Fixer pipelines.' }
+      { q: 'Do you adhere to official PHP-FIG standards?', a: 'Yes. All code is authored in strict compliance with PSR-1, PSR-4, and PSR-12 coding guidelines, verified by automated PHP-CS-Fixer pipelines.' },
+      { q: 'How do you secure PHP applications against SQL injection and CSRF vulnerabilities?', a: 'We strictly utilize PDO prepared statements and Eloquent ORM queries, avoiding raw SQL concatenation. All incoming requests are validated against strict form request schemas, and CSRF token verification is enforced on all state-altering routes.' },
+      { q: 'Can a Laravel backend seamlessly power modern React or Next.js frontends?', a: 'Yes. We frequently architect decoupled headless systems where Laravel acts as a robust REST or GraphQL API backend while Next.js handles server-rendered frontend UI with instant sub-100ms transitions.' }
     ],
     interlinks: [
       { title: 'WordPress Development →', url: '/services/wordpress-development' },
@@ -1108,6 +1429,111 @@ export const servicesData = {
       { num: '95+', lbl: 'Google PageSpeed Score' },
       { num: '0', lbl: 'Vulnerable Third-Party Builders' }
     ],
+    architectures: [
+      {
+        badge: "Headless Decoupled",
+        complexity: "Production Grade",
+        title: "Headless WordPress & Next.js 15 App Router",
+        tagline: "WordPress as a headless content management backend feeding a lightning-fast React frontend via WPGraphQL.",
+        useCases: ["High-Traffic Media Portals", "Fast Enterprise Sites", "Omnichannel Publishing", "Security-Sensitive Brands"],
+        steps: [
+          { badge: "Layer 01", title: "Isolated WordPress CMS Backend", desc: "Private admin portal dedicated strictly to authoring, media management, and editorial revisions." },
+          { badge: "Layer 02", title: "WPGraphQL API Mesh", desc: "Type-safe GraphQL queries requesting exact structured data without over-fetching." },
+          { badge: "Layer 03", title: "Next.js 15 Frontend", desc: "Server-side rendering, streaming edge delivery, and automatic on-demand cache revalidation." },
+          { badge: "Layer 04", title: "Edge CDN & WebP Images", desc: "Cloudflare global edge distribution with automatic asset compression and responsive sizing." }
+        ]
+      },
+      {
+        badge: "Native Modern WP",
+        complexity: "Clean Code",
+        title: "Custom Gutenberg Block & FSE Architecture",
+        tagline: "Zero-bloat custom theme built from scratch with native Gutenberg blocks and Full Site Editing (FSE).",
+        useCases: ["Marketing Websites", "Corporate Homepages", "Content Hubs", "Landing Page Generators"],
+        steps: [
+          { badge: "Step 01", title: "Bespoke PHP 8.3 Theme", desc: "Handcrafted theme templates adhering to official WordPress VIP coding standards." },
+          { badge: "Step 02", title: "Custom React Gutenberg Blocks", desc: "Tailored brand blocks providing intuitive drag-and-drop editorial composition." },
+          { badge: "Step 03", title: "Zero External Builder Overhead", desc: "Completely eliminating Elementor, Divi, or WPBakery scripts from the critical render path." },
+          { badge: "Step 04", title: "Sub-Second LCP Score", desc: "Clean semantic markup and critical CSS inlining achieving 95+ PageSpeed scores." }
+        ]
+      },
+      {
+        badge: "High-Volume Commerce",
+        complexity: "E-Commerce",
+        title: "High-Speed WooCommerce Enterprise Stack",
+        tagline: "Scalable WooCommerce architecture engineered to handle thousands of concurrent shoppers and complex catalogs.",
+        useCases: ["D2C E-Commerce Brands", "Wholesale B2B Portals", "High-Volume Flash Sales", "Custom Checkout Flows"],
+        steps: [
+          { badge: "Phase 01", title: "High-Performance Order Storage (HPOS)", desc: "Dedicated transactional order tables eliminating postmeta database bottlenecks." },
+          { badge: "Phase 02", title: "Frictionless Single-Page Checkout", desc: "Streamlined checkout UI with Stripe, Apple Pay, Google Pay, and UPI express buttons." },
+          { badge: "Phase 03", title: "Redis Persistent Object Caching", desc: "Sub-10ms cart lookups and dynamic fragment caching for logged-in buyers." },
+          { badge: "Phase 04", title: "Automated ERP & Inventory Sync", desc: "Two-way webhook synchronization with SAP, NetSuite, Zoho, and ShipStation." }
+        ]
+      },
+      {
+        badge: "Network Scale",
+        complexity: "Enterprise Scale",
+        title: "WordPress Multisite & Role Governance",
+        tagline: "Centralized network governance running hundreds of international sub-sites or franchise portals from one install.",
+        useCases: ["Franchise Networks", "Global Multi-Country Portals", "Higher Education Institutions", "Corporate Subsidiaries"],
+        steps: [
+          { badge: "Gate 01", title: "Single Codebase Network Core", desc: "Centralized theme and plugin updates distributed instantly across all network sites." },
+          { badge: "Gate 02", title: "Granular Role Governance", desc: "Super-admin network privileges with restricted local site editor permissions." },
+          { badge: "Gate 03", title: "Automated Subsite Provisioning", desc: "One-click cloning of pre-configured template sites with standardized branding." },
+          { badge: "Gate 04", title: "Domain Mapping & SSL", desc: "Automated custom domain routing and wildcard SSL certificate renewal." }
+        ]
+      },
+      {
+        badge: "Performance Hardening",
+        complexity: "Speed & Security",
+        title: "Core Web Vitals & Enterprise Hardening Stack",
+        tagline: "Defensive security architecture and aggressive server-level caching protecting and accelerating existing WP sites.",
+        useCases: ["Legacy Site Recovery", "High-Traffic Content Publishers", "Security Audit Compliance", "Speed Optimization"],
+        steps: [
+          { badge: "Module 01", title: "Cloudflare APO Edge Caching", desc: "Serving static HTML copies directly from 300+ global edge data centers." },
+          { badge: "Module 02", title: "Database Query Indexing & Cleanup", desc: "Purging transient bloat, orphaned post revisions, and optimizing database indices." },
+          { badge: "Module 03", title: "Zero-Trust Security Lockdown", desc: "Custom admin endpoints, two-factor authentication, and strict Web Application Firewall (WAF) rules." },
+          { badge: "Module 04", title: "Automated Offsite Cloud Backups", desc: "Encrypted daily snapshots stored in immutable AWS S3 buckets with one-click restore." }
+        ]
+      }
+    ],
+    whyUs: [
+      {
+        num: "01",
+        title: "Zero-Bloat Engineering (No Page Builders)",
+        desc: "We never use bloated commercial builders like Elementor or Divi that inject thousands of useless DOM nodes. We write clean, custom PHP 8.3 and lightweight modern CSS for blistering speed."
+      },
+      {
+        num: "02",
+        title: "Direct Senior Developer Collaboration",
+        desc: "You collaborate directly with senior WordPress and React engineers led by founder Harsh Prateek. Direct Slack channels, weekly staging builds, and zero communication middlemen."
+      },
+      {
+        num: "03",
+        title: "100% Code & Asset Sovereignty",
+        desc: "You own all GitHub source code, database migrations, custom block components, and hosting credentials from day one. Zero proprietary agency lock-in, zero ongoing theme licensing fees."
+      },
+      {
+        num: "04",
+        title: "Sub-Second Page Load Guarantee",
+        desc: "We architect themes specifically for Google Core Web Vitals, achieving sub-second Largest Contentful Paint (LCP) and 95+ PageSpeed scores that enhance your organic search rankings."
+      },
+      {
+        num: "05",
+        title: "Enterprise Security Hardening",
+        desc: "We eliminate 99% of WordPress vulnerabilities by removing unnecessary third-party plugins, enforcing two-factor authentication, and configuring defensive Cloudflare firewall rules."
+      },
+      {
+        num: "06",
+        title: "Flawless Migration with Zero SEO Loss",
+        desc: "We safely migrate all historical blog posts, categories, author credits, and media files, matching exact URL slugs and configuring comprehensive 301 redirect maps."
+      }
+    ],
+    benefits: [
+      { num: "Sub-1s", lbl: "Average Page Load Time", desc: "Bespoke custom code and server-level caching deliver instant page responsiveness." },
+      { num: "95+", lbl: "Google PageSpeed Score", desc: "Engineered specifically to ace Google Core Web Vitals and drive organic rankings." },
+      { num: "0", lbl: "Vulnerable Page Builders", desc: "Eliminating heavy third-party builders protects your site against security exploits." },
+      { num: "100%", lbl: "SEO Equity Preservation", desc: "Precise canonical URLs, clean schema, and 301 redirect mapping protect your organic traffic." }
+    ],
     capabilitiesTag: 'WORDPRESS CAPABILITIES',
     capabilitiesTitle: 'Engineering WordPress the Right Way',
     capabilities: [
@@ -1131,6 +1557,8 @@ export const servicesData = {
       { q: 'Why is our current WordPress site so slow, and how does NovaDesk fix it?', a: 'Most WordPress sites are bogged down by heavy multipurpose themes, visual page builders (like Elementor or Divi), and dozens of conflicting plugins. We fix this by engineering a custom, lightweight theme with clean code, using native Gutenberg blocks, and configuring server-level Redis caching to achieve sub-second load times.' },
       { q: 'Is WordPress secure against hackers and malware?', a: 'Yes, when built properly. 99% of WordPress hacks target vulnerable third-party plugins and outdated themes. Because we write custom code, eliminate unnecessary plugins, and enforce security lockdowns (two-factor auth, WAF, hardened file permissions), your site remains completely secure.' },
       { q: 'Will our content team be able to easily create new pages?', a: 'Yes. We build custom native Gutenberg blocks that match your brand guidelines. Your marketing team can visually drag, drop, and rearrange sections with live preview without needing developer help.' },
+      { q: 'What is headless WordPress, and when should we consider it?', a: 'Headless WordPress decouples the WordPress content management dashboard from the visitor-facing website. We recommend headless WordPress when you need lightning-fast Next.js frontend performance, advanced omnichannel syndication across web and mobile apps, or enterprise security isolation.' },
+      { q: 'Can you migrate all our existing posts, images, and SEO rankings safely?', a: 'Yes. We build custom automated migration scripts that extract all existing posts, categories, images, and author metadata while maintaining exact URL structures and setting up 301 redirects for any altered paths.' },
       { q: 'Do you offer monthly maintenance to keep WordPress updated?', a: 'Yes. We provide comprehensive WordPress maintenance covering weekly core/plugin updates in staging, automated off-site daily backups, security monitoring, and technical support.' }
     ],
     interlinks: [
