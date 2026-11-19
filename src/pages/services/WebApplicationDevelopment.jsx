@@ -124,6 +124,41 @@ export default function WebApplicationDevelopment() {
     }))
   };
 
+  const canonicalUrl = "https://www.novadesk.site/services/web-application-development";
+
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${canonicalUrl}#webpage`,
+    "url": canonicalUrl,
+    "name": "Custom Web Application Development Company | NovaDesk",
+    "description": "Senior engineering squads building high-performance custom web applications, SaaS platforms, and enterprise cloud portals with guaranteed 100% IP ownership.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://www.novadesk.site/#website",
+      "name": "NovaDesk",
+      "url": "https://www.novadesk.site/"
+    },
+    "inLanguage": "en-US",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbs.map((b, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": b.name,
+        "item": b.url.startsWith('http') ? b.url : `https://www.novadesk.site${b.url}`
+      }))
+    }
+  };
+
+  const interlinks = [
+    { title: "Custom Web Development", url: "/services/web-development" },
+    { title: "Full-Stack Software Development", url: "/services/full-stack-development" },
+    { title: "SaaS Platform Development", url: "/services/saas-development" },
+    { title: "Enterprise Software Engineering", url: "/services/enterprise-software-development" },
+    { title: "Custom Software Development Cost Guide", url: "/blog/how-much-does-custom-software-development-cost" },
+  ];
+
   const tickerItems = [
     "REACT SERVER COMPONENTS (RSC)",
     "NEXT.JS 15 APP ROUTER",
@@ -291,7 +326,7 @@ export default function WebApplicationDevelopment() {
         description="Senior engineering squads building high-performance custom web applications, SaaS platforms, and enterprise cloud portals with guaranteed 100% IP ownership."
         url="/services/web-application-development"
         keywords="web application development company, custom web app development services, SaaS application development agency, hire full stack developers, Next.js web application engineering, cloud portal software, NovaDesk web apps"
-        schema={[serviceSchema, faqSchema]}
+        schema={[serviceSchema, faqSchema, webPageSchema]}
         breadcrumbs={breadcrumbs}
       />
 
@@ -1053,7 +1088,66 @@ export default function WebApplicationDevelopment() {
         </div>
       </section>
 
-      {/* ── 12. HIGH-IMPACT BOTTOM CTA (CHATBOT MATCHED) ── */}
+      {/* ── 12. EXPLORE RELATED SERVICES & ARCHITECTURAL SOLUTIONS (SEO INTERNAL LINKS) ── */}
+      <section className="fs-section fs-section-bg-slate" style={{ borderTop: '1px solid #e2e8f0', padding: '60px 0' }}>
+        <div className="fs-container">
+          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 40px auto' }}>
+            <div className="fs-tag-arrows">CROSS-STACK CAPABILITIES</div>
+            <h2 className="fs-section-title" style={{ fontSize: '28px', marginBottom: '12px' }}>
+              Related Engineering Services &amp; Architecture Guides
+            </h2>
+            <p className="fs-section-subtitle" style={{ fontSize: '15px', color: '#64748b' }}>
+              Explore interconnected software capabilities, architectures, and engineering playbooks built by NovaDesk engineers.
+            </p>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '16px'
+          }}>
+            {interlinks.map((link, idx) => {
+              const cleanTitle = (link.title || '').replace(/\s*→\s*$/, '');
+              return (
+                <Link
+                  key={idx}
+                  to={link.url}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '18px 22px',
+                    backgroundColor: '#ffffff',
+                    borderRadius: '12px',
+                    border: '1px solid #e2e8f0',
+                    textDecoration: 'none',
+                    color: '#0f172a',
+                    fontWeight: '600',
+                    fontSize: '14.5px',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#2E29FF';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 8px 20px rgba(46, 41, 255, 0.08)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '#e2e8f0';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.03)';
+                  }}
+                >
+                  <span>{cleanTitle}</span>
+                  <span style={{ color: '#2E29FF', fontSize: '16px', fontWeight: '700' }}>→</span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 13. HIGH-IMPACT BOTTOM CTA (CHATBOT MATCHED) ── */}
       <div className="fs-container" style={{ paddingBottom: '60px' }}>
         <section className="fs-cta-bottom">
           <div className="fs-cta-content-grid">

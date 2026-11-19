@@ -15,6 +15,29 @@ Disallow: /*?utm_
 Disallow: /*?s=
 Disallow: /*?&
 
+# Explicit Googlebot Crawler Directives
+User-agent: Googlebot
+Allow: /
+Allow: /*.js
+Allow: /*.css
+Allow: /*.webp
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.svg
+Disallow: /api/
+Disallow: /404
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?utm_
+Disallow: /*?&
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /*.webp
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.svg
+
 # Explicit AI Agent & LLM Crawler Permissions
 User-agent: GPTBot
 Allow: /

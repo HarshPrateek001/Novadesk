@@ -423,6 +423,54 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Global Services Crawl & Architecture Navigation Bar */}
+        <div className="nd-footer-industries-wrap" style={{ paddingTop: '16px', borderTop: 'none' }} aria-label="Core Engineering Services">
+          <span className="nd-footer-ind-label">Services:</span>
+          <div className="nd-footer-ind-list">
+            <Link to="/services/web-development">Web Development</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/web-application-development">Web Applications</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/full-stack-development">Full-Stack</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/php-development">PHP</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/cms-development">CMS</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/wordpress-development">WordPress</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/mobile-app-development">Mobile Apps</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/ios-development">iOS</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/android-development">Android</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/react-native-development">React Native</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/custom-software-development">Custom Software</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/enterprise-software-development">Enterprise Software</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/saas-development">SaaS</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/mvp-development">MVP</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/crm-systems-development">CRM</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/erp-software-development">ERP</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/ecommerce-development">E-Commerce</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/shopify-development">Shopify</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/woocommerce-development">WooCommerce</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/ecommerce-design">Store Design</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/services/ecommerce-implementation">Store Implementation</Link>
+          </div>
+        </div>
+
         {/* Large Watermark Text */}
         <div className="nd-footer-watermark-wrap" aria-hidden="true">
           <div className="nd-footer-watermark" data-text="NovaDesk">NovaDesk</div>
