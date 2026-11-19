@@ -2849,3 +2849,108 @@
   color: #64748b;
   line-height: 1.4;
 }
+
+/* HOMEPAGE / CHATBOT MATCHED FAQ ACCORDION STYLES */
+.nd-faq {
+  background: #fff;
+  padding: 100px 0;
+}
+.nd-faq-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nd-faq-tag {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2e29ff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.nd-faq-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0a0a2e;
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 1.25;
+}
+.nd-faq-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.nd-faq-item {
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 0;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.nd-faq-q {
+  width: 100%;
+  padding: 24px 0;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0a0a2e;
+  gap: 16px;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+.nd-faq-q:hover {
+  color: #2e29ff;
+}
+.nd-faq-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #4b5563;
+  transition: all 0.2s;
+}
+.nd-faq-item.nd-faq-open .nd-faq-icon {
+  background: #2e29ff;
+  color: #fff;
+  transform: rotate(180deg);
+}
+.nd-faq-a {
+  padding: 0 0 24px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4b5563;
+}
+.nd-faq-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0a0a2e;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.nd-faq-cta-btn:hover {
+  background: #2e29ff;
+  transform: translateY(-2px);
+}
+
