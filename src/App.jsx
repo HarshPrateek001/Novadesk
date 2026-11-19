@@ -96,6 +96,7 @@ export default function App() {
                 <Route path="/terms" element={<TermsConditions />} />
 
                 {/* ─── High-Priority Commercial Service Landing Pages ────── */}
+                <Route path="/services" element={<Navigate to="/services/web-development" replace />} />
                 <Route path="/services/web-development" element={<WebDevelopment />} />
                 <Route path="/services/ai-development" element={<AiDevelopment />} />
                 <Route path="/services/ecommerce-development" element={<EcommerceDevelopment />} />
@@ -128,6 +129,7 @@ export default function App() {
                 <Route path="/services/custom-software-development" element={<CustomSoftwareDevelopment />} />
                 <Route path="/services/mvp-development" element={<MvpDevelopment />} />
                 
+                <Route path="/industries" element={<Navigate to="/industries/fintech" replace />} />
                 <Route path="/industries/fintech" element={<Fintech />} />
                 <Route path="/industries/:slug" element={<IndustryPage />} />
                 <Route path="/get-a-free-quote" element={<GetAFreeQuote />} />
