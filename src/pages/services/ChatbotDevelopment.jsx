@@ -1378,16 +1378,24 @@ export default function ChatbotDevelopment() {
         }
 
         .nd-intro { padding:72px 0 40px; background:transparent; }
-        .nd-intro-inner { max-width:1330px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:40px; }
-        .nd-intro-text h2 { color:#fff; font-size:36px; max-width:600px; line-height:1.2; margin-bottom:12px; }
+        .nd-intro-inner { max-width:1330px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; gap:40px; }
+        .nd-intro-text { flex:1 1 540px; max-width:620px; min-width:0; }
+        .nd-intro-text h2 { color:#fff; font-size:clamp(28px, 3.2vw, 36px); max-width:600px; line-height:1.2; margin-bottom:12px; letter-spacing:-0.5px; }
         .nd-intro-text h2 em { color:#FFB6DB; font-style:normal; }
-        .nd-intro-text p { color:rgba(255,255,255,0.75); font-size:15px; max-width:560px; font-weight:400; }
-        .nd-intro-stats { display:flex; gap:32px; flex-wrap:wrap; }
-        .nd-intro-stat { text-align:center; }
-        .nd-intro-stat-num { font-size:48px; font-weight:700; color:#fff; line-height:1; }
-        .nd-intro-stat-num sub { font-size:20px; color:#FFB6DB; }
-        .nd-intro-stat-label { font-size:12px; color:#FFB6DB; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-top:4px; }
-        .nd-intro-divider { width:1px; height:60px; background:rgba(255,255,255,0.2); align-self:center; }
+        .nd-intro-text p { color:rgba(255,255,255,0.75); font-size:15px; max-width:560px; font-weight:400; line-height:1.6; margin:0; }
+        .nd-intro-stats { display:flex; align-items:center; gap:clamp(16px, 2.5vw, 36px); flex-shrink:0; margin-left:auto; }
+        .nd-intro-stat { text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; min-width:90px; }
+        .nd-intro-stat-num { font-size:clamp(38px, 4vw, 48px); font-weight:700; color:#fff; line-height:1; display:inline-flex; align-items:baseline; justify-content:center; white-space:nowrap; }
+        .nd-intro-stat-num sub { font-size:clamp(16px, 1.8vw, 20px); color:#FFB6DB; font-weight:700; bottom:0; margin-left:2px; }
+        .nd-intro-stat-label { font-size:11.5px; color:#FFB6DB; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-top:6px; white-space:nowrap; line-height:1.3; }
+        .nd-intro-divider { width:1px; height:60px; background:rgba(255,255,255,0.2); align-self:center; flex-shrink:0; }
+
+        @media (max-width: 991px) {
+          .nd-intro-inner { flex-direction:column; align-items:center; text-align:center; gap:32px; }
+          .nd-intro-text { max-width:100%; text-align:center; }
+          .nd-intro-text h2, .nd-intro-text p { margin-left:auto; margin-right:auto; text-align:center; }
+          .nd-intro-stats { margin-left:0; justify-content:center; flex-wrap:wrap; gap:20px; }
+        }
 
         .fs-usp-bar-transparent {
           background: transparent;

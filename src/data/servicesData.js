@@ -132,9 +132,9 @@ export const servicesData = {
     h1Suffix: 'Development for Agile Teams',
     subtext: 'Free your editorial teams from slow, vulnerable legacy monoliths. We build decoupled, headless CMS platforms that give marketers visual editing power while developers enjoy modern React architectures.',
     metrics: [
-      { num: '300ms', lbl: 'Average Content Publish Speed' },
-      { num: '100/100', lbl: 'Core Web Vitals Score' },
-      { num: '0', lbl: 'Plugin Vulnerability Surface' }
+      { num: '<300ms', lbl: 'Publish Speed' },
+      { num: '100/100', lbl: 'Core Web Vitals' },
+      { num: '0', lbl: 'Security Vulnerabilities' }
     ],
     architectures: [
       {
@@ -671,9 +671,9 @@ export const servicesData = {
     h1Suffix: 'Engineered for Performance',
     subtext: 'From intuitive user interfaces to resilient cloud backends, we build full-stack digital products that scale smoothly from first launch to millions of daily active users.',
     metrics: [
-      { num: 'Sub-100ms', lbl: 'API Response Latency' },
-      { num: '100%', lbl: 'TypeScript Type Safety' },
-      { num: '7 Days', lbl: 'Staging Delivery Cadence' }
+      { num: '<100ms', lbl: 'P99 API Latency' },
+      { num: '100%', lbl: 'Type-Safe Architecture' },
+      { num: '7day', lbl: 'To First Milestone' }
     ],
     architectures: [
       {
@@ -1048,8 +1048,8 @@ export const servicesData = {
     h1Suffix: 'Engineered for Modern Scale',
     subtext: 'PHP powers over 75% of the web. We engineer modern, strictly-typed PHP 8.3+ applications and enterprise Laravel platforms that are fast, secure, maintainable, and built for cloud infrastructure.',
     metrics: [
-      { num: 'PHP 8.3+', lbl: 'Strict Typing & JIT Enabled' },
-      { num: 'Sub-80ms', lbl: 'Average API Execution Speed' },
+      { num: '8.3+', lbl: 'Modern PHP JIT Stack' },
+      { num: '<80ms', lbl: 'API Response Time' },
       { num: '100%', lbl: 'PSR Standards Compliant' }
     ],
     architectures: [
@@ -1425,9 +1425,9 @@ export const servicesData = {
     h1Suffix: 'Without the Bloat',
     subtext: 'Reclaim the speed, security, and editorial simplicity of WordPress. We engineer clean, custom WordPress themes and Gutenberg block editors that load in under 1 second and never rely on bloated page builders.',
     metrics: [
-      { num: 'Sub-1s', lbl: 'Average Page Load Time' },
-      { num: '95+', lbl: 'Google PageSpeed Score' },
-      { num: '0', lbl: 'Vulnerable Third-Party Builders' }
+      { num: '<1s', lbl: 'Page Load Speed' },
+      { num: '95+', lbl: 'Core Web Vitals' },
+      { num: '0', lbl: 'Security Vulnerabilities' }
     ],
     architectures: [
       {

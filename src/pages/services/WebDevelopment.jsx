@@ -481,17 +481,17 @@ export default function WebDevelopment() {
               <div className="nd-intro-stats">
                 <div className="nd-intro-stat">
                   <div className="nd-intro-stat-num">&lt;1.0<sub>s</sub></div>
-                  <div className="nd-intro-stat-label">Largest Contentful Paint</div>
+                  <div className="nd-intro-stat-label">Page Load Time</div>
                 </div>
                 <div className="nd-intro-divider" />
                 <div className="nd-intro-stat">
                   <div className="nd-intro-stat-num">95<sub>+</sub></div>
-                  <div className="nd-intro-stat-label">Core Web Vitals Score</div>
+                  <div className="nd-intro-stat-label">Core Web Vitals</div>
                 </div>
                 <div className="nd-intro-divider" />
                 <div className="nd-intro-stat">
                   <div className="nd-intro-stat-num">100<sub>%</sub></div>
-                  <div className="nd-intro-stat-label">Day-One Code Ownership</div>
+                  <div className="nd-intro-stat-label">Code &amp; IP Ownership</div>
                 </div>
               </div>
             </div>

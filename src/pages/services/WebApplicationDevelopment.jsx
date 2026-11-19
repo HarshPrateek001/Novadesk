@@ -335,31 +335,66 @@ export default function WebApplicationDevelopment() {
           </div>
 
           <div className="nd-hero-browser-wrapper">
-            <div className="nd-browser-card">
-              <div className="nd-browser-topbar">
+            <div className="nd-browser-card" style={{ paddingBottom: 0, overflow: 'hidden', background: '#070a13', border: '1px solid rgba(46, 41, 255, 0.2)', boxShadow: '0 25px 60px -15px rgba(46, 41, 255, 0.25)' }}>
+              <div className="nd-browser-topbar" style={{ background: '#0c111d', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
                 <div className="nd-browser-dots">
                   <span className="nd-dot red"></span>
                   <span className="nd-dot yellow"></span>
                   <span className="nd-dot green"></span>
                 </div>
-                <div className="nd-browser-url">
+                <div className="nd-browser-url" style={{ background: 'rgba(255, 255, 255, 0.05)', color: '#94a3b8', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: '6px', color: '#10B981'}}>
                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                     <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                   </svg>
                   app.novadesk.site/dashboard
                 </div>
+                <div style={{ position: 'absolute', right: '16px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11px', color: '#10B981', fontWeight: '600' }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10B981', display: 'inline-block' }}></span>
+                  Production Live
+                </div>
               </div>
-              <div className="nd-browser-content" style={{ padding: '0', background: '#0b0f19' }}>
+              <div style={{ display: 'block', width: '100%', position: 'relative', overflow: 'hidden', lineHeight: 0, background: '#070a13' }}>
                 <img 
                   src="/webapp_hero_illustration.webp" 
                   alt="Custom Web Application Development" 
-                  className="fs-hero-image" 
-                  width="600" 
-                  height="420" 
+                  width="1024" 
+                  height="1024" 
                   loading="eager" 
-                  style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+                  style={{ 
+                    width: '100%', 
+                    height: 'auto', 
+                    maxHeight: '440px', 
+                    display: 'block', 
+                    objectFit: 'cover', 
+                    objectPosition: 'center',
+                    margin: 0, 
+                    borderRadius: 0,
+                    boxShadow: 'none'
+                  }} 
                 />
+                
+                {/* Live Telemetry Overlay Bar at bottom of browser window */}
+                <div style={{
+                  padding: '12px 18px',
+                  background: 'rgba(11, 15, 25, 0.92)',
+                  backdropFilter: 'blur(8px)',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  fontSize: '12px',
+                  color: '#94a3b8',
+                  lineHeight: 1.4
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                    <span style={{ color: '#38bdf8', fontWeight: '700' }}>⚡ P99 Latency: 42ms</span>
+                    <span style={{ color: '#e2e8f0' }}>PostgreSQL + Redis</span>
+                  </div>
+                  <div style={{ color: '#10b981', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span>✓</span> 99.99% Cloud SLA Uptime
+                  </div>
+                </div>
               </div>
             </div>
           </div>

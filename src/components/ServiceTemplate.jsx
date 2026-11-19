@@ -54,6 +54,94 @@ function FaqItem({ q, a, open, onToggle }) {
   );
 }
 
+// Formats stat numbers and units cleanly into pink <sub> tag matching ChatbotDevelopment
+function FormatStatNum({ val }) {
+  if (!val && val !== 0) return null;
+  const str = String(val).trim();
+
+  // Pattern: "<2s", "<100ms", "300ms", "1.2s", "Sub-1s", "Sub-80ms"
+  const timeMatch = str.match(/^(?:Sub-|<)?(\d+(?:\.\d+)?)\s*(ms|s|day|days|wks|weeks)$/i);
+  if (timeMatch) {
+    const hasLt = str.startsWith('<') || str.toLowerCase().startsWith('sub-');
+    return (
+      <>
+        {hasLt && '<'}{timeMatch[1]}<sub>{timeMatch[2].toLowerCase()}</sub>
+      </>
+    );
+  }
+
+  // Pattern: "100%", "99.99%", "40%+"
+  const pctMatch = str.match(/^(\+?\d+(?:\.\d+)?)\s*(%\+?|%)$/);
+  if (pctMatch) {
+    return (
+      <>
+        {pctMatch[1]}<sub>{pctMatch[2]}</sub>
+      </>
+    );
+  }
+
+  // Pattern: "95+", "45+"
+  const plusMatch = str.match(/^(\d+)\+$/);
+  if (plusMatch) {
+    return (
+      <>
+        {plusMatch[1]}<sub>+</sub>
+      </>
+    );
+  }
+
+  // Pattern: "7day", "7 Days"
+  const dayMatch = str.match(/^(\d+)\s*(?:day|days)$/i);
+  if (dayMatch) {
+    return (
+      <>
+        {dayMatch[1]}<sub>day</sub>
+      </>
+    );
+  }
+
+  // Pattern: "100/100"
+  if (str === '100/100') {
+    return (
+      <>
+        100<sub>/100</sub>
+      </>
+    );
+  }
+
+  // Pattern: "4.8★", "4.9★"
+  const starMatch = str.match(/^(\d+(?:\.\d+)?)\s*★/);
+  if (starMatch) {
+    return (
+      <>
+        {starMatch[1]}<sub>★</sub>
+      </>
+    );
+  }
+
+  // Pattern: "PHP 8.3+" or "8.3+"
+  const phpMatch = str.match(/(?:PHP\s*)?(\d+(?:\.\d+)?)\+/i);
+  if (phpMatch) {
+    return (
+      <>
+        {phpMatch[1]}<sub>+</sub>
+      </>
+    );
+  }
+
+  // Default fallback if number followed by any unit
+  const splitMatch = str.match(/^([<>$+]?\d+(?:\.\d+)?(?:-\d+)?)\s*([a-zA-Z%+★/]+)$/);
+  if (splitMatch && splitMatch[2]) {
+    return (
+      <>
+        {splitMatch[1]}<sub>{splitMatch[2]}</sub>
+      </>
+    );
+  }
+
+  return <>{str}</>;
+}
+
 // Interactive Code / Architecture Terminal Widget for Service Hero
 function DefaultHeroTerminal({ title = 'Enterprise Web Architecture' }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -459,17 +547,23 @@ export default function ServiceTemplate({ service }) {
               </div>
               <div className="nd-intro-stats">
                 <div className="nd-intro-stat">
-                  <div className="nd-intro-stat-num">{metrics[0]?.num || "<1s"}</div>
+                  <div className="nd-intro-stat-num">
+                    <FormatStatNum val={metrics[0]?.num || "<1s"} />
+                  </div>
                   <div className="nd-intro-stat-label">{metrics[0]?.lbl || "LCP Load Time"}</div>
                 </div>
                 <div className="nd-intro-divider" />
                 <div className="nd-intro-stat">
-                  <div className="nd-intro-stat-num">{metrics[1]?.num || "7day"}</div>
+                  <div className="nd-intro-stat-num">
+                    <FormatStatNum val={metrics[1]?.num || "7day"} />
+                  </div>
                   <div className="nd-intro-stat-label">{metrics[1]?.lbl || "To First Prototype"}</div>
                 </div>
                 <div className="nd-intro-divider" />
                 <div className="nd-intro-stat">
-                  <div className="nd-intro-stat-num">{metrics[2]?.num || "100%"}</div>
+                  <div className="nd-intro-stat-num">
+                    <FormatStatNum val={metrics[2]?.num || "100%"} />
+                  </div>
                   <div className="nd-intro-stat-label">{metrics[2]?.lbl || "Code & IP Ownership"}</div>
                 </div>
               </div>
