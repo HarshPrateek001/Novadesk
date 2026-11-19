@@ -49,6 +49,11 @@ function blogSitemapPlugin() {
           { loc: '/get-a-free-quote', changefreq: 'weekly', priority: '0.95' },
           { loc: '/contact-us', changefreq: 'monthly', priority: '0.85' },
           { loc: '/case-studies', changefreq: 'weekly', priority: '0.90' },
+          { loc: '/case-studies/forge-ai', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/case-studies/buy-elaichi-online', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/case-studies/mahaveer-herbals', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/case-studies/riyo-advertising-cms', changefreq: 'weekly', priority: '0.85' },
+          { loc: '/case-studies/authentiq-ai', changefreq: 'weekly', priority: '0.85' },
           { loc: '/forge-ai', changefreq: 'weekly', priority: '0.95' },
           { loc: '/blog', changefreq: 'daily', priority: '0.90' },
           // Priority Commercial Services

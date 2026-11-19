@@ -253,6 +253,45 @@ export default function Footer() {
           color: #00FFB2;
         }
 
+        .nd-footer-industries-wrap {
+          border-top: 1px solid rgba(255, 255, 255, 0.15);
+          padding: 24px 0 20px 0;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          flex-wrap: wrap;
+          position: relative;
+          z-index: 10;
+        }
+        .nd-footer-ind-label {
+          font-size: 11.5px;
+          font-weight: 700;
+          color: #00FFB2;
+          text-transform: uppercase;
+          letter-spacing: 1.2px;
+          white-space: nowrap;
+        }
+        .nd-footer-ind-list {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .nd-footer-ind-list a {
+          color: rgba(255, 255, 255, 0.9);
+          text-decoration: none;
+          font-size: 13px;
+          font-weight: 500;
+          transition: color 0.18s;
+        }
+        .nd-footer-ind-list a:hover {
+          color: #00FFB2;
+        }
+        .nd-footer-ind-dot {
+          color: rgba(255, 255, 255, 0.35);
+          font-weight: bold;
+        }
+
         /* Responsive */
         @media (max-width: 1100px) {
           .nd-footer-top {
@@ -318,13 +357,17 @@ export default function Footer() {
             <h4>Services</h4>
             <ul className="nd-footer-links">
               <li><Link to="/services/web-development">Web Development</Link></li>
+              <li><Link to="/services/chatbot-development">AI Chatbot Development</Link></li>
+              <li><Link to="/services/gen-ai-development">Generative AI Engineering</Link></li>
+              <li><Link to="/services/ai-integrated-software">AI Integrated Software</Link></li>
+              <li><Link to="/services/conversational-ai">Conversational Voice AI</Link></li>
               <li><Link to="/services/custom-software-development">Custom Software</Link></li>
               <li><Link to="/services/saas-development">SaaS Development</Link></li>
-              <li><Link to="/services/ai-development">AI Development</Link></li>
-              <li><Link to="/services/ecommerce-development">E-Commerce Solutions</Link></li>
+              <li><Link to="/services/ai-development">AI Solutions</Link></li>
               <li><Link to="/services/mobile-app-development">Mobile App Development</Link></li>
+              <li><Link to="/services/full-stack-development">Full-Stack Development</Link></li>
+              <li><Link to="/services/ecommerce-development">E-Commerce Solutions</Link></li>
               <li><Link to="/services/ui-ux-design">UI/UX Design</Link></li>
-              <li><Link to="/services/website-maintenance">Website Maintenance</Link></li>
             </ul>
           </div>
 
@@ -347,6 +390,36 @@ export default function Footer() {
               <a href="tel:+917870142813" className="nd-footer-contact-value" aria-label="Call NovaDesk at +91 787 014 2813">+91-787 014 2813</a>
               <a href="mailto:novadesk.site@gmail.com" className="nd-footer-contact-value" aria-label="Email NovaDesk at novadesk.site@gmail.com">novadesk.site@gmail.com</a>
             </div>
+          </div>
+        </div>
+
+        {/* Global Industries Crawl & Navigation Bar */}
+        <div className="nd-footer-industries-wrap" aria-label="Industries We Transform">
+          <span className="nd-footer-ind-label">Industries:</span>
+          <div className="nd-footer-ind-list">
+            <Link to="/industries/fintech">Fintech</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/industries/healthcare">Healthcare</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/industries/logistics">Logistics</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/industries/real-estate">Real Estate</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/industries/staffing">Staffing</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/industries/education">Education</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/industries/retail">Retail</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/industries/marketplace">Marketplace</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/industries/sports">Sports</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/industries/food-and-restaurant">Food &amp; Restaurant</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/industries/travel-and-hospitality">Travel &amp; Hospitality</Link>
+            <span className="nd-footer-ind-dot">·</span>
+            <Link to="/industries/on-demand">On-Demand</Link>
           </div>
         </div>
 
