@@ -197,35 +197,4 @@ export function initSpeedBooster() {
       prefetchRoute(match.path);
     }
   }, { passive: true });
-
-  // Idle Background Warming for Top Conversion Pages
-  const idleWarmingRoutes = [
-    '/about-us',
-    '/services/web-development',
-    '/services/ai-development',
-    '/case-studies',
-    '/forge-ai'
-  ];
-
-  function warmIdleRoutes() {
-    if (shouldThrottleNetwork()) return;
-    let idx = 0;
-    function prefetchNext() {
-      if (idx < idleWarmingRoutes.length) {
-        prefetchRoute(idleWarmingRoutes[idx++]);
-        setTimeout(prefetchNext, 800); // Gentle 800ms spacing to keep CPU cool
-      }
-    }
-    prefetchNext();
-  }
-
-  if ('requestIdleCallback' in window) {
-    window.requestIdleCallback(() => {
-      setTimeout(warmIdleRoutes, 2500);
-    }, { timeout: 4000 });
-  } else {
-    window.addEventListener('load', () => {
-      setTimeout(warmIdleRoutes, 3000);
-    });
-  }
 }

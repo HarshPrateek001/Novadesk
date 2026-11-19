@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "NovaDesk AI & Engineering Platform",
+  "description": "Premier full-stack software development, AI product engineering, and digital transformation agency.",
+  "version": "1.0.0",
+  "llmsTxt": "https://www.novadesk.site/llms.txt",
+  "tools": [
+    {
+      "name": "request_project_quote",
+      "description": "Submit project specifications to calculate timeline and cost quote for custom web, mobile, AI or ERP/CRM development.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "description": "Full name or company name" },
+          "email": { "type": "string", "format": "email", "description": "Contact email address" },
+          "service": { "type": "string", "description": "Requested service: Web Development, AI Solutions, Mobile App, etc." },
+          "budget": { "type": "string", "description": "Target project budget range" },
+          "details": { "type": "string", "description": "Project scope, technical requirements, and objectives" }
+        },
+        "required": ["email", "service"]
+      },
+      "endpoint": "/get-a-free-quote"
+    },
+    {
+      "name": "schedule_consultation",
+      "description": "Book a technical architecture and software engineering consultation call with NovaDesk specialists.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "description": "Contact person name" },
+          "email": { "type": "string", "format": "email", "description": "Contact email" },
+          "notes": { "type": "string", "description": "Consultation topic, inquiry details, or architecture questions" }
+        },
+        "required": ["email"]
+      },
+      "endpoint": "/contact-us"
+    },
+    {
+      "name": "read_llm_documentation",
+      "description": "Retrieve comprehensive Markdown documentation of NovaDesk services, tech stack, and case studies.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "fullContext": { "type": "boolean", "description": "Whether to fetch full deep technical context" }
+        }
+      },
+      "endpoint": "/llms.txt"
+    }
+  ]
+}

@@ -84,17 +84,10 @@
     <!-- Preload Critical LCP Hero Image -->
     <link rel="preload" as="image" href="/novadesk_team_5_members_hero.webp" fetchpriority="high" type="image/webp">
 
-    <!-- High-Performance Typography: DNS Prefetch & Preconnect -->
+    <!-- High-Performance Typography: Preconnect & Zero-Shift Load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-
-    <!-- Asynchronous Preload for Typography (Zero Render-Blocking) -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap">
-    </noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap">
 
     <!-- Deferred Specialized Stylesheets (Loaded Asynchronously to Eliminate Render Blocking) -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
@@ -111,32 +104,123 @@
     <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- AI Agentic Browsing & WebMCP Protocol Discovery Links -->
+    <link rel="model-context" type="text/markdown" href="/llms.txt" />
+    <link rel="llms-txt" type="text/markdown" href="/llms.txt" />
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Machine-Readable Context" />
     <link rel="agent-context" type="text/plain" href="/llms.txt" />
     <link rel="ai-model-context" type="text/plain" href="/llms.txt" />
+    <link rel="webmcp" type="application/json" href="/.well-known/webmcp.json" />
+    <link rel="mcp" type="application/json" href="/.well-known/mcp.json" />
+
     <script>
-      /* WebMCP (Model Context Protocol) runtime context for AI agents */
-      if (typeof window !== 'undefined') {
-        window.__MODEL_CONTEXT__ = {
-          name: "NovaDesk AI & Engineering Platform",
-          description: "Premier AI, mobile, web, and custom ERP/CRM engineering agency.",
-          llmsTxt: "/llms.txt",
-          tools: [
-            {
-              name: "request_project_quote",
-              description: "Submit project specifications to calculate timeline and cost quote.",
-              endpoint: "/get-a-free-quote"
+      /* WebMCP (Web Model Context Protocol) Imperative & Polyfill Engine for AI Agents */
+      (function() {
+        const webMcpTools = [
+          {
+            name: "request_project_quote",
+            description: "Submit project specifications to calculate timeline and cost quote for custom web, mobile, AI or ERP/CRM development.",
+            inputSchema: {
+              type: "object",
+              properties: {
+                name: { type: "string", description: "Contact person or company name" },
+                email: { type: "string", format: "email", description: "Contact email address" },
+                service: { type: "string", description: "Requested service category" },
+                budget: { type: "string", description: "Target project budget" },
+                details: { type: "string", description: "Project scope and specifications" }
+              },
+              required: ["email", "service"]
             },
-            {
-              name: "schedule_consultation",
-              description: "Book an engineering consultation call with NovaDesk specialists.",
-              endpoint: "/contact-us"
+            execute: async function(args) {
+              window.location.href = "/get-a-free-quote";
+              return { status: "redirected", url: "/get-a-free-quote", args: args };
             }
-          ]
-        };
-      }
+          },
+          {
+            name: "schedule_consultation",
+            description: "Book an engineering architecture and strategy consultation with NovaDesk specialists.",
+            inputSchema: {
+              type: "object",
+              properties: {
+                name: { type: "string", description: "Contact person name" },
+                email: { type: "string", format: "email", description: "Contact email" },
+                notes: { type: "string", description: "Inquiry or consultation details" }
+              },
+              required: ["email"]
+            },
+            execute: async function(args) {
+              window.location.href = "/contact-us";
+              return { status: "redirected", url: "/contact-us", args: args };
+            }
+          },
+          {
+            name: "read_llm_documentation",
+            description: "Retrieve comprehensive Markdown documentation of NovaDesk services, tech stack, and case studies.",
+            inputSchema: {
+              type: "object",
+              properties: {
+                fullContext: { type: "boolean", description: "Whether to return full deep documentation" }
+              }
+            },
+            execute: async function(args) {
+              const target = (args && args.fullContext) ? "/llms-full.txt" : "/llms.txt";
+              const res = await fetch(target);
+              return { content: await res.text() };
+            }
+          }
+        ];
+
+        async function initWebMcp() {
+          const mc = (typeof navigator !== 'undefined' && navigator.modelContext) || 
+                     (typeof document !== 'undefined' && document.modelContext);
+          if (mc && typeof mc.registerTool === 'function') {
+            for (const tool of webMcpTools) {
+              try {
+                await mc.registerTool(tool);
+              } catch (e) {}
+            }
+          }
+          window.__MODEL_CONTEXT__ = {
+            name: "NovaDesk AI & Engineering Platform",
+            description: "Premier AI, mobile, web, and custom ERP/CRM engineering agency.",
+            llmsTxt: "/llms.txt",
+            tools: webMcpTools
+          };
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initWebMcp);
+        } else {
+          initWebMcp();
+        }
+      })();
     </script>
   </head>
   <body>
+    <!-- Declarative WebMCP Tools for AI Agent Browsing & Automation -->
+    <div id="webmcp-declarative-tools" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+      <form 
+        toolname="request_project_quote" 
+        tooldescription="Submit project specifications to calculate timeline and cost quote." 
+        action="/get-a-free-quote" 
+        method="GET"
+        aria-label="Request Project Quote Tool"
+      >
+        <input type="text" name="name" placeholder="Contact Name" aria-label="Contact Name" />
+        <input type="email" name="email" placeholder="Contact Email" required aria-label="Contact Email" />
+        <input type="text" name="service" placeholder="Service Needed" required aria-label="Service Needed" />
+        <button type="submit">Submit Quote Request</button>
+      </form>
+      <form 
+        toolname="schedule_consultation" 
+        tooldescription="Book an engineering architecture and strategy consultation with NovaDesk specialists." 
+        action="/contact-us" 
+        method="GET"
+        aria-label="Schedule Consultation Tool"
+      >
+        <input type="email" name="email" placeholder="Contact Email" required aria-label="Contact Email" />
+        <button type="submit">Schedule Call</button>
+      </form>
+    </div>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQTQM4NS"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
