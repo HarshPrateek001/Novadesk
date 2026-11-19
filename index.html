@@ -84,25 +84,28 @@
     <!-- Preload Critical LCP Hero Image -->
     <link rel="preload" as="image" href="/novadesk_team_5_members_hero.webp" fetchpriority="high" type="image/webp">
 
-    <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans (Non-blocking with display=swap) -->
+    <!-- High-Performance Typography: DNS Prefetch & Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FORGE AI Architectural Typography (Manrope 200..700 Unified Variable Scale) -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Splide CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <!-- Asynchronous Preload for Typography (Zero Render-Blocking) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+    </noscript>
+
+    <!-- Deferred Specialized Stylesheets (Loaded Asynchronously to Eliminate Render Blocking) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/fintech-style.css" media="print" onload="this.media='all'">
     
-    <!-- Custom Stylesheets (Base, Fintech, Navigation) -->
+    <!-- Core Application Stylesheets -->
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/fintech-style.css">
     <link rel="stylesheet" href="/css/navigation.css">
 
-    <!-- Bootstrap, Splide, AOS JS Scripts -->
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Specialized Vendor JS Scripts (Deferred, zero unused Bootstrap) -->
     <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
     <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
