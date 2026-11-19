@@ -143,10 +143,10 @@ function FormatStatNum({ val }) {
 }
 
 // Interactive Code / Architecture Terminal Widget for Service Hero
-function DefaultHeroTerminal({ title = 'Enterprise Web Architecture' }) {
+function DefaultHeroTerminal({ title = 'Enterprise Web Architecture', snippets: customSnippets }) {
   const [activeTab, setActiveTab] = useState(0);
 
-  const snippets = [
+  const snippets = (customSnippets && customSnippets.length > 0) ? customSnippets : [
     {
       tab: 'API Router',
       file: 'src/api/routes.ts',
@@ -188,6 +188,8 @@ export const appRouter = createRouter()
     }
   ];
 
+  const currentSnippet = snippets[activeTab] || snippets[0];
+
   return (
     <div className="nd-hero-browser-wrapper">
       <div className="nd-browser-card">
@@ -202,12 +204,12 @@ export const appRouter = createRouter()
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
               <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
             </svg>
-            app.yourproduct.com/{snippets[activeTab].file}
+            app.yourproduct.com/{currentSnippet.file}
           </div>
         </div>
 
         <div style={{ background: '#0b0f19', padding: '16px 20px', borderBottom: '1px solid #1e293b', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontSize: '12px', color: '#94a3b8', fontFamily: 'monospace' }}>{snippets[activeTab].file}</span>
+          <span style={{ fontSize: '12px', color: '#94a3b8', fontFamily: 'monospace' }}>{currentSnippet.file}</span>
           <div style={{ display: 'flex', gap: '6px' }}>
             {snippets.map((s, idx) => (
               <button
@@ -232,7 +234,7 @@ export const appRouter = createRouter()
         </div>
 
         <pre style={{ margin: 0, padding: '20px', fontFamily: "'Fira Code', 'Courier New', monospace", fontSize: '13px', lineHeight: '1.6', color: '#e2e8f0', overflowX: 'auto', background: '#0b0f19' }}>
-          <code>{snippets[activeTab].code}</code>
+          <code>{currentSnippet.code}</code>
         </pre>
 
         <div style={{ padding: '10px 18px', background: 'rgba(46, 41, 255, 0.08)', borderTop: '1px solid #1e293b', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '11.5px', color: '#38bdf8' }}>
@@ -518,7 +520,7 @@ export default function ServiceTemplate({ service }) {
             </div>
           </div>
 
-          {service.heroWidget ? service.heroWidget : <DefaultHeroTerminal title={service.title} />}
+          {service.heroWidget ? service.heroWidget : <DefaultHeroTerminal title={service.title} snippets={service.snippets} />}
         </div>
       </section>
 
@@ -542,8 +544,8 @@ export default function ServiceTemplate({ service }) {
           <div className="nd-intro">
             <div className="nd-intro-inner">
               <div className="nd-intro-text">
-                <h2>Built for businesses that demand <em>software that scales</em></h2>
-                <p>Skip the basic templates. We engineer advanced, high-performance web systems with clean architecture and seamless backend connections.</p>
+                <h2>{service.introHeading || <>Built for businesses that demand <em>software that scales</em></>}</h2>
+                <p>{service.introSubtext || "Skip the basic templates. We engineer advanced, high-performance web systems with clean architecture and seamless backend connections."}</p>
               </div>
               <div className="nd-intro-stats">
                 <div className="nd-intro-stat">
@@ -707,25 +709,20 @@ export default function ServiceTemplate({ service }) {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
                   </svg>
-                  What Makes Our Web Engineering Succeed
+                  {service.dosAndDonts?.successTitle || "What Makes Our Engineering Succeed"}
                 </h3>
                 <ul className="fs-split-list">
-                  <li className="fs-split-item">
-                    <div className="fs-split-item-icon"><CheckCircle /></div>
-                    <div><strong>100% Bespoke Codebase:</strong> Hand-crafted Next.js and TypeScript architectures without bloated generic themes.</div>
-                  </li>
-                  <li className="fs-split-item">
-                    <div className="fs-split-item-icon"><CheckCircle /></div>
-                    <div><strong>Zero Platform Lock-In:</strong> Direct ownership of code repositories, databases, and AWS/Cloudflare hosting accounts.</div>
-                  </li>
-                  <li className="fs-split-item">
-                    <div className="fs-split-item-icon"><CheckCircle /></div>
-                    <div><strong>Direct Senior Developer Access:</strong> Direct Slack channel with senior architects who write the code and know your system.</div>
-                  </li>
-                  <li className="fs-split-item">
-                    <div className="fs-split-item-icon"><CheckCircle /></div>
-                    <div><strong>Weekly Clickable Staging:</strong> Working, testable code deployed every Friday with an async video explanation.</div>
-                  </li>
+                  {(service.dosAndDonts?.successItems || [
+                    { title: "100% Bespoke Codebase", desc: "Hand-crafted architectures and modern typed frameworks without bloated pre-made templates." },
+                    { title: "Zero Platform Lock-In", desc: "Direct ownership of code repositories, databases, and cloud hosting accounts." },
+                    { title: "Direct Senior Developer Access", desc: "Direct Slack channel with senior architects who write the code and know your system." },
+                    { title: "Weekly Clickable Staging", desc: "Working, testable builds deployed every Friday with an async video explanation." }
+                  ]).map((item, idx) => (
+                    <li key={idx} className="fs-split-item">
+                      <div className="fs-split-item-icon"><CheckCircle /></div>
+                      <div><strong>{item.title}:</strong> {item.desc}</div>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -736,25 +733,20 @@ export default function ServiceTemplate({ service }) {
                     <line x1="15" y1="9" x2="9" y2="15"></line>
                     <line x1="9" y1="9" x2="15" y2="15"></line>
                   </svg>
-                  Common Industry Pitfalls (What We Avoid)
+                  {service.dosAndDonts?.failureTitle || "Common Industry Pitfalls (What We Avoid)"}
                 </h3>
                 <ul className="fs-split-list">
-                  <li className="fs-split-item">
-                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
-                    <div><strong>Bloated Pre-Made Themes:</strong> Using slow WordPress themes or generic drag-and-drop builders loaded with 40+ plugins that destroy PageSpeed.</div>
-                  </li>
-                  <li className="fs-split-item">
-                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
-                    <div><strong>Vendor Platform Lock-In:</strong> Proprietary CMS systems that hold your data hostage with monthly per-seat licensing penalties.</div>
-                  </li>
-                  <li className="fs-split-item">
-                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
-                    <div><strong>Subcontracted Junior Contractors:</strong> Handing your mission-critical project to unvetted offshore interns without senior technical oversight.</div>
-                  </li>
-                  <li className="fs-split-item">
-                    <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
-                    <div><strong>Surprise Change Orders:</strong> Ambiguous milestone scopes leading to unexpected budget overruns midway through development.</div>
-                  </li>
+                  {(service.dosAndDonts?.failureItems || [
+                    { title: "Bloated Pre-Made Themes", desc: "Using slow generic templates or bloated drag-and-drop builders that destroy performance." },
+                    { title: "Vendor Platform Lock-In", desc: "Proprietary systems that hold your data hostage with monthly per-seat licensing penalties." },
+                    { title: "Subcontracted Junior Contractors", desc: "Handing your mission-critical project to unvetted offshore interns without senior technical oversight." },
+                    { title: "Surprise Change Orders", desc: "Ambiguous milestone scopes leading to unexpected budget overruns midway through development." }
+                  ]).map((item, idx) => (
+                    <li key={idx} className="fs-split-item">
+                      <div className="fs-split-item-icon" style={{ background: 'rgba(234, 67, 53, 0.1)', color: '#EA4335', fontWeight: 'bold' }}>✕</div>
+                      <div><strong>{item.title}:</strong> {item.desc}</div>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -770,10 +762,10 @@ export default function ServiceTemplate({ service }) {
             <div className="fs-why-us-sticky">
               <div className="fs-tag-arrows">WHY CHOOSE US</div>
               <h2 className="fs-section-title" style={{ marginBottom: '24px' }}>
-                A Business-First Approach to Web Engineering
+                {service.whyUsTitle || "A Business-First Approach to Engineering"}
               </h2>
               <p style={{ fontSize: '15px', color: '#475569', lineHeight: '1.65' }}>
-                There is no shortage of template-based digital agencies. We differentiate ourselves by delivering bespoke software engineering, enterprise security, and long-term data optimization.
+                {service.whyUsSubtitle || "There is no shortage of template-based digital agencies. We differentiate ourselves by delivering bespoke software engineering, enterprise security, and long-term data optimization."}
               </p>
 
               {/* Spotlight Card */}
@@ -899,9 +891,9 @@ export default function ServiceTemplate({ service }) {
       <section className="fs-section">
         <div className="fs-container">
           <div className="fs-tag-arrows">BUSINESS BENEFITS</div>
-          <h2 className="fs-section-title">Measurable Business Value From Day One</h2>
+          <h2 className="fs-section-title">{service.benefitsTitle || "Measurable Business Value From Day One"}</h2>
           <p className="fs-section-subtitle">
-            Deploying bespoke software engineering allows businesses to eliminate technical debt, minimize cloud hosting bills, and scale without friction.
+            {service.benefitsSubtitle || "Deploying bespoke software engineering allows businesses to eliminate technical debt, minimize cloud hosting bills, and scale without friction."}
           </p>
 
           <div className="fs-grid-3">
@@ -946,11 +938,11 @@ export default function ServiceTemplate({ service }) {
           <div className="fs-process-header-wrap">
             <div className="fs-process-header-left">
               <div className="fs-process-tag-lines">← OUR ROADMAP →</div>
-              <h2>A Structured Process for Launching High-Impact Products</h2>
+              <h2>{service.processHeaderTitle || "A Structured Process for Launching High-Impact Products"}</h2>
             </div>
             <div className="fs-process-header-right">
               <p>
-                We coordinate discovery, architectural design, agile sprint delivery, cloud infrastructure deployment, and post-launch refinement to ensure project success.
+                {service.processHeaderSubtitle || "We coordinate discovery, architectural design, agile sprint delivery, cloud infrastructure deployment, and post-launch refinement to ensure project success."}
               </p>
             </div>
           </div>
