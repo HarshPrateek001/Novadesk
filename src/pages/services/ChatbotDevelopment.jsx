@@ -2693,7 +2693,7 @@ export default function ChatbotDevelopment() {
           display: grid;
           grid-template-columns: 0.8fr 1.2fr;
           gap: 40px;
-          align-items: stretch;
+          align-items: start;
           margin-top: 48px;
         }
         @media (max-width: 991px) {
@@ -2706,7 +2706,14 @@ export default function ChatbotDevelopment() {
           display: flex;
           flex-direction: column;
           gap: 16px;
-          position: static;
+          position: sticky;
+          top: 100px;
+          z-index: 2;
+        }
+        @media (max-width: 991px) {
+          .fs-overview-tabs {
+            position: static;
+          }
         }
         .fs-overview-tab {
           display: flex;
@@ -2947,7 +2954,7 @@ export default function ChatbotDevelopment() {
         }
         .fs-why-us-sticky {
           position: sticky;
-          top: 120px;
+          top: 100px;
           z-index: 10;
         }
         .fs-value-spotlight {
@@ -3401,11 +3408,10 @@ export default function ChatbotDevelopment() {
         {/* 3. WHY CHOOSE OUR CHATBOT DEVELOPMENT COMPANY */}
         <section className="fs-section">
           <div className="fs-container">
-            <div className="fs-tag-arrows">WHY CHOOSE US</div>
-            
             <div className="fs-why-us-grid">
               {/* Left Column: Sticky Title & Spotlight Value Promise */}
               <div className="fs-why-us-sticky">
+                <div className="fs-tag-arrows">WHY CHOOSE US</div>
                 <h2 className="fs-section-title" style={{ marginBottom: '24px' }}>
                   A Business-First Approach to Conversational AI
                 </h2>

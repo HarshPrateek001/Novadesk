@@ -812,10 +812,9 @@ export default function GenAiDevelopment() {
         {/* 3. WHY CHOOSE US SECTION (EXACT STICKY SPOTLIGHT + DIFFERENTIATORS + SPLIT COMPARISON) */}
         <section className="fs-section">
           <div className="fs-container">
-            <div className="fs-tag-arrows">WHY CHOOSE US</div>
-
             <div className="fs-why-us-grid">
               <div className="fs-why-us-sticky">
+                <div className="fs-tag-arrows">WHY CHOOSE US</div>
                 <h2 className="fs-section-title" style={{ marginBottom: '24px' }}>
                   An Engineering-First Generative AI Partner
                 </h2>
