@@ -78,15 +78,23 @@ export async function streamChatResponse({ message, history = [], onChunk, onDon
 export async function submitLeadPayload(leadPayload) {
   let backendSuccess = false;
 
-  // 1. Send to Node.js Backend Engine
+  // 1. Send to SMTP Email / Backend Engine
   try {
-    const res = await fetch(`${API_BASE}/api/leads/submit`, {
+    const res = await fetch(`${API_BASE}/api/send-email`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(leadPayload)
     });
     if (res.ok) {
       backendSuccess = true;
+    } else {
+      // Fallback to /api/leads/submit if server running
+      const fallbackRes = await fetch(`${API_BASE}/api/leads/submit`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadPayload)
+      }).catch(() => null);
+      if (fallbackRes?.ok) backendSuccess = true;
     }
   } catch (err) {
     console.error('Backend lead submission error:', err);

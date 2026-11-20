@@ -87,32 +87,47 @@ export default function GetAFreeQuote() {
     e.preventDefault();
     setSubmitting(true);
 
+    const submissionTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
     try {
+      // 1. Primary Dispatch: Direct SMTP Email Delivery via /api/send-email
+      const emailPromise = fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          submittedAt: submissionTime
+        })
+      }).catch((err) => console.warn('[SMTP Email Dispatch Warning]:', err));
+
+      // 2. Secondary Dispatch: Google Apps Script Web App backup
+      let scriptPromise = Promise.resolve();
       if (GOOGLE_SCRIPT_URL) {
         const payload = new URLSearchParams();
         Object.entries(formData).forEach(([key, val]) => {
           payload.append(key, val || '');
         });
-        payload.append('submittedAt', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
+        payload.append('submittedAt', submissionTime);
 
-        await fetch(GOOGLE_SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
+        scriptPromise = fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+            'Content-Type': 'application/x-www-form-urlencoded',
           },
           body: payload.toString(),
-        });
-      } else {
-        await new Promise((resolve) => setTimeout(resolve, 1200));
+        }).catch((err) => console.warn('[Google Script Dispatch Warning]:', err));
       }
+
+      await Promise.allSettled([emailPromise, scriptPromise]);
+
       trackEvent('generate_lead', {
         form_name: 'get_a_free_quote',
         project_type: formData.projectType || 'unspecified',
         budget_range: formData.budget || 'unspecified',
       });
     } catch (error) {
-      console.error("Submission error:", error);
+      console.error('Submission error:', error);
     } finally {
       setSubmitting(false);
       setSubmitted(true);

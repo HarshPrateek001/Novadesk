@@ -181,10 +181,40 @@ ${rssItems}
   }
 }
 
+function devEmailPlugin() {
+  return {
+    name: 'dev-email-plugin',
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        if (req.url === '/api/send-email' && req.method === 'POST') {
+          let body = '';
+          req.on('data', (chunk) => { body += chunk; });
+          req.on('end', async () => {
+            try {
+              const { processEmailPayload } = await import('./api/send-email.js');
+              const data = JSON.parse(body || '{}');
+              const result = await processEmailPayload(data);
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify(result));
+            } catch (err) {
+              res.statusCode = 500;
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({ error: err.message }));
+            }
+          });
+          return;
+        }
+        next();
+      });
+    }
+  };
+}
+
 export default defineConfig({
   plugins: [
     react(),
     blogSitemapPlugin(),
+    devEmailPlugin(),
   ],
   build: {
     rollupOptions: {
