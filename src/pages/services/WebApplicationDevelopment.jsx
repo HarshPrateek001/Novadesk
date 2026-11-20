@@ -328,7 +328,9 @@ export default function WebApplicationDevelopment() {
         keywords="web application development company, custom web app development services, SaaS application development agency, hire full stack developers, Next.js web application engineering, cloud portal software, NovaDesk web apps"
         schema={[serviceSchema, faqSchema, webPageSchema]}
         breadcrumbs={breadcrumbs}
-      />
+      >
+        <link rel="preload" as="image" href="/webapp_hero_illustration.webp" fetchpriority="high" type="image/webp" />
+      </SEO>
 
       {/* ── 1. HERO SECTION (CHATBOT MATCHED) ── */}
       <section className="fs-hero">
@@ -396,6 +398,8 @@ export default function WebApplicationDevelopment() {
                   width="1024" 
                   height="1024" 
                   loading="eager" 
+                  fetchPriority="high"
+                  decoding="async" 
                   style={{ 
                     width: '100%', 
                     height: 'auto', 

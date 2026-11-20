@@ -650,7 +650,9 @@ export default function Home() {
         url="/"
         canonical="https://www.novadesk.site/"
         schema={jsonLdSchema}
-      />
+      >
+        <link rel="preload" as="image" href="/novadesk_team_5_members_hero.webp" fetchpriority="high" type="image/webp" />
+      </SEO>
       <style>{`
         /* ── BASE ── */
         .nd { font-family: 'Space Grotesk', sans-serif; }

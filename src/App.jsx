@@ -68,6 +68,51 @@ const IndustryPage = React.lazy(() => import('./pages/industries/IndustryPage'))
 
 const GetAFreeQuote = React.lazy(() => import('./pages/GetAFreeQuote'));
 
+// Smart deferred widget loader: mounts heavy chat & Lottie bundles only on user interaction or idle
+function DeferredWidgets() {
+  const [load, setLoad] = React.useState(false);
+
+  React.useEffect(() => {
+    let timer;
+    const trigger = () => {
+      setLoad(true);
+      cleanup();
+    };
+
+    const cleanup = () => {
+      window.removeEventListener('scroll', trigger);
+      window.removeEventListener('pointerdown', trigger);
+      window.removeEventListener('touchstart', trigger);
+      window.removeEventListener('keydown', trigger);
+      if (timer) clearTimeout(timer);
+    };
+
+    window.addEventListener('scroll', trigger, { passive: true, once: true });
+    window.addEventListener('pointerdown', trigger, { passive: true, once: true });
+    window.addEventListener('touchstart', trigger, { passive: true, once: true });
+    window.addEventListener('keydown', trigger, { passive: true, once: true });
+
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => {
+        timer = setTimeout(trigger, 3500);
+      }, { timeout: 4000 });
+    } else {
+      timer = setTimeout(trigger, 3500);
+    }
+
+    return cleanup;
+  }, []);
+
+  if (!load) return null;
+
+  return (
+    <React.Suspense fallback={null}>
+      <ChatWidget />
+      <WhatsAppButton />
+    </React.Suspense>
+  );
+}
+
 export default function App() {
   return (
     <HelmetProvider>
@@ -169,10 +214,7 @@ export default function App() {
           </ErrorBoundary>
         </main>
           <Footer />
-          <React.Suspense fallback={null}>
-            <ChatWidget />
-            <WhatsAppButton />
-          </React.Suspense>
+          <DeferredWidgets />
           <Analytics />
         </div>
       </Router>
