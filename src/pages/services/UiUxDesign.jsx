@@ -85,7 +85,7 @@ export default function UiUxDesign() {
         title="UI/UX Design Company | Digital Product & SaaS Design Studio"
         description="NovaDesk is a premier UI/UX design studio crafting modern, accessible, conversion-driven digital products, SaaS dashboards, and mobile applications. Get a design quote."
         url="/services/ui-ux-design"
-        keywords="UI UX design agency for SaaS, product design studio, B2B web application UX design, mobile app UI UX designers, Figma design systems agency, conversion rate optimization UX, NovaDesk design"
+        keywords="UI UX Design Agency for SaaS Kolkata, Product Design Studio Kolkata, B2B Web Application UX Design Kolkata, Mobile App UI UX Designers Kolkata, Figma Design Systems Agency Kolkata, Clickable Wireframes Prototyping Kolkata, Best UI UX Design Agency in Kolkata, NovaDesk UI UX Design"
         schema={[serviceSchema, faqSchema]}
         breadcrumbs={breadcrumbs}
       />

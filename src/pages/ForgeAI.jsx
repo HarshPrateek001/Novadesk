@@ -188,7 +188,7 @@ export default function ForgeAI() {
       <SEO
         title={PAGE_TITLE}
         description={PAGE_DESCRIPTION}
-        keywords="FORGE AI, Framework for Orchestrated Reasoning Generation Engineering, agentic AI workflow orchestration, multi-agent orchestration frameworks, Model Context Protocol MCP integration, model-agnostic AI infrastructure, autonomous software engineering, iTHINK iFORGE iEVOLVE, NovaDesk FORGE"
+        keywords="FORGE AI Kolkata, Framework for Orchestrated Reasoning Generation Engineering, Agentic AI Workflow Orchestration Kolkata, Multi-Agent Orchestration Frameworks Kolkata, Model Context Protocol MCP Integration Kolkata, Production AI Agents Kolkata, Enterprise AI Reasoning System Kolkata, Agentic AI Workflows India, NovaDesk FORGE AI"
         url="/forge-ai"
         canonical="/forge-ai"
         image={OG_IMAGE}

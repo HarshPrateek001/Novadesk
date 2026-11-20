@@ -96,7 +96,7 @@ export default function SeoServices() {
         title="Technical SEO Services & Organic Search Architecture | NovaDesk"
         description="Data-driven technical SEO, Core Web Vitals optimization, programmatic architecture, and semantic JSON-LD structured data that ranks your website on Google's first page."
         url="/services/seo-services"
-        keywords="technical SEO agency, Core Web Vitals optimization services, programmatic SEO engineering, structured data JSON-LD schema audit, B2B organic search growth, ecommerce technical SEO, AI search optimization GEO, NovaDesk SEO"
+        keywords="Technical SEO Agency Kolkata, Core Web Vitals Optimization Services Kolkata, Programmatic SEO Engineering Kolkata, Structured Data JSON-LD Schema Audit Kolkata, B2B Organic Search Growth Kolkata, Page Speed Speed Index Tuning Kolkata, AI Search Optimization GEO Kolkata, Technical SEO Company India, NovaDesk SEO"
         breadcrumbs={breadcrumbs}
         jsonLd={[serviceSchema, faqSchema]}
       />

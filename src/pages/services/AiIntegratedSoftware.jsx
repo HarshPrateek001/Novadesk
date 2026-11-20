@@ -532,7 +532,7 @@ export default function AiIntegratedSoftware() {
         description="Integrate AI directly into your existing software, ERP, CRM, and databases. Custom AI middleware, in-database pgvector search, automated background task workers, and deterministic fallbacks."
         url="/services/ai-integrated-software"
         image="https://www.novadesk.site/og-image.png"
-        keywords="AI integrated software development, legacy system AI modernization, AI middleware engineering, pgvector postgresql integration, Celery Redis AI task workers, ERP AI integration, enterprise SaaS AI copilot"
+        keywords="AI Integrated Software Development Kolkata, Legacy System AI Modernization Kolkata, AI Middleware Engineering Kolkata, pgvector PostgreSQL Integration Kolkata, Celery Redis AI Task Workers India, Hybrid Cloud AI Deployment Kolkata, AI Software Integration Company Kolkata, NovaDesk AI Integrations"
         schema={schemaJson}
       />
 

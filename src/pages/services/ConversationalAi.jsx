@@ -557,7 +557,7 @@ export default function ConversationalAi() {
         description="Build enterprise conversational AI and real-time voice agents. Sub-500ms voice bots, telephony SIP integration, natural turn-taking, omnichannel WhatsApp automation, and live human handoff."
         url="/services/conversational-ai"
         image="https://www.novadesk.site/og-image.png"
-        keywords="conversational AI development services, real-time voice agents, sub-500ms voice AI, telephony AI automation, Twilio voice AI bot, WhatsApp conversational AI, call center AI deflection, NovaDesk"
+        keywords="Conversational AI Development Services Kolkata, Real-time Voice Agents Kolkata, Sub-500ms Voice AI Kolkata, Telephony AI Automation Kolkata, Twilio Voice AI Bot Kolkata, Omnichannel Voice Assistants India, Voice AI Development Company Kolkata, NovaDesk Conversational AI"
         schema={schemaJson}
       />
 

@@ -581,12 +581,13 @@ export default function Home() {
   const jsonLdSchema = [
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
+      "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
       "@id": "https://www.novadesk.site/#organization",
       "name": "NovaDesk",
       "alternateName": [
         "NovaDesk Software Solutions",
-        "NovaDesk Technologies"
+        "NovaDesk Technologies",
+        "NovaDesk Kolkata"
       ],
       "url": "https://www.novadesk.site",
       "logo": "https://www.novadesk.site/favicon.svg",
@@ -600,14 +601,38 @@ export default function Home() {
         "Mobile App Development",
         "E-Commerce Platforms",
         "Cloud-Native DevOps",
-        "Technical SEO"
+        "Technical SEO",
+        "Enterprise ERP & CRM Development"
       ],
       "priceRange": "$$",
       "telephone": "+91-7870142813",
       "email": "novadesk.site@gmail.com",
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "India"
+        "streetAddress": "Newtown",
+        "addressLocality": "Kolkata",
+        "addressRegion": "West Bengal",
+        "postalCode": "700156",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "22.5858",
+        "longitude": "88.4735"
+      },
+      "areaServed": [
+        "Kolkata",
+        "West Bengal",
+        "India",
+        "United States",
+        "United Kingdom",
+        "Worldwide"
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "19:00"
       },
       "founder": {
         "@type": "Person",
@@ -646,7 +671,7 @@ export default function Home() {
       <SEO 
         title="NovaDesk | Websites, Software & Digital Products Built for Growth"
         description="NovaDesk helps businesses and startups design and build fast, modern websites, e-commerce platforms, and custom software. Direct founder communication, full code ownership, and transparent milestone delivery."
-        keywords="custom software development company, bespoke software development services, AI software development agency, web application development agency, B2B SaaS product engineering, startup MVP development company, mobile app development agency, NovaDesk"
+        keywords="Custom Software Development Company Kolkata, Bespoke Software Engineering Kolkata, AI Software Development Agency Kolkata, Web Application Development Company Kolkata, B2B SaaS Product Engineering Kolkata, Mobile App Development Agency Kolkata, Next.js React Developers Kolkata, Agentic AI Workflows Kolkata, ERP CRM Software Development Kolkata, Best Software Development Company in Kolkata, Top AI Development Agency Kolkata India, Hire Software Developers Kolkata, Custom Software Development Company India, Agentic AI Workflows India, NovaDesk Kolkata, NovaDesk Harsh Prateek, Software development company West Bengal, AI software agency Bangalore / Mumbai / Delhi, Enterprise software development India"
         url="/"
         canonical="https://www.novadesk.site/"
         schema={jsonLdSchema}

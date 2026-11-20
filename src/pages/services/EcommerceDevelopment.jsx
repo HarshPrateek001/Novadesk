@@ -411,7 +411,7 @@ export default function EcommerceDevelopment() {
         title="E-Commerce Development Company | Custom Online Stores & Shopify"
         description="High-converting custom e-commerce website development, Shopify Plus engineering, headless commerce, and high-volume WooCommerce architectures with guaranteed 100% IP ownership."
         url="/services/ecommerce-development"
-        keywords="ecommerce development company, B2B ecommerce web development agency, custom online storefront development, headless ecommerce development, Shopify Plus and WooCommerce agency, ecommerce payment gateway integration, NovaDesk ecommerce"
+        keywords="Ecommerce Development Company Kolkata, B2B Ecommerce Web Development Agency Kolkata, Custom Online Storefront Development Kolkata, Headless Ecommerce Development Kolkata, Shopify Plus and WooCommerce Agency Kolkata, Ecommerce Payment Gateway Integration Kolkata, Best Ecommerce Development Company in Kolkata, NovaDesk Ecommerce"
         schema={[serviceSchema, faqSchema, webPageSchema]}
         breadcrumbs={breadcrumbs}
       />

@@ -96,7 +96,7 @@ export default function WebsiteMaintenance() {
         title="Website Maintenance & Support Services | SLA-Backed Web Management | NovaDesk"
         description="Proactive website maintenance, 24/7 uptime monitoring, security patching, Core Web Vitals speed tuning, and SLA-backed emergency support by senior product engineers."
         url="/services/website-maintenance"
-        keywords="website maintenance services, SLA web application support, React Next.js app maintenance, WordPress security and speed optimization, website uptime monitoring, managed web engineering, NovaDesk"
+        keywords="Website Maintenance Services Kolkata, SLA Web Application Support Kolkata, React Next.js App Maintenance Kolkata, WordPress Security and Speed Optimization Kolkata, Website Uptime Monitoring Kolkata, Monthly Software Support Contract Kolkata, NovaDesk Maintenance"
         breadcrumbs={breadcrumbs}
         jsonLd={[serviceSchema, faqSchema]}
       />

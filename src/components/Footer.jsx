@@ -253,44 +253,6 @@ export default function Footer() {
           color: #00FFB2;
         }
 
-        .nd-footer-industries-wrap {
-          border-top: 1px solid rgba(255, 255, 255, 0.15);
-          padding: 24px 0 20px 0;
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          flex-wrap: wrap;
-          position: relative;
-          z-index: 10;
-        }
-        .nd-footer-ind-label {
-          font-size: 11.5px;
-          font-weight: 700;
-          color: #00FFB2;
-          text-transform: uppercase;
-          letter-spacing: 1.2px;
-          white-space: nowrap;
-        }
-        .nd-footer-ind-list {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          flex-wrap: wrap;
-        }
-        .nd-footer-ind-list a {
-          color: rgba(255, 255, 255, 0.9);
-          text-decoration: none;
-          font-size: 13px;
-          font-weight: 500;
-          transition: color 0.18s;
-        }
-        .nd-footer-ind-list a:hover {
-          color: #00FFB2;
-        }
-        .nd-footer-ind-dot {
-          color: rgba(255, 255, 255, 0.35);
-          font-weight: bold;
-        }
 
         /* Responsive */
         @media (max-width: 1100px) {
@@ -393,83 +355,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Global Industries Crawl & Navigation Bar */}
-        <div className="nd-footer-industries-wrap" aria-label="Industries We Transform">
-          <span className="nd-footer-ind-label">Industries:</span>
-          <div className="nd-footer-ind-list">
-            <Link to="/industries/fintech">Fintech</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/industries/healthcare">Healthcare</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/industries/logistics">Logistics</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/industries/real-estate">Real Estate</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/industries/staffing">Staffing</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/industries/education">Education</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/industries/retail">Retail</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/industries/marketplace">Marketplace</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/industries/sports">Sports</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/industries/food-and-restaurant">Food &amp; Restaurant</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/industries/travel-and-hospitality">Travel &amp; Hospitality</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/industries/on-demand">On-Demand</Link>
-          </div>
-        </div>
-
-        {/* Global Services Crawl & Architecture Navigation Bar */}
-        <div className="nd-footer-industries-wrap" style={{ paddingTop: '16px', borderTop: 'none' }} aria-label="Core Engineering Services">
-          <span className="nd-footer-ind-label">Services:</span>
-          <div className="nd-footer-ind-list">
-            <Link to="/services/web-development">Web Development</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/web-application-development">Web Applications</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/full-stack-development">Full-Stack</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/php-development">PHP</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/cms-development">CMS</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/wordpress-development">WordPress</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/mobile-app-development">Mobile Apps</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/ios-development">iOS</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/android-development">Android</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/react-native-development">React Native</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/custom-software-development">Custom Software</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/enterprise-software-development">Enterprise Software</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/saas-development">SaaS</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/mvp-development">MVP</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/crm-systems-development">CRM</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/erp-software-development">ERP</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/ecommerce-development">E-Commerce</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/shopify-development">Shopify</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/woocommerce-development">WooCommerce</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/ecommerce-design">Store Design</Link>
-            <span className="nd-footer-ind-dot">·</span>
-            <Link to="/services/ecommerce-implementation">Store Implementation</Link>
-          </div>
-        </div>
 
         {/* Large Watermark Text */}
         <div className="nd-footer-watermark-wrap" aria-hidden="true">

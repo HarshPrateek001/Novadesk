@@ -132,7 +132,7 @@ export default function GetAFreeQuote() {
       <SEO
         title="Request a Quote | NovaDesk"
         description="Entrust with high professionalism, NovaDesk offers pixel-perfect web & mobile application development, third-party integrations, and AI solutions."
-        keywords="custom software development cost estimate, software project quote, web application pricing, mobile app development quote, MVP cost estimator, hire software engineers, NovaDesk quote"
+        keywords="Custom Software Development Cost Estimate Kolkata, Software Project Quote Kolkata, Web Application Pricing Kolkata, Mobile App Development Quote Kolkata, MVP Cost Estimator Kolkata, Hire Software Developers Price Kolkata, Software Development Cost in Kolkata India, NovaDesk Project Estimate"
         url="/get-a-free-quote"
         schema={quoteSchema}
       />

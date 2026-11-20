@@ -422,7 +422,7 @@ export default function WebDevelopment() {
         title="Custom Web Development Services Company | NovaDesk"
         description="High-performance custom web development services for startups and established enterprises. Next.js, React, full-stack cloud engineering, and guaranteed 100% IP ownership."
         url="/services/web-development"
-        keywords="custom web development company, hire web developers, Next.js web agency, enterprise website engineering, full stack web development services, high performance web apps, NovaDesk web"
+        keywords="Custom Web Development Company Kolkata, Hire Web Developers Kolkata, Next.js Web Agency Kolkata, Enterprise Website Engineering Kolkata, Full Stack Web Development Services Kolkata, High Performance Web Apps Kolkata, Best Web Development Company in Kolkata, NovaDesk Web"
         schema={[serviceSchema, faqSchema, webPageSchema]}
         breadcrumbs={breadcrumbs}
       />

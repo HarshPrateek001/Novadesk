@@ -537,7 +537,7 @@ export default function GenAiDevelopment() {
         description="Build secure, high-accuracy Generative AI applications for your enterprise. Custom RAG vector vaults, private LLM fine-tuning, autonomous agent swarms, and on-premise vLLM deployment with 100% IP ownership."
         url="/services/gen-ai-development"
         image="https://www.novadesk.site/og-image.png"
-        keywords="enterprise generative AI development, custom LLM fine-tuning, enterprise RAG architecture, autonomous AI agents, LangGraph development, private vLLM hosting, pgvector knowledge vault, NovaDesk AI"
+        keywords="Enterprise Generative AI Development Kolkata, Custom LLM Fine-Tuning Kolkata, Enterprise RAG Architecture Kolkata, Autonomous AI Agents Kolkata, LangGraph Development Kolkata, Llama 3 OpenAI Engineering India, Generative AI Development Company Kolkata, Hire Generative AI Developers Kolkata, Best GenAI Agency in Kolkata, NovaDesk Generative AI"
         schema={schemaJson}
       />
 

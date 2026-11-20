@@ -48,9 +48,9 @@ export default function ContactUs() {
   return (
     <>
       <SEO 
-        keywords="contact software development agency, hire custom software developers, book software architecture consultation, AI engineering discovery call, dedicated engineering team inquiry, NovaDesk contact" 
         title="Contact Us"
         description="Schedule a free consultation or get in touch with our team to start building your next big idea."
+        keywords="Contact Software Development Agency Kolkata, Hire Custom Software Developers Kolkata, Book Software Architecture Consultation Kolkata, AI Engineering Discovery Call Kolkata, Dedicated Engineering Team Inquiry Kolkata, NovaDesk Contact Kolkata"
         url="/contact-us"
         schema={contactSchema}
       />

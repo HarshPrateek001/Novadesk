@@ -225,7 +225,7 @@ export default function AboutUs() {
         title="About NovaDesk | Founder-Led Web Development and AI Studio"
         description="Meet NovaDesk, a founder-led studio building fast, modern websites and AI-powered tools for growing businesses. Honest advice, personal service, real results."
         url="/about-us"
-        keywords="about NovaDesk, founder-led software studio, Harsh Prateek developer, boutique web development agency, AI workflow automation studio, honest web development India"
+        keywords="About NovaDesk, Founder-led Software Studio Kolkata, Harsh Prateek Developer Kolkata, Boutique Web Development Agency Kolkata, AI Workflow Automation Studio Kolkata, Custom Software Engineering Firm Kolkata, Best Software Company in Kolkata Harsh Prateek"
         breadcrumbs={breadcrumbs}
         schema={aboutSchema}
       />

@@ -325,7 +325,7 @@ export default function WebApplicationDevelopment() {
         title="Custom Web Application Development Company | NovaDesk"
         description="Senior engineering squads building high-performance custom web applications, SaaS platforms, and enterprise cloud portals with guaranteed 100% IP ownership."
         url="/services/web-application-development"
-        keywords="web application development company, custom web app development services, SaaS application development agency, hire full stack developers, Next.js web application engineering, cloud portal software, NovaDesk web apps"
+        keywords="Web Application Development Company Kolkata, Custom Web App Development Services Kolkata, SaaS Application Development Agency Kolkata, Hire Full Stack Developers Kolkata, Next.js Web Application Engineering Kolkata, Cloud Portal Software Kolkata, NovaDesk Web Apps"
         schema={[serviceSchema, faqSchema, webPageSchema]}
         breadcrumbs={breadcrumbs}
       >
