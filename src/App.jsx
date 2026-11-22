@@ -107,7 +107,7 @@ function DeferredWidgets() {
 
   return (
     <React.Suspense fallback={null}>
-      <ChatWidget />
+      {/* <ChatWidget /> - Hidden temporarily as requested */}
       <WhatsAppButton />
     </React.Suspense>
   );
