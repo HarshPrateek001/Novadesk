@@ -15,11 +15,21 @@ const GithubIcon = () => (
 );
 
 const LogoIconWhite = () => (
-  <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="32" height="32" rx="8" fill="#ffffff" />
-    <path d="M6 24L16 12L12 10L6 24Z" fill="#2E29FF" />
-    <path d="M12 24L22 12L18 10L12 24Z" fill="#2E29FF" opacity="0.8" />
-    <path d="M17 24L27 12L22 10L17 24Z" fill="#2E29FF" opacity="0.5" />
+  <svg 
+    width="40" 
+    height="28" 
+    viewBox="-14 -14 196 140" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    style={{ flexShrink: 0 }}
+  >
+    <g transform="translate(-24 -44)">
+      <path d="M24 44H54L134 156H104Z" fill="#8F8CFF" />
+      <rect x="24" y="44" width="24" height="112" fill="#FFFFFF" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M110 44H130C168 44 192 68 192 100C192 132 168 156 130 156H110Z M134 68H136C154 68 168 82 168 100C168 118 154 132 136 132H134Z" fill="#FFFFFF" />
+      <path d="M151 86Q153.24 97.76 165 100Q153.24 102.24 151 114Q148.76 102.24 137 100Q148.76 97.76 151 86Z" fill="#8F8CFF" />
+    </g>
   </svg>
 );
 
@@ -287,7 +297,7 @@ export default function Footer() {
           <div className="nd-footer-logo-area">
             <Link to="/" className="nd-footer-brand" aria-label="NovaDesk Homepage">
               <LogoIconWhite />
-              <span className="nd-footer-brand-text">NOVA<span style={{ color: '#FFB6DB' }}>DESK</span></span>
+              <span className="nd-footer-brand-text">NOVA<span style={{ color: '#8F8CFF' }}>DESK</span></span>
             </Link>
             <p className="nd-footer-desc">
               Founded by Harsh Prateek, NOVADESK is a high-performance software and AI engineering studio delivering scalable web platforms, mobile apps, SaaS architectures, and enterprise systems across India and global markets.

@@ -29,6 +29,7 @@ dist-ssr
 # Unused and scratch assets
 unused_assets/
 logo/
+NovaDesk-Brand-Package/
 
 # Root clutter & non-production directories
 Agency-Project 0/

@@ -49,10 +49,18 @@ export async function processEmailPayload(data) {
   // Attach inline crisp PNG images
   const attachments = [];
   try {
+    const headerBannerPath = path.join(process.cwd(), 'public', 'email-header-banner.png');
     const headerLogoPath = path.join(process.cwd(), 'public', 'email-header-logo.png');
     const heroIconPath = path.join(process.cwd(), 'public', 'email-confirmation-hero.png');
     const footerLogoPath = path.join(process.cwd(), 'public', 'email-footer-logo.png');
 
+    if (fs.existsSync(headerBannerPath)) {
+      attachments.push({
+        filename: 'header-banner.png',
+        path: headerBannerPath,
+        cid: 'novadeskheaderbanner'
+      });
+    }
     if (fs.existsSync(headerLogoPath)) {
       attachments.push({
         filename: 'header-logo.png',
@@ -77,6 +85,10 @@ export async function processEmailPayload(data) {
   } catch (e) {
     console.warn('[send-email] Attachment path error:', e.message);
   }
+
+  const headerBannerSrc = attachments.some(a => a.cid === 'novadeskheaderbanner')
+    ? 'cid:novadeskheaderbanner'
+    : 'https://www.novadesk.site/email-header-banner.png';
 
   const headerLogoSrc = attachments.some(a => a.cid === 'novadeskheaderlogo')
     ? 'cid:novadeskheaderlogo'
@@ -105,7 +117,8 @@ export async function processEmailPayload(data) {
         <style>
           body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #F1F5F9; margin: 0; padding: 24px; color: #1E293B; }
           .card { max-width: 580px; margin: 0 auto; background: #FFFFFF; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
-          .header { background-color: #DDF2FD; padding: 24px 32px; border-bottom: 1px solid #BAE6FD; }
+          .header-banner { width: 100%; line-height: 0; background-color: #2E29FF; margin: 0; padding: 0; }
+          .header-banner img { width: 100%; max-width: 580px; height: auto; display: block; border: 0; }
           .body { padding: 32px; background: #FFFFFF; }
           .table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
           .table td { padding: 10px 8px; border-bottom: 1px solid #F1F5F9; font-size: 13.5px; vertical-align: top; }
@@ -118,8 +131,8 @@ export async function processEmailPayload(data) {
       </head>
       <body>
         <div class="card">
-          <div class="header">
-            <img src="${headerLogoSrc}" alt="NovaDesk Solutions" width="190" style="width: 190px; height: auto; display: block; border: 0;" />
+          <div class="header-banner">
+            <img src="${headerBannerSrc}" alt="NovaDesk Solutions" width="580" style="width: 100%; max-width: 580px; height: auto; display: block; border: 0;" />
           </div>
           <div class="body">
             <h2 style="margin: 0 0 16px 0; font-size: 20px; color: #0F172A;">Client Project Submission</h2>
@@ -212,11 +225,22 @@ export async function processEmailPayload(data) {
               overflow: hidden;
               box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
             }
-            /* Increased Header Height (Soft Sky Blue) */
-            .header-bar {
-              background-color: #DDF2FD;
-              padding: 26px 32px;
-              text-align: left;
+            /* Full-Width Edge-to-Edge Brand Banner Header */
+            .header-banner {
+              width: 100%;
+              line-height: 0;
+              background-color: #2E29FF;
+              margin: 0;
+              padding: 0;
+              border-radius: 12px 12px 0 0;
+              overflow: hidden;
+            }
+            .header-banner img {
+              width: 100%;
+              max-width: 580px;
+              height: auto;
+              display: block;
+              border: 0;
             }
             .body-content {
               padding: 40px 32px 32px 32px;
@@ -412,9 +436,9 @@ export async function processEmailPayload(data) {
         </head>
         <body>
           <div class="wrapper">
-            <!-- 1. Header Bar: Increased Height, Soft Sky Blue, Only Logo on Top Left -->
-            <div class="header-bar">
-              <img src="${headerLogoSrc}" alt="NovaDesk Solutions" width="195" style="width: 195px; height: auto; display: block; border: 0;" />
+            <!-- 1. Header: Full-Width Brand Banner -->
+            <div class="header-banner">
+              <img src="${headerBannerSrc}" alt="NovaDesk Solutions" width="580" style="width: 100%; max-width: 580px; height: auto; display: block; border: 0;" />
             </div>
 
             <!-- 2. Body Section: Matching Fin Flow Layout Exactly -->

@@ -4,10 +4,21 @@ import { Link, useLocation } from 'react-router-dom';
 
 // ── Icons
 const LogoIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M6 26L18 14L12 11L6 26Z" fill="#2E29FF" />
-    <path d="M12 26L24 14L18 11L12 26Z" fill="#2E29FF" opacity="0.8" />
-    <path d="M18 26L30 14L24 11L18 26Z" fill="#2E29FF" opacity="0.5" />
+  <svg 
+    width="34" 
+    height="24" 
+    viewBox="-14 -14 196 140" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg" 
+    aria-hidden="true"
+    style={{ flexShrink: 0 }}
+  >
+    <g transform="translate(-24 -44)">
+      <path d="M24 44H54L134 156H104Z" fill="#8F8CFF" />
+      <rect x="24" y="44" width="24" height="112" fill="#2E29FF" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M110 44H130C168 44 192 68 192 100C192 132 168 156 130 156H110Z M134 68H136C154 68 168 82 168 100C168 118 154 132 136 132H134Z" fill="#2E29FF" />
+      <path d="M151 86Q153.24 97.76 165 100Q153.24 102.24 151 114Q148.76 102.24 137 100Q148.76 97.76 151 86Z" fill="#8F8CFF" />
+    </g>
   </svg>
 );
 
@@ -519,12 +530,13 @@ export default function Header() {
         .nd-brand-title {
           font-size: 20px;
           font-weight: 900;
-          color: #0A0A2E;
+          color: #2E29FF;
           letter-spacing: -0.5px;
           line-height: 1;
         }
         .nd-brand-title span {
-          color: #2E29FF;
+          color: #0A0A3C;
+          font-weight: 700;
         }
 
         /* Center Nav Group */

@@ -73,11 +73,20 @@ router.post('/submit', async (req, res) => {
       tasks.push(sendTelegramAlert(lead));
     }
 
-    // Send emails if SMTP configured
+    // Send emails if SMTP configured (skip synthetic test addresses to prevent mailer-daemon bounces)
     const transporter = getTransporter();
     const agencyEmail = process.env.AGENCY_RECEIVER_EMAIL || 'hello@novadesk.site';
 
-    if (transporter) {
+    const isTestEmail = 
+      process.env.NODE_ENV === 'test' ||
+      !lead.email ||
+      lead.name?.includes('Challenger') ||
+      lead.email.includes('challenger') ||
+      lead.email.endsWith('@example.com') ||
+      lead.email.endsWith('@test.com') ||
+      lead.email === 'm5_challenger@novadesk.site';
+
+    if (transporter && !isTestEmail) {
       const agencyMail = {
         from: `"NovaDesk Lead Bot" <${process.env.SMTP_USER}>`,
         to: agencyEmail,
