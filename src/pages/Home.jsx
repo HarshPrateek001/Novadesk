@@ -3534,7 +3534,7 @@ export default function Home() {
                   <div key={i} className="nd-why-choose-card-container">
                     <div style={{ height: '380px', display: 'flex', flexDirection: 'column', background: '#ffffff', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.06)', border: '1px solid rgba(46, 41, 255, 0.05)' }}>
                       <div style={{ position: 'relative', width: '100%', height: '180px', overflow: 'hidden' }}>
-                        <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={item.image} alt={item.title} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
                       <div style={{ flexGrow: 1, padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', whiteSpace: 'normal' }}>
                         <div>
@@ -3732,7 +3732,7 @@ export default function Home() {
             {/* Section footer profile & CTA */}
             <div className="nd-process-footer">
               <div className="nd-process-profile">
-                <img src="/hero-my-image.webp" alt="Harsh Prateek" className="nd-process-avatar" />
+                <img src="/hero-my-image.webp" alt="Harsh Prateek" loading="lazy" decoding="async" width="100" height="100" className="nd-process-avatar" />
                 <div className="nd-process-profile-info">
                   <h4>Harsh Prateek</h4>
                   <p>Founder, NOVADESK</p>
@@ -3817,7 +3817,7 @@ export default function Home() {
                   <div key={i} className="nd-industry-card-container">
                     <div style={{ height: '380px', display: 'flex', flexDirection: 'column', background: '#ffffff', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.06)', border: '1px solid rgba(46, 41, 255, 0.05)' }}>
                       <div style={{ position: 'relative', width: '100%', height: '180px', overflow: 'hidden' }}>
-                        <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={item.image} alt={item.title} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
                       <div style={{ flexGrow: 1, padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', whiteSpace: 'normal' }}>
                         <div>

@@ -171,6 +171,7 @@ function optimizeDomImages() {
 
 /**
  * Pre-warms top conversion routes sequentially during browser idle times
+ * Uses cooperative yielding to eliminate main-thread blocking time
  */
 function scheduleIdleRouteWarming() {
   if (typeof window === 'undefined' || shouldThrottleNetwork()) return;
@@ -184,22 +185,24 @@ function scheduleIdleRouteWarming() {
   ];
 
   let index = 0;
-  function warmNext() {
+  async function warmNext() {
     if (index >= priorityRoutes.length) return;
     const path = priorityRoutes[index++];
     prefetchRoute(path);
+    await yieldToMain();
 
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(warmNext, { timeout: 2000 });
+      window.requestIdleCallback(() => warmNext(), { timeout: 3000 });
     } else {
-      setTimeout(warmNext, 800);
+      setTimeout(() => warmNext(), 1500);
     }
   }
 
+  // Defer route warming until 6000ms idle so initial paint & TBT remain 0ms
   if ('requestIdleCallback' in window) {
-    window.requestIdleCallback(warmNext, { timeout: 3000 });
+    window.requestIdleCallback(() => warmNext(), { timeout: 6000 });
   } else {
-    setTimeout(warmNext, 1500);
+    setTimeout(() => warmNext(), 6000);
   }
 }
 

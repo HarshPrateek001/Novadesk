@@ -230,6 +230,12 @@ export default defineConfig({
             if (id.includes('lottie-web')) {
               return 'vendor-lottie';
             }
+            if (id.includes('three')) {
+              return 'vendor-three';
+            }
+            if (id.includes('gsap') || id.includes('lenis')) {
+              return 'vendor-animation';
+            }
           }
         }
       }
