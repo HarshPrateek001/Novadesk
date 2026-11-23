@@ -62,6 +62,7 @@ const CrmSystemsDevelopment = React.lazy(() => import('./pages/services/CrmSyste
 const EnterpriseSoftwareDevelopment = React.lazy(() => import('./pages/services/EnterpriseSoftwareDevelopment'));
 const CustomSoftwareDevelopment = React.lazy(() => import('./pages/services/CustomSoftwareDevelopment'));
 const MvpDevelopment = React.lazy(() => import('./pages/services/MvpDevelopment'));
+const ServiceTemplateDemo = React.lazy(() => import('./pages/services/ServiceTemplateDemo'));
 
 const Fintech = React.lazy(() => import('./pages/industries/Fintech'));
 const IndustryPage = React.lazy(() => import('./pages/industries/IndustryPage'));
@@ -173,6 +174,7 @@ export default function App() {
                 <Route path="/services/enterprise-software-development" element={<EnterpriseSoftwareDevelopment />} />
                 <Route path="/services/custom-software-development" element={<CustomSoftwareDevelopment />} />
                 <Route path="/services/mvp-development" element={<MvpDevelopment />} />
+                <Route path="/services/template-showcase" element={<ServiceTemplateDemo />} />
                 
                 <Route path="/industries" element={<Navigate to="/industries/fintech" replace />} />
                 <Route path="/industries/fintech" element={<Fintech />} />
