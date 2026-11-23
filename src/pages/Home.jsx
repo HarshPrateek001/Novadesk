@@ -2695,8 +2695,72 @@ export default function Home() {
           .nd-why-exist, .nd-core-glance, .nd-portfolio, .nd-achievements, 
           .nd-expertise, .nd-process, .nd-compare, .nd-tech-showcase, 
           .nd-why-clients, .nd-projects, .nd-recognized, .nd-final-cta, 
-          .nd-intro, section[style*="padding: 100px"] {
+          section[style*="padding: 100px"] {
             padding: 60px 0 !important;
+          }
+
+          /* ── ND-INTRO MOBILE OPTIMIZATION ── */
+          .nd-intro {
+            padding: 40px 0 !important;
+          }
+          .nd-intro-inner {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            gap: 20px !important;
+            padding: 0 16px !important;
+          }
+          .nd-intro-text {
+            max-width: 100% !important;
+            text-align: center !important;
+          }
+          .nd-intro-text h2 {
+            font-size: 24px !important;
+            line-height: 1.25 !important;
+            margin-bottom: 8px !important;
+            text-align: center !important;
+          }
+          .nd-intro-text p {
+            font-size: 13.5px !important;
+            line-height: 1.5 !important;
+            text-align: center !important;
+            max-width: 95% !important;
+            margin: 0 auto !important;
+          }
+          .nd-intro-stats {
+            display: grid !important;
+            grid-template-columns: 1fr auto 1fr auto 1fr !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            width: 100% !important;
+            max-width: 380px !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+          }
+          .nd-intro-stat {
+            text-align: center !important;
+            padding: 0 2px !important;
+            min-width: 0 !important;
+          }
+          .nd-intro-stat-num {
+            font-size: 28px !important;
+            line-height: 1 !important;
+          }
+          .nd-intro-stat-num sub {
+            font-size: 14px !important;
+          }
+          .nd-intro-stat-label {
+            font-size: 9.5px !important;
+            letter-spacing: 0.3px !important;
+            margin-top: 4px !important;
+            line-height: 1.2 !important;
+          }
+          .nd-intro-divider {
+            width: 1px !important;
+            height: 32px !important;
+            background: rgba(255, 255, 255, 0.25) !important;
+            display: block !important;
           }
           /* Headings */
           .nd-section-h2, .nd-process-h2, .nd-why-exist-h2, .nd-portfolio-h2 { font-size: 32px !important; }

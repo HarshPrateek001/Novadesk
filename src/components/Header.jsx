@@ -1072,9 +1072,25 @@ export default function Header() {
           .nd-hamburger-btn {
             display: flex !important;
           }
+          .nd-header-wrapper {
+            top: 0 !important;
+            padding: 8px 16px !important;
+            background: rgba(255, 255, 255, 0.94) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+            pointer-events: auto !important;
+          }
+          .nd-frame-box {
+            max-width: 100% !important;
+          }
           .nd-header-pill {
-            height: 52px;
-            padding: 0 16px;
+            height: 48px !important;
+            padding: 0 4px !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
           }
           .nd-mega-popup-wrap {
             display: none !important;

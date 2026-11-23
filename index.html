@@ -47,6 +47,9 @@
         // Text.com / LiveChat Widget - initialize on interaction or idle
         if (window.LiveChatWidget && typeof window.LiveChatWidget.init === 'function') {
           window.LiveChatWidget.init();
+          try {
+            window.LiveChatWidget.call('hide_greeting');
+          } catch(e) {}
         }
       }
 
@@ -269,6 +272,15 @@
     <!-- Start of Text (www.text.com) code - Deferred to Zero-Blocking User Interaction/Idle Queue -->
     <script>
         ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e;if(window._trackingInitialized&&e.init){e.init();}}(window,document,[].slice))
+        // Automatically hide mobile greeting sneak peek banner so it never covers screen content
+        if (window.LiveChatWidget) {
+          window.LiveChatWidget.on('ready', function() {
+            try { window.LiveChatWidget.call('hide_greeting'); } catch(e) {}
+          });
+          window.LiveChatWidget.on('new_event', function(evt) {
+            try { if (evt && (evt.greeting || evt.type === 'greeting')) window.LiveChatWidget.call('hide_greeting'); } catch(e) {}
+          });
+        }
     </script>
     <noscript><a href="https://www.text.com/chat-with-ai-agent/ac04db08-da41-489c-bc33-90a7111dc2c2/" rel="nofollow">Chat with AI Agent</a>, powered by <a href="https://www.text.com/" rel="noopener nofollow" target="_blank">Text</a></noscript>
     <!-- End of Text code -->
