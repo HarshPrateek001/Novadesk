@@ -217,14 +217,36 @@ export default function UiUxDesign() {
           transition: all 0.2s ease;
         }
         .nd-interlink-pill:hover { border-color: #2E29FF; color: #2E29FF; background: #EEF0FF; }
+        .nd-service-page {
+          overflow-x: hidden;
+          width: 100%;
+        }
         @media (max-width: 1024px) {
           .nd-page-svc-grid { grid-template-columns: 1fr 1fr; }
           .nd-process-steps-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
         }
+        @media (max-width: 768px) {
+          .nd-service-page { padding-top: 80px; }
+          .nd-svc-container { padding: 0 16px; }
+          .nd-svc-hero { padding: 28px 0 40px 0; }
+          .nd-svc-h1 { font-size: clamp(26px, 6.5vw, 42px) !important; line-height: 1.2 !important; word-break: break-word; }
+          .nd-svc-subtext { font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 24px !important; }
+          .nd-process-box { margin: 48px 0; padding: 36px 20px; border-radius: 20px; }
+          .nd-svc-faq-section { margin: 48px 0; }
+          .nd-faq-btn { font-size: 16px; }
+          .nd-faq-ans { font-size: 14px; }
+          .nd-interlinks-box { padding: 22px 16px; margin-bottom: 48px; border-radius: 16px; }
+        }
         @media (max-width: 640px) {
-          .nd-page-svc-grid { grid-template-columns: 1fr; }
-          .nd-process-steps-grid { grid-template-columns: 1fr; }
-          .nd-process-box { padding: 40px 20px; }
+          .nd-page-svc-grid { grid-template-columns: 1fr; gap: 16px; }
+          .nd-page-svc-card { padding: 24px 18px; border-radius: 16px; }
+          .nd-process-steps-grid { grid-template-columns: 1fr; gap: 20px; }
+          .nd-process-box { padding: 32px 16px; border-radius: 18px; }
+        }
+        @media (max-width: 480px) {
+          .nd-svc-cta-row { flex-direction: column; width: 100%; gap: 10px; }
+          .nd-btn-main, .nd-btn-sec { width: 100%; justify-content: center; text-align: center; padding: 13px 18px; font-size: 14px; }
+          .nd-interlink-pill { font-size: 12px; padding: 6px 12px; }
         }
       `}</style>
 
