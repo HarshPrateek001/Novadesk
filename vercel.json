@@ -89,7 +89,6 @@
     { "source": "/services/enterprise-software-development", "destination": "/" },
     { "source": "/services/custom-software-development", "destination": "/" },
     { "source": "/services/mvp-development", "destination": "/" },
-    { "source": "/services/template-showcase", "destination": "/" },
     { "source": "/services/:slug([a-zA-Z0-9_-]+)", "destination": "/" },
     { "source": "/industries", "destination": "/" },
     { "source": "/industries/fintech", "destination": "/" },
